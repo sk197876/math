@@ -1,0 +1,113 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 522.26,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "4a57d4de28bd0023b0feb46b2f489883932a96dd526d4ff901f3f0b48911ce1d",
+    "theories/RankOrthogonalBlock.v": "ad8c1b9e8c5cf06cb5d8a9aa0a70c8e08014c816ff108b3ea8e1d62e037cc388",
+    "theories/Rectifiability.v": "5a6dc71a2aabf53a22173cfb4ae1d87f85c4e0e224809881d889c6432d0ff0ed",
+    "theories/PureUnrectifiableSliceNull.v": "c6dd4be6b836a40e69256f465f573b2b724f831515932d4b0209ce6cccb8c3aa",
+    "theories/PositiveRestrictedDifferentialLocus.v": "fbb8b5764ba39bf66083bd001487a16e9d718f061fb3fbd4f23c1cd21def1312",
+    "theories/EuclideanOrthogonalPrecompose.v": "2bc437a600cbdb1cd0f6c0efac22707e8a768285913e179502dcff1795a22d41",
+    "theories/PureUnrectifiableRank.v": "1c099fccd6eb6bc381e41ef24977a2a60decfc5baa86a5ed0c34f655f2e151af",
+    "theories/CountableOrthogonalApproximation.v": "ff7fe411d53ff0dae280215db7296b26b90d64fa1f2cc5b25d92ebfe25821c09",
+    "theories/PureUnrectifiableRankLocusNull.v": "763efb228e4cc76fd8525a0b5eb8439659633e480870973974f5b3fbb5da7f2d",
+    "theories/RankThresholdEuclideanQuotient.v": "d91c3733271ca7ef051e6f7189f9d48c033c2b37f913e0a52078cc7ef9d53d50",
+    "theories/PureCountablyRectifiableNull.v": "f6a8142396a4e5ca87be2d6156d2cad9052fccb0a85a0418fcd650d6272d5c73",
+    "theories/EuclideanBlockNullSections.v": "f19945452b6ca0bf3d3ee6758ed41a0199a0f48712ec4875f78ebbfd8636a6fb",
+    "theories/PureUnrectifiableEqualDimension.v": "dc99751d88cdcaf5601c8ddfcba0686ca5f8a4f343b78646aeef6de6a369a57e",
+    "theories/DenseOrthogonalRankDetection.v": "b6ed4bcc07d19da6aa97630e318bd0b6411ac8fc182730d05d54fe5ab74401b3",
+    "theories/EuclideanHomPostcomposeContinuity.v": "09e76d29d8520bfe940ed4b4ebff7b05d7a3272062a5398e071b14b6f08b0f27",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "dfba000eb3ccf8a78a806477bb51f153e0bd6ea1113035acc5aa2e00ceb549a6",
+    "tests/Assumptions.v": "68453c0ce06c4470e76788db67cdfb13c1ca75fd05392c263e0c56db93fb4988"
+  },
+  "item": "3.2.21",
+  "date": "2026-11-01",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 13,
+  "public_exports": 13,
+  "regressions": 2,
+  "regression_support_lemmas": 1,
+  "scope": "The whole rank lemma of Federer 3.2.21, p. 257: a globally Lipschitz map R^m to R^n has an actual differential of image dimension strictly less than positive mu for L^m almost all points above a purely (H^mu,mu) unrectifiable Borel target. There is no upper bound on mu by source or target dimension, finite mass, selected derivative field or extra rank premise.",
+  "source_count_checked_unchanged": 6762,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 240.05,
+    "warnings_or_errors": false,
+    "compilation_commands": 15,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "03b5185d",
+    "changed_modules": 15,
+    "affected_modules": 15,
+    "entries": 18775,
+    "old_entries": 18753,
+    "audited": 134,
+    "audited_old": 112,
+    "audited_new": 22,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 538.35,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 37882,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "umask": "0002",
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "private_construction_boundaries": {},
+  "no_new_selected_global_witness": true,
+  "no_new_external_dependency": true,
+  "proof_route": "Derive null countably rectifiable images from pure unrectifiability and apply the equal-dimension area formula. Prove an epimorphic Euclidean quotient from independent differential images, then use polar factorisation and existing opaque orthogonal projection charts to select an injective rotated mu-block. Countable metric separability of O(m) and continuity of restricted top Jacobians detect all bad actual ranks by a countable family. Prove the exact actual-differential restricted positivity locus Borel. Every mu-section is null by the equal-dimension case; Fubini gives ambient null mass. Orthogonal null transport and countable union annihilate the entire bad rank locus. Domain-rank bounds handle mu>m; Rademacher supplies actual differentials almost everywhere.",
+  "erratum_correction": "Erratum p. 5, book p. 257 line 26: the final contradiction uses L^mu(B)=0, not L^m(B)=0.",
+  "coordinate_convention": "The standard last mu-coordinate block is the printed first block after a fixed block interchange."
+}

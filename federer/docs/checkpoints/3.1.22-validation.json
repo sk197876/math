@@ -1,0 +1,116 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 359.35,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "934e4ccd2b155055d8c0d2fc0031ecb5c6d6ffd183c33ee87627f13cf75afcf3",
+    "theories/Rectifiability.v": "490347f71e8a577438ba090e4fc0fce2efb95bf4cc8df817f5f0b56f6a8bf278",
+    "tests/DifferentialExamples.v": "f5c469087989cb353e511f42678f2a847f45ea393274378391ceef54a800e347",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/Assumptions.v": "4316d3ab2a06a167ec0618143df7b108b4d64f74f2cdba9a308f2babc617b69f",
+    "theories/EuclideanRelativeCoverExtension.v": "6a96426f931d60150b99242f4aba246bcccfeab5d1cf6cf9d5c9434d79d5a66c",
+    "theories/EuclideanRelativeExtension.v": "52913796762a32b86e3482d4d3256208ae848fccdaa56475c5b85835338e90bf",
+    "theories/LocallyFiniteSupportTransfer.v": "0408481e91edf3b02c3bb8e50378d47f69b888de644c0a2c0716871c2087d16e",
+    "theories/NormCoordinateSystemUP.v": "870c173fb7839cf7dfe4837af4d4160fcb261adbb82a70c6b4dd6bd457ffe99d",
+    "theories/NormCoordinateTangent.v": "41e52ad720a35b4a36109a64b3f8af50e05e90c12d9eb944d3433c6a6bd69df8",
+    "theories/NormCutoffProductClass.v": "0e1e71f4b174b2a759c055f0b8a4f02f6bb6a8a390c72bcd6ab61dd7c367fa78",
+    "theories/NormDifferentialEnlarge.v": "77191fe0f449385008ffeea7457e66d69bf7f244087026f401cb6161a31d7b5c",
+    "theories/NormRegularityLocallyFiniteSum.v": "9756cc8e511a2b0a71d7e83f28d286656d2189223eadc1276d4db0b21ba1790f",
+    "theories/NormVanishingTangent.v": "faffb0d9ead2a8fc005cbda19e2dd61230c6a9c2d80b8e8df4d3f79569e57ff0",
+    "theories/ParametricDifferentialUP.v": "c25b0949cdbda27bd1e965423c4d06735bf1e9a61fc0e348dcbdca813535bfe6",
+    "theories/PartialFunctionExtensionality.v": "ce9679b369671076e7e7d257a38f0f8de1d7ccf6ec5369ed1fecdd0ac63da6fa",
+    "theories/PartitionWeightedAgreement.v": "2ff60fa14b5d0315e0015d452d70367ff3b9f14df61b3c3847570a3a6d9b17dd",
+    "theories/RelativeApproximationCriterion.v": "1c0122298275af905c01f6225c30dd1abd343e9e866edef925fea4a5abf91f27",
+    "theories/RelativeClassUP.v": "e60e24ec899f16b1c8d1a24e90e190c1d7b6483298098604d3a6797108e9c717",
+    "theories/RelativeCoordinateClass.v": "fdffbca14a02f1465bcc245c2ec2ed791966e214ff7c41fcb2d9da5bd8fafc66",
+    "theories/RelativeCoordinateDifferential.v": "85a61e14ba84ba13e610177b5b40b64e8205c1afe40d4a9a062e32a352497e39",
+    "theories/RelativeDifferential.v": "a2f7dc08aef065c01945eba94f8afc410089680cc00e68f7e092cd068e0557b2",
+    "theories/RelativeDifferentialConstruction.v": "fdf31c918080f5f5b36be43e697753f92c44ca97d6f39e7e60396347a91c1a51",
+    "theories/RelativeDifferentialRestriction.v": "8f92dace0088344a0acd141623ab2eb20be081f24986d03378a16f4c753141b1",
+    "theories/RelativeDifferentialSealed.v": "d8a9c16d4303f961758556c88ccfbb9083f11e40baefcbc56a73397e089ecf0e",
+    "theories/RelativeDifferentialUP.v": "6383cf5c62045e0f765d7145d0628c26a365540715d6bd55358eccb455cf474a",
+    "theories/RelativeDifferentialUniqueness.v": "f5a855e51fcaefe061b8a31b55e273146d7b61794e81572412dbb054b69d5ae0",
+    "theories/RelativePartitionExtension.v": "e132fa37e01f040b5adcfcf4f5832dd09c80b912f24891c25c4a7b6e9787d823",
+    "theories/RelativeRetractionCriterion.v": "38b2a47e2c36b0c77b00ffbc4585bafde573b213ecb8398c619dd541bb5568c1",
+    "theories/RelativeSubmanifoldCriteriaUP.v": "fd66cc8bcd7d0faef5727168b9097861a4a470d218a9b88896a2043f196d966f",
+    "theories/RetractionTangentIdentity.v": "f99dca734186824e125d4027b6f73aa6453107b107629573acb4faf2691e82c4",
+    "theories/SubmanifoldCoordinateSystems.v": "00be224f5c51176ecd3bff04554f4760bd8081c9ea11349fe2e1790da942480c",
+    "theories/SubmanifoldRelativeClass.v": "0eb986e663fa8657478f08a45f749ec1f91cdf91461551ac87d4fa4395c38171",
+    "theories/SubmanifoldRelativeDifferential.v": "e0ea37739ea79f06b0b21bfe548979b7ca4f29c2ceb7584cc1e58450a567f5bd",
+    "theories/TangentSingleton.v": "9d75a0680177ac5ce2e52c4c5b6745b17d97be8c48ddd8132bb64afc095db7ab"
+  },
+  "item": "3.1.22",
+  "date": "2026-10-30",
+  "scope": "Vanishing on tangents and uniqueness; exact sealed relative differential graph on Tan(S,a); erratum-corrected first-order approximation equivalence and printed piecewise extension; all five submanifold differential criteria with actual charts and retractions; relative class k, single open-neighbourhood extension, closed-subset global extension and coordinate-class equivalence; three regressions. Class-zero and zero-dimensional boundaries retained.",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 30,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 242.17,
+    "warnings_or_errors": false,
+    "compilation_commands": 32,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "full_project_validation": false,
+  "artifact_reuse": "Registered make compiled all new theories and both changed roots, reusing compatible dependencies. No draft .vo files were copied and no clean/full-project rebuild ran.",
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 30098,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "audit": {
+    "base": "1cb6b8da",
+    "changed_modules": 32,
+    "affected_modules": 32,
+    "entries": 17155,
+    "old_entries": 17094,
+    "audited": 115,
+    "audited_old": 54,
+    "audited_new": 61,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 231.5
+}

@@ -1,0 +1,106 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 366.04,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "06827e355938f099f89e046dc556d564577e2326ade9131afca90ceaac997cfc",
+    "theories/Rectifiability.v": "717b80e88d4fb1224360e1e74a92746b731184b5b8377dd11f03df89e5b63b57",
+    "tests/DifferentialExamples.v": "bdcc65f562edd94e9c08f488b42ba028455b473e28527015b37441552766c7fa",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/Assumptions.v": "d509827d1f0c7fffb9e0bc8e53efee73d95d44906f6dbad5d6133bc09b45a04d",
+    "theories/AnnularCutoffConstruction.v": "7ceb2202e194552ad5868830546bef1d83b87a24a9f726f9738dd6ab35e9a7fa",
+    "theories/AnnularCutoffScaling.v": "a029d55dd34f7aca2242c8d595137199a9bd60b1f49ed21e4bed608b4492b8f1",
+    "theories/AnnularCutoffSealed.v": "019e0f55d840112135f2ca087f5e99e89bb023ea806cdf5dc74e66bff11c9df0",
+    "theories/AnnularCutoffUP.v": "f2bfb0bae1745813e2ccb672eb2108bd7301d9c8758a1101a270f142f14f3f59",
+    "theories/ControlledGraphStraightening.v": "56e9bdd3c2d01af3522a25c29d5de06abe11f6ec5a2ea84238a9ab7b23e48962",
+    "theories/CutoffGraphCorrectionBound.v": "6c3679cf2017148f2060f1cdbdae7714f5c69b2c99841f1c75a7331a45d42023",
+    "theories/CutoffGraphCorrectionClass.v": "2385f938a53465116c23e189f904034ae386f23cd61f6703c8caa52a3c268609",
+    "theories/EuclideanSmallLinearInverse.v": "de85d3f81a17103ce45ca5234445387fc637d21a15f1e0262d3e5dcb58f8c842",
+    "theories/EuclideanSupportedDiffeomorphism.v": "099202277678e6c75a9bc00a8a956b22626489eadd995ccce4d0dc9d44ca324c",
+    "theories/GraphCorrectionPlane.v": "2a0d442d1fdc3dd75600af956548f3de8efe48d7a9e2172089cb1f20925e6e73",
+    "theories/GraphDefectCalculus.v": "4dce895d466d0b151d5558ad2a71bad61bb188ede5e71aecc79e2ec28ec3cc84",
+    "theories/GraphDefectSmall.v": "19c8447ef73a8144ac99b3307239ee06945776bad084fe05b53b6490617e5c7c",
+    "theories/NormInvertibleDifferentialOpen.v": "30740486984fe3e207334633861d51bf62bbef02c36daf5bca6a9c12dbf59655",
+    "theories/NormSpaceConnected.v": "8b85f52ac1129a1e99b68e8a3bfc3a79093df8f90a9b2fcdac5705ac07739b6f",
+    "theories/ProjectedGraphTangent.v": "cca3c2d745830c4ff7ba2d31cf5b45afadd4d70c73d12890492658ee31958106",
+    "theories/ScaledCutoffUP.v": "af692e5c64a99962b8bd0babc4aa9ab96f317c2931ac9d3615e619dfdca63315",
+    "theories/SmallIdentityPerturbation.v": "453aaa4c8eac0a4daf375ce14e43da099de372af4169705ce2a82d55dabe5314",
+    "theories/SubmanifoldSupportedStraightening.v": "b1e517cbcbf073daa6d6ce8711793454e1b5806c1c56b00b43726c797235b109",
+    "theories/SupportedMapProper.v": "e67c83adc06fdd5bdec21c597caaaf167404c6ebe9ff98b6d5a1fc40774ef470",
+    "theories/SupportedStraighteningUP.v": "c52c466e54941a4772319b65d358b7a8cb8939b5346acfdc8c06bf15ea0ae05f"
+  },
+  "item": "3.1.23",
+  "date": "2026-10-30",
+  "scope": "Complete controlled supported straightening theorem from the actual submanifold definition: every sufficiently small positive radius has a global class-k diffeomorphism and inverse, both Lipschitz bounds 1/t, identity outside the open radius-r ball and exact affine-tangent-plane membership inside radius tr. Proved opaque smooth annular cutoff, scaled derivative bound, actual graph-tangent identification, product estimate and the printed open/proper/closed surjectivity route. Three regressions, including zero ambient/manifold dimensions and translated centres.",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 20,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 205.47,
+    "warnings_or_errors": false,
+    "compilation_commands": 22,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "full_project_validation": false,
+  "artifact_reuse": "Registered make compiled all new theories and both changed roots, reusing compatible dependencies. No draft .vo files were copied and no clean/full-project rebuild ran.",
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 30198,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "audit": {
+    "base": "93617d40",
+    "changed_modules": 22,
+    "affected_modules": 22,
+    "entries": 17200,
+    "old_entries": 17155,
+    "audited": 102,
+    "audited_old": 57,
+    "audited_new": 45,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 236.25
+}

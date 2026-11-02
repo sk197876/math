@@ -1,0 +1,114 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 514.61,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "5ef32685b3c8a975f57d5972e67322e69a95575ad9f9176d190c2cbe98b0ca38",
+    "theories/EuclideanInjectiveImageCover.v": "a415c3ad9bd7c46c2b45bf579a6078f13964b69b21e0c534c372cbed9aa9b919",
+    "theories/ZeroDimensionalCompactChart.v": "af4dde1b196ff495804fc3e125cb597af0bdef8d9c0a91efd8a67c6306a565ae",
+    "theories/Rectifiability.v": "5d70e813a70ab0161b7877f5eb58edf825e9f2bbe3993c7841fd85529ccb4ef6",
+    "theories/LipschitzExtensionDifferentialCore.v": "410d38e174b610dae6a8c2ff00249dc66173789925b41330fe230f09433c2527",
+    "theories/RectifiableChartEnumeration.v": "6733ee6ccd6e8b95089454cca0b365d8bd435809156f28d5234d7d4d214a385e",
+    "theories/ProperMetricPositiveCompact.v": "d6c6603d30880823693d0b6948d5a328cf868a0d08140fed6da71a84268fe60a",
+    "theories/CompactChartFromBiLipschitzPiece.v": "0a23157cc24c3317ea10043b24634e8261802803b981280f16a048847efef051",
+    "theories/RectifiableCompactChartLaws.v": "1c49fc64c6773ccaa1a9d15ae2dc2070868eee64ed8e547e4ccd366822e7d4ac",
+    "theories/EuclideanDifferentialsDensityAgreement.v": "3078fd2b0b87d36928a7607355e5b06c656052ffc25ec47d02ed4421f59b9116",
+    "theories/MetricBiLipschitzMassTransfer.v": "cc3832bd6ec368ace662179480b81745f3c78e3568935c1b511ffec788a795bb",
+    "theories/PositiveCountableCoverPiece.v": "76253fb47729593d1971839d033e8bc03de8d6bef4532da4c4e24d9b273433c7",
+    "theories/FiniteMeasureMaximalPositiveCover.v": "3dd37f1996f93d39bbc499319778c3c173f3b3d1830dc715a56fbeeb63d3de94",
+    "theories/InjectivePieceCoordinates.v": "f98bc7ece3f9e21821a9c4c96124979a0e7d68f187d40de1f5d8a80c6f6ee0e0",
+    "theories/RectifiablePositiveParametrization.v": "6936847f223bda2e23cf815b28881e86597770c88c30187e3c79e721437a73ab",
+    "theories/RectifiableCompactChartsUP.v": "8ae7b59385971ede523d7844b44ece8af155c167563b75afd4170feb90635f19",
+    "theories/RectifiableCompactCharts.v": "764e16f60d6612be06a53b437723f989b1c8417b0e48c2d0851f1d50bd7ca89e",
+    "theories/EuclideanRectifiableGlobalParametrization.v": "a8ec2971d6688b586f3db26f04191ea944655a60d77c62a55a72b4acc24ee730",
+    "theories/PositiveRectifiableCompactChart.v": "d4afa238460e2589de01802a8a7f1e26076aa187e94a325af80cd190d73703f6",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "bc4b6df1667a3ef0f715dae98d3da03d7c55078dcfba6b9f1e56d1ca40cfdfab",
+    "tests/Assumptions.v": "cafa96bc6955d58fd8d20f794d997bcc76ba41bc09ebd43dc26f6737567d6f58"
+  },
+  "item": "3.2.18",
+  "date": "2026-10-31",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 17,
+  "public_exports": 17,
+  "regressions": 2,
+  "scope": "The entire lemma of Federer 3.2.18, p. 255: H^m measurable finite-mass (H^m,m) rectifiable W and every lambda>1 admit compact parameter sets with global lambda-Lipschitz maps, disjoint images contained in W, null remainder, injective restrictions, inverse Lipschitz bounds lambda, and actual differentials with both printed norm bounds at every selected parameter point. Includes zero source dimension and empty sequence slots. No supply, source measurability, derivative-field or ambient local-finiteness hypothesis.",
+  "source_count_checked_unchanged": 6682,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 253.3,
+    "warnings_or_errors": false,
+    "compilation_commands": 19,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "172910eb",
+    "changed_modules": 19,
+    "affected_modules": 19,
+    "entries": 18612,
+    "old_entries": 18582,
+    "audited": 135,
+    "audited_old": 105,
+    "audited_new": 30,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 496.95,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 36824,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "umask": "0002",
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "private_construction_boundaries": {},
+  "no_new_selected_witness": true,
+  "no_new_external_dependency": true,
+  "proof_route": "Expand the printed combination of 3.2.14, 3.2.4, 3.2.2, 2.10.43 and 2.2.3 by positive compact-image selection and an existing opaque maximal disjoint family. Finite measure gives countability; positive remainder contradicts maximality. Unique active partial enumeration preserves disjointness. Compact target selection precedes Borel preimages; source density and Rademacher prove differential agreement after extension before compact source selection."
+}

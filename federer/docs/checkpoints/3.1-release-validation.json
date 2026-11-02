@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-30",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "section_release_incremental_build": {
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "all"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 13.29,
+    "warnings_or_errors": false,
+    "compilation_commands": 0,
+    "sources_unchanged": true
+  },
+  "recursive_kernel_check": {
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "check"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 763.4,
+    "warnings_or_errors": false,
+    "compilation_commands": 0,
+    "sources_unchanged": true,
+    "roots": [
+      "Federer.GrassmannSpaces",
+      "Federer.TensorFamily",
+      "Federer.MeasureTheory",
+      "Federer.Rectifiability",
+      "FedererTests.Examples",
+      "FedererTests.GradedExamples",
+      "FedererTests.SignedExamples",
+      "FedererTests.ExteriorExamples",
+      "FedererTests.MeasureExamples",
+      "FedererTests.CoveringExamples",
+      "FedererTests.DerivationExamples",
+      "FedererTests.CaratheodoryExamples",
+      "FedererTests.DifferentialExamples",
+      "FedererTests.InverseFunctionExamples"
+    ]
+  },
+  "source_count_checked_unchanged": 6186,
+  "audit": {
+    "base": "1326e6c1",
+    "changed_modules": 149,
+    "affected_modules": 149,
+    "entries": 17450,
+    "old_entries": 17200,
+    "audited": 310,
+    "audited_old": 60,
+    "audited_new": 250,
+    "unresolved_names": 0,
+    "closed": 15,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 445.16,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 33332,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "artifact_reuse": "Recompiled all new registered sources and changed roots. Reused compatible earlier dependencies; no draft .vo was copied and no clean rebuild ran. The release incremental all build and complete make check passed.",
+  "section": "3.1",
+  "completed_items": "3.1.1\u20133.1.24",
+  "coverage_qualifications": "All previously documented corrections, boundary conventions and forward references remain; 3.1.10 is historical discussion. Subsections 3.2\u20133.4 are pending.",
+  "source_validation_record": "3.1.24-validation.json"
+}

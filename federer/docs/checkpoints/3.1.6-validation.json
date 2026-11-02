@@ -1,0 +1,46 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 275.2,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "a9d01004862d6946056c9850d59f34cc9d4116962795525223629ac8b6a56559",
+    "theories/Rectifiability.v": "2cce309d5e8422e4a6a3171a03047749bc2951bbc244c9f5471a1e77c6c645ff",
+    "tests/DifferentialExamples.v": "c639a1ac866c04404d4ace01cb90bb9b24233eeb61aab3fe1329eacffc6d9df7",
+    "tests/Assumptions.v": "5fcc599dcffa8e970d2101233dc83f2178a59344c9efde867e8cf256dc067f02",
+    "theories/OrdinaryApproximatePartial.v": "3054511b5a51db542e0422ea02ec8f4d7e8078dc1c68180472f7871d4743c171",
+    "theories/LipschitzRealDifferentiability.v": "ea8793a332a120165e13af6a5a6c328d9bb827288d80ff92843a17e7f9efb9a8",
+    "theories/EuclideanCoordinateNullSections.v": "f898224d71a185e6bd41f97afe0ee19745f55f5edc1eb9041f3b6dc25a484631",
+    "theories/LipschitzApproximatePartials.v": "8a2d688d65d416102cef4cd4217af7634737c5d13716929ccfd89e70876386a8",
+    "theories/Rademacher.v": "dbb90e09b7dc7c554a78ee5d1412cb891b5ab3512ea1ec8065eff714c75994ba"
+  },
+  "item": "3.1.6",
+  "scope": "Five new theory modules, public Chapter 3 interface and three regression examples.",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "focused_build_exit_code": 0,
+  "full_project_validation": false,
+  "audit": {
+    "base": "ca345e3",
+    "changed_modules": 7,
+    "affected_modules": 7,
+    "entries": 15788,
+    "old_entries": 15775,
+    "audited": 33,
+    "audited_old": 20,
+    "audited_new": 13,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 110.6
+}

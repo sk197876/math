@@ -1,0 +1,74 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 282.09,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "76cec3c5ab1ef4517ba26b767899f34bc2544ef2a8aec4efce1336afa961f698",
+    "theories/WhitneyExtensionInduction.v": "5b1a866078f160b20af3b39adc616a795faf848364142775804df592e07c3353",
+    "theories/WhitneyExtension.v": "5af8605803845ea7d01fde0e1f9115e0c1c78b89982c3784d4bc1c0947af6eb8",
+    "theories/ScalarVectorLeibnizBound.v": "3f567633725936a53bb4c6af780f4f650bc4b289235de74a4a5e671487dab030",
+    "theories/WhitneyOverlapGeometry.v": "15450735bece8c363e290eb8cdfc89969be6e1badb1a0dd0e94a04404aecc353",
+    "theories/Rectifiability.v": "941ac9c684f0b51e58d5269af6498246a7b1009b888bf4491c3ab31ba75fb018",
+    "theories/WhitneyExtensionFunction.v": "aea132eea5049da18b0c6d28c23dcff01d3ba92137e822be7a8448fd7b348938",
+    "theories/WhitneyBoundaryEstimate.v": "c99d8062da0cb7dff968d9edffc85c2d193dbfff31aa9e45f3f76527648c9cf0",
+    "theories/WhitneyModulusUP.v": "1caeac74cd844a59d90e906b47c54ac0d4c8ef415aa8ece17f0c56dd68c7fc4d",
+    "theories/WhitneyNearestCenters.v": "f1e4f9414e607f5b40f776930dd0ba117c95ed5109bf7d583d06e8cc84500d1e",
+    "theories/WhitneyDerivativeSums.v": "421770be9a29e5a696f265e25290b5f6228812794d24b64e10f07187af944262",
+    "theories/WhitneyPolynomialDifferenceBound.v": "dbde43e13b8c4b88ae0195799452a22fc293e3d1f5c2aa53b9fd72d0c14b3d80",
+    "theories/WhitneyFormBridge.v": "01f116582a357a260afefec4c11bdc32600d1c46dfe2ed77e096d78fca1e38a9",
+    "tests/DifferentialExamples.v": "20f5d1ceee007b08fd5a41a5b82efa67e4507cf3d2b62d910145d14b51f1a5b4",
+    "tests/Assumptions.v": "6488ab64feaa8acc5a67d0d7a5eacb5a2097293852c247f3aed51c70009b623e"
+  },
+  "item": "3.1.14",
+  "date": "2026-10-29",
+  "scope": "Federer 3.1.14, pp. 225\u2013227: Whitney's extension theorem; focused registered build, recursive kernel check and dependency audit of the 11 new modules, Rectifiability, DifferentialExamples and the new audit entries",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 11,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 163,
+    "warnings_or_errors": false,
+    "compilation_commands": 13,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "full_project_validation": false,
+  "artifact_reuse": "Unchanged registered prerequisites in the shared external build tree were reused; all new modules and changed dependents were compiled by make. No scratch artifacts were copied into the registered build.",
+  "audit": {
+    "base": "c8b876f3",
+    "changed_modules": 13,
+    "affected_modules": 13,
+    "entries": 16620,
+    "old_entries": 16592,
+    "audited": 65,
+    "audited_old": 37,
+    "audited_new": 28,
+    "unresolved_names": 0,
+    "closed": 1,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 178.65
+}

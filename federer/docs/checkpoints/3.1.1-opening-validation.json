@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-27T12:01:32.054118+01:00",
+  "scope": "Federer 3.1.1 opening checkpoint; the numbered item and subsection remain incomplete",
+  "complete_numbered_items": [],
+  "base_revision": "a1b1e751d8a85933dc94a5f4c82e7baf22389570",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "artifact_directory": "/opt/rocq/federer-build",
+  "compilation": {
+    "theory_modules": 24,
+    "example_modules": 1,
+    "exit_status": 0,
+    "warnings": 0
+  },
+  "kernel_check": {
+    "roots": [
+      "Federer.Rectifiability",
+      "FedererTests.DifferentialExamples"
+    ],
+    "exit_status": 0
+  },
+  "assumptions": {
+    "fresh_queries": 52,
+    "allowed_assumptions_found": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "closed_queries": 0,
+    "preserved_previous_results": 15349,
+    "total_results": 15401,
+    "log_sha256": "c0dc074b930746708ec207b8642a569d1581aca709d0bd13a995c52e2e3a69e5"
+  },
+  "source_sha256": {
+    "tests/DifferentialExamples.v": "e455f852572d1192c7dde0009df7c239812e684d9e195d398b9bece4206034fd",
+    "theories/DifferentialGradient.v": "58506057c941498ea581bb894c89fa1e2058283bbdeb949bbffd52fe2c6381a3",
+    "theories/DifferentialGradientConstruction.v": "f305c0d42abc8c4a5e98a19dea0d8836c06f5e5b9ca992ba29a71a12be9b39f1",
+    "theories/DifferentialGradientSealed.v": "77703f453d4e564807d9fdd0c4436aa4adf2d72fd3e599261ef01c00e0a400cc",
+    "theories/DifferentialGradientUP.v": "4faa6352657c781d6c8e09147531726cc0f185c14b5fc4cb8317449bfa0ebc0e",
+    "theories/NormBoundedLinearTopology.v": "7e7a2c376f85bbf4ca61b6e7797fab6608a47f32ca61125b37cbc414e10ccecf",
+    "theories/NormDifferential.v": "054355e8b726e3229c551d265fe5043c8958d1ea721077eb75ffce02bcd9bdf9",
+    "theories/NormDifferentialArithmetic.v": "5658509c8618f70e4f7f4d09e49e53569af202909fe1d1038a425799019aa496",
+    "theories/NormDifferentialChain.v": "a69a47a57f7f26c86581a3e297b20f0dbc2c5acf1237336ae360be4743fa066f",
+    "theories/NormDifferentialConstruction.v": "e5fe5e19a3824d4ad742fd5e5df354b59925c526c2d7542de6fb4e1752fb5e8d",
+    "theories/NormDifferentialDirectional.v": "2e13583d2cc4170ba3648ab38c251ce08178db6fb1445e97b4a71a8ba1eea39d",
+    "theories/NormDifferentialEstimates.v": "16da55b832f1787a22b4bb09a6a189e77c58b3192c3a05243729e49b18094365",
+    "theories/NormDifferentialInverse.v": "5bf65f7f06e29dffeba21fcb26bfd73b0ed04980f9b6ec2cc983a73c78c194ea",
+    "theories/NormDifferentialLinear.v": "4945a6fe0f2bd7d998993bb2697cc505981cd24790da7428e29b58eee8bde223",
+    "theories/NormDifferentialLocal.v": "febf437e89a5d1baf57d1ec0159d759ab5970b929f7a8f67566d23e2697f7f6e",
+    "theories/NormDifferentialQuotient.v": "4c8fb9672bfd5c05bce37d05be7cb555526a8a8e45ae5ebc5fdde49a61e2ebf1",
+    "theories/NormDifferentialScalar.v": "665a0c3614127c01045940d948b805c3a6eb0644277056c17a3ec785ed58e339",
+    "theories/NormDifferentialSealed.v": "59992321923521360d53026e4b2fb2453a68d143fc6884ac5ca3d64571cafa71",
+    "theories/NormDifferentialUP.v": "d251021c2330ef6f80b849830752aaf2779e13b29a03ec83b18e92b5198ff6e9",
+    "theories/NormOperatorNorm.v": "7fbbf5d9837d872397de2945727c7ccdcae6e6f65550cb6430dce336aaa73ece",
+    "theories/NormOperatorNormConstruction.v": "b92631c1221c3366e7ae02a3539d895f432b8595db9561df6d6654f041325663",
+    "theories/NormOperatorNormSealed.v": "b2be320b3a059fa595ec34db5240e327d497e7bfe2842cb029e84376107c982a",
+    "theories/NormOperatorNormUP.v": "8cf9c5af9da80ae4f367bdafae8ea5c6a2d650b69fc8ed08ac9e83658df754b6",
+    "theories/PartialDerivativeCounterexample.v": "8c1067f6855f4d871b360994d8c23fb10fbec00b3ab424887707f50786b97944",
+    "theories/Rectifiability.v": "d7d6663e996a739835a12b5b6941505e2e5d66e91424662d0a147bcbfd82d8d8"
+  },
+  "full_project_validation": "Scheduled separately for 2026-10-27T18:00:00+01:00; not claimed by this focused checkpoint",
+  "formatting_cleanup": {
+    "source": "theories/NormDifferentialScalar.v",
+    "change": "Remove one trailing blank line after validation",
+    "recompiled_artifact_identical": true,
+    "artifact_sha256": "15911149b91066487beb8d93093022989d2f9808c9d8c4823fe69fb647dd282f"
+  }
+}

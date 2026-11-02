@@ -1,0 +1,104 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 544.36,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "7761c4342c564febfc15652b06be634709488bf70c3b6fe44340835b30fb2523",
+    "theories/Rectifiability.v": "c7550058e0dc9bbc5fb2dc0e2a5c84df9ee8e376a08e0d325612b28d962c0de6",
+    "theories/RectifiableCartesianCounterexampleConsequences.v": "5fe40aa791fd0c4a0bdb783ae785503dd5ecf9ac496adc9d576b6a2aa04a2ff2",
+    "theories/EuclideanSetPowerBorel.v": "eaf7f23cf30393bf2abbb6b8d27af1be8c528ba710707c1dd331e9d502b1b45f",
+    "theories/RectifiableCartesianCounterexample.v": "5fce9771b2d85590585e92998d88aad2a9e8d347c4036951eb01c90fd8f392c8",
+    "theories/RectifiableCartesianCounterexampleUP.v": "0c372e3b84d156a9f85578909325b6dca0417c29f7b407698ccfd06dfc2987f4",
+    "theories/NaturalRealPowerMeasureAgreement.v": "012810f2cb56766ddf1a11005e881bd818f781096276a11e7aaa6456e433c7fd",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "9a3f7f478127d2532972c43a418ef5e172ff42dc68c254826c68774ed3abbac3",
+    "tests/Assumptions.v": "a00e5de751c8561d6e26687590cb0459afd6c89c370418a762ddbe41a4f76fc7"
+  },
+  "item": "3.2.24",
+  "date": "2026-11-01",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 5,
+  "public_exports": 5,
+  "regressions": 2,
+  "regression_support_lemmas": 0,
+  "scope": "The full existential counterexample of Federer 3.2.24, p. 260: actual Borel W,Z in R4 have zero naturally normalized H2 mass and finite (H^2,2) rectifiability, but their Cartesian product has infinite naturally normalized H4 mass. Both product conclusions of 3.2.23 are explicitly disproved; the reference product is zero on every test subset, and the first factor is not genuinely 2-rectifiable.",
+  "proof_route": "Specialize the actual interleaved Cantor sets of 2.10.29 to scalar exponent 1/4 and fourth powers. Finite natural H1 factor masses imply zero H2 masses by 2.10.2. The mixed product has infinite H4 mass because 4<4(1+1/4)=5, through the existing orthogonal coordinate identification. A proved natural-exponent adapter identifies the real power gauge with actual unit-ball coefficient and existing Hausdorff measure via opaque cost laws and uniqueness; no Gamma identity or fractional dimension-drop hypothesis. Finite coordinate powers preserve Borelness. Null factors are finite measure rectifiable via the empty rectifiable cover. Infinite product mass disproves finite product rectifiability and any proposed full-measure identity.",
+  "source_count_checked_unchanged": 6893,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 197.09,
+    "warnings_or_errors": false,
+    "compilation_commands": 7,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "8fce1db6",
+    "changed_modules": 7,
+    "affected_modules": 7,
+    "entries": 18995,
+    "old_entries": 18981,
+    "audited": 135,
+    "audited_old": 121,
+    "audited_new": 14,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 578.3,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 39551,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "umask": "0002",
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "private_construction_boundaries": {},
+  "no_new_selected_global_witness": true,
+  "no_new_external_dependency": true,
+  "coverage_qualification": "The deferred 2.10.46 remains deferred. Items3.2.25\u20133.2.49 remain pending; no unregistered draft is certified here."
+}

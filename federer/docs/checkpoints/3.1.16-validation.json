@@ -1,0 +1,100 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 413.54,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "29aab805877a529b28d102acd054d667dacc76f3fa2a841736d07fc843450f76",
+    "theories/Rectifiability.v": "9ed915b28d76f5a23b28d5ec707d8b1c07bfd835959a3bc64a9e519ae3dbe85e",
+    "tests/DifferentialExamples.v": "b9e71bdb8555e56386c195f09b600ecb792b6612b56cc18276520cc0787d9864",
+    "tests/Assumptions.v": "24646d52a4233f3618faac5e43859ebdc5168e6c2edc545bf5a291925c5e85ae",
+    "theories/CompactDisjointLipschitzUnion.v": "4d757d79300432862afbe319a2d3e968b46d742fab2b48eb5e6770277c18d60c",
+    "theories/MeasurableLipschitzCompactPiece.v": "7a1558b76e4d2b883bf571fb0a4ee2affa5fb75455ca67371319a7d175f7cb44",
+    "theories/ApproximateGrowthNullRestriction.v": "488627f025f1912cd33d4e685d7fb75cc65e6af6c8ec73daf0e046a34b2c61a9",
+    "theories/AnnularLipschitzExtensionUP.v": "5155f05432e35948cc8790b5a314040a88049ad044906715ac5f87448f1910b3",
+    "theories/AnnularLipschitzExtensionConstruction.v": "db69c84f630f8274d1f6f4cdb80295e616b918bc5eba300cd59e835dbb100248",
+    "theories/AnnularLipschitzExtensionSealed.v": "991b3630bda19fa4ffd2d7d84f07f9477781fca2bdbfcf2049857a151db1c88a",
+    "theories/AnnularLipschitzExtensionLaws.v": "0a7114b300842d6f712c0a78103c7e45bc86016cc739b468e3ea9d707ef38cfb",
+    "theories/ApproximateGrowthAnnularPieces.v": "bcd8b9730c343505a69bdfc058e1eb49f4e6e471df3d947127de9aebb2615743",
+    "theories/ApproximateGrowthClassOneApproximation.v": "c6dde35747cc80a28052de10969e910c6c940dcda4a6f44cd7202c40e727a6ff"
+  },
+  "item": "3.1.16",
+  "date": "2026-10-30",
+  "scope": "Class-one approximation under finite approximate upper growth almost everywhere, with arbitrary actual domains and all finite source/target dimensions; compact annular selection, sealed successive Kirszbraun extensions, and 3.1.15 at k=0.",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 9,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 78.55,
+    "warnings_or_errors": false,
+    "compilation_commands": 3,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "preliminary_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 85.22,
+    "warnings_or_errors": false,
+    "compilation_commands": 3,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "full_project_validation": false,
+  "artifact_reuse": "Adopted the shared tree from the claude checkout with 5816 byte-identical source inputs and no invalidated artifacts. New modules were compiled directly in the registered external build tree; final make builds compiled the final theorem, public interface and regression suite. No scratch artifacts were copied or stale outputs touched.",
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 29127,
+    "bad_files": [],
+    "make_umask": "0002",
+    "direct_command_umask": "0002"
+  },
+  "audit": {
+    "base": "8bef2141",
+    "changed_modules": 11,
+    "affected_modules": 11,
+    "entries": 16668,
+    "old_entries": 16650,
+    "audited": 60,
+    "audited_old": 42,
+    "audited_new": 18,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 269.73
+}

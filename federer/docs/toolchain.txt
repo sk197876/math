@@ -1,0 +1,31 @@
+Checked on Debian GNU/Linux 12 (bookworm), 2026-10-15.
+
+The Rocq Prover, version 9.1.0
+compiled with OCaml 4.14.2
+
+opam switch RP.2026.02.0~9.1~2026.01 (Rocq Platform 2026.07.0)
+
+rocq-core 9.1.0
+rocq-stdlib 9.0.0
+rocq-elpi 3.3.1
+rocq-hierarchy-builder 1.10.2
+rocq-mathcomp-ssreflect 2.5.0
+rocq-mathcomp-algebra 2.5.0
+rocq-mathcomp-finmap 2.2.2
+rocq-mathcomp-classical 1.16.0
+rocq-mathcomp-reals 1.16.0
+rocq-mathcomp-analysis 1.16.0
+coq-mathcomp-algebra-tactics 1.2.7 (ring, field, lra; used from Federer 2.5.17 on)
+coq-mathcomp-zify 1.6.0+2.3+8.18 (dependency of algebra-tactics)
+
+All listed package versions were rechecked on 2026-10-26 under the required
+switch. The real-field and general-topology packages were first used for
+Federer 1.7.1; no external inner-product development is imported.
+
+The port to Rocq 9.0 was checked on 2026-10-11 with Rocq 9.0.1 from the
+Rocq Platform 2025.08.0, MathComp 2.4.0, MathComp finmap 2.2.1, MathComp
+classical 1.13.0, Hierarchy Builder 1.10.2 and Rocq-Elpi 3.1.0.
+
+Earlier releases, up to version 0.17.0, were checked on Ubuntu 24.04.3 LTS
+with Coq 8.18.0, OCaml 4.14.1, MathComp 2.1.0, MathComp finmap 2.0.0,
+MathComp classical 1.0.0, Hierarchy Builder 1.6.0 and Coq-Elpi 1.19.3.

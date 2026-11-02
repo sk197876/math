@@ -1,0 +1,111 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 545.86,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "330db84959363e99e77f8d741f4fdac281d9809e649eaa98244958ed3073fbdd",
+    "theories/MeasureHullApproximateTangent.v": "2168188a7cc65314a0e09ff66bd039645597c2115dd9d961cce5e6c7798a5353",
+    "theories/EuclideanDifferentialVectorObservable.v": "0c0f34abd247c58e0ff4a9c97c0c8a4566d2d48cdb8c5e4eb812519564b71ed6",
+    "theories/Rectifiability.v": "1cdda44a628f41182218620a4b2ba652dc11da79494e00969c48b628c82107e7",
+    "theories/EuclideanDifferentialOrientation.v": "9ca55ea1714011b1eae0d0e1fbf38fe8c84c0f6e63e6b31dce9847eb40fd8f64",
+    "theories/RectifiableChartOrientation.v": "bde0db8f3f3f826077aa3fc986ec4fa15055c7fd3bf6f80fd7cc98b1a3f76ef6",
+    "theories/RectifiableMeasurableOrientation.v": "dcda370c9552d57938f3a775b69ea253f77de866d74646163fc53b7e4cfca0ea",
+    "theories/RectifiableOrientationUP.v": "90a90a7dee8548eaec364fd58b094403d22d1336e5fc9cf7e716e51f88498d69",
+    "theories/InnerUnitNormalization.v": "90cdcc77e029b5d65d162bc7693a29cee88b23b15c8280a9f473a1fe283f269c",
+    "theories/RectifiableBorelMeasureHull.v": "abdb7173d678bc4287ea27372318d5ec350330262d253e4094baade1ca6643bc",
+    "theories/RectifiableOrientation.v": "deb3d84e6e542e975d8238f841af2855cdf26e230a26f32297b5c25a03f783e9",
+    "theories/BorelPartialGluing.v": "9975e8f75636fc874814b426c9ca512fa9db2de78d2dc32b4f2a2f7b63f03d9d",
+    "theories/EuclideanDifferentialOrientationContinuity.v": "c2cfc7cc9222fa5ca167d10acc20696cd15d0d2ecbe797378f27dc2b6e262118",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "f9a80ec5bd28c267fca2b00ba3bee2180837849fb033d311696e8efca25328db",
+    "tests/Assumptions.v": "ae4e6212c61caa61d385fc1a82f2a9d8c67a2ee827803daf2bd91b6d39dbe503"
+  },
+  "item": "3.2.25",
+  "date": "2026-11-01",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 11,
+  "public_exports": 11,
+  "regressions": 2,
+  "regression_support_lemmas": 2,
+  "scope": "The full measurable-orientation lemma of Federer 3.2.25, p. 261: every finite (H^m,m)-rectifiable W in R^n, without a W-measurability premise, has an H^m restricted-to-W measurable partial field of simple unit m-vectors. Every defined value is simple and unit; its associated m-dimensional vector subspace is the exact approximate tangent almost everywhere on W. The actual domain is contained in W, without outside defaults. All natural dimensions, including the literal empty-product convention in degree zero, are retained.",
+  "proof_route": "Fix the standard unit top word. The induced differential word is nonzero for an injective chart differential, and its associated space equals the exact image by 1.6.1. Normalization is Borel by continuity off zero; the vector word is continuous in the operator norm. Generalize the exact Borel differential expression to arbitrary Borel topological targets. Existing opaque extension and same-bound inverse laws give Borel local fields on compact chart images. Exact countable disjoint partial-graph gluing adds no outside value. Actual differential uniqueness and 3.2.19 give the tangent law. For nonmeasurable W, construct a Borel finite rectifiable measure hull; its measurable-test law on open directional cones and closed balls gives pointwise approximate-tangent equality, without assuming the hull difference null. Transfer the Borel field and exceptional sets and restrict its graph conullly to W.",
+  "erratum_correction": "Erratum p. 5, book p. 261 line 4: H^m almost everywhere in the tangent clause.",
+  "source_count_checked_unchanged": 6904,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 250.12,
+    "warnings_or_errors": false,
+    "compilation_commands": 13,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "6f258531",
+    "changed_modules": 13,
+    "affected_modules": 13,
+    "entries": 19024,
+    "old_entries": 18995,
+    "audited": 152,
+    "audited_old": 123,
+    "audited_new": 29,
+    "unresolved_names": 0,
+    "closed": 1,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 611.09,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 39696,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "umask": "0002",
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "private_construction_boundaries": {},
+  "no_new_selected_global_witness": true,
+  "no_new_external_dependency": true,
+  "coverage_qualification": "The deferred 2.10.46 remains deferred. Items 3.2.26\u20133.2.49 remain pending; unregistered drafts are not certified here."
+}

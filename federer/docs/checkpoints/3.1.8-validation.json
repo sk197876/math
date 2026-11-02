@@ -1,0 +1,51 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 283.59,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "12da862963822732baa2c3146f72e0d2d5e39ffbbdc65c24542789b78e5f3aaa",
+    "theories/Rectifiability.v": "f64e1db6fa9ee11ae33127d7bb5b14f22d49b0bcdf81c5bb6c585738ae08f38a",
+    "tests/DifferentialExamples.v": "f221be254d783fb97dafd41a6d7331ac613790f5e2aafd4a9637e8cbbb5c67e0",
+    "tests/Assumptions.v": "dd768dfd0ce8c510e53e76db13b0266a2d673a146f13575a26a5d5c41b8aa25a",
+    "theories/ApproximateDifferentialExtension.v": "f67b80436bc82f0a8ca66fc149685ded4d9d977e983ed328123441ebe0ee0aae",
+    "theories/ApproximateMetricGrowth.v": "b49b8ac73cb8910284b6e51357c4980cbe555869d13f1dbab341fd89ff3bb902",
+    "theories/ApproximateGrowthMeasurability.v": "3a103bd208cf1bad891a7adebada2743286f91349b78e9c535aa32b3425074e6",
+    "theories/ApproximateGrowthZeroSource.v": "f67cadc551a560b692d2087f2519db56fcd53e67d77d60113ee8917a272e62cf",
+    "theories/EuclideanOverlapGoodPoint.v": "ce2eca37b0dfae96532fee0df933eb3cf4412de375ec443f885f4a00f99c292c",
+    "theories/EuclideanJointTranslationMeasurability.v": "438c383cf1a847e6b7c616279269f5a29128eac8f02b728423730e036d48a506",
+    "theories/EuclideanGrowthCutoffs.v": "5fb30af1a6a37701969de0e9a7a2ba47c4123d2f5b37aa36bf3ed305dc5330bd",
+    "theories/EuclideanGrowthCutoffLipschitz.v": "60d526a9833c4b69c985afecb7edefe6fede91057eb13ce887cf7a7df4c92ec2",
+    "theories/ApproximateGrowthDecomposition.v": "7a309ed45ec4bc5e23abd47e9e5eb96d4974e6a054d13bc8af337e1a8602938c",
+    "theories/ApproximateGrowthDifferentiability.v": "1353e6beac27dd5631126803da003581ed59f5c5aa679c6c242c56fe27e49814"
+  },
+  "item": "3.1.8",
+  "scope": "Ten new theory modules, public Chapter 3 interface, four constant/zero-source/empty-domain regression results.",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "focused_build_exit_code": 0,
+  "full_project_validation": false,
+  "audit": {
+    "base": "4486bd1",
+    "changed_modules": 12,
+    "affected_modules": 12,
+    "entries": 15827,
+    "old_entries": 15796,
+    "audited": 55,
+    "audited_old": 24,
+    "audited_new": 31,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 171.15
+}

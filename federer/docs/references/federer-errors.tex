@@ -1,0 +1,576 @@
+% Compiled from docs/divergences.md and docs/chapter1--3 at commit 33e03686.
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,mathrsfs,longtable,array,bm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\newcommand{\R}{\mathbf R}
+\newcommand{\N}{\mathbf N}
+\newcommand{\Leb}{\mathscr L}
+\newcommand{\Haus}{\mathscr H}
+\newcommand{\spt}{\operatorname{spt}}
+\newcommand{\dmn}{\operatorname{dmn}}
+\newcommand{\Clos}{\operatorname{Clos}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\U}{\mathbf U}
+\newcommand{\B}{\mathbf B}
+\newcommand{\M}{\mathbf M}
+\newcommand{\Lsp}{\mathbf L}
+\newcommand{\Lt}{\widetilde{\mathbf L}}
+\DeclareUrlCommand\rocq{\def\UrlFont{\footnotesize\ttfamily}}
+\newcommand{\entry}[3]{#1&#2&#3\\[5pt]}
+\newenvironment{errors}{%
+  \begin{longtable}{@{}>{\raggedright\arraybackslash}p{19mm}
+    >{\raggedright\arraybackslash}p{66mm}
+    >{\raggedright\arraybackslash}p{72mm}@{}}
+  \textbf{Item}&\textbf{Printed statement}&\textbf{Correction}\\\hline\endhead
+}{\end{longtable}}
+\newenvironment{confirmed}{%
+  \begin{longtable}{@{}>{\raggedright\arraybackslash}p{19mm}
+    >{\raggedright\arraybackslash}p{27mm}
+    >{\raggedright\arraybackslash}p{111mm}@{}}
+  \textbf{Item}&\textbf{Page, line}&\textbf{Correction adopted}\\\hline\endhead
+}{\end{longtable}}
+\title{\textit{Geometric Measure Theory}\\Errors detected by the formalisation}
+\author{Compiled from the Rocq formalisation \texttt{federer-rocq}}
+\date{1 November 2026}
+\begin{document}
+\maketitle
+
+\noindent\textbf{Scope and sources (editorial).}
+This list collects the statements of Herbert Federer, \textit{Geometric
+Measure Theory} (1969), that the formalisation in this repository refutes as
+printed, together with the corrections proved there. It covers the
+formalised part of the book: chapter 1, chapter 2 and items 3.1.1--3.2.30.
+It is compiled from the divergence register \texttt{docs/divergences.md}
+(rows of kind \emph{statement correction}) and from the section accounts in
+\texttt{docs/chapter1}--\texttt{docs/chapter3}, at commit \texttt{33e03686}.
+Every entry was then checked against the printed text of the Springer
+reprint of the 1969 edition, which does not incorporate the 1987
+corrections. Items are Federer's numbered paragraphs, and pages are printed
+pages. The printed statements are paraphrased closely; displayed formulas
+follow the book. Each entry names the Rocq results that prove the
+counterexample and the corrected statement. Arguments that are not
+formalised are marked as such.
+
+The check against the book removed one entry of the register. In 2.10.27,
+p.~191, the book prints $f\,\B[(u,v),r]=\B(u,r)$, where the square brackets
+group nested parentheses and $\B(u,r)$ is the closed ball (2.8.1). The
+identity is correct; the register formerly read $\B(u,r)$ as an open
+ball.
+
+Federer's \textit{List of corrections} of May 1987 is transcribed in
+\texttt{federer-erratum.tex}. Sections~\ref{s:false}--\ref{s:proofs}
+contain errors absent from that list. Section~\ref{s:erratum} records an error in that list.
+Section~\ref{s:confirmed} lists the corrections of that list that the
+formalisation adopts. The register formerly filed the entries for 2.7.14
+and 2.7.15 as local corrections, but Federer's list already contains them (book
+p.~131 line~10, p.~132 lines 22 and~25, p.~133 lines 3 and~4); they are
+therefore listed in section~\ref{s:confirmed}.
+
+Federer's notation is used: $\B(a,r)$ and $\U(a,r)$ are the closed and open
+balls, $A\sim B$ is the set difference, and $\bigodot_m V$ is the $m$-th
+symmetric power. The formalisation works over a field of characteristic
+other than two where chapter 1 needs no order; the entries below are stated
+over~$\R$.
+
+\section{Statements that are false}\label{s:false}
+\begin{errors}
+\entry{1.4.4, p.~20}{For every associative algebra $W$ with unit, the
+identity of $\Hom(V,W)$ extends to a homomorphism of the exterior algebra
+of $\Hom(V,W)$ over $\R$ into the algebra of alternating $W$-valued forms.}
+{False for noncommutative $W$: such an extension forces all values of a
+one-form to commute. Take $V=\R^2$, $W$ the free associative algebra on two
+letters $X,Y$, and $\alpha(e_1)=X$, $\alpha(e_2)=Y$; then
+$(\alpha\wedge\alpha)(e_1,e_2)=XY-YX\neq0$. \emph{Correction:} require $W$
+to be commutative; the homomorphism then exists and is unique.\newline
+\rocq{noncommutative_exterior_extension_impossible}, \rocq{Omega_W},
+\rocq{Omega_W_unique}}
+\entry{1.4.4, p.~20}{The homomorphism of the preceding entry is surjective
+whenever $\dim V<\infty$.}
+{False for every $V$ unless $W=\R\cdot1_W$: in degree zero the map is
+$c\mapsto c\cdot1_W$. For $W=\R\times\R$ the constant zero-form $(1,0)$ has
+no preimage. \emph{Correction:} delete the assertion. In finite dimension
+the isomorphism holds for the exterior algebra over a commutative $W$ of
+the $W$-module $\Hom(V,W)$, as at the end of the same parenthesis.\newline
+\rocq{coefficient_pair_not_surjective},
+\rocq{Omega_W_surjective_requires_scalar_coefficients},
+\rocq{Omega_relative_finite_bijective}}
+\entry{2.4.12, p.~86}{Corollary of the Hahn--Banach theorem: for a
+seminorm $\sigma$ on $V$ with values in $\{t:0\le t\le\infty\}$ and
+$v\in V$ there is a linear $\alpha:V\to\R$ with $\alpha\le\sigma$ and
+$\alpha(v)=\sigma(v)$.}
+{False when $\sigma(v)=\infty$, since $\alpha$ is real valued. On $V=\R$
+take $\sigma(0)=0$ and $\sigma(x)=\infty$ for $x\neq0$, and $v=1$.
+\emph{Correction:} assume $\sigma(v)<\infty$.\newline
+\rocq{infinite_seminorm_has_no_norming_functional},
+\rocq{extended_seminorm_norming_functional}}
+\entry{2.5.18(2), p.~112}{For $f,g,h:\R\to\R$ with $f,g$ continuous and
+$g$ increasing, $\int_a^b(f\circ g)\,d(h\circ g)=\int_{g(a)}^{g(b)}f\,dh$;
+``therefore $g_\#$ maps the measures induced by $h\circ g$ onto the measures
+induced by~$h$''.}
+{False unless $\im g=\R$. For $g(x)=x/(1+|x|)$ and $h(x)=x$, the image under
+$g$ of the measure induced by $h\circ g$ vanishes on $\{t:2\le t\le3\}$,
+whereas the measure induced by $h$ is $\Leb^1$.
+The integral identity is unaffected. \emph{Correction:} assume
+$\im g=\R$ in the final sentence.\newline
+\rocq{stieltjes_image_unrestricted_false},
+\rocq{stieltjes_image_requires_onto},
+\rocq{stieltjes_image_induced_measures}}
+\entry{2.6.5, p.~119}{The product of measures is associative, and
+$\alpha_1\times\cdots\times\alpha_n$ does not depend on the association.}
+{False for arbitrary measures. Let $\alpha=\beta=\Leb^1$ and let $\gamma$ be
+a measure over a nonempty $Z$ with $\gamma(A)=\infty$ for every nonempty
+$A\subset Z$. The product of the diagonal of $[0,1]$ and $Z$ has measure $0$
+in $(\alpha\times\beta)\times\gamma$ and $\infty$ in
+$\alpha\times(\beta\times\gamma)$. \emph{Correction:} assume that each
+factor space is the union of countably many measurable sets of finite
+measure (for the triple product, the first and third factors suffice).\newline
+\rocq{lebesgue_product_not_associative},
+\rocq{product_measure_associative_countable},
+\rocq{finite_product_association_invariance}}
+\entry{2.7.16(4), p.~138}{Weil's condition is violated by every
+$t\in GL(n,\R)^W$ with $\det t=1$ and $\det(t|W)\neq1$.}
+{The condition reads $\chi(t)\,|\det(t|W)|^{-n}\,|\det t|^m=1$, so it holds
+when $\det(t|W)=-1$. \emph{Correction:} replace $\det(t|W)\neq1$ by
+$|\det(t|W)|\neq1$. For $0<m<n$ the map acting as $2^{n-m}$ on $W$ and as
+$2^{-m}$ on a complement has $\det t=1$ and $|\det(t|W)|=2^{m(n-m)}$, so
+the conclusion stands.\newline
+\rocq{grassmann_no_covariant_integral},
+\rocq{stabiliser_scaling_exists}}
+\entry{2.10.1, p.~170}{Alternate description: $\psi(A)$ is the infimum of
+all $t$ such that every open covering $H$ of $A$ has a countable subfamily
+$G$ of $F$ covering $A$, with each member in some member of $H$ and
+$\sum_{S\in G}\zeta(S)<t$. ``For any topological space $X$, it remains
+clear that $\psi$ measures $X$.''}
+{False: the formula need not be monotone. Let $X=\{p,q\}$ with open sets
+$\varnothing$, $\{q\}$, $X$, let $F=\{X\}$ and $\zeta(X)=1$. The value is
+$\infty$ on $\{q\}$ and $1$ on $X$. \emph{Correction:} quantify over open
+covers of the whole space $X$. The result is a measure, every continuous map
+into a metric space is measurable, and it agrees with the printed formula
+when $X$ is a metric space.\newline
+\rocq{printed_topological_refinement_not_measure},
+\rocq{topological_caratheodory_is_measure},
+\rocq{topological_caratheodory_continuous_measurable},
+\rocq{topological_caratheodory_metric_agreement}}
+\entry{2.10.17(2), p.~179}{If $\mu$ is regular, $A\subset X$, $t>0$ and
+$0\le(C)\limsup_{S\to x}\mu(A\cap S)/\zeta(S)<t$ whenever $x\in A$, then
+$\mu(A)\le t\,\psi(A)$.}
+{False. By 2.1.1 the quotient is undefined when $\zeta(S)=0$, and by
+2.8.16 (p.~151) such $S$ are omitted from $(C)\limsup$. On $\R$ let every set belong to $F$,
+$\zeta(S)=0$ for $\card S\le1$ and $\zeta(S)=1$ otherwise, $\mu$ the unit
+mass at $0$, $A=\{0\}$. The upper density at $0$ is $1<2$, but
+$\mu(A)=1>2\,\psi(A)=0$. \emph{Correction:} in (2) and (3) set $0/0=0$ and
+$a/0=\infty$ for $a>0$; the density at $0$ is then $\infty$, and (2) and a
+variant of (3) are proved. The original (3) is not refuted.\newline
+\rocq{printed_caratheodory_density_bound_false},
+\rocq{caratheodory_density_divide}, \rocq{federer_2_10_17_2},
+\rocq{federer_2_10_17_3}}
+\entry{3.1.17, p.~229}{``The converse of Theorem 3.1.16 is clearly also
+true'': if for each $\varepsilon>0$ some map $g:\R^m\to\R^n$ of class $1$
+satisfies $\Leb^m(A\sim\{x:f(x)=g(x)\})<\varepsilon$, then
+$\operatorname{ap}\limsup_{x\to a}|f(x)-f(a)|/|x-a|<\infty$ for $\Leb^m$
+almost all $a$ in~$A$.}
+{False for nonmeasurable $A$: a constant map on a nonmeasurable subset of
+$\R^m$ (2.2.4) has a smooth extension. Finite approximate upper growth
+almost everywhere forces $A$ to be $\Leb^m$ measurable (via 3.1.8). The
+counterexample uses the definition of 2.9.12 as corrected in Federer's list
+(book p.~159 line~7), under which points outside $A$ count against the
+density; under the original wording of p.~159 the example satisfies the
+conclusion. \emph{Correction:} for $m>0$, finite approximate upper growth at almost all
+points of $A$ is equivalent to $\Leb^m$ measurability of $A$ together with
+the approximation property.\newline
+\rocq{nonmeasurable_domain_converse_counterexample},
+\rocq{approximate_growth_ae_domain_measurable}, \rocq{federer_3_1_17}}
+\entry{3.2.27, p.~262}{If $W$ is an $(\Haus^m,m)$ rectifiable subset of
+$\R^n$, $m\le n$ and $a_\lambda=\int N(\mathbf p_\lambda|W,y)\,d\Leb^my$ for
+$\lambda\in\Lambda(n,m)$, then
+$[\sum_\lambda(a_\lambda)^2]^{1/2}\le\Haus^m(W)\le\sum_\lambda a_\lambda$.}
+{The upper bound is false without measurability of $W$ (3.2.14 does not
+require it), even when the integrals exist. Take a
+nonmeasurable $V\subset[0,1]$, put $V$ on the segment at height $0$ and
+$[0,1]\sim V$ on the segment at height $1$. The coordinate integrals are
+$1$ and $0$, but $\Haus^1(W)>1$. \emph{Correction:} assume $W$ is
+$\Haus^m$ measurable for the upper bound. The lower bound holds as printed
+whenever the integrals exist.\newline
+\rocq{rectifiable_coordinate_upper_requires_measurability},
+\rocq{rectifiable_coordinate_projection_lower}, \rocq{federer_3_2_27}}
+\end{errors}
+
+\section{Statements that fail in degenerate cases}\label{s:degenerate}
+\noindent The literal definitions make the empty product $1$ the only simple
+$0$-vector. Several assertions of chapter 1 therefore fail in degree zero.
+Other assertions fail for zero spaces or empty sets.
+\begin{errors}
+\entry{1.4.4, p.~20}{The homomorphism of the first entry of
+section~\ref{s:false} is not injective unless $\dim W=1$.}
+{False for $V=0$ and $W=\R\times\R$: the map is $c\mapsto(c,c)$, which is
+injective, although $\dim W=2$. \emph{Correction:} assume $V\neq0$ (and $W$
+commutative). The corrected assertion is argued in \texttt{docs} by an
+independent pair of one-forms, but is not formalised.\newline
+\rocq{zero_domain_Omega_pair_injective}}
+\entry{1.4.5, p.~20}{The ordinary tensor product of the exterior algebras of
+$V$ and $W$ is neither commutative nor anticommutative (unless $V\cong\R$
+or $W\cong\R$).}
+{False for $V=W=0$: the tensor product is commutative, and neither space is
+isomorphic to $\R$. Also false (not formalised) for $V=0$ and $\dim W\ge2$:
+the product is then isomorphic to $\bigwedge_*W$, which is anticommutative
+in the sense of 1.2.1. \emph{Correction (formalised):} the assertion holds
+provided each of $V$ and $W$ contains two linearly independent vectors; no
+finite dimension is needed. \emph{Sharp form (not formalised):} replace the
+parenthesis by ``(unless $V=0$, or $W=0$, or $V\cong\R\cong W$)''; for
+$V\cong\R$ and $\dim W\ge2$ the product is neither.\newline
+\rocq{zero_ordinary_tensor_commutative},
+\rocq{zero_space_not_isomorphic_scalar}, \rocq{ordinary_tensor_neither}}
+\entry{1.6.1, p.~24}{A nonzero $m$-vector $\xi$ is simple if and only if
+its associated subspace has dimension~$m$.}
+{The reverse implication fails for $m=0$: the scalar $2$ has associated
+subspace $\{0\}$ but is not simple. \emph{Correction:} assume $m>0$; for
+$m=0$ only the forward implication holds.\newline
+\rocq{simple_dimension_zero_counterexample}, \rocq{simple_iff_dimension}}
+\entry{1.6.3, p.~24}{For $0\neq\phi\in\bigwedge^mV$ the associated
+subspace $\bigwedge^1V\cap\{\alpha:\phi\wedge\alpha=0\}$ has dimension
+$\le m$, with equality if and only if $\phi$ is simple.}
+{Fails for $m=0$, with the covector $2$. \emph{Correction:} assume
+$m>0$.\newline
+\rocq{covector_dimension_zero_counterexample},
+\rocq{simple_covector_iff_dimension}}
+\entry{1.6.3, p.~24}{The isomorphisms $\mathbf D_p$ and $\mathbf D^p$ of
+1.5.2 preserve simplicity.}
+{Fails when the output degree is $0$, that is $p=n$: for $\dim V=1$,
+$\mathbf D_1$ maps twice a basis vector, and $\mathbf D^1$ maps twice the
+dual covector, to the scalar $2$. \emph{Correction:} assume $p<n$.\newline
+\rocq{D_p_zero_degree_counterexample},
+\rocq{D_upper_zero_degree_counterexample}, \rocq{D_p_preserves_simple}}
+\entry{1.7.5, p.~32}{Equality holds in $(v_1\wedge\cdots\wedge v_m)\bullet
+(v_1\wedge\cdots\wedge v_m)\le\prod_{i=1}^mv_i\bullet v_i$ if and only if $v_1,\ldots,v_m$ are mutually
+orthogonal.}
+{Fails for $(0,u,u)$ with $|u|=1$. \emph{Correction:} equality holds if and
+only if some $v_i=0$ or $v_1,\ldots,v_m$ are mutually orthogonal.\newline
+\rocq{hadamard_zero_factor_counterexample},
+\rocq{exterior_product_norm_equality}}
+\entry{1.8.1, p.~38}{The comass $\|\phi\|=\sup\{\langle\xi,\phi\rangle:
+\xi\in\bigwedge_mV,\ \xi$ is simple, $|\xi|\le1\}$ satisfies
+$|\phi|\ge\|\phi\|\ge\binom{\dim V}m^{-1/2}|\phi|$, and comass and mass are
+dual norms.}
+{Fails for $m=0$: the only simple $0$-vector is $1$, so $\|c\|=c$, and
+$\|-1\|=-1$. \emph{Correction:} state comass,
+mass and the norm assertions for $m>0$.\newline
+\rocq{literal_zeroth_comass}, \rocq{literal_zeroth_comass_negative}}
+\entry{1.8.1, p.~38}{The mass unit ball $C$ consists of all sums
+$\sum_{i=1}^Nc_i\xi_i$ with $\xi_i\in S=\bigwedge_mV\cap\{\xi:\xi$ is simple
+and $|\xi|\le1\}$, $c_i>0$, $\sum_{i=1}^Nc_i=1$ and
+$N\le\dim\bigwedge_mV=\binom{\dim V}m$.}
+{Fails when $\bigwedge_mV=0$, that is $m>\dim V$: then $N=0$ and the
+coefficients cannot sum to $1$. \emph{Correction:} assume $m\le\dim V$. The
+convex hull equality and the optimal decomposition hold for all $m$.\newline
+\rocq{zero_dimensional_positive_convex_impossible},
+\rocq{mass_positive_convex_representation}}
+\entry{1.10.5, p.~48}{The mass $\|\xi\|$ of $\xi\in\bigodot_mV$ equals the
+infimum of the sums $\sum_{j=1}^N|v_{1,j}|\cdots|v_{m,j}|$ over
+representations $\xi=\sum_{j=1}^Nv_{1,j}\odot\cdots\odot v_{m,j}$; if
+$\dim V<\infty$ one can take $N\le\dim\bigodot_mV$.}
+{Fails for $m=0$: every empty product is $1$, so no finite sum of empty
+products is $-1$, and the infimum for $\xi=-1$ is $\inf\varnothing=\infty$. \emph{Correction:} assume $m>0$; in degree zero the mass
+of $c$ is $|c|$.\newline
+\rocq{symmetric_negative_unit_not_empty_sum},
+\rocq{symmetric_degree_zero_mass_specification}}
+\entry{2.2.15, p.~71}{For an arbitrary separable metric space $Y$, every
+Borel function mapping any metric space into $Y$ is a Baire function if and
+only if for every finite subset $Z$ of $Y$ and every $\varepsilon>0$, $Z$ is
+contained in the $\varepsilon$ neighbourhood of the image of some
+continuous map of $\R$ into~$Y$.}
+{Fails for $Y=\varnothing$: every map into $\varnothing$ is a Baire map,
+whereas the condition for $Z=\varnothing$ demands a curve $\R\to
+\varnothing$. \emph{Correction:} replace the condition by \emph{$Y$ is
+empty or} the printed condition.\newline
+\rocq{empty_target_borel_baire_counterexample},
+\rocq{borel_baire_target_criterion_with_empty}}
+\entry{2.3.2, p.~73}{A $\phi$ measurable function $f$, whose domain
+contains $\phi$ almost all of $X$, can always be extended to a $\phi$ almost
+equal function with domain~$X$.}
+{Fails for $Y=\varnothing$: the empty function from a one-point space of
+measure zero into $\varnothing$ has no total extension.
+\emph{Correction:} assume $Y\neq\varnothing$.\newline
+\rocq{empty_target_extension_counterexample},
+\rocq{measurable_function_total_extension}}
+\entry{2.3.6, p.~77}{Corollary of Lusin's theorem: in case $X$ is
+countably $\phi$ measurable, $f$ is $\phi$ almost equal to some Borel function
+mapping $X$ into~$Y$.}
+{Fails for $Y=\varnothing$ and a nonempty $X$ of measure zero.
+\emph{Correction:} assume $Y\neq\varnothing$ or $X=\varnothing$.\newline
+\rocq{borel_version_empty_target_counterexample},
+\rocq{lusin_borel_version_metric}, \rocq{lusin_borel_version_radon}}
+\entry{2.7.3, p.~123}{The sets $\bigcup_gA_g(V)\times A_g(V)$, for nonempty
+open $V$, form a basis of an invariant uniformity.}
+{Fails for $X=\varnothing$: the family is empty, whereas a uniformity
+contains $X\times X$. \emph{Correction:} assume $X\neq\varnothing$. The
+equivalence in the first assertion holds also for $X=\varnothing$.\newline
+\rocq{empty_space_orbit_family_not_basis_example},
+\rocq{uniform_action_orbit_basis}}
+\entry{2.7.4, p.~123}{There exists a nonzero monotone invariant integral on
+$\mathscr K(X)$.}
+{Fails for $X=\varnothing$: then $\mathscr K(X)=\{0\}$, although all other
+hypotheses hold. \emph{Correction:} assume $X\neq\varnothing$.\newline
+\rocq{invariant_integral_empty_space_example},
+\rocq{uniform_action_invariant_integral_exists}}
+\entry{2.10.28(4), p.~192}{If $J\in F$, $2\le n\in\mathbf Z$,
+$h(s)=\zeta(J)/n$ and $t=(\diam J-s)/(n-1)$, then $0<s<\diam J/n$, $t>s$,
+$\Phi(J,n)$ is special for $J$, and an estimate holds.}
+{Fails when $J$ is a point: then $\zeta(J)=h(0)=0$, hence $s=0$ and
+$t=0$.
+\emph{Correction:} assume $\diam J>0$.\newline
+\rocq{zero_parent_cantor_split_impossible},
+\rocq{is_equal_cost_interval_family}}
+\entry{2.10.38, pp.~198--199}{Every compact $S\subset\R^n$ has points
+$a_i,b_i\in S$ and an enclosing box with decreasing side lengths $c_i$ such
+that $|(a_1-b_1)\wedge\cdots\wedge(a_m-b_m)|=c_1\cdots c_m$ for
+$m=1,\ldots,n$.}
+{Fails for $S=\varnothing$ and $n>0$: no points $a_1,b_1$ exist.
+\emph{Correction:} assume $S\neq\varnothing$.\newline
+\rocq{empty_compact_enclosing_box_endpoint_counterexample},
+\rocq{federer_2_10_38}}
+\entry{2.10.44, p.~202}{For $S=\{(1,-1),(-1,1),(1,1)\}$, the supremum norm
+$\mu$ and the Euclidean norm $\nu$, $\mu(u-v)=2=\nu[f(u)-f(v)]$ for
+$u,v\in S$.}
+{Each point has distance $0$ from itself. \emph{Correction:} distinct
+points have distance~$2$.\newline
+\rocq{kirszbraun_printed_two_needs_distinct},
+\rocq{kirszbraun_corner_pair_distances}}
+\entry{2.10.44, p.~202}{If $S$ is a subset of a metric space $X$, every
+Lipschitzian $f:S\to\R$ has a Lipschitzian extension $g:X\to\R$ with
+$\operatorname{Lip}(g)=\operatorname{Lip}(f)$; one may define
+$g(\xi)=\inf\{f(x)+\operatorname{Lip}(f)\operatorname{dist}(x,\xi):x\in S\}$.}
+{For $S=\varnothing$ and $X\neq\varnothing$ the infimum is $\infty$.
+\emph{Correction:} assume $S\neq\varnothing$ for the formula; the
+extension theorem holds for $S=\varnothing$ with $g=0$.\newline
+\rocq{empty_source_no_finite_mcshane_envelope},
+\rocq{federer_2_10_44_scalar_formula}, \rocq{federer_2_10_44_scalar}}
+\entry{3.1.1, p.~209}{$\limsup_{x\to a}|f(x)-f(a)|/|x-a|
+=\sup\{|\langle v,D f(a)\rangle|:|v|=1\}=\|D f(a)\|$, and the
+corresponding formula for $\liminf$ and $\inf$.}
+{Fails for $X=\{0\}$: there is no $x\neq a$ and no $v$ with $|v|=1$, so
+by the conventions of 2.1.1 (p.~51) the first two expressions are
+$\sup\varnothing=-\infty$, whereas $\|D f(a)\|=0$.
+\emph{Correction:} assume $X\neq\{0\}$. The definition of the differential and the closed unit ball
+formula of the norm include this case.\newline
+\rocq{norm_ratio_zero_source_exception},
+\rocq{norm_differential_sharp_limits}}
+\entry{3.2.16, p.~253}{If $f$ is $(\phi,m)$ approximately differentiable
+at $a$, with $g$ as in the definition, then $f$ is differentiable relative
+to $\{x:f(x)=g(x)\}$ at~$a$.}
+{The concept of 3.1.22 (p.~235) is introduced under the standing assumption
+$a\in\Clos S$, which 3.2.16 does not ensure. For $\phi=0$ and the empty
+function every point is a point of approximate differentiability, while
+every agreement set is empty. Without the standing assumption the
+definition of 3.1.22 is satisfied vacuously, so the defect is a missing
+presupposition, not a false conclusion. \emph{Correction:} add
+$a\in\Clos\{x:f(x)=g(x)\}$, which holds when $\phi\{a\}>0$.\newline
+\rocq{measure_approximate_empty_zero},
+\rocq{measure_approximate_empty_agreement_not_closure},
+\rocq{differentiable_representative_relative_agreement}}
+\end{errors}
+
+\section{Misprints in statements, formulas and the index}\label{s:misprints}
+\begin{errors}
+\entry{1.9.1, p.~41}{$\bigodot_*V=\bigoplus_{m=2}^\infty\bigodot_mV$.}
+{Read $m\ge0$, as the next sentence (degrees zero and one) requires. The
+sum for the ideal starts correctly at $2$.\newline
+\rocq{symmetric_zero_ambient_empty_word}}
+\entry{1.9.4, p.~43}{$\Upsilon(e^\alpha)=\sum_{p=0}^m\sum
+\binom{\alpha_1}{\beta_1}\cdots\binom{\alpha_m}{\beta_m}e^\beta\otimes
+e^{\alpha-\beta}$ for $\alpha\in\Xi(n,m)$, the inner sum over
+$\alpha\ge\beta\in\Xi(n,p)$.}
+{The multi-indices have $n$ entries; read
+$\binom{\alpha_1}{\beta_1}\cdots\binom{\alpha_n}{\beta_n}$.\newline
+\rocq{symmetric_diagonal_monomial}}
+\entry{1.10.6, p.~49}{$\alpha(j)=\card\{i:s(i)=j\}$ for $j=1,\ldots,m$.}
+{Read $j=1,\ldots,n$.\newline
+\rocq{symmetric_prescribed_fibre_condition},
+\rocq{symmetric_fibre_cardinality}}
+\entry{2.7.16(7), p.~141}{$s[p^{-1}\{y\}]=(p\circ s^{-1})^{-1}\{y\}$ for
+$s\in\mathbf O(n)$, $y\in\R^n$.}
+{Read $y\in\R^{n-m}$, since $p$ maps $\R^n$ into $\R^{n-m}$.\newline
+\rocq{affine_parametrisation_fibre}}
+\entry{3.2.22, p.~260}{$\int_W\operatorname{ap}J_\mu f\,d\Haus^m=\int_Z
+\Haus^{m-\mu}(W\cap f^{-1}\{z\})\,d\Haus^mz$.}
+{Read $d\Haus^\mu z$, as in assertion (3) on p.~258 and in the preceding
+integrals.\newline
+\rocq{rectifiable_coarea_subset_formula}, \rocq{federer_3_2_22_3}}
+\entry{Index, p.~673}{The entry for Gross measure points to 2.10.3,
+p.~172.}
+{Read 2.10.4(1), p.~172.\newline
+\rocq{gross_measure}}
+\end{errors}
+
+\section{Errors in proofs}\label{s:proofs}
+\noindent The statements of these items are correct; an intermediate
+assertion of the printed proof is false.
+\begin{errors}
+\entry{2.10.24, p.~188}{Remark after the proof: the closed balls in a
+boundedly compact metric space $X$ form a closed set with respect to the
+Hausdorff distance.}
+{False. In $X=[-1,-1/2]\cup[1/2,1]\cup\{-2,2\}\subset\R$ the set
+$C=[-1,-1/2]\cup[1/2,1]$ is not a ball, but the balls with centre $1/2+h$
+and radius $3/2-2h$ lie within Hausdorff distance $3h$ of $C$.
+\emph{Correction:} the spherical equality is proved by Hausdorff
+comparison instead.\newline
+\rocq{closed_ball_hausdorff_closedness_counterexample},
+\rocq{spherical_weighted_proper_equality}}
+\entry{2.10.31, p.~196}{After the reflected-cap formula, $T_k\subset\B(a,s)$
+for some $s<r$.}
+{Here $r=\inf\{s:T\subset\B(0,s)$ for some $T\in C\}$ and $a$ lies on the
+sphere $\operatorname{Bdry}\B(0,r)$, so the contradiction requires a ball
+with centre $0$. The origin singleton lies in the centred unit ball and
+misses its sphere, but lies in no ball of radius less than $1$ centred at a
+point $a$ with $|a|=1$. \emph{Correction:} read $T_k\subset\B(0,s)$ for some
+$s<r$.\newline
+\rocq{shrinking_ball_wrong_center_counterexample},
+\rocq{steiner_minimal_radius_contains_sphere}}
+\entry{3.1.24, p.~241}{The norms of all terms of the coordinate series
+total at most $\sum_{m=0}^\infty c^mm!\,(\sum_{i=1}^n|x_i-a_i|)^m/m!$;
+the term of order $0$ is thus bounded by~$1$.}
+{Condition (1) bounds only the differentials of positive order; the constant
+analytic function $2$ violates the printed bound at the centre.
+\emph{Correction:} keep $|f(a)|$ as a separate term. Absolute convergence
+is unaffected.\newline
+\rocq{analytic_printed_constant_term_bound_fails},
+\rocq{analytic_coordinate_zero_degree_cost}}
+\entry{3.2.29, p.~268}{$(\im F)\sim\bigcup\{f(U):U\in G\}
+=F(\R^m\sim C)\cup f(C\sim P)$.}
+{Only the inclusion $\subset$ holds: $F(\R^m\sim C)$ may meet
+$\bigcup\{f(U):U\in G\}$. \emph{Correction:} replace $=$ by $\subset$,
+which suffices for the subsequent estimate.\newline
+\rocq{agreement_image_cover_remainder},
+\rocq{lipschitz_small_manifold_remainder}, \rocq{federer_3_2_29}}
+\end{errors}
+
+\section{An error in the list of corrections of May 1987}\label{s:erratum}
+\begin{errors}
+\entry{2.9.18(1), p.~163}{Erratum p.~3, book p.~163 line~11: in
+$\psi(A)=\sup(\{0\}\cup\{c_j:A\cap S_j\neq\varnothing\})$ read
+$A\cap S_j=\varnothing$.}
+{With this replacement $\psi(\varnothing)=c_1=1$, so $\psi$ is not a
+measure, and the computation $\psi\B(x,r)=c_{j+1}$ for
+$c_{j+1}\le r\le jc_{j+1}$ fails. \emph{Correction:} keep the book's
+condition $A\cap S_j\neq\varnothing$.\newline
+\rocq{weighted_miss_capacity_empty_positive},
+\rocq{weighted_miss_capacity_not_measure},
+\rocq{weighted_hit_measure_is_measure}}
+\end{errors}
+
+\section{Corrections of the list of May 1987 confirmed by the
+formalisation}\label{s:confirmed}
+\noindent The formalisation adopts the following corrections of Federer's
+list. Pages and lines are those of the book. Corrections of typography or
+wording alone are omitted; the register lists them in its preamble.
+\begin{confirmed}
+\entry{1.5.1}{22, 9}{In the associativity identity of interior
+multiplication the multivector is $\zeta\in\bigwedge_tV$.}
+\entry{1.7.8}{34, 29--30}{$\langle\xi,*\beta\rangle=(-1)^{p(n-p)}\langle
+*\xi,\beta\rangle$ for $\xi\in\bigwedge_pV$, $\beta\in\bigwedge^{n-p}V$.}
+\entry{1.7.9}{35, 3}{$(v\otimes w)\bullet(v'\otimes w')=(v\bullet
+v')(w\bullet w')$.}
+\entry{2.1.5}{57, 26}{$\phi(A)=\card(A)$ for $A\subset S$.}
+\entry{2.2.1}{60, 4}{Both generation criteria assume $\varnothing\in S$;
+for $S=\varnothing$ the generated family $\{\varnothing\}$ is not a Borel
+family over a nonempty $X$.}
+\entry{2.2.10}{66, 13 and 15}{A sequence $S_1,S_2,S_3,\ldots$ of closed
+sets in the cylinders $\mathscr N_j$.}
+\entry{2.2.10}{67, 2}{$\bigcup G$ and $\bigcup H$ are Borel separated.}
+\entry{2.3.8}{78, 7}{$\mathbf A(\phi,Y)$ is a set of partial functions; the
+vector space and convex hull statements concern its members with domain
+$X$.}
+\entry{2.4.12}{86, 26--27 and bottom; 87, 1}{$\phi_{(p)}$ is defined on
+$\mathbf A(\phi,Y)$ and is a seminorm on $\widetilde{\mathbf A}(\phi,Y)$.}
+\entry{2.4.12}{87, 18}{The functions with finite image are dense in
+$\Lsp_p(\phi,Y)$ provided $p<\infty$ or $\dim Y<\infty$.}
+\entry{2.4.12}{87, 32; 88, 3}{$\phi_{(1)}$ closed subspace; the subspace of
+functions with finite image.}
+\entry{2.4.16}{89, 19}{The tests range over $u\in\Lsp_q(\phi)$ with
+$\phi_{(q)}(u)\le1$.}
+\entry{2.5.1}{91, 28}{$\sup\{f,g\}\in L$ for all $f,g\in L$.}
+\entry{2.5.7}{98, 10--11}{$\mu$ is defined on $\Lt_p(\phi)$, and the
+supremum is over $\phi_{(p)}(f)\le1$.}
+\entry{2.5.7}{99, 13, 14, 17}{The residual Daniell integral is taken on
+$L^+$.}
+\entry{2.5.8}{100, 3 and 5}{The Daniell integral is on $\Lt_\infty(\phi)$
+and vanishes whenever $\phi_{(\infty)}(f)=0$; without this hypothesis
+evaluation at a point under the zero measure is a counterexample.}
+\entry{2.5.9}{100, 21--24}{$\Lt_1(\phi)$ in place of $\Lsp_1(\phi)$;
+$L^+$ is dense in $\Lt_1(\phi)^+$.}
+\entry{2.5.11}{102, 8 and 12}{The lattice is
+$\Lt_1(\alpha_1\times\beta_2)\cap\Lt_1(\beta_1\times\alpha_2)$, and
+$\Lt_1(\phi)=L$.}
+\entry{2.6.4}{118, 20, 21, 24; 119, 3, 4, 6}{$\Lt_1$ in place of
+$\Lsp_1$.}
+\entry{2.6.4}{119, 19}{$\nu(h)=\int h\,d(\alpha\times\beta)$ for
+$h\in\mathscr K(X\times Y)$.}
+\entry{2.7.4}{124, 30; 125, 7--8}{``Whenever $0\neq\nu\in\mathscr K(X)^+$,
+$(\spt\nu)\times(\spt\nu)\subset\beta$, $a\in\spt\nu$'', and
+$\lambda\in S(\beta)$.}
+\entry{2.7.14}{131, 10}{The measure associated with a \emph{nonzero}
+monotone left (right) $\chi$ covariant integral is a Radon measure. For the
+zero integral on the group of subsets of $\N$ under symmetric difference the
+associated measure is not a Radon measure
+(\rocq{zero_left_invariant_measure_not_radon}).}
+\entry{2.7.14}{132, 22 and 25}{$f\in\Psi$ in place of $f\in\Phi$.}
+\entry{2.7.14}{133, 3}{$U=(G\sim P)\cup(P\cap U)$.}
+\entry{2.7.15}{133, 4}{The measure associated with a \emph{nonzero}
+monotone $\chi$ covariant integral is a Radon measure
+(\rocq{homogeneous_covariant_measure_radon}).}
+\entry{2.7.16(1)}{134, 26; 135, 35}{$\Leb^n$ is the unique \ldots; the
+exponent in the recursion for $\bm\alpha(n)$ is $(n-1)/2$.}
+\entry{2.7.16(2)}{136, 29}{The left Haar integral of $GL(V)$ is $\int
+u\,|\det|^{-n}\,d\phi$.}
+\entry{2.7.16(5)}{138, 34}{The modular function of $G^W$ involves
+$|\det[L(g)|W]|^{-1}$.}
+\entry{2.7.18}{141, 25}{$\chi(g)\to\chi(h)$.}
+\entry{2.8.2}{142, 33}{$G_0=\varnothing$.}
+\entry{2.8.4}{143, 17}{$\varnothing\notin F$.}
+\entry{2.8.17}{151, 24; 152, 10}{$\phi$ is positive on $V(X)$; cite
+2.8.3.}
+\entry{2.9.7}{155, 26}{$\mathbf D(\psi,\phi,V,x)\notin\R$.}
+\entry{2.9.12}{159, 7}{$X\sim\{z:f(z)\le t\}$ has density $0$ at $x$.}
+\entry{2.9.13}{159, 19}{$(\phi,V)$.}
+\entry{2.9.15}{161, 11}{Cite 2.8.14.}
+\entry{2.9.17}{162, 24--25}{$\B(x,2r)$.}
+\entry{2.10.1}{170, 24 and 35}{Cite [F12].}
+\entry{2.10.14}{177, 23}{The upper integral $\int^*$.}
+\entry{2.10.21}{184, 8 and 10}{Nonempty compact convex subsets.}
+\entry{2.10.28(3)}{192, 4}{$\card(H_0)=1$.}
+\entry{2.10.28(4)}{193, 7}{Sum over $S\in\Phi(j,n)$ with $S\subset T$.}
+\entry{2.10.29}{194, 8}{$\sigma_j\ge t_{j+1}\to0$.}
+\entry{2.10.32}{197, 4}{$\mu\bm\alpha(m)^{-1}2^m$.}
+\entry{3.1.1}{210, 26}{$u_{n+1}-u_n=g(u_{n-1})-g(u_n)$.}
+\entry{3.1.4}{214, 24}{$\ge1/j$.}
+\entry{3.1.9}{218, 12}{$\U(z,1/j)$.}
+\entry{3.1.11}{219, 4}{$\{|\phi(v_1,\ldots,v_m)|:\ldots\}$.}
+\entry{3.1.11}{221, 1}{$a+t(x-a)$.}
+\entry{3.1.12}{224, 4}{$\alpha h(x)+(\beta+1)h(s)$.}
+\entry{3.1.16}{228, 19}{All $a$ in $A$.}
+\entry{3.1.20}{232, 11, 14--15}{Maps $f_i:W_i\to B$ of class $k$ with
+$f_i(x)=x$ for $x\in B\cap W_i$; the blend maps into $T\cap B$.}
+\entry{3.1.22}{235, 19}{$f(a)=\eta$ in case $a\in S$.}
+\entry{3.2.2}{242, 23}{$\mathbf O(n,m)$.}
+\entry{3.2.3}{244, 11}{$J_mf(x)$.}
+\entry{3.2.6}{246, 3 and 13}{$f(a)\le f(b)$; $\Leb^1$ summable.}
+\entry{3.2.10}{248, 21 and 25}{$\Leb^{m-n}$ and $\Haus^{m-n}$.}
+\entry{3.2.11}{249, 21}{$\Leb^m(A)$.}
+\entry{3.2.16}{253, 29}{$\delta_{i+1}<\delta_i/2$.}
+\entry{3.2.16}{253, 32}{Differentiable relative to $T$ at $a$; $T\cup\{a\}$
+in case $\phi\{a\}>0$.}
+\entry{3.2.16}{254, 2}{``generalizes'' in place of ``coincides with''.}
+\entry{3.2.21}{257, 26}{$\Leb^\mu(B)$.}
+\entry{3.2.22}{258, 20 and 22; 259, 3--4}{The source remainder
+$R=W\sim\bigcup_{i=1}^\infty\psi_i(K_i)$, with $\Haus^m(R)=0$ and
+$\Haus^{m-\mu}$ null fibres.}
+\entry{3.2.25}{261, 4}{$\Haus^m$.}
+\entry{3.2.26}{261, 22 and 29; 262, 14}{Cite 2.10.5; $x-w$; cite 3.2.20.}
+\entry{3.2.28(2)}{265, 3}{Delete ``because $\mathbf O(n)$ is compact,''.}
+\entry{3.2.28(3)}{265, 12}{$\mathbf O(m,m-1)$.}
+\end{confirmed}
+\end{document}

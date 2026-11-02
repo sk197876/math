@@ -1,0 +1,92 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 388.42,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "313cce5adca9bc46cc00b4e3c8ee25e2c5959534bcaf3cd98b78fc21905ebd60",
+    "theories/Rectifiability.v": "6c32f37adc8d860d75518b330d9c6da466930e37f04db2fc795d67bcdaa13c19",
+    "tests/DifferentialExamples.v": "7dd351c052976df2842623bc16f0685c3dd8e4b60c2aeacf8291314c59a305f6",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/Assumptions.v": "4d6d95f328d8a3d7c11c4a5247af48c07fddf7dcad3db74a9fc7f02743779d72",
+    "theories/CountableUnivalentSelection.v": "75f34ed6c560daa0568088e8394ff9d0bf92e6a3e1ce79b0a9219b0ba41c0f14",
+    "theories/BorelAreaSelection.v": "a6eb7866b7697e2cc03098f3628dfb1a1d0f6ab28e7f4a343fb0f2afada44ca1"
+  },
+  "item": "3.2.4",
+  "date": "2026-10-31",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 2,
+  "scope": "Complete Borel univalent selection for every Lebesgue-measurable source set: the Borel subset lies in A and the actual positive-Jacobian locus, f is injective on it, and its image misses only a Hausdorff m-null subset of f(A). Prove countable Borel image-disjointification selection, its empty-family case and exact preservation of the selected Borel rank image. Identify positive Jacobian with injective differential locus. The numbered statement retains m<=n; the supporting theorem allows arbitrary ambient dimensions. Two regressions cover zero-dimensional source positive Jacobian and selection from an empty family.",
+  "source_count_checked_unchanged": 6251,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 91.61,
+    "warnings_or_errors": false,
+    "compilation_commands": 4,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "bfb42531",
+    "changed_modules": 4,
+    "affected_modules": 4,
+    "entries": 17613,
+    "old_entries": 17605,
+    "audited": 80,
+    "audited_old": 72,
+    "audited_new": 8,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 255.16,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 31666,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "artifact_reuse": "Focused registered make compiled both new theories and changed public/test roots, reusing compatible dependencies. No draft .vo was copied and no clean/full rebuild ran.",
+  "section_release": false,
+  "audit_nice": 19,
+  "priority_note": "Compilation and recursive kernel checking ran at nice 10. The incremental audit inherited nice 19 from nested nice invocations and remained low-priority; subsequent wrappers apply nice only once."
+}

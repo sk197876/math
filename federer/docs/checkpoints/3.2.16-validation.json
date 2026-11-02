@@ -1,0 +1,145 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 522.9,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "d0bc05836a9c320391e525709fe4659fd067696f81730aedf69a7a4d1d534fca",
+    "theories/MeasureAffineAnnularRelative.v": "33c3c38b5b0be30944c72d7fbea303b130f5a18af51f8130f41d7ec448e3c3f2",
+    "theories/MeasureApproximateAffineUP.v": "afc9bfb03adb645627beb9d6d4c937383be8b293b70160e1ef1011fdbd4bc7bc",
+    "theories/MeasureApproximateTangentBasic.v": "cbb561d24d46df43c594786a73151b96b90f74208b885b83a27d436bcadafb57",
+    "theories/NormAnnularOmissionDensity.v": "b824b2c8c73dd822f0e608f2116e8c81fb3c407b06ebcdec875153ab0a844e25",
+    "theories/Rectifiability.v": "91e14c2f9f565080ab6c29701074ec13cfeb07f708ff905045afd0d18050e5c9",
+    "theories/MeasureAffineAnnularApproximation.v": "2c6a8b5d37f5e8c9d0846950e65737289e5018914efea2f19d189eb9370ef6a6",
+    "theories/MetricDensityZeroPowerMass.v": "24099ece63dbc179909ec30d2b1c8f446c4691b9cbb398ede78452faacfa85d1",
+    "theories/MeasureApproximateNormalUP.v": "1d779a7f2f35b7724be84d506b54bd2aa351d03d32e659efc8298d24c916326f",
+    "theories/EuclideanMeasureAffineCriterion.v": "5c3758c628a83f12cbe0d2a82c1654789db20fab1fde351f756e915c4b9f196d",
+    "theories/MetricDensityAnnularRadii.v": "5acbd3b124585aff177a4a6ec361714b58679139f122ffc9dac2bdc85cfd5a48",
+    "theories/ApproximateDirectionConeGeometry.v": "2ee37db6730f7d7708c2f6de27a90dfddd673165245fb63bcce9c4d9e396ecdb",
+    "theories/MetricDensityZeroUnions.v": "353b5d3cfdba36048fd462091dce4f39bad3e6e525e1fa5c526e9f745d75a225",
+    "theories/MeasureApproximateBoundary.v": "ba188e97ac1ad1ddc9e02e2a2cec7b0d0ebb8999c14e250b369652f0d8dccb55",
+    "theories/CompactNontangentDirections.v": "c9f14d7734cd79abcd3ff862ceb179c69b47462b38ee3191e78c3405c832437f",
+    "theories/EuclideanMeasureApproximateGeneralization.v": "be29a19c2cbbbf952b4f5cb885e40ae534cdbf7e561a08fc5fe05681cb820759",
+    "theories/MeasureApproximateAffineForward.v": "78f3d5b49182855155592097fbe70f54fe4909528d03f5d014d614234434d1b7",
+    "theories/MetricDensityPositiveAtom.v": "c8711d982ff03e4ddefedc1976ae0f6d7b0f197b57bd962ca70df5c598c91950",
+    "theories/MeasureApproximateTangentCriterion.v": "586f4eb1b995c25f01787e42dc137d2925cadcb56ab538fa736234fc6bef9a76",
+    "theories/NormAnnularSetConstruction.v": "d9ff7149a6726f768cc8a98c27f95fe600592b91fc3e906a01d6adaa4cb59b2e",
+    "theories/MeasureApproximateNullBasePoint.v": "77e5d51af6789bcf538f900f2654761463e385ce13c5506aa9b66f9c8d6b7338",
+    "theories/MeasureApproximateAffinePositiveAtom.v": "4cbaab19a79d929f6dbeb02777f441babc98e8f142540cd6f23b131c7e2d5540",
+    "theories/NormAnnularOmissionBound.v": "3998b9753601e54b1b7f4336a04db33acc65d8edb465e80f3dff3f6346ca0291",
+    "theories/MeasureApproximateDifferentialSealed.v": "089e1f5b6e8601840db84a7f2aa76cd1ff3dd3ecf0e54ace9c524d62ce7fb66f",
+    "theories/MeasureApproximateDifferentialUP.v": "6cacff988b9b2273bb5ce5d5243a5cecab9fe8e2011919e22677c5d04ab287b2",
+    "theories/ShrinkingRadiusSelectionUP.v": "fd419b92b2acdcbadc759c84cc3417e02c4c51e56dc8aa327adc24ea6a0406cb",
+    "theories/MetricDensityZero.v": "13f89979718d6133379c7a9a587569437d5f94ba95a07bdf1bca94920f79fb4b",
+    "theories/GeometricErrorTailSum.v": "8ea6d8e496522267c53ec89463c565ae39364952dd38e903e47192469dd3e046",
+    "theories/ShrinkingRadiusSelectionConstruction.v": "8d05fffb33b6a67aafb0a354c4b64fbeca32b73c80e79cd11c171d022b81a94c",
+    "theories/MeasureApproximateAffineReverse.v": "a4e0869a91d30264d6e6292994c256c2f78756a80d9cf515f1c19f3e94169512",
+    "theories/NormAnnularSetUP.v": "7d07db26630c24d8467c7fac38c41f9aa3eee44575eee6a2d890566464ebcc87",
+    "theories/MeasureApproximateDifferential.v": "630172db580c9acc287a51f12fce032dbfeafd5ce14a10a97114b60e62124474",
+    "theories/ShrinkingRadiusSelectionLaws.v": "7e99a16fb7b6424b21ef0fd0729af1dc8208a78b192b0fdda2d282d278a5e1c9",
+    "theories/MeasureApproximateAffineEquivalence.v": "57e1eb603fc8d7c4d007465fecd67e5d8d1c1df60ff81596a121518265eb9dbc",
+    "theories/ShrinkingRadiusSelectionSealed.v": "ce7a77ec12f71997d9fa22f3e61cccbf024925866d3ff0b7589458f2511f34c2",
+    "theories/EuclideanMetricZeroDensity.v": "4a4f538c8b2d2cbfab21943fb08fbc6d118126b975cc5420c161bba22976fe72",
+    "theories/MeasureApproximateDifferentialUniqueness.v": "a9ddd47752e9f036bac0e6b65f1527bf7dce7ed213cea36e1fcb88387d093b0b",
+    "theories/MeasureApproximateRelativeAgreement.v": "0bb9b60ca7b34f7a0700b6b314b954c8257782e3b6ca02c5642a0768d302e3ba",
+    "theories/NormAnnularSetSealed.v": "160d0ae3c6a48a732421fdf0115b07aa010cf4f343c6b6a5bcd5067eb9f8a1d3",
+    "theories/MeasureApproximateDifferentialConstruction.v": "89bd22124066d0462f115bcd159b0c2d36321cd8801af6ed362d99f447e1c510",
+    "theories/MeasureApproximateTangentUP.v": "590c699988497a578ecc9c8812cfaebd48b2d587a09d4f41115b8e2f86f8b6f6",
+    "theories/NormAnnularSetGeometry.v": "22047a33edc78cc65254187c21350454d737142ffe795beae4f58cd4d6efc4af",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "2783dc524aaf316326b0576960b026ede618bc21c713cca802863a330f5dda18",
+    "tests/Assumptions.v": "a4eb850605b7f55b603405c3c547914ed1462ddbda3959b1758f493850abb6c9"
+  },
+  "item": "3.2.16",
+  "date": "2026-10-31",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 40,
+  "public_exports": 37,
+  "regressions": 3,
+  "scope": "Federer 3.2.16, pp. 252\u2013254: approximate tangent and normal cones, directional upper-density characterization, compact nontangent ray hull, unique opaque differential with exact cone domain, both affine implications, corrected shrinking annuli and atomic centre, relative differentiability with the standing closure domain, and generalization of 3.1.2. Arbitrary measures and normed spaces; no local-finiteness or completeness premise. Includes three erratum corrections and the proved zero-measure/empty-agreement closure boundary.",
+  "source_count_checked_unchanged": 6647,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 372.98,
+    "warnings_or_errors": false,
+    "compilation_commands": 42,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "e049ceb2",
+    "changed_modules": 42,
+    "affected_modules": 42,
+    "entries": 18557,
+    "old_entries": 18474,
+    "audited": 183,
+    "audited_old": 100,
+    "audited_new": 83,
+    "unresolved_names": 0,
+    "closed": 1,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 539.57,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 36367,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "umask": "0002",
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "private_construction_boundaries": {
+    "MeasureApproximateDifferentialConstruction": "MeasureApproximateDifferentialSealed",
+    "ShrinkingRadiusSelectionConstruction": "ShrinkingRadiusSelectionSealed",
+    "NormAnnularSetConstruction": "NormAnnularSetSealed"
+  },
+  "no_new_external_dependency": true,
+  "erratum": [
+    "p. 253 line 29: strict half-radius decrease",
+    "p. 253 line 32: relative differentiability and positive-atom centre",
+    "p. 254 line 2: generalizes 3.1.2"
+  ],
+  "local_qualification": "The relative assertion retains a in closure(S) from 3.1.22, p. 235. Zero measure and the empty actual graph prove this cannot be inferred from approximate differentiability alone; no such extra premise is added to the affine equivalence."
+}

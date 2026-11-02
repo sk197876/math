@@ -1,0 +1,44 @@
+{
+  "scope": "Focused completion of Federer 3.1.2: centered-ball approximate limits, uniqueness, exact sealed graphs and affine/domain regressions; recursive Chapter 3 kernel check and new-theorem assumptions audit, not a full-project audit",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "kernel": {
+    "exit_code": 0,
+    "seconds": 249.27
+  },
+  "assumptions": {
+    "exit_code": 0,
+    "seconds": 108.46
+  },
+  "new_queries": 35,
+  "rechecked_previous_queries": 10,
+  "previous_results_preserved": 15558,
+  "total_queries": 15593,
+  "allowed_assumptions": [
+    "boolp.constructive_indefinite_description",
+    "boolp.functional_extensionality_dep",
+    "boolp.propositional_extensionality"
+  ],
+  "source_sha256": {
+    "theories/EuclideanApproximateContext.v": "68c7d3711f340023cd4fbd16dc488bb3a7b3c3489e0f390f70d7ca5236664117",
+    "theories/EuclideanZeroDensitySmallMass.v": "97ce5793e8152de1edd9de1acd6e19cc02743bd80142d60e187a5844904c1083",
+    "theories/ApproximateDifferentialUP.v": "02a66ee16edd49b8b36c2f6f0611f9fbeb43693ffe9e9a7905f96c79fde4198f",
+    "theories/EuclideanDensityGoodPoint.v": "e0b7583a6f974fcbc59b9b7b03013fb7d277188e64979152784c9ed9d884be5b",
+    "theories/ApproximateDifferentialRemainder.v": "25c9dbffa3299ceb990bbac6d759aae120c3f8ca126c296ecd974303ebca5008",
+    "theories/NormLinearDenseProbes.v": "735e637d8900474563a6f63851adc10dc9d94921db34040b07d1b17f4bfdbe0a",
+    "theories/NormApproximationDifference.v": "79b9c4074fb50af82b35f7fd74d8fbad53c12582e45b805b3de38f9b3110b4e1",
+    "theories/ApproximateDifferentialUniqueness.v": "a78be838bd9d4870efda29ec6b62460b27132b3c69d2070ebb879e5e8bab91ad",
+    "theories/ApproximatePartialDerivativeUP.v": "c4249eefe66684df4b00c2eb270b573ff082d77ff7335ddc4fab6cb507978c72",
+    "theories/ApproximatePartialDerivativeUniqueness.v": "2171a44c7912ef0b8e4a6203cde30afac67131c46d8d0db00b2e5cdbd9049ad9",
+    "theories/ApproximateDifferentialConstruction.v": "ee5e704c8a76003deec169436a0c2753d596cf4d00639554594bdf602d382773",
+    "theories/ApproximateDifferentialSealed.v": "85d8df0392bf3c2a4b21d2a987af5e848349b3c2e79805f916f74e3af0620af9",
+    "theories/ApproximateDifferential.v": "49d9fa07a753a468fc332700c65e2b30f840dc87f82f2451729d743bfe2d6fe5",
+    "theories/ApproximatePartialDerivative.v": "165b8fa2e42a90407b7333b6c18b1657a42d4f0905333d58776e7b36a01ca6b5",
+    "theories/CenteredNullSetDensity.v": "5b4578e7c7e0067e1e385101c07bc41f2c0871cfd3a644a52d88128091e62107",
+    "theories/ApproximateDifferentialAffine.v": "928bdda9a4f521abaf60ac04985923ffbe72eacdbc62374fa67ac427d36e19a9",
+    "theories/ApproximatePartialDerivativeAffine.v": "99fd72af3c850c1801c1c27939cf13b398a2f2cf5c4d89fe43a4574859b7a76b",
+    "theories/CenteredZeroDensityCriterion.v": "9548dcd30409ea360906d88b45d923a281d8bfd62bf6e26cfa7c5fcf4dffde91",
+    "theories/ApproximateDifferentialLocal.v": "f5af8cf6c7d483692288be456418c54432b8b2b10ce7030298651a310511d28f",
+    "theories/Rectifiability.v": "c8b2d6b1b92c8694ec50ba4591b61ad5cbab16513a8b51512dbf22fd1aed814b",
+    "tests/DifferentialExamples.v": "0557625f85573fa3ae08ae73aea5d9ad9ef6cacd2ad8fbaa2a6807d85bda3892"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 513.29,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "7e43ee91da1f9cebd050abbdb5ca421f06c5f490de81944af1e7f693615c9c02",
+    "theories/Rectifiability.v": "9783445c7ce5f4d9cf2736d172a0d016f9dfd60433a90533ba08cef2086d47b1",
+    "theories/FullRankComplementFibreNull.v": "4763fdce50529d874d9fff12e0687ca8897f0843f663ef99b829d53035fdda86",
+    "theories/CoordinateFibreRectifiability.v": "889f77f4792efce308877d94da925c83a95acf638e430d965cf2fd69d336ddcc",
+    "theories/LipschitzFibreRectifiability.v": "156ae449bed3666781147bcbec0607a80ac94cf18dcec9542a9efd451c93439a",
+    "theories/EuclideanLipschitzRectifiableImage.v": "5ce3c0c6f54fea9965accbd5d37c27a1d417747ec423ec60502d3650c11ddff7",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "b1188713859947a56e4da4e82e31e2948e3f29624a749ad1371e83b072096ce4",
+    "tests/Assumptions.v": "e4513e51bb3c6bf97d1036ee4d728213989f1a549dfe15673c6ad5e79d3a800e"
+  },
+  "item": "3.2.15",
+  "date": "2026-10-31",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 4,
+  "public_exports": 4,
+  "regressions": 2,
+  "scope": "The complete theorem of Federer 3.2.15, p. 252: fibres of a globally Lipschitz Euclidean map R^m to R^n with m>n are countably (H^(m-n),m-n) rectifiable almost everywhere. Proved bounded-image decomposition, actual full-rank inverse-slice parametrizations for every target point, critical and nondifferentiable null-fibre reductions, and exact almost-containment. Target dimension zero is included; no finite fibre-mass, source measurability or extra rank premise.",
+  "source_count_checked_unchanged": 6607,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 149.57,
+    "warnings_or_errors": false,
+    "compilation_commands": 6,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "552b6836",
+    "changed_modules": 6,
+    "affected_modules": 6,
+    "entries": 18474,
+    "old_entries": 18466,
+    "audited": 106,
+    "audited_old": 98,
+    "audited_new": 8,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 418.63,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 35865,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "umask": "0002",
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "private_construction_boundaries": {},
+  "no_new_selected_witness": true,
+  "no_new_external_dependency": true
+}

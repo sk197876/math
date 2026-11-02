@@ -1,0 +1,121 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 473.15,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "070ba5c7ebe885cb78ffd912de157180adcefd9edb1bf1c9bdf57d9e90b0fc57",
+    "theories/Rectifiability.v": "33b2a90a069dbbc36195d609e07b15270f93c3835c79f9042d0b17d6e62c26f8",
+    "tests/DifferentialExamples.v": "e8dbc58d2e6a9b68d407759183ff8cc7c0da7847f5fbbf3d9a1bf81f12b7da15",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/Assumptions.v": "2efafa17939ca2ba5e65bd6e68d9f23b83bd25b56b7b2289ceaed7289eeceb35",
+    "theories/CoordinateInverseFibres.v": "d918ac5c16cbfa3abda51ec56bb35caee1746b7f8dca20d7c7638631801fa2ba",
+    "theories/DensityDifferentialAgreement.v": "7adc6f2b1e9adf60e3c36b871ea5f722f0295320323ce1dec3a805d444e74c20",
+    "theories/EuclideanBlockCutoffSections.v": "3c889aac1b10ab4f0bd8dbcf6a9685816f36d434f871e01b3168cb4b49ca07e0",
+    "theories/EuclideanBlockImageSections.v": "e0b416b73f89b4c3af5efc629c422e6e93c07a69d327968b67e67cdb2b4c1293",
+    "theories/EuclideanBlockIntegral.v": "b01fca4b59fc65ce3f679c0dea364cc61797de0e62fbdaef29ce50335ec03f9d",
+    "theories/EuclideanCoordinateVolumes.v": "a6998030ad23a1cb2a33b0757c81b4ba138164e061c6f28d969604075bdded43",
+    "theories/EuclideanDifferentialObservables.v": "2c00b27f19191e9c4d94f2d261b428b9b8549d048d6d950165159bcbcd919ca4",
+    "theories/EuclideanFrameJacobian.v": "56572f6ff3024b64517512ecbcaf4ac3ce49446f92b0023dcc952bffa84071df",
+    "theories/EuclideanRectangularAdjoint.v": "45c2069cb855d7f90ff6c72bb2395b2e39418d87693d959991091d35c0ff2ea7",
+    "theories/EuclideanSliceDifferentials.v": "b43f4499da3d3dd4658e69ddc6c0908fdd305e5663930c42f5b529d95c83ef20",
+    "theories/InjectiveAreaMass.v": "997d08794bfe88544ca8aac4b51812e9801cee3994a1ed44e5e1c7df6297b8c6",
+    "theories/InjectiveAreaTargetWeight.v": "ee894898e88a9ec451dd21d260a06ec5fd40b14c3741776bae33f564c3764b38",
+    "theories/CoordinateImageSections.v": "6a4bc59fd64b95ab92480721fde7d5f27db27838aa4d1711a39cf59f3aa15a57",
+    "theories/CoordinateInverseJacobian.v": "736b2199ddc5fa9f6d35728463458b23de6b69a355003f2a428409df9925abc9",
+    "theories/EuclideanBlockFunctionFubini.v": "f42510c389a7b11fd0d32843e369e86ede4c23575666fa5192bf5098115802a5",
+    "theories/EuclideanBlockVolumes.v": "4ea16e55b5ac2285405e302532f6c2d35f28e40e18f407c106e3faad0ab7ee58",
+    "theories/EuclideanSliceJacobianRepresentative.v": "66e9053efeeea4968e790adb902831f8fc42c6bad0e89b631c7d0d7e6d9066ea",
+    "theories/EuclideanTargetJacobianContinuity.v": "be2faeb98be88d03089eb07104fd739c2b675286361875a1f290a912fe1c064d",
+    "theories/EuclideanBlockInverseJacobian.v": "824c24bdc710d7c154c4313b68b32193f3f527c6120a08fe6ac541f1affd1128",
+    "theories/EuclideanSliceJacobianAlmost.v": "2e87445bf8c9d0e3e2b13c7fb51445d774625b4002f712b7199c8f3ee2edb01c",
+    "theories/EuclideanTargetJacobianBorel.v": "cb63a63b2a396a1337b694bf995e521afb9e0d084258a0d29620ca9448dae1c2",
+    "theories/CoordinatePieceDifferentialDiagram.v": "f114954c45c05116cfcc6eca61aa39af15897396787cdd2d0aa6e2455b22bf33",
+    "theories/CoordinateSliceAreaAlmost.v": "77cae6892376da84b49916fee57076b23ded73b1f0cdcb03480c0ccfead4f585",
+    "theories/EuclideanTargetJacobianMeasurable.v": "b051be959782e7d314dc517e369f9940bb348920dfa6030c454ddad028305f43",
+    "theories/CoordinateCoareaSourceAgreement.v": "344af358ae021d8e2a6f90cd1f3acdd9284404a4d540620041f7f760344e0bd8",
+    "theories/CoordinateCoareaImageIntegral.v": "5446e6f1ec961fc51a4ee0258a32707cedcf9ac077399008164d50028d4daf54",
+    "theories/CoordinatePieceCoarea.v": "28c22263f7cff9fcdb362a1857af95ce3cd259728824dda44b9500f9a6269c1b",
+    "theories/CoordinateCoarea.v": "b9ab35a5fdf17e90740b8707058e732a5bc4adbf6b5906a6bdf24c4d429e1c60"
+  },
+  "item": "3.2.10",
+  "date": "2026-10-31",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 28,
+  "regressions": 3,
+  "scope": "Coarea on every Lebesgue-measurable subset B of a coordinate inverse piece E from 3.2.9, for Lipschitz f:R^m to R^n and m>n. Both actual integrals exist with the same possibly infinite value. Preserve the target-degree Jacobian partial domain and exact fibre identity for every y. The proof establishes the linear Jacobian identity internally, derives actual inverse differentials almost everywhere, applies 3.2.5, Fubini and the injective slice area theorem, and discharges all section measurability and integrability obligations.",
+  "source_count_checked_unchanged": 6417,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 332.41,
+    "warnings_or_errors": false,
+    "compilation_commands": 30,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "aa9fa3b4",
+    "changed_modules": 30,
+    "affected_modules": 30,
+    "entries": 18023,
+    "old_entries": 17962,
+    "audited": 145,
+    "audited_old": 84,
+    "audited_new": 61,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 466.74,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 33550,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "compiler_nice": 10,
+  "kernel_check_nice": 10,
+  "audit_nice": 10,
+  "artifact_reuse": "Focused registered compilation reuses compatible /opt/rocq/federer-build artifacts. No draft object was copied into the active tree and no clean/full rebuild ran.",
+  "qualifications": "Apply erratum p. 4, book p. 248 lines 21 and 25, both corrected complementary measure degrees m-n. Expand the printed orthogonal-kernel calculation through existing Chapter 1 contraction naturality, unit duality and determinants. The independent slice representative laws have proved local existence through existing opaque extension interfaces. No extra rank, finite-mass, measurable-derivative or slicing hypothesis, no new globally selected witness, private import or external dependency. Supporting block lemmas include zero blocks; the numbered integral theorem retains m>n.",
+  "section_release": false
+}

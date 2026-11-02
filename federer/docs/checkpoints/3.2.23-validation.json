@@ -1,0 +1,127 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 549.7,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "f4ccd1bd175593a0738e28772485063d2b2d3c98aa90d82b1909dfb2058db608",
+    "theories/EuclideanCartesianDifferential.v": "e61283e1c465f0308735adec80d47cb7e9dcbfe652289d5b05d3daa54c46e9b0",
+    "theories/Rectifiability.v": "cb0d1359d3417a5562741e07ba37d36106619bfcbd8135e56a4fa8082c6eafc1",
+    "theories/CompactCartesianAreaMass.v": "e2439735d423946fd343f4edb64e8cf91e644972bf81c7362eae8cd862381844",
+    "theories/CompactLipschitzImageMass.v": "d53de94dc02faf49809b2288df404575e0a8856108cd20c0fad48d040bbfc823",
+    "theories/EuclideanCartesianBorel.v": "1efe176bd5cbb1ecd942ec85bcad74eb1e336e5ccf604f5f837fc0c2dc235841",
+    "theories/RectifiableGlobalLipschitzCover.v": "a0278c77aa9658337f5172b105c45d6289e4aa67560db3a7cd5751c64d45808b",
+    "theories/RectifiableCartesianMeasure.v": "2d637d8936b227fbeeae4e4db17e4df2318918e957ac8d9d42ff089c3bf6ed02",
+    "theories/EuclideanSeparatedExteriorNorm.v": "dfd9a243b2f3c730d3f1c2728ae785b7e7cd27c30f5466b414e0ee8711a942e3",
+    "theories/EuclideanCartesianCutoffs.v": "c2f7b5886c66e60a01b9dd7a19ee34ee9e2bc5696018326a86a934080d857eb0",
+    "theories/RectifiableCartesianProduct.v": "a36aab6403844c951cb178c3a4ebd5f48d518068051d8c1b51a1162f010de9aa",
+    "theories/RectifiableBorelChartTrace.v": "0bb5e7588cac9673eb35d605b75ff491beb048fff3d97c79f83ecf1c22e663b6",
+    "theories/RectifiableCartesianProductUP.v": "4ae93a22248f15045f405f7b9efe748ea095b3ffd54fc43a716dea635c052e8a",
+    "theories/MeasureAlmostDisjointSum.v": "bb701d5a2faa59d2b1417dc2e981f0e3dacf3a6ca46606a2ab08415f4fb78e0c",
+    "theories/FiniteBorelProductRestriction.v": "bb4ffba2c815c9398e4d6f4abc919f7eae025e4b5e8a3287cb9cc577e29d39e7",
+    "theories/RectifiableProductNullFactor.v": "6341be98c97906d6e2ae4ab27dcaf89d7b0cec55a3cee2aeb54dace365fb02b9",
+    "theories/FiniteBorelProductIdentification.v": "6c4e92399b43132ee0deec56ccd60032d291a471b52d1a67a7e8cfe222fe3fe5",
+    "theories/EuclideanCartesianMap.v": "d852d1a5d53e8dc46fbfa3472aa4dd6a32a018978f415db3084f22849ea6529d",
+    "theories/OrthogonalWordsWedgeNorm.v": "0e207896fcec60775969f88a64daa16b38bc1b3afadb7a3f32bc53de9e726e4f",
+    "theories/RectifiableCartesianCover.v": "524edd3b8a091e7c82d37920bf2693580345d014ac47fa699c5abe38ae944e0a",
+    "theories/EuclideanCartesianJacobianAlmost.v": "5f84a25ca957756104eefa1b5bf0607745d1d3e1c6151762d99047d4dd561888",
+    "theories/EuclideanCartesianSwap.v": "7f9886d71474d18f094e821e9128f7e306e02eace9765e77b360434b93156b55",
+    "theories/MeasureDisjointLocalAgreement.v": "acc5d072d9265543ab2fbddedef1301870ca540b030f393b3d54edec93060129",
+    "theories/RectifiableFiniteHausdorffMass.v": "0c431f41fc2b704e5385d0e1081d0a943be5d8c66e5530644260d897d6bd845c",
+    "theories/RectifiableCartesianRemainders.v": "bf393c0a8d0ab64573f9e896a9a64d3db599a6148bdab274e69fc69d17c76029",
+    "theories/RectifiableProductNullSource.v": "1264cdb49224713fb997746ae2be7314c38e39828340afdbb1d087610947c12d",
+    "theories/BorelRegularHomeomorphicPushforward.v": "f6205095a829a4ea96d863d81ac97be258fede84aa19016383ee22288f52e9c5",
+    "theories/EuclideanCartesianAlmost.v": "1a390c98e50e7d31b11ef263ee58752726f58de2d1cf560f23724081e39065d5",
+    "theories/EuclideanCartesianLinear.v": "6a1b59f80e2de7ec5fe766a11cb5b5a63f86c1ca15827fe72e05ea9194a92b03",
+    "theories/CompactChartProductMeasure.v": "fcf9c3285d1d607827fb86e2dd04d3c788f468bc119c5161de9faff7dded10bb",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "f133f0040a8b61715f465b3a63e64ed9efd8d40f84df194c4d6ec32a04dbaa71",
+    "tests/Assumptions.v": "8763a51244a2d9035ec270abfddf5a412cbf88d9ed832dce69a079710981c50f"
+  },
+  "item": "3.2.23",
+  "date": "2026-11-01",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 28,
+  "public_exports": 28,
+  "regressions": 2,
+  "regression_support_lemmas": 2,
+  "scope": "The whole theorem of Federer 3.2.23, p. 260: genuinely m-rectifiable Borel W and finite (H^mu,mu)-rectifiable Borel Z have a finite (H^(m+mu),m+mu)-rectifiable Cartesian product. Under the usual Euclidean block identification its entire restricted Hausdorff measure equals the product of the factor restrictions on every test subset, not only rectangles. All natural dimensions are retained, including multipoint zero-dimensional factors, with no dimension inequality or bound by ambient dimension.",
+  "source_count_checked_unchanged": 6888,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 355.49,
+    "warnings_or_errors": false,
+    "compilation_commands": 30,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "9e9faef4",
+    "changed_modules": 30,
+    "affected_modules": 30,
+    "entries": 18981,
+    "old_entries": 18916,
+    "audited": 184,
+    "audited_old": 119,
+    "audited_new": 65,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 687.71,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 39498,
+    "fixed_files": 1,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "umask": "0002",
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "private_construction_boundaries": {},
+  "no_new_selected_global_witness": true,
+  "no_new_external_dependency": true,
+  "proof_route": "Actual componentwise differentials and multiplicative exterior norms for orthogonal source words prove the exact product Jacobian. Exact Borel representatives, Rademacher, null cylinders, injective area and Fubini prove Borel chart-rectangle masses. Compact 3.2.18 charts refine the printed 3.2.4 decomposition. Borel rectangle extremality and finite complements identify local whole measures in place of the printed final Daniell-functional uniqueness appeal. Both omitted products are null using genuine first-factor rectifiability; countable local agreement after arbitrary restriction glues the full measures. No ambient Radon property, new selected witness, private construction, external dependency or project axiom is assumed.",
+  "coverage_qualification": "Items 3.2.24\u20133.2.49 remain pending; this record does not certify them."
+}

@@ -1,0 +1,121 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 629.26,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "d901700af7a02b9985d516cbf69c16037480be584891eaec97fcaa83082ea6dd",
+    "theories/ConstantRankLocalManifoldImage.v": "756aa0965c9ebde46d74dc955478e80160b810f6c9c1a60c57720d1b5d07c776",
+    "theories/LipschitzImageManifoldCover.v": "d1eda945004e8d21668a1977d0234e3e693279ffb572881ae2c4a1167c2837f9",
+    "theories/Rectifiability.v": "feb4316b8d891bf74b01dc0bd38aeb1c827b80bc083c4cf50cdda87d24c138fd",
+    "theories/ManifoldCoverMeasureRectifiable.v": "02ae3a5c14761cc0c5f03d00c32d4037b8bcb3a979e25bbad4afd5f21bebde38",
+    "theories/ClassOneCountableLipschitzCover.v": "f33c35b1b05210daa1a0b246100d264ca82438f0a054f7608d5539599517bb31",
+    "theories/RectifiableClassOneManifoldCover.v": "5c9daccc97386a6169f977764e620aa7b58a1e1040412a0e6fbdb53a90d97b76",
+    "theories/SubmanifoldCoverClosure.v": "88d916a5dc5e901ab95ba1c49ce43e3994e60276f9c307962a598ace4a26745f",
+    "theories/RectifiableManifoldCoverUP.v": "a4e0507690e1a6c3f97d340c3cd0e5278be44f87ed21e63c8ade0059c7dbd01d",
+    "theories/SubmanifoldCountablyRectifiable.v": "2e927852c7fccc1ccd0a65a7491f9d2f9469c5f1fe469551c4ab00cda745782c",
+    "theories/LipschitzFiniteApproximateGrowth.v": "4c6adbca617b2fcca75c3e705f7529321931b1a6a9c36525317d7a7f798e6546",
+    "theories/FullRankManifoldImages.v": "e0309a765d5d5d2454bad57c323fabc441d5a5c4a45da9ed669d00d3e738452f",
+    "theories/ManifoldCoverImageRemainder.v": "48d9ce3dd20ada3a8524c4345c1d83c9b3325178b6395f64f0f04edf7d7f33d1",
+    "theories/LipschitzClassOneApproximation.v": "e8ff7e5bb2a751c05939cf43a379a98e495ae08fb2af6df2b747d49d3baf9379",
+    "theories/FullRankLocalManifoldImage.v": "7079ce6451eaa9bb569c192bd51db6f9a8fef08b914e6d125c426921e8838e4f",
+    "theories/ZeroRectifiableManifoldCover.v": "8e74f6b6a7ccb62571c979cefef49d0d7b71a632cfcfb23509d7308ac6e31065",
+    "theories/RectifiableManifoldCharacterisation.v": "f574acdbd13fddebefb7cf98b01bac438e31b8c149f99720afcc833334ba1e17",
+    "theories/ClassOneCriticalImageNull.v": "51126c9c9541a6aeea73a19543e46555a1a04633d14c9e98d2c5889ef512e2d0",
+    "theories/LipschitzSmallManifoldRemainder.v": "6fb74950b775d6a8713cb4f151a43d1f89d31287a0057f52a620338b39031d66",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "2988fed2e0c42aca92f586c7f479b30f59bf90d430a21ef78132a710935edcc5",
+    "tests/Assumptions.v": "35b35b3c52e14cb981017fd685d7264cfa8e788c9587c993b3b9ce0dc77a4ddb"
+  },
+  "item": "3.2.29",
+  "date": "2026-11-01",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 17,
+  "public_exports": 17,
+  "regressions": 2,
+  "scope": "Whole Federer 3.2.29, pp. 267\u2013268: a subset W of R^n is countably (H^m,m) rectifiable if and only if a countable family of m-dimensional class-one submanifolds contains H^m almost all of W. Both directions hold for all natural dimensions and arbitrary sets W, with no measurability, finite-mass or dimension-bound premise.",
+  "proof_route": "Independent countable manifold-family laws precede proved existence. Actual global Lipschitz growth and 3.1.16 give a global C1 approximant with small disagreement. Actual full-rank constant-rank charts and a countable base cover its regular image by submanifolds. Countable finite-measure open Lipschitz neighborhoods, opaque same-bound extensions, actual differential locality and Borel critical supersets give critical-image nullity from 3.2.3. The valid remainder containment and countably many tolerances tending to zero give the global image almost cover. Same-bound extensions of original partial parametrizations, countable unions and the given null remainder give arbitrary-source coverage. For the reverse direction use countable compact chart covers and rectifiability of compact submanifold subsets. Degree zero uses countable singleton manifolds separately.",
+  "source_correction_and_conventions": "The p. 268 display equating the uncovered image with the union of two error images is used through its valid containment. Error images can overlap the covered image; no disjointness is assumed. This local set-theoretic correction is absent from the working erratum and does not alter the theorem statement. Punctured growth is used only in positive source dimension; H^0 atoms remain positive.",
+  "both_directions": true,
+  "arbitrary_sources": true,
+  "all_natural_dimensions": true,
+  "no_source_measurability_or_finite_mass": true,
+  "actual_critical_image_nullity": true,
+  "source_count_checked_unchanged": 7159,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 296.49,
+    "warnings_or_errors": false,
+    "compilation_commands": 19,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "a217b476",
+    "changed_modules": 19,
+    "affected_modules": 19,
+    "entries": 19577,
+    "old_entries": 19548,
+    "audited": 162,
+    "audited_old": 133,
+    "audited_new": 29,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 758.3,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 42947,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "umask": "0002",
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "private_construction_boundaries": {},
+  "no_new_selected_global_witness": true,
+  "no_new_external_dependency": true,
+  "coverage_qualification": "Retain the proved source correction of 3.2.27 and the deferred 2.10.46. Items 3.2.30\u20133.2.49 remain pending. Unregistered private item30 drafts are not certified by this release."
+}

@@ -1,0 +1,161 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 524.7,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "c72c9eef8c6cd93d8827dc232b59a9efbbe152e8bbc50fcdb2372e326b63acc6",
+    "theories/AreaParameterChainIntegrands.v": "d187b3b9856423930ac194879e5502bf432cd54cb707abd5a2ff89d4cb6e4718",
+    "theories/MeasureApproximateJacobianConstruction.v": "42efe6510aa33f447334f63cf36d49e7867968bd39291236a3e91e75a68a33f2",
+    "theories/MeasureApproximateJacobianChart.v": "f88c4f1526a0e1983de6c07cc0c320976379c929e506f73c5b76290529b90d25",
+    "theories/MappingChartMultiplicity.v": "e9d6f75798314ff25e9f6a944c213200734e8a7b8144a69dcef18573746b9723",
+    "theories/FiniteWeightExtendedTransport.v": "4556d506fc974a5b9b4f57609bd800210b0131389b1ac146a26278b10c14a495",
+    "theories/EuclideanFiniteMassMultiplicity.v": "b414f17965096e3a7ad1ee88164e4155b594ab8a8872657ffaad4e4aeffbe24b",
+    "theories/WeightedScalarCutoff.v": "57977408918e0fd419d5cad16226233fe0ade723cb875e9b91189d7dfc88180c",
+    "theories/Rectifiability.v": "a156abd9c0787c4d670e2c90b75231ba7de7e9699ee297a56a5c4531e8af80bb",
+    "theories/EuclideanChartAlmostPullback.v": "cb0eb34b723caea3baa82ea98c068dc4f13cbdffd44bdb0a41dfb094a6f262a4",
+    "theories/FiniteWeightIntegralTransportUP.v": "8105b1b05b9a22c0f2354d56ab186e6fea586147aa68eaf3efededf323e5ced3",
+    "theories/FiniteDensityRepresentative.v": "23149b9c2d13c71e1cc57061928b8955e9db50e57b2715da888297af786bf2fa",
+    "theories/ZeroExtendedDensityWeightAgreement.v": "6354171604b3dcdda946d96526eca0b9b4bdb2a770ab0f4ef0da6deee355f74b",
+    "theories/PartialExteriorNormUP.v": "e22573f8f57f5c6d7540cce280dfb555453f47edbdd09e0a8076e27e24adc964",
+    "theories/MeasurableFiniteWeightSubproduct.v": "34d7ffd2fbfb2ece9b8b5c9142a3f30fb95127fbc32eeb7ed9d8a9fce9d2ae46",
+    "theories/PartialExteriorNormConstruction.v": "0a3d551ad15f019fdd29162ee4a460141e48794f0856e0741de3e354eb62e56e",
+    "theories/RectifiableAreaDecomposition.v": "cd2904a2544f9cc90547f996247b8adb13516ffa6c29c524c6a09e80cfe9eb28",
+    "theories/MappingMultiplicityDisjointCover.v": "56cb9a05c61a35dbe09969ad252ddad0fac3e2c8a93b47717993faa10844be03",
+    "theories/MeasureApproximateJacobianLaws.v": "e11b73e6598fdb40a4b3881e0e9e58b4f9ceb49014111cabb3a3708e5f4571ee",
+    "theories/PartialExteriorNormSealed.v": "eb74d2d5e54816dfd7a9a24cbd6a933c0f962cbb0fa2026c1bd012a943a97c4c",
+    "theories/EuclideanCompactMultiplicity.v": "644df2c33ec3ddc3790ba1b7d5e9ecc37214f782bf3ea6a69064f59a0c109cd9",
+    "theories/MeasurableWeightedTruncation.v": "81ad1945ba2f96f1158671cd3891e2df268eb4e9c6b8e921afd8275037986f24",
+    "theories/RectifiableParameterJacobianChain.v": "bc374140c41331165e3945ac856e4ccb8dd5a1c54b391ba53ff1135490fe0f82",
+    "theories/AreaExtendedFiniteMultiplicity.v": "0b23aec4f9baa51111dc1ae50967bbc2f07ca8ee273968756032f34b3b4aa4cd",
+    "theories/FiniteWeightPositiveTransport.v": "d81a8b9e0d13ed62843886f6ec0ae8fef4787b32c013c9c76029dfefa36f2848",
+    "theories/MeasureApproximateLinearModel.v": "a979f91c8508ce54f8b274923a38ee810e795fed8720be1ca7fbc761771909e0",
+    "theories/MeasurableExtendedMinimum.v": "7f40bd4be0e9f64c86c957b020e0eff1862f63ef6638a87599a82acb97d71aae",
+    "theories/EuclideanTopExteriorVolume.v": "42dd6e7c1c806c788ed4b2951fa70ee1017e164dec44fb6eb94bc3cd3e6cb8f4",
+    "theories/FiniteSeriesDensityRepresentatives.v": "6aff6de9309ce5e71b15f33056919564fbe6795d28536be7e76edfaaf5e5b4b9",
+    "theories/PartialExteriorNormLaws.v": "70eaf91dfced7fbf8551a4541637325690d41740c619cddbe4d074c47c3c17b7",
+    "theories/RectifiableChartAreaTransform.v": "1b32035819bb59b7d5056ecf32b24e64bcdb3e2ce25a19f1b4d9586129fd5e57",
+    "theories/FiniteWeightTruncationAlgebra.v": "f57806d36e5395957b73dbd6b16ba8e83e348d08062401af886c62bd182d7543",
+    "theories/MeasureApproximateJacobianSealed.v": "f658281c51c34c437dcc830ba03fcdad6a3b954e989240de3c2a069ed731d5c6",
+    "theories/CountableAreaDecompositionUP.v": "aaf911154ed07443f4b45659aa1e99e2c2ca9bc288ac4aacd3644336a9ff21f6",
+    "theories/DisjointScalarCutoffSeries.v": "6b96aa4bf45a4db3748aed08e4de2e35967a349a1c7e0be9ef11b70cac337a42",
+    "theories/CountableAreaTransformation.v": "f5a277a71249902edc5581972ac91a86a72ab111d26534f7ce2a1b9696d3cc0b",
+    "theories/SubsetIntegralUpperConstant.v": "e8a4ec547713e0ea295ad31cc218496b31036421a2b5079690aaab3497f411f9",
+    "theories/AreaExtendedTransformIntegrands.v": "2002067f35375d4047a2be359f5847e932a637d25514ccbe8be6b081d47725af",
+    "theories/RectifiableChartJacobianIntegral.v": "04df87a312aa9f0b648634609220c34b216d002eee41a8b656f8eefce1bf65df",
+    "theories/NonnegativePartialRealExtension.v": "94131bd86bbdd05ab2da12814cd5dbde13cf59ecc3e3f66d342d6b53946dc0bd",
+    "theories/MeasureApproximateJacobianUP.v": "c65f286e13611a6e31fa630f1382280154af147e6f50a43b7a70df19e44e57b4",
+    "theories/NonnegativeWeightedTransportParts.v": "5459cbe139eb472eed0c6e1b624ae8ea0ca498ccd24888085f74c36816fe93c1",
+    "theories/MeasureApproximateJacobian.v": "f2228a84befbbc1ab9da80bf83d38108157670f7b1c6f5f88119b4a3799a5747",
+    "theories/CountableWeightedIntegralTransport.v": "bc1ca4b99d9eaec562f91b62bf355240ab76d10e7411b75c319168cb6038a591",
+    "theories/PartialExteriorNorm.v": "839cd856d9e72aa02a6d8f77ca66d3b0bcd010ccb5f64ca06e4a9f05ce1123ed",
+    "theories/RectifiableAreaFormula.v": "cad3a45319e27187f923d964d23c3590a0538ba89071fd5010ec6bdb3ac6d78b",
+    "theories/PartialAreaWeightExtension.v": "050960fdad9e41ebb97171028751cf6259c7ce8a4e6d77878ca277c1cdc72ca6",
+    "theories/FiniteWeightedTruncationLimit.v": "e6e34931e776b16340fe65e6204b376b8141d2b641fedd4e92f72e4d4004e27a",
+    "theories/RectifiableAreaIntegrands.v": "87d9c1ff1753bea661b3b25c1315448f0e54949a5f5bbf162eb53ab48036b3b6",
+    "theories/PartialExteriorTopChart.v": "d671d3c97810042a696aa5182634a9fa6da9f26dbd8a598eb542d38c6eff3fea",
+    "theories/MetricBiLipschitzNullPullback.v": "dfa61e53bbf08953e137b0b8c1dbe99ad5bc6a47ac65d662134a2d059ef0dd5b",
+    "theories/PartialMappingMultiplicity.v": "8173ff763ad13e201f08638db4783bf5b006c475ecb6885b62016428aec7ebb1",
+    "theories/PartialLinearChartGraph.v": "a40823c63bdb9cd58ce0d5110eb244b940a608271af0beb1df474c0936d29f61",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "a8af98e0adc78ff322a22313ddbc3fb82ae2e68ca0000e41f5008470a0a5281a",
+    "tests/Assumptions.v": "667254b953770eb02db31e5a441bf8ce440c9c4e4acc86e54d6538ce923ff623"
+  },
+  "item": "3.2.20",
+  "date": "2026-11-01",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 51,
+  "public_exports": 49,
+  "regressions": 3,
+  "scope": "The whole area formula of Federer 3.2.20, pp. 256--257: for an H^m measurable finite-mass (H^m,m) rectifiable W and a Lipschitz partial map with exactly domain W, m at most the target dimension, every extended-real target weight has identical source and target integral value graphs. Includes positive and negative infinite values and undefined signed differences. The intrinsic approximate Jacobian has exactly the actual approximate-differentiability domain. Its partial exterior-word least bound agrees with the usual top exterior operator norm on regular tangent m-planes, including degree zero. The exceptional nonlinear-cone interpretation is explicit.",
+  "source_count_checked_unchanged": 6749,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 484.78,
+    "warnings_or_errors": false,
+    "compilation_commands": 53,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "1efa13af",
+    "changed_modules": 53,
+    "affected_modules": 53,
+    "entries": 18753,
+    "old_entries": 18640,
+    "audited": 222,
+    "audited_old": 109,
+    "audited_new": 113,
+    "unresolved_names": 0,
+    "closed": 3,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 634.25,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 37690,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "umask": "0002",
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "private_construction_boundaries": {
+    "PartialExteriorNormConstruction": [
+      "PartialExteriorNormSealed",
+      "tests/Assumptions.v"
+    ],
+    "MeasureApproximateJacobianConstruction": [
+      "MeasureApproximateJacobianSealed",
+      "tests/Assumptions.v"
+    ]
+  },
+  "new_opaque_selected_interfaces": [
+    "PartialExteriorNorms",
+    "MeasureApproximateJacobians"
+  ],
+  "no_new_external_dependency": true,
+  "proof_route": "Prove top-exterior volume scaling and the exact intrinsic chart Jacobian product from the partial chain rule of 3.2.19. Establish local finite multiplicity on compact source charts via 3.2.3 and the Lipschitz Jacobian bound. Extend finite-real transformation 3.2.5(2) to arbitrary extended-real weights by weighted truncations and monotone convergence. Prove both local compact-chart area transformations. Disjoint source cutoffs yield global density measurability; counting-measure additivity yields actual fibre-count sums off the null image of the remainder. Prove measurable and almost-everywhere finite global multiplicity independently from 2.10.11 and a Borel sandwich. Use dominated measurable subproducts and finite multiplicity representatives to transport countable nonnegative sums in both directions, then reconstruct exact signed integral graphs. Preserve the original partial source map and Jacobian domain through opaque extension laws.",
+  "erratum_correction": null
+}

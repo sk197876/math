@@ -1,0 +1,122 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 576.85,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "c7851e748ff4c7d756e3e021d661ba92fd57422a72a1cc9993ad99212c915e9b",
+    "theories/TwoCoordinateSelections.v": "142b09d8f0befdd0f3223bf56c4a591f40d888f8b6fda74dd701ffdadc3b4077",
+    "theories/RectifiableCoordinateCounterexample.v": "86687a591d18a6d59c7730c36eebfdd74afb7cdb754df648180bfaa92d773fe6",
+    "theories/Rectifiability.v": "a66ef27a1d7f462da806c45f09253d2737b4a781fa9d73f6c4d57eb4510d681c",
+    "theories/RectifiableCoordinateMassUP.v": "65dbeedad6ca41eb3a0c1a96c5dd0b5960306635c142871dc0c55fa9e0c31125",
+    "theories/MeasurableProjectionAreaJacobianIntegral.v": "fb9f2c68ca2ce35924e8dfa97a5a8339cfe6b02a5aa8c4c18ed573e4a4122faa",
+    "theories/RectifiableOrientationProjectionIntegral.v": "39968357fedb24048b5f471534a3e1249ccf606a9b98c8fd05f0f3a22551d28e",
+    "theories/InnerNonnegativeUnitIntegralBounds.v": "a53a38f2c366f476d6763604bab8437e1b68691e3a3171b90511f28f22aaf978",
+    "theories/FiniteCoordinateNormOrder.v": "bf921d9631a4c0e2bf32c6d8939f67d294b8d34e9dec8886ebcf4429eb3180a2",
+    "theories/TwoSheetProjectionIntegrals.v": "1e786eb77fe2556451b510607379946d1fc274032326bb1f93b62441a0272a1e",
+    "theories/InnerCoordinateUnitFieldIntegrals.v": "97dfd32683798d31a03656cf888c429ef2bd1d5682aae36844aecfd6e9bb29df",
+    "theories/MeasurableProjectionMultiplicityIntegral.v": "b4252781f1cd172a63a39e5c26f34436e3aa8007d0bc33bc2626ecd86bdd745a",
+    "theories/ParallelCoordinateSheets.v": "4fd179074986e141837cf5acea95e66e8bcff235ca59898ac7835929b67bba82",
+    "theories/FiniteSplitMeasurability.v": "9df32be2f6cfdeff2fc2576e8d15a689ae587200bec21724c4fbfecc2cac5bd2",
+    "theories/RectifiableCoordinateProjectionBounds.v": "e5a25dce9af07e002d7eea8a2c99c864cc72c50052287b5497acd77218fc9281",
+    "theories/OrthonormalCoordinateModulus.v": "f97c5df1f64ccd89d3740fa7602d18acc3fed49e3909370366a8255e4230567a",
+    "theories/RectifiableCoordinateCounterexampleUP.v": "307806ed42d0ba06c043a5335bb94253e7734ef198ca8d6146d5beeec6c5f3da",
+    "theories/RectifiableCoordinateLower.v": "0b5331f795591f973e8a4dbc0e47967cce8e8398ddc7d5da11c8a49fa5d58eed",
+    "theories/CoordinateExteriorProjectionNorm.v": "dd237ae9ffd4040f210b0fe907fa19f528f57434c6dc9b504074088c7d878895",
+    "theories/FiniteInnerUnitFieldIntegral.v": "8f0e8c01bb48a657931ed85a60db837e6cb0bd057ac6eee296b69d60d77dbfce",
+    "theories/CoordinateMassMonotonicity.v": "2a7708aac7714224ee47f6f15e9e9f37c5de70c0e07b42567ae1061279c7b206",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "6a6f491d44c16491def6a3e0f9d32638fd8f6baac6477d9d6deade7b3e860af0",
+    "tests/Assumptions.v": "4aca3ca9848d2d6094dcec7b55f7df305a9eb9e4c59286cf99b8f6b95fb62f20"
+  },
+  "item": "3.2.27",
+  "date": "2026-11-01",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 19,
+  "public_exports": 19,
+  "regressions": 2,
+  "regression_support_lemmas": 1,
+  "scope": "Federer 3.2.27, pp. 262\u2013263, with a necessary local correction to its upper bound. The actual finite coordinate projection masses satisfy the square-root sum-of-squares lower bound and coordinate-sum upper bound on every Hausdorff-measurable finite (H^m,m)-rectifiable W in R^n, m<=n, in all natural degrees. The lower bound keeps arbitrary-source scope whenever the displayed actual integrals exist; their nonnegativity and finiteness are derived. A genuinely one-rectifiable nonmeasurable two-sheet set with finite outer length has actual coordinate masses one and zero but outer length greater than one, disproving the printed unrestricted upper bound.",
+  "proof_route": "Specify the actual coordinate counting integral laws independently. State absolute orthonormal-coordinate replacement laws and prove a local witness by finite basis synthesis, norm preservation by Parseval and contraction by coordinate absolute value. Finite source mass proves L1 membership; existing opaque vector integration and continuous dual evaluation give actual finite masses and both bounds. Identify coordinate projection norms through the actual injection, exterior adjoint and one-dimensional target top power. Extend actual projection multiplicity integrability to completed measurable sources using a Borel sandwich and exact fibres outside its null projected excess. Apply the actual 3.2.20 area formula and 3.2.25 orientation. For the arbitrary-source lower bound and finiteness, use true rectifiable Borel measure hulls and actual fibre monotonicity without assuming hull differences null. Prove the local upper-bound counterexample using 2.2.4 on the unit interval, complementary subsets on two parallel segments, closed-segment measure splitting, strict finite regular-measure split excess, actual univalent horizontal fibres and vertical counts supported on two null target points.",
+  "source_correction": "No working-erratum entry corrects the statement of 3.2.27. The Hausdorff-measurability condition on the upper bound is a proved local correction, justified by the actual two-sheet counterexample. The preceding p. 262 line 14 correction to 3.2.20 is retained in the area-formula adapters.",
+  "printed_upper_bound_false": true,
+  "lower_bound_arbitrary_sources": true,
+  "actual_integral_finiteness_derived": true,
+  "source_count_checked_unchanged": 6958,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 286.05,
+    "warnings_or_errors": false,
+    "compilation_commands": 21,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "f2e366be",
+    "changed_modules": 21,
+    "affected_modules": 21,
+    "entries": 19136,
+    "old_entries": 19084,
+    "audited": 179,
+    "audited_old": 127,
+    "audited_new": 52,
+    "unresolved_names": 0,
+    "closed": 3,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 708.57,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 40370,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "umask": "0002",
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "private_construction_boundaries": {},
+  "no_new_selected_global_witness": true,
+  "no_new_external_dependency": true,
+  "coverage_qualification": "The deferred 2.10.46 remains deferred. Items 3.2.28\u20133.2.49 remain pending; unregistered drafts are not certified here."
+}

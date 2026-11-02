@@ -1,0 +1,6 @@
+make -f Makefile.coq all
+make[1]: Entering directory '/home/chatgpt/projects/federer-rocq'
+make[2]: Nothing to be done for 'real-all'.
+make[1]: Leaving directory '/home/chatgpt/projects/federer-rocq'
+rocqchk -silent -Q theories Federer -Q tests FedererTests Federer.GrassmannSpaces Federer.TensorFamily Federer.MeasureTheory FedererTests.Examples FedererTests.GradedExamples FedererTests.SignedExamples FedererTests.ExteriorExamples FedererTests.MeasureExamples FedererTests.CoveringExamples FedererTests.DerivationExamples FedererTests.CaratheodoryExamples
+Kernel check passed.

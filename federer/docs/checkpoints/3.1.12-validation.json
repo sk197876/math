@@ -1,0 +1,68 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 288.32,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "aa3edea8c0018409e04593ace67181a953bbaadbab561ab5f8af7b0a1f583440",
+    "theories/Rectifiability.v": "cf2d86dc471c4c5236e5b945954d37d160b1e54da7f0fcbeace95b0dc0accc48",
+    "tests/DifferentialExamples.v": "f049bca5d9b16b96798becd5609483685199cca14e6679d0c758278ff9e32fb5",
+    "tests/Assumptions.v": "ef7b0414587608f9be10724b92967c09d2a45e21bfc9c9d3710af8814326c5f5",
+    "theories/EuclideanUniformBallPacking.v": "ff99ed5a7dabb98a059775ac376b579f7b3c218c59a373d95274ede2dc8e9be0",
+    "theories/InnerClosedBallCenters.v": "967270468a260de0cf57f74a08af38f1fbe77aa5d75d5c03e4033c16aa6e1fc6",
+    "theories/LipschitzRadiusOverlap.v": "e78b72158899612ef4cce08d546447fde3bae9dc43974fc655bc56800ffdd8b8",
+    "theories/LipschitzRadiusPacking.v": "0e96f741f2186a29ed2008bbfb81fd6d6e8e7c141e3d94e1fe1c54c7a06df165",
+    "theories/LipschitzRadiusDisjointFamily.v": "361430073b2918bdf44ca0998d8ad7be29672ce016db1b808374ac23c03636a1"
+  },
+  "item": "3.1.12",
+  "date": "2026-10-29",
+  "scope": "Printed Lipschitz-radius ratios and finite overlap cardinal bound for disjoint Euclidean closed balls; least-Lipschitz-constant and set-family hypotheses retained, including dimension zero.",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 5,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 89.53,
+    "warnings_or_errors": false,
+    "compilation_commands": 7,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "full_project_validation": false,
+  "artifact_reuse": "Unchanged registered prerequisites in the existing external build tree were reused; all five new modules and changed dependents were compiled by make. No scratch artifacts were copied into the registered build.",
+  "audit": {
+    "base": "9a3c32b",
+    "changed_modules": 7,
+    "affected_modules": 7,
+    "entries": 16548,
+    "old_entries": 16532,
+    "audited": 50,
+    "audited_old": 34,
+    "audited_new": 16,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 144.01
+}

@@ -1,0 +1,136 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 357.47,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "79670c91ad3a919be53075e77b140f3e9e57f133b630e3cd03bb93d460173ead",
+    "theories/Rectifiability.v": "cc403cac0371290f82fc09dbde4667403a653fe7c1451c8da2eae2462e704c72",
+    "tests/DifferentialExamples.v": "ee296c573ac8643d4ef8e61d5f689be30de758ad513e441f6c3baaa332278878",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/Assumptions.v": "11144c35f5517dd09a48778813e1f2d0d5afd4013dbcc9404b0c5af7b7e82160",
+    "theories/ConstantRankFibreTangent.v": "cb957ddeb6540d4c114eea09d29bdf8934ccc602fcff3431d37c8b939a3bee81",
+    "theories/ConstantRankImageTangent.v": "63b3728db573799cf4dfd5285c18860781188ae33f96c9a7492c9a3327bd86fe",
+    "theories/EuclideanAdjoint.v": "183ddb66afa99bcbd2065b2b9a4100fcacb8eee83253d268edbf6f0aae623f20",
+    "theories/EuclideanAdjointBound.v": "ee4a0c678e3575e486226fa01306ce5b4a0e44c0104ceadd5e7b7b92b63583d1",
+    "theories/EuclideanBundleUP.v": "6cab4bd07beab1fd368175c1907f06386e0583b5df0c06ea1efe55316883ceb1",
+    "theories/EuclideanCotangentLiftClass.v": "f49e044dad1810e15f9ed4d425b3995c26214fccc339c7edf8a9e7c238efc6a7",
+    "theories/EuclideanCotangentLiftDiffeomorphism.v": "38ebe64b5bb7ceb06240e6d9af2a7a3a2272d7b6c313070807d127f441b55d51",
+    "theories/EuclideanCotangentLiftLaws.v": "89366da35960797e0ac66efa150d3834483d95b4c4da6374ce79a847c2aeeaef",
+    "theories/EuclideanCotangentLiftUP.v": "d68b0a18f9e04cbed6439c729987ea0a158629034fc56a6a16b952046958e51e",
+    "theories/EuclideanDerivativeLiftClass.v": "84b9464e8cbd9e4cda8cecd0875bf92d2b95131cc5cf956d57ac4f1bebebe1e7",
+    "theories/EuclideanDerivativeLiftDiffeomorphism.v": "e485be1579a0fcc660700d69e561a4b054e1d21875df15eb9707b6ae4faace81",
+    "theories/EuclideanDerivativeLiftLaws.v": "2e8f3f82b55527eb0a15ba9cc95cf84278ac9f1644047aab1722bf0fdaaab9c5",
+    "theories/FiniteNormLinearRangeClosed.v": "381d2ac12bbccd869bb131091b03018f399f0773b57293851f8d9afd84a0de0d",
+    "theories/FiniteNormSubspaceClosed.v": "52de2bd963e2796be63de4bf5eb6fac6e6a2120ab70718baa16c5465850ccc7c",
+    "theories/GenericRankTangentSpaces.v": "c35ae65e1de6e3fad9ac7c47e7dab69db9f42204dd0a8d8061f633f11a61532a",
+    "theories/GrassmannBlockProduct.v": "060ef6cf470c9bd686767205442184072f2ac70335255e9e6baccedb5678fd60",
+    "theories/GrassmannInjectiveImage.v": "9f13fc2c90d9f5112da8b19243a6dc92e05dd77bdda9126a84cdbb63dbb59a77",
+    "theories/GrassmannNormalProduct.v": "0124121a38a76f79fe86a5ca2edb92549ac487536899914c6c7ee28e05836c47",
+    "theories/LinearEmbeddingContinuity.v": "45aaae86ed4f7cf02ccafe471115851168c345d96c407023d8a050a614baaaae",
+    "theories/NormClosureBalls.v": "b4d34a532cc842d4d513ccac27464ed56cac4632b3d4ad1acc8323854fdc8fe7",
+    "theories/NormDiffeomorphismTangent.v": "4928d9a791b07bec357763f0faf82e0454fdc6685e380e0e86d32383e98edec1",
+    "theories/NormFirstAdjointEvaluation.v": "1197700bde1533debd71e4048fbecb898d1103ffd6fe1d55d057b768efa14177",
+    "theories/NormFirstEvaluationBilinear.v": "d1228fd888e5c217b6a574bc64dc9e40dbab38ef8ec4dc91f0f6718ede31ff71",
+    "theories/NormLinearLeftInverseBound.v": "70dbe432b8d66b6e27e7e41df46b3fd955dc5de06aa6d5271a0a251a6b9889b4",
+    "theories/NormRegularityDerivativeField.v": "40c2fbe3449712abdbc80e515813f4c486494bd93225ac6770714a03212387fe",
+    "theories/NormRegularityLinearMaps.v": "8e9b95cab8351fd01a0362edbd9cb9cf6adb4f8201d306e22bc424a50785f17d",
+    "theories/NormalConeBasic.v": "32a54a6abf096bd8b831960e3fd7d240ddcc1a3c25db171f18aeeab54cd58666",
+    "theories/NormalConeUP.v": "ed1b063042e438c9b66f0c8c3e6142a7d9a0a46de7cda980f7a77e178912b2b3",
+    "theories/SectionTangentImage.v": "c8f56a55b6dcb8aee6411bf521d3f6970b431c57dbdba7e8e6350ed17c2fa31d",
+    "theories/SubmanifoldNormalBundle.v": "025bd2aa83843c9fbccbc53f27e0e5f6bd18a1944dd3f664f1f1fd4dfb8f4763",
+    "theories/SubmanifoldStraighteningMembership.v": "3f6af52f89c58a09ebfed4b786117d6fa6d1cfae429dabc7f22b9be7e14a2bcd",
+    "theories/SubmanifoldStraighteningNormal.v": "c5650b239cec93acc5ff40e95649f8e5d961368f8990315ea3435a456b875964",
+    "theories/SubmanifoldStraighteningTangent.v": "edd2ae3bfcd5269dc36d71367a9567849d088a276d8813df9f94ba8fb1524d71",
+    "theories/SubmanifoldTangentBundle.v": "838f65dfaa77368080201c6259c9102d72f005ce5bb303afc80e37cd5afa2087",
+    "theories/SubmanifoldTangentPlane.v": "714027049fb5c56062cf9c71706f91183c2503b5a8e5ef56bb2deb3bd6341afd",
+    "theories/TangentClosedSubspace.v": "b900029f26a2bfff356ed1695674946c8070525d84fcebe189f7dc1c3df84785",
+    "theories/TangentConeBasic.v": "d67188cbaa95b3bd272527735a21e0bf8f6058b19cc3b378e14d22f4b7f515df",
+    "theories/TangentConeClosure.v": "8fcf846b6ed76af9d5cbd11e969a9a00b5e4ca59e7afd6515228db370f8a7f6d",
+    "theories/TangentConeLocal.v": "c0ef7cfd50a254b1cc1431b482458bf4d06546564da2aac7a7db2c83b749230b",
+    "theories/TangentConeUP.v": "afa1da7f7131541f2a4c8f85f5b69daf327ad9645f8e1ceac7bfaf90b23fb674",
+    "theories/TangentDifferentialImage.v": "1bb1438a2c5c4bef932b31fe052d110de285ef5cbee43a170f52b1b0f4a97592",
+    "theories/TangentEmbeddingApproximation.v": "92aa3ffbebb86ee204c91f0977759678954406144f5895d038efb2922a8373ec",
+    "theories/TangentEmbeddingImage.v": "3513b9c27fcdd064e3d7f8677617d8105432bb1fc53b20152f899a182d17a254",
+    "theories/TangentEmbeddingUP.v": "20f8d114525023e0c548478e9529489d7868ce24c231b27b5e72ec4bbb5c781b",
+    "theories/TangentLinearFibre.v": "93bd7b5cffc6be50aa5fa5179b9c0ad6ce13a0d3aeb6450c6fbaaa73b279a885",
+    "theories/TangentOpenDomain.v": "209e2c747898787a556712f46de0f82c11273c1a5aab59ec9edae57a697baa8a",
+    "theories/TangentUnitDirections.v": "b9263fe655fffd50f9694cfabead8a3ed6896005fd48b7294466270903298c22"
+  },
+  "item": "3.1.21",
+  "date": "2026-10-30",
+  "scope": "Intrinsic tangent and normal cone/bundle definitions, all five opening tangent-cone laws, general differentiable transport inclusion and closed-range embedding equality, mu-dimensional submanifold tangent planes, class-(k-1) tangent and normal bundles with dimensions 2mu and n, both generic fibre/image tangent-space identities, three regressions. The closing positive-reach paragraph is recorded as a forward reference, without certifying later reach assertions.",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 47,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 361.12,
+    "warnings_or_errors": false,
+    "compilation_commands": 49,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "full_project_validation": false,
+  "artifact_reuse": "Registered make compiled all 47 new theories and two changed roots, reusing compatible dependencies. No draft .vo files were copied and no clean/full-project rebuild ran.",
+  "shared_artifact_permissions": {
+    "checked_files": 29948,
+    "expected_group": "llm",
+    "expected_group_gid": 1003,
+    "bad_files": [],
+    "active_directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "inactive_historical_drafts": {
+      "count": 330,
+      "status": "Previously recorded claude-owned files in non-group-writable historical probe/stage13/stage14/stage15 directories require owner-side changes; outside active load paths."
+    }
+  },
+  "audit": {
+    "base": "d50c35be",
+    "changed_modules": 49,
+    "affected_modules": 49,
+    "entries": 17094,
+    "old_entries": 17014,
+    "audited": 131,
+    "audited_old": 51,
+    "audited_new": 80,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 243.85
+}

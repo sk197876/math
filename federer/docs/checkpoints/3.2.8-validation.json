@@ -1,0 +1,95 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 438.51,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "ee3fd50ed8ef11a36734934c81a38771e8fc2cf8a035504d317693b473742c31",
+    "theories/Rectifiability.v": "6561e8f5d74ec06449e21a11cf573e914f93f6ed9b3439f626cae9ba25a3d488",
+    "tests/DifferentialExamples.v": "a16ef1eb9629d1d67c3d9aa3d528e6bba0a48f89c29661556183a6f933e97dae",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/Assumptions.v": "3c565d96be060ca9c00b32f50693df2d3c7d28a52c7ad65ceecd3b622475b806",
+    "theories/EuclideanLipschitzNullImages.v": "696592cf7180cbf06fff3f2645d1d0f54b9f32676bdb90e2ca678dccb3ee1037",
+    "theories/DensityLeftInverseDifferentials.v": "7bd1ec98fe07b302dcf112cbd0fbdb96147d8b8bcf40b37a314b3b7c24453683",
+    "theories/LipschitzLeftInverseDifferentials.v": "b647d224954850f08dcf40fd611011d33824f34501791287e302546f075a82f8"
+  },
+  "item": "3.2.8",
+  "date": "2026-10-31",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 3,
+  "scope": "For global Lipschitz self-maps u,v of R^m, both actual differentials Du(x) and Dv(u(x)) exist and compose to identity almost everywhere on C={x:v(u(x))=x}. Cover every natural dimension m, retaining the zero-dimensional punctured-approximate-differential convention. Follow Rademacher, null-image transport under v, the chain rule and first-order density uniqueness. Two regressions show the necessary almost-everywhere qualification using the plane axis projection and recover the pointwise conclusion on unit-mass R^0 for arbitrary self-maps.",
+  "source_count_checked_unchanged": 6374,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 118.6,
+    "warnings_or_errors": false,
+    "compilation_commands": 5,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "88968fd8",
+    "changed_modules": 5,
+    "affected_modules": 5,
+    "entries": 17929,
+    "old_entries": 17923,
+    "audited": 86,
+    "audited_old": 80,
+    "audited_new": 6,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 303.96,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 33068,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "compiler_nice": 10,
+  "kernel_check_nice": 10,
+  "audit_nice": 10,
+  "artifact_reuse": "Focused registered compilation reuses compatible artifacts under /opt/rocq/federer-build. No draft object was copied into the active tree and no clean/full rebuild ran.",
+  "qualifications": "No extra inverse, injectivity, rank, measurable-domain or positive-dimensional hypothesis. The zero-dimensional case is direct equality of linear maps; the positive-dimensional density proof reuses the internal first-order uniqueness lemma. No new external dependency or selected witness.",
+  "section_release": false
+}

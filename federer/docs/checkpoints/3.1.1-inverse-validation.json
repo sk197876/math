@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-27T15:38:35.480556+01:00",
+  "scope": "Federer 3.1.1 inverse-function theorem and class-one inverse; numbered item remains incomplete",
+  "complete_numbered_items": [],
+  "base_revision": "243b079a193828095c50d9be05b8c4b7ba2af4d9",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "artifact_directory": "/opt/rocq/federer-build",
+  "compilation": {
+    "new_theory_modules": 20,
+    "new_example_modules": 1,
+    "rechecked_example_modules": 1,
+    "exit_status": 0,
+    "warnings": 0
+  },
+  "kernel_check": {
+    "roots": [
+      "Federer.Rectifiability",
+      "FedererTests.DifferentialExamples",
+      "FedererTests.InverseFunctionExamples"
+    ],
+    "exit_status": 0,
+    "elapsed_seconds": 183.93
+  },
+  "assumptions": {
+    "new_queries": 30,
+    "previous_regressions_rechecked": 6,
+    "allowed_assumptions_found": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "preserved_previous_results": 15448,
+    "total_results": 15478,
+    "fresh_log_sha256": "eb268d38d6ef6d8f8e4532f153f233d766875db6b954e15a13a407b695b76089"
+  },
+  "source_sha256": {
+    "theories/InverseFunctionIterationUP.v": "056ef97dd01aeff04fccb49c725620d9768812f2689991115f336ad12514634f",
+    "theories/InverseFunctionIterationConstruction.v": "6bd07e6e9680cdcccad13eeae0bb241dd268f779118911e585cfe15aa62748bb",
+    "theories/InverseFunctionIterationSealed.v": "ba3319658864d11a6075ec61c052e84fe223025f4988fbf241b691e0928c8caf",
+    "theories/InverseFunctionIteration.v": "05ba2685c3411aa1844ecf5fb114399d79675dc2d6ed5319e5ce54a65d5a1f46",
+    "theories/InverseFunctionIterationBounds.v": "bb9d52bc8507b6c482c17e4806893869373e643e25ccdc72e37cb60d52d2e15d",
+    "theories/NormGeometricIncrementLimit.v": "f77ac97e53d78d06d95742f2568abb3c37efa2b9591ca60ebd884bf89e82281c",
+    "theories/InverseFunctionIterationLimit.v": "24b7c55579166a79dc0967ab802fd8031523802f67e97ef437960496ebac3be8",
+    "theories/NearIdentityNormBall.v": "fc422c76dcf201fd05a5d94a7b8a68888a672dd470b61b01a9c0c19a577c48ce",
+    "theories/NormDifferentialSubtraction.v": "04828f1f30de21c519952385ece20dcd5dab52d1182cda5443b36ae6a31bf18b",
+    "theories/NormClassOneIdentityRemainder.v": "c401ec53200a6352cac0b605b4e9bd75c91c858d9d8ac5b786a84d7eb5089b8c",
+    "theories/NormClassOneNormalizedInverse.v": "af6c1f4f0f7401dd30fb3d0de82b4ddc01da5e7fb45c92631de1312e11c3347f",
+    "theories/NormClassOneNormalization.v": "d2c5a428093e28908c4f34685f0570e97ec0bc7bfc4b0381eda9cf0a2e3e9bb4",
+    "theories/NormClassOneInverseBall.v": "26888e1fc82f803ba2866d3e9ffc4cf743a56340bac2650c665d2402b8de809a",
+    "theories/MetricInverseBoundHomeomorphism.v": "98c025af1b5aaeb8ec13ea4499de52a7171d2aa5fea7541a4f9606206c59f458",
+    "theories/NormLocalHomeomorphismUP.v": "c89aa0e580a236267aba433af8cf4ec4820e8db68514f29ccdfd8cea28be422c",
+    "theories/NormClassOneInverseFunction.v": "2da3f2187e05ebc897b248e989cf8a49d5b6ea849a2bc5239b1158f4f3bff96d",
+    "theories/NormInversePerturbation.v": "263e791340d271f98d9dd28744577d90760429a83c5b58c50698536f539a5cde",
+    "theories/NormInverseFieldContinuity.v": "b8eeb467a3aa041bea7b587bd0a42d30fb99801365706eeea93c864ee8507e6e",
+    "theories/NormClassOneInverseContinuity.v": "595b014ed1e3517252a25b4d3a302294e39814200b464dbac29e87f7bd2dbec8",
+    "theories/NormClassOneInverse.v": "c07bb0fec0de9f3bfa1559ed035d3776fba3c01830f9582520f33c8369f86364",
+    "theories/Rectifiability.v": "03ea5ba3f9a87894dbf1bd7e954dc8b1a074ea0f2683b70086a0c060b885ce96",
+    "tests/DifferentialExamples.v": "2c8b9fd1758dda080e973282dcee66259ef3a344afd2a18c92170f3bc6cfb48d",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b"
+  },
+  "full_project_validation": "Scheduled separately for 2026-10-27T18:00:00+01:00; not claimed by these focused checks"
+}

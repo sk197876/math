@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-27",
+  "baseline_commit": "b43dc2222cd61795f8879a57ab9bc05c2ec1dbd9",
+  "scope": "Source-comment, documentation and neutral-identifier cleanup; no mathematical changes.",
+  "proof_source_comparison": {
+    "files": 5221,
+    "result": "All non-comment bytes equal the baseline after the eight consistent identifier substitutions: one module and seven declarations."
+  },
+  "renamed_module": "SignedExponentSplitCounterexample",
+  "renamed_declarations": [
+    "signed_exponent_split_counterexample",
+    "dual_test_missing_sign_counterexample",
+    "right_tagged_cell_excess",
+    "right_tagged_cell_counterexample",
+    "parts_endpoint_counterexample_regression",
+    "exponent_absolute_split_regression",
+    "diameter_power_counterexample_regression"
+  ],
+  "saved_logs_comparison": "All saved .log files equal the baseline after the same identifier substitutions.",
+  "focused_checks": {
+    "switch": "RP.2026.02.0~9.1~2026.01",
+    "command_template": "opam exec --switch=RP.2026.02.0~9.1~2026.01 -- nice -n 10 rocq compile -w -notation-overridden,-ambiguous-paths,-redundant-canonical-projection,-notation-incompatible-prefix -Q theories Federer -Q tests FedererTests -o /tmp/federer-reference-cleanup-check/{module}.vo theories/{module}.v",
+    "modules": [
+      {
+        "module": "SignedExponentSplitCounterexample",
+        "exit_code": 0,
+        "warnings": 0
+      },
+      {
+        "module": "DualTestSign",
+        "exit_code": 0,
+        "warnings": 0
+      },
+      {
+        "module": "IntegrationByPartsFiniteIdentity",
+        "exit_code": 0,
+        "warnings": 0
+      }
+    ]
+  },
+  "full_build_check_audit_rerun": false,
+  "artifact_policy": "Focused compilation used temporary outputs and existing dependencies. Existing checkout build artifacts and Git history were retained."
+}

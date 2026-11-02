@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-27T14:56:13.065062+01:00",
+  "scope": "Continuing Federer 3.1.1: sharp limits, polarity, class-one composition, coordinates and convex derivative bounds; numbered item incomplete",
+  "complete_numbered_items": [],
+  "base_revision": "243b079a193828095c50d9be05b8c4b7ba2af4d9",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "artifact_directory": "/opt/rocq/federer-build",
+  "compilation": {
+    "new_theory_modules": 24,
+    "example_modules": 1,
+    "exit_status": 0,
+    "warnings": 0
+  },
+  "kernel_check": {
+    "roots": [
+      "Federer.Rectifiability",
+      "FedererTests.DifferentialExamples"
+    ],
+    "exit_status": 0
+  },
+  "assumptions": {
+    "new_queries": 47,
+    "previous_regressions_rechecked": 4,
+    "allowed_assumptions_found": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "preserved_previous_results": 15401,
+    "total_results": 15448,
+    "fresh_log_sha256": "2b4bb8ea2dc4f428b0427177ba28ef63543a3894a0f47de0d3773c506b153a15"
+  },
+  "source_sha256": {
+    "theories/ContinuousPolarity.v": "29870cf6c53fd39d05b03ba7c49d40525c78b33aae512ff1f04d2dfd0bb36f1a",
+    "theories/ContinuousPolarityConstruction.v": "6bf627bac28e7a5f997355cb9001da5d8657fd03560768b762745c37499c5925",
+    "theories/ContinuousPolarityLaws.v": "d7c007512bad2d4017513d0687b72fabc6652d814c8139b385f4d42514ec220a",
+    "theories/ContinuousPolaritySealed.v": "2291cc601aaa74b8805bde33b274d91f26584306d5e654319a4698d32542dc2c",
+    "theories/ContinuousPolarityUP.v": "f61dc377a54907dd4b60afa8483f7970f132a7ab0e916e05f2240a7faea1c4b0",
+    "theories/NormClassOneComposition.v": "6ba0cf7988c39654b3d7dc80e51607f9b9794018c0631129bcb2bf1f6824c90c",
+    "theories/NormClassOneLaws.v": "c6fadfeb76603043c52610bd739a10cdbd99e88c91bfc86d55f7fe7eed53fc6c",
+    "theories/NormClassOneUP.v": "6561d71286775b57780c70e79742e32dd4835071f4f6caf2e6f44b674bb37fbf",
+    "theories/NormDifferentiableFiniteSums.v": "e5f5fea3cefa01af8fe4a3084b84da336d342056a45af4b3a633f4ae67edd4cd",
+    "theories/NormDifferentialConvexBound.v": "c9c9e388cd1c7f83075b7b04bb4149aed8b6b9dff1dd4bfb8be347f0541e25dd",
+    "theories/NormDifferentialCoordinates.v": "8a188708cef2eb5370779fdfa4085f371d69cc84a22b9bb557b5d5dce08ca9a3",
+    "theories/NormDifferentialFiniteCalculus.v": "efed110eca0c7ce5cb45bae465e25e545bd6f4df2f43bcc459c397e34cd93e9a",
+    "theories/NormDifferentialRayEstimate.v": "b693a043a3b0395e7f9ac8c246da9fe04442d9ee56fe1d11af5e6047bcdb9e68",
+    "theories/NormDifferentialSharpLimits.v": "a51e1b5d82c0e91638236def1b2763c59ccc0aed2a3f06aa06918bfece9cddb1",
+    "theories/NormFiniteLinearBound.v": "0f62550e7ceec9d5df1cc7e8b1847e22599a0353d52a4b5ae1afa12684198de6",
+    "theories/NormMinimumInverse.v": "58b0698dc8778b0bcc518133dc060c12501a74b0acf37cb01329452402b84013",
+    "theories/NormMinimumModulus.v": "f5df98ed20755fbc0468762929fb400b04a7d9b0dc8af173a5b84d8cd0661947",
+    "theories/NormMinimumModulusConstruction.v": "4afa2fb834995ba9c07d20afa282a7a88044456c024855a8b01da8e7a1b5a7ff",
+    "theories/NormMinimumModulusSealed.v": "71afeaed7bebd72025cce87f9b6c608de26583fc2085de8d009b941205ccde6f",
+    "theories/NormMinimumModulusUP.v": "b46b9a3d4a42f954342e90e6dfd313e339381856a21060ffb2a4fd83b6d2f116",
+    "theories/NormPartialDerivative.v": "f7c251e8d6043ee956c76e65f95c652353977bb717148a56f64e036bb5c4b3b3",
+    "theories/NormRatioLimitLaws.v": "aa2ba54218dbaf80b42f45ce717300a88421c99b69ba729279028e8e10ff04bf",
+    "theories/NormRatioLimitUP.v": "86ab0764c756210b9f0342e221b37823997c8595599d8576e0101a3d601f6807",
+    "theories/NormUnitSphereBounds.v": "a9ffd9748f6cf8da3f922741a9109fbc89b7baef10a2b46bff5fd2779690cde5",
+    "theories/Rectifiability.v": "732a9477bcb14364dbde843391eb5b00358d1b55cc84027aba89fb483f689656",
+    "tests/DifferentialExamples.v": "2c8b9fd1758dda080e973282dcee66259ef3a344afd2a18c92170f3bc6cfb48d"
+  },
+  "full_project_validation": "Scheduled separately for 2026-10-27T18:00:00+01:00; not claimed by these focused checks"
+}

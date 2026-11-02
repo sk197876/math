@@ -1,0 +1,125 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 504.08,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "f9b8d8b0bf10708ba82331f152fae222a11f5796e3b7be7030a41ae1a51cb4f2",
+    "theories/PartialEuclideanTranslation.v": "51f375580398bc408a8ddb2a7b78747ebeef49e9c5a4d72bbabb8b7c032182f4",
+    "theories/RectifiableClosedExhaustion.v": "05000d38e1ab69b6c25869b2f8d353925a430f89e126db1254fe78988a04695a",
+    "theories/FiniteMeasureFamilyMaximum.v": "d648018df82531c17c3cd47551283b0ed5281bd89ca11a5262c80bd33c3dc099",
+    "theories/RectifiableZeroDimension.v": "6a2d2e5fc2cdc07bb912fdabcab6b85ba2d91c7abd238b5a6d31d0ecf3e04dd2",
+    "theories/Rectifiability.v": "297301748f3c4e3a524cbe76d758d150af33c66ef3bd413768e508533c7a19e6",
+    "theories/RectifiableSetUP.v": "82a50531b9f39807af6b8310135a15b6678abada90f215b0621fff1050dfef21",
+    "theories/CompactFactorClosedProjection.v": "7f4d4aa072f9246f85c3963cdc61c951cac2b3ff9dba48c508c87ef80e368bdf",
+    "theories/PartialLipschitzClosedRelation.v": "4133d2e2a3339f5d4531604631832f2a8260e0896ed8dd94e5f1c57c37802613",
+    "theories/MetricBoundedClosureLaws.v": "c00beb3b1c82630718f8f248eb119ca460760767b4e69358f1f4f6f5393f48c4",
+    "theories/RectifiableClosure.v": "29d5696585702105316b4708461f09186c27fe2f909f92fceef6b45112a2495b",
+    "theories/EuclideanSeparatedParameters.v": "fa123ac61c352d0495d87d49fad0aa1809049ba4b34dbc4c7d2ee11d2d67a281",
+    "theories/RectifiableElementary.v": "e4500572e7f4b1b2f6aa6d502a1cfebf2190840d386c55b730eb8cbf93195e26",
+    "theories/RectifiableUnion.v": "1d0ca22e59d762786cb35055782c708f212b056945a1b4433fbc3d2be3753ed3",
+    "theories/PartialLipschitzClosureSealed.v": "0d17c516c166f5e98f9ca660702c6f5fa4bc4698f0e2e2fa3343b6b35aef704e",
+    "theories/PureUnrectifiableLaws.v": "c066224ae36d9440d6c3ba01efba9486b6c6c63ae8945b3e9b100dbb7587e61b",
+    "theories/CountableUnionFamilyMaximum.v": "812e04720f5c675827f72737c2524eaada59a1da8f0ac4fab901431c816e70db",
+    "theories/PartialLipschitzClosureConstruction.v": "e389b0fadc01791e7621fae55e6e8b305075553c74b4dfa4e6e0e55e195839bf",
+    "theories/PartialLipschitzBoundedImage.v": "d76af85aa1a7dce4a2be6695c1806f985de404ad35221e09c18eed3c0f23e305",
+    "theories/PartialMetricLipschitz.v": "39344904dfcf0044449ece4ffd55340cf9bed88434a4656bce094ab06b42ceaf",
+    "theories/PartialSeparatedUnion.v": "570c9d86586c2ed654631ed585fa9c411e4134bf1bd15e3a2791d4dcba4da61a",
+    "theories/RectifiableFiniteApproximation.v": "c5eeb59d79832b200ff9531f929348a5ffe4d92995e37c0a06e45836cc42a633",
+    "theories/PartialLipschitzClosureLaws.v": "e5c0f7458d159a9662daadec48eb0cc9976de2d39792309451245ca7a8fadcc4",
+    "theories/PartialLipschitzClosureUP.v": "4096dd41da654e2238799701869ea5487f21aef769f16593181aa0827941a047",
+    "theories/RectifiablePureDecomposition.v": "08b8f1fd070faa596ba195d1aeb06121a54657b9f6948d0b96092ac28719ad71",
+    "theories/CountablyRectifiableUnions.v": "3e14861759c0f7c7f52f60b81561f7d1797e9a2274301676e7435d44f62140ed",
+    "theories/PartialMetricLipschitzLaws.v": "be45c29aba3d197046e26ac77adae445bd7e8d96b17e404e9852f4a3beab8b3f",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "2e3d3902664d2271767ce940df8a521943ff810c7f1631097242c831dcc96178",
+    "tests/Assumptions.v": "7e7b8ce754a78ceb61c2e4f882b1d49e68fe67623e412b5f89d5d8a73d7ae506"
+  },
+  "item": "3.2.14",
+  "date": "2026-10-31",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 25,
+  "public_exports": 24,
+  "regressions": 3,
+  "scope": "All assertions of Federer 3.2.14, pp. 251-252: four independent rectifiability predicates and pure unrectifiability; exact bounded partial parametrizations and finite-set zero convention; arbitrary metric-target closure and binary unions; countable unions/subsets; countably zero equivalence to countability; finite-mass approximation in both directions; countably rectifiable Borel/pure decomposition without measurability of the original set. Tangential and transformation paragraphs remain explicit forward references.",
+  "source_count_checked_unchanged": 6603,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 269.84,
+    "warnings_or_errors": false,
+    "compilation_commands": 27,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "69334b44",
+    "changed_modules": 27,
+    "affected_modules": 27,
+    "entries": 18466,
+    "old_entries": 18409,
+    "audited": 152,
+    "audited_old": 95,
+    "audited_new": 57,
+    "unresolved_names": 0,
+    "closed": 1,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 410.16,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 35805,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "umask": "0002",
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "private_construction_boundaries": {
+    "PartialLipschitzClosureConstruction.v": [
+      "PartialLipschitzClosureSealed.v",
+      "tests/Assumptions.v"
+    ]
+  },
+  "no_new_external_dependency": true
+}

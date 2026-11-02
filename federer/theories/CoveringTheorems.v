@@ -1,0 +1,56 @@
+(** Public exports for the covering theorems of Federer (1969),
+    subsection 2.8. This file declares no new mathematical objects.
+    Precise source passages and edition comparisons accompany the
+    declarations in CoveringFamilyUP.v, CoverContractionCriterion.v,
+    CountableAdequacy.v, WeightedCoverSelection.v, WeightedEnlargements.v,
+    FiniteRemainderEnlargements.v, EnlargementAdequacy.v and
+    RadiusCoverSelection.v, DiametricRegularity.v and
+    DirectionalCoverCardinality.v, ControlledBallDecomposition.v and
+    CenteredBallAdequacy.v, together with their supporting modules.
+    Selected witnesses are exposed through their sealed interfaces. *)
+From Federer Require Export CoveringFamilyUP CoveringFamilyLaws
+  AdequateCoverEstimates RecurrentEnumerationUP RecurrentEnumeration
+  RecurrentContraction FiniteSubfamilyApproximation ContractionCoverUP
+  FiniteContractionSelection ContractionExhaustionLaws
+  CoverContractionExhaustion ContractionExhaustionAdequacy
+  FiniteTargetContractionCriterion FiniteOpenMeasureCover
+  OpenRestrictionContraction CountableTargetContractionCriterion
+  CoverContractionCriterion CountableAdequacy WeightedCoverSelectionUP
+  LargeWeightedMember WeightedSaturationLaws WeightedCoverSelection
+  WeightedEnlargements FiniteRemainderEnlargements NonnegativeFamilyTails
+  FineCoverOpenRestriction EnlargementMeasureBounds FiniteEnlargementAdequacy
+  FamilyWeightedEnlargements EnlargementAdequacy StrictLargeMember
+  RadiusCoverSelectionUP RadiusSaturationLaws RadiusCoverSelection.
+
+From Federer Require Export DiametricRegularityUP DiameterWeightLaws BallEnlargementBound DiametricRegularity BallPowerGrowth ProperMetricMeasureBounds EuclideanClosedBallGrowth.
+
+From Federer Require Export DirectionalLimitationUP ControlledBallParameters DirectionalLimitationLaws CompactSeparatedCardinality NormDirections NormDirectionalLimitation.
+
+From Federer Require Export DirectionalCoverEstimates TwoPartCardinalBound DirectionalParameterCardinality DirectionalCoverCardinality.
+
+From Federer Require Export RadiusSelectionIterationUP RadiusSelectionIterationLaws RadiusSelectionIteration DistinguishedFiniteFamily SmallRadiusNeighborhood BoundedRadiusIteration BallFamilyDecompositionUP BallFamilyDecomposition ControlledBallDecomposition.
+
+From Federer Require Export ControlledCenterSelectionUP ControlledCenterSaturationLaws ControlledCenterSelection.
+
+From Federer Require Export CenteredBallCoverUP CenteredBallCover.
+
+From Federer Require Export NonnegativeInfimumZero DisjointDenseBallFamilies CenteredBallFineness FiniteCoverMeasureBounds FiniteCoverContraction CenteredCoverContraction CenteredBallAdequacy.
+
+From Federer Require Export CoveringRelationUP CoveringRelationFineness CoveringRelationLimits.
+
+From Federer Require Export EnlargementRatio AdequacyAlmostCover CoveringRelationCutoffs EnlargementRatioAdequacy EnlargementVitaliCriterion.
+
+From Federer Require Export MetricSubsetSeparability CenteredBallRelations CenteredBallFamilyCaps CenteredBallVitali.
+
+From Federer Require Export RefiningBorelPartitionsUP RefiningPartitionLaws PartitionMaximalCover RefiningPartitionVitali.
+
+From Federer Require Export
+  ContinuousDiameterImages CoreConcentrationMeasure HalfOpenIntervalRegions
+  HarmonicPrefixUP MeasureSum QuadraticDiameterAdequacy ScalarPlaneRectangles
+  VitaliMassObstruction HarmonicPrefixSealed ScalarHalfOpenRectangles ScalarMetricPlane
+  FiniteHalfOpenPartitionUP HarmonicPrefixBounds ScalarRectangleAffine
+  SmallRectangleMassCoverUP BohrFanUP BohrPatchUP FiniteHalfOpenPartitionMeasure
+  BohrPatchMeasure HalfOpenRectangleDifferenceSealed RectangleCompanionContainment
+  BohrFanSealed FiniteHalfOpenPartitions BohrFan BohrPatchLaws BohrPatchSealed
+  SquareBohrUnions BohrGroupMeasure SmallRectangleMassCover ScalarRectangleCounterexample
+  EuclideanRectangleCounterexample.

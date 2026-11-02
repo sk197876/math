@@ -1,0 +1,31 @@
+{
+  "scope": "Focused continuous-partials criterion of Federer 3.1.1; not completion of the item or a full-project audit",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "kernel": {
+    "exit_code": 0,
+    "seconds": 184.58
+  },
+  "assumptions": {
+    "exit_code": 0,
+    "seconds": 15.86
+  },
+  "new_queries": 16,
+  "rechecked_previous_queries": 6,
+  "previous_results_preserved": 15478,
+  "total_queries": 15494,
+  "allowed_assumptions": [
+    "boolp.constructive_indefinite_description",
+    "boolp.functional_extensionality_dep",
+    "boolp.propositional_extensionality"
+  ],
+  "source_sha256": {
+    "theories/EuclideanCoordinateStaircase.v": "dafa61c811cf4d68881b4d19afcf8d40e40e3b50b60baf9a732e2297f999eb25",
+    "theories/FiniteCommonRadius.v": "e38dc5b1722a52df11b85bcec88bf779d6f4464a04dbff909ad08f59a0d37b09",
+    "theories/NormPartialDerivativeCalculus.v": "f8350489501b5fcc219a5120fd885fc3eca29abaf186a799dc219939dee5b51b",
+    "theories/NormPartialDerivativeSegment.v": "164bf363f7d1706669edf415791c05a16c611dda117d748938b4c375a062c9bd",
+    "theories/NormPartialDerivativeBallBound.v": "45d71e81e3bfeed875de511e48818644e28135d27bc33aa5b00346fe6bc4a51d",
+    "theories/ContinuousPartialDifferentiability.v": "15c7654525e4924ae4b07d4377d4c187e7e18813aaf184f58f66a62a49573671",
+    "theories/Rectifiability.v": "827422882114056ae3c32e6f21092da4aec301be1d7b75af7ab0d04ece6e72dc",
+    "tests/DifferentialExamples.v": "e31dc79782697fd0501f7ec3b3450dba9f3a6b9623fdb8498d6c2e4d0f61bb53"
+  }
+}

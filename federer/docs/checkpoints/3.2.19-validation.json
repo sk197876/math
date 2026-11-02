@@ -1,0 +1,113 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 515.6,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "4a376f9df907dcd1db5b0bf4bd94a5f47d965e7518987b2645d2cfd358c38273",
+    "theories/EuclideanPartialLipschitzExtension.v": "35e2d9e73dbca14790cf8cdfaec15e64685a3d6901ebc0e9ef07031542f4fa7d",
+    "theories/RectifiableFixedChartConclusion.v": "ef563713f27f4ae0f2298837711dbe1170a9ed978b2e2640a492fb65f56ad313",
+    "theories/Rectifiability.v": "12f524783b55e97721d16370b6d0d5851fb6c9c614f633043c1b683fab58c7e5",
+    "theories/RectifiableTangentPlaneUP.v": "ee6099517baf104185378ed478b7414f139a87ccdfe1097d45b89c084d28cf2b",
+    "theories/ReciprocalNearOnePowerBound.v": "6d1e99546de3fe937bd8d53cf0771ba09743378ceadccf097ee864d9ccd5be01",
+    "theories/RectifiableChartDensityDifferential.v": "1ce582e4b5986357f891bca351cba13991446a02103034f7cbd65833b0111970",
+    "theories/EuclideanRectifiableNullImage.v": "ddf360f10b57ced1ece8ff1d947988f61e92f25c10c7ba88375e39678ac11e1d",
+    "theories/RectifiableDensityDifferentiability.v": "c98006b5d0c4ad4c6b6c04ec743e276af5cbd695d547493e49fd067f5bc27c54",
+    "theories/HausdorffRestrictedDensity.v": "282fecf471da57da3c7abd9383c12d3d0776f185359c6e83cc8d1216e9e5e566",
+    "theories/RectifiableDifferentialChartUP.v": "47d226ab04d6fa6dc31d375ea4206d88af18708ba30c66ea56db0da813759026",
+    "theories/RectifiableDensityTangent.v": "4d8abae4c4122759f6cda1b6fdaf15732197f8b2727b758fe7838c717e8bfd70",
+    "theories/MeasureAlmostOnCover.v": "d986732a68a7e10401b02412e6141947c443c3890f4641d855c01bdecc748108",
+    "theories/RectifiableChartRegularParameters.v": "8c6b9cc5e108848ba97db09bff65c634a43600cbf0f3d1f8dccf661429f12a50",
+    "theories/MetricDensityMonotonicity.v": "5f54df4060d883e4ced3f622927b47b63dedaea881a72085dfd7ceb53de9bd22",
+    "theories/RelativeMeasureApproximateDifferential.v": "9831f2e1ed4696797d940b542bb6860e20ec524f05ce52ec98fe82090933a004",
+    "theories/EuclideanLinearRangePlane.v": "d142ea0146a4429ffb17c04ab61df5868b3ec861f8a53f0283311059f8ad6798",
+    "theories/RestrictedApproximateTangent.v": "0f9ece7d1e76debe9e2051b59482ead4ad22d4e6a6ae98bf0c073286bd4d4bf3",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "3c489ff27ea35f9024d617c45fb530c6c4953d38f2a0dc2ccbac5f748e2cb2dc",
+    "tests/Assumptions.v": "44bc40f7887aef09dc24ed9c680b99e1a48fb4f85a3388141dd3cbd46eebbb28"
+  },
+  "item": "3.2.19",
+  "date": "2026-11-01",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 16,
+  "public_exports": 16,
+  "regressions": 2,
+  "scope": "The entire theorem of Federer 3.2.19, p. 256: almost everywhere on an H^m measurable finite-mass (H^m,m) rectifiable W, density of H^m restricted to W is one and its approximate tangent is exactly an m-dimensional Grassmann subspace. Every Lipschitz partial map with domain W has an approximate differential almost everywhere, with exactly that approximate tangent as partial domain. Each function may have its own exceptional set. The supporting chart theorem preserves the actual differential and exact partial precomposition identity. All natural dimensions, including zero, are retained.",
+  "source_count_checked_unchanged": 6698,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 249.97,
+    "warnings_or_errors": false,
+    "compilation_commands": 18,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "bc87883a",
+    "changed_modules": 18,
+    "affected_modules": 18,
+    "entries": 18640,
+    "old_entries": 18612,
+    "audited": 135,
+    "audited_old": 107,
+    "audited_new": 28,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 524.92,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 37040,
+    "fixed_files": 1,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "umask": "0002",
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "private_construction_boundaries": {},
+  "no_new_selected_witness": true,
+  "no_new_external_dependency": true,
+  "proof_route": "Retain the printed 3.2.18 chart proof, source density, Rademacher, null-image transport and 3.2.17. Prove exact full-density test-family equality under zero omitted density and derive the relative-to-approximate differential identity on original partial graphs. Transport spherical almost-everywhere upper and off-set density conclusions to Hausdorff measure. The final reciprocal-lambda limit uses the elementary inverse-power bound (1+t)^(-p)>=1-p*t and the Archimedean reciprocal lemma."
+}

@@ -1,0 +1,46 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 273.01,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "0bb9f968b927c98e082ba64b0f62aa8b8924b245a493ea9f5356df1ddaa1fdc5",
+    "theories/Rectifiability.v": "ea90f2d0da4b033a36863b4c03d8b4b1f7784dccbb0fabd3051d0c1bd10c2fd5",
+    "tests/DifferentialExamples.v": "0e961cce9332453744747036b4b9b8c08c95f09a6e1629504f971d26c7e46159",
+    "tests/Assumptions.v": "e2181feb6de7edeef633c761f6be7581c11c48427045faed886ac652f95694e5",
+    "theories/CenteredZeroDensityUnion.v": "ac11b522a9a29c79c5c0747e0bd63459a9b8a57a4993762594071ef2a66c96ef",
+    "theories/OrdinaryDifferentialOnDensityDomain.v": "85b1b8b4c9cbe5f90dd1371158900e883c48360cecc91ba6a61c9b4e6de3bbe9",
+    "theories/OrdinaryPartialOnDensityDomain.v": "fff2628b9fe086103a9be80844063a1992d99c3d1d203cad43799676e0c4962f",
+    "theories/EuclideanCoordinateSectionDensity.v": "8ca75ab99292081710d7d1664a6a59faefacef02c37b8dd4288ac5831d23ee25",
+    "theories/LipschitzRestrictionDifferentiability.v": "fbdf7f378a422ae6205b40df80d423455e7f11fba5b73245e78d610ab19ef588"
+  },
+  "item": "3.1.7",
+  "scope": "Five new theory modules, public Chapter 3 interface and zero-target/measurable-domain regression.",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "focused_build_exit_code": 0,
+  "full_project_validation": false,
+  "audit": {
+    "base": "9ad8dad",
+    "changed_modules": 7,
+    "affected_modules": 7,
+    "entries": 15796,
+    "old_entries": 15788,
+    "audited": 31,
+    "audited_old": 23,
+    "audited_new": 8,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 105.84
+}

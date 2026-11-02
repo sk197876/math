@@ -1,0 +1,46 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 278.22,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "7b0ae237d31b2f3323dd8e23d849f86851790f069f5206d1f7f057667dce93b1",
+    "theories/Rectifiability.v": "17c000afb9470d0603133886f895c7874dcad11cdff085a483a1281d4ea96c14",
+    "tests/DifferentialExamples.v": "90f57ecaa1921155dd5a1b639a8d22ed144e40338f70a7b8fdd01e615b3587e5",
+    "tests/Assumptions.v": "7e7da55225074d70923d8aa59adc1bc44bdd4f8e6dda81adff104691003688f5",
+    "theories/MetricLocalLipschitzCenters.v": "a90f6139caffed57fccb83bc92243c28978cc8e39e83582fcb2f68b92218e42a",
+    "theories/MetricFiniteGrowthCover.v": "e554d4fdc94f3b96858c3871fc1be7e5d372eb3cc3ad45f52ef6a7a36592dae1",
+    "theories/MetricClosedSmallCover.v": "a8534151ff606b76dd0041eeeca9e50af82dc88ab5265e3cf70f0c7c5844b2c0",
+    "theories/LipschitzCentersDifferentiability.v": "a7481a6775d5cf827151e0b220975e1652aff5f4da4ced3d46f5aad59d72e9d7",
+    "theories/Stepanoff.v": "789b5e94a4dc682771319dac6313ba5031fc4719fe1b76675846d7157c09d166"
+  },
+  "item": "3.1.9",
+  "scope": "Five new theory modules, public Chapter 3 interface and two arbitrary-subset/zero-target regression results.",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "focused_build_exit_code": 0,
+  "full_project_validation": false,
+  "audit": {
+    "base": "208dd33",
+    "changed_modules": 7,
+    "affected_modules": 7,
+    "entries": 15836,
+    "old_entries": 15827,
+    "audited": 37,
+    "audited_old": 28,
+    "audited_new": 9,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 119.78
+}

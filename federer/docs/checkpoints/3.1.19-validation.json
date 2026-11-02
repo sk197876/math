@@ -1,0 +1,182 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 404.79,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "0e1cd261aaa667f9eacc629b64756546db90b93433026b6d826346f5ac182ce7",
+    "theories/Rectifiability.v": "b1b9a907357710b9dadb5e3d1a0bf40b57f2436fb90000b4f9e8dc8e5de225bb",
+    "tests/DifferentialExamples.v": "63f34de624ebf182eb14e01f1b19f450fe8fef62c761801b99b7d9fddbc02494",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/Assumptions.v": "e3a2f90b8e2df19fb069983c3605dcb67f78fd24233d5fdc7858536f0c3c7fb9",
+    "theories/ConstantRankSectionImage.v": "a86e3d9b17dd5ec6d85b274f697c8a6f6f3a663f168058234cd0cf873e159115",
+    "theories/DiffeomorphismPlaneSection.v": "58e6b51981b2b491cb1c44212e03ccd3d022cacf8767e71163593fdf086d2ea3",
+    "theories/EuclideanCoordinatePlane.v": "bbcce0b87e89dbd2e7436e24fc4fd050f68db6952c3c8583cb56576fe7eb6a51",
+    "theories/EuclideanSubmanifoldUP.v": "6cad76c8863722aa6c5f2bb550832ef34e1cab84d5e70496f6ff313ce3457615",
+    "theories/LinearInjectiveRank.v": "23be7e4199c944ddb5c81c9005dcf3bb71c382f42bf0b817884dfbdf2e3c7a00",
+    "theories/NormBallTranslation.v": "79c09417fd173f33ba5a82935d36fe7493eedcb9187f6d7c7657f93f842016b9",
+    "theories/NormCoordinateTopology.v": "8850f77c3c5d30e8bf7d163c7f3140828860ee9c785fe756464318fbbfa97037",
+    "theories/NormDiffeomorphismComposition.v": "c6d536f34a4c8d4d69aebe0471af58fbfa58fee16fa7dc3c4ba9927f40b19fc1",
+    "theories/NormDiffeomorphismSourceRestriction.v": "a532871b50750df93977158c903cf324665f76e413452d2468a30cb4cd621b5e",
+    "theories/NormOpenPreimage.v": "5e12ce95c1b800cf3a8e4ecdd4f1624cac9f1fbf885f09c6cee1b4ec570bb7a4",
+    "theories/NormRetractionLocalCompact.v": "b020d9ee47e0a87d99e20aea28894cf2057d4be36ff8268d90ff57f42d030a8b",
+    "theories/NormTranslationDiffeomorphism.v": "ad07bb8b79f4d2f70077c5df21661669e6ea52d881012858def640361f7d6ffb",
+    "theories/RetractionUP.v": "ee93b04d392861ae246791ed79a557ba5272211aee19e73b7907ea37813a028c",
+    "theories/SubmanifoldBasicLaws.v": "be3b69f6dedd0b7678397f5fea95e6b3432e174d3018de589589de6daffefc2c",
+    "theories/SubmanifoldBlockStraightening.v": "fff30a602904cc187d693fc83894708cb17779e726d6f574809e959a17ae7c6c",
+    "theories/SubmanifoldChartsUP.v": "0d7a2bafaaa27bb2d8222dbf162e429222d6ee752111fdbc9fea61373eb2a8f2",
+    "theories/SubmanifoldCoordinateParametrisation.v": "6d9e839e228e371d3a165376cdf732ebe0762a6727283d8a97e79fb2e6e9fe08",
+    "theories/SubmanifoldEquivalences.v": "904a57ed233150b209782b528b199947cb9f4690295f47690756c86784b32193",
+    "theories/SubmanifoldLevelStraightening.v": "7c0efb18e1faba0f9d94346a2e752fee9573719b2c9612723a3763a1880e5e72",
+    "theories/SubmanifoldOrthogonalCoordinates.v": "d4faad65bec2ca4473bbcb231e7e1e56623f3ea8ddd38c5d815ead2b033216fc",
+    "theories/SubmanifoldParametrisationGraph.v": "2dc7c6e8dcf5287426bf8fc9b6fcefe12428ba7a788f08d6812bf3376c9567f3",
+    "theories/SubmanifoldParametrisationStraightening.v": "f091d0f4ccac97138e7b8e01d0185477c120b99e7e403b6a8ceee7e8bb1b72eb",
+    "theories/SubmanifoldStraighteningCoordinates.v": "f325b98064b0bdb5132a58783dcc64607ebb67ff4347b5d796a306d80bf675cb",
+    "theories/SubmanifoldStraighteningLevelSets.v": "c2acec990e41b0401f6e96490cc523cccf9cb46a86c8309fd63c04438363894a",
+    "theories/SubspaceBlockChart.v": "f5cb5fcbca3fe397d86eee59f16d3c881448b9a394d6bcbb92a51fb9d9dd9800",
+    "theories/SubspaceBlockChartUP.v": "92c8cc727bc9f7c4f8632dac83caea91a8deb7a22c359bdb9638c5db12c35f6d",
+    "theories/ZeroSubmanifold.v": "0ea9e14c525d619a31cb4baf8ad57bed3b7c3b51e3f2835b5a6eb44283638f03",
+    "theories/SubmanifoldLocalGeometry.v": "e7e1a4e9236b0fa7405b1119ded510cfe28eb3879768ab1a18961d333b1a0e97",
+    "theories/LinearPlaneSubmanifold.v": "f3601200494d3628e9a8dadf73ae3b4f57ef919037fb942bcf63636541d9444a"
+  },
+  "item": "3.1.19",
+  "date": "2026-10-30",
+  "scope": "The submanifold definition and all five equivalent chart descriptions; actual coordinate homeomorphisms; local class-k and continuous retractions; local compactness at every dimension and finite class; zero-dimensional equivalence with isolated points; three regressions.",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 29,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 61.41,
+    "warnings_or_errors": false,
+    "compilation_commands": 1,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "preliminary_builds": [
+    {
+      "exit_code": 2,
+      "elapsed_seconds": 372.25,
+      "warnings_or_errors": true,
+      "compilation_commands": 42,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "nice",
+        "-n",
+        "10",
+        "make",
+        "-j2",
+        "theories/Rectifiability.vo",
+        "tests/DifferentialExamples.vo",
+        "tests/InverseFunctionExamples.vo"
+      ]
+    },
+    {
+      "exit_code": 2,
+      "elapsed_seconds": 82.13,
+      "warnings_or_errors": true,
+      "compilation_commands": 1,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "nice",
+        "-n",
+        "10",
+        "make",
+        "-j2",
+        "theories/Rectifiability.vo",
+        "tests/DifferentialExamples.vo",
+        "tests/InverseFunctionExamples.vo"
+      ]
+    },
+    {
+      "exit_code": 2,
+      "elapsed_seconds": 63.85,
+      "warnings_or_errors": true,
+      "compilation_commands": 1,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "nice",
+        "-n",
+        "10",
+        "make",
+        "-j2",
+        "theories/Rectifiability.vo",
+        "tests/DifferentialExamples.vo",
+        "tests/InverseFunctionExamples.vo"
+      ]
+    }
+  ],
+  "preliminary_build_resolution": "All theory modules passed in the first registered attempt. The example file required explicit forward/reverse plane equations, a parenthesized theorem application and an explicit subset argument. These regression-only corrections were followed by a successful registered test compilation.",
+  "all_registered_build_attempts_seconds": 579.64,
+  "full_project_validation": false,
+  "artifact_reuse": "All 29 new theories and changed interface/example roots were compiled by registered make across the passes. Compatible dependencies were reused; older constant-rank dependents were recompiled when required by make. No draft .vo files were copied, and no clean/full-project rebuild ran.",
+  "shared_artifact_permissions": {
+    "checked_files": 29530,
+    "expected_group": "llm",
+    "expected_group_gid": 1003,
+    "bad_files": [],
+    "active_directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "inactive_historical_drafts": {
+      "count": 330,
+      "status": "Previously recorded claude-owned files in non-group-writable historical probe/stage13/stage14/stage15 directories require owner-side changes; outside active load paths."
+    }
+  },
+  "audit": {
+    "base": "f923e996",
+    "changed_modules": 31,
+    "affected_modules": 31,
+    "entries": 16912,
+    "old_entries": 16842,
+    "audited": 116,
+    "audited_old": 46,
+    "audited_new": 70,
+    "unresolved_names": 0,
+    "closed": 1,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 262.78
+}

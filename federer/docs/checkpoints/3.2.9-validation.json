@@ -1,0 +1,108 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 446.2,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "26171f070535a86ca5236ef731034316cf9f9b7f70a56e14b0249ffb06dfaf47",
+    "theories/Rectifiability.v": "5b2ebf47e49abdabf77f18a53f553988abe386e282e593a22a6073a463a4b463",
+    "tests/DifferentialExamples.v": "a29b5dc42db37b8b4a41f9d2ee110c5eb5e47efe43152a9e78ee94606a8a4536",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/Assumptions.v": "8fb00afb3b0c6c20cd3d5f2b6137dfaa865996a0ce10d78003731b5de34e47ca",
+    "theories/CoordinateFamilySeparation.v": "8a470889ee3de9f8657994fdfeb5c12e09080ddea3c4d5d4bf06ba513300c52a",
+    "theories/CoordinateInverseCoverUP.v": "34b47ab8beb866f2b2d5f7145be5d40b11a92cd8725276f96ae50ce2b7b0259d",
+    "theories/EuclideanKernelFrameUP.v": "5e790ce6a27d92fc69ee375b2f0a8e8365f0de68f38d519d4b6213b5e8459026",
+    "theories/EuclideanStackedMap.v": "c959b64a9c840b61ca9e9f3c3fb89703c964d3e48062ee46a3f57a3d52f6a52f",
+    "theories/InjectivePieceLipschitzRestrictions.v": "4a874a4c92277f4f6497d6bbfe3e035e7cae9ef47dca1018537609ab86a00240",
+    "theories/BorelInjectivePieceExtensions.v": "bf00b293c1775e70db3dfac248cfcdd8eb2454c3ef8cd213dcdc6f6944915451",
+    "theories/EuclideanKernelFrameExistence.v": "a1bfd3dad28c8317d5e5d8c3b6d18ad3aaccb3769d216fbda51944cb86892087",
+    "theories/EuclideanStackedContinuity.v": "981767ada034ad2bd9ac64ab8eab078d08e47ec5a96178aca27ecdc6a5076e93",
+    "theories/EuclideanStackedKernel.v": "ee7d071a83bea69b9d5c57477587c0ce5133d13a6f042d08863f647a9bc7a62f",
+    "theories/SurjectiveDifferentialDimension.v": "e7e3a6cc6427c37637cd1551b39739a5ce8206c5a5e582b599f510db5e8d4eb8",
+    "theories/EpimorphismCoordinateSeparation.v": "6b7c00206b4d9e1fcfc8dc8d4369bd469f7dc22e9b2a0637750108d5a4f3c0e0",
+    "theories/CoordinateStackLocus.v": "2b3e0f48112711b8fe093f07c8bf69ca6b5867aad61d5f56a4453856907d7e11",
+    "theories/CoordinateStackPieces.v": "06719e7573e7b7134b4ba9a8ea380c06e56b3dfca52f4b3c0e54d434f599ca74",
+    "theories/CoordinateInverseCoverExistence.v": "965c7e492ea81b3742c6ea544799483dedf4a0653ca3ce0574fccc1a4ffac836",
+    "theories/CoordinateInverseCover.v": "8740f448a21c0b1929317e0cf0f77246bfe5fdcd5bce9ed4a9f5dff2c7535aa4"
+  },
+  "item": "3.2.9",
+  "date": "2026-10-31",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 15,
+  "regressions": 2,
+  "scope": "Every continuous f:R^m to R^n has the printed countable Borel cover of its actual surjective-differential locus. Each piece carries p in O*(m,m-n), two globally Lipschitz maps u,v, and the exact laws u(x)=(f(x),p(x)), v(u(x))=x. All natural dimensions are covered, including empty full-rank locus for m<n and both zero-dimensional blocks. The proof follows the finite coordinate family, 1.7.4 kernel separation, 3.2.2 and sealed Kirszbraun extension.",
+  "source_count_checked_unchanged": 6389,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 206.64,
+    "warnings_or_errors": false,
+    "compilation_commands": 17,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "c9c740da",
+    "changed_modules": 17,
+    "affected_modules": 17,
+    "entries": 17962,
+    "old_entries": 17929,
+    "audited": 115,
+    "audited_old": 82,
+    "audited_new": 33,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 315.53,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 33239,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "compiler_nice": 10,
+  "kernel_check_nice": 10,
+  "audit_nice": 10,
+  "artifact_reuse": "Focused registered compilation reuses compatible /opt/rocq/federer-build artifacts. No draft object was copied into the active tree and no clean/full rebuild ran.",
+  "qualifications": "Continuity is the only mathematical hypothesis. The Cartesian target uses the canonical isometric block identification. The independent kernel-frame specification is proved from existing opaque epimorphism charts; all selected witnesses remain local or sealed. No new external dependency, project axiom or private construction import.",
+  "section_release": false
+}

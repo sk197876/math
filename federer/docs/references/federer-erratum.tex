@@ -1,0 +1,426 @@
+% Original PDF SHA-256: 4720c3aafa8939e0d3013c045a06d4ad620ef9d66155afdf1c894ec42f110665
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,mathrsfs,longtable,array,bm}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\R}{\mathbf R}
+\newcommand{\N}{\mathbf N}
+\newcommand{\Leb}{\mathscr L}
+\newcommand{\Haus}{\mathscr H}
+\newcommand{\restrict}{\mathbin{\llcorner}}
+\newcommand{\spt}{\operatorname{spt}}
+\newcommand{\dmn}{\operatorname{dmn}}
+\newcommand{\Clos}{\operatorname{Clos}}
+\newcommand{\U}{\mathbf U}
+\newcommand{\B}{\mathbf B}
+\newcommand{\E}{\mathbf E}
+\newcommand{\M}{\mathbf M}
+\newcommand{\Lsp}{\mathbf L}
+\newcommand{\Lt}{\widetilde{\mathbf L}}
+\newcommand{\entry}[3]{#1&#2&#3\\[4pt]}
+\newenvironment{corrections}{%
+  \begin{longtable}{@{}r >{\raggedright\arraybackslash}p{21mm} >{\raggedright\arraybackslash}p{118mm}@{}}
+  \textbf{Page}&\textbf{Line}&\textbf{Correction}\\\hline\endhead
+}{\end{longtable}}
+\title{\textit{Geometric Measure Theory}\\List of corrections}
+\author{Herbert Federer}
+\date{May 1987}
+\begin{document}
+\maketitle
+\noindent\textbf{Transcription information (editorial).}
+This is a LaTeX transcription of the cover and twelve numbered correction
+pages of Herbert Federer's \textit{Geometric Measure Theory: List of
+corrections}, May 1987 (citation key \texttt{Federer1987Erratum} in the
+project bibliography, \texttt{docs/bibliography.md}). The date above is read from the cover, not from the
+incorrect OCR reading ``1937''. The source scan was consulted visually.
+Page and line numbers in the tables refer to the printed book; section
+headings below preserve the erratum's own page numbers. Fragments are left
+as fragments: they specify replacements in the book, not standalone claims.
+Typeface instructions, insertion/deletion instructions, are retained; underlining used merely for emphasis in the scan is not
+reproduced consistently. Script letters and restriction signs are rendered with modern
+LaTeX glyphs. Large replacements are set outside the tables for readability.
+This file transcribes Federer's corrections; it does not incorporate the
+additional corrections or counterexamples developed in this repository.
+
+\section*{Erratum page 1}
+\begin{corrections}
+\entry{11}{8}{$\operatorname{Hom}(V,\R)$ (boldface $\R$)}
+\entry{15}{17}{$p+q$ (italics)}
+\entry{20}{11}{in case}
+\entry{20}{32}{$\mathbf 1_{\bigwedge_j V}$}
+\entry{22}{9}{for $\zeta\in\bigwedge_t V$}
+\entry{22}{11}{$\bigwedge^1 V$}
+\entry{26}{24}{$\mathbf i$ (boldface)}
+\entry{34}{29}{$\langle\xi,*\beta\rangle=(-1)^{p(n-p)}\langle *\xi,\beta\rangle$}
+\entry{34}{30}{replace period by ``, $\beta\in\bigwedge^{n-p}V$.''}
+\entry{35}{3}{$(v\otimes w)\bullet(v'\otimes w')$}
+\entry{57}{26}{$\operatorname{card}(A)$}
+\entry{59}{3}{$a\in\alpha$}
+\entry{60}{4}{In case $\varnothing\in S$ and}
+\entry{63}{2}{finitely many open sets}
+\entry{63}{30}{only if there exists}
+\entry{65}{20}{we mean}
+\entry{66}{13}{$S_1,S_2,S_3,\ldots$}
+\entry{66}{15}{$\mathscr N_j$ (script)}
+\entry{67}{2}{$\bigcup G$ and $\bigcup H$}
+\entry{68}{14}{subset of $Y\times\N$}
+\entry{76}{3}{\textit{and} (italics)}
+\entry{78}{7}{consider the set}
+\entry{86}{26 and 27}{On the space $\mathbf A(\phi,Y)$ [see 2.3.8] we define the functions $\phi_{(p)}$ for $1\le p\le\infty$ by the formulae}
+\entry{86}{bottom}{Insert two lines at the bottom of this page:\newline
+The functions $\phi_{(p)}$ are seminorms on the vectorspace
+$\widetilde{\mathbf A}(\phi,Y)=\mathbf A(\phi,Y)\cap\{f:\dmn f=X\}$.}
+\end{corrections}
+
+\section*{Erratum page 2}
+\begin{corrections}
+\entry{87}{1}{This is obvious in case $p=1$ or $p=\infty$;}
+\entry{87}{18}{subset of $\Lsp_p(\phi,Y)$, provided $p<\infty$ or $\dim Y<\infty$.}
+\entry{87}{32}{$\phi_{(1)}$ closed subspace}
+\entry{88}{3}{because the subspace}
+\entry{89}{19}{$u\in\Lsp_q(\phi)$ and $\phi_{(q)}(u)\le1$}
+\entry{91}{10}{$\Lsp_1(\phi,Y)$}
+\entry{91}{11}{Proof. In case $\ldots$}
+\entry{91}{28}{if $f$ and $g$ belong to $L$, so does $\ldots$}
+\entry{98}{10}{$\mu:L=\Lt_p(\phi)=\Lsp_p(\phi)\cap\{f:\dmn f=X\}\to\R$}
+\entry{98}{11}{$\phi_{(p)}(f)\le1$}
+\entry{98}{14}{\underline{measurable;}}
+\entry{99}{13, 14, 17}{$L^+$}
+\entry{100}{3}{Daniell integral on $\Lt_\infty(\phi)$ \underline{such that}
+$\mu(f)=0$ \underline{whenever} $f\in\Lt_\infty(\phi)$ \underline{with}
+$\phi_{(\infty)}(f)=0$, then there exists}
+\entry{100}{5}{$\Lt_\infty(\phi)$}
+\entry{100}{7}{$f_n\in\Lt_\infty(\phi)$ with $|f_n|\le1$ and}
+\entry{100}{9}{$g\in\Lt_\infty(\phi)$ with $0\le g\le1$ and}
+\entry{100}{21, 22, 23, 24}{$\Lt_1(\phi)$}
+\entry{100}{22}{$L^+$ is dense in $\Lt_1(\phi)^+$}
+\entry{101}{15}{$x\in\R^2$}
+\entry{102}{8}{$\Lt_1(\alpha_1\times\beta_2)\cap\Lt_1(\beta_1\times\alpha_2)$}
+\entry{102}{12}{$\Lt_1(\phi)$}
+\entry{107}{24}{$\widetilde\phi(V)$}
+\entry{118}{20, 21, 24}{Replace $\Lsp_1$ by $\Lt_1$.}
+\entry{119}{3, 4, 6}{Replace $\Lsp_1$ by $\Lt_1$.}
+\entry{119}{19}{measures, then $\nu(h)=\int h\,d(\alpha\times\beta)$ for $h\in\mathscr K(X\times Y)$.}
+\entry{124}{30}{Whenever $0\ne\nu\in\mathscr K(X)^+$, $(\spt\nu)\times(\spt\nu)\subset\beta$, $a\in\spt\nu$}
+\entry{125}{7}{insert period at end}
+\entry{125}{8}{delete ``whenever $\nu\in S(\beta)$.'' and ``Closure''}
+\end{corrections}
+
+\section*{Erratum page 3}
+\begin{corrections}
+\entry{131}{10}{measure over $G$ associated with a nonzero monotone left (right) $\chi$ covariant integral is a}
+\entry{132}{22 and 25}{$f\in\Psi$}
+\entry{133}{3}{$U=(G\sim P)\cup(P\cap U)$}
+\entry{133}{4}{measure over $X$ associated with a nonzero monotone $\chi$ covariant integral is a Radon measure.}
+\entry{134}{26}{$\Leb^n$}
+\entry{135}{35}{$(1-t^2)^{(n-1)/2}$}
+\entry{136}{7}{$f$ on $\R^n$}
+\entry{136}{29}{$|\det|^{-n}$}
+\entry{138}{34}{$|\det[L(g)\mid W]|^{-1}$}
+\entry{141}{25}{$\chi(g)\to\chi(h)$}
+\entry{142}{33}{$G_0=\varnothing$}
+\entry{143}{17}{function on $F$, $\varnothing\notin F$, and}
+\entry{145}{3}{[F12,}
+\entry{146}{22}{$\rho(x,c)/\rho(a,c)$}
+\entry{151}{24}{$V(X)$, $\phi$ is positive on $V(X)$, $1<\tau<\infty$}
+\entry{151}{29}{$\{(x,S):$}
+\entry{152}{10}{2.8.3}
+\entry{155}{26}{$\mathbf D(\psi,\phi,V,x)\notin\R$}
+\entry{158}{21}{$V$ (italic)}
+\entry{159}{7}{$X\sim\{z:f(z)\le t\}$ has density 0 at $x$.}
+\entry{159}{19}{$(\phi,V)$}
+\entry{161}{11}{2.8.14}
+\entry{162}{24, 25}{$\B(x,2r)$ (boldface $\B$)}
+\entry{163}{11}{$A\cap S_j=\varnothing$}
+\entry{170}{24, 35}{[F12,}
+\entry{174}{10}{have been constructed}
+\entry{177}{23}{$\int^*$}
+\entry{177}{27}{[F12,}
+\entry{184}{8}{space of all nonempty compact convex subsets of $X$.}
+\entry{184}{10}{compact subsets of $X$,}
+\end{corrections}
+
+\section*{Erratum page 4}
+\begin{corrections}
+\entry{188}{21}{$\mathscr S^m$ (script)}
+\entry{192}{4}{$\operatorname{card}(H_0)=1$, for $j\ge1$ each member}
+\entry{193}{7}{$\displaystyle\sum_{T\supset S\in\Phi(j,n)}$}
+\entry{194}{8}{$\sigma_j\ge t_{j+1}\to0$}
+\entry{195}{20}{, then.}
+\entry{197}{4}{$\mu\bm\alpha(m)^{-1}2^m$.}
+\entry{206}{13}{separable, complete metric space $X$,}
+\entry{210}{26}{$u_{n+1}-u_n=g(u_{n-1})-g(u_n)$}
+\entry{214}{24}{$\ge1/j$.}
+\entry{218}{12}{$\U(z,1/j)$}
+\entry{219}{4}{$\{|\phi(v_1,\ldots,v_m)|:$}
+\entry{221}{1}{$a+t(x-a)$}
+\entry{224}{4}{$\alpha h(x)+(\beta+1)h(s)$}
+\entry{225}{11}{supports form a}
+\entry{226}{20}{$\displaystyle\sum_{j=0}^{i}$}
+\entry{228}{19}{all $a$ in $A$}
+\entry{230}{15}{It follows}
+\entry{232}{11}{and maps $f_i:W_i\to B$ of class $k$ such that $f_i(x)=x$ for $x\in B\cap W_i$.}
+\entry{232}{14}{$\to T\cap B$}
+\entry{232}{15}{is a map of class $k$ for which $\rho(x)=x$ whenever $x\in B\cap T\cap f_{i-1}^{-1}(T)$,}
+\entry{234}{12}{with (Roman)}
+\entry{235}{19}{such that $f(a)=\eta$ in case $a\in S$ and}
+\entry{242}{23}{$\mathbf O(n,m)$}
+\entry{244}{11}{$J_m f(x)$}
+\entry{246}{3}{$f(a)\le f(b)$}
+\entry{246}{13}{is $\Leb^1$ summable}
+\entry{248}{21}{$\Leb^{m-n}$}
+\entry{248}{25}{$\Haus^{m-n}$}
+\end{corrections}
+
+\section*{Erratum page 5}
+\begin{corrections}
+\entry{249}{21}{$\Leb^m(A)$}
+\entry{253}{29}{$\delta_{i+1}<\delta_i/2$;}
+\entry{253}{32}{relative to $T$ at $a$; in case $\phi\{a\}>0$ this holds with $T$ replaced by $T\cup\{a\}$.}
+\entry{254}{2}{replace ``coincides with'' by ``generalizes''}
+\entry{257}{26}{$\Leb^\mu(B)$}
+\entry{258}{20}{add ``$\displaystyle R=W\sim\bigcup_{i=1}^{\infty}\psi_i(K_i)$,''}
+\entry{258}{22}{$P_{i,j}\cup R$.}
+\entry{259}{3}{Furthermore $\Haus^m(R)=0$, hence 2.10.25 implies}
+\entry{259}{4}{$\Haus^{m-\mu}[R\cap f^{-1}\{z\}]=0$ for $\Haus^\mu$ almost all $z$ in $Z$.}
+\entry{261}{4}{$\Haus^m$}
+\entry{261}{22}{in 2.10.5, choose}
+\entry{261}{29}{$x-w$}
+\entry{262}{14}{help of 3.2.20 that}
+\entry{265}{3}{delete ``because $\mathbf O(n)$ is compact,''}
+\entry{265}{12}{$\mathbf O(m,m-1)$}
+\entry{270}{25}{hence by 3.1.24 the set}
+\entry{270}{28}{and 3.1.18 shows that}
+\entry{271}{24}{$g(x)^{-1}x$}
+\entry{273}{18}{$m$-th}
+\entry{275}{2}{$r^{n-j}$}
+\entry{275}{14}{$\{z:\operatorname{dist}[z,f(C)]<r\}$}
+\entry{279}{27}{[EG 2,}
+\entry{280}{6}{$\mathscr Q_\infty^m\le\mathscr Q_1^m$}
+\entry{288}{1}{that, for each positive integer $j$,}
+\entry{288}{2}{$S_j=\{\qquad >\lambda+1/j\}$}
+\entry{288}{3}{is open, hence, for any positive integers $i$ and $j$,}
+\entry{288}{4}{$T_{j,i}=\{(a,p):(a,r,p,s)\in S_j$ for}
+\end{corrections}
+
+\section*{Erratum page 6}
+\begin{corrections}
+\entry{288}{6}{greater than $\lambda$ equals $\displaystyle\bigcup_{j=1}^{\infty}\bigcap_{i=1}^{\infty}T_{j,i}$.}
+\entry{307}{7}{delete this line}
+\entry{307}{26}{and $\Leb^1[p_u(E)]=3/\sqrt5$ whenever $u\in U$; moreover\newline
+$\Leb^1p_u[\bigcup\Psi(I\times I)]=2(u_1/4+u_2)$ if $u\in\mathbf S^1$ and $0\le u_2\le u_1/2$,\newline
+$\Leb^1p_u[\bigcup\Psi(I\times I)]=3u_1/2$ if $u\in\mathbf S^1$ and $u_1/2\le u_2\le u_1$,\newline
+hence $\Leb^1[p_u(E)]\le3/\sqrt5$ for all $u\in\mathbf S^1$; since the families $\{T\cap E:T\in G_j\}$}
+\entry{318}{26}{[HF 2] or}
+\entry{326}{3}{$\bigwedge^1\R^n$}
+\entry{327}{24}{$S_i\cap\bigcup\{S_j:0\le j<i\}=\varnothing$, $V_i\cap\Clos S_i\subset S_i\cup G_i$\newline
+\underline{for some analytic subvariety} $G_i$ \underline{of} $V_i$ \underline{with}\newline
+$\dim\gamma_0(G_i)<m$ \underline{and} $G_i\subset\bigcup\{S_j:0\le j<i\}$.}
+\entry{345}{36}{$\mathscr D(U,Y)$}
+\entry{346}{1}{Now suppose}
+\entry{348}{26}{$\mathscr D(U,Y)$}
+\entry{356}{16}{$\Leb^n$}
+\entry{357}{17}{$\R^n$}
+\entry{363}{2}{$\mathrm A$ (roman)}
+\entry{364}{11}{$\mathscr D^j(\R^n)$}
+\entry{373}{29}{$\R^n$}
+\end{corrections}
+
+\section*{Erratum page 7}
+\begin{corrections}
+\entry{374}{16}{$Q+\partial S$}
+\entry{383}{16}{$\phi$ (lower case letter)}
+\entry{384}{19}{$e_m,Df(x)$}
+\entry{386}{2}{$<2^{-j}$ when $j>1$,}
+\entry{386}{3}{$\displaystyle B'=\bigcup_{j=1}^{\infty}B_j$}
+\entry{386}{5}{replace the first ``$B$'' by ``$B'$''}
+\entry{386}{5}{between lines 5 and 6 insert the following new line:\newline
+Then (4) holds with $B=B'\cap\{y:\eta(y)\ne0\}$.}
+\entry{392}{14}{$\R^m$}
+\entry{393}{25}{$\R^m$}
+\entry{396}{16}{$\mathbf F_{m-1,K}(\R^n)$}
+\entry{401}{12}{$\bm\tau$ (boldface)}
+\entry{416}{2}{$\gamma=2n^{2m+2}$}
+\entry{416}{15}{$\B(b,r)$}
+\entry{423}{18}{$\pm\E^n\restrict A$}
+\entry{426}{12}{$\mathbf I_{m,K}^{\nu}(U)\ne\{(T)^\nu:T\in\mathbf I_{m,K}(U)\}$}
+\entry{426}{16}{Replace ``$\mathbf I_2^2(\R^6)$'' by ``$\mathbf I_{2,\spt S}^{2}(\R^6)$'' twice.}
+\entry{431}{28}{$\mathscr J$ (script)}
+\entry{434}{9}{components of $S_i\sim\bigcup\{G_j:i<j\le\mu\}$.}
+\entry{444}{20}{$[\Haus^m$}
+\entry{455}{30}{$U$ (italic)}
+\entry{457}{18}{\underline{4.3.17 Theorem.} \underline{If}}
+\entry{462}{1}{when $S$}
+\entry{462}{23}{$(\bigwedge_{k+\ell-n}g)\Xi=$}
+\entry{465}{18}{$A\cap B'=B$, $A'\cap\Clos(A\sim B')\subset A$, $A'\cap\Clos(A'\sim A)\subset B'$,}
+\entry{478}{26}{$\bm\mu$ (boldface)}
+\end{corrections}
+
+\section*{Erratum page 8}
+\noindent\textbf{Book page 479, line 1.} Replace lines 1 to 7 by the following new lines:
+\begin{quote}
+we suppose $0<s<\infty$, $\sigma$ as in 4.2.5 with $R=\U(0,s)$, and $\varepsilon>0$ with
+\[
+\varepsilon+(\sigma\varepsilon)^{n/(n-1)}<\Leb^n[\U(0,s)\sim P]=\Leb^n[\U(0,s)\cap P].
+\]
+Whenever $r$ is sufficiently large there exist
+\[
+X\in\mathscr R_{n-1}(\R^n),\quad Y\in\mathscr R_n(\R^n)
+\quad\text{with }\M(X)+\M(Y)<\varepsilon,
+\]
+\[
+\spt\bigl(\partial[\E^n\restrict(\bm\mu_r\circ\bm\tau_{-b})A]-C-X-\partial Y\bigr)
+\subset\R^n\sim\U(0,s),
+\]
+and 4.5.2(1) yields an integer $c$ such that
+\begin{multline*}
+\bigl\|\E^n\restrict(\bm\mu_r\circ\bm\tau_{-b})A
+-\Theta^{n-1}(\|T\|,b)\E^n\restrict P-Y-c\E^n\bigr\|\U(0,s)\\
+\le[\sigma\|X\|\U(0,s)]^{n/(n-1)};
+\end{multline*}
+letting $\phi_r$ and $\psi_r$ be the characteristic functions of
+$(\bm\mu_r\circ\bm\tau_{-b})A$ and $P$ we obtain
+\[
+\int_{\U(0,s)}|\phi_r-\Theta^{n-1}(\|T\|,b)\psi_r-c|\,d\Leb^n
+<\varepsilon+(\sigma\varepsilon)^{n/(n-1)},
+\]
+\[
+\phi_r(x)-c=0\quad\text{for some }x\in\U(0,s)\sim P,
+\]
+\[
+\phi_r(x)-\Theta^{n-1}(\|T\|,b)-c=0\quad\text{for some }x\in\U(0,s)\cap P,
+\]
+and infer $c\in\{0,1\}$, $\Theta^{n-1}(\|T\|,b)+c\in\{0,1\}$,
+hence $\Theta^{n-1}(\|T\|,b)=1$, $c=0$. Thus $u$ is an exterior normal of
+$A$ at $b$. We conclude
+\end{quote}
+\begin{corrections}
+\entry{483}{5}{$\overline{\R}$}
+\end{corrections}
+
+\section*{Erratum page 9}
+\noindent\textbf{Book page 499.} Insert at the bottom of this page the following:
+\begin{quote}
+and for each $\varepsilon>0$ there exists $\delta>0$ such that
+\[
+\rho^{-n}\|\partial(T-\E^n\restrict L)\|\U(b,\rho)\le\varepsilon
+\quad\text{whenever }0<\rho\le\delta,
+\]
+\[
+\left(\rho^{-n}\int_{\U(b,\rho)}|f-L-t_\rho|^\beta\,d\Leb^n\right)^{1/\beta}
+\le\sigma\varepsilon\rho\quad\text{whenever }0<\rho\le\delta,
+\]
+\begin{align*}
+\bm\alpha(n)^{1/\beta}|t_r-t_s|
+&=\left(s^{-n}\int_{\U(b,s)}|t_r-t_s|^\beta\,d\Leb^n\right)^{1/\beta}\\
+&\le\sigma\varepsilon s+(r/s)^{n/\beta}\sigma\varepsilon r
+\le(1+2^{n-1})\sigma\varepsilon r
+\end{align*}
+whenever $0<r/2\le s\le r\le\delta$, hence
+\begin{align*}
+|t_\rho-f(b)-L(b)|
+&\le\sum_{i=0}^{\infty}|t_{2^{-i}\rho}-t_{2^{-i-1}\rho}|\\
+&\le\sum_{i=0}^{\infty}c\varepsilon2^{-i}\rho=2c\varepsilon\rho
+\end{align*}
+whenever $0<\rho\le\delta$, with $c=\bm\alpha(n)^{-1/\beta}(1+2^{n-1})\sigma$,
+\end{quote}
+\begin{corrections}
+\entry{502}{3}{$\Haus^{n-1}(E)$}
+\entry{503}{12}{all $w$ are absolutely}
+\entry{510}{14}{are the usual}
+\entry{511}{24}{$[\log(e-1)]^{1-n}/(n-1)$}
+\entry{515}{23}{In 5.2.19 we}
+\entry{517}{10}{$\overline\Phi_a(\alpha)=\Phi(a,\alpha)$}
+\entry{521}{33}{$\mathbf H_m$}
+\entry{522}{27}{$T-Q\in X$}
+\entry{525}{23}{neighborhood of $B\cap\spt\partial T$ and}
+\entry{526}{17}{$\Xi_z=\tfrac12\rho_z^*\circ D\ddot h_0(z)\circ\rho_z$}
+\entry{526}{20}{$+\tfrac12t^2D\ddot h_0(z)\circ\rho_z$}
+\entry{532}{7}{$f_\ell=Y_\ell\circ f$}
+\entry{533}{15}{$\le\gamma^2$}
+\entry{539}{20}{$\|D^{p+j}f\|$}
+\end{corrections}
+
+\section*{Erratum page 10}
+\begin{corrections}
+\entry{539}{23}{$\|D^{i+q}f\|_{b,\rho/2}$}
+\entry{541}{21}{converge to a $T$ harmonic}
+\entry{544}{5}{$\mathbf e_i$ (boldface)}
+\entry{547}{9}{\underline{is strongly elliptic}}
+\entry{560}{22}{$\sup\operatorname{im}\Phi$ (capital)}
+\entry{568}{13}{$\kappa^{2/m}$}
+\entry{569}{3}{$\kappa^{2/m}$}
+\entry{569}{19}{$\kappa^{2/m}$}
+\entry{573}{28}{replace ``96'' by ``192''}
+\entry{574}{2}{replace ``96'' by ``192''}
+\entry{574}{10}{replace ``3'' by ``4''}
+\entry{574}{18}{conjunction with (2) and (3).}
+\entry{575}{5}{$\mathbf p$ (boldface)}
+\entry{575}{21}{$6E+\kappa\Omega+\kappa\omega$}
+\entry{576}{15}{replace ``$D_j$'' by ``$D_i$''}
+\entry{580}{2}{$|\overline\Phi($}
+\entry{582}{19}{replace ``5'' by ``6''}
+\entry{582}{27}{replace ``5'' by ``6''}
+\entry{583}{16}{replace ``5'' by ``6''}
+\entry{585}{3}{replace ``5'' by ``6''}
+\entry{589}{26}{$S_\nu^2\quad S_\nu^1\quad S_\nu^2$ (insert subscripts)}
+\entry{591}{7}{$(S_\nu^q\restrict$}
+\entry{592}{4}{$\mathbf p$ (boldface)}
+\entry{592}{21}{$h_{\nu,1}$}
+\entry{592}{30}{replace ``$M_2$'' by ``$M_4$''}
+\entry{593}{28}{$h_{\nu,1}$}
+\entry{594}{27}{$G_{\nu\#}$}
+\end{corrections}
+
+\section*{Erratum page 11}
+\begin{corrections}
+\entry{595}{18}{$E+\kappa^2\sigma tr$}
+\entry{595}{24}{$\alpha\kappa^2E$}
+\entry{596}{13}{$\alpha\kappa^2E$}
+\entry{596}{16}{$t^{8m}\alpha\kappa E+2^{m+2}\sigma tr[\kappa\bm\alpha(m)+t^{8m}\alpha\kappa^2E]$}
+\entry{597}{10}{$\bm\alpha(m)+\kappa^2\bm\alpha(m)/5$}
+\entry{597}{23}{replace ``$4^4$'' by ``$4^3$''}
+\entry{598}{14}{$D\widetilde\Phi_a(\mathbf p^*)$}
+\entry{599}{15}{$=-\widetilde\Phi$}
+\entry{599}{23}{replace ``$32\mu^6$'' by ``$2^4\mu^4$''}
+\entry{601}{18}{$M^{90m^2}\kappa^3$}
+\entry{601}{19}{$M^{205m^2}\kappa^4$}
+\entry{601}{22}{$(\Gamma_5+8\Gamma_4)\kappa^2+$}
+\entry{601}{24}{$\kappa^3$}
+\entry{601}{25}{$\lambda=\Gamma_{18}\Gamma_{19}M(4\mu^6)^{5m}=\Gamma_{18}\Gamma_{19}\,2^{10m}\mu^{30m}M$,}
+\entry{601}{27}{replace ``$\kappa^2$'' by ``$\kappa^3M^{1+m}$''}
+\entry{601}{28}{replace ``$\kappa^2$'' by ``$\kappa^3M^{m+4}$''}
+\entry{601}{31}{replace ``$\kappa^3$'' by ``$\kappa^4M^{m+4}$''}
+\entry{601}{32}{replace ``$\kappa^2$'' by ``$\kappa^3$'' (twice)}
+\entry{602}{23}{Then we apply}
+\entry{602}{24}{replace ``$4^4$'' by ``$4^3$''}
+\entry{602}{29}{replace ``$2^9$'' by ``$2^7$''}
+\entry{603}{5}{$\le\Gamma_{17}(2\mu^2)^{8m}\kappa(d_2+\kappa^2 4^3\mu^8 2\mu^2r_2)+(8\mu^2)^m(4\mu^2)^m d_2$}
+\entry{604}{24}{$M^{90m^2}\kappa^3$}
+\entry{605}{10}{$+\kappa^2\sigma_4$}
+\entry{605}{11}{$+\kappa^2 2^5$}
+\entry{605}{21}{$M^{205m^2}\kappa^4$}
+\end{corrections}
+
+\section*{Erratum page 12}
+\begin{corrections}
+\entry{606}{24}{$\Delta_4=\Gamma_{20}M^{90m^2}\kappa^3$, $\Delta_5=2\Gamma_{21}M^{205m^2}\kappa^4$,}
+\entry{607}{16}{$G_\nu=\mathbf 1-\mathbf q^*\circ g_\nu\circ\mathbf p$}
+\entry{608}{25}{$c_\nu-g_\nu(b_\nu)$}
+\entry{610}{20}{$\bm\tau_{(b,c)}^{\#}\,\overline\Phi$}
+\entry{616}{19}{is contained}
+\entry{618}{11}{replace ``$S_j$'' by ``$S_i$''}
+\entry{619}{17}{$\spt^2 S\sim\spt^2\partial S$}
+\entry{619}{18}{$\spt^2 S$}
+\entry{619}{26}{of 5.3.20 becomes}
+\entry{619}{29}{$\spt^3\partial T$}
+\entry{623}{14}{$|\vec T\restrict Du|$ (insert ``$|$'')}
+\entry{630}{23}{$\displaystyle\lim_{i\to\infty}$}
+\entry{633}{7}{$\mathbf 1$ (boldface)}
+\entry{644}{23}{$\R^n$}
+\entry{652}{12}{$\langle\vec T(z),A^\mu\rangle$}
+\entry{654}{8}{$q\ge3$}
+\entry{654}{13}{\underline{class} $q-1$}
+\entry{664}{43}{(1955)}
+\end{corrections}
+\end{document}

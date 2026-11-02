@@ -1,0 +1,115 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 513.3,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "6b318e8d16a2291524d7eeac18e38c360058d133c04c00b79ca524f3141d99b4",
+    "theories/MetricBiLipschitzUP.v": "735383cdd3c78f2794858c7a0167b5ba259285a73c864e8962247afb6f3829f7",
+    "theories/EuclideanBiLipschitzLowerDensity.v": "ed9fa7ca18b8323b26635b56d6c3387f1b75160dad226e907539b0b22f3090cf",
+    "theories/EuclideanBiLipschitzMass.v": "d1214a01322a6f14be977bd5172a783a95ee56b485abe54ff4a1f245e55a6fdc",
+    "theories/Rectifiability.v": "418684e3e7a9131fc6189b94251d7792d65ffaa5bc3455b275dfad4025492108",
+    "theories/PositiveRadiusLowerApproximation.v": "8bd987ae15f0e78886c12bb2a2843b0043c3e47e007546c3302c82c88c906a2d",
+    "theories/EuclideanBiLipschitzUpperDensity.v": "bd3fc147fcfdff3192272855b26e7ecedfd0e99afa68f22320578370695b7042",
+    "theories/NormRelativeCompositeRemainder.v": "6a136e7002a0660bad293584f407e21d0d63f0bfcb1af7cf274401dca301be74",
+    "theories/EuclideanMetricDensityConverse.v": "633732b6881370174a8384d864b3cf39744b12ee4358d88fdc52daa1efd63187",
+    "theories/MetricBiLipschitzHausdorff.v": "7f175233e06cd949f44aef4ad113a77644873ef8f7db3bdab79d6387ac3eda46",
+    "theories/MetricBiLipschitzBalls.v": "3acb160f90e9ae1213d6df2c83946a29f3445d54d97628f47873ab9280b54c32",
+    "theories/EuclideanInjectiveRetraction.v": "543e83b95872defcc0dac4f7995a895c7bbae8c6be8fe496b68f07172dc4d769",
+    "theories/EuclideanParametrizedDensityTangent.v": "233970ccd6be3487a66877a0479cebe4da916b9ee0acf62ceb241b2bf3bfa24c",
+    "theories/EuclideanBiLipschitzApproximatePlane.v": "6451f53f9088f12341c519af8dc1f6892f317afc866365a95a366cdfc218cd2f",
+    "theories/EuclideanFullDensityTangent.v": "f3a32cafd183d6df3453f5d870589c12dd61c3e5e39a8a542b912029bc82aa11",
+    "theories/EuclideanBiLipschitzRelativeComposite.v": "66f66d554754c0c6440d906625a03be061ca4b576a70c38ebdc4b4cd13e4c7f8",
+    "theories/MetricBiLipschitzZeroPullback.v": "a3f0d57c3aef5ee477d132b468247d4c279f2e7be3ae6c1713ec6a48d6de54b8",
+    "theories/EuclideanBiLipschitzOrdinaryPlane.v": "dbd0e666659f4a86ce95b97fe3211b5387a287a31f1ae113074c4ce5c22ad096",
+    "theories/MetricBiLipschitzInverse.v": "35a09069e67fa688cb737d77d7db83f76caca97ae5884f019e65fe518deea94d",
+    "theories/EuclideanBiLipschitzTangentPlanes.v": "339e0983e21246e0db6f92382455b458957ab649234392eb7d73734de5f670ba",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "849acf3666518f3a6433ad783d0f9241f9a28da8f8c263c16af9d7b2930e6f46",
+    "tests/Assumptions.v": "a937addaf7212992bb4eec9bb429204327644916d8aebde98cacaab01f9655d8"
+  },
+  "item": "3.2.17",
+  "date": "2026-10-31",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 18,
+  "public_exports": 18,
+  "regressions": 2,
+  "scope": "The entire lemma of Federer 3.2.17, pp. 254\u2013255: lambda^(-2m) and lambda^(2m) density bounds for H^m restricted to a biLipschitz image at a full-density source point with injective differential; equality of the approximate tangent, ordinary tangent and differential image; relative differentiability of F from differentiability of F composed with psi, with exact partial precomposition identity. Includes zero source dimension and a general normed target in the supporting relative theorem. No extra measurability, finite total mass, derivative field or ambient F regularity.",
+  "source_count_checked_unchanged": 6665,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 252.84,
+    "warnings_or_errors": false,
+    "compilation_commands": 20,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "8eb07a21",
+    "changed_modules": 20,
+    "affected_modules": 20,
+    "entries": 18582,
+    "old_entries": 18557,
+    "audited": 128,
+    "audited_old": 103,
+    "audited_new": 25,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 479.89,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 36591,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "umask": "0002",
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "private_construction_boundaries": {},
+  "no_new_selected_witness": true,
+  "no_new_external_dependency": true,
+  "proof_route": "Approximate tangent-plane inclusion uses inverse Lipschitz pullback of arbitrary full-density test sets in the 3.2.16 intersection definition, instead of a separate directional-cone volume formula. Printed ball inclusions, two mass comparisons and the relative two-remainder argument are retained."
+}

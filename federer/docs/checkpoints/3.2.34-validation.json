@@ -1,0 +1,122 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 643.3,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "5774ea621a64368aa3f055caad14311479154e35db87530b72c92df73d5c3bcd",
+    "theories/EuclideanDistanceLevelFibres.v": "102fff8dc5a25cfedb64e51e197b66f46a4654e36f7d9e5a68b2d005c656dc70",
+    "theories/EuclideanDistanceLipschitz.v": "f6f4349a2304c0dfcbadd3c6fd4fc49168a393a19a921e9538ac5d766686bec3",
+    "theories/Rectifiability.v": "5ee3dbc9c26eb4192699ad6ba0567a5e91caa0df02b1f297ad3a5c70bfaaf8ff",
+    "theories/EuclideanClosedDistanceJacobian.v": "1c26131087ce594668c9e6cbd0625572a193853ae161ca3a8af2204a3330f935",
+    "theories/EuclideanDistanceJacobianAlmost.v": "e036492f5153d71def91e345548af2489195379c2dcd2a4724cbbcc0c966c06a",
+    "theories/EuclideanDistanceStripCoarea.v": "e5bc58b3dae777be8ce34883464a57c1a9d25660426d5aa37c5841fbe832ddf6",
+    "theories/EuclideanUnitDirectionJacobian.v": "5d51db34613bcca54a83600a1d53b581f6a3ac5140a0eab02ef9c2816afe270b",
+    "theories/NormRayDifferentialValue.v": "bd13049f1ff4f6d9c83865c6d478c4fc532288fbc594984c74c93275ae6ac7df",
+    "theories/EuclideanClosedDistanceNearest.v": "761e651d71c556a7a3cd80a0977accc6df2a8e37ddd625a2512cda297da407e4",
+    "theories/ClosedSetDistanceCoarea.v": "af4726b69d181abcd07b5353d2645c07cc8cbd6836ccd1457a3a46dc9c013d0a",
+    "theories/MetricNearestSegment.v": "0f507a9536c616f580fcf3efc2f1caef5192b532b6e963735c091b075302808a",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "321d81e68a1a616b1a133290d0db07d54382757dfda283c1b5c8981bb0978391",
+    "tests/Assumptions.v": "1cd0b6d57163a458bc72b1db0f7409508e793a43925e0ff3d6c262736c306329"
+  },
+  "item": "3.2.34",
+  "date": "2026-11-01",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 10,
+  "public_exports": 10,
+  "regressions": 2,
+  "scope": "Whole Federer 3.2.34, p. 271: arbitrary nonempty closed subsets of every positive-dimensional Euclidean space, actual uniquely specified distance, all 0<=a<b, strip volume equal to the scalar integral of whole original H^(n-1) level masses. Retain unbounded and nonconvex sources, infinite values, a=0 and the n=1 counting-measure boundary.",
+  "proof_route": "Local compact-ball nearest points and independent distance inequalities prove exact nearest-segment increments. Actual positive-ray differential quotients and the global contraction bound give actual exterior degree-one Jacobian one. Rademacher, strip openness and non-strict coarea give the integral; actual constant integration, almost agreement, exact whole-level/empty-fibre graphs and the scalar pushforward identification give the printed formula.",
+  "whole_original_level_fibres": true,
+  "actual_distance_laws": true,
+  "existing_opaque_distance_corollary": true,
+  "actual_nearest_segments": true,
+  "actual_differential_jacobian_one": true,
+  "no_assumed_derivative_field": true,
+  "no_convexity_or_boundedness_premise": true,
+  "dimension_one_retained": true,
+  "zero_lower_endpoint_retained": true,
+  "infinite_values_retained": true,
+  "positive_mass_boundary_regression": true,
+  "unbounded_nonconvex_boundary_regression": true,
+  "source_count_checked_unchanged": 7341,
+  "earlier_untouched_inputs": 7327,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 269.17,
+    "warnings_or_errors": false,
+    "compilation_commands": 12,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "1bf77b2f",
+    "changed_modules": 12,
+    "affected_modules": 12,
+    "entries": 19889,
+    "old_entries": 19870,
+    "audited": 162,
+    "audited_old": 143,
+    "audited_new": 19,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 774.99,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 45352,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "umask": "0002",
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "no_new_selected_global_witness": true,
+  "no_new_private_construction": true,
+  "no_new_external_dependency": true,
+  "no_new_source_correction": true,
+  "coverage_qualification": "Positive n is the printed scope of H^(n-1). Keep the 3.2.27/29 corrections and deferred 2.10.46. Items 3.2.35--3.2.49 remain pending; no open problem is assumed."
+}

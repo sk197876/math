@@ -1,0 +1,108 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 631.15,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "febc589811f9479c4e6ffbd3a79825623f24bef622c4ee096512d7022ef71168",
+    "theories/Rectifiability.v": "00bb67837b0505e13d4300659df33cee80a98cc038b7aece4ca6dede1a932cb8",
+    "theories/LinearExteriorMeasureImage.v": "94d8f5ff4c06d9b131d3e40d01b227c10c288b0416ef4a9bd93cf452e1221205",
+    "theories/ExteriorLinearImageCost.v": "155d37989cf2a7d90651522661e80e23f662cec6a6816d6bb20096972be9754e",
+    "theories/EuclideanZeroCostImage.v": "3bc5ea8a2e56160307294007023194008c2ce6a94819593dc7ab8984ec59aba2",
+    "theories/LinearHausdorffMeasureImage.v": "32578c20125abf6d4b7ee6ac1d283969d1c2fbe58ef3df6fb708afe783b461ed",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "2ac357386c6989a2aba9be443b3f10e94b522e87be6fb9e2c188c9f7e398e951",
+    "tests/Assumptions.v": "4400e75cce10794f148a6a9369b68bcbefc7ffef10c543a7e6cfc4558ba7c4c7"
+  },
+  "item": "3.2.30",
+  "date": "2026-11-01",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 4,
+  "public_exports": 4,
+  "regressions": 2,
+  "scope": "Whole Federer 3.2.30, p. 268: both linear exterior-diameter and Hausdorff image bounds hold for every positive integer degree and arbitrary source sets, with the actual exterior operator norm. No measurability, boundedness, finite-mass or source/target degree-bound premise is imposed.",
+  "proof_route": "The actual exterior functor and operator norm control endpoint words. Independent supremum laws give the exterior diameter and shared normalization gives the cost bound. The finite ordinary linear norm supplies a positive Lipschitz cutoff factor. Positive exterior norm permits the existing scaled Caratheodory transport. At zero exterior norm, every nonempty image generator has zero actual cost; a countable small-diameter cover of the Euclidean source gives zero image mass at every positive target cutoff, including unbounded sources. The independent H<=S, 2.10.39 and T<=H comparisons then give the printed Hausdorff coefficient.",
+  "source_conventions": "Euclidean spaces use the coordinate models of the public metric-measure interfaces. The dimension coefficient n^(k/2) is sqrt(n)^k. Supporting cost and exterior-image lemmas also allow degree zero; the numbered theorem retains positive degree. The displayed product uses the existing extended-nonnegative zero-times-infinity convention; zero-norm image nullity is proved directly from covers. No new erratum correction or changed positive-degree statement.",
+  "both_linear_measure_bounds": true,
+  "arbitrary_sources": true,
+  "all_positive_degrees": true,
+  "singular_zero_norm_unbounded_sources": true,
+  "no_source_measurability_or_finite_mass": true,
+  "source_count_checked_unchanged": 7163,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 196.75,
+    "warnings_or_errors": false,
+    "compilation_commands": 6,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "ae76f6f7",
+    "changed_modules": 6,
+    "affected_modules": 6,
+    "entries": 19587,
+    "old_entries": 19577,
+    "audited": 145,
+    "audited_old": 135,
+    "audited_new": 10,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 677.17,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 43070,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "umask": "0002",
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "private_construction_boundaries": {},
+  "no_new_selected_global_witness": true,
+  "no_new_external_dependency": true,
+  "coverage_qualification": "Retain the source corrections of 3.2.27 and 3.2.29 and the deferred 2.10.46. Items 3.2.31\u20133.2.49 remain pending; unregistered item31 supporting drafts are not certified by this release."
+}

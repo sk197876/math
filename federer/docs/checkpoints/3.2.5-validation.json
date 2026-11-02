@@ -1,0 +1,114 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 414.95,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "bf8de40fbf9d6b300b48ed20efec719e8873a5c6932dcfa9bcc464b64cbf7c30",
+    "theories/Rectifiability.v": "664f932e0763a55ad4ccf3fe94c4e1aded7125aea5b3326ded900b52d74fca8c",
+    "tests/DifferentialExamples.v": "aa372715df121a3d66bd89863d4024a2e5bdc7a685e91a211dc3e2f784156b13",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/Assumptions.v": "c4167d9f949bbd9de650bb98ea0e62427f31b37077f7e3dfe0893ee56fcb2b03",
+    "theories/AreaImageWeightAgreement.v": "436c3736c1906bc5732880003c5cc722ea2b8da7cad98baa98558cc672596edd",
+    "theories/AreaIntegralTransformation.v": "fd8198568fbac193a823c460d983ac62093f6257f249b854e5f69b4da7fef9c3",
+    "theories/AreaMeasurableTransform.v": "83729b8b15c0181d906f7f107ccd77dfc4f35685191c71e4694977180ac283bd",
+    "theories/AreaNonnegativeTransform.v": "4733baae4a8ad9a8a6f64f41ebd6b75d38505d8481cceaa908368bca19ae9227",
+    "theories/AreaNullWeightChange.v": "7def7461e759c9b440a484a7af7b0a245e545cca80ed0360cfffb430beed7993",
+    "theories/AreaRankWeightAgreement.v": "37de2d26cc8a66d593b75d60ee32a6018499ee5d40c8f9360867c7713e6d90a6",
+    "theories/AreaRankWeightExistence.v": "c3d582b27161d64042b2db98610d37018b4d4192be991ea9d601644c4ca6a5b2",
+    "theories/AreaRankWeightUP.v": "a9fd2a96c5de615483d65ea0511555897551848d1a13ade0bcb2e01891f948c2",
+    "theories/AreaSourceMeasurableTransform.v": "24295bd3ba1e6e05cf954d7bd719db771d0478c7e3e55df673dab82e94db7109",
+    "theories/AreaSourceWeightRecovery.v": "a7d4cc0693f640cb0e875b43f51ae95da10700042ae6707c5a9c40950fd0a128",
+    "theories/AreaTransformIntegrands.v": "1a31f3a1a80f1b1b4abe704e3a4120650e50e1aa46d313abc33e93c95fe6dd48",
+    "theories/AreaTransformParts.v": "8faf381b6257e18f33368ac56f06b0cc3479de1c52769273a2715f2547154e1e",
+    "theories/CompletedBorelRelativePreimage.v": "0be8f23d6bb1254703aef9d78ea136ccd0c1c5eb2fd155820d4cd7d59b0ed7a8",
+    "theories/CountablyMeasurableBorelCore.v": "51a7d1b94a40c91fd8f26dc46821904ec7070b6af53f1fb9da90551252526688",
+    "theories/FiniteMultiplicityWeightRecovery.v": "83e0af14bae86e46c5b97a9a3470e3e0640571ed828ced9d68d13a057ae84aa1",
+    "theories/InjectivePieceNullPreimage.v": "7f512f8c0da2dea48f855ab408645af85b6b33b8dd59e965f5742b6abc1593ac",
+    "theories/LipschitzMeasurableImages.v": "4b3a80ddafaf70627497798d14fdfe7b027d09a6556490882088a52d11d3a67f",
+    "theories/LipschitzWeightImageMeasurability.v": "3ea2777d9e45fe0f880793e51558b4f2b737ebbd5fc8c2ac74efcf677022c070",
+    "theories/MeasurableCutoffRepresentatives.v": "a74d10e3c8bc7c80216f223ccbb14437459878b75d8d1c9f7c3102fcd44e3877",
+    "theories/MeasurableFiniteRealParts.v": "0fa96b0d2cc7f5de97ce4b99a3acf53999359d4d97d4f1d7c021e028e4f236fa",
+    "theories/MeasurableRelativeZeroExtension.v": "8b493715d3a8a244fdb1ff09014940c172f9249ca9ca602f4bc3c47bfd8f79fe",
+    "theories/PositiveJacobianImageNull.v": "3f0914d27ba8da119a538cfd65db3b924157e33bff5ceee5377c7e6d861e51d0",
+    "theories/PositiveJacobianNullPreimage.v": "aa0cb483f5fc0499df38da97d17a8787a5530fe1f6da122e03d990fe8d907469",
+    "theories/PositiveJacobianPullbackMeasurable.v": "d4961fa206f5a701a9182f428a4f438bc8f8b777e2b7a97d01397a98af9dbb81"
+  },
+  "item": "3.2.5",
+  "date": "2026-10-31",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 24,
+  "scope": "Complete integral transformation under all three printed alternatives: Hausdorff measurability of the finite real weight, almost-everywhere finite multiplicity, or measurability of the weighted source integrand. Prove equality of the actual integral graphs and integrability domains, including infinite values and undefined signed integrals. The numbered theorem retains m<=n; supporting proofs work in arbitrary ambient dimensions. Prove completed-Borel pullback on countable injective pieces without global target sigma-finiteness, measurable and countably measurable images, abstract cutoff laws and measurable existence, nonnegative and signed transformations, division by the actual positive Jacobian on the 3.2.4 selection, null-deficit recovery, finite-multiplicity weight recovery, and null inverse-image weight replacement. Two regressions exercise arbitrary weights without target measurability on empty and zero-dimensional sources.",
+  "source_count_checked_unchanged": 6275,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 262.55,
+    "warnings_or_errors": false,
+    "compilation_commands": 26,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "495adb48",
+    "changed_modules": 26,
+    "affected_modules": 26,
+    "entries": 17657,
+    "old_entries": 17613,
+    "audited": 118,
+    "audited_old": 74,
+    "audited_new": 44,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 428.75,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 31933,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "audit_nice": 19,
+  "priority_note": "Compilation and kernel checking ran at nice 10. The incremental audit inherited nice 19 from nested nice invocations; it remained low-priority. Future audit wrappers apply nice only once.",
+  "artifact_reuse": "Focused registered make compiled all 24 new theories and changed public/test roots, reusing compatible dependencies. No draft .vo was copied and no clean/full rebuild ran.",
+  "section_release": false
+}

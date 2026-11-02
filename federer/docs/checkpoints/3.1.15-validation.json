@@ -1,0 +1,83 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 379.54,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "fcb17e2484f94b59364078e0dddec30f2cc4e457ebe08c865883f8fe814010b0",
+    "theories/ContinuousMultilinearSuccessorLift.v": "e475d5e3c72ea53b1371164c3729d5bd32afb00ad9c84d24493e70c008a9e17a",
+    "theories/OpenRestrictionZeroExtensionMeasurable.v": "818700b294d7ce249d197f15af7041f881e14dc3f5d699b7c9f16ef31ea55a81",
+    "theories/Rectifiability.v": "d4a3cf94652038307863718f97478a6a80c43d1186a736004b0952496bf499ed",
+    "theories/LusinClassApproximation.v": "63564a92e4400ad16d9ecbe0fcf5cbc4039af1e778c4216674b059a1dc7c21ef",
+    "theories/TopDifferentialDerivativeField.v": "95698187947eaf0102559d5644305569932ff7a0aeb7a8b5e2907dc106141917",
+    "theories/TopDifferentialMeasurablePartials.v": "b849f31b10af012e198335eb1ef9668afa899a147addd2f32d4c3bc96c18dfe4",
+    "theories/EuclideanCoordinateHom.v": "1870aa27928066fb8c0c6a5fc9428b90bc7222f3098518842c315f366bc837b6",
+    "theories/TopDifferentialUniformSets.v": "73b1c1570967b48ead36b98f4c658cf6948cdba989f06cb7c018a93561b244ca",
+    "theories/EuclideanSphereNull.v": "d5ae51b9e27ec68cf0f89e7243aadd83416762a46d78297fa984d2b3db1d9163",
+    "theories/TopDifferentialJetFamily.v": "72f7abc7e8c16dd22a996d0f692553adbbaf571160ec6598b9c8040a23784689",
+    "theories/SuccessorLiftDifferenceBound.v": "59e5dcce633281a945b8e184893fb328875223fdd625e218e877eb726c1a94cc",
+    "theories/RefinedJetRemainder.v": "6ca829da296600ccaafe499251c399cdc9c933a3f7d629890b14776080943c6b",
+    "theories/TopDifferentialLowOrderEstimate.v": "86374508498c7644f220b2d2373cf59b110cabd1a12a5284159a53518827732e",
+    "theories/JetTopDifferentialLaws.v": "f1d6d3b2c6e972f26569f9e76787b944b541ca8942db1cdd410e0532648bc8de",
+    "theories/TopDifferentialStepanoff.v": "b73d30ef575088dd883d8b1a7766495813ba80b0547deedfaa74cccc1b7b67a3",
+    "theories/CompactUniformContinuity.v": "41ac7dce38c9156dcdc4f9f732765701aee2c6a59457230b64c17d6cc24f4440",
+    "theories/TopDifferentialGoodSet.v": "517e9e660a0572d15d66919e4b355ce3cdf96bf8677b3c04113b05b67fe634d3",
+    "theories/TopDifferentialLusinSelection.v": "3c3fc80c86b667c138ebee9887ab714c50880f1a9c623327c489c2b1a7935e9c",
+    "theories/OpenAnnuliClosedUnion.v": "1dc15a5a3b52040cd3cc97f87e56bac9a3ba3ebce80574f8f0aa7c399b80eb46",
+    "theories/HigherDifferentialCoordinateReconstruction.v": "8b17b110ce9741d78a32613912425c12b9120cf1bbf17f10c703986a3e10da62",
+    "theories/TopDifferentialFromCoordinates.v": "46388ebdd76a30841e29f1862c523ee32849e4f6f48743a7b28cce5974ee4526",
+    "tests/DifferentialExamples.v": "1c4aa984f18bee34473539b66790cbf3947ac71e9c23fa3cc45b2469cda10cf8",
+    "tests/Assumptions.v": "785a6ec77878d7ed1c29be6693ada4ff5c17498c312e60fc1cedd8c7fc5e826e"
+  },
+  "item": "3.1.15",
+  "date": "2026-10-30",
+  "scope": "Federer 3.1.15, pp. 227-228: approximation of maps of class k with finitely growing kth differential by maps of class k+1 up to sets of measure less than epsilon, in every finite dimension, with the growth hypothesis as a bound M|x-a| on a ball for the actual kth differentials; the closed set F from Lusin's theorem on measurable hulls over the open annuli, the assembled derivative D D^k f, the (k+1)-jets, the refined remainder estimate of p. 228 and Whitney's extension theorem 3.1.14",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 20,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 304,
+    "warnings_or_errors": false,
+    "compilation_commands": 22,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "full_project_validation": false,
+  "artifact_reuse": "Unchanged registered prerequisites in the shared external build tree were reused; all new modules and changed dependents were compiled by make. No scratch artifacts were copied into the registered build.",
+  "audit": {
+    "base": "0123121c",
+    "changed_modules": 22,
+    "affected_modules": 22,
+    "entries": 16650,
+    "old_entries": 16620,
+    "audited": 70,
+    "audited_old": 40,
+    "audited_new": 30,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 270.99
+}

@@ -1,0 +1,125 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 398.42,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "dc238f2bb669b95789c4c6a704adeca3292116b61e18299b69f820e2bf9e371d",
+    "theories/Rectifiability.v": "1ed694dc31563b576c59063ac67a5219d34ef629d0dd027af8d1138664a31ea7",
+    "tests/DifferentialExamples.v": "9903f4f3cba669b72bdf0961af83fb4b3eeb7ee772b988cb3435a16e40db1396",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/Assumptions.v": "a80146ffd283cd6534fb2ecbf14271bce03a8269de0262d1ac418f18334b7f0d",
+    "theories/LocalRetractionUP.v": "daf3bfb6c424cd9e59e1feac2751b5e78fc583d475b4e122417bda34fe159697",
+    "theories/NormRegularityLocal.v": "a8b0bb57f6d76f5c1a539ea25ba9d592762bd9588d8aaeea7888f3c4dee4f93b",
+    "theories/NormRegularityBilinear.v": "402471b2396ce7a50a93bbea0104353e7f267c14120c086e43c67ca41579927b",
+    "theories/NormRegularityGluing.v": "12cdbbf08171592c43d44a0c4e8fb6e82923815b8e90c62660d45b21453c3914",
+    "theories/RetractionPatchUP.v": "2a837063c1a23c8fa4a9e3f25029c507fac5d8380126a851dbe3db9a43d252d4",
+    "theories/StationaryRetractionUP.v": "1f16b8c2bfb92bcf44b9225289f33d4b314ab3c351320f15e214f5d0dcd21ed7",
+    "theories/StationaryRetractionLimit.v": "76200b3b8d2bef024b1d99bf2dfe44bf9abc91cabc6ab760b4ab0fe6e4113226",
+    "theories/RetractionPatchBlend.v": "edaf03d931f548680e90e8e760ee2d67234847da9d361cf5ea8c7070f18d86ae",
+    "theories/RetractionPatchingStep.v": "c7fa10b4416dd8d4212d4aef70577225d7e1392a268451bd03fbdbc7a162af57",
+    "theories/NormRetractionDifferential.v": "4a7a3ad8e99cb737ce778d5344e7ba9fa777f83cd3127bd057a392ffc88fc4a7",
+    "theories/TraceIdempotentRank.v": "0b744fff2c896c4fece57fa8d7796f4b178f4be9ffe0eb6aebdf1714522346b4",
+    "theories/EuclideanTraceContinuity.v": "7ae962d17c48edb05e9a323392f751a9d1d1786a15fd065083ef22e21f4e82f2",
+    "theories/EuclideanMaximalRankUP.v": "18249738bc1c3333148483616fd5b875ee3bb8435fcad4ca3dc7c789840c221f",
+    "theories/ContinuousAtClosureValue.v": "e88f1b0829f15053b8797c3b912cdfbb852f8d51fe79dad53daa0a7ada886bcc",
+    "theories/LinearRankImageInclusion.v": "261c24f5672bdccf25711748bcbde4503f5ec76a36c9a97d78944964998798bb",
+    "theories/EuclideanOpenFivefoldCover.v": "416b411224b2121806088aa0af70142cd4bfdc55b3e0cd927a60abb6670495ba",
+    "theories/OpenEuclideanPartitionCover.v": "4445a2f79b76c19f50324bcba0713b6fb0a8b6851db8e97e6e4ca9651375dfa1",
+    "theories/RetractionPatchingUP.v": "52a3e1313f392e7565288d0af1686c88f954cb699ee6187fd29c91adc67cddbb",
+    "theories/RetractionPatchingConstruction.v": "b7b971c50e5d0c57d363228b648ed57b9496755f3f9409785980fe70fbaeb2d6",
+    "theories/RetractionPatchingSealed.v": "2fc5083769767437bd2b0c597fe7cb214b0aa47eacd8c94f2220e1538b066088",
+    "theories/RetractionPatchingStabilization.v": "427ca432f4e78d8eb03c62fedcbaf9d9ec0a35ec5fa446d448e71de3a01edf8d",
+    "theories/LocallyFiniteRetractionGluing.v": "a482a5d011bc3f07e4e920745060e62b884c8e5914df3744970d7b2228ab0bb3",
+    "theories/CountablePartialEnumeration.v": "7ed978d9deee5a466d0e8f7c843cb0e8fa9b8b1ad74fd1ddc86b451cee7abf5a",
+    "theories/PartialEnumerationLocalFiniteness.v": "0968610f0bf73ffc70c79757a12da122650311eabcb7b8b1690849adda7df59c",
+    "theories/InnerNormTopologyAdapters.v": "343d0c6f5393899a3edbead6d4be94ffa0165fee4e9cae9f588d251dcf1e5104",
+    "theories/SubmanifoldCoordinateCover.v": "a26b08885b8d4eb2d9bd47669100979045f4d9efd7e32f02515aa1d7305f80fc",
+    "theories/EuclideanPartitionBumpClass.v": "d793589943b729e3c287a77cc2e9ecdb4b8aaee5827409c991114d317d6f8676",
+    "theories/RetractionMaximalRank.v": "b6718088a8bcef57ed4d2519071752529a8ad0206940b8800e6623f127cacc93",
+    "theories/SubmanifoldStraighteningLocalAgreement.v": "cf7213c1cc414bf50af083b16a1da749c53a0eb55c060145f81ee184e51daeb6",
+    "theories/RetractionGenericStraightening.v": "c6486369aaebd7913dd5459e6e1e7676b0a6869d3adfdf3bfac1232e477ca9b3",
+    "theories/RetractionSubmanifold.v": "e87f5d10776e617fb97f8031c12ba9596a251534c4beecefbe3b51160e8d774f",
+    "theories/SubmanifoldPatchingFamily.v": "b010c059e4d00abb96ea9fc795af1ac469b4ead733150ce09585e0eaaac0ba17",
+    "theories/SubmanifoldNeighbourhoodRetraction.v": "76388982d7ba1fcbf62017cf6cc54aac99af21823b45d903e60221b15cb167ef",
+    "theories/NeighbourhoodRetractionTheorem.v": "bc8b1501b22d5535ce2661a6547f53e6b6222b2508d0135478bb80b53c4fda49",
+    "theories/ConnectedZeroSubmanifold.v": "66299668f7370310285f13e11a37e288a102e1fd95062b40fdff08a03f8b0f6a",
+    "theories/ConstantRankImageSubmanifold.v": "3b75d49cd288e27bdbda9db8459a50f3ba7f17a95a8a7a1261ccb6b019ac5a8c"
+  },
+  "item": "3.1.20",
+  "date": "2026-10-30",
+  "scope": "The full connected-submanifold neighbourhood-retraction equivalence, erratum-corrected intermediate maps and blends, proved sealed patching sequence and stationary limit, open ball coverage with locally finite partial enumeration, maximal-rank converse via idempotent trace, constant-rank local image submanifold and rank-zero singleton; two regressions.",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 36,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 325.77,
+    "warnings_or_errors": false,
+    "compilation_commands": 38,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "full_project_validation": false,
+  "artifact_reuse": "Registered make compiled all 36 new theories and two changed roots (38 commands), reusing compatible dependencies. No draft .vo files were copied and no clean/full-project rebuild ran.",
+  "shared_artifact_permissions": {
+    "checked_files": 29713,
+    "expected_group": "llm",
+    "expected_group_gid": 1003,
+    "bad_files": [],
+    "active_directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "inactive_historical_drafts": {
+      "count": 330,
+      "status": "Previously recorded claude-owned files in non-group-writable historical probe/stage13/stage14/stage15 directories require owner-side changes; outside active load paths."
+    }
+  },
+  "audit": {
+    "base": "ff61d902",
+    "changed_modules": 38,
+    "affected_modules": 38,
+    "entries": 17014,
+    "old_entries": 16912,
+    "audited": 151,
+    "audited_old": 49,
+    "audited_new": 102,
+    "unresolved_names": 0,
+    "closed": 8,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 272.6
+}

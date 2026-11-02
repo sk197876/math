@@ -1,0 +1,76 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 350.88,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "3a76ec2038036a5475d37b1e1046fcf6670c88df28a76a3384a84d7138623291",
+    "theories/Rectifiability.v": "7387561c4ba7486ae77022de45a4002e765df76a82c83918ae3c00e6f109a108",
+    "tests/DifferentialExamples.v": "a883d56f8a2df8042ec0d0b14e3dfd418920ed7f65442c6b50f5b0ce13989a07",
+    "tests/Assumptions.v": "2e234abb9445b113507e0681f5e8f825e56ca1a041794294b07772ff01c106b0",
+    "theories/ClassOneApproximationUP.v": "470e297be8b8d2cc3564927586611d021d8e47fed73ba499d55cd9bd385411ed",
+    "theories/ApproximateGrowthDomainMeasurable.v": "d648c080805c31409a15679ce35372f0b74bd9c09ff9df906cda5242fadbca9e",
+    "theories/ClassOneAgreementApproximateGrowth.v": "2b6665d186a27eefb04c04ce043e5000665e4fbff9519e3d51f29bff5658d1c6",
+    "theories/ClassOneApproximationConverse.v": "c06dc52e323662732cfdbbdd01c458b2486f8bab7ae25a9d34510b251a0713cc",
+    "theories/ClassOneApproximationCounterexamples.v": "fb2137cc6495c4fde9bbfda3902faa7f8307d63e4796b2a90e0ea16f20468ff6"
+  },
+  "item": "3.1.17",
+  "date": "2026-10-30",
+  "scope": "Corrected converse of 3.1.16: in positive source dimension finite approximate growth almost everywhere is equivalent to domain measurability and class-one approximation at every positive tolerance. Includes constructed nonmeasurable-domain and zero-source counterexamples to the unqualified converse, and a zero-target regression. Higher-class question retained as historical commentary.",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 5,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 145.27,
+    "warnings_or_errors": false,
+    "compilation_commands": 7,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "full_project_validation": false,
+  "artifact_reuse": "Unchanged registered dependencies in /opt/rocq/federer-build were reused. All five new modules and changed interface/test dependents were compiled by make. No scratch artifacts were copied.",
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 29150,
+    "bad_files": [],
+    "make_umask": "0002",
+    "direct_command_umask": "0002"
+  },
+  "audit": {
+    "base": "f9591290",
+    "changed_modules": 7,
+    "affected_modules": 7,
+    "entries": 16679,
+    "old_entries": 16668,
+    "audited": 54,
+    "audited_old": 43,
+    "audited_new": 11,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 231.83
+}

@@ -1,0 +1,27 @@
+# Generated Coq/Rocq build files.
+*.vo
+*.vos
+*.vok
+*.glob
+.*.aux
+.coq-native/
+.lia.cache
+.nia.cache
+.nra.cache
+Makefile.coq
+Makefile.coq.conf
+.Makefile.coq.d
+html/
+__pycache__/
+_build/
+.build-dir
+
+# Keep source attachments out of Git except the requested Federer erratum.
+*.pdf
+!docs/references/Federer--Geometric-measure-theory--ERRATUM.pdf
+
+# Preserve the checked audit despite the repository-wide *.log rule.
+!docs/assumptions.log
+
+# Preserve historical verification evidence under the parent LaTeX ignore rules.
+!docs/checkpoints/*.log

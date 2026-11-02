@@ -1,0 +1,101 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 467.58,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "45f946816ff36e17671d281624d938862bc5e85fddfce463decd400c46f15774",
+    "theories/EuclideanWeightedCoarea.v": "ba1a0d451f5a1f32b02212e0b14e8b20e8f1854c23f9dbaa3a232b9872aa77fe",
+    "theories/Rectifiability.v": "64fe6443e17ac5fdd339c0c0bab0c0ea6dbe607bb7d8f8fa6876fb05a5e05eb2",
+    "theories/CoareaSourceFibreMeasurable.v": "433d043025bf2b67c3180faa28b042ff6afcce2c072b6f05ddc6a4fd0e291477",
+    "theories/CoareaNonnegativeWeighted.v": "7a8d544cbdb626a220e6b490694e2a4d02b32c683353287413a171f3b02d7498",
+    "theories/CoareaFibreIntegral.v": "e700a92eb12fb1db651753ee3814fcc2d9192aeab1525cdda9dcb34ea4af5690",
+    "theories/EuclideanTargetJacobianUpperBound.v": "073c96874723f98496818e580850db26ef5f3595ae9ee08de4ac0bf69f768a57",
+    "theories/CoareaCharacteristicExpansion.v": "7348faf5e2213034c99038dd1ffa3f51aef13d1bed1e09747cf4f1684f4960f7",
+    "theories/CoareaFibreNullChange.v": "bec0e9f73511bbfdb10529055f6546050f72494824ef094c34d5c33fb9cd3a10",
+    "theories/CoareaFibreIntegralParts.v": "f2f77dcf48db96dcd734d94533fc1aa02bb08bc7ec285bdbaf24aa3b37485c6c",
+    "theories/CoareaSignedTotal.v": "382c92e8a5e8a37ac117ed3f745c8f3f0c6b24d8a017a83607dc81b94182a375",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "e4d2ffa0b34d467b22f951eec83648782551a7f39fa1de4f8e1e1243bb6304fd",
+    "tests/Assumptions.v": "93e9189b9dd1bff9ee53be7c876f5e533ead1424205fc846c71e4ddf81bacae7"
+  },
+  "item": "3.2.12",
+  "date": "2026-10-31",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 9,
+  "regressions": 2,
+  "scope": "Complete weighted coarea for Lipschitz f:R^m to R^n, m>n, and every Lebesgue-integrable real-valued g. Preserve integrability rather than summability, either infinite signed value, n=0 and actual Jacobian domains. The stronger supporting theorem retains original partial extended-real integrands and actual inner-integrability graphs. Characteristic fibre approximation, all fibre measurability, signed source density control, exact inner signed reconstruction and null-input transport are proved internally.",
+  "source_count_checked_unchanged": 6464,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 177.99,
+    "warnings_or_errors": false,
+    "compilation_commands": 11,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "106e78fe",
+    "changed_modules": 11,
+    "affected_modules": 11,
+    "entries": 18116,
+    "old_entries": 18101,
+    "audited": 104,
+    "audited_old": 89,
+    "audited_new": 15,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 396.98,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 34088,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "no_new_private_import_or_external_dependency": true
+}

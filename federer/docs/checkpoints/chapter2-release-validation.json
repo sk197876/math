@@ -1,0 +1,97 @@
+{
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "peer_commit": "40bfe5e3fed85ad11681d1780c45ecd5ad7fc9ff",
+  "stages": [
+    {
+      "name": "prepare-reuse",
+      "exit_code": 0,
+      "seconds": 2.5,
+      "log": "docs/checkpoints/chapter2-release-prepare.log"
+    },
+    {
+      "name": "chapter2-rebuild",
+      "exit_code": 0,
+      "seconds": 19389.2,
+      "log": "docs/checkpoints/chapter2-release-build.log",
+      "command": "opam exec --switch=RP.2026.02.0~9.1~2026.01 -- nice -n 10 make -j2"
+    },
+    {
+      "name": "full-recursive-kernel-check",
+      "exit_code": 0,
+      "seconds": 608.0,
+      "log": "docs/checkpoints/chapter2-release-check.log",
+      "command": "opam exec --switch=RP.2026.02.0~9.1~2026.01 -- nice -n 10 make check"
+    },
+    {
+      "name": "fresh-full-assumptions-audit",
+      "exit_code": 0,
+      "seconds": 10081.1,
+      "log": "docs/assumptions.log",
+      "command": "opam exec --switch=RP.2026.02.0~9.1~2026.01 -- nice -n 10 make audit"
+    }
+  ],
+  "compiled_files": 4158,
+  "unique_compiled_files": 4156,
+  "chapter2_unique_compiled_files": 4145,
+  "attempts": [
+    {
+      "name": "chapter2-rebuild",
+      "exit_code": -2,
+      "seconds": 6154.2,
+      "log": "docs/checkpoints/chapter2-release-build-attempt1.log",
+      "reason": "Deliberate interruption to prevent timestamp-triggered rebuilding of unchanged Chapter 1 dependencies.",
+      "command": "opam exec --switch=RP.2026.02.0~9.1~2026.01 -- nice -n 10 make -j2"
+    }
+  ],
+  "reused_files": 1075,
+  "reused_but_also_recompiled": [
+    "theories/ExteriorIdeal.v",
+    "theories/SymmetricIdeal.v",
+    "theories/TensorAlgebra.v",
+    "theories/TensorAlgebraMaps.v",
+    "theories/TensorAlgebraSealed.v",
+    "theories/TensorGrading.v",
+    "theories/TensorPowers.v",
+    "theories/WordTensorAlgebra.v",
+    "theories/WordTensorGrading.v",
+    "theories/WordTensorPowers.v",
+    "theories/WordTensorWitness.v"
+  ],
+  "queries": 15349,
+  "closed_queries": 1065,
+  "permitted_axioms": [
+    "boolp.constructive_indefinite_description",
+    "boolp.functional_extensionality_dep",
+    "boolp.propositional_extensionality"
+  ],
+  "previous_results_preserved": 10432,
+  "warnings": 0,
+  "started_utc": "2026-10-26T15:47:20.661316+00:00",
+  "finished_utc": "2026-10-27T01:55:02.610581+00:00",
+  "source_files_unchanged": 5221,
+  "kernel_roots": [
+    "Federer.GrassmannSpaces",
+    "Federer.TensorFamily",
+    "Federer.MeasureTheory",
+    "FedererTests.Examples",
+    "FedererTests.GradedExamples",
+    "FedererTests.SignedExamples",
+    "FedererTests.ExteriorExamples",
+    "FedererTests.MeasureExamples",
+    "FedererTests.CoveringExamples",
+    "FedererTests.DerivationExamples",
+    "FedererTests.CaratheodoryExamples"
+  ],
+  "log_sha256": {
+    "docs/checkpoints/chapter2-release-prepare.log": "ca83951fa9383dbc5ff002f6bb7e88303e43c00a90e4203c34c367c66e761368",
+    "docs/checkpoints/chapter2-release-build.log": "fede053c736ed5f45024cbbd23c4997eceb1f1b0ad32ab087fde5facc45314b0",
+    "docs/checkpoints/chapter2-release-check.log": "401c3b525fc1c82a9fb8f0ee12ccb214e1fb563f55299a6c02f5ba0663917b80",
+    "docs/assumptions.log": "cf1c15741b916ce8ff80aa69f79ed30717d8e1847c680188755bed80db7916cf",
+    "docs/checkpoints/chapter2-release-build-attempt1.log": "e54002542ac9c4a0d19f83c32f693f234f1a57909960b980a001f63359574e25"
+  },
+  "editorial_update": {
+    "date": "2026-10-27",
+    "description": "Diagnostic identifiers in saved logs were updated to the current neutral module and declaration names. Assumption results and all other log contents are unchanged. These remain records of the earlier release validation, not a fresh full build, kernel check or audit.",
+    "verification": "docs/checkpoints/source-comment-cleanup.json"
+  }
+}

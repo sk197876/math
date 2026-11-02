@@ -1,0 +1,130 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 492.56,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "01d0fc6f0b93cad51d3767529772dccacfade42bffa2627565ff9d5e53663f77",
+    "theories/CoareaAdjointBound.v": "9a39ef6d09975f424e563a0440541519f03141163fcfcbcfe3ddc9ef377f660b",
+    "theories/CoareaIteratedIntegralBound.v": "c1180fc4ccd3068a43679de4515aa6773a275476a6e40b910a93ec304bfddb31",
+    "theories/FibreBorelPartitionMass.v": "3d9869c6aef79a242f06724c2b8fcfe9ab68b5810ca1150df0ccdb5c648e3439",
+    "theories/CoareaNullFibres.v": "6504d0ec4ce6bf8727a865302b534200a5b4f77c1cc7313044e52e2f241d24fb",
+    "theories/Rectifiability.v": "bc43436147122c079de09167f0f5fcc99e93505cb854573efc286abeb480c1bf",
+    "theories/DifferentiableBorelCoarea.v": "d8beda1bc5f1e3290b4e2fc91d3fac694db6b611188d054a8f85a431fb5d5d9e",
+    "theories/CoareaSliceHausdorff.v": "f2a532f165899b9b5aac5f9a76a63a10efe504271cad2443357a252197535833",
+    "theories/EuclideanFiniteBorelPartition.v": "8798f2d10894d906267b2011fdae424785a9e60bf66ff07047a75ce9b8b16264",
+    "theories/CoareaTranslatedCutoff.v": "eaaf8582369fe691cb84ed04dedb730dcb2d3a1c019c016e3f59979beacb8da7",
+    "theories/CoareaIntegralUpperBound.v": "c6773dba1e09f813eebacd5641a93a4134155b13aeba13fee326e6cebf8930d9",
+    "theories/CoareaCylinderFibres.v": "41e50632afc9f93f22d49abec67fbdae130e96c556e540b4d746ef396ee15ecb",
+    "theories/CoareaCriticalFibreNull.v": "b5dd6d601b489c9852f6bf32703c241e6f15951f41e4715295b5181fd44ce6a0",
+    "theories/CoareaPerturbationMap.v": "51a2e0fa09a1dcd5f96f8127e74983690f7c0e6ba3d8daff073b8a27fdd136a9",
+    "theories/CoareaPerturbationBound.v": "976c5def7d781ff31a2b83a9a80e3ba21c61feefc5ec8d6966d0f27325e23560",
+    "theories/CriticalCoareaJacobianZero.v": "79720c8855e62719c9af82f0f27561410ff399a9ae3ddce128ae9b71ee9b6299",
+    "theories/FiniteCoareaFibreMeasurability.v": "ec2e6e93b2dd7a8674f59b7c035c6239037240cef2f153bee55ceba8226aa161",
+    "theories/CoareaTranslatedProjectionBound.v": "f04add83d08fa3d42a79d97412f7b06d1df05561ad63caa5fff4bcfd063094a7",
+    "theories/CoareaJacobianMeasure.v": "89babcc94fbfdde63acbe1b37290e22c23f91471a5a5d87098db945611e16004",
+    "theories/CoareaPerturbationLinear.v": "0fceab5d805993ce621b27d03e552e8e35fc69e76b595200dbe525091324d608",
+    "theories/EuclideanCoareaFormula.v": "c1c039b1836953296aafbabfee211b0438184c34c4b27c05d4cfcf8caefb9595",
+    "theories/CoareaLinearDuality.v": "9e7bf7cc9e55f9c5256bb073be851feb13c45fb124bdbc9269ee14803a68d57a",
+    "theories/CoareaJointTranslationMeasurable.v": "ca9c2e67b1187c1ea6d49682e0abe7a87955e811027134e2014dbbe2cd0df31e",
+    "theories/CoareaPerturbationComparison.v": "ea6dbaedf1ef1ae88c4ebcf58c0e6c0b37e652d59876897328e5c709215afbbd",
+    "theories/FullRankBorelCoarea.v": "53979941b05d968e06c2b65b099af542db1721916e9296ce4e8624af50f53c31",
+    "theories/BorelCoarea.v": "77210bfc8dec9faa4a2d938c766d81354fd145ce5afd371443de72fea299a73d",
+    "theories/FiniteCriticalCoareaEstimate.v": "a5304712fd906500ab216102339a742f25b4d9057eeb188511deafaa44b6b895",
+    "theories/TopJacobianSmallDirection.v": "41985ae93675971469da71ef6c7f52a707da0a80e13430a68e845be0274ac7a6",
+    "theories/CoareaProjectionFibreBound.v": "81d19fe1c8bdbcd69f720a128dae6321afaf8b967f82b73c422eaa762a696e50",
+    "theories/BorelCriticalCoarea.v": "ce2f5c498e2a69fe2adb08671544375f60e532b4fade11ce9c469d4d39fe8e4b",
+    "theories/FiniteCoareaFibreIntegral.v": "74151e46a72c5e6ee48dbe190f1ad278c06ff0b4cdf63609e5b0aaf8b5cb64c5",
+    "theories/CoareaNullSourceAgreement.v": "8e281e0e02faf424a42166b65cdd84a8fa0979447f35e8a098423d5c8a447303",
+    "theories/CoareaTranslationIntegral.v": "2baf3c127f42d2130d650b94e5523a1ca0aa01c2941fe24ccd6df284e3337f7b",
+    "theories/CoareaVanishingPerturbation.v": "6026963e770f6f4d61592cf8a166462e3e9847fa813ee7602856e137de6052d1",
+    "theories/CoareaCylinderMeasure.v": "bcba5158c386c701eae36e730053c8a04b60e23d3fa59e087c71887ec564a771",
+    "theories/CoareaPerturbationDifferential.v": "f4b1d90b5622c4da3425c073a99764b6414fec930ff6934f6dc6c20b51489f8d",
+    "theories/FiniteCriticalCoarea.v": "90f32fb5fc65c07c693ffa27125afc2de06c57fe7dcea924c38212c6b39704b3",
+    "theories/EuclideanMeasurableBorelCore.v": "055fbaa04b6d76dac89ad74e790215991fd92474d8a056645aca15316a055c5e",
+    "theories/CoareaRankLoci.v": "6813919cc4567124e1c62cad507de78ffb936f1df9b9c6ed97a876b0d6c0d5af",
+    "theories/CriticalPerturbationIntegralBound.v": "f977cb6f914dffe2bf197837dcf74245320a3df138d19c7a4d550a7c88cc952d",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/DifferentialExamples.v": "a4e85882b97056d1eaaf3c21f36515c29403a972a41313c7ada373eb8bf2f970",
+    "tests/Assumptions.v": "e223633cbfa14715bd416cfef545af6e0a065deca626eed0680f57fc00f872c5"
+  },
+  "item": "3.2.11",
+  "date": "2026-10-31",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 38,
+  "regressions": 2,
+  "scope": "Complete general coarea for Lipschitz f:R^m to R^n, m>n, every Lebesgue-measurable source A, infinite integral values and n=0. Both actual integral graphs have the same value; no Borel, finite-mass, rank, differentiability or slicing hypothesis is added. Prove full rank by 3.2.9/3.2.10 and the critical case by the exact perturbation, adjoint Jacobian bound, fibre isometry, completed joint measurability, Fubini, closed-ball volume and epsilon removal. Apply erratum p.5, book p.249 line21: source factor L^m(A).",
+  "source_count_checked_unchanged": 6455,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 391.1,
+    "warnings_or_errors": false,
+    "compilation_commands": 40,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "16e02c51",
+    "changed_modules": 40,
+    "affected_modules": 40,
+    "entries": 18101,
+    "old_entries": 18023,
+    "audited": 165,
+    "audited_old": 87,
+    "audited_new": 78,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 574.65,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 33983,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "proof_workers_maximum": 2,
+  "nice": 10,
+  "no_clean_or_full_rebuild": true,
+  "no_copied_draft_objects": true,
+  "no_new_private_import_or_external_dependency": true
+}

@@ -1,0 +1,93 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 372.09,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "c03f15de262c5b81554f1c0464b89f550dbe98a7015c7ed766902d00bf26b969",
+    "theories/Rectifiability.v": "1f251905cd9b9c312949b97ef6c3515e80cc6431298af0576a36273cfd06e24e",
+    "tests/DifferentialExamples.v": "b57d24be92fb66a01986f40da6601b95454c8e23cea478c062f84df52daffe49",
+    "tests/InverseFunctionExamples.v": "a25f19b32d7fac06a2e6ed03afca59ecd041dc6f4b4a4483580520dca465b80b",
+    "tests/Assumptions.v": "d7de8f528b7085041bd793229e4d2d428eec9e1650cdd64572c011b77e9ce30a",
+    "theories/EuclideanLinearJacobian.v": "7d1e8abdba0f74f7941c3898959064b38fa81e18f7138e412a2d897e55e53450",
+    "theories/JacobianUP.v": "238528c612fe56e3e315bab6bc02ffba486ebf3bdb4d65eb5290d0468bdc4f5d",
+    "theories/JacobianConstruction.v": "b7c6051586890f45d7437fcd76d3ab189654a12f96cea59e6bf1f6e0c1da7414",
+    "theories/JacobianSealed.v": "1fb96cfdedd6af409bc599a48224bb34c2cdb5209eb6bd3a31f983e1934674c7",
+    "theories/Jacobian.v": "cf66e76d5aacfa286e51d83b772ee87297dc209648dacba80cad3ba1acb9c8ea"
+  },
+  "item": "3.2.1",
+  "date": "2026-10-31",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "theory_modules": 5,
+  "scope": "Ordinary and approximate k-dimensional Jacobians specified as exact partial graphs, with proved existence and opaque sealing, no values outside their differential domains. Linear Jacobian nonnegativity and norm-power bound, top-source injectivity criterion, square absolute determinant, normal-Jacobian compatibility and degree-zero normalization J_0 L=1. Three regressions cover ordinary zero-source degree zero, undefined empty-domain degree zero and the retained zero-source approximate-differentiability convention. Introductory area/coarea formulas remain explicit forward references.",
+  "source_count_checked_unchanged": 6191,
+  "focused_build": {
+    "exit_code": 0,
+    "elapsed_seconds": 123.95,
+    "warnings_or_errors": false,
+    "compilation_commands": 7,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "nice",
+      "-n",
+      "10",
+      "make",
+      "-j2",
+      "theories/Rectifiability.vo",
+      "tests/DifferentialExamples.vo",
+      "tests/InverseFunctionExamples.vo"
+    ]
+  },
+  "audit": {
+    "base": "81a5d578",
+    "changed_modules": 7,
+    "affected_modules": 7,
+    "entries": 17479,
+    "old_entries": 17450,
+    "audited": 93,
+    "audited_old": 64,
+    "audited_new": 29,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 297.83,
+  "shared_artifact_permissions": {
+    "group": "llm",
+    "gid": 1003,
+    "checked_files": 30991,
+    "fixed_files": 0,
+    "bad_files": [],
+    "directories": {
+      "/opt/rocq/federer-build": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/theories": {
+        "group": "llm",
+        "mode": "0o2775"
+      },
+      "/opt/rocq/federer-build/tests": {
+        "group": "llm",
+        "mode": "0o2775"
+      }
+    },
+    "umask": "0002",
+    "historical_inactive_owner_controlled_files": 330
+  },
+  "artifact_reuse": "Registered focused make compiled all five new theories and the changed public/test roots. Compatible previous dependencies were reused. No draft .vo was copied and no clean or full rebuild ran.",
+  "section_release": false
+}

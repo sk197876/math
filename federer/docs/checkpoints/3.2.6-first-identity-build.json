@@ -1,0 +1,20 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 266.88,
+  "warnings_or_errors": false,
+  "compilation_commands": 29,
+  "command": [
+    "opam",
+    "exec",
+    "--switch=RP.2026.02.0~9.1~2026.01",
+    "--",
+    "nice",
+    "-n",
+    "10",
+    "make",
+    "-j2",
+    "theories/Rectifiability.vo",
+    "tests/DifferentialExamples.vo",
+    "tests/InverseFunctionExamples.vo"
+  ]
+}

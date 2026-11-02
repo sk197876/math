@@ -1,0 +1,50 @@
+{
+  "scope": "Focused completion of all five assertions of Federer 3.1.3: section mass bounds, measurable approximate order limits, linear epimorphism pullbacks, almost-everywhere slice limits and complement densities; recursive Chapter 3 kernel check and new-theorem assumptions audit, not a full-project audit",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "kernel": {
+    "exit_code": 0,
+    "seconds": 257.28
+  },
+  "assumptions": {
+    "exit_code": 0,
+    "seconds": 136.59
+  },
+  "new_queries": 44,
+  "rechecked_previous_queries": 15,
+  "previous_results_preserved": 15593,
+  "total_queries": 15637,
+  "allowed_assumptions": [
+    "boolp.constructive_indefinite_description",
+    "boolp.functional_extensionality_dep",
+    "boolp.propositional_extensionality"
+  ],
+  "source_sha256": {
+    "theories/RationalRadiusBounds.v": "1fb4c28e28f665727280b50790270333b95ad36624f39c9d35527e4dcb0b9724",
+    "theories/ApproximateOrderThresholdRays.v": "55e3ff22b7f6dfbaac22748e8bf88f6bf2da97c0f5711d248f92192858ea2f46",
+    "theories/EuclideanSectionMassMeasurable.v": "770ec2152ece27118da63143b510802e8ffd2a1eb23eb62b3784cfa0fdc225ea",
+    "theories/EuclideanZeroDensityUnion.v": "9738687f93a9f2847ae2fb567362419124bd03689a1f892c37a83e13e3f8ae61",
+    "theories/EuclideanEpimorphismChartUP.v": "89ec77cee14a31254cf48a036801b96d92f02f0ec8be33960cdadbb35b506897",
+    "theories/EuclideanEpimorphismChartConstruction.v": "f7a5a18446129bdc3ec4188d1473a79cdbddeb8fe395e95394f803600d5d0b9f",
+    "theories/EuclideanEpimorphismChartSealed.v": "7cadb1f82bb98c4ef594b9b5cacac46b04f6714f08122c56b2eb420fdbb9272b",
+    "theories/EuclideanEpimorphismMeasurable.v": "5846e123735d365674ae8673b443f430083f6d0b6222a6b92b84db9d773a9cc1",
+    "theories/EuclideanSectionDensityMeasurable.v": "f7340ccfd5df993b2e2c9defd80893957f0b898d1e1461c6cc1872275580fb2c",
+    "theories/EuclideanApproximateOrderMeasurable.v": "d89acdf29d1e973e6527f76fbd2912ba6c0bfb539e6dd19aa81030e399b578ca",
+    "theories/ApproximateLimitComposition.v": "d5f92f1e4f1c5984f95c866aa68591e66c7c86e951cbd345e51a56c8e329b42e",
+    "theories/ApproximateLimitOrderValues.v": "b6b0892eb8c87f0279e11c2ea81d1c3efc92a276422db36e239a64503e75d5fb",
+    "theories/EuclideanApproximateRealOrder.v": "a24cea5e0f3a6c2abf59e9b1f476a900aeefcfd2db3a90d59acf3a76cebd2076",
+    "theories/EuclideanApproximateTranslation.v": "9a9f2f6a34a96626f8f7a3aa5749516725f462556cd507ba92876457c2c6587c",
+    "theories/ProductMeasurableOrderSections.v": "ff9c36419234d673c1bdf5a455418daee7e2cb56f2023ecb49de484529123937",
+    "theories/MeasurableExtendedAgreement.v": "793f2e91859e85f8d1d1dce76275ccf37780160a99f42f98407b8e09d99f5a1e",
+    "theories/EuclideanApproximateLimitLocus.v": "c786d28cca5aa85cf771eab13991d95ae2d445b6b5fcf352768ccc48cac21791",
+    "theories/EuclideanEpimorphismNull.v": "4cc7416b2af6a748906249a3906dfc19bae4ff8957aecf543e9dfff34e5b82b1",
+    "theories/ApproximateLimitGraphEquivalence.v": "0bb680178e62bc78882a5f3157acd2955f6062c94382953433f7ad0173063b41",
+    "theories/EuclideanBlockMeasurableFunctions.v": "6392f9005ff61058ef9b9fd3202d500c4b8edebd57f5ccabeae74c8628d0d58f",
+    "theories/ProductAlmostEverywhereSections.v": "57e2127b813cd50eb2bea360398e5c2b3127fa63fe5b8c30737cc83ad7e13c08",
+    "theories/EuclideanSliceTranslation.v": "c207d0ff7b4b65f9dd0c2875633c14ee00daffa8bb37ff1a87d34cf3a780da87",
+    "theories/EuclideanSliceMeasurability.v": "3da98a22365516844a3fd1e96865089b7a6890258879af7c1e0b60f335dbe508",
+    "theories/EuclideanSliceApproximateContinuity.v": "20d8722c07c7c91dee09a19f751c3f1f4b6e3e14f2ab37194fbffccf8fe44f3d",
+    "theories/EuclideanSliceDensity.v": "0d81949489ac992f1bb46b7c7addc997b3aed0a21b901b0b71e79a527645ad9d",
+    "theories/Rectifiability.v": "2226c39373b984e835fba6e30c7c479994846f1b6966631759c8c1a0b39f8258",
+    "tests/DifferentialExamples.v": "19d38babb55e1d8a9e3faf1aa0d0e0e3cf9c3647def04f24d064847c56228a37"
+  }
+}

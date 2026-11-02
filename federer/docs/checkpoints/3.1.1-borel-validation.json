@@ -1,0 +1,46 @@
+{
+  "scope": "Focused completion of Federer 3.1.1: Borel graph, domain and inverse images; recursive Chapter 3 kernel check and new-theorem assumptions audit, not a full-project audit",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "kernel": {
+    "exit_code": 0,
+    "seconds": 183.86
+  },
+  "assumptions": {
+    "exit_code": 0,
+    "seconds": 34.0
+  },
+  "new_queries": 38,
+  "rechecked_previous_queries": 8,
+  "previous_results_preserved": 15520,
+  "total_queries": 15558,
+  "allowed_assumptions": [
+    "boolp.constructive_indefinite_description",
+    "boolp.functional_extensionality_dep",
+    "boolp.propositional_extensionality"
+  ],
+  "source_sha256": {
+    "theories/ContinuousOperatorUP.v": "466256e6de4167f310298dbe63c6fec6bd024e336ae38d638e6830d00cc99c00",
+    "theories/ContinuousOperatorConstruction.v": "b31c024527cd03660f910d83d7b01d7f88d1b37e2ffb1ff9bf3b1ce04282b816",
+    "theories/ContinuousOperatorNorm.v": "d25320f05ca9772493037eea2a904e19af88087fae6a11eed5caf5f5fd2d9a69",
+    "theories/ContinuousOperatorSealed.v": "45dcf3f964525bdd08e58a491f06091149cfc68c2375b454e58ffeb91b4b2418",
+    "theories/ContinuousOperatorFiniteCoordinates.v": "8be2240dcd58a8e16dd9f91ab0e975f3eacf9c90dbb2403141f7af895fb3ad52",
+    "theories/NormClassZeroTopology.v": "476bf592f8b27e0a02a3fc2fbe68b2ee63bff596cff32b251922370c0a4d63a5",
+    "theories/MetricLipschitzCauchy.v": "a125c0153d7b7e94725e6d6e8241d440609159eaec4d672835c260b13cbd55e5",
+    "theories/ContinuousOperatorEvaluation.v": "903943e754fd489e9ee60b1eb5896363d4c91ded179517fcb8d5bdc5adc5a29c",
+    "theories/ContinuousOperatorCompleteness.v": "7e89d656d1764d714d142655f83de8e6c7b551afc4e6dcd987863d0952b96305",
+    "theories/ContinuousOperatorSeparability.v": "b90ec7ea8a9283a941c28e63740c42cec4ae3ae2b3c0bf4b216c305c6734f144",
+    "theories/FiniteNormMetricPolish.v": "488ca0e5f4e1b2a2b26225b5deb3537665a9f6d680587db5cde8347358bd45e9",
+    "theories/NormRemainderVariation.v": "57baa6cf502d2fff12cf3d786748eef7919b8f1f02a78e1758bb4b53b1e4ad63",
+    "theories/NormDifferentialRemainderOpen.v": "524d7965b5196b3151185daa0c564b68a95cdbd6da31d418fbaa2306ae5f4ff3",
+    "theories/NormDifferentialBorelGraph.v": "68d57ccaa27542652462df4310505dce6a1b10494adf94f977ebd72532dfa38f",
+    "theories/NormContinuousSeparableRange.v": "3cce637c2948185f019dae2ac3748723f9ff1ddf8e401e55cfdad7276cd62d4c",
+    "theories/ClosedNormSubspaceCompleteness.v": "fcf5acbbad8d0e0993d4528a826185c09c8a11fcee96ba6c50061b57df8f46d2",
+    "theories/NormDifferentialClosedRange.v": "e7035d63486c3679d9cebde3ce13fb4d0012b414407c5ece95c78ffc16a54d9e",
+    "theories/ContinuousOperatorSubspaceInclusion.v": "ff3c0328b175eb4892faabae3b420bb9477829542ba0837a2a78e1a0a1c9b7e3",
+    "theories/BorelSingleValuedProjection.v": "5091f776570ab9cdecc04bde4aa0b5460b6852ee6a970d94ed439a7c0c696190",
+    "theories/NormDifferentialBorelParameter.v": "9ec9898d2c8b157c85151e60a9f73feecb4e522be6d73fa716ce85468580ddd2",
+    "theories/NormDifferentialBorel.v": "638f7af5309d2a365c6859cba7d16f5937bb32646bd22786b7e3249415a1a56d",
+    "theories/Rectifiability.v": "0b07b62d61c1d6d764487b44da038483c20bbd9ff45b631ae249b761bc70c499",
+    "tests/DifferentialExamples.v": "a1f8737693e571c9f1fd1d5d04461cb9bab463ddddfdd88576e7309fda8272b1"
+  }
+}

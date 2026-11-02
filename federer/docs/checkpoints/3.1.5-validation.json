@@ -1,0 +1,42 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 266.23,
+  "roots": [
+    "Federer.Rectifiability",
+    "FedererTests.DifferentialExamples",
+    "FedererTests.InverseFunctionExamples"
+  ],
+  "sources_unchanged": true,
+  "warnings_or_errors": false,
+  "source_sha256": {
+    "_CoqProject": "8c0856d93a4e1b5834f98e8886521cfddca91405017fc4767a9e6784e6897f05",
+    "theories/ApproximateToOrdinaryDifferential.v": "f7fbee1d092c629f55c65663ee9a120a199c9e7766c623a13b8df2547ddd3069",
+    "theories/Rectifiability.v": "76c6c63fc316e1c6591a2d4728d619413238d55d9b16ad8347fd5dca339cebdc",
+    "tests/DifferentialExamples.v": "fe630d25e052b7ab0b89e5932c4ad1855cd687d73296f11ecb1729851cd1bdec",
+    "tests/Assumptions.v": "ac15507762a80393d24edeb29ec1147fb574f6fa22687378a37b6acb51124905"
+  },
+  "item": "3.1.5",
+  "scope": "One new theory module, public Chapter 3 interface and punctured-center regression.",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "focused_build_exit_code": 0,
+  "full_project_validation": false,
+  "audit": {
+    "base": "7c81406",
+    "changed_modules": 3,
+    "affected_modules": 3,
+    "entries": 15775,
+    "old_entries": 15770,
+    "audited": 24,
+    "audited_old": 19,
+    "audited_new": 5,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": []
+  },
+  "audit_elapsed_seconds": 72.99
+}
