@@ -14,8 +14,8 @@
     which this applies is the set of all subsets of N with the symmetric
     difference and the discrete topology: it is a locally compact Hausdorff
     topological group, its compact subsets are finite, and it is
-    uncountable. Local counterexample; the erratum has no entry for pp.
-    131–133. *)
+    uncountable. The counterexample confirms Federer's erratum p. 3, book
+    p. 131 line 10, which adds "nonzero". *)
 From mathcomp Require Import all_boot all_order all_algebra finmap boolp classical_sets cardinality
   functions reals constructive_ereal topology normedtype.
 From Federer Require Import RealMetricBackground FunctionLatticeUP MonotoneDaniellIntegralUP

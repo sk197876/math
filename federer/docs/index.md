@@ -702,3 +702,39 @@ identifies its regular representing measures with the original class M.
 | 3.2.38, pp. 274–275 | compact Lipschitz image; upper Minkowski content; actual Jacobian integral; corrected Steiner constant term; finite good/bad cubes | [`federer_3_2_38`](../theories/CompactLipschitzImageMinkowski.v#L73), [`compact_lipschitz_image_upper_minkowski`](../theories/CompactLipschitzImageMinkowski.v#L28), [`compact_image_minkowski_radius_bound`](../theories/CompactImageMinkowskiRadiusBound.v#L29), [`compact_core_cube_cover_exists`](../theories/CompactCoreCubeCover.v#L23), [`missing_steiner_constant_counterexample_exists`](../theories/MissingSteinerConstantCounterexample.v#L65) |
 
 | 3.2.39, pp. 275–276 | closed genuinely rectifiable sets; Hausdorff and common Minkowski content; exact compact source cover; finite image multiplicity layers | [`federer_3_2_39`](../theories/ClosedRectifiableMinkowski.v#L56), [`closed_rectifiable_minkowski_equalities`](../theories/ClosedRectifiableMinkowski.v#L26), [`finite_compact_jacobian_cover_exists`](../theories/FiniteCompactJacobianCover.v#L28), [`finite_family_layer_measure_sum`](../theories/FiniteFamilyLayerMeasureSum.v#L22), [`finite_minkowski_layer_tube_sum_bound`](../theories/FiniteMinkowskiLayerTubeSum.v#L21), [`finite_radius_mixed_limit_comparison`](../theories/FiniteRadiusMixedLimitComparison.v#L20) |
+
+| 3.2.40, p. 276, first paragraph | actual Cantor square; upper/lower Minkowski content; strong rectifiability hypothesis; second paragraph deferred | [`federer_3_2_40_cantor_square`](../theories/CantorSquareMinkowskiCounterexample.v#L33), [`rapid_cantor_square_upper_content_infinite`](../theories/RapidCantorSquareUpperContent.v#L25), [`subcritical_cantor_square_lower_content_zero`](../theories/PowerCantorSquareLowerContent.v#L39), [`critical_original_cantor_square_lower_content_positive`](../theories/PowerCantorCarrierCoefficient.v#L43), [`cantor_square_not_genuinely_rectifiable_example`](../tests/DifferentialExamples.v#L5088) |
+
+## Canonical finite-family tensor products (1.1.2)
+
+| Notion | Declarations |
+| --- | --- |
+| Permutation of tensor factors | [`tensor_family_permutation_isomorphism`](../theories/TensorFamilyPermutation.v#L106) |
+| Grouping consecutive tensor factors | [`tensor_family_grouping_isomorphism`](../theories/TensorFamilyGrouping.v#L153) |
+| Tensor products and direct sums | [`tensor_direct_sum_projection_linear`](../theories/TensorDirectSum.v#L95), [`tensor_direct_sum_bijection`](../theories/TensorDirectSum.v#L103) |
+| Arbitrary product bases; product dimensions | [`tensor_family_basisP`](../theories/TensorFamilyBasis.v#L142), [`tensor_family_dimension`](../theories/TensorFamilyDimension.v#L35) |
+
+## General dual–tensor map (1.1.4)
+
+| Notion | Declarations |
+| --- | --- |
+| Canonical dual–tensor injection | [`tensor_Hom_injective`](../theories/HomTensorGeneral.v#L53) |
+| Finite-target inverse; independence of basis | [`Hom_tensor_finite_targetK`](../theories/HomTensorGeneral.v#L73), [`Hom_tensor_finite_target_basis_independent`](../theories/HomTensorGeneral.v#L122) |
+| Surjectivity when either factor is finite-dimensional | [`tensor_Hom_finite_factor_surjective`](../theories/HomTensorGeneral.v#L108) |
+
+- **Dual–tensor map, infinite-dimension obstruction** (1.1.4, p. 11): [`tensor_Hom_infinite_missing_image`](../theories/HomTensorInfinite.v#L55), [`tensor_Hom_surjective_iff_finite_factor`](../theories/HomTensorInfinite.v#L99) in [`HomTensorInfinite.v`](../theories/HomTensorInfinite.v).
+
+- **Diametric regularity from power growth** (2.8.8, p. 145): [`ball_power_growth_regularity_exists`](../theories/BallPowerGrowthAdequacy.v#L18) and [`ball_power_growth_family_adequate`](../theories/BallPowerGrowthAdequacy.v#L46) in [`BallPowerGrowthAdequacy.v`](../theories/BallPowerGrowthAdequacy.v); the sufficient estimates derive the enlargement constant.
+
+- **Strictly convex norm; unique radial point** (2.8.9, p. 146): [`is_strictly_convex_norm`](../theories/StrictConvexNorm.v#L22), [`strict_convex_radial_projection_unique`](../theories/StrictConvexRadial.v#L54), [`strict_convex_radial_projection_exists_unique`](../theories/StrictConvexRadial.v#L85), and [`inner_product_radial_projection_unique`](../theories/StrictConvexRadial.v#L103).
+
+- **Hausdorff and spherical measures in real dimensions** (2.10.2, p. 171): [`real_hausdorff_measure`](../theories/RealHausdorffMeasure.v#L34), [`real_spherical_measure`](../theories/RealHausdorffMeasure.v#L40), [`real_hausdorff_normalisation`](../theories/RealHausdorffNormalisation.v#L39); natural compatibility, Borel regularity, convex/open/closed alternatives, real dimension drop and the two spherical comparisons in [`RealHausdorffMeasureLaws.v`](../theories/RealHausdorffMeasureLaws.v).
+- **Circle, fixed-cutoff open/unrestricted difference** (2.10.2(1), p. 171): [`planar_circle_selected_cutoff_gap`](../theories/PlanarCircleCutoffCounterexample.v#L170) in [`PlanarCircleCutoffCounterexample.v`](../theories/PlanarCircleCutoffCounterexample.v); actual diameter two and finite different approximation values.
+
+| 3.2.41, pp. 277–278 | Brunn–Minkowski; arbitrary nonempty sets; finite box induction; compact approximation; density-one hulls | [`federer_3_2_41`](../theories/BrunnMinkowski.v#L24), [`finite_open_box_brunn_minkowski`](../theories/FiniteOpenBoxBrunnMinkowski.v#L21), [`compact_brunn_minkowski`](../theories/CompactBrunnMinkowski.v#L26), [`measurable_brunn_minkowski`](../theories/MeasurableBrunnMinkowski.v#L21), [`euclidean_density_one_hull_vector_sum`](../theories/EuclideanDensityHullSum.v#L19) |
+
+| 3.2.42, p. 278 | Outer and inner boundary layers; arbitrary original sets; dimension-one empty-core qualification | [`federer_3_2_42`](../theories/BoundaryLayerVolume.v#L26), [`federer_3_2_42_distance_strips`](../theories/BoundaryLayerDistanceForm.v#L24), [`outer_boundary_layer_volume_nonempty`](../theories/OuterBoundaryLayerVolume.v#L25), [`inner_boundary_layer_volume_nonempty_core`](../theories/InnerBoundaryLayerVolume.v#L25) |
+
+| 3.2.43, p. 278 | Isoperimetric inequality; actual topological boundary; inner-core exhaustion; dimension-one null-volume qualification | [`federer_3_2_43`](../theories/IsoperimetricInequality.v#L50), [`positive_closure_volume_isoperimetric`](../theories/IsoperimetricInequality.v#L23), [`finite_lower_codimension_content_ambient_null`](../theories/CodimensionOneFiniteContentNull.v#L67) |
+
+| 3.2.44, p. 278 | Isoperimetric bound with actual Hausdorff boundary measure and genuine rectifiability | [`federer_3_2_44`](../theories/RectifiableBoundaryIsoperimetric.v#L36), [`positive_closure_rectifiable_boundary_isoperimetric`](../theories/RectifiableBoundaryIsoperimetric.v#L60), [`topological_boundary_closed`](../theories/RectifiableBoundaryIsoperimetric.v#L22) |

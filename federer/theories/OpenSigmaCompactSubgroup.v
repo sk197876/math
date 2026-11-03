@@ -13,7 +13,7 @@
     and the orbits {h y: h in H}, y in X, form the required partition of X;
     for X = G with left multiplication they are the cosets H y. This is
     supporting general topology, not printed by Federer. The local erratum
-    has no entry for pp. 131–133. *)
+    has no entry for this argument. *)
 From mathcomp Require Import all_boot all_order all_algebra boolp classical_sets functions reals
   topology normedtype.
 From Federer Require Import TopologicalGroupUP TopologicalGroupLaws HomogeneousSpaceUP

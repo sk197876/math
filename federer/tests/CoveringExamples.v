@@ -732,3 +732,24 @@ move=> K H; split.
   + rewrite /H /scalar_half_open_rectangle /= !in_itv /= ltxx andbF.
     move=> [hbad _]; discriminate hbad.
 Qed.
+
+(* Federer 2.8.8, p. 145: supplementary growth-to-adequacy laws. *)
+From Federer Require Import BallPowerGrowthAdequacy.
+
+From Federer Require Import StrictConvexNorm StrictConvexRadial.
+
+(** Source for [strict_convex_zero_radius_regression]: Federer 2.8.9,
+    p. 146, radial uniqueness; regression at actual radius zero, proving
+    that no division by a nonzero radius is implicit in the new theorem. *)
+Example strict_convex_zero_radius_regression (R:realType) (V:lmodType R)
+    (N:V->R) (hN:is_real_norm N) (hs:is_strictly_convex_norm N)
+    (a b x:real_norm_metric_space hN):
+  is_radial_projection_configuration a b a x -> x=a.
+Proof.
+move=>hx.
+have ha:is_radial_projection_configuration a b a a.
+  split; first by rewrite mdistxx; exact:mdist_ge0.
+  split; first by [].
+  by rewrite mdistxx subr0.
+exact:(@strict_convex_radial_projection_unique R V N hN hs a b a x a hx ha).
+Qed.

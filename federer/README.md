@@ -31,11 +31,13 @@ the printed statements or proof routes are registered in
 ## Coverage and verification
 
 Chapter 1 covers §§1.2–1.10 with the qualifications in the section accounts;
-§1.1 remains partial and 1.1.3 is intentionally left aside. Chapter 2
+§1.1.1, §1.1.2 and §1.1.4 are complete; §1.1.3 is intentionally left aside. Chapter 2
 reaches the requested last proof, **2.10.48**. Sections 2.1–2.7 and 2.9
-are covered as documented. Remaining qualifications include examples and the strict-convexity parenthesis in
-2.8.8–2.8.9, 2.10.6, the real-degree Gamma normalisation, the printed
-circle computation and listed variants. **2.10.46 remains partial and
+are covered as documented. §§2.8.8–2.8.9 are complete within the requested scope: subsidiary assertions
+and strict-convexity uniqueness are included, and book examples are excluded.
+Item 2.10.2 is complete, including actual Gamma normalization in every
+nonnegative real degree and the printed circle cutoff counterexample.
+Remaining qualifications include 2.10.6 and the listed variants of later items. **2.10.46 remains partial and
 deferred at the user's request.** Item 2.10.49 is a historical remark
 requiring no formalisation. Chapter 2 is therefore not claimed to contain
 a proof of every printed mathematical assertion.
@@ -71,7 +73,7 @@ focused compilation, regression checks, recursive kernel checking and
 assumptions audits. The commentary in 3.1.10 is recorded. The
 [3.1 release](docs/checkpoints/3.1-release-validation.json) also passed the
 incremental project build, complete recursive kernel check and dependency
-assumptions audit. [Subsection 3.2](docs/chapter3/3.2.md) is in progress: items 3.2.1–3.2.39 are complete and validated, with explicit source qualifications and corrections in the section account. Item 3.2.40 remains outside this validated source snapshot; its Kneser example is deferred. Items 3.2.41–3.2.49 remain pending. Subsections 3.3–3.4 remain pending.
+assumptions audit. [Subsection 3.2](docs/chapter3/3.2.md) is in progress: items 3.2.1–3.2.39 are complete and validated, with explicit source qualifications and corrections in the section account. The first paragraph of 3.2.40 passed the full validation completed on 3 November 2026; only its Kneser example remains deferred. Items 3.2.41–44 are complete and validated. Items 3.2.46–48 remain pending. Item 3.2.45 is partial outside the current request. Subsections 3.3–3.4 remain pending.
 Chapter 4 has not begun. Before Chapter 4, the planned
 prerequisite is a formalisation of
 [EilenbergSteenrod1952](docs/bibliography.md#eilenbergsteenrod1952).
@@ -89,7 +91,7 @@ items. The maps are:
 - [bibliography.md](docs/bibliography.md): bibliographical identities of cited sources.
 
 `theories/` contains the library under the `Federer` namespace. `tests/`
-contains ten compiled example suites and the assumptions audit.
+contains compiled example suites and the assumptions audit.
 `_CoqProject` lists source files, namespaces and compiler flags. `tools/`
 contains documentation generators and validation helpers. Generated coqdoc
 pages are written to `html/` inside the build directory; build artifacts and
@@ -116,8 +118,8 @@ opam exec --switch=RP.2026.02.0~9.1~2026.01 -- nice -n 10 make audit
 
 | Target | Effect |
 | --- | --- |
-| `make` / `make all` | Generate the Rocq Makefile and compile registered theories and all ten example suites. |
-| `make check` | Build as needed, then recursively kernel-check the public Chapter 1, 2 and developing Chapter 3 interfaces and all ten example suites. |
+| `make` / `make all` | Generate the Rocq Makefile and compile registered theories and all 14 example suites. |
+| `make check` | Build as needed, then recursively kernel-check the public Chapter 1, 2 and developing Chapter 3 interfaces and all 14 example suites. |
 | `make audit` | Build as needed, then freshly run every `Print Assumptions` query and rewrite `docs/assumptions.log`. |
 | `make doc` | Build as needed and generate coqdoc HTML with the project index in `html/`. |
 | `make clean` | Remove generated compilation artifacts and HTML. |
@@ -170,3 +172,23 @@ python3 tools/divergence_counts.py
 `tools/dependency_audit.py BASE` supports audits of changed dependencies at
 ordinary section releases. It does not replace the fresh full audit
 requested for this Chapter 2 release.
+
+The [full-project validation](docs/checkpoints/2026-11-02-full-validation.json) completed on 3 November 2026: all 7,660 registered modules rebuilt cleanly, complete recursive kernel checking and all 20,465 fresh assumption queries passed without warnings; all 20,393 earlier assumption sets were preserved. This does not extend coverage to unregistered drafts.
+
+Federer 1.1.2 is now complete and validated, including arbitrary finite-family canonical maps and product bases. See [the item record](docs/checkpoints/1.1.2-validation.json).
+
+Federer 1.1.4 is complete and validated, including unrestricted injectivity and the exact finite-factor surjectivity criterion. See [the item record](docs/checkpoints/1.1.4-validation.json).
+
+Federer 2.8.8 is complete and validated within the requested scope, including subsidiary assertions and excluding the book examples. See [the item record](docs/checkpoints/2.8.8-validation.json).
+
+Federer 2.8.9 is complete and validated within the requested scope, including strict-convexity and actual inner-product radial uniqueness. See [the item record](docs/checkpoints/2.8.9-validation.json).
+
+Federer 2.10.2 is complete and validated, including real dimensions and the circle example. See [the item record](docs/checkpoints/2.10.2-validation.json).
+
+Federer 3.2.41 is complete and validated with the scope and qualifications in [its record](docs/checkpoints/3.2.41-validation.json).
+
+Federer 3.2.42 is complete and validated with the scope and qualifications in [its record](docs/checkpoints/3.2.42-validation.json).
+
+Federer 3.2.43 is complete and validated with the scope and qualifications in [its record](docs/checkpoints/3.2.43-validation.json).
+
+Federer 3.2.44 is complete and validated with the scope and qualifications in [its record](docs/checkpoints/3.2.44-validation.json).

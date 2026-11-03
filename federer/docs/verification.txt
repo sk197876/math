@@ -11210,3 +11210,138 @@ source/log files; the original commit message incorrectly said it passed.
 Metadata outside the raw source/log archive passes. All74 source hashes
 match the frozen manifest; no source bytes or proof results were changed.
 See docs/checkpoints/3.2.40-kneser-2026-11-02/archive-validation.json.
+
+2026-11-03T07:59:39.668614+01:00: User-requested whole-project validation — PASSED.
+Source revision: 66bc68dbb87d03d90f0c3a2c3b6f687b9c36642f, with the recorded working-tree changes; branch chatgpt.
+Required switch RP.2026.02.0~9.1~2026.01; eight build workers, nice 10, umask 0002, group llm.
+Detailed record: docs/checkpoints/2026-11-02-full-validation.json; logs: /opt/rocq/federer-build/verification/2026-11-02-full-validation.
+toolchain: exit 0, 0.03 seconds.
+clean: exit 0, 3.27 seconds.
+build: exit 0, 30284.07 seconds.
+check-audit: exit 0, 17957.88 seconds.
+All 7660 registered modules rebuilt from clean project artifacts; full recursive kernel check and all 20465 fresh audit queries passed without warnings.
+All 20393 earlier assumption sets preserved; only the three permitted boolp assumptions.
+This validates integrated sources only. It does not complete 3.2: only the first paragraph of 3.2.40 is integrated beyond 3.2.39; 3.2.41-44 are unregistered drafts, 3.2.45 is partial, 3.2.46-48 are unformalised, 3.2.49 is historical discussion. Kneser and 2.10.46 remain deferred.
+
+2026-11-03: Federer 1.1.2 complete and validated.
+Eight new modules, three regressions and 65 new audit queries.
+All new sources compiled normally in the registered shared tree; final
+integration compiled two affected examples in 50.12 seconds. Full make check
+passed in 803.63 seconds; 137 dependency queries passed in 136.49 seconds.
+All 20,465 prior assumption sets preserved; complete log has 20,530 entries,
+only the three permitted boolp assumptions. No warnings; all registered
+validation inputs unchanged. Required switch, nice 10, at most two workers,
+umask 0002, llm and group-writable artifacts. No clean/adoption or private
+object copies. See docs/checkpoints/1.1.2-validation.json. The two interrupted
+drafting compilations replaced nonterminating rewrites; they were not passes
+and none of their unfinished outputs were used. Final ordinary proofs,
+registered compilation, kernel checking and strict auditing all passed.
+
+2026-11-03: Federer 1.1.4 complete and validated.
+Actual unrestricted Phi injectivity; basis-independent linear finite-target
+inverse; exact finite-factor surjectivity iff, including a proved actual
+missing map when both original spaces are infinite. Two theories and four
+regressions compiled normally in the registered shared tree. Final build:
+36.47s; full recursive make check: 927.54s; 96 dependency queries: 131.98s.
+All 20,530 prior assumption sets preserved; complete log has 20,549 entries,
+only the three permitted boolp assumptions. No warnings; all registered
+inputs unchanged. Required switch, nice 10, umask 0002, at most two workers,
+group llm and g+rw. No cleaning, adoption or private object copying.
+See docs/checkpoints/1.1.4-validation.json. The earlier positive-core-only
+run also passed and is retained in the shared verification tree as item-114;
+the expanded final run item-11401 covers the infinite exception too.
+
+2026-11-03: Federer 2.8.8 completed, excluding examples as requested.
+Retain every subsidiary assertion. Derive lambda > 1 from the two printed
+growth bounds, then adequacy under the original 2.8.7 context. The one new
+theory and existing covering examples compiled normally. Final build:
+33.03s; full recursive make check: 911.96s; 48 dependency queries: 45.27s.
+All 20,549 prior assumption sets preserved; 20,551 complete entries, only
+the three permitted boolp assumptions. No warnings; all registered inputs
+unchanged. Required switch, nice 10, at most two workers, umask 0002,
+group llm and g+rw. No clean/adoption or private proof-object copies.
+See docs/checkpoints/2.8.8-validation.json. Continue with 2.8.9.
+
+2026-11-03: Federer 2.8.9 completed within the requested scope.
+All subsidiary assertions and strict-convexity radial uniqueness, including
+the actual inner-product corollary. Independent midpoint norm laws;
+zero-radius regression. The Riemannian example is excluded as requested.
+Both new theories and regression compiled normally. Final incremental
+build: 21.50s; full recursive make check: 900.32s; 59 dependency queries:
+45.65s. All 20,551 prior assumption sets preserved; 20,564 complete
+entries, only the three permitted boolp assumptions. No warnings;
+all registered inputs unchanged. Required switch, nice 10, at most two
+workers, umask 0002, group llm and g+rw. No cleaning, adoption or private
+proof-object copying. See docs/checkpoints/2.8.9-validation.json.
+
+2026-11-03: Federer 2.10.2 completed, all nonnegative real degrees and circle.
+23 supplementary modules, two boundary regressions, actual Gamma(1)=1 and
+natural compatibility, closed/open/convex/spherical generators, Borel
+regularity, counting and real dimension drop. Actual circle diameter two
+and different finite cutoff values. Normal registered build 21.86s;
+full recursive kernel check 1081.17s; 343 strict dependency queries 884.94s.
+All 20,564 old assumption sets preserved; 20,646 total entries, only the
+three permitted boolp assumptions. No warnings; every source input unchanged.
+Required switch, nice 10, at most two workers, umask 0002, group llm and
+g+rw. No cleaning/adoption or private proof-object copies.
+See docs/checkpoints/2.10.2-validation.json.
+
+2026-11-03: Federer 2.10.2 completed, all nonnegative real degrees and circle.
+23 supplementary modules, two boundary regressions, actual Gamma(1)=1 and
+natural compatibility, closed/open/convex/spherical generators, Borel
+regularity, counting and real dimension drop. Actual circle diameter two
+and different finite cutoff values. Normal registered build 89.99s;
+full recursive kernel check 985.24s; 343 strict dependency queries 815.36s.
+All 20,564 old assumption sets preserved; 20,646 total entries, only the
+three permitted boolp assumptions. No warnings; every source input unchanged.
+Required switch, nice 10, at most two workers, umask 0002, group llm and
+g+rw. No cleaning/adoption or private proof-object copies.
+See docs/checkpoints/2.10.2-validation.json.
+
+2026-11-03: Federer 3.2.41 complete and validated.
+For positive ambient dimension, the actual outer volume root of A+B bounds the sum of the original nonempty factors' outer volume roots. No source or sum measurability, boundedness or finiteness; zero and infinite volumes retained.
+No new source correction.
+69 theories and 3 actual regressions. Normal
+registered build 536.10s; recursive kernel check of the item and its dependencies 301.93s;
+122 strict dependency queries 235.85s. All 20,646 earlier assumption
+sets preserved; 20,768 complete entries, only the three permitted
+boolp assumptions. All validation inputs unchanged, no warnings.
+Required switch, nice 10, at most two workers, umask 0002, group llm,
+g+rw. Reuse without cleaning/adoption or copied private proof objects.
+See docs/checkpoints/3.2.41-validation.json.
+
+2026-11-03: Federer 3.2.42 complete and validated.
+Actual distance strips of arbitrary original S, finite closure volume, all positive radii and every n>=2, including empty sources/cores, zero volumes and infinite outer strips. Nonempty-source outer and nonempty-core inner bounds also hold in dimension one.
+Dimension-one empty-source/core endpoints need qualification under totalized 0^0=1. The actual nonempty line interval with empty radius-two core refutes coefficient two. Absent from the working erratum; all n>=2 cases retained.
+12 theories and 3 actual regressions. Normal
+registered build 156.64s; recursive kernel check of the item and its dependencies 306.35s;
+20 strict dependency queries 100.93s. All 20,768 earlier assumption
+sets preserved; 20,788 complete entries, only the three permitted
+boolp assumptions. All validation inputs unchanged, no warnings.
+Required switch, nice 10, at most two workers, umask 0002, group llm,
+g+rw. Reuse without cleaning/adoption or copied private proof objects.
+See docs/checkpoints/3.2.42-validation.json.
+
+2026-11-03: Federer 3.2.43 complete and validated.
+Actual lower codimension-one Minkowski content of the original topological boundary, arbitrary S with finite closure volume and every n>=2 including zero volume. Positive closure volume also permits n=1; infinite content retained.
+The null-volume dimension-one endpoint needs qualification under totalized 0^0=1: an actual singleton has boundary content one, whereas substitution would demand two. Absent from the working erratum; positive-volume line and all n>=2 cases retained.
+13 theories and 3 actual regressions. Normal
+registered build 160.09s; recursive kernel check of the item and its dependencies 315.61s;
+23 strict dependency queries 100.18s. All 20,788 earlier assumption
+sets preserved; 20,811 complete entries, only the three permitted
+boolp assumptions. All validation inputs unchanged, no warnings.
+Required switch, nice 10, at most two workers, umask 0002, group llm,
+g+rw. Reuse without cleaning/adoption or copied private proof objects.
+See docs/checkpoints/3.2.43-validation.json.
+
+2026-11-03: Federer 3.2.44 complete and validated.
+Actual Hausdorff boundary mass bounds the printed volume coefficient for arbitrary S with finite closure volume and genuinely codimension-one rectifiable boundary, all n>=2. Positive closure volume also permits n=1.
+Inherits only the dimension-one null-volume convention qualification of 3.2.43.
+1 theories and 2 actual regressions. Normal
+registered build 64.32s; recursive kernel check of the item and its dependencies 462.33s;
+5 strict dependency queries 89.05s. All 20,811 earlier assumption
+sets preserved; 20,816 complete entries, only the three permitted
+boolp assumptions. All validation inputs unchanged, no warnings.
+Required switch, nice 10, at most two workers, umask 0002, group llm,
+g+rw. Reuse without cleaning/adoption or copied private proof objects.
+See docs/checkpoints/3.2.44-validation.json.

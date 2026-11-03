@@ -28,8 +28,8 @@
     version for the opposite group (G, (g,h) |-> h g), whose left
     multiplication by g is right multiplication by (g^{-1})^{-1} = g in G,
     so that a right chi covariant integral of G is a left chi o inv
-    covariant integral of the opposite group. The local erratum has no entry
-    for pp. 131–133. *)
+    covariant integral of the opposite group. The nonzero hypothesis is
+    Federer's erratum p. 3, book p. 131 line 10. *)
 From mathcomp Require Import all_boot all_order all_algebra boolp classical_sets functions reals
   constructive_ereal topology normedtype.
 From Federer Require Import RealMetricBackground FunctionLatticeUP MonotoneDaniellIntegralUP

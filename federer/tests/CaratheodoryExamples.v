@@ -3759,3 +3759,48 @@ have hS := @metric_borel_suslin R (inner_metric_space (@euclidean_inner_productP
 rewrite -(@federer_2_10_48 R n m set0 hS).
 exact: measure_empty (hausdorff_measure_is_measure _ _).
 Qed.
+
+From Federer Require Import RealHausdorff.
+
+(** Federer 2.10.2, p. 171: actual positive atom and real-degree
+    dimension-drop boundary regressions for the Gamma-normalized measure. *)
+From mathcomp Require Import all_boot all_order all_algebra boolp classical_sets
+  reals constructive_ereal topology.
+From Federer Require Import RealHausdorffMeasure RealHausdorffMeasureLaws
+  HausdorffCountingMeasure EuclideanInnerProduct InnerMetric.
+Set Implicit Arguments.
+Unset Strict Implicit.
+Unset Printing Implicit Defensive.
+Import Order.TTheory GRing.Theory Num.Theory.
+Local Open Scope ring_scope.
+Local Open Scope classical_set_scope.
+Local Open Scope ereal_scope.
+
+Section RealHausdorffBoundary.
+Variable R:realType.
+Local Notation P0:=(inner_metric_space (@euclidean_inner_productP R 0)).
+
+(** Source for [real_hausdorff_zero_atom_regression]: Federer 2.10.2(1),
+    p. 171, H^0 equals counting measure. The actual singleton in ambient
+    R^0 has positive unit mass with the actual Gamma normalization. *)
+Example real_hausdorff_zero_atom_regression (hp:(0<=0:>R)%R):
+  @real_hausdorff_measure R P0 0%R hp [set (0%R:P0)] = 1.
+Proof.
+rewrite -[0%R]/(0%:R:R) real_hausdorff_measure_natural.
+exact:hausdorff_zero_singleton.
+Qed.
+
+(** Source for [real_hausdorff_half_atom_null_regression]: Federer
+    2.10.2(1), p. 171, real-degree dimension drop. That same positive
+    H^0 atom has zero measure in the genuinely fractional degree 1/2.
+    No rounded degree or additional singleton-null premise is supplied. *)
+Example real_hausdorff_half_atom_null_regression (hq:(0<=1/2:>R)%R):
+  @real_hausdorff_measure R P0 (1/2)%R hq [set (0%R:P0)] = 0.
+Proof.
+have h0:(0<=0:>R)%R:=lexx 0%R.
+have hpos:(0<1/2:>R)%R by rewrite divr_gt0 // ltr0n.
+apply:(@real_hausdorff_finite_higher_degree_zero R P0 0%R (1/2)%R h0 hq
+  [set (0%R:P0)] hpos).
+rewrite real_hausdorff_zero_atom_regression; exact:ltry.
+Qed.
+End RealHausdorffBoundary.

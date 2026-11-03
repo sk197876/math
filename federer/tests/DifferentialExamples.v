@@ -5025,3 +5025,78 @@ have hTwoSum:(\sum_(i:'I_2) beta K)%E=(2:R)%:E.
 rewrite hTwoSum in hSum.
 exists K,S; split=>//; split=>//; split=>//; by split.
 Qed.
+
+(** Federer (1969), 3.2.40, printed p. 276, first paragraph:
+    whole-example regressions at a strictly subcritical exponent
+    and the critical exponent. Kneser's second paragraph is deferred. *)
+From mathcomp Require Import all_boot all_order all_algebra boolp classical_sets
+  reals constructive_ereal topology lra.
+From Federer Require Import RealMetricBackground EuclideanInnerProduct InnerMetric
+  EuclideanCantorProduct HausdorffMeasure MinkowskiContents PowerCantorPairUP
+  CantorSquareMinkowskiCounterexample.
+Import Order.TTheory GRing.Theory Num.Theory.
+Local Open Scope ring_scope.
+Local Open Scope classical_set_scope.
+Local Open Scope ereal_scope.
+
+(** Source for [subcritical_cantor_square_minkowski_example]: regression
+    of the full first example in Federer 3.2.40, p. 276, at m=1/4.
+    The actual compact same-factor square has zero Hausdorff length,
+    zero lower content and infinite upper content simultaneously. *)
+Example subcritical_cantor_square_minkowski_example (R:realType):
+  exists (n:nat->nat) (A:set (real_line_metric R)) (f:R->R),
+    is_power_cantor_pair 1 (1/4:R) n A f /\
+    compact (euclidean_cantor_product A A) /\
+    upper_minkowski_content 1 (euclidean_cantor_product A A)=+oo /\
+    lower_minkowski_content 1 (euclidean_cantor_product A A)=0 /\
+    @hausdorff_measure R (inner_metric_space (@euclidean_inner_productP R 2)) 1
+      (euclidean_cantor_product A A)=0.
+Proof.
+have hm:(0<(1/4:R))%R by lra.
+have hmHalf:((1/4:R)<1/2)%R by lra.
+have [n [s [A [f [_ [hPair [_ [hCompact [hUpper [hStrict _]]]]]]]]]] :=
+  @federer_3_2_40_cantor_square R 1 (1/4:R) ltr01 hm (ltW hmHalf).
+have [hLower hNull]:=hStrict hmHalf.
+exists n,A,f; split=>//; split=>//; split=>//; by split.
+Qed.
+
+(** Source for [critical_cantor_square_minkowski_example]: regression
+    of the critical case of Federer 3.2.40, p. 276, at m=1/2
+    and nonunit positive gauge coefficient two. The original carrier
+    has positive finite lower content and infinite upper content. *)
+Example critical_cantor_square_minkowski_example (R:realType):
+  exists (n:nat->nat) (A:set (real_line_metric R)) (f:R->R),
+    is_power_cantor_pair 2 (1/2:R) n A f /\
+    compact (euclidean_cantor_product A A) /\
+    upper_minkowski_content 1 (euclidean_cantor_product A A)=+oo /\
+    (0<lower_minkowski_content 1 (euclidean_cantor_product A A) < +oo)%E.
+Proof.
+have hc:(0<(2:R))%R by lra.
+have hm:(0<(1/2:R))%R by lra.
+have [n [s [A [f [_ [hPair [_ [hCompact [hUpper [_ hCritical]]]]]]]]]] :=
+  @federer_3_2_40_cantor_square R 2 (1/2:R) hc hm (lexx _).
+exists n,A,f; split=>//; split=>//; split=>//; exact:hCritical erefl.
+Qed.
+
+(** Source for [cantor_square_not_genuinely_rectifiable_example]:
+    the first paragraph's final inference in Federer 3.2.40,
+    p. 276: compactness and finite (indeed zero) Hausdorff length
+    do not supply the strong rectifiability hypothesis. The actual
+    preceding Cantor square cannot be genuinely one-rectifiable,
+    since the proved closed-rectifiable theorem would force upper
+    content zero, contradicting its actual infinite upper content. *)
+Example cantor_square_not_genuinely_rectifiable_example (R:realType):
+  exists E:set (inner_metric_space (@euclidean_inner_productP R 2)),
+    compact E /\
+    @hausdorff_measure R (inner_metric_space (@euclidean_inner_productP R 2)) 1 E=0 /\
+    upper_minkowski_content 1 E=+oo /\~is_m_rectifiable 1 E.
+Proof.
+have [n [A [f [_ [hCompact [hUpper [_ hNull]]]]]]]:=
+  subcritical_cantor_square_minkowski_example R.
+pose E:=euclidean_cantor_product A A.
+exists E; split=>//; split=>//; split=>// hRect.
+have hClosed:=compact_closed (@metric_hausdorff R
+  (inner_metric_space (@euclidean_inner_productP R 2))) hCompact.
+have hEqual:=(closed_rectifiable_minkowski_equalities (leq_addr 1 1) hClosed hRect).1.
+rewrite hUpper hNull in hEqual; discriminate.
+Qed.

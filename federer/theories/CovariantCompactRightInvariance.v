@@ -17,7 +17,8 @@
     125, and it is needed in 2.7.14 for the inner regularity of open sets of
     infinite measure. The proof uses 2.7.9(1), p. 126: lambda(u) = r
     lambda_0(u chi^{-1}) for a left Haar integral lambda_0 of G. Neither.
-    The local erratum has no entry for pp. 126–133. *)
+    The local erratum has no entry for this argument; its entries for
+    pp. 131–133 concern the statements and proof of 2.7.14–2.7.15. *)
 From mathcomp Require Import all_boot all_order all_algebra boolp classical_sets functions reals
   topology normedtype.
 From mathcomp Require Import lra.

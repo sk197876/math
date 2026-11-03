@@ -1,9 +1,8 @@
 (** Federer (1969), 2.10.27, pp. 190–191: closed Euclidean ball sections
     used for the sharp spherical comparison. Prove the actual
     squared-distance section formula, including boundary sections of radius
-    zero. The scan on p. 191 writes the projection as the open ball B(u,r);
-    the closed-ball projection is B[u,r]. The working erratum has no p. 191
-    entry; this is a local correction, separate from Federer's erratum. *)
+    zero. The printed projection identity f B[(u,v),r] = B(u,r) on p. 191
+    concerns Federer's closed ball B(u,r) and is proved as printed. *)
 From mathcomp Require Import all_boot all_order all_algebra boolp classical_sets reals
   topology num_normedtype pseudometric_normed_Zmodule normed_module lra.
 From Federer Require Import GrassmannAbbreviations FiniteCoordinates EuclideanInnerProduct InnerMetric
@@ -59,11 +58,11 @@ apply/seteqP; split=> z hz.
   lra.
 Qed.
 
-(** Source for [euclidean_closed_ball_first_projection]: local
-    correction to the printed fB[(u,v),r]=B(u,r)
-    in 2.10.27, p. 191. The projection is
-    the closed ball B[u,r]. Every point of that
-    ball is attained using the fixed second centre v. *)
+(** Source for [euclidean_closed_ball_first_projection]: the
+    printed f B[(u,v),r] = B(u,r) in 2.10.27, p. 191,
+    where B(u,r) is Federer's closed ball (2.8.1).
+    Every point of that ball is attained using the
+    fixed second centre v. *)
 Theorem euclidean_closed_ball_first_projection (R : realType) m n
     (u : inner_metric_space (@euclidean_inner_productP R m))
     (v : inner_metric_space (@euclidean_inner_productP R n)) (r : R) :
@@ -83,12 +82,13 @@ move=> hr; apply/seteqP; split.
 Qed.
 
 (** Source for [closed_ball_projection_open_ball_counterexample]:
-    local boundary counterexample to the printed open
-    projection in 2.10.27, p. 191. The
+    regression for 2.10.27, p. 191, showing that the
+    image of a closed ball is not the open ball. The
     projection of the closed Euclidean unit ball
     contains a point at distance exactly one; the
     open unit ball does not. Both factors have
-    positive dimension. This is not an erratum entry. *)
+    positive dimension. Federer's printed identity
+    concerns the closed ball and is not refuted. *)
 Theorem closed_ball_projection_open_ball_counterexample (R : realType) :
   (fun p=>(@euclidean_block_split R 1 1 p).1) @`
     (metric_closed_ball (euclidean_block_join

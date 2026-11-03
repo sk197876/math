@@ -35,8 +35,9 @@
     P) cup (P cap U)" is read with G in place of X, since P is a subset of
     G. The right invariance is a hypothesis of this module, so that only the
     monotonicity of lambda, its representation by alpha and that invariance
-    are used; alpha need not be K(G) regular here. The local erratum has no
-    entry for pp. 131–133. *)
+    are used; alpha need not be K(G) regular here. Both readings are
+    Federer's erratum p. 3, book p. 132 lines 22 and 25 and p. 133
+    line 3. *)
 From mathcomp Require Import all_boot all_order all_algebra finmap boolp classical_sets cardinality
   functions reals constructive_ereal topology normedtype.
 From mathcomp Require Import lra.

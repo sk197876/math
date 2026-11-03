@@ -407,7 +407,8 @@ polar factorization to O(n,m).
 For 3.2.40, printed p. 276, the local published sources
 [Gross1918](../bibliography.md#gross1918), pp. 184–187, and
 [Kneser1955](../bibliography.md#kneser1955), Satz 5, pp. 386–387,
-were consulted. The Cantor-square and Kneser drafts are excluded from this validated source snapshot.
+were consulted. The validated Cantor-square proofs are included in this snapshot.
+The incomplete Kneser support and recovery archive remain outside it.
 The user deferred the second example on 2 November 2026; it is not a
 completed formalisation. Neither source supplies an assumed theorem or
 new project axiom in the registered development.

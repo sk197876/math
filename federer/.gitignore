@@ -22,6 +22,3 @@ _build/
 
 # Preserve the checked audit despite the repository-wide *.log rule.
 !docs/assumptions.log
-
-# Preserve historical verification evidence under the parent LaTeX ignore rules.
-!docs/checkpoints/*.log

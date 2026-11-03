@@ -1,0 +1,159 @@
+{
+  "started": "2026-11-02T18:35:21.884043+01:00",
+  "status": "passed",
+  "runner_pid": 1134771,
+  "scope": "Clean rebuild of all registered project sources (Chapters 1, 2 and current Chapter 3), full recursive kernel check, fresh full assumptions audit",
+  "coverage_qualification": "This validates integrated sources only. It does not complete 3.2: only the first paragraph of 3.2.40 is integrated beyond 3.2.39; 3.2.41-44 are unregistered drafts, 3.2.45 is partial, 3.2.46-48 are unformalised, 3.2.49 is historical discussion. Kneser and 2.10.46 remain deferred.",
+  "revision": "66bc68dbb87d03d90f0c3a2c3b6f687b9c36642f",
+  "branch": "chatgpt",
+  "initial_worktree_status": "M AGENTS.md\n M CLAUDE.md\n M SHA256SUMS\n M _CoqProject\n M docs/chapter3/3.2.md\n M docs/contents.md\n M docs/divergences.md\n M docs/index.md\n M docs/symbols.md\n M tests/Assumptions.v\n M tests/DifferentialExamples.v\n M theories/FiniteBoundedRetraction.v\n M theories/Rectifiability.v\n M theories/SymmetricCoassociativity.v\n M tools/dependency_audit.py\n?? docs/checkpoints/3.2.40-cantor-progress.md\n?? theories/CantorLevelPointSelection.v\n?? theories/CantorSquareCompactMass.v\n?? theories/CantorSquareLevelPacking.v\n?? theories/CantorSquareMinkowskiCounterexample.v\n?? theories/CompactLinearMassTubeLower.v\n?? theories/CriticalCantorSquareLowerContent.v\n?? theories/CriticalCantorSquareMass.v\n?? theories/EqualCostIntervalFamilyGap.v\n?? theories/EqualCostIntervalTreeNonempty.v\n?? theories/EuclideanTubeDiameterBound.v\n?? theories/FiniteIndexedSeparatedTube.v\n?? theories/FinitePlanarScaledTubeCover.v\n?? theories/FiniteSeparatedMetricNetUP.v\n?? theories/FiniteSeparatedPointTube.v\n?? theories/FiniteSubunitPowerLengthNull.v\n?? theories/MinkowskiRadiusComparison.v\n?? theories/PositiveRadiusUnboundedValues.v\n?? theories/PowerCantorCarrierCoefficient.v\n?? theories/PowerCantorCoefficientInvariance.v\n?? theories/PowerCantorSquareLevelTube.v\n?? theories/PowerCantorSquareLowerContent.v\n?? theories/PowerCantorSquareSmallRadii.v\n?? theories/PowerCantorSubcriticalSplit.v\n?? theories/PowerCantorUniformLevelWeights.v\n?? theories/RapidCantorGapRadii.v\n?? theories/RapidCantorSquareStepLower.v\n?? theories/RapidCantorSquareUpperContent.v\n?? theories/RapidPowerCantorLevelCounts.v\n?? theories/RapidPowerCantorScales.v\n?? theories/RapidPowerCantorScalesLaws.v\n?? theories/RapidPowerCantorScalesUP.v\n?? theories/RapidPowerCantorTreeScales.v\n?? theories/SeparatedPlanarTubeLower.v\n?? theories/SubcriticalCantorGapBounds.v\n?? theories/SubcriticalCantorSquareHausdorffNull.v\n?? theories/SubcriticalCantorTreeGap.v\n?? theories/SubunitPowerDiameterBound.v",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "opam_root": "/home/claude/.opam",
+  "build_directory": "/opt/rocq/federer-build",
+  "build_workers": 8,
+  "nice": 10,
+  "umask": "0002",
+  "group": "llm",
+  "concurrent_check_audit": true,
+  "clean_requested_by_user": true,
+  "initial_resources": {
+    "time": "2026-11-02T18:35:21.946771+01:00",
+    "load_average": [
+      0.09619140625,
+      1.12158203125,
+      1.666015625
+    ],
+    "memory_kib": {
+      "MemTotal": 16229224,
+      "MemAvailable": 12779304,
+      "SwapFree": 15246076
+    }
+  },
+  "stages": [
+    {
+      "name": "toolchain",
+      "command": [
+        "/usr/bin/opam",
+        "exec",
+        "--root=/home/claude/.opam",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "/usr/bin/nice",
+        "-n",
+        "10",
+        "rocq",
+        "--version"
+      ],
+      "started": "2026-11-02T18:35:22.641602+01:00",
+      "log": "/opt/rocq/federer-build/verification/2026-11-02-full-validation/toolchain.log",
+      "pid": 1134791,
+      "exit_code": 0,
+      "elapsed_seconds": 0.03,
+      "finished": "2026-11-02T18:35:22.679516+01:00",
+      "warning_or_error": false,
+      "compilation_commands": 0
+    },
+    {
+      "name": "clean",
+      "command": [
+        "/usr/bin/opam",
+        "exec",
+        "--root=/home/claude/.opam",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "/usr/bin/nice",
+        "-n",
+        "10",
+        "make",
+        "clean"
+      ],
+      "started": "2026-11-02T18:35:22.981848+01:00",
+      "log": "/opt/rocq/federer-build/verification/2026-11-02-full-validation/clean.log",
+      "pid": 1134796,
+      "exit_code": 0,
+      "elapsed_seconds": 3.27,
+      "finished": "2026-11-02T18:35:26.255875+01:00",
+      "warning_or_error": false,
+      "compilation_commands": 0
+    },
+    {
+      "name": "build",
+      "command": [
+        "/usr/bin/opam",
+        "exec",
+        "--root=/home/claude/.opam",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "/usr/bin/nice",
+        "-n",
+        "10",
+        "make",
+        "-j8"
+      ],
+      "started": "2026-11-02T18:35:26.624640+01:00",
+      "log": "/opt/rocq/federer-build/verification/2026-11-02-full-validation/build.log",
+      "pid": 1134860,
+      "exit_code": 0,
+      "elapsed_seconds": 30284.07,
+      "finished": "2026-11-03T03:00:10.692042+01:00",
+      "warning_or_error": false,
+      "compilation_commands": 7660
+    },
+    {
+      "name": "check-audit",
+      "command": [
+        "/usr/bin/opam",
+        "exec",
+        "--root=/home/claude/.opam",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "/usr/bin/nice",
+        "-n",
+        "10",
+        "make",
+        "-j8",
+        "check",
+        "audit"
+      ],
+      "started": "2026-11-03T03:00:15.464010+01:00",
+      "log": "/opt/rocq/federer-build/verification/2026-11-02-full-validation/check-audit.log",
+      "pid": 1187032,
+      "exit_code": 0,
+      "elapsed_seconds": 17957.88,
+      "finished": "2026-11-03T07:59:33.342091+01:00",
+      "warning_or_error": false,
+      "compilation_commands": 0
+    }
+  ],
+  "preflight_conflicting_jobs": [],
+  "source_snapshot_inputs": 7665,
+  "registered_sources": 7660,
+  "audit_expected_queries": 20465,
+  "audit_baseline_queries": 20393,
+  "changed_inputs": [],
+  "source_snapshot_unchanged": true,
+  "registered_artifacts_remaining_after_clean": [],
+  "registered_missing_after_build": [],
+  "audit_results": {
+    "expected_queries": 20465,
+    "actual_queries": 20465,
+    "old_queries": 20393,
+    "new_queries": 72,
+    "old_assumption_sets_preserved": true,
+    "changed_old_assumption_indices": [],
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "unexpected_assumptions": [],
+    "closed": 1241
+  },
+  "permissions": {
+    "group": "llm",
+    "group_read_write": true,
+    "checked_active_files": 38336,
+    "active_directories_mode": "2775"
+  },
+  "finished": "2026-11-03T07:59:39.668614+01:00"
+}

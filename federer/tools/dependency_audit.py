@@ -157,6 +157,7 @@ def main():
         if aux.exists():
             aux.unlink()
     log = r.stdout + r.stderr
+    (BUILD / 'tests' / 'DependencyAuditScratch.log').write_text(log)
     if r.returncode:
         errors.append('compile failed')
     if re.search('Warning:|Error:', log):

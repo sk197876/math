@@ -28,7 +28,8 @@
     orbits of an open subgroup of G which is a countable union of compact
     sets (OpenSigmaCompactSubgroup.v) and the positivity of nu, which
     follows from 2.7.10(5), (6) and the positivity of nonzero left covariant
-    integrals. The local erratum has no entry for p. 133. *)
+    integrals. The nonzero hypothesis is Federer's erratum p. 3, book
+    p. 133 line 4. *)
 From mathcomp Require Import all_boot all_order all_algebra boolp classical_sets functions reals
   constructive_ereal topology normedtype.
 From Federer Require Import RealMetricBackground FunctionLatticeUP MonotoneDaniellIntegralUP

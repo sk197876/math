@@ -26,7 +26,7 @@
     compact neighbourhood of e supply the partition
     (OpenSigmaCompactSubgroup.v); positivity holds for nonzero covariant
     integrals (CovariantCompactRightInvariance.v). The local erratum has no
-    entry for pp. 107 and 131. *)
+    entry for p. 107; its entry for p. 131 adds "nonzero" to 2.7.14. *)
 From mathcomp Require Import all_boot all_order all_algebra finmap boolp classical_sets cardinality
   functions reals constructive_ereal topology normedtype.
 From Federer Require Import RealMetricBackground FunctionLatticeUP CompactSupportFunctionUP

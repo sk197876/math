@@ -682,3 +682,43 @@ the L² Vitali property in the Euclidean metric.
 | 3.2.38, pp. 274–275 | C, F, G, H; rho(K), xi, eta; J_m f; upper M^m(f(C)) | [`is_euclidean_coordinate_cube`](../theories/EuclideanCoordinateCubeUP.v#L15), [`is_equal_coordinate_cube_grid`](../theories/EqualCoordinateCubeGridUP.v#L21), [`is_compact_core_cube_cover`](../theories/CompactCoreCubeCoverUP.v#L18), [`good_coordinate_cube_minkowski_estimate`](../theories/GoodCubeMinkowskiEstimate.v#L25), [`lipschitz_parent_cube_normalized_tube_bound`](../theories/LipschitzParentCubeTubeBound.v#L23), [`compact_image_minkowski_radius_bound`](../theories/CompactImageMinkowskiRadiusBound.v#L29), [`federer_3_2_38`](../theories/CompactLipschitzImageMinkowski.v#L73); actual local cubes, original partial Jacobian, full real-radius limit, corrected j=0 term and positive degree-zero atom. |
 
 | 3.2.39, pp. 275–276 | G, v, S_j, sigma_j, t_C, S_(j,r); H^m(W)=M^m(W) | [`is_finite_compact_jacobian_cover`](../theories/FiniteCompactJacobianCoverUP.v#L19), [`finite_family_hit_count`](../theories/FiniteFamilyMultiplicity.v#L14), [`is_finite_family_layers`](../theories/FiniteFamilyLayersUP.v#L14), [`finite_family_layer_characteristic_sum`](../theories/FiniteFamilyLayerCharacteristicSum.v#L29), [`finite_family_layer_tube_characteristic_bound`](../theories/FiniteFamilyLayerTubeCharacteristicBound.v#L22), [`federer_3_2_39`](../theories/ClosedRectifiableMinkowski.v#L56); actual indexed image counts, full real-radius limits and finite multipoint degree-zero convention. |
+
+| 3.2.40, p. 276, first paragraph | E=A(m,n)×A(m,n); upper M¹(E)=infinity; lower M¹(E)=0 or positive finite; H¹(E)=0 below m=1/2 | [`federer_3_2_40_cantor_square`](../theories/CantorSquareMinkowskiCounterexample.v#L33), [`is_rapid_power_cantor_scales`](../theories/RapidPowerCantorScalesUP.v#L18), [`power_cantor_carrier_coefficient_change`](../theories/PowerCantorCarrierCoefficient.v#L25); original same-factor carrier and full positive-real-radius contents. Kneser's second paragraph remains deferred. |
+
+## Canonical maps of 1.1.2 (p. 10)
+
+| Printed notation | Formal declaration |
+| --- | --- |
+| Permutation and grouping isomorphisms of finite tensor products | [`tensor_family_permutation_isomorphism`](../theories/TensorFamilyPermutation.v#L106), [`tensor_family_grouping_isomorphism`](../theories/TensorFamilyGrouping.v#L153) |
+| Products of bases and dimensions | [`tensor_family_basis`](../theories/TensorFamilyBasis.v#L34), [`tensor_family_basisP`](../theories/TensorFamilyBasis.v#L142), [`tensor_family_dimension`](../theories/TensorFamilyDimension.v#L35) |
+| Tensor of a direct sum | [`tensor_direct_sum_decomposition`](../theories/TensorDirectSum.v#L35), [`tensor_direct_sum_bijection`](../theories/TensorDirectSum.v#L103) |
+
+## Phi of 1.1.4 (p. 11)
+
+| Printed notation | Formal declaration |
+| --- | --- |
+| Phi: Hom(V,K) tensor W to Hom(V,W) | [`tensor_Hom`](../theories/HomTensor.v#L48), [`tensor_Hom_injective`](../theories/HomTensorGeneral.v#L53), [`tensor_Hom_finite_factor_surjective`](../theories/HomTensorGeneral.v#L108) |
+
+- **Φ : Hom(V,K) ⊗ W → Hom(V,W)** (1.1.4, p. 11): injective for arbitrary V,W; surjective iff at least one has a finite basis ([`tensor_Hom_surjective_iff_finite_factor`](../theories/HomTensorInfinite.v#L99)); both infinite gives an actual missing image ([`tensor_Hom_infinite_missing_image`](../theories/HomTensorInfinite.v#L55)).
+
+- **u, v, n, tau, lambda** (2.8.8, p. 145): the two normalized ball-growth bounds give an internally derived lambda > 1 and adequacy ([`ball_power_growth_regularity_exists`](../theories/BallPowerGrowthAdequacy.v#L18), [`ball_power_growth_family_adequate`](../theories/BallPowerGrowthAdequacy.v#L46)).
+
+- **v strictly convex; radial x** (2.8.9, p. 146): [`is_strictly_convex_norm`](../theories/StrictConvexNorm.v#L22) specifies midpoint containment; actual inner norms satisfy it, and the two radial distance equations determine x uniquely, including zero radius ([`strict_convex_radial_projection_unique`](../theories/StrictConvexRadial.v#L54)).
+
+## Real-dimensional Hausdorff normalization (2.10.2, p. 171)
+
+| Printed notation | Formal interface |
+| --- | --- |
+| alpha(p) 2^(-p), 0<=p real | [`real_hausdorff_normalisation`](../theories/RealHausdorffNormalisation.v#L39); actual Gamma coefficient, positive and compatible with every natural degree |
+| H^p, S^p | [`real_hausdorff_measure`](../theories/RealHausdorffMeasure.v#L34), [`real_spherical_measure`](../theories/RealHausdorffMeasure.v#L40); independent covering laws and actual Gamma normalization |
+| H^0, finite H^p(A) with p<q | Counting measure and real-degree dimension drop in [`RealHausdorffMeasureLaws.v`](../theories/RealHausdorffMeasureLaws.v) |
+| H^p<=S^p<=2^p H^p | [`real_hausdorff_le_spherical`](../theories/RealHausdorffMeasureLaws.v#L70), [`real_spherical_le_double_hausdorff`](../theories/RealHausdorffMeasureLaws.v#L80) |
+| psi_delta for open versus unrestricted generators | [`planar_circle_selected_cutoff_gap`](../theories/PlanarCircleCutoffCounterexample.v#L170) at the actual circle diameter two and degree one |
+
+| 3.2.41, pp. 277–278 | A+B; volume(A+B)^(1/n) ≥ volume(A)^(1/n)+volume(B)^(1/n), n>0; S* | [`vector_set_sum`](../theories/VectorSetSum.v#L15), [`is_vector_set_sum`](../theories/VectorSetSumUP.v#L17), [`euclidean_volume_root_sum_bound`](../theories/EuclideanVolumeRootSum.v#L20), [`federer_3_2_41`](../theories/BrunnMinkowski.v#L24), actual [`measure_density_one_points`](../theories/MeasureDensityPoints.v#L15); arbitrary nonempty original sets, including zero and infinite outer volumes. |
+
+| 3.2.42, p. 278 | Outer distance strip and inner r-core; n·alpha(n)^(1/n)·volume^((n−1)/n) | [`federer_3_2_42`](../theories/BoundaryLayerVolume.v#L26), [`federer_3_2_42_distance_strips`](../theories/BoundaryLayerDistanceForm.v#L24); finite closure volume, all r>0 and n≥2, with nonempty-source/core line variants. |
+
+| 3.2.43, p. 278 | Lower M^(n−1)(closure(S) minus interior(S)); isoperimetric volume power | [`federer_3_2_43`](../theories/IsoperimetricInequality.v#L50), [`positive_closure_volume_isoperimetric`](../theories/IsoperimetricInequality.v#L23); n≥2 includes zero volume; positive closure volume also allows n=1. |
+
+| 3.2.44, p. 278 | H^(n−1)(closure(S) minus interior(S)); genuinely rectifiable boundary | [`federer_3_2_44`](../theories/RectifiableBoundaryIsoperimetric.v#L36), [`positive_closure_rectifiable_boundary_isoperimetric`](../theories/RectifiableBoundaryIsoperimetric.v#L60); actual closed-boundary content equality from 3.2.39. |

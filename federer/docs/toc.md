@@ -9,7 +9,8 @@ Rocq file or of a uniquely defined declaration is a link into the sources.
 ## Chapter 1: Grassmann algebra
 
 Conventions and source scope are preserved in [1.1](chapter1/1.1.md).
-Section 1.1 is partial; §§1.2–1.10 are covered with the qualifications
+Section 1.1 is complete apart from the deliberately deferred 1.1.3;
+§§1.2–1.10 are covered with the qualifications
 recorded in the individual entries. Questions in 1.8.3–1.8.4 remain questions.
 
 | Section | Printed pages |
@@ -30,8 +31,12 @@ recorded in the individual entries. Questions in 1.8.3–1.8.4 remain questions.
 General conventions and earlier verification history are preserved in
 [2.1](chapter2/2.1.md); erratum cross-references are in [2.2](chapter2/2.2.md).
 Sections 2.1–2.7 and 2.9 are covered as recorded in their entries.
-Sections 2.8 and 2.10 retain explicit gaps: examples and the strict-convexity parenthesis in 2.8.8–2.8.9,
-2.10.6, the Gamma normalisation and listed variants, and deferred 2.10.46.
+Items 2.8.8–2.8.9 are complete within the requested scope, including
+subsidiary assertions and strict-convexity uniqueness, and excluding book
+examples. Section 2.10 retains the documented qualifications:
+2.10.6, the listed variants of later items, and deferred 2.10.46. Item 2.10.2
+is complete, including real-degree Gamma normalization and the actual circle
+cutoff counterexample.
 The requested last proof is 2.10.48; 2.10.49 is historical discussion and
 requires no formalisation. Validation checks the implemented statements;
 it does not close these documented coverage gaps.
@@ -45,7 +50,7 @@ it does not close these documented coverage gaps.
 | [2.5 Linear functionals](chapter2/2.5.md) | 91–114 |
 | [2.6 Product measures](chapter2/2.6.md) | 114–121 |
 | [2.7 Invariant measures](chapter2/2.7.md) | 121–141 |
-| [2.8 Covering theorems](chapter2/2.8.md) (2.8.8–2.8.9 qualifications pending) | 141–152 |
+| [2.8 Covering theorems](chapter2/2.8.md) (2.8.8–2.8.9 complete within requested scope; book examples excluded) | 141–152 |
 | [2.9 Derivates](chapter2/2.9.md) (formalised) | 152–169 |
 | [2.10 Carathéodory's construction](chapter2/2.10.md) (through 2.10.48 with the stated qualifications; 2.10.46 deferred) | 169–206 |
 
@@ -111,7 +116,7 @@ characterizations, exact composition, general inversion and the scalar
 majorant, analytic constant-rank and submanifold charts, root-set alternative
 and coordinate series. The [3.1 release](checkpoints/3.1-release-validation.json)
 passed its incremental all build, complete recursive kernel check and
-dependency assumptions audit. [3.2 Area and coarea of Lipschitzian maps](chapter3/3.2.md) is in progress; items 3.2.1–3.2.39 are complete and validated, with explicit source qualifications and corrections in the section account. The 3.2.40 drafts are preserved; its Kneser example is deferred at the user’s request, and work continues with 3.2.41. Subsections 3.3–3.4 remain pending.
+dependency assumptions audit. [3.2 Area and coarea of Lipschitzian maps](chapter3/3.2.md) is in progress; items 3.2.1–3.2.39 are complete and validated, with explicit source qualifications and corrections in the section account. The first paragraph of 3.2.40 passed the full validation completed on 3 November 2026; only its Kneser example remains deferred. Items 3.2.41–44 are complete and validated. Items 3.2.46–48 remain pending. Item 3.2.45 is partial outside the current request. Subsections 3.3–3.4 remain pending.
 Chapter 3 is exposed through [`Rectifiability.v`](../theories/Rectifiability.v) and tested in
 [`DifferentialExamples.v`](../tests/DifferentialExamples.v) and [`InverseFunctionExamples.v`](../tests/InverseFunctionExamples.v).
 
@@ -160,3 +165,23 @@ section file, record any divergence from Federer's text there and in
 after changing the register). The linkify script links every mentioned
 `.v` file and uniquely defined declaration, and repairs declaration links
 whose line no longer holds the declaration.
+
+The [full-project validation](checkpoints/2026-11-02-full-validation.json) completed on 3 November 2026: all 7,660 registered modules rebuilt cleanly, complete recursive kernel checking and all 20,465 fresh assumption queries passed without warnings; all 20,393 earlier assumption sets were preserved. This does not extend coverage to unregistered drafts.
+
+Federer 1.1.2 is now complete and validated, including arbitrary finite-family canonical maps and product bases. See [the item record](checkpoints/1.1.2-validation.json).
+
+Federer 1.1.4 is complete and validated, including unrestricted injectivity and the exact finite-factor surjectivity criterion. See [the item record](checkpoints/1.1.4-validation.json).
+
+Federer 2.8.8 is complete and validated within the requested scope, including subsidiary assertions and excluding the book examples. See [the item record](checkpoints/2.8.8-validation.json).
+
+Federer 2.8.9 is complete and validated within the requested scope, including strict-convexity and actual inner-product radial uniqueness. See [the item record](checkpoints/2.8.9-validation.json).
+
+Federer 2.10.2 is complete and validated, including real dimensions and the circle example. See [the item record](checkpoints/2.10.2-validation.json).
+
+Federer 3.2.41 is complete and validated with the scope and qualifications in [its record](checkpoints/3.2.41-validation.json).
+
+Federer 3.2.42 is complete and validated with the scope and qualifications in [its record](checkpoints/3.2.42-validation.json).
+
+Federer 3.2.43 is complete and validated with the scope and qualifications in [its record](checkpoints/3.2.43-validation.json).
+
+Federer 3.2.44 is complete and validated with the scope and qualifications in [its record](checkpoints/3.2.44-validation.json).

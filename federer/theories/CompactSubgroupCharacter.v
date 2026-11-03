@@ -13,8 +13,8 @@
     theorem compact_group_positive_character_unit of that file treats a
     compact group [set: G]; the present form for a compact subgroup of a
     group which need not be compact is the one used in 2.7.14. No continuity
-    of the group operations is used. The local erratum has no entry for pp.
-    129 and 131–133. *)
+    of the group operations is used. The local erratum has no entry for
+    this argument. *)
 From mathcomp Require Import all_boot all_order all_algebra boolp classical_sets functions reals
   topology normedtype.
 From mathcomp Require Import lra.
