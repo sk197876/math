@@ -3,7 +3,7 @@
 This project formalises Herbert Federer's *Geometric Measure Theory*
 (1969), following the book's definitions, hypotheses, conventions and
 proofs as closely as possible. The development covers Chapters 1 and 2
-with documented qualifications and is beginning Chapter 3, rectifiability.
+with documented qualifications, and Chapter 3 through most of subsection 3.2.
 
 ## Sources and principles
 
@@ -59,6 +59,16 @@ assumptions queries, without warnings or changed assumption sets. Its
 snapshot included the partial 3.1.4 checkpoint; later proofs receive
 separate focused checks.
 
+The [latest clean full-project validation](docs/checkpoints/2026-11-02-full-validation.json)
+finished on **3 November 2026**: all 7,660 registered modules and 20,465
+fresh assumptions queries passed. Subsequent item releases completed
+1.1.2, 1.1.4, 2.8.8–2.8.9 within the requested scope, 2.10.2,
+3.2.41–3.2.44 and 3.2.46–3.2.48. Each release passed registered compilation,
+recursive kernel checking and a dependency assumptions audit. These
+focused validations preserve all earlier assumption sets; the current
+complete report contains 21,855 entries. They are recorded separately
+from the earlier full-project run.
+
 [docs/verification.txt](docs/verification.txt) records the actual scope and
 outcome of every validation checkpoint. The full dependency report is
 [docs/assumptions.log](docs/assumptions.log). Only the three permitted
@@ -73,7 +83,7 @@ focused compilation, regression checks, recursive kernel checking and
 assumptions audits. The commentary in 3.1.10 is recorded. The
 [3.1 release](docs/checkpoints/3.1-release-validation.json) also passed the
 incremental project build, complete recursive kernel check and dependency
-assumptions audit. [Subsection 3.2](docs/chapter3/3.2.md) is in progress: items 3.2.1–3.2.39 are complete and validated, with explicit source qualifications and corrections in the section account. The first paragraph of 3.2.40 passed the full validation completed on 3 November 2026; only its Kneser example remains deferred. Items 3.2.41–44 are complete and validated. Items 3.2.46–48 remain pending. Item 3.2.45 is partial outside the current request. Subsections 3.3–3.4 remain pending.
+assumptions audit. [Subsection 3.2](docs/chapter3/3.2.md) is in progress: items 3.2.1–3.2.39 are complete and validated, with explicit source qualifications and corrections in the section account. The first paragraph of 3.2.40 passed the full validation completed on 3 November 2026; only its Kneser example remains deferred. Items 3.2.41–44 and 3.2.46–48 are complete and validated. Item 3.2.45 is partial outside the current request. Subsections 3.3–3.4 remain pending.
 Chapter 4 has not begun. Before Chapter 4, the planned
 prerequisite is a formalisation of
 [EilenbergSteenrod1952](docs/bibliography.md#eilenbergsteenrod1952).
@@ -97,6 +107,11 @@ contains documentation generators and validation helpers. Generated coqdoc
 pages are written to `html/` inside the build directory; build artifacts and
 HTML are not tracked.
 
+For HTML copies of the Markdown documentation, use
+`python3 docs/md_to_html.py docs/contents.md`. This separate converter
+requires Python 3 and Pandoc and renders mathematics as offline MathML.
+File and batch usage are described in [the documentation index](docs/toc.md#html-copies-of-markdown).
+
 ## Build environment
 
 Use opam switch **`RP.2026.02.0~9.1~2026.01`** explicitly. The recorded
@@ -107,7 +122,9 @@ Rocq-Elpi 3.3.1 and algebra-tactics 1.2.7. Exact package versions are in
 Python 3 runs the documentation and audit helpers. The source materials are
 needed for source consultation, not for compiling the proofs.
 
-Run from the repository root, normally with at most two proof workers.
+Run from the repository root. On this shared host, the current resource policy
+permits up to eight compiler workers with memory-aware admission and a 1.5 GiB
+RAM reserve. The manual example below uses two workers.
 Use your own configured opam root.
 
 ```sh
@@ -118,8 +135,8 @@ opam exec --switch=RP.2026.02.0~9.1~2026.01 -- nice -n 10 make audit
 
 | Target | Effect |
 | --- | --- |
-| `make` / `make all` | Generate the Rocq Makefile and compile registered theories and all 14 example suites. |
-| `make check` | Build as needed, then recursively kernel-check the public Chapter 1, 2 and developing Chapter 3 interfaces and all 14 example suites. |
+| `make` / `make all` | Generate the Rocq Makefile and compile registered theories and all registered example suites. |
+| `make check` | Build as needed, then recursively kernel-check the public Chapter 1, 2 and developing Chapter 3 interfaces and all registered example suites. |
 | `make audit` | Build as needed, then freshly run every `Print Assumptions` query and rewrite `docs/assumptions.log`. |
 | `make doc` | Build as needed and generate coqdoc HTML with the project index in `html/`. |
 | `make clean` | Remove generated compilation artifacts and HTML. |
@@ -192,3 +209,5 @@ Federer 3.2.42 is complete and validated with the scope and qualifications in [i
 Federer 3.2.43 is complete and validated with the scope and qualifications in [its record](docs/checkpoints/3.2.43-validation.json).
 
 Federer 3.2.44 is complete and validated with the scope and qualifications in [its record](docs/checkpoints/3.2.44-validation.json).
+
+Federer 3.2.46 is complete and validated in the single-chart scope, with the disconnected-domain qualification in [its record](docs/checkpoints/3.2.46-validation.json).

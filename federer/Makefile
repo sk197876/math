@@ -40,7 +40,7 @@ clean: prepare-build
 	umask $(BUILD_UMASK); cd "$(BUILD_DIR)/tests" && rm -f Assumptions.vo Assumptions.vos Assumptions.vok Assumptions.glob .Assumptions.aux
 
 check: all
-	umask $(BUILD_UMASK); cd "$(BUILD_DIR)" && $(COQCHK) -silent $(LOADPATH) Federer.GrassmannSpaces Federer.TensorFamily Federer.MeasureTheory Federer.Rectifiability FedererTests.Examples FedererTests.GradedExamples FedererTests.SignedExamples FedererTests.ExteriorExamples FedererTests.MeasureExamples FedererTests.CoveringExamples FedererTests.DerivationExamples FedererTests.CaratheodoryExamples FedererTests.DifferentialExamples FedererTests.InverseFunctionExamples FedererTests.BrunnMinkowskiExamples FedererTests.BoundaryLayerVolumeExamples FedererTests.IsoperimetricExamples FedererTests.RectifiableBoundaryIsoperimetricExamples
+	umask $(BUILD_UMASK); cd "$(BUILD_DIR)" && $(COQCHK) -silent $(LOADPATH) Federer.GrassmannSpaces Federer.TensorFamily Federer.MeasureTheory Federer.Rectifiability FedererTests.Examples FedererTests.GradedExamples FedererTests.SignedExamples FedererTests.ExteriorExamples FedererTests.MeasureExamples FedererTests.CoveringExamples FedererTests.DerivationExamples FedererTests.CaratheodoryExamples FedererTests.DifferentialExamples FedererTests.InverseFunctionExamples FedererTests.BrunnMinkowskiExamples FedererTests.BoundaryLayerVolumeExamples FedererTests.IsoperimetricExamples FedererTests.RectifiableBoundaryIsoperimetricExamples FedererTests.RiemannianTransformationExamples FedererTests.SphericalOrthogonalExamples FedererTests.SphericalKinematicExamples
 	@echo "Kernel check passed."
 
 audit: all

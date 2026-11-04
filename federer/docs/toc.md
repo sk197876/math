@@ -60,6 +60,16 @@ artifacts were reused after fingerprint checks. See the
 [verification record](verification.txt) and
 [machine-readable release report](checkpoints/chapter2-release-validation.json).
 
+The [clean full-project validation](checkpoints/2026-11-02-full-validation.json)
+finished on 3 November 2026 with all 7,660 registered modules and 20,465
+fresh assumptions queries passing. The Chapter 1 and 2 supplements completed
+later that day have separate successful compilation, recursive kernel
+checking and dependency audit records: [1.1.2](checkpoints/1.1.2-validation.json),
+[1.1.4](checkpoints/1.1.4-validation.json), [2.8.8](checkpoints/2.8.8-validation.json),
+[2.8.9](checkpoints/2.8.9-validation.json) and [2.10.2](checkpoints/2.10.2-validation.json).
+Their coverage is included in the subsection accounts and the contents,
+index, notation and divergence maps.
+
 ## Chapter 3: Rectifiability
 
 [3.1 Differentials and tangents](chapter3/3.1.md), printed pp. 209–241,
@@ -116,7 +126,7 @@ characterizations, exact composition, general inversion and the scalar
 majorant, analytic constant-rank and submanifold charts, root-set alternative
 and coordinate series. The [3.1 release](checkpoints/3.1-release-validation.json)
 passed its incremental all build, complete recursive kernel check and
-dependency assumptions audit. [3.2 Area and coarea of Lipschitzian maps](chapter3/3.2.md) is in progress; items 3.2.1–3.2.39 are complete and validated, with explicit source qualifications and corrections in the section account. The first paragraph of 3.2.40 passed the full validation completed on 3 November 2026; only its Kneser example remains deferred. Items 3.2.41–44 are complete and validated. Items 3.2.46–48 remain pending. Item 3.2.45 is partial outside the current request. Subsections 3.3–3.4 remain pending.
+dependency assumptions audit. [3.2 Area and coarea of Lipschitzian maps](chapter3/3.2.md) is in progress; items 3.2.1–3.2.39 are complete and validated, with explicit source qualifications and corrections in the section account. The first paragraph of 3.2.40 passed the full validation completed on 3 November 2026; only its Kneser example remains deferred. Items 3.2.41–44 and 3.2.46–48 are complete and validated. Item 3.2.45 is partial outside the current request. Subsections 3.3–3.4 remain pending.
 Chapter 3 is exposed through [`Rectifiability.v`](../theories/Rectifiability.v) and tested in
 [`DifferentialExamples.v`](../tests/DifferentialExamples.v) and [`InverseFunctionExamples.v`](../tests/InverseFunctionExamples.v).
 
@@ -185,3 +195,39 @@ Federer 3.2.42 is complete and validated with the scope and qualifications in [i
 Federer 3.2.43 is complete and validated with the scope and qualifications in [its record](checkpoints/3.2.43-validation.json).
 
 Federer 3.2.44 is complete and validated with the scope and qualifications in [its record](checkpoints/3.2.44-validation.json).
+
+Federer 3.2.46 is complete and validated in the single-chart scope, with the disconnected-domain qualification in [its record](checkpoints/3.2.46-validation.json).
+
+## HTML copies of Markdown
+
+[md_to_html.py](md_to_html.py) converts Markdown documentation to standalone
+HTML using Python 3 and Pandoc. Mathematics uses native MathML and needs no
+network connection or JavaScript library. It accepts `$...$`, `$$...$$`,
+`\(...\)` and `\[...\]`, while preserving literal mathematics inside code.
+Tables, fenced code and a page table of contents are included.
+
+Run from the repository root:
+
+```sh
+# Write docs/contents.html next to the Markdown source.
+python3 docs/md_to_html.py docs/contents.md
+
+# Choose a filename for a single page.
+python3 docs/md_to_html.py docs/symbols.md -o /tmp/symbols.html
+
+# Convert a directory recursively, preserving the directory structure.
+python3 docs/md_to_html.py docs --output-dir docs/html
+```
+
+Multiple Markdown filenames may also be supplied. With `--output-dir`,
+paths are relative to their common parent directory. Links between pages
+converted in the same invocation point to the generated HTML pages;
+other local links and images are rebased to their original files.
+Rocq source line fragments are retained. Add `--no-toc` to omit navigation.
+
+Pandoc must understand the TeX expressions used by the document. Unsupported
+math and other Pandoc warnings stop conversion before replacing that page's
+output. The converter expands the standard `\S` and `\P` text symbols inside
+math for compatibility with Pandoc 2.17's MathML writer. Generated HTML is
+ignored by Git; it is separate from the Rocq source documentation produced
+by `make doc`.

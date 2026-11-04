@@ -11345,3 +11345,40 @@ boolp assumptions. All validation inputs unchanged, no warnings.
 Required switch, nice 10, at most two workers, umask 0002, group llm,
 g+rw. Reuse without cleaning/adoption or copied private proof objects.
 See docs/checkpoints/3.2.44-validation.json.
+
+2026-11-03: Federer 3.2.46 complete and validated in the single-chart scope.
+The full single-chart development of 3.2.46: actual curve-speed infimum, symmetry, triangle and separation, usual chart topology, all nonnegative real Hausdorff degrees with actual Gamma normalization, exact top-volume density and every-point derivate, all three signed area alternatives of 3.2.5, and signed weighted coarea of 3.2.12. Original chart domains, original map and actual Riemannian Jacobians remain; zero dimensions, singular maps, completed measurable sets and infinite integrals are retained.
+For arbitrary disconnected open A, the printed finite-metric wording on p. 281 requires localization: the actual curve infimum may be infinite across components. The punctured line proves this directly by the intermediate-value theorem. The formalisation keeps the extended original rho and uses min(1,rho) solely as a technical finite carrier, with exact original cutoff compatibility and usual topology proved. This qualification is absent from the working erratum.
+257 theories and five concrete regressions. Registered build 1928.86s;
+complete recursive kernel check of the item and all dependencies 422.05s;
+541 strict dependency queries 1792.06s. All 20,816 earlier assumption
+sets preserved; 21,357 complete entries, only the three permitted boolp
+assumptions. All registered inputs unchanged, no warnings. Required switch,
+nice 10, two registered build workers, umask 0002, group llm and g+rw. No clean,
+adoption, changed compiler flags or copied private proof objects.
+See docs/checkpoints/3.2.46-validation.json.
+
+2026-11-04: Federer 3.2.47 complete and validated.
+All of Federer 3.2.47, pp. 282–283: the exact normalized section on both hemispheres, actual smooth local product charts, the original isotropy, tangent translations and vertical kernel, horizontal scale and dimension, actual restricted r-Jacobian and all three numbered rectifiability, nullity and mass assertions. Every natural r and positive ambient dimension remain, including the two-atom dimension-one sphere; original E need not be measurable.
+112 theories, three concrete regressions. Registered build 673.09s;
+complete recursive item-and-dependency kernel check 512.13s;
+263 strict dependency queries 570.21s. All 21,357 old assumption sets
+preserved; 21,620 complete entries, only three permitted boolp assumptions.
+Registered inputs and base revision unchanged; no warnings, clean, adoption
+or copied private objects. Required switch, nice 10, eight CPU ceiling with
+memory-aware admission and 1.5 GiB reserve, umask 0002, llm and g+rw.
+See docs/checkpoints/3.2.47-validation.json.
+
+2026-11-04: Federer 3.2.48 complete and validated.
+All of Federer 3.2.48, pp. 284–286: almost-everywhere finite Hausdorff rectifiability of the original intersection A intersect g(B), and the exact signed weighted normalized-Haar formula with the printed Euler Gamma coefficient. A remains finite Hausdorff rectifiable and completed measurable; B remains genuinely rectifiable and completed measurable. Every natural k,m with k+m>=d in ambient dimension d+1 is retained, including above-dimensional null factors and the actual two-point sphere.
+121 theories and three actual regressions. Registered incremental build
+792.82s; complete recursive item-and-dependency kernel check 593.23s;
+235 strict dependency queries 974.92s. All 21,620 earlier assumption sets
+preserved; 21,855 complete entries with only the three permitted boolp assumptions.
+All registered inputs and base revision unchanged; no warnings, cleaning,
+adoption, copied private proof objects, altered compiler checks or bypasses.
+Required switch, nice 10, eight CPU ceiling, memory-aware admission and
+1.5 GiB reserve, umask 0002, llm and group read/write.
+Post-build overlap briefly crossed the RAM reserve; the kernel completed
+normally before conditional concurrency reduction, with no interruption
+or bypass. See docs/checkpoints/3.2.48-validation.json.

@@ -1,7 +1,7 @@
 {
-  "source_commit": "21989feb7fc10e73dab6ff009afd6de1b596d2c2",
-  "validated_proof_commit": "21989feb7fc10e73dab6ff009afd6de1b596d2c2",
-  "validation_record": "docs/checkpoints/3.2.44-validation.json",
+  "source_commit": "9c3c66ad64115ba017e29084c536a86b68d45eb1",
+  "validated_proof_commit": "0d5779eb78078c66f0505b4b2e4d9b42d70fe541",
+  "validation_record": "docs/checkpoints/3.2.48-validation.json",
   "validation_records": [
     "docs/checkpoints/2026-11-02-full-validation.json",
     "docs/checkpoints/1.1.2-validation.json",
@@ -12,15 +12,18 @@
     "docs/checkpoints/3.2.41-validation.json",
     "docs/checkpoints/3.2.42-validation.json",
     "docs/checkpoints/3.2.43-validation.json",
-    "docs/checkpoints/3.2.44-validation.json"
+    "docs/checkpoints/3.2.44-validation.json",
+    "docs/checkpoints/3.2.46-validation.json",
+    "docs/checkpoints/3.2.47-validation.json",
+    "docs/checkpoints/3.2.48-validation.json"
   ],
-  "proof_files": 7796,
-  "registered_proof_files": 7795,
-  "compiled_example_suites": 14,
+  "proof_files": 8289,
+  "registered_proof_files": 8288,
+  "compiled_example_suites": 17,
   "separate_audit_driver": "tests/Assumptions.v",
-  "audit_entries": 20816,
+  "audit_entries": 21855,
   "verification": "All exported .v files, the registered manifest and build/audit tools match the source hashes recorded by the latest passed release validation. The complete assumptions log and earlier validation records are included. Checksums and manifest consistency were checked for this export; no new proof build or audit was run for the copy.",
-  "proof_selection": "Exact committed validated proof sources through 3.2.44, including the completed first paragraph of 3.2.40. Unregistered unfinished 3.2.46 drafts are excluded.",
+  "proof_selection": "Exact committed validated proof sources through 3.2.48, including the completed first paragraph of 3.2.40. The deliberately deferred items and partial 3.2.45 are not claimed complete. No unregistered draft proof sources or generated proof objects are exported.",
   "excluded_categories": [
     "Git history",
     "agent instructions and memories",
@@ -157,6 +160,9 @@
     "docs/checkpoints/3.2.42-progress.md",
     "docs/checkpoints/3.2.43-progress.md",
     "docs/checkpoints/3.2.44-progress.md",
+    "docs/checkpoints/3.2.46-progress.md",
+    "docs/checkpoints/3.2.47-progress.md",
+    "docs/checkpoints/3.2.48-progress.md",
     "docs/checkpoints/3.2.6-progress.md",
     "docs/checkpoints/3.2.7-progress.md",
     "docs/checkpoints/3.2.8-progress.md",
@@ -165,6 +171,6 @@
     "drafts/3.1.1/README.md",
     "first.txt"
   ],
-  "documentation_adaptations": "Remove private agent/recovery links and the host-specific OPAMROOT setting; report the actual number of compiled example suites. Mathematical coverage and proof accounts are retained.",
+  "documentation_adaptations": "Remove private agent/recovery links and the host-specific OPAMROOT setting. Retain mathematical coverage, proof accounts, qualifications, complete validation records, current error catalogue and the Markdown-to-HTML converter. Generated HTML is excluded.",
   "licence_status": "Destination parent repository already contains an LGPL 2.1 LICENSE. No licence file added or changed."
 }

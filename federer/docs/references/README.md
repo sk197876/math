@@ -28,7 +28,18 @@ that the formalisation refutes and that Federer's list does not correct,
 together with proposed corrections, the error in the list itself, and the
 corrections of the list adopted here. Each entry was checked against the
 printed text of the 1969 edition (Springer reprint, which does not
-incorporate the 1987 corrections). Its compiled PDF is not tracked.
+incorporate the 1987 corrections). The list was synchronized on 4 November
+2026 through the validated work in 3.2.48, with the deferred and partial
+items explicitly excluded from completion claims. It includes the later
+local corrections in 3.2.37, 3.2.38 and 3.2.46, and a separate section for
+the convention-dependent line endpoints of 3.2.42–3.2.44.
+
+An editorial note also distinguishes the raw Steiner power from the
+normalized quotient in the erratum's p. 5, book p. 275 line 2 replacement.
+The scan prints `r^(n-j)`; division by the original `alpha(n-m) r^(n-m)`
+leaves `r^(m-j)`. This note does not claim an additional kernel-checked
+counterexample. The erratum transcription preserves the scan.
+The compiled PDFs are not tracked.
 
 Compile the reference without building Rocq or writing generated files here:
 
@@ -36,6 +47,8 @@ Compile the reference without building Rocq or writing generated files here:
 mkdir -p /tmp/federer-erratum-build
 pdflatex -interaction=nonstopmode -halt-on-error \
   -output-directory=/tmp/federer-erratum-build docs/references/federer-erratum.tex
+pdflatex -interaction=nonstopmode -halt-on-error \
+  -output-directory=/tmp/federer-erratum-build docs/references/federer-errors.tex
 ```
 
 The [bibliography](../bibliography.md) identifies all source editions. The
@@ -219,7 +232,7 @@ For 2.10.28, pp. 191–193, all three Federer scans were read. That condition is
 Federer's own correction, erratum p. 4, book p. 192 line 4. The p. 193 line 7
 sum index is also corrected there.
 
-For the in-progress 2.10.29, pp. 193–195, the p. 194 scan was read directly.
+For 2.10.29, pp. 193–195, the p. 194 scan was read directly.
 The working erratum p. 4, book p. 194 line 8, corrects the last interleaving
 term to sigma_j>=t_(j+1)->0. The present explicit-coefficient interfaces do
 not assume Euler-Gamma normalisation.
@@ -229,7 +242,10 @@ the direct covering-infimum infinity argument, and the finite square covers
 on p. 193. The Euclidean plane uses the existing block and scalar
 coordinate interfaces. The positive finite-power paragraph on p. 195, including its actual
 orthogonal coordinate identification, is now proved for explicit
-normalising coefficients. Analytic Gamma normalisation remains pending.
+normalising coefficients. Analytic Gamma normalization is now proved
+in [2.10.2](../chapter2/2.10.md); its positive coefficient may instantiate
+these parameterized results. Explicit adapters to the new Hausdorff
+interface are not added to the 2.10.29 development.
 
 The positive finite-power proof for 2.10.29, p. 195, now uses finite
 coordinate-box covers with conserved weights, and products of vanishing local
@@ -344,8 +360,9 @@ formula's later printed appearance in 2.10.44.
 For Federer 2.10.45 the actual printed pp. 202–203 were read. No relevant
 entry occurs in the working erratum. The local repair for diameter-zero
 generators uses positive mesh limits, not positive-diameter enlargements in an
-arbitrary metric factor. Natural degrees are covered; the common
-Gamma-normalised real-degree extension remains pending.
+arbitrary metric factor. Natural degrees are covered. The real-degree
+product theorem remains unproved here; its actual Gamma normalization
+is now available from [2.10.2](../chapter2/2.10.md).
 
 For partial Federer 2.10.46 the actual printed pp. 203–204 and the
 extended-arithmetic convention in 2.1.1, p. 51, were read.

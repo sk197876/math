@@ -1,4 +1,5 @@
-% Compiled from docs/divergences.md and docs/chapter1--3 at commit 33e03686.
+% Updated 4 November 2026 from docs/divergences.md and docs/chapter1--3
+% at commit 2ed32808; checked against the book and the original erratum scan.
 \documentclass[11pt]{article}
 \usepackage[a4paper,margin=22mm]{geometry}
 \usepackage{amsmath,amssymb,mathrsfs,longtable,array,bm}
@@ -8,6 +9,7 @@
 \newcommand{\N}{\mathbf N}
 \newcommand{\Leb}{\mathscr L}
 \newcommand{\Haus}{\mathscr H}
+\newcommand{\Mink}{\mathscr M}
 \newcommand{\spt}{\operatorname{spt}}
 \newcommand{\dmn}{\operatorname{dmn}}
 \newcommand{\Clos}{\operatorname{Clos}}
@@ -36,25 +38,35 @@
 }{\end{longtable}}
 \title{\textit{Geometric Measure Theory}\\Errors detected by the formalisation}
 \author{Compiled from the Rocq formalisation \texttt{federer-rocq}}
-\date{1 November 2026}
+\date{4 November 2026}
 \begin{document}
 \maketitle
 
 \noindent\textbf{Scope and sources (editorial).}
 This list collects the statements of Herbert Federer, \textit{Geometric
 Measure Theory} (1969), that the formalisation in this repository refutes as
-printed, together with the corrections proved there. It covers the
-formalised part of the book: chapter 1, chapter 2 and items 3.1.1--3.2.30.
+printed, together with the corrections proved there. It also records
+endpoint qualifications that depend on the formalisation's conventions.
+The coverage is the formalised part of chapters 1 and 2, all of subsection
+3.1, and the validated work through 3.2.48.
 It is compiled from the divergence register \texttt{docs/divergences.md}
 (rows of kind \emph{statement correction}) and from the section accounts in
-\texttt{docs/chapter1}--\texttt{docs/chapter3}, at commit \texttt{33e03686}.
-Every entry was then checked against the printed text of the Springer
+\texttt{docs/chapter1}--\texttt{docs/chapter3}, at commit \texttt{2ed32808}.
+The qualifications of 3.2.42--3.2.44 are registered there as conventions,
+rather than unconditional refutations of the book.
+Every entry was checked against the printed text of the Springer
 reprint of the 1969 edition, which does not incorporate the 1987
 corrections. Items are Federer's numbered paragraphs, and pages are printed
 pages. The printed statements are paraphrased closely; displayed formulas
 follow the book. Each entry names the Rocq results that prove the
 counterexample and the corrected statement. Arguments that are not
 formalised are marked as such.
+
+Coverage does not imply completion of the deliberately deferred 1.1.3,
+2.10.46, the second paragraph of 3.2.40 (Kneser's example), or the partial
+3.2.45. The book examples excluded from the requested completion of
+2.8.8--2.8.9 remain excluded. The supplements to 1.1.2, 1.1.4,
+2.8.8--2.8.9 and 2.10.2 introduce no additional book errors to this list.
 
 The check against the book removed one entry of the register. In 2.10.27,
 p.~191, the book prints $f\,\B[(u,v),r]=\B(u,r)$, where the square brackets
@@ -64,7 +76,9 @@ ball.
 
 Federer's \textit{List of corrections} of May 1987 is transcribed in
 \texttt{federer-erratum.tex}. Sections~\ref{s:false}--\ref{s:proofs}
-contain errors absent from that list. Section~\ref{s:erratum} records an error in that list.
+contain local errors or convention qualifications absent from that list.
+Section~\ref{s:erratum} records an error in that list and an editorial
+normalization issue in another replacement.
 Section~\ref{s:confirmed} lists the corrections of that list that the
 formalisation adopts. The register formerly filed the entries for 2.7.14
 and 2.7.15 as local corrections, but Federer's list already contains them (book
@@ -198,6 +212,32 @@ $\Haus^m$ measurable for the upper bound. The lower bound holds as printed
 whenever the integrals exist.\newline
 \rocq{rectifiable_coordinate_upper_requires_measurability},
 \rocq{rectifiable_coordinate_projection_lower}, \rocq{federer_3_2_27}}
+\entry{3.2.37, p.~274}{The upper and lower Minkowski contents
+$\Mink^{*m}$ and $\Mink_*^m$ are not measures; the preceding definition
+permits every integer $0\le m\le n$.}
+{False for $m=0$. Both contents are exactly counting measure on every
+subset of $\R^n$, including infinite sets and the positive atom in
+$\R^0$. \emph{Correction:} restrict the non-measure assertion to
+$1\le m\le n$. For these positive degrees, finite sets have zero content
+while an actual countable dense set has infinite content, so countable
+additivity fails.\newline
+\rocq{zero_minkowski_contents_counting},
+\rocq{zero_minkowski_contents_are_measures},
+\rocq{positive_minkowski_contents_not_measures}}
+\entry{3.2.46, p.~281}{On an arbitrary open $A\subset\R^n$ with a
+continuous field of inner products, the infimum of the lengths of
+Lipschitzian curves joining $x,y\in A$ is a metric inducing the usual
+topology of $A$.}
+{The distance need not be finite. Take $A=\R\sim\{0\}$ with the ordinary
+inner product. Every continuous curve from $-1$ to $1$ meets $0$, so
+there is no admissible curve in $A$ and $\rho(-1,1)=\inf\varnothing=\infty$.
+\emph{Correction:} allow an extended distance on $A$, or localize the
+finite-metric assertion to a connected component. The formalisation
+retains the original extended $\rho$; $\min\{1,\rho\}$ is a finite carrier
+used for topology, with agreement of the original cutoffs below one.
+The measure and transformation statements retain the original distance.\newline
+\rocq{riemannian_punctured_line_infinite_distance},
+\rocq{riemannian_distance_no_curve}}
 \end{errors}
 
 \section{Statements that fail in degenerate cases}\label{s:degenerate}
@@ -374,6 +414,45 @@ $a\in\Clos\{x:f(x)=g(x)\}$, which holds when $\phi\{a\}>0$.\newline
 \rocq{differentiable_representative_relative_agreement}}
 \end{errors}
 
+\section{Convention-dependent endpoint qualifications}\label{s:conventions}
+\noindent These entries concern the zero exponent in dimension one.
+The formalisation uses $0^0=1$; the following are not claims that the book
+explicitly assigns that value in these formulas. All cases $n\ge2$ are
+proved as printed, including zero volumes and empty cores.
+\begin{errors}
+\entry{3.2.42, p.~278}{The outer and inner distance-strip volumes,
+divided by $r>0$, are bounded below by
+$n\alpha(n)^{1/n}v^{(n-1)/n}$, where $v$ is respectively the closure
+volume or the volume of the inner core
+$T_r=\{x:\operatorname{dist}(x,\R^n\sim S)\ge r\}$.}
+{For $n=1$, the exponent is zero. With $0^0=1$ the inner formula fails
+for $S=(0,1)$ and $r=2$: $T_2=\varnothing$, and the inner strip volume
+divided by two is at most $1/2$, whereas the right side is
+$\alpha(1)=2$. \emph{Qualification:} in dimension one retain a nonempty
+source for the outer bound and a nonempty core for the inner bound.
+The formalisation proves both such bounds, and both unrestricted bounds
+for $n\ge2$.\newline
+\rocq{boundary_layer_empty_core_line_exclusion_example},
+\rocq{outer_boundary_layer_volume_nonempty},
+\rocq{inner_boundary_layer_volume_nonempty_core},
+\rocq{federer_3_2_42}}
+\entry{3.2.43--44, p.~278}{The lower $(n-1)$-dimensional Minkowski
+content of $\operatorname{Bdry}S$ is at least
+$n\alpha(n)^{1/n}v^{(n-1)/n}$, where
+$v=\Leb^n(\Clos S)<\infty$. For an $(n-1)$ rectifiable boundary,
+3.2.44 replaces its lower content by its Hausdorff measure.}
+{For $n=1$ and $S=\{0\}$, $v=0$ and the boundary lower degree-zero
+content is one. Substituting $0^0=1$ would demand at least two.
+\emph{Qualification:} retain positive closure volume in the line case;
+all finite closure volumes, including zero, remain in every $n\ge2$.
+The same qualification is retained in the rectifiable-boundary
+corollary. No convention assigning a value to $0^0$ is inferred from
+these printed inequalities.\newline
+\rocq{isoperimetric_null_line_singleton_exclusion_example},
+\rocq{positive_closure_volume_isoperimetric},
+\rocq{federer_3_2_43}, \rocq{federer_3_2_44}}
+\end{errors}
+
 \section{Misprints in statements, formulas and the index}\label{s:misprints}
 \begin{errors}
 \entry{1.9.1, p.~41}{$\bigodot_*V=\bigoplus_{m=2}^\infty\bigodot_mV$.}
@@ -446,9 +525,21 @@ $\bigcup\{f(U):U\in G\}$. \emph{Correction:} replace $=$ by $\subset$,
 which suffices for the subsequent estimate.\newline
 \rocq{agreement_image_cover_remainder},
 \rocq{lipschitz_small_manifold_remainder}, \rocq{federer_3_2_29}}
+\entry{3.2.38, p.~275}{The first displayed Steiner sum in the bound
+for $\rho(K)$ runs from $j=1$ to $n$.}
+{It omits the constant intrinsic-volume term. For the actual zero affine
+map on the unit line cube, $m=n=1$, the image is $\{0\}$ and its
+normalized radius-$r$ tube volume is $2r>0$, while the only printed
+$j=1$ coefficient is zero. \emph{Correction:} sum from $j=0$ to $n$.
+The extra term is absorbed in the unspecified finite error constant;
+the statement of the lemma is unchanged.\newline
+\rocq{missing_steiner_constant_counterexample_exists},
+\rocq{compact_minkowski_constant_map_correction_example},
+\rocq{affine_coordinate_cube_steiner_estimate}}
 \end{errors}
 
-\section{An error in the list of corrections of May 1987}\label{s:erratum}
+\section{An error and a normalization issue in the list of corrections
+of May 1987}\label{s:erratum}
 \begin{errors}
 \entry{2.9.18(1), p.~163}{Erratum p.~3, book p.~163 line~11: in
 $\psi(A)=\sup(\{0\}\cup\{c_j:A\cap S_j\neq\varnothing\})$ read
@@ -462,11 +553,26 @@ condition $A\cap S_j\neq\varnothing$.\newline
 \rocq{weighted_hit_measure_is_measure}}
 \end{errors}
 
+\noindent\textbf{Normalization note for 3.2.38 (editorial).}
+On erratum p.~5, book p.~275 line~2, the replacement is $r^{n-j}$.
+The original scan confirms this exponent. In the displayed bound for
+$\rho(K)$, however, the tube volume has already been divided by
+$\alpha(n-m)r^{n-m}$ (definition on book p.~274). A raw Steiner term has
+power $r^{n-j}$; its normalized power is therefore $r^{m-j}$, as printed
+in the book. The formalisation keeps the full raw Steiner polynomial
+and divides by the actual denominator, retaining $j=0$ as above; see
+\rocq{affine_coordinate_cube_steiner_estimate}.
+Thus the erratum's replacement cannot be applied literally to that
+already normalized power. This is an algebraic consistency observation;
+no separate Rocq counterexample to this erratum replacement is claimed.
+The transcription \texttt{federer-erratum.tex} preserves the scan.
+
 \section{Corrections of the list of May 1987 confirmed by the
 formalisation}\label{s:confirmed}
 \noindent The formalisation adopts the following corrections of Federer's
-list. Pages and lines are those of the book. Corrections of typography or
-wording alone are omitted; the register lists them in its preamble.
+list. Pages and lines are those of the book. The table includes corrections
+used in the formalised statements or arguments; purely stylistic and
+bibliographical changes are omitted.
 \begin{confirmed}
 \entry{1.5.1}{22, 9}{In the associativity identity of interior
 multiplication the multivector is $\zeta\in\bigwedge_tV$.}
@@ -572,5 +678,14 @@ $\Haus^{m-\mu}$ null fibres.}
 \entry{3.2.26}{261, 22 and 29; 262, 14}{Cite 2.10.5; $x-w$; cite 3.2.20.}
 \entry{3.2.28(2)}{265, 3}{Delete ``because $\mathbf O(n)$ is compact,''.}
 \entry{3.2.28(3)}{265, 12}{$\mathbf O(m,m-1)$.}
+\entry{3.2.33}{270, 25 and 28}{Cite 3.1.24 for the analytic rank
+alternative, and 3.1.18 for positivity of the complementary-dimensional
+fibres.}
+\entry{3.2.35}{271, 24}{Parametrize the convex boundary by
+$x\mapsto g(x)^{-1}x$ on the unit sphere, where $g$ is the gauge.}
+\entry{3.2.36}{273, 18}{Read ``$m$-th'' in the elementary symmetric
+function description of the box coefficient.}
+\entry{3.2.38}{275, 14}{Use the actual radius-$r$ tube
+$\{z:\operatorname{dist}[z,f(C)]<r\}$ in the final volume quotient.}
 \end{confirmed}
 \end{document}

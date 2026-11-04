@@ -12,6 +12,7 @@ Makefile.coq
 Makefile.coq.conf
 .Makefile.coq.d
 html/
+/docs/**/*.html
 __pycache__/
 _build/
 .build-dir
