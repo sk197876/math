@@ -1,0 +1,13 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 427.24,
+  "peak_child_rss_mib": 5916.92,
+  "complete_log_byte_identical": true,
+  "stdout": "{\n  \"base\": \"f52811f8\",\n  \"changed_modules\": 139,\n  \"affected_modules\": 139,\n  \"entries\": 22191,\n  \"old_entries\": 21941,\n  \"audited\": 250,\n  \"audited_old\": 0,\n  \"audited_new\": 250,\n  \"unresolved_names\": 0,\n  \"closed\": 0,\n  \"assumptions\": [\n    \"boolp.constructive_indefinite_description\",\n    \"boolp.functional_extensionality_dep\",\n    \"boolp.propositional_extensionality\"\n  ],\n  \"errors\": [],\n  \"targeted_imports\": true,\n  \"imported_query_modules\": 131\n}\n",
+  "stderr": "",
+  "scope": "Same 250 fully qualified queries as the preceding full-import 3.3.4 audit; the whole 22,191-entry assumptions log stays byte-identical.",
+  "query_selection_unchanged": true,
+  "compiler_checks_unchanged": true,
+  "baseline_commit": "d8547a4ae414e0612815d91267c4cce36ec5d526",
+  "unit_guards": "python3 -m unittest discover -s tests -p test_dependency_audit_imports.py: 3 tests passed"
+}

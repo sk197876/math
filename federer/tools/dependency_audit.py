@@ -1,7 +1,7 @@
 """Audit only the entries of tests/Assumptions.v whose dependencies changed.
 
 Usage (from the repository root, after a successful build):
-    python3 tools/dependency_audit.py BASE [--dry-run]
+    python3 tools/dependency_audit.py BASE [--dry-run] [--targeted-imports]
 BASE is the last commit whose docs/assumptions.log is a complete audit of
 its tests/Assumptions.v. An entry `Print Assumptions N.` is audited again
 when N belongs to a module that changed since BASE or depends, directly or
@@ -15,11 +15,20 @@ only the three permitted boolp assumptions may occur. Prints a JSON summary
 and exits with status 1 on any error. With --dry-run only the selection is
 reported.
 
+With --targeted-imports every selected query must be fully qualified and
+resolve to exactly its named module. Only those modules are imported; Rocq
+loads their complete transitive dependencies normally. Query selection,
+ordinary compiler checks, permitted assumptions and preservation of every
+old result are unchanged. Unqualified or ambiguous selected queries fail
+closed in this mode; use the original full-import mode for such entries.
+This avoids loading unrelated historical theories into focused audits.
+
 Compiled metadata and scratch files live in BUILD_DIR (environment), the
 directory named in .build-dir, or _build/ by default. Tracked audit records
 remain in the source checkout.
 """
 import json
+import os
 import re
 import subprocess
 import sys
@@ -85,10 +94,24 @@ def entry_modules(name, files, names):
     return names.get(name)
 
 
+def qualified_query_import(name, modules):
+    """Require the exact module of a fully qualified selected constant."""
+    match = re.fullmatch(r'(Federer|FedererTests)\.([A-Za-z][A-Za-z0-9_]*)\.(.+)', name)
+    if match is None:
+        raise ValueError('targeted imports require a fully qualified query: ' + name)
+    namespace, module, _ = match.groups()
+    expected = ('theories/' if namespace == 'Federer' else 'tests/') + module
+    if modules != {expected}:
+        raise ValueError('targeted query module is unresolved or ambiguous: ' + name)
+    return 'From %s Require Import %s.' % (namespace, module)
+
+
 def main():
+    os.umask(0o002)
     check_owner(BUILD)
     base = sys.argv[1]
     dry = '--dry-run' in sys.argv[2:]
+    targeted = '--targeted-imports' in sys.argv[2:]
     old_file = git('show', base + ':tests/Assumptions.v')
     old_log = git('show', base + ':docs/assumptions.log')
     new_file = (ROOT / 'tests' / 'Assumptions.v').read_text()
@@ -119,6 +142,7 @@ def main():
     lines = new_file.splitlines()
     keep, selected, unresolved, k = [], [], 0, 0
     pending_label = None
+    target_imports, target_queries = set(), []
     for line in lines:
         if line.startswith('Print Assumptions '):
             name = line[len('Print Assumptions '):].rstrip().rstrip('.')
@@ -131,6 +155,12 @@ def main():
                     pending_label = None
                 keep.append(line)
                 selected.append(k)
+                if targeted:
+                    try:
+                        target_imports.add(qualified_query_import(name, mods))
+                    except ValueError as error:
+                        raise SystemExit(str(error)) from error
+                    target_queries.append(line)
             k += 1
         elif line.startswith('Goal True. idtac "==='):
             pending_label = line
@@ -142,6 +172,8 @@ def main():
                           'audited_old': sum(1 for i in selected if i < n_old),
                           'unresolved_names': unresolved}, indent=2))
         return
+    if targeted:
+        keep = sorted(target_imports) + [''] + target_queries
     scratch = BUILD / 'tests' / 'DependencyAuditScratch.v'
     scratch.write_text('\n'.join(keep) + '\n')
     try:
@@ -192,7 +224,8 @@ def main():
         'audited_old': sum(1 for i in selected if i < n_old), 'audited_new': sum(1 for i in selected if i >= n_old),
         'unresolved_names': unresolved,
         'closed': sum(1 for x in fresh if x.startswith('Closed')),
-        'assumptions': sorted(found), 'errors': errors}, indent=2))
+        'assumptions': sorted(found), 'errors': errors,
+        'targeted_imports': targeted, 'imported_query_modules': len(target_imports) if targeted else None}, indent=2))
     sys.exit(1 if errors else 0)
 
 

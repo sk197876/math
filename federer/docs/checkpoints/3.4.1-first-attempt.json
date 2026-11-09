@@ -1,0 +1,136 @@
+{
+  "item_code": "341",
+  "base": "5a0621bbaef1a22a31e674f679192578fb9cac1d",
+  "started": "2026-11-05T15:44:20.726193+01:00",
+  "status": "failed",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "workers_maximum": 8,
+  "memory_aware_admission": true,
+  "ram_reserve_mib": 1536,
+  "compiler_admission_wrapper_sha256": "56f834403fb3942714a9cc09caca118e3314defaa1735eeb546b5181e66626e8",
+  "nice": 10,
+  "umask": "0002",
+  "group": "llm",
+  "clean": false,
+  "adopt": false,
+  "copied_private_proof_objects": false,
+  "stages": {
+    "build": {
+      "exit_code": 0,
+      "elapsed_seconds": 132.23,
+      "log": "/opt/rocq/federer-build/verification/2026-11-05-item-341-first-attempt/build.log",
+      "warnings_or_errors": false,
+      "compilation_commands": 11,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "nice",
+        "-n",
+        "10",
+        "make",
+        "-j8",
+        "ROCQ=python3 /tmp/rocq-memory-wrapper.py"
+      ],
+      "minimum_available_ram_mib": 3530.3
+    },
+    "kernel": {
+      "exit_code": 0,
+      "elapsed_seconds": 377.56,
+      "log": "/opt/rocq/federer-build/verification/2026-11-05-item-341-first-attempt/kernel.log",
+      "warnings_or_errors": false,
+      "compilation_commands": 0,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "nice",
+        "-n",
+        "10",
+        "rocqchk",
+        "-silent",
+        "-Q",
+        "/opt/rocq/federer-build/theories",
+        "Federer",
+        "-Q",
+        "/opt/rocq/federer-build/tests",
+        "FedererTests",
+        "FedererTests.CriticalValueProblemExamples"
+      ],
+      "minimum_available_ram_mib": 3884.42
+    },
+    "audit": {
+      "exit_code": 1,
+      "elapsed_seconds": 22.68,
+      "log": "/opt/rocq/federer-build/verification/2026-11-05-item-341-first-attempt/audit.log",
+      "warnings_or_errors": false,
+      "compilation_commands": 0,
+      "command": [
+        "nice",
+        "-n",
+        "10",
+        "python3",
+        "tools/dependency_audit.py",
+        "5a0621bb",
+        "--targeted-imports"
+      ],
+      "minimum_available_ram_mib": 4659.34,
+      "audit": {
+        "base": "5a0621bb",
+        "changed_modules": 11,
+        "affected_modules": 11,
+        "entries": 23246,
+        "old_entries": 23207,
+        "audited": 39,
+        "audited_old": 0,
+        "audited_new": 39,
+        "unresolved_names": 0,
+        "closed": 0,
+        "assumptions": [
+          "Error",
+          "boolp.constructive_indefinite_description",
+          "boolp.functional_extensionality_dep",
+          "boolp.propositional_extensionality"
+        ],
+        "errors": [
+          "compile failed",
+          "warning or error",
+          "result count mismatch 7 != 39",
+          "unexpected assumptions: Error"
+        ],
+        "targeted_imports": true,
+        "imported_query_modules": 11
+      }
+    }
+  },
+  "kernel_scope": "Complete recursive checking of the new item example root and every transitive dependency; earlier proof sources remain byte-identical to the preceding validated release. make check includes the new root for future full-project runs.",
+  "kernel_roots": [
+    "FedererTests.CriticalValueProblemExamples"
+  ],
+  "new_modules_in_recursive_kernel_closure": [
+    "tests/CriticalValueProblemExamples",
+    "theories/CriticalValueDegree",
+    "theories/CriticalValueDegreeExistence",
+    "theories/CriticalValueDegreeSealed",
+    "theories/CriticalValueDegreeUP",
+    "theories/CriticalValueLoci",
+    "theories/CriticalValueLociExistence",
+    "theories/CriticalValueLociSealed",
+    "theories/CriticalValueLociUP",
+    "theories/CriticalValueProblem",
+    "theories/FiniteSourceLinearRank"
+  ],
+  "kernel_audit_parallel": false,
+  "stage_order": [
+    "build",
+    "kernel",
+    "audit"
+  ],
+  "error": "{'exit_code': 1, 'elapsed_seconds': 22.68, 'log': '/opt/rocq/federer-build/verification/2026-11-05-item-341/audit.log', 'warnings_or_errors': False, 'compilation_commands': 0, 'command': ['nice', '-n', '10', 'python3', 'tools/dependency_audit.py', '5a0621bb', '--targeted-imports'], 'minimum_available_ram_mib': 4659.34, 'audit': {'base': '5a0621bb', 'changed_modules': 11, 'affected_modules': 11, 'entries': 23246, 'old_entries': 23207, 'audited': 39, 'audited_old': 0, 'audited_new': 39, 'unresolved_names': 0, 'closed': 0, 'assumptions': ['Error', 'boolp.constructive_indefinite_description', 'boolp.functional_extensionality_dep', 'boolp.propositional_extensionality'], 'errors': ['compile failed', 'warning or error', 'result count mismatch 7 != 39', 'unexpected assumptions: Error'], 'targeted_imports': True, 'imported_query_modules': 11}}",
+  "finished": "2026-11-05T15:53:16.428680+01:00",
+  "accepted_as_release_validation": false,
+  "reason": "A generated Print Assumptions query named CriticalValues.witness, an internal helper hidden by opaque module ascription. Ordinary compilation and recursive kernel checking passed; the query failed because the helper is not exported. The implementation is revised to select the two fields directly, removing that named helper, and all stages are repeated.",
+  "compiler_diagnostic_log": "/opt/rocq/federer-build/verification/2026-11-05-item-341-first-attempt/audit-compiler.log"
+}

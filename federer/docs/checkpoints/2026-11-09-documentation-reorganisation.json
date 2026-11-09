@@ -1,0 +1,280 @@
+{
+  "date": "2026-11-09",
+  "base_revision": "8211487ace1dd3e49d6e20da9c698e2ea5ed5299",
+  "scope": "Documentation reorganisation; proof sources, proof registration, and existing mathematical validation records are unchanged. No Rocq build, kernel check, audit, or proof-object write was performed.",
+  "writing_reference": "Strunk2011; supplied electronic edition reviewed for usage, composition, form, word choice, and spelling.",
+  "structure": {
+    "section_guides": 24,
+    "preserved_paths": true,
+    "legacy_heading_anchors_preserved": true,
+    "historical_markdown_files_unchanged": 77,
+    "new_guides": [
+      "docs/maintenance.md",
+      "docs/rendering.md",
+      "docs/validation.md"
+    ]
+  },
+  "preservation": {
+    "baseline_markdown_files": 110,
+    "checked_units": {
+      "prose": 3736,
+      "code": 6,
+      "cell": 10611
+    },
+    "method": "Compare every original prose block, code block, and table cell after documented editorial and Markdown normalization; review unmatched passages individually. Keep all historical record bytes unchanged.",
+    "manual_sentence_reviews": [
+      {
+        "source": "README.md",
+        "topic": "After changing mathematical coverage, update the section account and maps, then run:",
+        "destination": "docs/maintenance.md",
+        "retained_information_checks": [
+          "After changing the formalisation, update the item in its section guide.",
+          "python3 tools/contents.py",
+          "python3 tools/linkify_docs.py",
+          "python3 tools/divergence_counts.py"
+        ],
+        "conclusion": "The introductory or maintenance instructions are reworded and retain all their information."
+      },
+      {
+        "source": "README.md",
+        "topic": "tools/dependency_audit.py BASE supports audits of changed dependencies at ordinary section rele",
+        "destination": "docs/maintenance.md",
+        "retained_information_checks": [
+          "At ordinary section releases",
+          "audit of changed dependencies",
+          "It does not replace a fresh full audit",
+          "is a completed historical release."
+        ],
+        "conclusion": "The introductory or maintenance instructions are reworded and retain all their information."
+      },
+      {
+        "source": "docs/chapter2/2.7.md",
+        "topic": "- The right Haar integral (p. 126). Federer's proof assumes a right Haar integral mu, whose exi",
+        "changes": [
+          {
+            "before": "step uses the fact that a continuous function f is determined by the ",
+            "after": ""
+          },
+          {
+            "before": "",
+            "after": ", determine the continuous function f"
+          }
+        ],
+        "conclusion": "Only sentence form changes; the Haar existence, uniqueness, compactness, finiteness, positivity, and cited evidence are retained."
+      },
+      {
+        "source": "docs/chapter2/2.7.md",
+        "topic": "- The modular function as a predicate (p. 126). Federer names \"the\" function Delta_G. Here a mo",
+        "changes": [
+          {
+            "before": "",
+            "after": "."
+          },
+          {
+            "before": "and uses the fact that a continuous function f is determined by t",
+            "after": "T"
+          },
+          {
+            "before": "",
+            "after": ", determine the continuous function f"
+          }
+        ],
+        "conclusion": "Only sentence form changes; the Haar existence, uniqueness, compactness, finiteness, positivity, and cited evidence are retained."
+      },
+      {
+        "source": "docs/chapter2/2.7.md",
+        "topic": "- Hypotheses (p. 141). \"G is a compact topological group\" is read within the standing hypothesi",
+        "changes": [
+          {
+            "before": "no",
+            "after": "implici"
+          },
+          {
+            "before": "stated by",
+            "after": "in"
+          },
+          {
+            "before": ";",
+            "after": "."
+          },
+          {
+            "before": "it follows from the c",
+            "after": "C"
+          },
+          {
+            "before": "and",
+            "after": "gives"
+          },
+          {
+            "before": "rom",
+            "after": "initeness;"
+          },
+          {
+            "before": "fact that a",
+            "after": "nonzero"
+          },
+          {
+            "before": "",
+            "after": "g"
+          },
+          {
+            "before": "",
+            "after": "ve"
+          },
+          {
+            "before": "n",
+            "after": "p"
+          },
+          {
+            "before": "",
+            "after": "si"
+          },
+          {
+            "before": " ",
+            "after": "ivi"
+          },
+          {
+            "before": "he zero measure",
+            "after": "y"
+          }
+        ],
+        "conclusion": "Only sentence form changes; the Haar existence, uniqueness, compactness, finiteness, positivity, and cited evidence are retained."
+      },
+      {
+        "source": "docs/toc.md",
+        "topic": "This directory documents the Rocq formalisation of Herbert Federer, Geometric Measure Theory (1",
+        "destination": "docs/toc.md",
+        "retained_information_checks": [
+          "Each section guide records its numbered",
+          "items, formalised assertions, Rocq names, hypotheses, corrections, and",
+          "Rocq files and uniquely defined declarations link to the sources."
+        ],
+        "conclusion": "The introductory or maintenance instructions are reworded and retain all their information."
+      },
+      {
+        "source": "docs/toc.md",
+        "topic": "After changing the formalisation, update the entry of the item in its section file, record any ",
+        "destination": "docs/maintenance.md",
+        "retained_information_checks": [
+          "Record departures from Federer",
+          "The linkify script links mentioned",
+          "repairs declaration links whose line no longer contains",
+          "Recompute divergence counts after changing the register."
+        ],
+        "conclusion": "The introductory or maintenance instructions are reworded and retain all their information."
+      },
+      {
+        "source": "README.md",
+        "topic": "Build resources and opam root",
+        "destination": "README.md",
+        "retained_information_checks": [
+          "daytime resource policy",
+          "eight compiler workers",
+          "a 1.5 GiB RAM reserve",
+          "Between 17:00 and 07:00 Europe/Warsaw",
+          "manual example below uses two workers",
+          "OPAMROOT=/home/claude/.opam"
+        ],
+        "conclusion": "Retain the eight-worker daytime ceiling, RAM reserve, two-worker command example, and opam-root instructions; make the existing night exception explicit."
+      }
+    ],
+    "note": "The final README also makes the existing night resource exception explicit; no prior resource restriction is removed.",
+    "manually_reviewed_blocks": 8,
+    "unaccounted_original_units": 0
+  },
+  "divergence_register": {
+    "physical_rows_preserved": 975,
+    "old_summary_rows": 971,
+    "corrected_summary_rows": 975,
+    "cause": "Four 3.4.6 rows followed Counts and were omitted from its earlier summary. All four now appear in 3.4, and the earlier figures remain labelled as historical.",
+    "counts_generator_guard": "Reject rows after Counts without modifying the file. Normal regeneration and the rejection guard passed; both generators are idempotent."
+  },
+  "error_catalogue": {
+    "original_entries_preserved": 123,
+    "new_published_entries": 5,
+    "total_entries": 128,
+    "existing_argument_changes": [
+      "Remove the unnecessary capitalized word ACTUAL.",
+      "Display the unchanged 3.2.42 formula on its own line."
+    ],
+    "named_evidence_results_resolved": 125,
+    "added_locators": [
+      "3.2.45, p. 279 line 27",
+      "3.4.4, p. 318 line 26",
+      "3.2.45, p. 280 line 6",
+      "3.4.8(1), p. 326 line 3",
+      "3.4.8(11), p. 327 line 24"
+    ],
+    "source_review": "Read the printed book pages and retained erratum transcription. All twelve Chapter 3 local statement-correction rows were already represented. The p. 280 comparison already appears corrected in the consulted reprint. Published source records do not claim completion of partial 3.2.45 or pending 3.4.8.",
+    "latex": "Compiles with resolved cross-references and no warnings, overfull boxes, or underfull boxes."
+  },
+  "link_checker_regressions": 8,
+  "local_link_check": {
+    "status": "passed",
+    "markdown_files": 113,
+    "links_checked": 49987,
+    "external_urls": 8,
+    "failures": []
+  },
+  "external_links": [
+    {
+      "url": "https://doi.org/10.1007/BF01700486",
+      "status": 200,
+      "destination": "https://link.springer.com/article/10.1007/BF01700486",
+      "note": "HTTP resolution only; Springer responses include a cookies-not-supported landing page."
+    },
+    {
+      "url": "https://doi.org/10.1007/BF01900510",
+      "status": 200,
+      "destination": "https://link.springer.com/article/10.1007/BF01900510",
+      "note": "HTTP resolution only; Springer responses include a cookies-not-supported landing page."
+    },
+    {
+      "url": "https://doi.org/10.2307/1969917",
+      "status": 200,
+      "destination": "https://www.jstor.org/stable/1969917",
+      "note": "HTTP resolution; source content was not revalidated."
+    },
+    {
+      "url": "https://doi.org/10.2307/1990357",
+      "status": 200,
+      "destination": "https://www.jstor.org/stable/1990357",
+      "note": "HTTP resolution; source content was not revalidated."
+    },
+    {
+      "url": "https://doi.org/10.2307/1994182",
+      "status": 200,
+      "destination": "https://www.jstor.org/stable/1994182",
+      "note": "HTTP resolution; source content was not revalidated."
+    },
+    {
+      "url": "https://doi.org/10.24033/bsmf.1481",
+      "status": 200,
+      "destination": "https://www.numdam.org/item/",
+      "note": "HTTP resolution; source content was not revalidated."
+    },
+    {
+      "url": "https://doi.org/10.4064/fm-22-1-257-261",
+      "status": 200,
+      "destination": "https://www.impan.pl/pl/wydawnictwa/czasopisma-i-serie-wydawnicze/fundamenta-mathematicae/all/22/0/93098/remark-on-the-differentiability-of-the-lebesgue-indefinite-integral",
+      "note": "HTTP resolution; source content was not revalidated."
+    },
+    {
+      "url": "https://www.numdam.org/item/ASNSP_1939_2_8_3-4_301_0/",
+      "status": 200,
+      "destination": "https://www.numdam.org/item/ASNSP_1939_2_8_3-4_301_0/",
+      "note": "HTTP resolution; source content was not revalidated."
+    }
+  ],
+  "rendering": {
+    "status": "passed",
+    "current_markdown_pages": 34,
+    "format": "standalone HTML with offline MathML",
+    "warnings": [],
+    "html_links_checked": 50166,
+    "tables_with_consistent_columns": 90,
+    "mathml_expressions": 1127,
+    "html_link_or_table_failures": []
+  },
+  "rocq_build": "Not run: no proof sources, interfaces, registrations, or proof-checking inputs changed."
+}

@@ -1,5 +1,6 @@
 (** Public interface for the developing formalisation of Federer,
-    Chapter 3. Coverage is recorded in docs/chapter3/3.1.md and docs/chapter3/3.2.md.
+    Chapter 3. Coverage is recorded in docs/chapter3/3.1.md, docs/chapter3/3.2.md
+    and docs/chapter3/3.3.md.
     This file exports no private existence construction. *)
 From Federer Require Export
   NormDifferentialUP
@@ -2419,3 +2420,80 @@ From Federer Require Export RapidCantorSquareUpperContent.
 From Federer Require Export PowerCantorCoefficientInvariance.
 From Federer Require Export PowerCantorCarrierCoefficient.
 From Federer Require Export CantorSquareMinkowskiCounterexample.
+
+(** Public released interfaces and theorems for 3.2.41–44, pp. 277–279,
+    3.2.46–48, pp. 280–286, and 3.3.1–21, pp. 287–309.
+    The historical accounts 3.3.11 and 3.3.22 add no theorem or axiom.
+    Deferred 3.2.40 second paragraph and partial 3.2.45 are not promoted.
+    Existence implementations remain behind their existing seals. *)
+From Federer Require Export
+  VectorSetSumUP
+  VectorSetSum
+  VectorSetSumLaws
+  BrunnMinkowski
+  BoundaryLayerVolume
+  IsoperimetricInequality
+  RectifiableBoundaryIsoperimetric
+  RiemannianTensorUP
+  RiemannianDistanceUP
+  RiemannianDistanceSealed
+  RiemannianHausdorffUP
+  RiemannianHausdorffSealed
+  RiemannianVolumeDensityUP
+  RiemannianVolumeDensitySealed
+  RiemannianVolumeIntegral
+  RiemannianVolumeDerivate
+  RiemannianAreaIntegralTransformation
+  RiemannianWeightedCoarea
+  SphericalOrthogonalSectionUP
+  SphericalOrthogonalSection
+  SphericalOrthogonalSectionValues
+  SphericalOrthogonalSectionSmooth
+  SphericalOrthogonalProductChart
+  SphericalOrthogonalProductSmooth
+  SphericalOrthogonalTangents
+  SphericalOrthogonalPreimageTangent
+  SphericalOrthogonalPullback
+  SphericalOrthogonalMass
+  SphericalKinematicFormula
+  StructureConeUP
+  StructureCone
+  StructureConeBasic
+  StructureProjectionKernelUP
+  StructureProjectionKernel
+  StructureProjectionDistance
+  StructureProjectionCone
+  StructureKernelTopology
+  StructureKernelProbability
+  StructureConeDensityUP
+  StructureConeDensitySealed
+  StructureConeDensityBorel
+  StructureFibreSuslin
+  StructureTrichotomy
+  StructureGraphSectionUP
+  StructureConeAvoidanceTheorem
+  StructurePureConeBound
+  StructurePureProjectionMass
+  StructurePureZeroGrowth
+  StructureInfiniteProjectionNull
+  StructurePureStructure
+  StructureProjectionDecomposition
+  StructureHausdorffIntegralGeometric
+  StructureInfinityRectifiability
+  StructurePositiveDensityDecomposition
+  StructureGeometricMeasureStructure
+  StructureIntegralGeometricExponentAgreement
+  StructureSmallConeCriterionUP
+  StructureSmallConeRectifiability
+  StructureMeasureRectifiableTangents
+  CircularDiscExample
+  BinaryCantorSetUP
+  BinaryCantorSetSealed
+  BinaryCantorSquareLevelsUP
+  BinaryCantorSquareExample
+  ScheduledPowerCantorSetUP
+  ScheduledPowerCantorSetSealed
+  DivergingCantorScheduleUP
+  RealMetricDensities
+  DivergingCantorSquareExample
+  ScheduledCriticalOrdinaryDensity.

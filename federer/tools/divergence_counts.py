@@ -20,9 +20,11 @@ KINDS = [
 def main():
     path = ROOT / 'docs' / 'divergences.md'
     text = path.read_text()
-    head, sep, _ = text.partition('\n## Counts\n')
+    head, sep, tail = text.partition('\n## Counts\n')
     if not sep:
         raise SystemExit('no Counts section')
+    if re.search(r'^\|', tail, re.M):
+        raise SystemExit('table rows follow Counts; move them into their section before regenerating')
     rows = re.findall(r'^\| (\d+)\.[^|]* \| ([^|]+?) \|', head, re.M)
     per_kind = {k: 0 for k, _ in KINDS}
     per_chapter = {}

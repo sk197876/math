@@ -1,9 +1,12 @@
 # Federer: Geometric Measure Theory in Rocq
 
 This project formalises Herbert Federer's *Geometric Measure Theory*
-(1969), following the book's definitions, hypotheses, conventions and
+(1969), following the book's definitions, hypotheses, conventions, and
 proofs as closely as possible. The development covers Chapters 1 and 2
-with documented qualifications, and Chapter 3 through most of subsection 3.2.
+with documented qualifications, and Chapter 3 through subsection 3.3,
+subject to the explicit deferrals in 3.2. Subsection 3.4 is in progress:
+3.4.1–3.4.6 are validated, including critical values, sharpness, analytic
+germs, conditional local algebra and Weierstrass division and preparation.
 
 ## Sources and principles
 
@@ -16,7 +19,7 @@ supporting papers. The [source guide](docs/references/README.md) records
 consulted passages and links the original erratum scan included in the repository.
 
 The development aims to be self-contained, using general topology, set
-theory and scalar algebra as background. External dependencies stay narrow;
+theory, and scalar algebra as background. External dependencies stay narrow;
 the book's mathematical arguments are developed within the project.
 Objects are specified by abstract laws or universal properties.
 Constructions prove existence, opaque sealed modules hide the witnesses,
@@ -24,69 +27,31 @@ and later proofs use the public laws. An axiomatic specification is a
 predicate to be proved, not an unproved project axiom.
 
 Every mathematical declaration carries a source comment with the Federer item,
-printed page and a quotation or mathematical paraphrase. All departures from
+printed page, and a quotation or mathematical paraphrase. All departures from
 the printed statements or proof routes are registered in
 [docs/divergences.md](docs/divergences.md).
 
 ## Coverage and verification
 
-Chapter 1 covers §§1.2–1.10 with the qualifications in the section accounts;
-§1.1.1, §1.1.2 and §1.1.4 are complete; §1.1.3 is intentionally left aside. Chapter 2
-reaches the requested last proof, **2.10.48**. Sections 2.1–2.7 and 2.9
-are covered as documented. §§2.8.8–2.8.9 are complete within the requested scope: subsidiary assertions
-and strict-convexity uniqueness are included, and book examples are excluded.
-Item 2.10.2 is complete, including actual Gamma normalization in every
-nonnegative real degree and the printed circle cutoff counterexample.
-Remaining qualifications include 2.10.6 and the listed variants of later items. **2.10.46 remains partial and
-deferred at the user's request.** Item 2.10.49 is a historical remark
-requiring no formalisation. Chapter 2 is therefore not claimed to contain
-a proof of every printed mathematical assertion.
+Chapter 1 covers §§1.2–1.10 with the qualifications in the section
+guides; 1.1.1, 1.1.2, and 1.1.4 are complete, and 1.1.3 is intentionally
+deferred. Chapter 2 reaches the requested last proof, 2.10.48, with its
+documented qualifications. Items 2.8.8–2.8.9 exclude book examples;
+2.10.46 remains partial and deferred. Item 2.10.49 is a historical remark.
 
-The final compact-subset and Suslin inner-approximation results cover the
-exact natural-degree Hausdorff normalisation and arbitrary nonnegative
-real power gauges with explicit positive coefficients. Detailed statements,
-coverage limits and proof accounts belong in the
-[section documentation](docs/toc.md).
+Chapter 3 covers 3.1 and 3.3 with documented qualifications. Section 3.2
+retains the deferred second paragraph of 3.2.40 and partial 3.2.45. This
+checkout records 3.4.1–3.4.6 as validated and later 3.4 items as pending.
 
-The **27 October 2026 release passed** the complete Chapter 2 rebuild,
-full recursive kernel check and fresh audit of all 15,349 assumption queries.
-The rebuild reused compatible unchanged Chapter 1 artifacts from Claude.
-
-The [scheduled full-project validation](docs/checkpoints/2026-10-28-full-validation.json)
-completed on **29 October 2026**. It passed a fresh clean rebuild of the
-whole registered project, recursive kernel checking and all 15,729
-assumptions queries, without warnings or changed assumption sets. Its
-snapshot included the partial 3.1.4 checkpoint; later proofs receive
-separate focused checks.
-
-The [latest clean full-project validation](docs/checkpoints/2026-11-02-full-validation.json)
-finished on **3 November 2026**: all 7,660 registered modules and 20,465
-fresh assumptions queries passed. Subsequent item releases completed
-1.1.2, 1.1.4, 2.8.8–2.8.9 within the requested scope, 2.10.2,
-3.2.41–3.2.44 and 3.2.46–3.2.48. Each release passed registered compilation,
-recursive kernel checking and a dependency assumptions audit. These
-focused validations preserve all earlier assumption sets; the current
-complete report contains 21,855 entries. They are recorded separately
-from the earlier full-project run.
-
-[docs/verification.txt](docs/verification.txt) records the actual scope and
-outcome of every validation checkpoint. The full dependency report is
-[docs/assumptions.log](docs/assumptions.log). Only the three permitted
-MathComp classical assumptions may occur: propositional extensionality,
-dependent functional extensionality and constructive indefinite description.
-There are no admitted proofs, new project axioms or unchecked cast bypasses.
-A successful build verifies the implemented statements, not pending passages.
-
-Chapter 3 has completed [3.1.1–3.1.24](docs/chapter3/3.1.md), with the
-conventions and qualifications documented there. The completed items passed
-focused compilation, regression checks, recursive kernel checking and
-assumptions audits. The commentary in 3.1.10 is recorded. The
-[3.1 release](docs/checkpoints/3.1-release-validation.json) also passed the
-incremental project build, complete recursive kernel check and dependency
-assumptions audit. [Subsection 3.2](docs/chapter3/3.2.md) is in progress: items 3.2.1–3.2.39 are complete and validated, with explicit source qualifications and corrections in the section account. The first paragraph of 3.2.40 passed the full validation completed on 3 November 2026; only its Kneser example remains deferred. Items 3.2.41–44 and 3.2.46–48 are complete and validated. Item 3.2.45 is partial outside the current request. Subsections 3.3–3.4 remain pending.
-Chapter 4 has not begun. Before Chapter 4, the planned
-prerequisite is a formalisation of
-[EilenbergSteenrod1952](docs/bibliography.md#eilenbergsteenrod1952).
+The [section guides](docs/toc.md) give the precise scope of each item.
+The [verification guide](docs/validation.md) preserves the detailed release
+accounts, test scope, counts, dates, and remaining obligations. The complete
+build record is [docs/verification.txt](docs/verification.txt); individual
+reports are catalogued under [docs/checkpoints/](docs/checkpoints/README.md).
+Only the three permitted MathComp boolp assumptions occur in the recorded
+audits. Proof integrity requires ordinary compilation, recursive kernel
+checking, and assumptions audits; known Rocq/Coq exploits and unchecked
+bypasses are forbidden.
 
 ## Documentation and repository layout
 
@@ -112,6 +77,10 @@ For HTML copies of the Markdown documentation, use
 requires Python 3 and Pandoc and renders mathematics as offline MathML.
 File and batch usage are described in [the documentation index](docs/toc.md#html-copies-of-markdown).
 
+The [maintenance guide](docs/maintenance.md) defines the shared document
+structure, writing rules, and link checks. The [verification guide](docs/validation.md)
+separates dated release evidence from current coverage.
+
 ## Build environment
 
 Use opam switch **`RP.2026.02.0~9.1~2026.01`** explicitly. The recorded
@@ -122,10 +91,13 @@ Rocq-Elpi 3.3.1 and algebra-tactics 1.2.7. Exact package versions are in
 Python 3 runs the documentation and audit helpers. The source materials are
 needed for source consultation, not for compiling the proofs.
 
-Run from the repository root. On this shared host, the current resource policy
+Run from the repository root. On this shared host, the daytime resource policy
 permits up to eight compiler workers with memory-aware admission and a 1.5 GiB
-RAM reserve. The manual example below uses two workers.
-Use your own configured opam root.
+RAM reserve. Between 17:00 and 07:00 Europe/Warsaw, use as many resources as
+are useful. Keep registered inputs stable during validation, run the
+validation stages sequentially, and avoid overlapping top-level makes.
+The manual example below uses two workers.
+Use your configured opam root.
 
 ```sh
 opam exec --switch=RP.2026.02.0~9.1~2026.01 -- nice -n 10 make -j2
@@ -177,37 +149,17 @@ toolchain and dependency consistency must be checked, and the reuse scope
 recorded with the verification results. The normal build also works from
 source without another checkout.
 
-After changing mathematical coverage, update the section account and maps,
-then run:
+## Documentation maintenance
 
-```sh
-python3 tools/contents.py
-python3 tools/linkify_docs.py
-python3 tools/divergence_counts.py
-```
+Use the [maintenance guide](docs/maintenance.md) to update maps and check links.
+Use the [rendering guide](docs/rendering.md) to generate HTML with mathematics.
 
-`tools/dependency_audit.py BASE` supports audits of changed dependencies at
-ordinary section releases. It does not replace the fresh full audit
-requested for this Chapter 2 release.
+## Public snapshot
 
-The [full-project validation](docs/checkpoints/2026-11-02-full-validation.json) completed on 3 November 2026: all 7,660 registered modules rebuilt cleanly, complete recursive kernel checking and all 20,465 fresh assumption queries passed without warnings; all 20,393 earlier assumption sets were preserved. This does not extend coverage to unregistered drafts.
-
-Federer 1.1.2 is now complete and validated, including arbitrary finite-family canonical maps and product bases. See [the item record](docs/checkpoints/1.1.2-validation.json).
-
-Federer 1.1.4 is complete and validated, including unrestricted injectivity and the exact finite-factor surjectivity criterion. See [the item record](docs/checkpoints/1.1.4-validation.json).
-
-Federer 2.8.8 is complete and validated within the requested scope, including subsidiary assertions and excluding the book examples. See [the item record](docs/checkpoints/2.8.8-validation.json).
-
-Federer 2.8.9 is complete and validated within the requested scope, including strict-convexity and actual inner-product radial uniqueness. See [the item record](docs/checkpoints/2.8.9-validation.json).
-
-Federer 2.10.2 is complete and validated, including real dimensions and the circle example. See [the item record](docs/checkpoints/2.10.2-validation.json).
-
-Federer 3.2.41 is complete and validated with the scope and qualifications in [its record](docs/checkpoints/3.2.41-validation.json).
-
-Federer 3.2.42 is complete and validated with the scope and qualifications in [its record](docs/checkpoints/3.2.42-validation.json).
-
-Federer 3.2.43 is complete and validated with the scope and qualifications in [its record](docs/checkpoints/3.2.43-validation.json).
-
-Federer 3.2.44 is complete and validated with the scope and qualifications in [its record](docs/checkpoints/3.2.44-validation.json).
-
-Federer 3.2.46 is complete and validated in the single-chart scope, with the disconnected-domain qualification in [its record](docs/checkpoints/3.2.46-validation.json).
+This snapshot exports the verified source files and current documentation
+from revision `b07c257e` of the working formalisation.
+The latest mathematical release is 3.4.6; later 3.4 items retain their
+pending status. [PUBLIC_SNAPSHOT.json](PUBLIC_SNAPSHOT.json) records the
+source revision, validation evidence, exclusions, and export checks.
+Agent instructions, memories, restart handoffs, unfinished draft recovery,
+local settings, and generated build artifacts are excluded.

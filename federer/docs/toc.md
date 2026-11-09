@@ -1,10 +1,27 @@
 # Documentation
 
-This directory documents the Rocq formalisation of Herbert Federer,
-*Geometric Measure Theory* (1969). Each Federer section has its own file,
-with one entry per numbered item: the formalised assertions, their Rocq
-names, hypotheses, corrections of the book and sources. Every mention of a
-Rocq file or of a uniquely defined declaration is a link into the sources.
+These guides document the Rocq formalisation of Herbert Federer,
+*Geometric Measure Theory* (1969). Each section guide records its numbered
+items, formalised assertions, Rocq names, hypotheses, corrections, and
+sources. Rocq files and uniquely defined declarations link to the sources.
+
+## Find a result
+
+| Starting point | Guide |
+| --- | --- |
+| A chapter or section | The section guides below |
+| A numbered item | [Item map](contents.md) |
+| A mathematical notion | [Book index](index.md) |
+| A printed symbol | [Symbol map](symbols.md) |
+| A correction, convention, or changed proof | [Divergences](divergences.md) |
+| A cited work or consulted passage | [Bibliography](bibliography.md) and [source guide](references/README.md) |
+| A build or audit result | [Verification guide](validation.md) and [checkpoint catalogue](checkpoints/README.md) |
+| Documentation tools and editing rules | [Maintenance guide](maintenance.md) |
+
+The section guides distinguish current coverage from dated validation.
+Their overviews lead to local contents lists and numbered-item accounts;
+supporting notes follow the accounts. The [maintenance guide](maintenance.md#document-structure)
+defines this structure.
 
 ## Chapter 1: Grassmann algebra
 
@@ -54,85 +71,32 @@ it does not close these documented coverage gaps.
 | [2.9 Derivates](chapter2/2.9.md) (formalised) | 152–169 |
 | [2.10 Carathéodory's construction](chapter2/2.10.md) (through 2.10.48 with the stated qualifications; 2.10.46 deferred) | 169–206 |
 
-The 27 October 2026 release passed the Chapter 2 rebuild, full recursive
-kernel check and fresh 15,349-query assumptions audit. Unchanged Chapter 1
-artifacts were reused after fingerprint checks. See the
-[verification record](verification.txt) and
-[machine-readable release report](checkpoints/chapter2-release-validation.json).
-
-The [clean full-project validation](checkpoints/2026-11-02-full-validation.json)
-finished on 3 November 2026 with all 7,660 registered modules and 20,465
-fresh assumptions queries passing. The Chapter 1 and 2 supplements completed
-later that day have separate successful compilation, recursive kernel
-checking and dependency audit records: [1.1.2](checkpoints/1.1.2-validation.json),
-[1.1.4](checkpoints/1.1.4-validation.json), [2.8.8](checkpoints/2.8.8-validation.json),
-[2.8.9](checkpoints/2.8.9-validation.json) and [2.10.2](checkpoints/2.10.2-validation.json).
-Their coverage is included in the subsection accounts and the contents,
-index, notation and divergence maps.
+Release dates, rebuilt and reused scope, and the later Chapter 1 and 2
+supplements are recorded in the [verification guide](validation.md#chapter-2-release-and-subsequent-supplements).
 
 ## Chapter 3: Rectifiability
 
-[3.1 Differentials and tangents](chapter3/3.1.md), printed pp. 209–241,
-is complete. Items **3.1.1–3.1.24 are completed** with their documented conventions,
-zero-dimensional qualifications and erratum corrections. Their calculus,
-inverse-function, Borel-measurability, partial-derivative, approximate-differential and measurable-section developments
-have passed focused compilation, recursive kernel checking and assumptions
-audits. The [3.1.4 completion record](checkpoints/3.1.4-validation.json)
-records its final build, regression, recursive kernel check and assumptions audit.
-The [3.1.5 record](checkpoints/3.1.5-validation.json) covers the subsequent
-approximate-to-ordinary differentiability lemma and its punctured-center regression.
-The [3.1.6 record](checkpoints/3.1.6-validation.json) covers Rademacher's
-theorem, including both zero-dimensional boundaries.
-The [3.1.7 record](checkpoints/3.1.7-validation.json) covers approximate
-derivatives of Lipschitz maps on measurable domains.
-The [3.1.8 record](checkpoints/3.1.8-validation.json) covers finite approximate
-growth, the countable Lipschitz decomposition and approximate differentiability.
-The [3.1.9 record](checkpoints/3.1.9-validation.json) covers Stepanoff's
-theorem without a measurability premise on A.
-The commentary in 3.1.10 is recorded. The [3.1.11 record](checkpoints/3.1.11-validation.json) covers higher
-calculus, Taylor formulas, jets, coordinate partials and the smooth cutoff.
-The [3.1.12 record](checkpoints/3.1.12-validation.json) covers the
-Lipschitz-radius packing lemma, including the zero-dimensional case.
-The [3.1.13 record](checkpoints/3.1.13-validation.json) covers the smooth
-partition of unity on an arbitrary open cover, with its derivative bounds.
-The [3.1.14 record](checkpoints/3.1.14-validation.json) covers Whitney's
-extension theorem for jets of polynomials on a closed subset of R^m.
-The [3.1.15 record](checkpoints/3.1.15-validation.json) covers the
-approximation of maps of class k with finitely growing top differential
-by maps of class k+1, up to sets of small measure.
-The [3.1.16 record](checkpoints/3.1.16-validation.json) covers class-one
-approximation under finite approximate growth, with an arbitrary actual domain.
-The [3.1.17 record](checkpoints/3.1.17-validation.json) covers the corrected
-converse, the nonmeasurable-domain and zero-source counterexamples, and
-the zero-target regression.
-The [3.1.18 record](checkpoints/3.1.18-validation.json) covers the complete
-constant-rank normal form, its fixed smooth charts and both regressions.
-The [3.1.19 record](checkpoints/3.1.19-validation.json) covers all submanifold
-chart equivalences, actual coordinate homeomorphisms, local retractions,
-local compactness and the isolated-point characterization.
-The [3.1.20 record](checkpoints/3.1.20-validation.json) covers the full connected
-submanifold/retraction equivalence and the erratum-corrected construction.
-The [3.1.21 record](checkpoints/3.1.21-validation.json) covers tangent and normal
-cones, transport, tangent planes, both bundles and the generic tangent-space
-identities; its closing positive-reach paragraph remains a forward reference.
-The [3.1.22 record](checkpoints/3.1.22-validation.json) covers relative
-differentiation and class, the corrected base-value criterion, all five
-submanifold differential criteria and ambient extensions.
-The [3.1.23 record](checkpoints/3.1.23-validation.json) covers the complete
-controlled supported straightening theorem, including the exact tangent-plane
-identity and both Lipschitz bounds.
-The [3.1.24 record](checkpoints/3.1.24-validation.json) covers analytic
-characterizations, exact composition, general inversion and the scalar
-majorant, analytic constant-rank and submanifold charts, root-set alternative
-and coordinate series. The [3.1 release](checkpoints/3.1-release-validation.json)
-passed its incremental all build, complete recursive kernel check and
-dependency assumptions audit. [3.2 Area and coarea of Lipschitzian maps](chapter3/3.2.md) is in progress; items 3.2.1–3.2.39 are complete and validated, with explicit source qualifications and corrections in the section account. The first paragraph of 3.2.40 passed the full validation completed on 3 November 2026; only its Kneser example remains deferred. Items 3.2.41–44 and 3.2.46–48 are complete and validated. Item 3.2.45 is partial outside the current request. Subsections 3.3–3.4 remain pending.
-Chapter 3 is exposed through [`Rectifiability.v`](../theories/Rectifiability.v) and tested in
-[`DifferentialExamples.v`](../tests/DifferentialExamples.v) and [`InverseFunctionExamples.v`](../tests/InverseFunctionExamples.v).
+This checkout records 3.1 and 3.3 as complete with their documented
+qualifications. Section 3.2 retains deferred Kneser material in the second
+paragraph of 3.2.40 and partial 3.2.45. Section 3.4 records validated work
+through 3.4.6; 3.4.7–3.4.12 remain marked pending here. The
+[release accounts](validation.md#chapter-3-release-accounts) retain the
+individual checks, counts, source corrections, and future obligations.
 
-Before undertaking Chapter 4, the user requests formalisation of
+| Section | Printed pages |
+| --- | --- |
+| [3.1 Differentials and tangents](chapter3/3.1.md) | 209–241 |
+| [3.2 Area and coarea of Lipschitzian maps](chapter3/3.2.md) | 241–287 |
+| [3.3 Structure theory](chapter3/3.3.md) | 287–310 |
+| [3.4 Some properties of highly differentiable functions](chapter3/3.4.md) | 310–339 |
+
+Chapter 3 is exposed through [`Rectifiability.v`](../theories/Rectifiability.v)
+and tested in [`DifferentialExamples.v`](../tests/DifferentialExamples.v)
+and [`InverseFunctionExamples.v`](../tests/InverseFunctionExamples.v).
+
+Before Chapter 4, the user requests formalisation of
 [EilenbergSteenrod1952](bibliography.md#eilenbergsteenrod1952). This
-prerequisite remains pending.
+future prerequisite is recorded in the project plan.
 
 ## Maps
 
@@ -145,19 +109,17 @@ index (pp. 672–676) with the declarations that define them.
 or MathComp notations that express them.
 - [divergences.md](divergences.md):
 every place where a formal statement or proof departs from Federer's printed
-text , with the reason and the declarations.
+text, with the reason and the declarations.
 
 ## Generated documentation
 
-`make doc` runs coqdoc over the library and writes HTML to the build
-directory's `html/` (not tracked). This workspace uses
-`/opt/rocq/federer-build/html/index.html`; other checkouts default to
-`_build/html/index.html` (see the top-level README). It lists the interface modules and, for
-each numbered item, the modules and declarations that serve it, with links
-to the coqdoc table of contents and the index of identifiers. The pages
-show statements and documentation comments; proofs are omitted.
+See [Rendering the documentation](rendering.md#generated-documentation)
+for coqdoc output, its location, and its contents.
 
 ## Records and references
+
+The [checkpoint guide](checkpoints/README.md) distinguishes dated historical
+progress notes from current coverage and the active work queue.
 
 - [bibliography.md](bibliography.md): bibliographical identities of all cited sources.
 - [verification.txt](verification.txt): builds, kernel checks and assumption audits.
@@ -165,69 +127,19 @@ show statements and documentation comments; proofs are omitted.
 - [toolchain.txt](toolchain.txt): exact toolchain versions.
 - [references/README.md](references/README.md): source editions and citation conventions.
 - [federer-erratum.tex](references/federer-erratum.tex): the working erratum transcription.
+- [federer-errors.tex](references/federer-errors.tex): the error catalogue, convention qualifications, and published corrections, with their verification status.
+
+- [validation.md](validation.md): release accounts and their recorded scope.
+- [rendering.md](rendering.md): coqdoc and Markdown HTML instructions.
+- [maintenance.md](maintenance.md): document structure, writing rules, and checks.
 
 ## Maintenance
 
-After changing the formalisation, update the entry of the item in its
-section file, record any divergence from Federer's text there and in
-[divergences.md](divergences.md), then run `python3 tools/contents.py` and
-`python3 tools/linkify_docs.py` (and `python3 tools/divergence_counts.py`
-after changing the register). The linkify script links every mentioned
-`.v` file and uniquely defined declaration, and repairs declaration links
-whose line no longer holds the declaration.
-
-The [full-project validation](checkpoints/2026-11-02-full-validation.json) completed on 3 November 2026: all 7,660 registered modules rebuilt cleanly, complete recursive kernel checking and all 20,465 fresh assumption queries passed without warnings; all 20,393 earlier assumption sets were preserved. This does not extend coverage to unregistered drafts.
-
-Federer 1.1.2 is now complete and validated, including arbitrary finite-family canonical maps and product bases. See [the item record](checkpoints/1.1.2-validation.json).
-
-Federer 1.1.4 is complete and validated, including unrestricted injectivity and the exact finite-factor surjectivity criterion. See [the item record](checkpoints/1.1.4-validation.json).
-
-Federer 2.8.8 is complete and validated within the requested scope, including subsidiary assertions and excluding the book examples. See [the item record](checkpoints/2.8.8-validation.json).
-
-Federer 2.8.9 is complete and validated within the requested scope, including strict-convexity and actual inner-product radial uniqueness. See [the item record](checkpoints/2.8.9-validation.json).
-
-Federer 2.10.2 is complete and validated, including real dimensions and the circle example. See [the item record](checkpoints/2.10.2-validation.json).
-
-Federer 3.2.41 is complete and validated with the scope and qualifications in [its record](checkpoints/3.2.41-validation.json).
-
-Federer 3.2.42 is complete and validated with the scope and qualifications in [its record](checkpoints/3.2.42-validation.json).
-
-Federer 3.2.43 is complete and validated with the scope and qualifications in [its record](checkpoints/3.2.43-validation.json).
-
-Federer 3.2.44 is complete and validated with the scope and qualifications in [its record](checkpoints/3.2.44-validation.json).
-
-Federer 3.2.46 is complete and validated in the single-chart scope, with the disconnected-domain qualification in [its record](checkpoints/3.2.46-validation.json).
+Follow the [maintenance guide](maintenance.md) when changing coverage,
+maps, source citations, or navigation. The guide includes the generators
+and the command that checks local links, anchors, and declaration lines.
 
 ## HTML copies of Markdown
 
-[md_to_html.py](md_to_html.py) converts Markdown documentation to standalone
-HTML using Python 3 and Pandoc. Mathematics uses native MathML and needs no
-network connection or JavaScript library. It accepts `$...$`, `$$...$$`,
-`\(...\)` and `\[...\]`, while preserving literal mathematics inside code.
-Tables, fenced code and a page table of contents are included.
-
-Run from the repository root:
-
-```sh
-# Write docs/contents.html next to the Markdown source.
-python3 docs/md_to_html.py docs/contents.md
-
-# Choose a filename for a single page.
-python3 docs/md_to_html.py docs/symbols.md -o /tmp/symbols.html
-
-# Convert a directory recursively, preserving the directory structure.
-python3 docs/md_to_html.py docs --output-dir docs/html
-```
-
-Multiple Markdown filenames may also be supplied. With `--output-dir`,
-paths are relative to their common parent directory. Links between pages
-converted in the same invocation point to the generated HTML pages;
-other local links and images are rebased to their original files.
-Rocq source line fragments are retained. Add `--no-toc` to omit navigation.
-
-Pandoc must understand the TeX expressions used by the document. Unsupported
-math and other Pandoc warnings stop conversion before replacing that page's
-output. The converter expands the standard `\S` and `\P` text symbols inside
-math for compatibility with Pandoc 2.17's MathML writer. Generated HTML is
-ignored by Git; it is separate from the Rocq source documentation produced
-by `make doc`.
+See [the Markdown rendering instructions](rendering.md#html-copies-of-markdown)
+for file and batch conversion, offline mathematics, and output paths.

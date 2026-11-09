@@ -1,5 +1,5 @@
-% Updated 4 November 2026 from docs/divergences.md and docs/chapter1--3
-% at commit 2ed32808; checked against the book and the original erratum scan.
+% Reorganised 9 November 2026; mathematical coverage remains through validated 3.4.6.
+% Earlier entries retain their source checks; the p.305 and p.308 qualifications are included.
 \documentclass[11pt]{article}
 \usepackage[a4paper,margin=22mm]{geometry}
 \usepackage{amsmath,amssymb,mathrsfs,longtable,array,bm}
@@ -23,44 +23,75 @@
 \newcommand{\Lsp}{\mathbf L}
 \newcommand{\Lt}{\widetilde{\mathbf L}}
 \DeclareUrlCommand\rocq{\def\UrlFont{\footnotesize\ttfamily}}
-\newcommand{\entry}[3]{#1&#2&#3\\[5pt]}
+\newcounter{catalogueentry}
+\newcommand{\entry}[3]{%
+  \refstepcounter{catalogueentry}%
+  \par\addvspace{1.2\baselineskip}%
+  \noindent\textbf{#1}\label{entry:\thecatalogueentry}\par\nobreak\smallskip
+  \noindent\emph{\entrysecondlabel}\par\nobreak
+  \noindent #2\par\smallskip
+  \noindent\emph{\entrythirdlabel}\par\nobreak
+  \noindent #3\par}
 \newenvironment{errors}{%
-  \begin{longtable}{@{}>{\raggedright\arraybackslash}p{19mm}
-    >{\raggedright\arraybackslash}p{66mm}
-    >{\raggedright\arraybackslash}p{72mm}@{}}
-  \textbf{Item}&\textbf{Printed statement}&\textbf{Correction}\\\hline\endhead
-}{\end{longtable}}
+  \par\begingroup
+  \def\entrysecondlabel{Printed passage}%
+  \def\entrythirdlabel{Correction and evidence}%
+}{\par\endgroup}
 \newenvironment{confirmed}{%
-  \begin{longtable}{@{}>{\raggedright\arraybackslash}p{19mm}
-    >{\raggedright\arraybackslash}p{27mm}
-    >{\raggedright\arraybackslash}p{111mm}@{}}
-  \textbf{Item}&\textbf{Page, line}&\textbf{Correction adopted}\\\hline\endhead
-}{\end{longtable}}
+  \par\begingroup
+  \def\entrysecondlabel{Book page and line}%
+  \def\entrythirdlabel{Published correction and status}%
+}{\par\endgroup}
 \title{\textit{Geometric Measure Theory}\\Errors detected by the formalisation}
 \author{Compiled from the Rocq formalisation \texttt{federer-rocq}}
-\date{4 November 2026}
+\date{9 November 2026}
 \begin{document}
 \maketitle
+\setcounter{tocdepth}{2}
+\tableofcontents
+\bigskip
 
-\noindent\textbf{Scope and sources (editorial).}
-This list collects the statements of Herbert Federer, \textit{Geometric
-Measure Theory} (1969), that the formalisation in this repository refutes as
-printed, together with the corrections proved there. It also records
-endpoint qualifications that depend on the formalisation's conventions.
-The coverage is the formalised part of chapters 1 and 2, all of subsection
-3.1, and the validated work through 3.2.48.
-It is compiled from the divergence register \texttt{docs/divergences.md}
-(rows of kind \emph{statement correction}) and from the section accounts in
-\texttt{docs/chapter1}--\texttt{docs/chapter3}, at commit \texttt{2ed32808}.
-The qualifications of 3.2.42--3.2.44 are registered there as conventions,
-rather than unconditional refutations of the book.
-Every entry was checked against the printed text of the Springer
-reprint of the 1969 edition, which does not incorporate the 1987
-corrections. Items are Federer's numbered paragraphs, and pages are printed
-pages. The printed statements are paraphrased closely; displayed formulas
-follow the book. Each entry names the Rocq results that prove the
-counterexample and the corrected statement. Arguments that are not
-formalised are marked as such.
+\section*{Reading the catalogue}
+\addcontentsline{toc}{section}{Reading the catalogue}
+
+This catalogue records errors and qualifications found while formalising
+Herbert Federer, \textit{Geometric Measure Theory} (1969). Each entry gives
+the book locator, the printed passage, and the correction with its evidence.
+The categories distinguish false statements, degenerate cases, conventions,
+misprints, proof errors, and published corrections. Within each category,
+entries follow book order and are grouped by chapter.
+
+The mathematical coverage is the formalised part of Chapters 1 and 2,
+all of 3.1, the validated work through 3.2.48 and 3.3.21, and 3.4.1--3.4.6.
+This includes all four assertions of 3.4.2, the upper theorem and sharpness
+in 3.4.3--3.4.4, the analytic germs and local algebra of 3.4.5, and the
+division and preparation theorems of 3.4.6. Historical items 3.3.11 and
+3.3.22 contribute source accounts. The latest mathematical release in this
+checkout is \texttt{8211487a}; its 3.4.6 validation used base
+\texttt{47087eea}. This editorial revision adds no mathematical validation.
+
+The catalogue draws on \texttt{docs/divergences.md}, especially rows of
+kind \emph{statement correction}, and the section accounts under
+\texttt{docs/chapter1}, \texttt{docs/chapter2}, and \texttt{docs/chapter3}.
+The qualifications of 3.2.42--3.2.44 are conventions rather than
+unconditional refutations. The revised Markdown guides are indexed in
+\texttt{docs/toc.md}; source editions are identified in
+\texttt{docs/bibliography.md} as \texttt{Federer1969} and
+\texttt{Federer1987Erratum}.
+
+Every existing entry retains its check against the printed Springer reprint
+of the 1969 edition, which does not incorporate the 1987 corrections.
+Items are Federer's numbered paragraphs; pages are printed book pages.
+Printed passages are close paraphrases unless quotation marks identify a
+quotation. Displayed formulas follow the book. Rocq names identify the
+counterexamples, corrected statements, or supporting results. Arguments
+outside the formalisation are marked as such.
+
+The Chapter 3 review of 9 November 2026 found all twelve local
+\emph{statement correction} rows already represented below. The
+empty-germ convention in 3.4.5 was also present. The added published
+corrections are listed separately in Section~\ref{s:further-chapter3};
+their inclusion does not claim completion of a partial or pending item.
 
 Coverage does not imply completion of the deliberately deferred 1.1.3,
 2.10.46, the second paragraph of 3.2.40 (Kneser's example), or the partial
@@ -91,7 +122,9 @@ symmetric power. The formalisation works over a field of characteristic
 other than two where chapter 1 needs no order; the entries below are stated
 over~$\R$.
 
-\section{Statements that are false}\label{s:false}
+\section{False statements}\label{s:false}
+\subsection{Chapter 1}
+
 \begin{errors}
 \entry{1.4.4, p.~20}{For every associative algebra $W$ with unit, the
 identity of $\Hom(V,W)$ extends to a homomorphism of the exterior algebra
@@ -113,6 +146,11 @@ the $W$-module $\Hom(V,W)$, as at the end of the same parenthesis.\newline
 \rocq{coefficient_pair_not_surjective},
 \rocq{Omega_W_surjective_requires_scalar_coefficients},
 \rocq{Omega_relative_finite_bijective}}
+\end{errors}
+
+\subsection{Chapter 2}
+
+\begin{errors}
 \entry{2.4.12, p.~86}{Corollary of the Hahn--Banach theorem: for a
 seminorm $\sigma$ on $V$ with values in $\{t:0\le t\le\infty\}$ and
 $v\in V$ there is a linear $\alpha:V\to\R$ with $\alpha\le\sigma$ and
@@ -183,6 +221,11 @@ variant of (3) are proved. The original (3) is not refuted.\newline
 \rocq{printed_caratheodory_density_bound_false},
 \rocq{caratheodory_density_divide}, \rocq{federer_2_10_17_2},
 \rocq{federer_2_10_17_3}}
+\end{errors}
+
+\subsection{Chapter 3}
+
+\begin{errors}
 \entry{3.1.17, p.~229}{``The converse of Theorem 3.1.16 is clearly also
 true'': if for each $\varepsilon>0$ some map $g:\R^m\to\R^n$ of class $1$
 satisfies $\Leb^m(A\sim\{x:f(x)=g(x)\})<\varepsilon$, then
@@ -240,10 +283,12 @@ The measure and transformation statements retain the original distance.\newline
 \rocq{riemannian_distance_no_curve}}
 \end{errors}
 
-\section{Statements that fail in degenerate cases}\label{s:degenerate}
+\section{Degenerate cases}\label{s:degenerate}
 \noindent The literal definitions make the empty product $1$ the only simple
 $0$-vector. Several assertions of chapter 1 therefore fail in degree zero.
 Other assertions fail for zero spaces or empty sets.
+\subsection{Chapter 1}
+
 \begin{errors}
 \entry{1.4.4, p.~20}{The homomorphism of the first entry of
 section~\ref{s:false} is not injective unless $\dim W=1$.}
@@ -318,6 +363,11 @@ products is $-1$, and the infimum for $\xi=-1$ is $\inf\varnothing=\infty$. \emp
 of $c$ is $|c|$.\newline
 \rocq{symmetric_negative_unit_not_empty_sum},
 \rocq{symmetric_degree_zero_mass_specification}}
+\end{errors}
+
+\subsection{Chapter 2}
+
+\begin{errors}
 \entry{2.2.15, p.~71}{For an arbitrary separable metric space $Y$, every
 Borel function mapping any metric space into $Y$ is a Baire function if and
 only if for every finite subset $Z$ of $Y$ and every $\varepsilon>0$, $Z$ is
@@ -389,6 +439,11 @@ $g(\xi)=\inf\{f(x)+\operatorname{Lip}(f)\operatorname{dist}(x,\xi):x\in S\}$.}
 extension theorem holds for $S=\varnothing$ with $g=0$.\newline
 \rocq{empty_source_no_finite_mcshane_envelope},
 \rocq{federer_2_10_44_scalar_formula}, \rocq{federer_2_10_44_scalar}}
+\end{errors}
+
+\subsection{Chapter 3}
+
+\begin{errors}
 \entry{3.1.1, p.~209}{$\limsup_{x\to a}|f(x)-f(a)|/|x-a|
 =\sup\{|\langle v,D f(a)\rangle|:|v|=1\}=\|D f(a)\|$, and the
 corresponding formula for $\liminf$ and $\inf$.}
@@ -414,15 +469,21 @@ $a\in\Clos\{x:f(x)=g(x)\}$, which holds when $\phi\{a\}>0$.\newline
 \rocq{differentiable_representative_relative_agreement}}
 \end{errors}
 
-\section{Convention-dependent endpoint qualifications}\label{s:conventions}
-\noindent These entries concern the zero exponent in dimension one.
+\section{Convention-dependent qualifications}\label{s:conventions}
+\noindent The first entries concern the zero exponent in dimension one.
 The formalisation uses $0^0=1$; the following are not claims that the book
 explicitly assigns that value in these formulas. All cases $n\ge2$ are
-proved as printed, including zero volumes and empty cores.
+proved as printed, including zero volumes and empty cores. The final
+entry concerns empty analytic germs and proper prime ideals.
+\subsection{Chapter 3}
+
 \begin{errors}
 \entry{3.2.42, p.~278}{The outer and inner distance-strip volumes,
 divided by $r>0$, are bounded below by
-$n\alpha(n)^{1/n}v^{(n-1)/n}$, where $v$ is respectively the closure
+\[
+ n\alpha(n)^{1/n}v^{(n-1)/n},
+\]
+where $v$ is respectively the closure
 volume or the volume of the inner core
 $T_r=\{x:\operatorname{dist}(x,\R^n\sim S)\ge r\}$.}
 {For $n=1$, the exponent is zero. With $0^0=1$ the inner formula fails
@@ -451,9 +512,17 @@ these printed inequalities.\newline
 \rocq{isoperimetric_null_line_singleton_exclusion_example},
 \rocq{positive_closure_volume_isoperimetric},
 \rocq{federer_3_2_43}, \rocq{federer_3_2_44}}
+\entry{3.4.5, pp.~320--321}{A variety germ is irreducible when it has no union decomposition into two proper variety subgerms. The book identifies this with primeness of its ideal and asserts a unique finite antichain of irreducible components for each germ under the Noetherian hypothesis.}
+{The literal union test holds for the empty germ. Its vanishing ideal contains one, so it is not prime under the convention that prime ideals are proper. Moreover the empty family and the singleton consisting of the empty germ are distinct antichains of literal irreducibles with the same empty union. \emph{Qualification:} require irreducible component germs to be nonempty. Proper primeness is then equivalent to irreducibility, and the Noetherian decomposition is unique, with empty component family for the empty germ. The literal union test and its product-ideal characterization are also proved separately.\newline
+\rocq{analytic_empty_germ_not_proper_prime},
+\rocq{analytic_empty_germ_two_literal_families},
+\rocq{analytic_irreducible_proper_prime_equivalence},
+\rocq{noetherian_irreducible_component_decomposition}}
 \end{errors}
 
-\section{Misprints in statements, formulas and the index}\label{s:misprints}
+\section{Misprints in statements, formulas, and the index}\label{s:misprints}
+\subsection{Chapter 1}
+
 \begin{errors}
 \entry{1.9.1, p.~41}{$\bigodot_*V=\bigoplus_{m=2}^\infty\bigodot_mV$.}
 {Read $m\ge0$, as the next sentence (degrees zero and one) requires. The
@@ -470,10 +539,20 @@ $\binom{\alpha_1}{\beta_1}\cdots\binom{\alpha_n}{\beta_n}$.\newline
 {Read $j=1,\ldots,n$.\newline
 \rocq{symmetric_prescribed_fibre_condition},
 \rocq{symmetric_fibre_cardinality}}
+\end{errors}
+
+\subsection{Chapter 2}
+
+\begin{errors}
 \entry{2.7.16(7), p.~141}{$s[p^{-1}\{y\}]=(p\circ s^{-1})^{-1}\{y\}$ for
 $s\in\mathbf O(n)$, $y\in\R^n$.}
 {Read $y\in\R^{n-m}$, since $p$ maps $\R^n$ into $\R^{n-m}$.\newline
 \rocq{affine_parametrisation_fibre}}
+\end{errors}
+
+\subsection{Chapter 3}
+
+\begin{errors}
 \entry{3.2.22, p.~260}{$\int_W\operatorname{ap}J_\mu f\,d\Haus^m=\int_Z
 \Haus^{m-\mu}(W\cap f^{-1}\{z\})\,d\Haus^mz$.}
 {Read $d\Haus^\mu z$, as in assertion (3) on p.~258 and in the preceding
@@ -485,9 +564,11 @@ p.~172.}
 \rocq{gross_measure}}
 \end{errors}
 
-\section{Errors in proofs}\label{s:proofs}
+\section{Proof errors}\label{s:proofs}
 \noindent The statements of these items are correct; an intermediate
 assertion of the printed proof is false.
+\subsection{Chapter 2}
+
 \begin{errors}
 \entry{2.10.24, p.~188}{Remark after the proof: the closed balls in a
 boundedly compact metric space $X$ form a closed set with respect to the
@@ -509,6 +590,11 @@ point $a$ with $|a|=1$. \emph{Correction:} read $T_k\subset\B(0,s)$ for some
 $s<r$.\newline
 \rocq{shrinking_ball_wrong_center_counterexample},
 \rocq{steiner_minimal_radius_contains_sphere}}
+\end{errors}
+
+\subsection{Chapter 3}
+
+\begin{errors}
 \entry{3.1.24, p.~241}{The norms of all terms of the coordinate series
 total at most $\sum_{m=0}^\infty c^mm!\,(\sum_{i=1}^n|x_i-a_i|)^m/m!$;
 the term of order $0$ is thus bounded by~$1$.}
@@ -536,10 +622,43 @@ the statement of the lemma is unchanged.\newline
 \rocq{missing_steiner_constant_counterexample_exists},
 \rocq{compact_minkowski_constant_map_correction_example},
 \rocq{affine_coordinate_cube_steiner_estimate}}
+\entry{3.3.19, p.~305}{The displayed difference of closed caps lies in
+$X(a,2rs,V,s)$ when $\sin\alpha=s$, with the original strict radius.}
+{This auxiliary inclusion fails at every actual parent level $j\ge1$ on
+the fixed boundary branch. Take $a=\exp(0i)$, $r=\rho_j$,
+$\alpha=\pi/6$, $s=1/2$ and $x=z+r\exp(i\pi/3)$.
+The first closed cap contains $x$, while its radial coordinate $r/2$ is
+strictly below $r(1-2/(j+4))$, so $x$ is outside the second cap.
+But $|x-a|=r=2rs$, which the original strict cone excludes.
+\emph{Repair:} choose an auxiliary sine aperture $0<\sigma<s$ and a
+local normal buffer, then take the original parent index sufficiently
+large to absorb the radial deficit $2r/(j+4)$. Letting these finite
+buffers decrease proves the printed $1/(2\pi)$ lower conical density
+with no new numbered-statement hypothesis. The main assertion is
+unchanged; this auxiliary correction is absent from the published erratum.\newline
+\rocq{circular_disc_actual_cap_counterexample},
+\rocq{circular_disc_buffered_cone_mass},
+\rocq{circular_disc_conical_upper_density_almost}}
+\entry{3.3.20, p.~308}{Every $S\subset\R^2$ has
+$\diam S\ge\psi_j(S)$ for some finite original stage $j$.}
+{Qualify this auxiliary finite-stage assertion by $0<\diam S<\infty$.
+The original corner singleton $S=\{(0,0)\}$ has diameter zero
+but strictly positive $\psi_j(S)$ at every finite original stage, since
+an original level square always contains that corner. Its actual product
+measure is zero. The positive-diameter finite-stage argument, together
+with this separate diameter-zero product nullity, gives every original
+Hausdorff-generator bound and preserves the numbered conclusion
+$\Haus^1(E)=\sqrt2$. This auxiliary qualification is absent from the
+published working erratum.\newline
+\rocq{critical_square_original_singleton_qualification},
+\rocq{critical_original_positive_diameter_attainment},
+\rocq{critical_original_cantor_square_sharp_length}}
 \end{errors}
 
 \section{An error and a normalization issue in the list of corrections
 of May 1987}\label{s:erratum}
+\subsection{Chapter 2}
+
 \begin{errors}
 \entry{2.9.18(1), p.~163}{Erratum p.~3, book p.~163 line~11: in
 $\psi(A)=\sup(\{0\}\cup\{c_j:A\cap S_j\neq\varnothing\})$ read
@@ -573,6 +692,8 @@ formalisation}\label{s:confirmed}
 list. Pages and lines are those of the book. The table includes corrections
 used in the formalised statements or arguments; purely stylistic and
 bibliographical changes are omitted.
+\subsection{Chapter 1}
+
 \begin{confirmed}
 \entry{1.5.1}{22, 9}{In the associativity identity of interior
 multiplication the multivector is $\zeta\in\bigwedge_tV$.}
@@ -580,6 +701,11 @@ multiplication the multivector is $\zeta\in\bigwedge_tV$.}
 *\xi,\beta\rangle$ for $\xi\in\bigwedge_pV$, $\beta\in\bigwedge^{n-p}V$.}
 \entry{1.7.9}{35, 3}{$(v\otimes w)\bullet(v'\otimes w')=(v\bullet
 v')(w\bullet w')$.}
+\end{confirmed}
+
+\subsection{Chapter 2}
+
+\begin{confirmed}
 \entry{2.1.5}{57, 26}{$\phi(A)=\card(A)$ for $A\subset S$.}
 \entry{2.2.1}{60, 4}{Both generation criteria assume $\varnothing\in S$;
 for $S=\varnothing$ the generated family $\{\varnothing\}$ is not a Borel
@@ -651,6 +777,11 @@ $|\det[L(g)|W]|^{-1}$.}
 \entry{2.10.28(4)}{193, 7}{Sum over $S\in\Phi(j,n)$ with $S\subset T$.}
 \entry{2.10.29}{194, 8}{$\sigma_j\ge t_{j+1}\to0$.}
 \entry{2.10.32}{197, 4}{$\mu\bm\alpha(m)^{-1}2^m$.}
+\end{confirmed}
+
+\subsection{Chapter 3}
+
+\begin{confirmed}
 \entry{3.1.1}{210, 26}{$u_{n+1}-u_n=g(u_{n-1})-g(u_n)$.}
 \entry{3.1.4}{214, 24}{$\ge1/j$.}
 \entry{3.1.9}{218, 12}{$\U(z,1/j)$.}
@@ -687,5 +818,64 @@ $x\mapsto g(x)^{-1}x$ on the unit sphere, where $g$ is the gauge.}
 function description of the box coefficient.}
 \entry{3.2.38}{275, 14}{Use the actual radius-$r$ tube
 $\{z:\operatorname{dist}[z,f(C)]<r\}$ in the final volume quotient.}
+\entry{3.3.2}{288, 1--6}{Use the strict margin $\lambda+1/j$ and
+the union over $j$ of intersections over $i$ for the strict superlevel,
+as in the published erratum pp.~5--6
+(\rocq{structure_corrected_strict_superlevel}).}
+\entry{3.3.20}{307, 7}{Delete the false assertion that
+$c_u<1$ always implies $\Leb^1[p_u(E)]=0$.
+Published erratum p.~6. The formalisation does not state or use it.}
+\entry{3.3.20}{307, 26}{Use projected first-level lengths
+$2(u_1/4+u_2)$ on $0\le u_2\le u_1/2$ and $3u_1/2$ on
+$u_1/2\le u_2\le u_1$, and the universal bound $3/\sqrt5$.
+Published erratum p.~6; both exact branches and every signed original
+direction are proved (\rocq{critical_original_projected_union_length},
+\rocq{critical_original_orthogonal_projection_bound}).}
+\end{confirmed}
+
+\section{Further published corrections in Chapter 3}\label{s:further-chapter3}
+
+These five entries were absent from the earlier catalogue. They reproduce
+corrections in Federer's May 1987 list, not new project discoveries.
+The book passages were reviewed on 9 November 2026, together with the
+retained erratum transcription. The bibliographical insertion in 3.4.4
+changes no mathematical statement. Items 3.2.45 and 3.4.8 remain partial
+or pending in this checkout; the entries below record their sources rather
+than claim formal verification of those corrections.
+
+\subsection{Bibliographical references}
+\begin{confirmed}
+\entry{3.2.45}{279, 27}{Replace the mixed-volume reference marker by
+\texttt{[EG 2,}. This is an editorial correction in erratum p.~5.
+It is recorded without a claim to have formalised the cited external result.}
+\entry{3.4.4}{318, 26}{Insert \texttt{[HF 2] or} before the existing
+reference to \texttt{[W 2]}, as prescribed on erratum p.~6.
+The supplementary arc examples remain bibliographical source accounts;
+their separate constructions are not claimed formalised.}
+\end{confirmed}
+
+\subsection{Mathematical corrections outside the validated scope}
+\begin{confirmed}
+\entry{3.2.45}{280, 6}{Use
+$\mathscr Q_\infty^m\le\mathscr Q_1^m$, as on erratum p.~5.
+The consulted reprint already displays this inequality; this entry is
+an erratum cross-reference, not a further error in that copy.
+The partial 3.2.45 development is not claimed to prove the comparison.}
+\entry{3.4.8(1)}{326, 3}{The covector basis belongs to
+$\bigwedge^1\R^n$, as on erratum p.~6. Retain the distinction between
+vectors and covectors in the two dual orthonormal bases.}
+\entry{3.4.8(11)}{327, 24}{Use the complete replacement on erratum p.~6:
+\[
+ S_i\cap\bigcup_{0\le j<i}S_j=\varnothing,
+ \qquad V_i\cap\Clos S_i\subset S_i\cup G_i,
+\]
+where $G_i$ is an analytic subvariety of $V_i$ satisfying
+\[
+ \dim\gamma_0(G_i)<m,
+ \qquad G_i\subset\bigcup_{0\le j<i}S_j.
+\]
+Both the dimension bound and containment in the earlier strata are part
+of the correction. This source record does not discharge the pending
+stratification theorem or the compact-component obligation of 3.4.5.}
 \end{confirmed}
 \end{document}

@@ -11382,3 +11382,1089 @@ Required switch, nice 10, eight CPU ceiling, memory-aware admission and
 Post-build overlap briefly crossed the RAM reserve; the kernel completed
 normally before conditional concurrency reduction, with no interruption
 or bypass. See docs/checkpoints/3.2.48-validation.json.
+
+2026-11-04: Federer 3.3.1 complete and validated.
+Completed 3.3.1 on 4 November 2026. Exact original cones and standing
+closed-measurable outer measure; actual kernel planes, distance and
+projection formula; continuous open kernel map and all-set image identity
+from theta* to independently specified gamma. Independent predicates
+precede proved existence, uniqueness and seals. Actual adjoint residuals
+and homogeneous equivariance discharge the assertions; Haar measures,
+restricted group operations and a base projection remain local. All
+natural m<=n, infinite radius and zero ambient dimension retained. Three
+actual regressions test the line-to-zero projection, identity projection,
+strict radius cutoff and zero ambient space. No source correction or
+new theorem hypothesis.
+19 theories and three regressions pass registered build 154.63s, complete
+recursive item-and-dependency kernel checking 256.44s, and 42 strict
+dependency queries 83.50s. All 21,855 old assumption sets are preserved;
+21,897 full entries use only the three permitted boolp assumptions.
+Every registered input and base revision unchanged; no warnings, cleaning,
+adoption or private proof-object copies. Required switch, nice 10,
+eight-compiler ceiling with memory-aware admission, sequential stages,
+minimum available RAM above 4 GiB, umask 0002, llm and group read/write.
+See docs/checkpoints/3.3.1-validation.json. Continue 3.3.2 immediately,
+using the published two-index strict-superlevel correction (erratum
+pp. 5–6, book p. 288 lines 1–6). The full 3.3 request remains active;
+commit and push each completed item only to origin/chatgpt.
+
+2026-11-04: Federer 3.3.2 complete and validated.
+Completed 3.3.2 on 4 November 2026. Literal cone-density upper limit
+of radius suprema is Borel for arbitrary original A and the standing
+closed-measurable outer measure. No local-finiteness, Borel-regularity or
+source-measurability premise. Independent all-positive-cutoff laws precede
+existence, uniqueness and sealing; literal iterated suprema and cofinal
+reciprocal scales are identified. Closed-measurable restriction, compact
+exhaustion, measure continuity, joint actual cone/compact-containment
+openness, positive scalar threshold conversion and the rational-ray
+criterion prove the theorem. Apply the published erratum pp. 5–6,
+book p. 288 lines 1–6: strict margin and both countable indices.
+Three actual tests retain an empty source, the positive R^0 counting atom
+with density zero, and a line measure with infinite atomic weights whose
+singleton source has infinite density under the actual zero projection.
+17 theories and three regressions pass registered build 148.24s,
+complete recursive item-and-dependency kernel check 249.85s, and
+34 strict dependency queries 59.23s. All 21,897 earlier assumption
+sets preserved; 21,931 full entries use only the three permitted
+boolp assumptions. Every registered input and base revision unchanged;
+no warnings, cleaning, adoption or copied private proof objects. Required
+switch, nice 10, eight-compiler ceiling, memory-aware admission, sequential
+validation stages, umask 0002, llm and group read/write. See
+docs/checkpoints/3.3.2-validation.json.
+Continue immediately with 3.3.3. The full subsection 3.3 request remains
+active, with a validated commit and GitLab push per completed item, only
+origin/chatgpt. Preserve all earlier intentional deferrals.
+
+2026-11-04: Federer 3.3.3 complete and validated.
+Completed 3.3.3 on 4 November 2026. The original Suslin A has a Suslin
+locus where the centre accumulates in its actual punctured affine kernel
+fibre. Prove the exact projection-equality description and cofinal
+reciprocal metric-neighbourhood criterion. Actual near-fibre incidence
+sets are Suslin by continuous source preimages, an open norm band and a
+closed projection equation. Existing complete separable Euclidean and
+projection products give Suslin projected sets; their exact countable
+intersection is the original closure locus. No measure hypothesis,
+source-closedness, finite-mass or hull premise; all admissible natural
+dimensions retained. Three actual tests cover empty A, the whole positive
+R^0 point with no punctured accumulation, and the actual whole-line
+fibre of the zero projection with positive reciprocal half-scale points.
+No new source correction or proof departure.
+Three theories and three regressions pass registered build 96.92s,
+complete recursive item-and-dependency kernel check 251.63s, and
+10 strict dependency queries 42.18s. All 21,931 earlier assumption
+sets preserved; 21,941 full entries use only the three permitted
+boolp assumptions. All registered inputs and the base revision unchanged;
+no warnings, cleaning, adoption or private proof-object copies. Required
+switch, nice 10, eight-compiler ceiling, memory-aware admission, sequential
+stages, umask 0002, group llm and group read/write. See
+docs/checkpoints/3.3.3-validation.json.
+Continue immediately with 3.3.4 and then the rest of 3.3. The entire
+subsection request remains active, with validation, docs updates and a
+GitLab commit/push per completed numbered item, only origin/chatgpt.
+Preserve all earlier intentional deferrals.
+
+2026-11-04: Federer 3.3.4 complete and validated.
+Completed 3.3.4 on 4 November 2026. The complete original Grassmann
+almost-everywhere ordinary zero-growth, infinite-upper-growth or punctured
+affine-plane accumulation trichotomy holds for every natural 0<=m<=n.
+Original Suslin A, centre, closed-measurable outer measure and actual
+Grassmann probability retained, including infinite masses and both
+endpoints. Independent measure-family supremum and active/complement
+extension laws precede existence, uniqueness and opaque seals. Actual
+compact projective sphere, exact positive finite mass, transitive action
+and every-point density one give strict growth, actual Vitali context
+and arbitrary-numerator 2.9.17. Original radial image measures retain
+actual Suslin images and exact ball-cost suprema; countable P/Q/R assembly
+uses no hull. Actual inverse adjoints identify original coordinate cones
+and both projective fibre signs. Original B_j/C_j Borelness and D Suslinness
+justify actual Haar/Fubini after geometric nullity is proved on every
+coset. Finite cone inclusions, exact aperture equation and ratio limit,
+weighted radius suprema and ordinary limit comparisons prove the frame
+trichotomy; actual all-set kernel pushforward gives gamma. The extension
+image is the full fixed-complement subgroup. Every auxiliary frame, Haar
+measure, operation, direction map and axis point remains local. Three
+actual regressions retain the positive R^0 atom, noncentral unit line
+atom and everywhere infinitely weighted planar counting measure. No new
+source correction or numbered-statement hypothesis.
+130 theories and three regressions pass ordinary registered compilation
+(1003.21s), complete recursive item-and-dependency kernel checking
+(426.14s), and 250 strict dependency queries (438.18s). All
+21,941 earlier assumption sets preserved; 22,191 complete entries
+use only the three permitted boolp assumptions. Every registered input
+and the base revision unchanged; no warnings, clean/adoption or copied
+private proof objects. Required switch, nice 10, eight-compiler ceiling,
+memory-aware admission, 1.5 GiB RAM reserve, sequential stages, umask 0002,
+group llm and group read/write. See docs/checkpoints/3.3.4-validation.json.
+Continue immediately with 3.3.5 and the rest of 3.3, committing and pushing
+each completed item only to GitLab origin/chatgpt. Preserve older deferrals.
+The private witnesses MeasureFamilySupremumConstruction and
+InjectionExtensionConstruction may be imported only by their corresponding
+Sealed modules and the assumptions audit; downstream proofs use public laws.
+
+Resource observation for 3.3.4: the registered build and recursive kernel
+check retained at least 2414.92 and 4586.04 MiB available RAM respectively.
+The heavy assumptions audit recorded a minimum of 1150.84 MiB, below the
+1536 MiB target. All proof checks passed, but do not claim the reserve was
+preserved throughout this run. Private 3.3.5 checks waited for audit memory
+release. Future audit admission must reserve the expected full audit peak
+and remaining growth separately from private compiler reservations; avoid
+private overlap when that headroom is uncertain. This changes resource
+scheduling only, never compiler checking or the audited proof claims.
+
+2026-11-04: Federer 3.3.5 complete and validated.
+Completed 3.3.5 on 4 November 2026. Every original subset S of a
+cone-avoiding E with diameter below the positive extended radius r lies
+in the image of an actual global section of the original projection,
+with the printed sharp Lipschitz bound s inverse. Original arbitrary
+sets, infinite radius, every natural 0<=m<=n and both endpoints remain.
+Independent section laws precede existence. Actual inverse distance and
+normal/base squared norm identities give the transverse bound. The
+existing opaque Kirszbraun extension acts only on normal coordinates;
+restoring the base and the sharp orthogonal graph bound gives the
+section. An actual countable small Euclidean cover proves countable
+m rectifiability of E. Every auxiliary chart, inverse and extension
+remains local. No measure, measurability, selected-section or additional
+numbered-statement hypothesis. Three actual regressions retain the
+nonempty R^0 source with infinite radius, identity line projection and
+noncentral singleton, and a nonzero graph attaining Lipschitz ratio two.
+Seven theories and three regressions pass registered compilation
+(108.40s), complete recursive item-and-dependency kernel checking
+(283.83s), and 14 strict dependency queries (33.18s). All
+22,191 previous assumption sets are preserved; 22,205 full entries
+use only the three permitted boolp assumptions. Every registered input
+and base revision stayed unchanged; no warnings, cleaning/adoption or
+private proof-object copies. The optional targeted-import audit checks
+the same selected fully qualified constants and their actual transitive
+dependencies. The preceding 250-query equivalence experiment reproduced
+the entire 22,191-entry log byte for byte; unresolved or ambiguous names
+fail closed. Three Python guard tests pass. See
+ docs/checkpoints/3.3.5-validation.json and
+ docs/checkpoints/targeted-audit-2026-11-04.json.
+Continue immediately with 3.3.6 and all remaining 3.3, committing and
+pushing each completed item only to GitLab origin/chatgpt. Preserve older
+deferrals. The user permits unrestricted resources 17:00–07:00 local;
+ordinary checks, source freezing and artifact separation still apply.
+
+2026-11-04: Federer 3.3.6 complete and validated.
+Completed 3.3.6 on 4 November 2026. The actual original cylinder
+has outer mass at most 2*84^m lambda alpha(m) rho^m under exactly the
+printed hypotheses; the upper m density of phi restricted to original
+A is at most 2*84^m lambda. Original arbitrary purely unrectifiable A,
+projection, standing closed-measurable outer measure, all natural
+0<=m<=n, degree zero and infinite radial cutoffs remain. The literal
+rho<=s*xi/24 and cylinder radius 4*rho/s are retained. Only finite
+positive-radius mass estimates are required, with no extra estimate at
+radius infinity. Independent exact
+height supremum laws precede finite positive existence and actual
+near-maximizing source points. The original narrow-cone-free remainder
+is countably rectifiable by 3.3.5 and null by purity; outer masses agree
+without measurable hulls or finiteness. Actual indexed weighted selection
+retains coincident projected centres until disjoint selection; target
+separability proves countability. Actual closed-ball volumes and
+countable additivity give the exact packing sum. Original projection
+distances and suprema give both wider cones with strict inequalities.
+Exact 12^m and 7^m factors, indexed subadditivity and full positive-radius
+limits give both conclusions. Every height, selected family and witness
+remains local. No source correction, new project axiom or additional
+numbered hypothesis. Three actual regressions retain nonempty R^0 with
+zero measure and infinite cutoff, empty R^0 under a positive unit atom,
+and the nonzero line Lebesgue measure with positive cylinder mass 1/3
+at the maximal printed finite radius.
+Fourteen theories and three actual regressions pass registered build
+(69.49s), complete recursive item-and-dependency kernel check
+(253.99s), and 28 strict dependency queries (74.10s).
+All 22,205 earlier assumption sets preserved; 22,233 complete
+entries use only the three permitted boolp assumptions. Every registered
+input and base revision unchanged; no warnings, clean/adoption or copied
+private proof objects. Required switch, nice 10, umask 0002, group llm
+and group read/write. The user permits unrestricted resources between
+17:00 and 07:00 local; ordinary compiler/kernel checking and artifact
+separation remain. See docs/checkpoints/3.3.6-validation.json. The rejected pre-registration
+attempt is retained there: a source-hash gate found post-check spacing
+edits; an early no-op build could not check the absent new kernel root.
+Every exact source and dependent module was rechecked before actual
+registration, and the runner now requires a registered root. No rejected
+attempt is counted as a successful item validation.
+Continue immediately with 3.3.7 and the rest of 3.3, committing and
+pushing every completed item only to GitLab origin/chatgpt. Preserve all
+older intentional deferrals. Do not end the whole task after this item.
+
+2026-11-04: Federer 3.3.7 complete and validated.
+Completed 3.3.7 on 4 November 2026. For original arbitrary purely
+unrectifiable A, phi(A)<=2*84^m*lambda*L^m(p(A)) under exactly the
+printed positive-radius and small-aperture cone estimates. Original
+closed-measurable outer measure, projection, all natural 0<=m<=n,
+nonmeasurable and unbounded sources and infinite masses remain. No
+source or projected-image measurability or finite-mass hypothesis.
+Actual 3.3.6 ball bounds, Borel regularisation of the original restricted
+pushforward and original-image mass equality are proved. Original-centre
+finite nets within compact balls give finite total regularised mass;
+all Radon and class-M premises are discharged. Actual Euclidean covering,
+2.9.15 and strict comparison underlying 2.9.7 give the exact coefficient
+by a multiplicative error decreasing to one. Positive diameter padding
+handles empty and zero-diameter sources. Actual closed-ball exhaustion
+of phi restricted to A gives the unbounded case without summing overlapping
+projected-image costs. Every auxiliary witness remains local. No source
+correction, new global auxiliary choice, project axiom or extra numbered
+hypothesis. Actual regressions retain a positive unit interval, an original
+nonmeasurable positive finite-mass source, and the whole line with infinite
+actual projected Lebesgue volume.
+Twelve theories and three actual regressions pass registered compilation
+(112.13s), complete recursive item-and-dependency kernel checking
+(267.47s), and 18 strict dependency queries (59.21s).
+All 22,233 earlier assumption sets are preserved; 22,251 complete
+entries use only the three permitted boolp assumptions. Every registered
+input and base revision unchanged, no warnings, cleaning/adoption or
+copied private proof objects. Required switch, nice 10, umask 0002,
+llm and group read/write. Unrestricted useful resources permitted
+17:00–07:00 local. See docs/checkpoints/3.3.7-validation.json.
+Continue immediately with 3.3.8 and the rest of 3.3, with validated
+commits and pushes only to GitLab origin/chatgpt after each item.
+Preserve all earlier intentional deferrals. Do not end after this item.
+
+2026-11-04: Federer 3.3.8 complete and validated.
+Completed 3.3.8 on 4 November 2026. The ORIGINAL arbitrary purely
+unrectifiable B is outer-null when its original radial supremum has
+ordinary right-hand aperture limit zero at some positive cutoff for
+every original source point. The cutoff may depend on the point.
+Standing closed-measurable outer measure, original projection and all
+natural 0<=m<=n remain. No source measurability, finite mass, uniform
+cutoff, given zero-mass conclusion or local-finiteness premise.
+Cofinal reciprocal cutoffs and an actual countable small Euclidean cover
+give original source pieces. Fixed-cost open strict superlevels prove
+the actual aperture-bound centre sets closed and increasing. A genuine
+intermediate radius gives the all-positive-radius hypothesis of 3.3.7
+on each original intersection. Closed measurability of the original
+restricted measure and continuity below preserve one projected cost.
+Actual contraction and ball volumes make that original projected outer
+mass finite. Letting the positive coefficient tend to zero and taking
+countable null unions finish. Every cover and cutoff stays local; no
+source correction, new axiom or global auxiliary choice.
+Actual regressions retain nonempty degree-zero R^0, a singleton under
+nonzero line Lebesgue measure, and a weighted line measure with infinite
+ambient and nonzero-atom masses and original source the zero singleton.
+Seven theories and three actual regressions pass registered compilation
+(98.65s), complete recursive item-and-dependency kernel checking
+(283.09s), and 16 strict dependency queries (62.68s).
+All 22,251 earlier assumption sets preserved; 22,267 complete
+entries use only the three permitted boolp assumptions. Registered
+inputs and base revision unchanged; no warnings, clean/adoption or
+copied private proof objects. The independent kernel and audit run
+concurrently after compilation. Required switch, nice 10, umask 0002,
+llm and group read/write; unrestricted useful resources 17:00–07:00 local.
+See docs/checkpoints/3.3.8-validation.json. Continue immediately with
+3.3.9 and all remaining 3.3 items, committing and pushing each completed
+item only to GitLab origin/chatgpt. Preserve earlier intentional deferrals.
+
+2026-11-04: Federer 3.3.9 complete and validated.
+Completed 3.3.9 on 4 November 2026. Finite outer mass of original
+arbitrary A and infinite aperture upper cone growth at every original
+B point and every positive radial cutoff imply L^m(p(B))=0 for the
+ORIGINAL arbitrary projected image. Standing closed-measurable outer
+measure, original projection and every natural 0<=m<=n remain. Neither
+source is assumed measurable, bounded, purely unrectifiable or equal
+to the other. No ordinary infinite derivative or local finiteness premise.
+Actual Borel regularisation of the original restricted pushforward has
+total mass phi(A); all Radon/class-M laws and Borel-set equalities are
+derived. Actual cone inclusion and positive finite closed-ball volume
+give the exact alpha(m) quotient comparison. Arbitrarily small large-cost
+original cones and actual small-ball diameters give infinite centered
+upper derivate in the original partial quotient domain. Actual Euclidean
+context and 2.9.5 give original projected nullity. Every auxiliary measure,
+cone and ball stays local. No source correction, new axiom or global
+auxiliary choice. The positive actual regression uses vertical unit-
+interval length in the plane, total mass two, original A the whole plane,
+nonempty B the vertical origin and actual horizontal projection. Its
+original cone costs are proved at least inverse aperture. Other actual
+regressions retain a positive degree-zero R^0 atom and an original
+nonmeasurable positive finite-mass A, both with original empty B.
+Seven theories and three actual regressions pass registered compilation
+(89.14s), full recursive item-and-dependency kernel checking (280.05s),
+and 12 strict dependency queries (54.35s). All 22,267 earlier
+assumption sets preserved; 22,279 complete entries use only the
+three permitted boolp assumptions. Registered inputs and base unchanged;
+no warnings, cleaning/adoption or private proof-object copies. Independent
+kernel/audit checks run concurrently after compilation. Required switch,
+nice 10, umask 0002, llm and group read/write. Unrestricted useful resources
+17:00–07:00 local. See docs/checkpoints/3.3.9-validation.json.
+Continue immediately with 3.3.10 and all remaining 3.3 items; commit and
+push each completed item only to GitLab origin/chatgpt. Preserve earlier
+deliberate deferrals. Do not end the subsection task after this release.
+
+2026-11-04: Federer 3.3.10 complete and validated.
+Completed 3.3.10 on 4 November 2026. The complete original finite-mass
+purely unrectifiable Suslin structure theorem on p. 296 is proved: both
+product-nullity identities, all three assertions for EVERY projection,
+and the final actual theta-star almost-every-projection conclusion.
+Original A, S_i, fibres, outer measure measuring closed sets and actual
+Grassmann/projection probabilities remain, for every natural 0<=m<=n.
+No Borel regularity, finite whole mass, product measurability, ordinary
+infinite derivative or structure conclusion is an added premise.
+Independent incidence definitions use exactly the original three
+alternatives. Actual kernel lifts are Suslin, the kernel map is continuous
+onto, and its exact images are the original S_i. Actual Grassmann initial
+topology has a countable base. Factor closed measurability gives product
+closed measurability and original Suslin incidence measurability. The
+actual finite original parent rectangle discharges all countable-
+measurability premises. Purity and ordinary-zero inheritance give the
+first fixed section via 3.3.8; actual 3.3.9 gives the second; punctured
+original fibre accumulation forces an infinite original fibre. Fubini
+and 3.3.4 give both original product identities. Nonnegative zero
+integrals and actual all-set kernel probability transfer finish.
+Every auxiliary projection, base and witness remains local. No source
+correction or new global mathematical object. Three actual regressions
+retain nonempty R^0 under zero measure, a positive unit-length line
+interval of Lebesgue mass one in degree zero, and the full-dimensional
+line singleton under an actual outer measure of infinite whole mass.
+Seventeen theories and three actual regressions pass registered build
+(247.47s), complete recursive item-and-dependency kernel checking
+(463.50s) and 38 strict dependency queries (148.04s).
+All 22,279 prior assumption sets preserved; 22,317 complete entries
+use only the three permitted boolp assumptions. Every registered input
+and base unchanged; no warnings, clean/adoption or private object copies.
+Independent kernel and audit run concurrently after build. Required
+switch, nice 10, umask 0002, llm and group read/write. Useful resources
+unrestricted 17:00–07:00 local. See docs/checkpoints/3.3.10-validation.json.
+Continue immediately with 3.3.11 and 3.3.12 through 3.3.22; commit and
+push each completed item only to GitLab origin/chatgpt. Preserve older
+deliberate deferrals. Do not end the whole task after this release.
+
+2026-11-04: Federer 3.3.12 complete and validated.
+Completed 3.3.12 on 4 November 2026. The complete theorem on p. 297
+retains original Suslin E of finite phi outer mass, actual theta-star,
+condition (I) for EVERY original null subset and condition (II) for
+almost every original target point. There exists a countably m rectifiable
+Borel R with original E minus R pure and projected-null at almost every
+original projection. Every natural 0<=m<=n remains; the original outer
+measure need only measure closed sets. No source/image measurability,
+Borel regularity or finite whole-space mass is added.
+Independent (I)/(II) predicates precede the proof. Actual 3.2.14 gives R;
+original A=E minus R remains Suslin and finite by proved closure and
+outer monotonicity. Complete actual 3.3.10 supplies the original null
+remainder of S2/S3 at almost every projection. Condition (I) projects it
+to zero. Every S2 projected section is null; the original S3 section
+projects only to infinite original A fibres, hence infinite original
+E fibres, null by (II). Actual image containment, null union/subset laws
+and actual theta-star almost-everywhere conjunction finish in the printed
+proof order. No source correction, proof departure, selected global
+auxiliary object or structure conclusion supplied as a hypothesis.
+Three theories and three actual complete-theorem regressions pass
+registered build (80.93s), recursive item-and-dependency kernel check
+(445.23s) and 11 strict dependency queries (102.66s). Actual
+regressions use the positive R^0 singleton atom, the positive noncentral
+line atom at m=n=1, and an actual weighted atomic line of infinite whole
+mass with original nonempty null singleton. Both original conditions
+are derived for every original projection before applying the theorem.
+All 22,317 previous assumption sets preserved; 22,328 complete
+entries use only the three permitted boolp assumptions. Every registered
+input and base unchanged; no warnings, cleaning/adoption or private
+object copies. Independent kernel and audit run concurrently after build.
+Required switch, nice 10, umask 0002, llm and group read/write. Useful
+resources unrestricted 17:00–07:00 local. See
+ docs/checkpoints/3.3.12-validation.json. Continue immediately with
+3.3.13–3.3.22; commit and push every completed item only to GitLab
+origin/chatgpt. Preserve older intentional deferrals; do not end here.
+
+2026-11-04: Federer 3.3.13 complete and validated.
+Completed 3.3.13 on 4 November 2026. The complete original theorem
+on pp. 297–298 is proved for arbitrary E of finite H^m outer mass,
+every natural 0<=m<=n and every exponent 1<=t<=infinity. Original E
+need not be measurable. A Borel countably m rectifiable part leaves
+the original pure remainder integral-geometric-null. Moreover actual
+H^m(E)=I_t^m(E) if and only if E is (H^m,m) rectifiable.
+Actual projection contraction and 2.10.11 prove original (I) and (II)
+for every projection: every original null subset projects to zero;
+actual finite counting integrals make original fibres finite almost
+everywhere. All Euclidean and target H^m=L^m hypotheses are proved.
+Actual 3.3.12 on a genuine equal-mass Borel hull and actual 2.10.5
+produce the same rectifiable part for every exponent; original E is
+retained by subset purity and outer nullity, never by declaring a
+nonmeasurable hull difference null. The actual original finite
+intersection with the Borel part satisfies 3.2.26. Actual splitting
+of both measures gives the literal H(E)=I_t(E)+H(E minus R) identity.
+Finite real-value cancellation proves one direction of the criterion;
+actual 3.2.26 proves the converse. No structure, equality, finite
+cancellation, source measurability or extra global witness is assumed.
+Six theories and three actual complete-theorem regressions pass
+registered compilation (100.37s), complete recursive item-and-dependency
+kernel checking (468.09s), and 11 strict dependency queries
+(126.00s). Actual positive R^0 cube and open unit line interval have
+Hausdorff/integral-geometric mass one at every exponent. An actual
+nonmeasurable positive finite-mass original line subset retains the
+full theorem and all exponent equalities. All 22,328 earlier assumption
+sets preserved; 22,339 complete entries use only the three
+permitted boolp assumptions. All registered inputs and base unchanged;
+no warnings, cleaning/adoption or private object copies. Independent
+kernel and audit run concurrently after build. Required switch,
+nice 10, umask 0002, llm and group read/write. Useful resources
+unrestricted 17:00–07:00 local. See docs/checkpoints/3.3.13-validation.json.
+Continue immediately with 3.3.14–3.3.22, with per-item validated commits
+and pushes only to GitLab origin/chatgpt. Preserve older intentional
+deferrals and do not end the whole subsection task after this item.
+
+2026-11-04: Federer 3.3.14 complete and validated.
+Completed 3.3.14 on 4 November 2026. The complete theorem on p. 298
+proves actual (I-infinity,m) rectifiability of every original arbitrary E
+of finite I-infinity outer mass, for every natural 0<=m<=n. No source
+or projected-image measurability, finite Hausdorff mass or supplied
+projection/structure conclusion is added.
+Countably many strict rational rays prove attainment of the actual
+infinity-norm bound. Actual zeta-infinity is at most I-infinity on
+Borel tests. Independent countable open-test laws precede existence
+from finite words in a local Euclidean base. The same null projection
+exception controls all tests; contained increasing exhaustion and
+actual projected-image measurability/continuity give every original
+open set. The actual finite Borel restriction and proved open-infimum
+law give EVERY original null subset, all at the same good projections.
+Actual local shrinking-partition trees, infinity-norm bounds and
+beta-infinity one give finite original counting integrals almost
+everywhere. Their finite upper integrals give original finite fibres.
+The underlying partition estimates retain degree zero without assuming
+a positive-degree theorem beyond its scope. Actual 3.3.12 and 2.10.5
+supply the Borel rectifiable part. Equal-mass Borel hulls and outer
+nullity retain the original arbitrary E; no nonmeasurable hull difference
+is declared null. All auxiliary bases, tests, exhaustions and trees
+stay local. The documented proof route substitutes finite open-base
+unions for the printed partition cells, retaining the same countable-
+exception/open-approximation/3.3.12 structure. No source correction
+or numbered hypothesis change.
+Nine theories and three actual regressions pass registered compilation
+(110.67s), recursive item-and-dependency kernel checking (469.96s),
+and 18 strict dependency queries (130.24s). Actual positive
+R^0 cube and open unit interval have I-infinity mass one. An actual
+original nonmeasurable positive finite-mass line subset retains the
+complete theorem. All 22,339 earlier assumption sets are preserved;
+22,357 complete entries use only the three permitted boolp
+assumptions. Registered inputs and base unchanged; no warnings,
+cleaning/adoption or private object copies. Independent kernel and
+audit run concurrently after build. Required switch, nice 10,
+umask 0002, llm and group read/write. Useful resources unrestricted
+17:00–07:00 local. See docs/checkpoints/3.3.14-validation.json.
+Continue immediately with 3.3.15–3.3.22, committing and pushing each
+completed item only to GitLab origin/chatgpt. Preserve older intentional
+deferrals; do not end the subsection task after this item.
+
+2026-11-04: Federer 3.3.15 complete and validated.
+Completed 3.3.15 on 4 November 2026. The complete p. 299 theorem
+retains original arbitrary W, phi(W)<infinity, the standing measure of
+closed sets, and positive original upper density of phi restricted to W
+at phi almost every point of W. Every natural 0<=m<=n and infinite
+upper densities remain. No source measurability, finite whole-space
+phi mass or supplied regularisation/decomposition is a final premise.
+The actual sealed Borel regularisation is finite on the whole space
+and Radon. Its Borel values, total original mass, domination on EVERY
+original subset and EVERY-POINT original upper-density agreement are
+proved. Actual enlarged closed balls give open strict cutoff-supremum
+levels. Cofinal reciprocal cutoffs and a countable strict-margin formula
+prove Borel upper density while retaining all radii and infinite values.
+Actual 2.10.19(3) and finite open approximation give H^m(B)<=i*psi(B)
+for EVERY original subset B of a density stratum. Derived finite
+Hausdorff mass and actual projection theorems discharge both conditions
+of 3.3.12 at every projection. Actual contained Borel rectifiable parts,
+the original phi-null F and countable unions produce measurable,
+countably (phi,m) rectifiable Q. No finite phi(Q) is claimed. Domination
+on original subsets inside W, countable pure unions and a common good
+projection domain give the ORIGINAL pure projected-null W minus Q.
+No nonmeasurable hull difference is declared null; all auxiliary choices
+remain local. No source correction or numbered hypothesis change.
+Twelve theories and three actual regressions pass registered compilation
+(143.03s), recursive item-and-dependency kernel checking (478.21s),
+and 26 strict dependency queries (134.41s). Examples retain
+positive R^0 atom, positive unit interval and an actual original
+nonmeasurable positive finite-mass source. Actual 2.10.19(2) verifies
+the original finite-Hausdorff density premises. All 22,357 earlier
+assumption sets are preserved; 22,383 complete entries use only
+the three permitted boolp assumptions. Inputs and base unchanged;
+no warnings, cleaning/adoption or private proof-object copies.
+Required switch, nice 10, umask 0002, llm and group read/write;
+unrestricted useful resources 17:00–07:00 Europe/Warsaw. See
+docs/checkpoints/3.3.15-validation.json. Continue immediately with
+3.3.16–3.3.22, committing and pushing each completed item only to
+GitLab origin/chatgpt; preserve older intentional deferrals.
+
+2026-11-04: Federer 3.3.16 mathematical assertions validated.
+Completed the mathematical assertions of 3.3.16 on 4 November 2026.
+All FOUR actual spherical, exterior-diameter, Gross and Q_u replacements
+of the full 3.3.13 theorem are proved for original arbitrary finite
+replacement-mass E. The SAME Borel countably rectifiable part works
+for EVERY final exponent; the original remainder is pure and I_t-null.
+The literal mass identity and BOTH equality-criterion directions remain.
+Every Q_u replacement exponent 1<=u<=infinity is independent of the final
+exponent. Positive degree is the original Q_u convention; the other
+three instances also retain natural degree zero. No original source
+measurability or finite original Hausdorff mass is added.
+Independent measure, Borel regularity, uniform positive finite projection
+comparison and bounded-image agreement laws precede the four actual
+instances. No structure conclusion is a field. Actual Gross Borel hulls,
+projection gauge and Borel cost bound control EVERY original projected
+volume. Actual 2.10.8 and 2.10.10 bound the ORIGINAL counting integral,
+so both original projection conditions hold at EVERY projection. Actual
+3.3.12 and genuine equal-mass Borel hulls retain original arbitrary E.
+An independent raw measure/Borel-regularity/bounded-image-agreement lemma
+proves equality on EVERY original subset of a countably rectifiable
+carrier, even with infinite carrier mass: close the original bounded
+images, take a subordinate Borel partition, restrict BOTH measures by
+the original test, and sum. This derives finite H on the original
+rectifiable intersection, discharges actual 3.2.26 and gives the literal
+mass identity and finite cancellation. Original null remainders transfer
+by actual 2.10.5. No universal H<=constant*G or nonmeasurable hull-
+difference nullity is asserted. Existing sealed measures and local
+auxiliary carriers/partitions are used.
+Actual 3.3.14, common original integral-geometric null sets and countable
+carrier agreement prove I_t(E)=I_infinity(E) for every final exponent
+when ORIGINAL I_infinity(E) is finite. No deferred partial 3.2.45 is
+assumed. The ensuing finite-t question, compact density-zero reformulation
+and homogeneous-space reference are historical source accounts; no answer
+or formal equivalence proof for that reformulation is assumed or claimed.
+Twelve theories and three actual regressions pass registered compilation
+(132.95s), recursive item-and-dependency kernel checking (514.39s),
+and 33 strict dependency queries (289.44s). Positive unit line
+interval, positive R^0 atom and original nonmeasurable positive finite-
+mass source retain their complete applicable conclusions. All 22,383
+earlier assumption sets are preserved; 22,416 complete entries
+use only the three permitted boolp assumptions. Inputs and base unchanged;
+no warnings, cleaning/adoption or private proof-object copies. Required
+switch, nice 10, umask 0002, llm and group read/write; unrestricted useful
+resources 17:00–07:00 Europe/Warsaw. See docs/checkpoints/3.3.16-validation.json.
+Continue immediately with 3.3.17–3.3.22, committing and pushing every
+completed item only to GitLab origin/chatgpt; preserve older deferrals.
+
+2026-11-04: Federer 3.3.17 fully validated.
+Completed 3.3.17 on 4 November 2026. The full ORIGINAL small-cone
+criterion implies original (phi,m) rectifiability. Keep the standing
+closed-measurable outer measure, arbitrary original finite-mass E,
+exact c=1/(2*84^m) and aperture factor s^m, every natural 0<=m<=n,
+and infinite original upper densities. No source measurability or
+finite-density premise is added. Independent criterion and uniform
+cone-test predicates precede the proofs; all regularisations,
+projections, carriers, bounds and rational codes remain local.
+Actual finite regularisation retains original mass and Borel test
+values, all-subset domination and pointwise density. Actual cone
+Borelness gives conical density agreement. Strict upper density yields
+positive finite all-radius bounds. Polynomial continuity and rational
+density give rational aperture, bound and cutoff; actual inherited
+Hom distance and the proved evaluation bound give original cone
+inclusion. The actual countable dense projection family is derived.
+Actual 3.2.14 supplies a Borel rectifiable part. Each original test
+remainder is pure and actual 3.3.6 bounds its upper density. Actual
+Euclidean centered-ball Vitali theory and 2.9.11 give relative density
+one on arbitrary original subsets. Prove the printed exact upper-
+density equality, including infinity, using local mass comparison,
+a finite-error squeeze and domination. The printed coefficient gives
+the strict contradiction. Four countable null unions and original
+source domination finish. No nonmeasurable hull difference is declared
+null; no source correction is needed.
+Sixteen theories and four actual complete-theorem regressions pass
+registered compilation (184.32s), complete recursive item-and-dependency
+kernel checking (482.17s), and 33 strict dependency queries
+(120.86s). Examples retain the positive R^0 atom, positive unit
+interval, actual original nonmeasurable positive finite-mass source,
+and positive planar atom with INFINITE original degree-one density.
+All 22,416 earlier assumption sets are preserved; 22,449
+complete entries use only the three permitted boolp assumptions.
+Inputs and base unchanged; no warnings, cleaning/adoption or copied
+private proof objects. Required switch, nice 10, umask 0002, group
+llm and group read/write. Useful resources unrestricted 17:00–07:00
+Europe/Warsaw. See docs/checkpoints/3.3.17-validation.json.
+Continue immediately with 3.3.18–3.3.22, committing and pushing each
+completed item only to GitLab origin/chatgpt. Preserve older deferrals.
+
+2026-11-04: Federer 3.3.18 fully validated.
+Completed all of 3.3.18 on 4 November 2026. Original arbitrary
+finite-mass (phi,m) rectifiable E has positive ORIGINAL restricted
+upper density almost everywhere. Under EXACTLY the printed almost-
+everywhere finite-density hypothesis, the ORIGINAL approximate tangent
+is an m-plane; its actual polar normal is an (n-m)-plane, and EVERY
+original 0<s<1 normal cone has ORDINARY zero density. Natural degree
+zero remains; no source measurability, tangent/normal field, supplied
+regularisation or comparison constant is added.
+Actual finite regularisation retains Borel test values and domination
+on original subsets. Actual 2.10.19(1), finite Hausdorff carrier mass
+and an error squeeze give positivity. Original strict integer density
+bands are Borel. Actual 2.10.19(3),(1) give BOTH comparisons on EVERY
+original subset. Actual (4) gives zero omitted density, with its
+spherical-null exception transferred by the proved comparison. Finite
+positive measure comparisons identify full-density tests and actual
+tangents. Actual 3.2.19, closed original carrier images and integer-band
+exhaustion give the original finite-density conclusion. Borel-test
+agreement and the proved own-norm topology equivalence restore the
+ORIGINAL phi restriction. Never declare a nonmeasurable hull difference
+null. Every auxiliary witness stays local; existing sealed objects are used.
+Actual orthogonal frames, the sealed adjoint and original projection
+kernel give the normal plane. Both polar signs and Cauchy–Schwarz
+exclude actual compact unit directions from the tangent. Actual 3.2.16
+and positive-ray normalization give ordinary zero density in original X.
+Square brackets on p. 301 delimit X arguments, as the strict-inequality
+identity in 3.3.4 confirms; they do not introduce a closed cone or add
+its vertex. No source correction or degree-zero qualification is needed.
+The converse is refuted by an ACTUAL finite positive planar atomic
+measure with COUNTABLE TOPOLOGICAL SUPPORT. Summable positive point
+masses lie on triangular fast radial clusters in actual dense unit
+directions. Finite layers shrink to zero, giving an actually closed
+countable carrier; the sealed topological support lies inside it.
+Every original plane and aperture has infinite conical upper density
+at the positive central atom, using actual weight w at radius w squared.
+The whole original plane is measure-rectifiable, but the original
+3.3.17 criterion fails on positive mass. No failure or infinite density
+is assumed, and a countable dense carrier is not confused with support.
+Twenty-seven theories and four actual regressions pass registered
+compilation (181.20s), complete recursive item-and-dependency kernel
+checking (496.02s), and 40 strict dependency queries (149.15s).
+Examples retain the positive R^0 atom, unit interval, original
+nonmeasurable positive finite-mass source and actual countable-support
+counterexample. All 22,449 earlier assumption sets are preserved;
+22,489 complete entries use only the three permitted boolp
+assumptions. Inputs and base unchanged; no warnings, cleaning/adoption
+or copied private proof objects. Required switch, nice 10, umask 0002,
+llm and group read/write. Useful resources unrestricted 17:00–07:00
+Europe/Warsaw. See docs/checkpoints/3.3.18-validation.json.
+Continue immediately with 3.3.19–3.3.22, validating, committing and
+pushing each completed item only to GitLab origin/chatgpt. Preserve older
+deferrals. Published p. 307 corrections concern 3.3.20, not 3.3.19.
+
+2026-11-05: Federer 3.3.19 fully validated.
+Completed all of 3.3.19 on 5 November 2026. The ACTUAL original
+nested circular-disc compact planar set has exact H1(A)=2,
+Q_1(A)=pi and beta_t Q_t(A)=2 for EVERY original exponent t>=1,
+including infinity. Q means CONVEX generators, as printed on p. 304;
+ordinary all-Borel I is distinct. Original level pieces are actual
+translates with masses 2rho_j and pi rho_j. Normalized restrictions
+agree on EVERY original test set; actual 3.2.26 proves purity.
+Independent scalar, radius, finite-level, limit and radial-map laws
+precede existence and opaque seals. Actual factorial counts, attained
+gaps, closed-halfplane bounds and compactness are proved. Original
+first-split geometry, locally existential actual radial retractions,
+optimal Lip=1 and the actual convex boundary cycle prove the full
+countable convex-cover lower bound. The p. 303 boundary point is in
+the INVERSE IMAGE of the original disc intersected with Bdry S.
+Actual bad-child counts, local pruning and original mass decay prove
+one common angular-tail conull set. Uniform original closed-cap masses
+and local strictness buffers prove exact conical upper density >=1/(2pi)
+for EVERY original plane and aperture on that same conull set. Actual
+S2 growth and 3.3.10 give zero outer length of EVERY original projection;
+the actual compact-family characterization gives Gross(A)=0.
+A proved AUXILIARY correction to p. 305 is absent from the working
+erratum: the printed closed-cap difference need not lie in X with its
+strict radius. At EVERY actual parent level j>=1 on the fixed endpoint
+branch, alpha=pi/6 and x=z+rho_j exp(i pi/3) give exact excluded radius
+rho_j and a coordinate below the second-cap threshold. The proved local
+smaller-aperture and normal buffers repair the inclusion, and a finite
+error squeeze retains the original numbered conclusion without an
+additional hypothesis. See the error list and divergence register.
+Actual first-split lateness, strict tangential child spacing >6 child
+radii, finite packing and translated-piece disjointness prove the actual
+uniform ALL-positive-radius bound mu B(a,t)<=(1+epsilon)t at small t.
+Uniform cap masses handle larger relative radii. Cofinal whole pieces
+give the reverse density bound. Actual upper one-density equals ONE
+HALF at EVERY original A point, strengthening the printed AE assertion.
+Two hundred nine theories and four actual regressions pass registered
+compilation (1266.81s), complete recursive item-and-dependency kernel
+checking (524.61s), and 433 strict dependency queries (998.29s).
+All 22,489 earlier assumption sets are preserved; 22,922 full entries
+use only the three permitted boolp assumptions. Every registered input
+and base unchanged; no warnings, cleaning, adoption or copied private
+proof objects. Required switch, nice 10, umask 0002, group llm and g+rw;
+useful resources unrestricted 17:00–07:00 Europe/Warsaw. See
+ docs/checkpoints/3.3.19-validation.json. Continue immediately with
+3.3.20–3.3.22; commit and push each completed item only origin/chatgpt.
+Preserve all older intentional deferrals. Published p. 307 corrections
+concern 3.3.20 and must be used there.
+
+2026-11-05: Federer 3.3.20 validated.
+Completed 3.3.20 on 5 November 2026. The actual original fixed-binary
+Cantor square has the printed positive finite Gamma-normalized H^(2m)
+bounds, pure H1 and H^(2m) unrectifiability, and no arbitrary original
+subset of finite positive I_infinity mass. For EVERY 1/2<m<1 its actual
+I_infinity mass is infinite. At m=1/2 actual H1(E)=sqrt(2) and actual
+Gross(E)=3/sqrt(5). Independent original factor, square levels and local
+transport laws precede existence and an opaque factor seal. Every
+original coefficient, carrier, endpoint, square and projection is retained.
+Actual Phi transport, recursive uniqueness and restricted original limits
+prove exact piece and descendant similarities. All interval/square counts,
+Borel partitions, exact projection fractions, all-sign reflection and
+interchange, full original overlap loci and all eight critical directions
+are proved. A positive actual unit-refinement length gives 0<c_u<=1,
+uniform over every nondegenerate original square. Compact original
+projections give c_u=1 exactly at full root projection.
+Use BOTH published p.307 corrections: delete the false c_u<1 nullity
+assertion and prove the corrected two first-level length branches and
+universal original bound. Supercritical positive probability follows
+directly from actual nonempty open overlap and full support, instead of
+assuming the printed circle-length normalization identity. Original null
+hulls and actual purity give infinity without a supplied positivity premise.
+The literal auxiliary psi_j have exact mass sqrt(2) on E and decrease.
+The original four corner pairing certificates, scalar squeezes and
+unique-parent similarity descent prove positive-diameter finite-stage
+attainment on every original test set. A proved local p.308 auxiliary
+qualification, absent from the erratum: the ACTUAL original zero corner
+singleton has diameter zero but positive psi_j mass at EVERY finite
+stage. Its actual product measure is zero; this separate case retains
+all Hausdorff generators and the unchanged exact H1 conclusion.
+Actual unit product comparison gives the sharp lower length; original
+square covers give the upper. Actual extremal projection and arbitrarily
+fine compact-piece covers give the exact Gross value. All auxiliary
+interval maps, projections, pairings and cutoffs stay local.
+163 theories and four actual regressions pass ordinary registered build
+(987.98s), complete recursive item-and-dependency kernel checking
+(629.00s), and 240 strict dependency queries (541.38s). All
+22,922 previous assumption sets are preserved; 23,162 complete
+entries use only the three permitted boolp assumptions. Every registered
+input and base unchanged; no warnings, cleaning, adoption or copied private
+proof objects. Required switch, nice 10, umask 0002, group llm and group
+read/write; daytime eight-compiler ceiling with memory-aware compiler
+admission targeting a 1.5GiB reserve. During kernel/audit overlap the
+measured audit minimum was 1006.63MiB, below that
+target; no private jobs ran. Run the next kernel and audit sequentially.
+Useful resources unrestricted 17:00–07:00 local.
+See docs/checkpoints/3.3.20-validation.json. Commit/push only chatgpt,
+then continue 3.3.21 and historical 3.3.22 without stopping. Preserve all
+older intentional deferrals. Do not claim the source's deleted assertion.
+
+2026-11-05: Federer 3.3.21 validated.
+Completed 3.3.21 on 5 November 2026. Every original 0<m<1 and every
+original n_j>=2 tending to infinity yield the actual original compact
+Cantor square with strict positive finite Gamma-normalized H^(2m) mass.
+Its actual lower 2m-density is zero at EVERY original centre, hence almost
+everywhere as printed. The schedule need not be monotone or rapid.
+Independent original factor and width laws precede local existence and
+an opaque factor seal. Exact Phi widths, positive uniform kappa, all-level
+original interval point gaps and sharp next-level gaps are proved. At
+actual r_j=kappa*w_j/(3*n_j), every original ball meets E inside at most
+one original next-level square. Original positive affine Phi transport,
+recursion uniqueness and restricted limits prove exact piece similarity
+with the common shifted original schedule. Actual Lipschitz Hausdorff
+scaling and the preceding actual mass bound give the piece estimate.
+Exact positive scalar cancellation gives K(m)*n_j^(2m-2). Original
+divergence makes both the actual radii and these bounds small. Full
+positive-real-radius lower-limit laws prove the density conclusion;
+no sampled upper limit, density premise, growth rate, supplied gap or
+self-similarity premise. Actual real-degree Gamma normalization and exact
+natural-degree ball/lower-density compatibility are proved. All auxiliary
+widths, affine transports, tail factors and cutoffs remain local.
+Three actual regressions retain the original zero corner with ordinary H1
+positive finite and ordinary lower one-density zero; a genuinely
+nonmonotone diverging schedule at m=3/4; and original m=1/3 below one half.
+No new source correction, project axiom or external mathematical dependency.
+22 theories and three regressions pass ordinary registered compilation
+(175.59s), complete recursive item-and-dependency kernel checking
+(313.49s), and 45 strict dependency queries (109.44s).
+All 23,162 previous assumption sets are preserved; 23,207 complete
+entries use only the three permitted boolp assumptions. All registered
+inputs and base unchanged; no warnings, cleaning, adoption or private
+proof-object copies. Required switch, nice 10, umask 0002, llm and group
+read/write. Build/kernel/audit run sequentially; daytime compiler admission
+with eight CPU ceiling and 1.5GiB reserve, minimum measured available RAM
+3201.34MiB. Unrestricted useful resources 17:00–07:00 local remain.
+See docs/checkpoints/3.3.21-validation.json. Commit/push only chatgpt,
+then complete the historical 3.3.22 source account and subsection docs.
+Preserve all older intentional deferrals; do not start 3.4 automatically.
+
+2026-11-05: Subsection 3.3 release and full kernel check.
+Completed the historical source account 3.3.22, pp. 309–310, and the
+whole requested subsection 3.3 on 5 November 2026. Mathematical items
+3.3.1–10 and 3.3.12–21 are complete with individual registered validation
+records; 3.3.11 and 3.3.22 are historical source accounts. The closing
+item explicitly neither proves nor uses its cited density/rectifiability
+results. Do not assume the then-conjectural general density theorem,
+the historical 1.01 condition or the forward construction 4.2.25.
+Refresh the public Rectifiability facade with released interfaces and
+main theorems through 3.2.48 and the whole mathematical 3.3. All previous
+exports retained, existing seals preserved; no mathematical definition,
+statement, hypothesis, proof or assumption query changed in this closing
+release. Historical accounts also appear explicitly in the generated
+contents map. README, toc, subsection account, index, symbols, divergences,
+reference guide and error-list coverage are current.
+Incremental facade and affected-regression build 220.66s, FULL make check 917.61s (all four
+library roots, every registered regression and all recursive dependencies),
+and dependency-aware audit refresh 735.44s. All 23,207 previous
+assumption entries preserved; 163 existing affected queries rechecked and no
+new query added. The separate 3.3.21 release audited all 45 new queries.
+The focused-import preflight correctly refused older shortened query names;
+the successful audit uses standard full imports with every query unchanged.
+Only the three permitted boolp assumptions remain. No extra compilation
+during make check; all registered inputs and base unchanged, no warnings,
+cleaning, adoption or private proof-object copies. Required switch,
+nice 10, umask 0002, llm and group read/write. Sequential stages and
+memory-aware admission, minimum available RAM 2260.43MiB.
+Useful resources unrestricted 17:00–07:00 Europe/Warsaw. See
+ docs/checkpoints/3.3-validation.json and
+ docs/checkpoints/3.3.22-source-account.md. Commit/push only chatgpt.
+Do not start 3.4 automatically. Preserve deferred 1.1.3, 2.10.46,
+Kneser's second paragraph and partial 3.2.45; Chapter 4 remains unstarted.
+
+2026-11-05: Federer 3.4.1 registered validation.
+Completed the definitions and source account of 3.4.1, p. 310, on
+5 November 2026. The formal universal critical-value problem retains
+arbitrary normed targets, original open source domains, genuine
+rank-threshold loci, and Gamma-normalized real-dimensional Hausdorff
+measure. The least-degree predicate states the two forthcoming proof
+obligations; no existence theorem for that property is assumed.
+The upper theorem and sharpness remain due in 3.4.3 and 3.4.4.
+Independent scalar and set laws precede existence, uniqueness, and opaque
+seals. Prove finite range rank from a finite source basis without a
+finite target basis, differential-witness independence, source containment,
+threshold monotonicity, the full source-dimension criterion, and constant
+and bounded-linear loci. Prove nu<s<=m, positivity, the class-one value,
+and the rank-zero specialization of the announced degree.
+Ten theories and three concrete regressions pass ordinary registered
+compilation (95.19s), complete recursive item-and-dependency kernel
+checking (389.81s), and 38 strict dependency queries (41.91s).
+All 23,207 earlier assumption sets are preserved; 23,245 complete
+entries use only the three permitted boolp assumptions. Inputs and base
+stay unchanged throughout validation. The first attempt passed compilation
+and kernel checking but failed an audit query for a hidden named helper.
+The revised implementation selects the two fields directly, and all
+three validation stages pass again. The rejected attempt is preserved.
+The release introduces no source correction or project axiom. Validation
+reuses unchanged dependencies without cleaning, adoption, or copied
+private proof objects. Required switch, nice 10, umask 0002, group llm,
+and group read/write. Stages run sequentially with memory-aware admission
+and an eight-compiler ceiling; minimum available RAM 3841.91 MiB.
+See docs/checkpoints/3.4.1-validation.json. Continue 3.4.2 in book order,
+with validation, documentation, a detailed commit, and GitLab push per
+completed item on chatgpt. Preserve the earlier deliberate deferrals.
+The user also requires strict adherence to Strunk's Elements of Style
+for all English prose; the rule is saved above and the supplied edition
+is identified by Strunk2011 in the project bibliography.
+
+2026-11-05: Federer 3.4.2 registered validation.
+Completed all four assertions of 3.4.2, pp. 310–316, on
+5 November 2026. Independent manifold, oscillation, function-class,
+and flat-cover laws precede existence proofs; the oscillation suprema
+are unique and opaque. The simultaneous decomposition retains the
+same pieces for every original vanishing function. The original
+two-scale cover proves the real-degree image estimate for every
+positive real order, including orders below one. The full original
+tangent-critical locus has null image at the printed degree.
+All targets remain arbitrary normed spaces; no target completeness,
+finite target basis, source measurability, or extra numbered-theorem
+hypothesis is added. The Gamma normalization and dimension-zero cases
+remain. Equivalent joint coordinates, positive padding of covering
+constants, the compact finite cover, and the expanded minimal-piece
+finite-mass argument are documented proof adaptations. No source
+correction or project axiom is introduced.
+Ninety-one theories and three actual regressions pass registered
+compilation (532.42s), complete recursive item-and-dependency kernel
+checking (344.55s), and 169 strict dependency queries (265.99s).
+All 23,245 earlier assumption sets are preserved; 23,414 complete
+entries use only the three permitted boolp assumptions. Every
+registered input and base revision remained unchanged. No warnings,
+cleaning, adoption, or copied private proof objects. Required switch,
+nice 10, umask 0002, group llm, and group read/write; sequential
+validation stages with memory-aware admission and an eight-compiler
+ceiling. Minimum available RAM was 4677.62 MiB. Separate private
+3.4.3 checks began only after the build and kernel stages passed.
+The private EmptyFlatPiece source-hash guard rejected an edited-source
+attempt; fresh unchanged-source compilation passed before registration.
+The rejected report is preserved; its raw log was overwritten by the
+retry and is not claimed as retained. No rejected result was promoted.
+See docs/checkpoints/3.4.2-validation.json. Continue immediately with
+3.4.3 and the rest of Chapter 3, validating, documenting, committing,
+and pushing each completed item only to GitLab origin/chatgpt.
+Preserve all earlier deliberate deferrals.
+
+2026-11-05: Federer 3.4.3 registered validation.
+Completed the complete original critical-value upper theorem 3.4.3,
+pp. 316–317, on 5 November 2026. Every integer m>nu>=0 and k>=1,
+arbitrary original B contained in open A, and every normed target remain.
+The actual Gamma-normalized Hausdorff measure of f(B) in degree
+nu+(m-nu)/k is zero under exactly the printed class and rank hypotheses. No source measurability,
+constant-rank neighbourhood, finite target basis, completeness, or
+critical-image conclusion is assumed.
+Independent bounded target-coordinate and orthogonal kernel-projection
+laws precede their existence proofs. The project's Hahn–Banach retraction,
+finite norm comparison, actual kernel frame, orthonormalisation, and
+sealed adjoint supply the original L and q. The actual joint map
+(L f,q) has an injective differential. The inverse function theorem
+supplies its class-k inverse; restriction to an image ball supplies
+convex S. Differentiate the exact prefix identity, transfer the actual
+rank through the inverse, and apply 3.4.2(9) on the original vertical
+critical locus. Countable open covers and degree comparison assemble
+all original rank strata. The product target uses the existing orthogonal
+block identification. These expansions introduce no source correction,
+project axiom, or extra numbered-theorem hypothesis. Every selected map
+and chart remains a local existence witness. The upper nullity property
+announced in 3.4.1 is proved; sharpness and the least-degree property
+remain due in 3.4.4.
+Seventeen theories and three actual regressions pass registered compilation
+(162.85s), complete recursive item-and-dependency kernel checking (327.23s),
+and all 30 new strict dependency queries (106.74s). Regressions retain
+a nonzero constant on the unbounded whole line, the whole-plane projection
+onto the entire line at class three, and the quadratic at its critical
+origin. Every regularity and rank premise is proved. All 23,414 earlier
+assumption sets are preserved; the 23,444-entry complete log uses only
+the three permitted boolp assumptions. Inputs and base stay unchanged;
+no warnings, cleaning, adoption, or copied private proof objects.
+Required switch, nice 10, umask 0002, group llm, and group read/write.
+Sequential validation stages, memory-aware compiler admission, eight-compiler
+ceiling, and minimum available RAM 4575.31 MiB. Independent 3.4.4 draft
+checks begin only after the registered build and kernel stages pass, in
+a separate tree. All 45,726 checked active files already have the required
+permissions. See docs/checkpoints/3.4.3-validation.json. Continue immediately
+with 3.4.4 and the rest of Chapter 3; validate, document, commit, and push
+each completed item only to GitLab origin/chatgpt. Preserve older deferrals.
+
+2026-11-05: Federer 3.4.4 registered validation.
+Completed the original sharpness construction of 3.4.4, pp. 317–318,
+and the least-degree assertion of 3.4.1 on 5 November 2026. Every
+integer m>nu>=0 and k>=1 remains. Original binary Cantor intervals give
+the actual order correspondence, inverse, homeomorphism, first-split
+bounds and exact Holder coefficient. Constant Whitney jets and the
+proved extension theorem give a class-k map with every positive
+higher form through k zero on the original source. The original
+coordinate product map has actual differential rank exactly nu and
+exact original product image.
+Independent coding, correspondence, product-map and ball-growth laws
+precede their existence proofs. All selected objects remain local
+existence witnesses. Actual restricted Cantor and cube probabilities,
+closed-measurable products, finite coordinate induction and the
+Caratheodory generator comparison prove positive Gamma-normalized
+Hausdorff image mass at every selected sharpness degree. This expands
+the printed product-measure appeal for real Cantor degrees; the existing
+2.10.27 theorem remains restricted to natural degrees as documented.
+No image-mass or rank conclusion is a hypothesis. The upper theorem
+and these examples prove the least possible universal degree, including
+the exclusion of degree zero. No new project axiom, mathematical source
+correction or extra numbered-theorem hypothesis is introduced. The
+published correction at book p. 318 line 26 is bibliographic. References
+to external arc examples are source accounts, not claims that those
+papers have been formalised.
+Forty-two theories and three actual regressions pass registered
+compilation (275.06s), complete recursive item-and-dependency kernel
+checking (361.11s), and all 90 new strict dependency queries
+(158.71s). The regressions use original Cantor degrees 3/4 and 1/4
+at class two, a rank-one whole-plane class-three example with positive
+image mass above degree 5/4, and the failure of universal degree zero.
+Every example premise is proved. All 23,444 earlier assumption
+sets are preserved; the 23,534-entry complete log uses only the three
+permitted boolp assumptions. Registered inputs and base stay unchanged;
+no warnings, cleaning, adoption or copied private proof objects.
+Required switch, nice 10, umask 0002, group llm and group read/write.
+Sequential validation stages, memory-aware compiler admission and an
+eight-compiler ceiling; minimum available RAM 3863.61 MiB. See
+ docs/checkpoints/3.4.4-validation.json. Continue immediately with 3.4.5
+and the rest of Chapter 3, validating, documenting, committing and
+pushing each completed item only to GitLab origin/chatgpt. Preserve
+all earlier deliberate deferrals.
+
+2026-11-06: Federer 3.4.5 registered validation.
+Completed the definitions and assertions of 3.4.5, pp. 318–321,
+on 6 November 2026. Actual local equivalence, ring operations and jets
+are specified before existence and opaque sealing. The exact derivative
+series defines the metric. Positive integer factorial-growth classes are
+closed, cover the ring, and are compact in finite dimension; actual
+finite nets prove separability. Addition, negation, multiplication and
+analytic pullback are continuous. Pullback is a ring homomorphism with
+the original representative, identity and composition equations.
+Set germs satisfy the Boolean laws. Actual vanishing ideals, finite
+varieties, generator independence, ideal/variety recovery, conditional
+Noetherian minimality, unique nonempty maximal components and their
+ideal-intersection formula are proved. Finite Boolean combinations have
+the printed union-of-differences form. Functional analytic submanifolds,
+blocks, the full-dimensional boundary, and germwise/open-cover analytic
+sets retain their original definitions. Compact-component finiteness is
+an explicit forward obligation of 3.4.8(11), due before Chapter 3 completion.
+The literal empty germ satisfies the printed union irreducibility test.
+Its ideal contains one, and the empty family and singleton empty-germ
+family have equal union but are distinct antichains. Proper prime ideals
+and unique components therefore use nonempty irreducibility. Both the
+literal laws and this convention qualification are proved and documented.
+A proved closed proper locally analytic surface in R^3 cannot be defined
+by finite global analytic equations. Use Cartan’s published cubic surface
+with an explicitly adapted one-sided flat coefficient. Actual local
+inverse coordinates, polynomial cone division, finite actual jet division,
+finite quadratic remainders, flat endpoint independence and two successive
+coordinate-line identities prove that every global analytic vanishing
+function is identically zero. This real proof replaces the publication’s
+complex continuation argument; its coefficient is not claimed identical
+to the published formula. No rigidity, convergent quotient or numbered
+conclusion is supplied as a hypothesis. The germ domain proof uses the
+proved analytic identity on a connected ball instead of the printed
+Leibniz observation. No new project axiom is introduced.
+258 theories and three actual regressions pass registered compilation
+(1384.67s), complete recursive item-and-dependency kernel checking
+(225.05s), and all 708 new strict dependency queries (615.13s).
+The examples retain the nonzero R^0 unit germ in an actual compact growth
+class with positive exact distance from zero, a proper nonempty line
+variety, and the same closed local/non-global surface. All 23,534
+earlier assumption sets are preserved; the complete 24,242-entry
+log uses only the three permitted boolp assumptions. Registered inputs
+and base remain fixed throughout these validation stages. Required switch,
+nice 10, umask 0002, group llm and group read/write; sequential stages,
+memory-aware admission and eight-compiler ceiling. Minimum available
+RAM is 3791.34 MiB. No cleaning, adoption or copied private proof objects.
+During earlier private drafting a compiler followed a .vo output symlink
+and overwrote ScalarAffineAnalytic’s active object. Ordinary active
+compilation repaired it, and recursive kernel checking plus affected
+private checks passed. Registered sources stayed unchanged. The private
+runner now rejects registered targets and output symlinks; guard tests
+pass. A make dry-run also regenerated dependencies during that repair;
+no proof compilers overlapped. The validation record retains this incident;
+do not claim all active objects stayed unchanged throughout drafting.
+See docs/checkpoints/3.4.5-validation.json. Continue immediately with 3.4.6
+and the rest of Chapter 3; validate, document, commit and push each item
+only to GitLab origin/chatgpt. Preserve all earlier deliberate deferrals.
+
+2026-11-06: Federer 3.4.5 exact-byte revalidation.
+The preceding recorded run passed before the staged whitespace check found
+one trailing space in ShiftedQuadraticPolynomial.v:65. Removing it changed
+only source formatting. Repeat the registered build (160.28s,
+14 ordinary compilation commands), complete recursive item-and-dependency
+kernel check (223.42s), and all 708 strict dependency queries
+(628.14s). All stages pass without warnings. Preserve all
+23,534 earlier assumption sets; 24,242 complete entries use only the three
+permitted boolp assumptions. Registered inputs and base remain unchanged
+throughout the fresh stages. Minimum available RAM 6922.93 MiB.
+The first passed status, logs and enriched record are retained under
+verification/2026-11-06-item-345/attempt1-before-whitespace-cleanup.
+Private reports retain their genuine pre-registration source hashes;
+ordinary registered checks certify the final whitespace-cleaned source.
+The documentation and two successful error-list LaTeX passes are unchanged.
+Canonical evidence: docs/checkpoints/3.4.5-validation.json.
+
+2026-11-06: Federer 3.4.6 registered validation.
+Completed both original assertions of 3.4.6, pp. 321–324,
+on 6 November 2026. The original Banach source, norm, positive
+directional order and arbitrary direction remain. Division gives unique
+analytic quotient and remainder germs for every original dividend,
+with every directional derivative of order at least k zero on one
+actual neighbourhood. Preparation retains every original continuous
+functional xi with xi(v)=1, its actual sealed kernel, the original
+equation Q Phi=W, nonzero Q(0), and all transverse Wi(0)=0.
+The multiplier, polynomial and every coefficient germ are unique.
+Independent regularity, coefficient, transverse, division and preparation
+laws precede existence and opaque seals. Actual mixed jets, exact
+products and the weighted recursion supply the coefficients. The
+printed majorants prove normal convergence of the actual homogeneous
+series. Finite remainder comparison and Taylor injectivity prove the
+all-point directional condition. Scalar normalization is restored before
+the public theorems; no unit-direction or normalized-leading hypothesis
+is added. The grouped mixed series, all operator-valued derivative
+series and the printed shifted rectangular absolute majorant are proved.
+Every choice stays local. No source correction or project axiom is added.
+Ninety-three theories and four actual regressions in three test files
+pass the final incremental registered build (18.14s), complete recursive
+item-and-dependency kernel checking (208.82s), and all 153
+new strict dependency queries (190.86s). The regressions
+retain cubic division, a non-normalized order-one multiplier, the
+nonzero transverse coefficient of x squared plus y, and impossibility
+of positive order in R^0. Every premise is proved. All 24,242 earlier
+assumption sets are preserved; the complete 24,395-entry log uses
+only the three permitted boolp assumptions. Registered inputs and
+base remain unchanged. No warnings, cleaning, adoption or copied
+private proof objects. Required switch, nice 10, umask 0002, group llm
+and group read/write; sequential stages and memory-aware admission
+with an eight-compiler ceiling. Minimum available RAM 6473.50 MiB.
+The first run compiled all 96 new sources in 474.30s and passed
+recursive kernel checking in 206.98s. Its audit refused an older
+comment edit because the audit file must be exactly append-only.
+The historical comment was restored, and all three stages were repeated
+on the final bytes. Both runs are preserved; the rejected audit is not
+promoted.
+An initial registration permission failure was resolved before the
+validation run; no rejected proof result was promoted. See
+docs/checkpoints/3.4.6-validation.json. Continue immediately with
+3.4.7 and the rest of Chapter 3, validating, documenting, committing
+and pushing each completed item only to GitLab origin/chatgpt.
+Preserve all earlier deliberate deferrals. The compact-component
+forward obligation of 3.4.5 remains due in 3.4.8(11).
