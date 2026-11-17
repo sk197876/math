@@ -1,0 +1,193 @@
+{
+  "item": "2.10.26",
+  "scope": "Both original fibre measurability conclusions for all nonnegative real degrees and an arbitrary metric target",
+  "status": "passed",
+  "date": "2026-11-16",
+  "base_revision": "1a9d45566470340b6a410f195f39f7101b46367f",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "nice": 10,
+  "umask": "0002",
+  "group": "llm",
+  "stages": {
+    "build": {
+      "stage": "build",
+      "status": "passed",
+      "started": "2026-11-16T15:08:39.256171+01:00",
+      "finished": "2026-11-16T15:12:43.828006+01:00",
+      "seconds": 244.562,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "make",
+        "-j1",
+        "all"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3525.984,
+      "memory_admission_mib": 5120,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.26/20261116-150838-build/raw.log"
+    },
+    "kernel": {
+      "stage": "kernel",
+      "status": "passed",
+      "started": "2026-11-16T15:12:58.331478+01:00",
+      "finished": "2026-11-16T15:18:18.281921+01:00",
+      "seconds": 319.947,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "rocqchk",
+        "-silent",
+        "-Q",
+        "theories",
+        "Federer",
+        "-Q",
+        "tests",
+        "FedererTests",
+        "FedererTests.RealFibreMeasurabilityExamples"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3780.418,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.26/20261116-151258-kernel/raw.log"
+    },
+    "audit": {
+      "stage": "audit-targeted",
+      "status": "passed",
+      "started": "2026-11-16T15:19:09.254756+01:00",
+      "finished": "2026-11-16T15:20:36.059239+01:00",
+      "seconds": 86.8,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "-B",
+        "tools/dependency_audit.py",
+        "1a9d45566470340b6a410f195f39f7101b46367f",
+        "--targeted-imports"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 1872.086,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.26/20261116-151908-audit-targeted/raw.log"
+    }
+  },
+  "audit": {
+    "base": "1a9d45566470340b6a410f195f39f7101b46367f",
+    "changed_modules": 10,
+    "affected_modules": 10,
+    "entries": 27938,
+    "old_entries": 27919,
+    "audited": 19,
+    "audited_old": 0,
+    "audited_new": 19,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": [],
+    "targeted_imports": true,
+    "imported_query_modules": 10
+  },
+  "earlier_assumption_sets_preserved": true,
+  "new_theories": 9,
+  "new_regressions": 2,
+  "new_public_queries": 19,
+  "registered_source_count": 11345,
+  "source_sha256": {
+    "theories/CompactRealHausdorffOpenApproximation.v": "f03a80eda0a3a7bc868faf3239bfd636081a0e9abbb9441bf9a9f3c024b1b43c",
+    "theories/CompactRealFibreOpenCovers.v": "da366c279799b23ae15298a81a1d8dab5f6024396224ea7b59bdd314b1fffaa6",
+    "theories/CompactRealFibreMassLevels.v": "fe14cff60ce2793c7dc8a0b0dd3b0132a552ad9f68cac37de9bc0472845dd973",
+    "theories/CompactRealFibreMeasurability.v": "191da427bd84e92d151acccfd97fbe39c504f06a503eed154ea022f1350c4fec",
+    "theories/CompactRealUnionFibreMeasurability.v": "8508d5e20726938f505e4aff1d2538cd44d2951f6878239ee092c8a7303554df",
+    "theories/RealHausdorffMetricSubset.v": "71cf7840c5020e74ac791f90565c6b1390abe3e1a875308058843c9084c7e538",
+    "theories/RealNullFibresCompactImage.v": "f475ec24805bc1dcb58339b119c3cd0af099d71792b9d14f20bb19dc059ec3b4",
+    "theories/RealNullFibresProperSource.v": "aefc2efbce33e23edcc228589977150ec036b07ed478ce44a963c420c81d2a91",
+    "theories/RealHausdorffFibreMeasurability.v": "e6b4b86b71c496c69026f3c28dda58959ffaa66ee52c995e4d4c5e8983132ebf",
+    "tests/RealFibreMeasurabilityExamples.v": "89ff935eb71ebbc54d69729fe9b5c52170b34e6e6b62010672c2579c56b28d29",
+    "tests/Assumptions.v": "4f33873c4f24dc6dfc543ef7b16e07678c48cd2e01be11c0d28a0dc2a4926339",
+    "_CoqProject": "abc6199656979723aaefc117aba829f3dc9c6797f78e110f393636109f18f055",
+    "Makefile": "3f22874549e270fd2647ecad480536e6e773959cc2093fceb86c608fa56a8170"
+  },
+  "all_proof_inputs_sha256": "b3bbdb8fb2d2666b0a16f8a265654eb4d6cf442afffdff4a83f163a765084cf6",
+  "complete_input_record": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.26/20261116-151908-audit-targeted/status.json",
+  "earlier_mathematical_proof_sources_changed": false,
+  "clean": false,
+  "adopt": false,
+  "copied_private_proof_objects": false,
+  "private_attempts": {
+    "path": "/opt/rocq/federer-build/drafts/coverage-2026-11-16/2.10.26/checks",
+    "failed_attempts_excluded": true,
+    "final_registered_compilation_covers_every_final_source_byte": true
+  },
+  "source_route": [
+    "reuse the real-power open-cover equality and finite compact subcovers",
+    "reuse the original compact fibre sublevel formula and rational-ray measurability criterion",
+    "apply the real-power ambient/subspace equality to the actual normalized Hausdorff measures",
+    "reuse compact image null-fibre reduction and compact source ball exhaustion",
+    "reuse the original increasing compact inner approximation and complete-measure null modification"
+  ],
+  "coverage_qualification": "Both degrees range over all nonnegative real numbers with the actual Gamma normalization. The target remains an arbitrary metric space; no fibre finiteness or target completeness/properness is added. Compact-source sublevels work at every finite real threshold. Historical questions and commentary are not asserted as solved. Explicit user omissions remain.",
+  "artifact_permissions": {
+    "checked": 40,
+    "group": "llm",
+    "group_read_write": true
+  },
+  "documentation_checks": {
+    "markdown_files": 120,
+    "links_checked": 54975,
+    "external_requested": false,
+    "external_urls": [
+      "https://doi.org/10.1007/BF01700486",
+      "https://doi.org/10.1007/BF01900510",
+      "https://doi.org/10.1007/BF02565913",
+      "https://doi.org/10.2307/1969917",
+      "https://doi.org/10.2307/1990357",
+      "https://doi.org/10.2307/1994182",
+      "https://doi.org/10.24033/bsmf.1481",
+      "https://doi.org/10.4064/fm-22-1-257-261",
+      "https://link.springer.com/book/10.1007/978-3-642-61698-3",
+      "https://www.numdam.org/item/ASNSP_1939_2_8_3-4_301_0/"
+    ],
+    "local_failures": [],
+    "external_results": []
+  },
+  "error_catalogue_sha256": "b48c937d029b2510c842853c8b38bb13b0be44476dbbfea2c1e71a93015c658a",
+  "error_catalogue_validation": {
+    "unchanged_from": "2.10.17-supplement-validation.json",
+    "previous_documentation_checks": {
+      "markdown_files": 120,
+      "links_checked": 54689,
+      "local_failures": [],
+      "external_requests": false,
+      "error_catalogue_typeset": true,
+      "tex_passes": 3,
+      "final_tex_warnings": [],
+      "error_catalogue_sha256": "b48c937d029b2510c842853c8b38bb13b0be44476dbbfea2c1e71a93015c658a"
+    }
+  }
+}

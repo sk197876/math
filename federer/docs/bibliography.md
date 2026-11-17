@@ -42,6 +42,20 @@ Nicolas Bourbaki. *Éléments de mathématique*. Actualités scientifiques et
 industrielles. Hermann, Paris. Multi-volume series; Federer's bibliography
 does not specify a volume or year for this collective reference.
 
+### Bourbaki1972
+
+Nicolas Bourbaki. *Elements of Mathematics: Commutative Algebra*.
+Hermann, Paris, and Addison-Wesley, Reading, Massachusetts, 1972.
+English translation of *Algèbre commutative*, Chapters 1–7.
+
+### Bourbaki1990
+
+Nicolas Bourbaki. *Algebra II: Chapters 4–7*. Elements of Mathematics.
+Springer-Verlag, Berlin and Heidelberg, 1990. English translation by
+P. M. Cohn and J. Howie. The consulted copy is the 2003 softcover
+reprint, ISBN 978-3-540-00706-7; the publisher identifies it as a reprint
+of the 1990 translation. [Publisher record](https://link.springer.com/book/10.1007/978-3-642-61698-3).
+
 ### Caratheodory1927
 
 Federer’s label: [C2].
@@ -166,6 +180,24 @@ Oskar Perron. *Irrationalzahlen*. Chelsea Publishing Company, New York, 1948.
 Stanisław Saks. “Remark on the differentiability of the Lebesgue indefinite
 integral.” *Fundamenta Mathematicae* **22** (1934), 257–261.
 DOI: [10.4064/fm-22-1-257-261](https://doi.org/10.4064/fm-22-1-257-261).
+
+### Ward1964
+
+Federer's label: [WA].
+
+D. J. Ward. “A counter-example in area theory.”
+*Proceedings of the Cambridge Philosophical Society* **60**, no. 4
+(1964), 821–845. Communicated by E. R. Reifenberg.
+DOI: [10.1017/S0305004100038317](https://doi.org/10.1017/S0305004100038317).
+
+### WhitneyBruhat1959
+
+Federer’s label: [WB].
+
+Hassler Whitney and François Bruhat. “Quelques propriétés fondamentales
+des ensembles analytiques-réels.” *Commentarii Mathematici Helvetici*
+**33** (1959), 132–160.
+DOI: [10.1007/BF02565913](https://doi.org/10.1007/BF02565913).
 
 ## English writing
 

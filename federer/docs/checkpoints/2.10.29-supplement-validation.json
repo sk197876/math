@@ -1,0 +1,161 @@
+{
+  "item": "2.10.29",
+  "scope": "Every original Cantor self-product and positive finite-power conclusion with actual Gamma-normalized Hausdorff measures",
+  "status": "passed",
+  "date": "2026-11-16",
+  "base_revision": "c4e2d4749ba389cd073b8dde94ff3795e106d89d",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "nice": 10,
+  "umask": "0002",
+  "group": "llm",
+  "stages": {
+    "build": {
+      "stage": "build",
+      "status": "passed",
+      "started": "2026-11-16T12:55:58.532782+01:00",
+      "finished": "2026-11-16T12:57:20.743632+01:00",
+      "seconds": 82.198,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "make",
+        "-j2",
+        "all"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3473.809,
+      "memory_admission_mib": 5120,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 2,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.29/20261116-125558-build/raw.log"
+    },
+    "kernel": {
+      "stage": "kernel",
+      "status": "passed",
+      "started": "2026-11-16T12:58:13.489221+01:00",
+      "finished": "2026-11-16T13:03:49.724400+01:00",
+      "seconds": 336.224,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "rocqchk",
+        "-silent",
+        "-Q",
+        "theories",
+        "Federer",
+        "-Q",
+        "tests",
+        "FedererTests",
+        "FedererTests.RealHausdorffCantorProductExamples"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3895.941,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.29/20261116-125813-kernel/raw.log"
+    },
+    "audit": {
+      "stage": "audit-targeted",
+      "status": "passed",
+      "started": "2026-11-16T13:05:09.167048+01:00",
+      "finished": "2026-11-16T13:05:42.241313+01:00",
+      "seconds": 33.071,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "-B",
+        "tools/dependency_audit.py",
+        "c4e2d474",
+        "--targeted-imports"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3574.594,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.29/20261116-130508-audit-targeted/raw.log"
+    }
+  },
+  "audit": {
+    "base": "c4e2d474",
+    "changed_modules": 2,
+    "affected_modules": 2,
+    "entries": 27840,
+    "old_entries": 27837,
+    "audited": 3,
+    "audited_old": 0,
+    "audited_new": 3,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": [],
+    "targeted_imports": true,
+    "imported_query_modules": 2
+  },
+  "earlier_assumption_sets_preserved": true,
+  "new_theories": 1,
+  "new_regressions": 1,
+  "new_public_queries": 3,
+  "registered_source_count": 11303,
+  "source_sha256": {
+    "theories/RealHausdorffCantorProducts.v": "9f16741783592ca3eca013362011e24db9e8953e7cef1e909d0abaa17c72b0e8",
+    "tests/RealHausdorffCantorProductExamples.v": "a01642a134c1ca8f3626626042dbf5c036683bdd7edfde2f2ce3b7718dd147da",
+    "tests/Assumptions.v": "b80e4ef3c60117c24ec6361a7c51ad628cca85762c9e880a4f29b92f6b379257",
+    "_CoqProject": "c684303b498ebaff7efbc036024c3ff63f6f60b17fb981e34cd292a62812cb54",
+    "Makefile": "d42769680061383fc55764d4c1ed02bccda6e7e45e0a7d4e870f690822831e4f"
+  },
+  "all_proof_inputs_sha256": "b2738be021b4f8d51bf05e2152235031c43ed04cf5394210109ff70b42dc3aad",
+  "complete_input_record": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.29/20261116-130508-audit-targeted/status.json",
+  "earlier_mathematical_proof_sources_changed": false,
+  "clean": false,
+  "adopt": false,
+  "copied_private_proof_objects": false,
+  "private_attempts": {
+    "path": "/opt/rocq/federer-build/drafts/coverage-2026-11-16/2.10.29/checks",
+    "failed_attempts_excluded": true,
+    "final_registered_compilation_covers_every_final_source_byte": true
+  },
+  "source_route": [
+    "2.10.28 canonical Hausdorff Cantor mass and original recurrence",
+    "existing self-product cover bound",
+    "existing finite scalar powers and interleaved infinite products",
+    "existing orthogonal Euclidean coordinate regrouping",
+    "instantiate factor degree qm and target degree k normalizers independently"
+  ],
+  "coverage_qualification": "The original strict range 0<=k<q(m+1), all positive integer q and the corrected interleaving remain. Explicit user deferrals remain.",
+  "documentation_checks": {
+    "markdown_files": 120,
+    "links_checked": 54725,
+    "local_failures": [],
+    "external_requests": false,
+    "error_catalogue_unchanged": true,
+    "error_catalogue_sha256": "b48c937d029b2510c842853c8b38bb13b0be44476dbbfea2c1e71a93015c658a",
+    "reused_error_catalogue_typesetting": "2.10.17-supplement-validation.json"
+  },
+  "artifact_permissions": {
+    "checked": 8,
+    "group": "llm",
+    "group_read_write": true
+  }
+}

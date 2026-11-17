@@ -1,0 +1,73 @@
+(** Federer (1969), 3.4.12, p. 339, extending 3.4.7, p. 325: a prime
+    distinguished factor in the original transverse polynomial
+    subring is prime in the actual analytic germ ring.
+    The original division theorem, actual finite remainders,
+    coefficient independence, and uniqueness prove the lift. *)
+From mathcomp Require Import all_boot all_order all_algebra boolp classical_sets reals.
+From Federer Require Import ScalarRestriction ComplexScalarSealed ComplexNormUP ComplexModulus ComplexScalarNorm HolomorphicLinear HolomorphicGermArithmeticRepresentatives HolomorphicGermOperationsUP Hom RealNormUP NormDifferentialUP HolomorphicGermRepresentatives
+  HolomorphicGermUP HolomorphicGermRing HolomorphicGermValueSealed ComplexWeierstrassTransverseUP
+  ComplexWeierstrassTransversePullback HolomorphicTransversePolynomialInjection
+  HolomorphicDistinguishedPolynomialLine HolomorphicPolynomialDivisionModel
+  CommutativeDomainUP CommutativeFactorizationUP CommutativePolynomialUP
+  CommutativePolynomialEvaluationUP DistinguishedPolynomialUP PolynomialMonicPrimeBounds
+  PolynomialPrimeDivisionLift.
+Set Implicit Arguments.
+Unset Strict Implicit.
+Unset Printing Implicit Defensive.
+Import GRing.Theory.
+Local Open Scope ring_scope.
+Section ActualPrime.
+Variable R:realType.
+Variables X K:lmodType (ComplexScalars.C R).
+Variables (NX:X->R) (NK:K->R).
+Variables (hNX:is_complex_norm NX) (hNK:is_complex_norm NK).
+Variable v:X.
+Variable xi:Hom X (ComplexScalars.C R)^o.
+Variables (inclusion:Hom K X) (projection:Hom X K).
+Hypothesis hSplit:is_complex_weierstrass_transverse_space NX NK v xi inclusion projection.
+Variable fXi:@holomorphic_representative_type R X NX (complex_norm_real hNX) 0.
+Hypothesis hXi:@norm_bounded_linear R (restricted_space (ComplexScalars.embed R) X)
+    (restricted_space (ComplexScalars.embed R) (ComplexScalars.C R)^o) NX (@complex_modulus R) (complex_hom_real xi).
+Hypothesis hXiValues:forall x,holomorphic_representative_value fXi x = xi x.
+Local Notation G:=[the comNzRingType of (@holomorphic_germ_ring R X NX (complex_norm_real hNX) 0)].
+Local Notation A:=[the comNzRingType of (@holomorphic_germ_ring R K NK (complex_norm_real hNK) (projection 0))].
+Local Notation E:=(@complex_weierstrass_transverse_ring_pullback R X K NX NK hNX hNK
+  v xi inclusion projection hSplit).
+Local Notation Gamma:=(holomorphic_germ fXi:G).
+Local Notation value:=(@HolomorphicGermValue.map R K NK (complex_norm_real hNK) (projection 0)).
+Variable B:comNzRingType.
+Variable embed:{rmorphism A->B}.
+Variable variable:B.
+Variable coefficient:B->nat->A.
+Hypothesis hP:is_commutative_polynomial_ring embed variable coefficient.
+Variable J:{rmorphism B->G}.
+Hypothesis hJ:is_commutative_polynomial_evaluation embed variable E Gamma J.
+
+(** Source for [holomorphic_distinguished_polynomial_prime]: an
+    original distinguished polynomial prime remains prime
+    among all analytic germs, expanding the final factor
+    comparison in 3.4.7, p. 325. Analytic
+    primality, finite remainder membership, and a unique
+    remainder comparison are all conclusions of earlier proofs,
+    rather than new analytic hypotheses. *)
+Theorem holomorphic_distinguished_polynomial_prime
+    (hDomain:is_commutative_integral_domain A) (H:B) n:
+  is_distinguished_polynomial coefficient value H n ->
+  is_commutative_prime_element H ->is_commutative_prime_element (J H).
+Proof.
+move=>hDistinguished hPrime.
+have hPositive:=@polynomial_monic_prime_positive_degree A B embed variable coefficient
+  hP H n hDistinguished.1 hPrime.
+have hRegular:=@holomorphic_distinguished_polynomial_regular R X K NX NK hNX hNK
+  v xi inclusion projection hSplit fXi hXiValues B embed variable coefficient hP J hJ
+  H n hDistinguished hPositive.
+have hInjective:=@holomorphic_transverse_polynomial_evaluation_injective R X K NX NK hNX hNK
+  v xi inclusion projection hSplit fXi B embed variable coefficient hP J hJ hXiValues.
+apply:(@polynomial_prime_unique_division_lift A B G embed variable coefficient
+  hP hDomain H n J hInjective hDistinguished.1 hPrime).
+- exact:(@holomorphic_polynomial_division_exists R X K NX NK hNX hNK v xi inclusion projection
+    hSplit fXi hXi hXiValues B embed variable coefficient hP J hJ H n hRegular).
+- exact:(@holomorphic_polynomial_zero_remainder_unique R X K NX NK hNX hNK v xi inclusion projection
+    hSplit fXi hXi hXiValues B embed variable coefficient hP J hJ H n hRegular).
+Qed.
+End ActualPrime.

@@ -3,10 +3,17 @@
 This project formalises Herbert Federer's *Geometric Measure Theory*
 (1969), following the book's definitions, hypotheses, conventions, and
 proofs as closely as possible. The development covers Chapters 1 and 2
-with documented qualifications, and Chapter 3 through subsection 3.3,
-subject to the explicit deferrals in 3.2. Subsection 3.4 is in progress:
-3.4.1–3.4.6 are validated, including critical values, sharpness, analytic
-germs, conditional local algebra and Weierstrass division and preparation.
+with documented qualifications, and Chapter 3, subject to the deferrals
+and qualifications in the section guides. All numbered assertions of
+3.4.1–3.4.12 are validated. They cover
+critical values and sharpness, analytic germs, Noetherianity and unique
+factorization, Weierstrass division and preparation, finite analytic
+stratification, compact component finiteness, analytic dimension, and the
+geometry of regular and singular parts, tangent-hull dimension, and finite
+homogeneous polynomial majorants, including their complex analytic
+extensions and the required covering and dimension corrections.
+The original real auxiliary compact-union assertion of 3.4.8(5) also has a
+validated supplement for arbitrary proper ideals.
 
 ## Sources and principles
 
@@ -37,15 +44,29 @@ Chapter 1 covers §§1.2–1.10 with the qualifications in the section
 guides; 1.1.1, 1.1.2, and 1.1.4 are complete, and 1.1.3 is intentionally
 deferred. Chapter 2 reaches the requested last proof, 2.10.48, with its
 documented qualifications. Items 2.8.8–2.8.9 exclude book examples;
-2.10.46 remains partial and deferred. Item 2.10.49 is a historical remark.
+2.10.46 remains partial and deferred. The complete 2.10.6 comparison and
+ratio assembly is proved. The Ward construction cited in 2.10.27 is
+intentionally omitted at the user’s request. Item 2.10.49 is a historical remark.
 
 Chapter 3 covers 3.1 and 3.3 with documented qualifications. Section 3.2
-retains the deferred second paragraph of 3.2.40 and partial 3.2.45. This
-checkout records 3.4.1–3.4.6 as validated and later 3.4 items as pending.
+retains the deferred second paragraph of 3.2.40. Item 3.2.45 is complete
+with its documented source correction, including original exponent
+continuity, sharp comparisons, full convex and all-set section inequalities,
+and measurable-first-factor product equality. This checkout records all
+numbered assertions of 3.4.1–3.4.12 as validated.
+The [fresh full-project rebuild, kernel check, and full audit](docs/checkpoints/chapter3-full-validation.json)
+after that release passed, preserving every earlier assumption set.
+The compact-cover supplement closes the original real
+auxiliary proof limit in 3.4.8(5) and has its own validation record.
 
 The [section guides](docs/toc.md) give the precise scope of each item.
+The [coverage completion record](docs/checkpoints/coverage-completion.md)
+records completion of the proof obligations authorised after the Chapter 3
+release and preserves the user’s explicit omissions.
+The [latest coverage supplement](docs/checkpoints/3.2.45-sections-supplement-validation.json) passes registered compilation, recursive kernel checking, and a dependency audit.
+
 The [verification guide](docs/validation.md) preserves the detailed release
-accounts, test scope, counts, dates, and remaining obligations. The complete
+accounts, test scope, counts, durations, and remaining obligations. The complete
 build record is [docs/verification.txt](docs/verification.txt); individual
 reports are catalogued under [docs/checkpoints/](docs/checkpoints/README.md).
 Only the three permitted MathComp boolp assumptions occur in the recorded
@@ -79,7 +100,7 @@ File and batch usage are described in [the documentation index](docs/toc.md#html
 
 The [maintenance guide](docs/maintenance.md) defines the shared document
 structure, writing rules, and link checks. The [verification guide](docs/validation.md)
-separates dated release evidence from current coverage.
+separates historical release evidence from current coverage.
 
 ## Build environment
 
@@ -156,10 +177,11 @@ Use the [rendering guide](docs/rendering.md) to generate HTML with mathematics.
 
 ## Public snapshot
 
-This snapshot exports the verified source files and current documentation
-from revision `b07c257e` of the working formalisation.
-The latest mathematical release is 3.4.6; later 3.4 items retain their
-pending status. [PUBLIC_SNAPSHOT.json](PUBLIC_SNAPSHOT.json) records the
-source revision, validation evidence, exclusions, and export checks.
-Agent instructions, memories, restart handoffs, unfinished draft recovery,
-local settings, and generated build artifacts are excluded.
+This snapshot contains the verified proof sources through 3.4.12 and the
+completed coverage supplements, together with current documentation. It
+retains the documented source corrections, qualifications and intentional
+omissions. [PUBLIC_SNAPSHOT.json](PUBLIC_SNAPSHOT.json) identifies the
+source revision, validation evidence, exclusions and export checks.
+Agent instructions, memories, restart and progress handoffs, unfinished
+draft recovery, local settings and generated build artifacts are excluded.
+Copying these sources does not constitute a new mathematical validation.

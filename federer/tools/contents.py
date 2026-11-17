@@ -38,6 +38,7 @@ SECTIONS = {
     '3.4': 'Some properties of highly differentiable functions',
 }
 SOURCE_ACCOUNTS = {
+    '2.10.27': 'All three original inequalities are proved. The Ward construction cited on p. 190 for the nonreplacement assertion is intentionally omitted at the user’s request; its unfinished drafts are outside the registered library.',
     '3.3.11': 'Historical source account; forward example and open question, with no independent theorem or assumption.',
     '3.3.22': 'Historical source account; Federer explicitly neither proves nor uses these closing results. No theorem or assumption is added.',
 }

@@ -1,0 +1,176 @@
+{
+  "item": "2.10.24",
+  "scope": "All original real-degree Hausdorff and spherical weighted-cover applications, including the boundedly compact cases without a finite-support cover",
+  "status": "passed",
+  "date": "2026-11-16",
+  "base_revision": "d898d5cc7c3d7ae2141d4dedfe027932e481a9bf",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "nice": 10,
+  "umask": "0002",
+  "group": "llm",
+  "stages": {
+    "build": {
+      "stage": "build",
+      "status": "passed",
+      "started": "2026-11-16T14:15:23.663397+01:00",
+      "finished": "2026-11-16T14:18:04.244962+01:00",
+      "seconds": 160.57,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "make",
+        "-j1",
+        "all"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3475.852,
+      "memory_admission_mib": 5120,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.24/20261116-141523-build/raw.log"
+    },
+    "kernel": {
+      "stage": "kernel",
+      "status": "passed",
+      "started": "2026-11-16T14:18:20.594757+01:00",
+      "finished": "2026-11-16T14:23:38.758911+01:00",
+      "seconds": 318.16,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "rocqchk",
+        "-silent",
+        "-Q",
+        "theories",
+        "Federer",
+        "-Q",
+        "tests",
+        "FedererTests",
+        "FedererTests.RealWeightedCoverExamples"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3875.301,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.24/20261116-141820-kernel/raw.log"
+    },
+    "audit": {
+      "stage": "audit-targeted",
+      "status": "passed",
+      "started": "2026-11-16T14:24:38.970903+01:00",
+      "finished": "2026-11-16T14:25:48.130037+01:00",
+      "seconds": 69.152,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "-B",
+        "tools/dependency_audit.py",
+        "d898d5cc",
+        "--targeted-imports"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 1974.016,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.24/20261116-142438-audit-targeted/raw.log"
+    }
+  },
+  "audit": {
+    "base": "d898d5cc",
+    "changed_modules": 6,
+    "affected_modules": 6,
+    "entries": 27894,
+    "old_entries": 27880,
+    "audited": 14,
+    "audited_old": 0,
+    "audited_new": 14,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": [],
+    "targeted_imports": true,
+    "imported_query_modules": 6
+  },
+  "earlier_assumption_sets_preserved": true,
+  "new_theories": 5,
+  "new_regressions": 2,
+  "new_public_queries": 14,
+  "registered_source_count": 11325,
+  "source_sha256": {
+    "theories/RealHausdorffEnlargement.v": "57e518bd67ab9f75a753b5adf633593bd46be2c1dfb53e08b617b82b87fd732a",
+    "theories/RealHausdorffWeightedSigmaFinite.v": "8399cf33b7770629d4dda99c07420137663156fa64dad40998e3064d9b723bfe",
+    "theories/RealSphericalWeightedSigmaFinite.v": "09e475045156bd10fe2c51db1280f669fe1869362de20011c0c06693fefcdc43",
+    "theories/RealHausdorffProperWeighted.v": "86751576345fd0904afbf3cb7ea072cb3778423edd6a57c21a4ae66073d792cb",
+    "theories/RealSphericalProperWeighted.v": "2049ae2782b50b4df3cf1707ad49698ed3ef3b2a0ea8c3545ce56313a2958d52",
+    "tests/RealWeightedCoverExamples.v": "cac5b1892ad69ab0dbf8ec50024815faccf4d83a5b37dc14bc2bf44a4135b503",
+    "tests/Assumptions.v": "2eecc92b0cf1351676e87f00d633e45be68d6ae56505efa48fb1adff0697da43",
+    "_CoqProject": "a273efc8ba35b3b0c2f141b2e95b1676230fe49265074d3f66202602704d58c7",
+    "Makefile": "226d0a3a6880ff5ab0c1228b0c037d5b7e095d38fddf5565632416f5f0c7e733"
+  },
+  "all_proof_inputs_sha256": "506fdb71b28d7f09f19de002656548601190cfc6da9fa3bbf09aebe1d4188d84",
+  "complete_input_record": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.24/20261116-142438-audit-targeted/status.json",
+  "earlier_mathematical_proof_sources_changed": false,
+  "clean": false,
+  "adopt": false,
+  "copied_private_proof_objects": false,
+  "private_attempts": {
+    "path": "/opt/rocq/federer-build/drafts/coverage-2026-11-16/2.10.24/checks",
+    "failed_attempts_excluded": true,
+    "final_registered_compilation_covers_every_final_source_byte": true,
+    "excluded_runner_incidents": [
+      {
+        "attempt": "/opt/rocq/federer-build/drafts/coverage-2026-11-16/2.10.19/checks/20261116-140210-RealHausdorffEnlargement",
+        "reason": "Inherited private draft directory caused a refused ambiguous import after the dependency was registered. The runner destination was corrected and all private checks were repeated in the separate 2.10.24 tree.",
+        "promoted": false
+      }
+    ]
+  },
+  "source_route": [
+    "reuse the existing real-power weak-enlargement transfer with the sealed degree-one Hausdorff geometric witnesses",
+    "reuse actual real-power closed-cover equality and the generic Borel restriction and Fatou arguments",
+    "reuse real_power_compact_cutoff_laws and real_power_compact_cost_nonnegative_degree to obtain original finite-scale continuity",
+    "reuse weighted positive-level measure bounds to obtain the finite-support cover",
+    "retain the existing spherical comparison repair using H<=S<=2^p H and injective weighted-cover transport",
+    "check infinite singleton spikes at zero and one-half degree"
+  ],
+  "coverage_qualification": "Every original application hypothesis is retained. Functions and support-cover members need not be measurable; function and integral values may be infinite. Degrees and diameters may be zero. Covering coefficients remain finite nonnegative reals. The existing closed-ball-family counterexample and explicit user omissions remain.",
+  "artifact_permissions": {
+    "files": 24,
+    "group": "llm",
+    "group_read_write": true,
+    "failures": []
+  },
+  "documentation_checks": {
+    "error_catalogue_unchanged": true,
+    "error_catalogue_sha256": "b48c937d029b2510c842853c8b38bb13b0be44476dbbfea2c1e71a93015c658a",
+    "prior_typesetting_report": "2.10.17-supplement-validation.json",
+    "prior_tex_passes": 3,
+    "prior_final_tex_warnings": [],
+    "markdown_files": 120,
+    "links_checked": 54868,
+    "local_failures": [],
+    "external_requests": false
+  }
+}

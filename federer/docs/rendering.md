@@ -26,13 +26,17 @@ Tables, fenced code and a page table of contents are included.
 Run from the repository root:
 
 ```sh
+
 # Write docs/contents.html next to the Markdown source.
+
 python3 docs/md_to_html.py docs/contents.md
 
 # Choose a filename for a single page.
+
 python3 docs/md_to_html.py docs/symbols.md -o /tmp/symbols.html
 
 # Convert a directory recursively, preserving the directory structure.
+
 python3 docs/md_to_html.py docs --output-dir docs/html
 ```
 

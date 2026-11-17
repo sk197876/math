@@ -1,0 +1,163 @@
+{
+  "item": "2.10.42",
+  "scope": "Original spherical/Hausdorff Jung comparison in every nonnegative real degree, with the printed coefficient and all boundary cases",
+  "status": "passed",
+  "date": "2026-11-16",
+  "base_revision": "91f7d02d368968e51868734c231937cd2c49a999",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "nice": 10,
+  "umask": "0002",
+  "group": "llm",
+  "stages": {
+    "build": {
+      "stage": "build",
+      "status": "passed",
+      "started": "2026-11-16T13:18:34.166795+01:00",
+      "finished": "2026-11-16T13:20:55.286950+01:00",
+      "seconds": 141.116,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "make",
+        "-j2",
+        "all"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 601.383,
+      "memory_admission_mib": 5120,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 2,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.42/20261116-131833-build/raw.log"
+    },
+    "kernel": {
+      "stage": "kernel",
+      "status": "passed",
+      "started": "2026-11-16T13:21:44.571570+01:00",
+      "finished": "2026-11-16T13:27:21.172964+01:00",
+      "seconds": 330.587,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "rocqchk",
+        "-silent",
+        "-Q",
+        "theories",
+        "Federer",
+        "-Q",
+        "tests",
+        "FedererTests",
+        "FedererTests.RealHausdorffJungExamples"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 4347.977,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.42/20261116-132144-kernel/raw.log"
+    },
+    "audit": {
+      "stage": "audit-targeted",
+      "status": "passed",
+      "started": "2026-11-16T13:28:15.399698+01:00",
+      "finished": "2026-11-16T13:29:01.712363+01:00",
+      "seconds": 46.302,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "-B",
+        "tools/dependency_audit.py",
+        "91f7d02d",
+        "--targeted-imports"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 2637.082,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.42/20261116-132815-audit-targeted/raw.log"
+    }
+  },
+  "audit": {
+    "base": "91f7d02d",
+    "changed_modules": 4,
+    "affected_modules": 4,
+    "entries": 27849,
+    "old_entries": 27840,
+    "audited": 9,
+    "audited_old": 0,
+    "audited_new": 9,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": [],
+    "targeted_imports": true,
+    "imported_query_modules": 4
+  },
+  "earlier_assumption_sets_preserved": true,
+  "new_theories": 3,
+  "new_regressions": 3,
+  "new_public_queries": 9,
+  "registered_source_count": 11307,
+  "source_sha256": {
+    "theories/RealPowerSphericalContainingBall.v": "fb4c71cbfbff210a9ee313bd655d95263a8b544093384de6923f065f510cfa6e",
+    "theories/RealPowerJungCutoff.v": "b71b6bc79534b265a50e90277f6e9ed50fb0ddb3d218127c985b3eb553db0db1",
+    "theories/RealHausdorffJungComparison.v": "228c9e82ae30c23f4e8a7733e0cf8b5cb40b2d45e791d4bcee5773f7faebb9c0",
+    "tests/RealHausdorffJungExamples.v": "55480e14b8180d2009877db2e899baa89f4642ffd2885007916cab73d0e10a36",
+    "tests/Assumptions.v": "ef196efd78b68ac1f68758f9d89d31c8fae88deeac8a2cea13a09ca265e09f4a",
+    "_CoqProject": "b5cd046bf2433d178b984d6c120ec52a7caedfcc977a47dbc2638a04a7ab43c8",
+    "Makefile": "3bd832c7b19adc7cf6df81245792cf00fa373159fdcc2e62377083f8527720e6"
+  },
+  "all_proof_inputs_sha256": "5f17f27ba964d6b7017728e3c85fbdcd063718926b3453b171e733e6867f9259",
+  "complete_input_record": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.42/20261116-132815-audit-targeted/status.json",
+  "earlier_mathematical_proof_sources_changed": false,
+  "clean": false,
+  "adopt": false,
+  "copied_private_proof_objects": false,
+  "private_attempts": {
+    "path": "/opt/rocq/federer-build/drafts/coverage-2026-11-16/2.10.42/checks",
+    "failed_attempts_excluded": true,
+    "final_registered_compilation_covers_every_final_source_byte": true
+  },
+  "source_route": [
+    "existing real-power small positive gauge enlargement",
+    "existing original Jung minimum containing ball",
+    "existing weighted metric scale-envelope comparison",
+    "existing real-power square-root identity gives the exact printed coefficient",
+    "existing spherical/Hausdorff comparison and singleton cost bound supply the zero-dimensional endpoint"
+  ],
+  "coverage_qualification": "No target measurability, boundedness, finite-mass, positive degree or positive ambient dimension is imposed. Strictly positive spherical radii remain. Explicit user deferrals remain.",
+  "documentation_checks": {
+    "markdown_files": 120,
+    "links_checked": 54754,
+    "local_failures": [],
+    "external_requests": false,
+    "error_catalogue_unchanged": true,
+    "error_catalogue_sha256": "b48c937d029b2510c842853c8b38bb13b0be44476dbbfea2c1e71a93015c658a",
+    "reused_error_catalogue_typesetting": "2.10.17-supplement-validation.json"
+  },
+  "artifact_permissions": {
+    "checked": 16,
+    "group": "llm",
+    "group_read_write": true
+  }
+}

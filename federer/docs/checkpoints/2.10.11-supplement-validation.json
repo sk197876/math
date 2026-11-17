@@ -1,0 +1,204 @@
+{
+  "item": "2.10.11",
+  "scope": "Original real-degree Hausdorff multiplicity theorem, a complete original-hypothesis counterexample to the spherical parenthesis, and its corrected real-degree bound",
+  "status": "passed",
+  "date": "2026-11-16",
+  "base_revision": "02a447dc25873bec8a310fe4077b0c2a4e0c3034",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "nice": 10,
+  "umask": "0002",
+  "group": "llm",
+  "stages": {
+    "build": {
+      "stage": "build",
+      "status": "passed",
+      "started": "2026-11-16T16:45:36.780362+01:00",
+      "finished": "2026-11-16T16:49:59.611107+01:00",
+      "seconds": 262.825,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "make",
+        "-j1",
+        "all"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3301.547,
+      "memory_admission_mib": 5120,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.11/20261116-164536-build/raw.log"
+    },
+    "kernel": {
+      "stage": "kernel",
+      "status": "passed",
+      "started": "2026-11-16T16:50:01.008205+01:00",
+      "finished": "2026-11-16T16:55:21.398432+01:00",
+      "seconds": 320.379,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "rocqchk",
+        "-silent",
+        "-Q",
+        "theories",
+        "Federer",
+        "-Q",
+        "tests",
+        "FedererTests",
+        "FedererTests.RealMultiplicityExamples"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3904.516,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.11/20261116-165000-kernel/raw.log"
+    },
+    "audit": {
+      "stage": "audit-targeted",
+      "status": "passed",
+      "started": "2026-11-16T16:55:22.065837+01:00",
+      "finished": "2026-11-16T16:56:37.262763+01:00",
+      "seconds": 75.185,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "-B",
+        "tools/dependency_audit.py",
+        "02a447dc",
+        "--targeted-imports"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3225.348,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.11/20261116-165521-audit-targeted/raw.log"
+    }
+  },
+  "audit": {
+    "base": "02a447dc",
+    "changed_modules": 14,
+    "affected_modules": 14,
+    "entries": 28039,
+    "old_entries": 27987,
+    "audited": 52,
+    "audited_old": 0,
+    "audited_new": 52,
+    "unresolved_names": 0,
+    "closed": 3,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": [],
+    "targeted_imports": true,
+    "imported_query_modules": 14
+  },
+  "earlier_assumption_sets_preserved": true,
+  "new_theories": 13,
+  "new_regressions": 2,
+  "new_public_queries": 52,
+  "registered_source_count": 11385,
+  "source_sha256": {
+    "theories/BinaryPrefixDistanceUP.v": "33da1179a511ca72706ba8eb3a871e4f65525284d9f05d61023df57bd66420a4",
+    "theories/BinaryPrefixDistanceExistence.v": "658520a7a156473a1586a189c6b599d0ab1428091a4394f8af3baa86057f20c7",
+    "theories/BinaryPrefixMetric.v": "92260e8945399204b06153c4d4b86cd5b6fb73df9e5001170705653808ac0b4c",
+    "theories/BinaryPrefixBalls.v": "b28b81fe8d44876bdcc516d9aa8d20b7b21b4268ffac3057ab34919a811747ec",
+    "theories/BinaryPrefixCompact.v": "afd16dbad00727b9f17ca88bd5f8ed9c64c036bcbadf57b412dbd8c37dedfb8d",
+    "theories/BinaryPrefixProbability.v": "5e68b970ea442180339c1d248796aab8daa5895b6dbea66d0378611ecad9ad8d",
+    "theories/BinaryPrefixSphericalUpper.v": "d06de8ff0c86112c4a66ada88096c53ae956034f83dbcee398827ebde664dfce",
+    "theories/BinaryVerticalEmbedding.v": "f7d33e3a9ceb49d1c762bcd5165d4870a46384d7e42b1f1e1b5cc7439f903f5a",
+    "theories/BinaryVerticalSphericalLower.v": "3b39bc4a6e1d4e603ffae041672c9ef96c9383dbf03cc1477003f7c9f300b677",
+    "theories/RealHausdorffMultiplicity.v": "a4c49ec75da10349d6b6abe070863699e213ed03d28fe1d3b0a53327c14f24b2",
+    "theories/RealSphericalMultiplicityBound.v": "b0852608ef868cbcbb6791513c41d9b099181236d66e228b6edefe8ae05bc045",
+    "theories/BinarySphericalMultiplicityCounterexample.v": "6dbaeddc554c254996ba6137981e9f32402041f771cb226ca8976c3ff44ae45e",
+    "theories/BinaryVerticalSphericalValues.v": "1f44de7249645625e739fb086afcaabce093278dd02a85b71564f507df606d0a",
+    "tests/RealMultiplicityExamples.v": "9268eaff7e5faea41959ae125e50a5219746f250103840b051795061a9f5e553",
+    "tests/Assumptions.v": "0161463535c2bbb2f1862fba6cbc4e918e55c19a5ea552226c2a6fcb0e315cf1",
+    "_CoqProject": "66ccad56da9826574df2c56090a9c6a963c2c268cb90f2c6e1630a6cf2cbb392",
+    "Makefile": "e2fe2304df1072eb1d67e963a5a96965ea6cdfdb6550bac257e2e86bec4a315d"
+  },
+  "all_proof_inputs_sha256": "b3e8cad0afe400613a24319391dd05016f74d1429e406a9aa3f799170ed3d5c9",
+  "complete_input_record": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.11/20261116-165521-audit-targeted/status.json",
+  "earlier_mathematical_proof_sources_changed": false,
+  "clean": false,
+  "adopt": false,
+  "copied_private_proof_objects": false,
+  "private_attempts": {
+    "path": "/opt/rocq/federer-build/drafts/coverage-2026-11-16/2.10.11-binary/checks",
+    "failed_attempts_excluded": true,
+    "final_registered_compilation_covers_every_final_source_byte": true,
+    "earlier_real_hausdorff_check_path": "/opt/rocq/federer-build/drafts/coverage-2026-11-16/2.10.11/checks",
+    "concurrency_incident": "Two independent files were inadvertently checked concurrently on unchanged private source bytes and both failed normally. No result was promoted. The final corrected consumer closure was subsequently checked sequentially before ordinary registered compilation."
+  },
+  "source_route": [
+    "reuse the original 2.10.10 multiplicity identity and Borel image measurability",
+    "reuse the registered actual Gamma-normalized real Hausdorff image estimate",
+    "reuse H^p <= S^p <= 2^p H^p for the corrected spherical image and multiplicity bound",
+    "specify the binary first-difference distance before proving existence and opaque sealing",
+    "reuse the existing binary-cylinder probability, finite refinement cost and product compactness",
+    "reuse compact metric completeness and separability and the actual maximum product metric",
+    "reuse the isometric real-line ball-diameter theorem only in the target",
+    "compare twice the pushed-forward probability with every actual spherical generator cost",
+    "derive exact spherical masses one and two and verify the original least Lipschitz constant one"
+  ],
+  "coverage_qualification": "The original Hausdorff statement is retained in every real degree p>=0, including zero degree, zero least Lipschitz constant and infinite masses. The spherical parenthesis is false under every original hypothesis: a compact binary metric source embeds isometrically in its maximum-metric product with a line, but spherical length changes from one to two. The corrected bound has factor 2^p, sharp in degree one; no claim of sharpness for other degrees. This is a project source correction, absent from the published erratum. Explicit user omissions remain.",
+  "artifact_permissions": {
+    "artifacts_checked": 56,
+    "group": "llm",
+    "group_read_write": true
+  },
+  "error_catalogue_typesetting": {
+    "status": "passed",
+    "source_sha256": "e8765280826ce10c6b6e123b9e71209521a7ffac4ada0a4a9ce1e25a5e10ac94",
+    "passes": [
+      {
+        "pass": 1,
+        "returncode": 0,
+        "seconds": 0.463
+      },
+      {
+        "pass": 2,
+        "returncode": 0,
+        "seconds": 0.412
+      },
+      {
+        "pass": 3,
+        "returncode": 0,
+        "seconds": 0.476
+      }
+    ],
+    "warnings": [],
+    "source_unchanged": true,
+    "pdf": "/tmp/coverage211-erratum-build/federer-errors.pdf",
+    "raw_logs": "/tmp/coverage211-erratum-build",
+    "group": "llm",
+    "umask": "0002",
+    "nice": 10
+  },
+  "documentation_checks": {
+    "markdown_files": 120,
+    "links_checked": 55161,
+    "external_requested": false,
+    "local_failures": []
+  }
+}

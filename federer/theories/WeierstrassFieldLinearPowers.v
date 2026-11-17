@@ -1,0 +1,45 @@
+(** Federer (1969), 3.4.12, p. 339, extending 3.4.6, p. 323: powers of
+    the original functional and linear pullbacks of transverse
+    polynomials retain their printed homogeneous degrees. *)
+From mathcomp Require Import all_boot all_order all_algebra reals.
+From Federer Require Import Hom SymmetricForms SymmetricFormDual SymmetricFunctionalProduct
+  HomogeneousPolynomialFunctions PolynomialDiagonalNorm PolynomialLinearComposition DividedPowers.
+Set Implicit Arguments.
+Unset Strict Implicit.
+Unset Printing Implicit Defensive.
+Import GRing.Theory Num.Theory.
+Local Open Scope ring_scope.
+
+(** Source for [weierstrass_functional_power_homogeneous]:
+    xi^i is an actual homogeneous degree-i polynomial,
+    including i=0, in the grouping of 3.4.6, p. 323. *)
+(** Source for [weierstrass_field_functional_power_homogeneous]: The original power of a linear functional is homogeneous, supporting the coefficient arguments of 3.4.6, pp. 322–323, under the complex extension of 3.4.12, p. 339. *)
+Lemma weierstrass_field_functional_power_homogeneous (R:fieldType) (h0:[pchar R] =i pred0) (X:lmodType R)
+    (xi:Hom X R^o) m:
+  @is_homogeneous_polynomial R X R^o m (fun x=>(xi x)^+m).
+Proof.
+pose F:=(m`!)%:R*:symmetric_functional_product_form (hom_as_linear xi) m.
+exists F=>x.
+rewrite sform_polynomial_diagonal_value /F sform_scaleE symmetric_functional_product_formE.
+have hProduct:(\prod_(i<m) (hom_as_linear xi) (tnth [tuple x | j<m] i))=(xi x)^+m.
+  under eq_bigr do rewrite tnth_mktuple hom_as_linearE.
+  by rewrite prodr_const card_ord.
+rewrite hProduct.
+change ((xi x)^+m=((m`!)%:R:R)^-1*((m`!)%:R*(xi x)^+m)).
+rewrite mulrA mulVf ?mul1r //.
+exact:(characteristic_zero_factorial h0 m).
+Qed.
+
+(** Source for [weierstrass_field_homogeneous_pullback]: the
+    original transverse projection preserves homogeneous degree
+    under composition, supporting 3.4.6, p. 323. *)
+Lemma weierstrass_field_homogeneous_pullback (R:fieldType) (X K:lmodType R)
+    (projection:Hom X K) j (P:K->R):
+  @is_homogeneous_polynomial R K R^o j P ->
+  @is_homogeneous_polynomial R X R^o j (fun x=>P (projection x)).
+Proof.
+move=>[F hF].
+exists (S_m_dual (hom_as_linear projection) F)=>x.
+rewrite sform_polynomial_precompose hom_as_linearE.
+exact:hF.
+Qed.

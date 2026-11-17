@@ -1,0 +1,161 @@
+{
+  "item": "1.4.5",
+  "scope": "Sharp corrected ordinary-tensor exceptional cases in arbitrary dimension",
+  "status": "passed",
+  "date": "2026-11-16",
+  "base_revision": "e4902e38e3dc558420bc7b0b441ef8346a89cc5d",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "nice": 10,
+  "umask": "0002",
+  "group": "llm",
+  "stages": {
+    "build": {
+      "status": "passed",
+      "started": "2026-11-16T12:20:10.876433+01:00",
+      "finished": "2026-11-16T12:21:40.494785+01:00",
+      "seconds": 89.607,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "make",
+        "-j2",
+        "all"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 4841.098,
+      "memory_admission_mib": 5120,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 2,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/1.4.5/20261116-122010-build/raw.log"
+    },
+    "kernel": {
+      "status": "passed",
+      "started": "2026-11-16T12:21:50.894680+01:00",
+      "finished": "2026-11-16T12:23:56.400338+01:00",
+      "seconds": 125.501,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "rocqchk",
+        "-silent",
+        "-Q",
+        "theories",
+        "Federer",
+        "-Q",
+        "tests",
+        "FedererTests",
+        "FedererTests.OrdinaryTensorClassificationExamples"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 6104.766,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/1.4.5/20261116-122150-kernel/raw.log"
+    },
+    "audit": {
+      "status": "passed",
+      "started": "2026-11-16T12:24:40.698651+01:00",
+      "finished": "2026-11-16T12:26:00.482854+01:00",
+      "seconds": 79.779,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "-B",
+        "tools/dependency_audit.py",
+        "e4902e38"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 2489.062,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/1.4.5/20261116-122440-audit/raw.log"
+    }
+  },
+  "audit": {
+    "base": "e4902e38",
+    "changed_modules": 7,
+    "affected_modules": 7,
+    "entries": 27827,
+    "old_entries": 27797,
+    "audited": 30,
+    "audited_old": 0,
+    "audited_new": 30,
+    "unresolved_names": 0,
+    "closed": 4,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": [],
+    "targeted_imports": false,
+    "imported_query_modules": null
+  },
+  "earlier_assumption_sets_preserved": true,
+  "new_theories": 6,
+  "new_regressions": 4,
+  "new_public_queries": 30,
+  "registered_source_count": 11297,
+  "source_sha256": {
+    "theories/ZeroGradedTensorSigns.v": "ae4f799e13e4e73cda5e08edfada222d95e1942aaf40565d8e7e581d1412cd5d",
+    "theories/OrdinaryTensorLowDegrees.v": "2f5a9903643f086888c155d6ac6ea682a90b7a9fe644a604a791c91f47b36e5e",
+    "theories/OrdinaryTensorLeftObstruction.v": "046b6e3c4924ee222d9338c6014498c84c79082f37d8bb11b70446ac18b43c10",
+    "theories/OrdinaryTensorSmallSpaces.v": "38082ff166a14a0fd82b47a87297aff225de106512cda4a10647c30c0246df9a",
+    "theories/SmallVectorSpaceAlternatives.v": "042129909c554ccfa7e2658b29162cf57fb57a01b0f5374be29bbf5d3ae66e82",
+    "theories/OrdinaryTensorClassification.v": "59424aa41012fc573dc5470bb4c27da87800e74db8ff97a54341c264cc17a602",
+    "tests/OrdinaryTensorClassificationExamples.v": "265d48b599fdc94308ca1dd343efd0a9e844b185bc3e341822f039b6334d0db7",
+    "tests/Assumptions.v": "042da719087db1cca109e3d04a5604429a880cc4300b8a17b93ccf8f188d2ec0",
+    "_CoqProject": "bfe631102ad41007e7b2f03c18eb4ad493b57fbb941378210fae681bcb4a78a1",
+    "Makefile": "7fab29c1f1e0963bc162ff344bd0ab24a93f2593c04759be239af0e3a58ba7b1"
+  },
+  "all_proof_inputs_sha256": "ad1c8c1db3698d706d17560b9d7cbb07e8a547bf3f6f198d1eb490cdd96a8ccd",
+  "complete_input_record": "/opt/rocq/federer-build/verification/coverage-2026-11-16/1.4.5/20261116-122440-audit/status.json",
+  "earlier_mathematical_proof_sources_changed": false,
+  "clean": false,
+  "adopt": false,
+  "copied_private_proof_objects": false,
+  "private_attempts": {
+    "path": "/opt/rocq/federer-build/drafts/coverage-2026-11-16/1.4.5/checks",
+    "failed_attempts_excluded": true,
+    "final_registered_compilation_covers_every_final_source_byte": true
+  },
+  "source_route": [
+    "1.2.1 grading and 1.2.2 signed/ordinary tensor multiplication",
+    "1.3.2 vanishing above dimension",
+    "existing independent duals and right- and cross-factor commutator witnesses"
+  ],
+  "coverage_qualification": "The literal printed exception is false. The complete corrected classification preserves the earlier counterexamples. Explicit user deferrals remain.",
+  "documentation_checks": {
+    "markdown_files": 120,
+    "links_checked": 54664,
+    "local_failures": [],
+    "external_requests": false,
+    "error_catalogue_typeset": true,
+    "tex_passes": 3,
+    "final_tex_warnings": [],
+    "error_catalogue_sha256": "047b8aaeae341438c2724aafb06dcf9ed158ae5e0367014e48ec1c579f44209f"
+  },
+  "artifact_permissions": {
+    "checked": 28,
+    "group": "llm",
+    "group_read_write": true
+  }
+}

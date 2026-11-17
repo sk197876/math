@@ -15,7 +15,7 @@ Each section guide has the following structure:
 3. **Numbered items:** accounts in book order, with supporting parts grouped
    under their original item.
 4. **Section notes**, when needed: shared interfaces, source conventions,
-   coverage qualifications, and dated release notes.
+   coverage qualifications, and release records.
 5. **Navigation:** the documentation index and adjacent section guides.
 
 Each item account states the formalised assertions, identifies their public
@@ -24,6 +24,9 @@ and corrections, and links its validation evidence. Use a table when it
 makes assertions and declarations easier to compare. Retain the mathematical
 order when a proof needs a different exposition. Keep historical stages
 labelled as such; a former partial stage does not override the final result.
+Revise the existing account when coverage changes. Put each correction,
+qualification, and validation result in its proper section; do not append
+chronological updates to the end of a guide.
 
 The other guides have distinct roles:
 
@@ -35,7 +38,7 @@ The other guides have distinct roles:
 | [divergences.md](divergences.md) | Corrections, conventions, interpretations, and proof departures, by chapter and section |
 | [bibliography.md](bibliography.md) | Stable citation keys; source entries in alphabetical order, followed by the writing guide |
 | [references/README.md](references/README.md) | Editions, correction files, annotation history, and consulted passages by chapter |
-| [validation.md](validation.md) | Dated release accounts and the scope of their checks |
+| [validation.md](validation.md) | Release accounts and the scope of their checks |
 | [checkpoints/README.md](checkpoints/README.md) | Catalogue of historical progress notes and validation reports |
 | [rendering.md](rendering.md) | Commands for Markdown HTML and coqdoc |
 
@@ -52,9 +55,8 @@ parallel form. Omit needless words while retaining every mathematical
 condition, source qualification, and limitation of the evidence.
 
 Use the present tense for definitions, theorems, and current coverage. Use
-the past tense for dated work and validation. Replace temporary phrases
-such as “now includes” with a description of the result. Give the date
-when a change of status matters. Keep verbatim quotations, mathematical
+the past tense for completed work and validation. Replace temporary phrases
+such as “now includes” with a description of the result. Keep verbatim quotations, mathematical
 notation, declaration names, and precise source locators intact.
 
 Use sentence case for headings and leave a blank line after each heading.
@@ -132,10 +134,15 @@ Keep the results of actual builds and audits in
 and the corresponding [checkpoint records](checkpoints/README.md).
 The [toolchain record](toolchain.txt) gives exact versions.
 
-Historical records retain their dates, counts, worker limits, incidents,
-and next-step instructions. Read those instructions as history, rather
-than as the current work queue. Preserve the records when later work
-supersedes them; link the later result from the current section guide.
+Reader-facing documentation omits particular commit hashes, GitLab server
+addresses, and validation dates. Describe each check by its scope, result,
+counts, duration, worker limits, and incidents. Use neutral report filenames.
+Retain publication dates, source locators, and exact toolchain versions.
+
+Preserve raw JSON records and logs byte for byte. They retain the evidence
+needed to identify and reproduce historical checks. Read historical next-step
+instructions as history, rather than as the current work queue. Preserve
+superseded records and link the later result from the current section guide.
 
 At ordinary section releases, `tools/dependency_audit.py BASE` supports an
 audit of changed dependencies. It does not replace a fresh full audit

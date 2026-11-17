@@ -1,0 +1,216 @@
+{
+  "item": "3.2.45",
+  "scope": "Refute the printed normalized-ratio estimate with actual original projection constants and an actual rectifiable segment; prove the valid convex secant implication. Positive continuity, full mixed-volume and Gillespie assertions remain pending.",
+  "status": "passed",
+  "date": "2026-11-16",
+  "base_revision": "676d165315181b59750d1fb8bd553f66d17bcf13",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "nice": 10,
+  "umask": "0002",
+  "group": "llm",
+  "stages": {
+    "build": {
+      "stage": "build",
+      "status": "passed",
+      "started": "2026-11-16T18:39:07.318430+01:00",
+      "finished": "2026-11-16T18:41:41.086693+01:00",
+      "seconds": 153.758,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "make",
+        "-j1",
+        "all"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3413.395,
+      "memory_admission_mib": 5120,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/3.2.45/20261116-183907-build/raw.log"
+    },
+    "kernel": {
+      "stage": "kernel",
+      "status": "passed",
+      "started": "2026-11-16T18:41:41.785156+01:00",
+      "finished": "2026-11-16T18:47:39.605780+01:00",
+      "seconds": 357.81,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "rocqchk",
+        "-silent",
+        "-Q",
+        "theories",
+        "Federer",
+        "-Q",
+        "tests",
+        "FedererTests",
+        "Federer.ConvexExponentNoFiniteSecant",
+        "Federer.ConvexReciprocalSecant",
+        "FedererTests.ConvexExponentExamples"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3696.32,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/3.2.45/20261116-184141-kernel/raw.log"
+    },
+    "audit": {
+      "stage": "audit-targeted",
+      "status": "passed",
+      "started": "2026-11-16T18:47:40.284884+01:00",
+      "finished": "2026-11-16T18:49:26.955454+01:00",
+      "seconds": 106.66,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "-B",
+        "tools/dependency_audit.py",
+        "676d1653",
+        "--targeted-imports"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3333.941,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/3.2.45/20261116-184739-audit-targeted/raw.log"
+    }
+  },
+  "audit": {
+    "base": "676d1653",
+    "changed_modules": 6,
+    "affected_modules": 6,
+    "entries": 28113,
+    "old_entries": 28100,
+    "audited": 13,
+    "audited_old": 0,
+    "audited_new": 13,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": [],
+    "targeted_imports": true,
+    "imported_query_modules": 6
+  },
+  "earlier_assumption_sets_preserved": true,
+  "new_theories": 5,
+  "new_regressions": 2,
+  "new_public_queries": 13,
+  "registered_source_count": 11421,
+  "source_sha256": {
+    "theories/ProjectionThreeOneMoment.v": "dd8ca35dc6b0a782fad907e2e698fdb11a5bf2698efa6243525f76f50587d527",
+    "theories/CoordinateUnitSegment.v": "0fff76bbd9fa2b88c2681b5d0d87b0e5d463443cf6f401be6e80eb6b0a3c2f77",
+    "theories/ConvexExponentSecantCounterexample.v": "a3857689a8072f0ecc3017430b0b9b08e4098788572c2ac49865ed3b15aaedcf",
+    "theories/ConvexExponentNoFiniteSecant.v": "2f343f778c47c93b29ea61d80e5b3a95edd6a8396c09d50e3d4a3bb18336afe6",
+    "theories/ConvexReciprocalSecant.v": "79104ec7bc36270503d6be3ea18a1d63dbc58e38a1357ea607356677f6d32833",
+    "tests/ConvexExponentExamples.v": "caa8230f209c3db00ac1f168e0af8360589795a98ad020d48938551df50ccd8d",
+    "tests/Assumptions.v": "7fa75761517106b914d6ef6dc916dd7d5a07065c48bb235841f68a10c08538af",
+    "_CoqProject": "9d3a5fee4cebdf16ac2e3ab69b3935e4bc8aecd97e232d45a178232b34ea5dac",
+    "Makefile": "d706cf693b46f6c0e9d90339199bbc5ca502eca1762be97851c222c0c1c8fa7c"
+  },
+  "all_proof_inputs_sha256": "6ffb5eebba09cac7398eb709f9e52ba3f98170d64a976c1fb085dbbe7ee4c271",
+  "complete_input_record": "/opt/rocq/federer-build/verification/coverage-2026-11-16/3.2.45/20261116-184739-audit-targeted/status.json",
+  "earlier_mathematical_proof_sources_changed": false,
+  "clean": false,
+  "adopt": false,
+  "copied_private_proof_objects": false,
+  "private_attempts": {
+    "path": "/opt/rocq/federer-build/drafts/coverage-2026-11-16/3.2.45/checks",
+    "failed_attempts_excluded": true,
+    "final_registered_compilation_covers_every_final_source_byte": true
+  },
+  "source_route": [
+    "reuse the original Gamma projection-moment formula and Gamma recurrence",
+    "reuse bounded coordinate parametrizations, exact coordinate-line Hausdorff mass and finite rectifiable mass",
+    "apply the full original rectifiable equality of 3.2.26 for every exponent",
+    "use original beta-infinity normalization and exact finite moment identities",
+    "derive the valid chord bound from the existing independent convex-function laws"
+  ],
+  "coverage_qualification": "This supplement validates a source correction and the valid convex-function step only. The full 3.2.45 continuity theorem, mixed-volume section comparisons, Q-infinity versus Q-one refinement and Gillespie assertions remain pending. The counterexamples refute the printed quantitative estimate, not continuity. Explicit user omissions remain.",
+  "artifact_permissions": {
+    "status": "passed",
+    "artifacts_checked": 24,
+    "group": "llm",
+    "group_rw": true,
+    "bad": [],
+    "check": "actual host group database and filesystem metadata outside the sandbox namespace"
+  },
+  "documentation_links": {
+    "markdown_files": 120,
+    "links_checked": 55307,
+    "external_requested": false,
+    "external_urls": [
+      "https://doi.org/10.1007/BF01700486",
+      "https://doi.org/10.1007/BF01900510",
+      "https://doi.org/10.1007/BF02565913",
+      "https://doi.org/10.1017/S0305004100038317",
+      "https://doi.org/10.2307/1969917",
+      "https://doi.org/10.2307/1990357",
+      "https://doi.org/10.2307/1994182",
+      "https://doi.org/10.24033/bsmf.1481",
+      "https://doi.org/10.4064/fm-22-1-257-261",
+      "https://link.springer.com/book/10.1007/978-3-642-61698-3",
+      "https://www.numdam.org/item/ASNSP_1939_2_8_3-4_301_0/"
+    ],
+    "local_failures": [],
+    "external_results": []
+  },
+  "error_catalogue_typesetting": {
+    "status": "passed",
+    "source_sha256": "dc01a3f4f7a83df5c1f7588bcb0daa52fca326764c3ad0af7cd738c680d8e6c4",
+    "passes": [
+      {
+        "pass": 1,
+        "returncode": 0,
+        "seconds": 0.526
+      },
+      {
+        "pass": 2,
+        "returncode": 0,
+        "seconds": 0.394
+      },
+      {
+        "pass": 3,
+        "returncode": 0,
+        "seconds": 0.44
+      }
+    ],
+    "warnings": [],
+    "source_unchanged": true,
+    "pdf": "/tmp/coverage3245-erratum-build/federer-errors.pdf",
+    "raw_logs": "/tmp/coverage3245-erratum-build",
+    "group": "llm",
+    "umask": "0002",
+    "nice": 10
+  },
+  "source_correction": {
+    "item": "3.2.45, p. 279",
+    "published_erratum": false,
+    "refuted": "displayed normalized reciprocal-exponent ratio bound for any finite proposed constant",
+    "not_refuted": "the positive continuity assertion",
+    "corrected_convex_bound": "0 <= h(u)-h(v) <= C*(v-u)/v"
+  }
+}

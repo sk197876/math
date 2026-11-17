@@ -1,0 +1,160 @@
+{
+  "item": "2.10.28",
+  "scope": "Canonical Gamma-normalized real-degree Hausdorff identification and complete power Cantor application",
+  "status": "passed",
+  "date": "2026-11-16",
+  "base_revision": "e7fcd2f1984bb48134cfaf1a600bc50e93903b5e",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "nice": 10,
+  "umask": "0002",
+  "group": "llm",
+  "stages": {
+    "build": {
+      "stage": "build",
+      "status": "passed",
+      "started": "2026-11-16T12:40:09.891117+01:00",
+      "finished": "2026-11-16T12:41:28.495182+01:00",
+      "seconds": 78.592,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "make",
+        "-j2",
+        "all"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 4105.695,
+      "memory_admission_mib": 5120,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 2,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.28/20261116-124009-build/raw.log"
+    },
+    "kernel": {
+      "stage": "kernel",
+      "status": "passed",
+      "started": "2026-11-16T12:41:47.365697+01:00",
+      "finished": "2026-11-16T12:47:13.781092+01:00",
+      "seconds": 326.404,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "rocqchk",
+        "-silent",
+        "-Q",
+        "theories",
+        "Federer",
+        "-Q",
+        "tests",
+        "FedererTests",
+        "FedererTests.RealHausdorffCantorExamples"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 4346.941,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.28/20261116-124147-kernel/raw.log"
+    },
+    "audit": {
+      "stage": "audit-targeted",
+      "status": "passed",
+      "started": "2026-11-16T12:47:38.666919+01:00",
+      "finished": "2026-11-16T12:48:19.161912+01:00",
+      "seconds": 40.491,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "-B",
+        "tools/dependency_audit.py",
+        "e7fcd2f1",
+        "--targeted-imports"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 2286.293,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.28/20261116-124738-audit-targeted/raw.log"
+    }
+  },
+  "audit": {
+    "base": "e7fcd2f1",
+    "changed_modules": 2,
+    "affected_modules": 2,
+    "entries": 27837,
+    "old_entries": 27832,
+    "audited": 5,
+    "audited_old": 0,
+    "audited_new": 5,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": [],
+    "targeted_imports": true,
+    "imported_query_modules": 2
+  },
+  "earlier_assumption_sets_preserved": true,
+  "new_theories": 1,
+  "new_regressions": 2,
+  "new_public_queries": 5,
+  "registered_source_count": 11301,
+  "source_sha256": {
+    "theories/RealHausdorffCantorPair.v": "63053418548b24556c16f7585b36eb8ac771e7adb2e667a951f7fb06b0ed4a64",
+    "tests/RealHausdorffCantorExamples.v": "d1cf2a12f3286c9178818abda07418b144e2aa4bdf67bce654d87afc8e554f22",
+    "tests/Assumptions.v": "94e85d9be1963983d86997c81c8e064498e0109a023b73c052d54e6606e6f804",
+    "_CoqProject": "529dc355c7fca5faedec6df543ad5b19262e31e251c877ab088135826c8467d9",
+    "Makefile": "f503c83d6031ed7fcf28a18df3ab9935e21e0a467ea96f9ce758a179922b00e8"
+  },
+  "all_proof_inputs_sha256": "2370ac308e27a53e6b4f41712e4b8327c9997f289c94d0c0700a8bf1655524eb",
+  "complete_input_record": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.28/20261116-124738-audit-targeted/status.json",
+  "earlier_mathematical_proof_sources_changed": false,
+  "clean": false,
+  "adopt": false,
+  "copied_private_proof_objects": false,
+  "private_attempts": {
+    "path": "/opt/rocq/federer-build/drafts/coverage-2026-11-16/2.10.28/checks",
+    "failed_attempts_excluded": true,
+    "final_registered_compilation_covers_every_final_source_byte": true
+  },
+  "source_route": [
+    "2.10.2 actual Gamma-normalized nonnegative real-degree measure",
+    "existing unrestricted and compact-interval power-cover agreement",
+    "existing sealed Cantor recurrence and cumulative-function properties",
+    "instantiate the positive coefficient at the canonical normalizer without repeating a construction"
+  ],
+  "coverage_qualification": "All original power Cantor conclusions are retained. The earlier corrected single-root and nondegenerate-parent conditions remain. Explicit user deferrals remain.",
+  "documentation_checks": {
+    "markdown_files": 120,
+    "links_checked": 54707,
+    "local_failures": [],
+    "external_requests": false,
+    "error_catalogue_unchanged": true,
+    "error_catalogue_sha256": "b48c937d029b2510c842853c8b38bb13b0be44476dbbfea2c1e71a93015c658a",
+    "reused_error_catalogue_typesetting": "2.10.17-supplement-validation.json"
+  },
+  "artifact_permissions": {
+    "checked": 8,
+    "group": "llm",
+    "group_read_write": true
+  }
+}

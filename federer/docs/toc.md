@@ -18,7 +18,13 @@ sources. Rocq files and uniquely defined declarations link to the sources.
 | A build or audit result | [Verification guide](validation.md) and [checkpoint catalogue](checkpoints/README.md) |
 | Documentation tools and editing rules | [Maintenance guide](maintenance.md) |
 
-The section guides distinguish current coverage from dated validation.
+The [fresh full-project validation](checkpoints/chapter3-full-validation.json) after the 3.4 release passed compilation, complete recursive kernel checking, and all assumptions queries.
+
+The section guides distinguish current coverage from historical validation.
+The [coverage completion record](checkpoints/coverage-completion.md)
+records the completed supplements and the user’s explicit omissions.
+The [latest coverage supplement](checkpoints/3.2.45-sections-supplement-validation.json) passes registered compilation, recursive kernel checking, and a dependency audit.
+
 Their overviews lead to local contents lists and numbered-item accounts;
 supporting notes follow the accounts. The [maintenance guide](maintenance.md#document-structure)
 defines this structure.
@@ -50,8 +56,9 @@ General conventions and earlier verification history are preserved in
 Sections 2.1–2.7 and 2.9 are covered as recorded in their entries.
 Items 2.8.8–2.8.9 are complete within the requested scope, including
 subsidiary assertions and strict-convexity uniqueness, and excluding book
-examples. Section 2.10 retains the documented qualifications:
-2.10.6, the listed variants of later items, and deferred 2.10.46. Item 2.10.2
+examples. The complete original 2.10.6 comparison and ratio assembly is
+proved. The Ward construction cited in 2.10.27 is intentionally omitted;
+2.10.46 remains deferred. Item 2.10.2
 is complete, including real-degree Gamma normalization and the actual circle
 cutoff counterexample.
 The requested last proof is 2.10.48; 2.10.49 is historical discussion and
@@ -78,8 +85,14 @@ supplements are recorded in the [verification guide](validation.md#chapter-2-rel
 
 This checkout records 3.1 and 3.3 as complete with their documented
 qualifications. Section 3.2 retains deferred Kneser material in the second
-paragraph of 3.2.40 and partial 3.2.45. Section 3.4 records validated work
-through 3.4.6; 3.4.7–3.4.12 remain marked pending here. The
+paragraph of 3.2.40. Item 3.2.45 is complete with its documented source
+correction: exponent continuity, sharp comparisons, the ordinary convex
+section integral, the all-set upper section integral and measurable-first-factor
+product equality are proved. Section 3.4 records validated work
+through all twelve items, including the complex analytic extension and
+its covering and dimension corrections.
+The original real auxiliary compact-union assertion of 3.4.8(5) also has a
+validated supplement for arbitrary proper ideals. The
 [release accounts](validation.md#chapter-3-release-accounts) retain the
 individual checks, counts, source corrections, and future obligations.
 
@@ -90,9 +103,11 @@ individual checks, counts, source corrections, and future obligations.
 | [3.3 Structure theory](chapter3/3.3.md) | 287–310 |
 | [3.4 Some properties of highly differentiable functions](chapter3/3.4.md) | 310–339 |
 
-Chapter 3 is exposed through [`Rectifiability.v`](../theories/Rectifiability.v)
+Sections 3.1–3.3 are exposed through [`Rectifiability.v`](../theories/Rectifiability.v)
 and tested in [`DifferentialExamples.v`](../tests/DifferentialExamples.v)
 and [`InverseFunctionExamples.v`](../tests/InverseFunctionExamples.v).
+The [3.4 guide](chapter3/3.4.md) lists its separate public interfaces and
+compiled regression suites, including [HolomorphicGeometry.v](../theories/HolomorphicGeometry.v).
 
 Before Chapter 4, the user requests formalisation of
 [EilenbergSteenrod1952](bibliography.md#eilenbergsteenrod1952). This
@@ -118,7 +133,7 @@ for coqdoc output, its location, and its contents.
 
 ## Records and references
 
-The [checkpoint guide](checkpoints/README.md) distinguishes dated historical
+The [checkpoint guide](checkpoints/README.md) distinguishes historical
 progress notes from current coverage and the active work queue.
 
 - [bibliography.md](bibliography.md): bibliographical identities of all cited sources.

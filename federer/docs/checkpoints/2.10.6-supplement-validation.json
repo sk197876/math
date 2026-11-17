@@ -1,0 +1,222 @@
+{
+  "item": "2.10.6",
+  "scope": "The complete original comparison diagram, three explicit dimensional coefficient bounds, bounded ratios for the first measure group, actual original compact separating examples and unbounded ratios for the second group, and ambient/rectifiable agreement in Federer 2.10.6, pp. 173\u2013174. All targets and infinite masses are retained. Historical references and the original open question remain source accounts, not assumed solutions.",
+  "status": "passed",
+  "date": "2026-11-17",
+  "base_revision": "df14961ef027fefa75c7e7d8d95cd564663a3d6c",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "nice": 10,
+  "umask": "0002",
+  "group": "llm",
+  "stages": {
+    "build": {
+      "stage": "build",
+      "status": "passed",
+      "started": "2026-11-17T01:50:32.534161+01:00",
+      "finished": "2026-11-17T01:52:24.607607+01:00",
+      "seconds": 112.06,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "make",
+        "-j1",
+        "all"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 2888.551,
+      "memory_admission_mib": 5120,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.6/20261117-015032-build/raw.log"
+    },
+    "kernel": {
+      "stage": "kernel",
+      "status": "passed",
+      "started": "2026-11-17T01:52:25.269187+01:00",
+      "finished": "2026-11-17T02:01:25.352670+01:00",
+      "seconds": 540.077,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "rocqchk",
+        "-silent",
+        "-Q",
+        "theories",
+        "Federer",
+        "-Q",
+        "tests",
+        "FedererTests",
+        "Federer.EuclideanMeasureComparisons",
+        "FedererTests.EuclideanMeasureComparisonExamples"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 2976.574,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.6/20261117-015224-kernel/raw.log"
+    },
+    "audit": {
+      "stage": "audit-targeted",
+      "status": "passed",
+      "started": "2026-11-17T02:01:26.014705+01:00",
+      "finished": "2026-11-17T02:03:58.577987+01:00",
+      "seconds": 152.552,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "-B",
+        "tools/dependency_audit.py",
+        "df14961ef027fefa75c7e7d8d95cd564663a3d6c",
+        "--targeted-imports"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 2513.523,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.6/20261117-020125-audit-targeted/raw.log"
+    }
+  },
+  "audit": {
+    "base": "df14961ef027fefa75c7e7d8d95cd564663a3d6c",
+    "changed_modules": 10,
+    "affected_modules": 10,
+    "entries": 28341,
+    "old_entries": 28327,
+    "audited": 14,
+    "audited_old": 0,
+    "audited_new": 14,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": [],
+    "targeted_imports": true,
+    "imported_query_modules": 9
+  },
+  "earlier_assumption_sets_preserved": true,
+  "new_theories": 9,
+  "new_regressions": 2,
+  "new_public_queries": 14,
+  "registered_source_count": 11562,
+  "source_sha256": {
+    "theories/CaratheodoryExteriorComparison.v": "8e57c8ee8b58bd6b8807df28186d1a617a8f6a6ebf6f8c60156ebdc668d41dd2",
+    "theories/GrossCaratheodoryComparison.v": "ee2cd7e49c20291f31d71c93d35b3bc807dfb2547c274f48628b20df1081adb8",
+    "theories/IntegralGeometricInfinityComparison.v": "f0d2fbdd714d267c22aea6ddd4e2380a14abe65173adbf6579d07c10f96261ba",
+    "theories/EuclideanMeasureComparisonDiagram.v": "1f89106bade1a31e54922e695b31d53b154ecd49f032dfdd353bd26dee6e21e1",
+    "theories/EuclideanMeasureComparisonQuantitative.v": "dfc53908b278ecf07fcb2d04d4e7d69751826d7147af63d43cae38a9bda2b8c0",
+    "theories/EuclideanMeasureBoundedRatios.v": "bb57ec7bc16bfe1cad11855fe0aebfd0181a321cb6ee1d70ee2bf5a6572fa860",
+    "theories/EuclideanMeasureSeparatingExamples.v": "40a18ca92fe1402b7d3bf5282b39d88ced84b3d7e8f6a6f6a8e4f23c5f745704",
+    "theories/EuclideanMeasureComparisonAgreements.v": "e1e0191e28a968459637878ab299c187bafbcbfd86cd802f1cec08aa5de8be1d",
+    "theories/EuclideanMeasureComparisons.v": "2e73a05bc39b7e353d9e011504948df762242b4c0a1d9a7adb0f89f18532214c",
+    "tests/EuclideanMeasureComparisonExamples.v": "cbf91d850667475ed084a102f5b6428dce14d3cb01944224bbfec286a62e8da1",
+    "tests/Assumptions.v": "97b3922bbc79e52046dd369fb0dbd5ee8ade7634f708d55352db4a81d1b5baf4",
+    "_CoqProject": "97326a093f2075d08ff2f2288f904b4d35c07d659f6bc96480f80c6b16f49bc4",
+    "Makefile": "075281473713ad2276d9f5d4fcb77eb1a7cf51aa9e779653a78d64ec7b637e0d"
+  },
+  "all_proof_inputs_sha256": "42fb47df4941317607930a30ce95080211bac6aeb0f888a3f862d590c34a488c",
+  "complete_input_record": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.6/20261117-020125-audit-targeted/status.json",
+  "earlier_mathematical_proof_sources_changed": false,
+  "clean": false,
+  "adopt": false,
+  "copied_private_proof_objects": false,
+  "private_attempts": {
+    "path": "/opt/rocq/federer-build/drafts/coverage-2026-11-17/2.10.6/checks",
+    "failed_attempts_excluded": true,
+    "final_registered_compilation_covers_every_final_source_byte": true
+  },
+  "source_route": [
+    "Review the preceding 2.10.3\u20135 definitions and the actual forward references on pp. 173\u2013174. Compact convex hulls preserve original exterior costs and diameter and are eligible closed Caratheodory generators; covering-family replacement gives C<=T. Original open convex generators are Borel with unchanged projection costs, giving G<=C.",
+    "Reuse complete 2.10.5 normalized exponent monotonicity, Q_infinity=C, the sharp 3.2.45 refinement, and complete 3.3.16 finite-infinity agreement. Include a separate infinite-right branch for It<=Iinfinity. Assemble every original diagram edge without assuming the table.",
+    "Reuse the actual 2.10.42 Jung coefficient, 2.10.39 spherical/exterior coefficient and 2.10.37 alpha(m) 2^-m m! coefficient. A finite common positive scalar controls all first-group measures through the actual Hausdorff measure, hence every ordered pair, including zero and infinite masses.",
+    "Reuse the actual opaque circular-disc set of 3.3.19. It has C=2 and G=0. The original integral comparisons then give zero at every It exponent. Reuse the actual critical Cantor square of 3.3.20, with G=3/sqrt(5), H=sqrt(2) and its original finite-Iinfinity nullity. The computed Gross mass proves that finiteness and hence zero for every It. These compact sets defeat every proposed finite domination factor.",
+    "Reuse the independently proved complete 2.10.35 ambient identifications and 3.2.26 rectifiable agreements. Include C through the actual Q_infinity identity. The independent zero-dimensional atom and positive whole-line volume laws give concrete endpoint and infinite-mass regressions."
+  ],
+  "coverage_qualification": "The requested noncommentary 2.10.6 comparison and ratio assertions are complete. Pure historical citations and the printed open I_1=I_infinity question remain source accounts. The first-group ratio theorem uses multiplicative domination, retains zero and infinite masses, and implies the ordinary quotient bound whenever that quotient exists. The explicit user omissions, Ward and the remaining full 3.2.45 section/product lower equality obligations are preserved.",
+  "registered_comment_changes": {},
+  "registration_namespace_correction": {
+    "source_sha256": "40a18ca92fe1402b7d3bf5282b39d88ced84b3d7e8f6a6f6a8e4f23c5f745704",
+    "mathematical_source_bytes_unchanged": true,
+    "first_attempt": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.6/first-attempt-library-namespace",
+    "former_path": "tests/EuclideanMeasureSeparatingExamples.v",
+    "final_path": "theories/EuclideanMeasureSeparatingExamples.v",
+    "failed_result_excluded": true
+  },
+  "documentation": {
+    "local_links": {
+      "markdown_files": 120,
+      "links_checked": 55768,
+      "external_requested": false,
+      "external_urls": [
+        "https://doi.org/10.1007/BF01700486",
+        "https://doi.org/10.1007/BF01900510",
+        "https://doi.org/10.1007/BF02565913",
+        "https://doi.org/10.1017/S0305004100038317",
+        "https://doi.org/10.2307/1969917",
+        "https://doi.org/10.2307/1990357",
+        "https://doi.org/10.2307/1994182",
+        "https://doi.org/10.24033/bsmf.1481",
+        "https://doi.org/10.4064/fm-22-1-257-261",
+        "https://link.springer.com/book/10.1007/978-3-642-61698-3",
+        "https://www.numdam.org/item/ASNSP_1939_2_8_3-4_301_0/"
+      ],
+      "local_failures": [],
+      "external_results": []
+    },
+    "error_catalogue": {
+      "status": "passed",
+      "source_sha256": "8328c12e8bfb4bff3510218e56c784a52b47b0553d1d920bbe35cf32e48d2ea7",
+      "passes": [
+        {
+          "pass": 1,
+          "returncode": 0,
+          "seconds": 0.472
+        },
+        {
+          "pass": 2,
+          "returncode": 0,
+          "seconds": 0.49
+        },
+        {
+          "pass": 3,
+          "returncode": 0,
+          "seconds": 0.491
+        }
+      ],
+      "warnings": [],
+      "source_unchanged": true,
+      "pdf_sha256": "e2e86ba84aaf842f34cea89aa5b7a49e3917fad07678e338397e980486d6fdd7",
+      "raw_logs": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.6/documents/error-catalogue",
+      "group": "llm",
+      "umask": "0002",
+      "nice": 10
+    },
+    "build_artifact_permissions": {
+      "status": "passed",
+      "artifact_count": 50,
+      "group": "llm",
+      "group_read_write": true
+    },
+    "full_artifact_permission_record": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.6/documents/coverage2106-permissions.json"
+  }
+}

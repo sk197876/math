@@ -1,0 +1,215 @@
+{
+  "item": "3.2.45-sharp",
+  "scope": "The sharp original projection-gauge and all-target Q_infinity <= Q_1 comparisons in Federer 3.2.45, pp. 279\u2013280, including every natural degree, empty or thin bounded convex sources, arbitrary nonmeasurable targets and infinite masses. The general section and product lower/equality assertions remain pending.",
+  "status": "passed",
+  "date": "2026-11-17",
+  "base_revision": "ed7335c898bedc07f48d190eaea4794f7767ba73",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "nice": 10,
+  "umask": "0002",
+  "group": "llm",
+  "stages": {
+    "build": {
+      "stage": "build",
+      "status": "passed",
+      "started": "2026-11-17T01:19:40.173324+01:00",
+      "finished": "2026-11-17T01:23:54.771518+01:00",
+      "seconds": 254.586,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "make",
+        "-j1",
+        "all"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3170.438,
+      "memory_admission_mib": 5120,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/3.2.45-sharp/20261117-011939-build/raw.log"
+    },
+    "kernel": {
+      "stage": "kernel",
+      "status": "passed",
+      "started": "2026-11-17T01:23:55.411596+01:00",
+      "finished": "2026-11-17T01:30:30.742540+01:00",
+      "seconds": 395.324,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "rocqchk",
+        "-silent",
+        "-Q",
+        "theories",
+        "Federer",
+        "-Q",
+        "tests",
+        "FedererTests",
+        "Federer.ConvexIntegralGeometricSharpComparison",
+        "FedererTests.ConvexSharpComparisonExamples"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3304.047,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/3.2.45-sharp/20261117-012355-kernel/raw.log"
+    },
+    "audit": {
+      "stage": "audit-targeted",
+      "status": "passed",
+      "started": "2026-11-17T01:30:31.417369+01:00",
+      "finished": "2026-11-17T01:32:55.170429+01:00",
+      "seconds": 143.744,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "-B",
+        "tools/dependency_audit.py",
+        "ed7335c898bedc07f48d190eaea4794f7767ba73",
+        "--targeted-imports"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 2934.301,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/3.2.45-sharp/20261117-013031-audit-targeted/raw.log"
+    }
+  },
+  "audit": {
+    "base": "ed7335c898bedc07f48d190eaea4794f7767ba73",
+    "changed_modules": 10,
+    "affected_modules": 10,
+    "entries": 28327,
+    "old_entries": 28313,
+    "audited": 14,
+    "audited_old": 0,
+    "audited_new": 14,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": [],
+    "targeted_imports": true,
+    "imported_query_modules": 10
+  },
+  "earlier_assumption_sets_preserved": true,
+  "new_theories": 9,
+  "new_regressions": 2,
+  "new_public_queries": 14,
+  "registered_source_count": 11552,
+  "source_sha256": {
+    "theories/EuclideanVectorHeadAxis.v": "29c4b7bbfd3fa2bd2a1e24f5737e828bdde2a3dc915ff39a4560189aae2f2eca",
+    "theories/EuclideanHeadScaledVolume.v": "db0f487e95f1861894a092333e81ac5b91bdc557999973819890616cd3027824",
+    "theories/ConvexNormalFootImageVolume.v": "2d0f4fe41e0789080cd4ca68edfdc724053a6aee11c3b9eba6fcf06c931b43f0",
+    "theories/ConvexNormalFootIntrinsicVolume.v": "5c1d5b1c2c8beb7d11d3a72deaf85a4055a5125685088c798fbeeb95de507c73",
+    "theories/ConvexCoordinateTailIntrinsicVolume.v": "411e0d78e309c4835c44dd0ea87622af051fd17c90de6705ec97fb2028b11655",
+    "theories/ConvexRightBlockIntrinsicVolume.v": "edc34a676a61523f5ef246be35efeb6843f72f562a0c033414241a8cb3ea9c5f",
+    "theories/ConvexProjectionIntrinsicVolume.v": "299c77306c54810945ee585f2ea7ad26b9227934c71540debb01a174be2b7ec5",
+    "theories/ConvexProjectedGaugeIntrinsicBound.v": "7be1c7e7a96896417a219ac1226e3970a6d36c787d2161b8063041d9b5918d68",
+    "theories/ConvexIntegralGeometricSharpComparison.v": "72429087fd80643f88f0739fbdec63fd2d41dd1d83ee6bb5da8fb10c9f251bf4",
+    "tests/ConvexSharpComparisonExamples.v": "1494451c224bb0c5ddb611541bf63115fd108f01a817d6d86c7edd7ba5127e81",
+    "tests/Assumptions.v": "7d132f658a04ab362e8332259c282e350f963d8a8134c8a257c99ca11c1ff00d",
+    "_CoqProject": "e05088e0d3aeeb61e148eddc332247bcda976fa244fdd2a22639de8c75bba0a2",
+    "Makefile": "10c8e5130b5e295f18d575402c42ab10342171498e0ae8801041d9f7acaeccaf"
+  },
+  "all_proof_inputs_sha256": "c633a5b9a7b81bb18617ba28d06caa3a6159a250d8954d0edbc00160aa389d4d",
+  "complete_input_record": "/opt/rocq/federer-build/verification/coverage-2026-11-16/3.2.45-sharp/20261117-013031-audit-targeted/status.json",
+  "earlier_mathematical_proof_sources_changed": false,
+  "clean": false,
+  "adopt": false,
+  "copied_private_proof_objects": false,
+  "private_attempts": {
+    "path": "/opt/rocq/federer-build/drafts/coverage-2026-11-17/3.2.45-sharp/checks",
+    "failed_attempts_excluded": true,
+    "final_registered_compilation_covers_every_final_source_byte": true
+  },
+  "source_route": [
+    "Reuse the original unit-normal reflection and foot, the opaque orthogonal normal chart, and existing normalization laws. A local orthogonal target axis isolates the single changed scalar row, including a zero projected direction.",
+    "Reuse the registered correlated scalar-row Fubini volume inequality. Doubling only the head coordinate has exact determinant two. This proves twice the actual normal-foot projected volume is bounded by the original plus reflected projected volumes, including empty and thin bodies.",
+    "Average over the original orthogonal projection probability. Existing nonnegative finite-sum integration, scalar scaling, reflection isometry and positive finite beta normalization prove normal-foot intrinsic-volume contraction.",
+    "Use original zero-head isometric inclusion and repeated coordinate-tail contractions. The original opaque projection chart identifies every prescribed projection with the final coordinate block. Full-dimensional gauge and zeroth-coefficient laws include both endpoints.",
+    "Take the original projection supremum and restore arbitrary bounded convex sources through compact closure, inclusion monotonicity and the proved exact intrinsic closure identity. No Borel or interior premise is added.",
+    "Use the existing original closed-convex Caratheodory specification and bounded weighted-generator comparison with factor one. The independent Q_infinity = C identification gives the stated Caratheodory/Gillespie refinement for every set."
+  ],
+  "coverage_qualification": "This closes the sharp C_infinity(S) <= zeta^m(S), Q_infinity(A) <= Q_1(A) and C^m(A) <= Q_1^m(A) assertions. The proof uses a specialized reflection, row-Fubini and projection contraction connection; it does not claim general mixed-volume monotonicity. Full section comparison and Gillespie product lower/equality still need their own proof. Preserve the printed quantitative-estimate counterexamples and explicit user omissions.",
+  "registered_comment_changes": {},
+  "documentation": {
+    "local_links": {
+      "markdown_files": 120,
+      "links_checked": 55721,
+      "external_requested": false,
+      "external_urls": [
+        "https://doi.org/10.1007/BF01700486",
+        "https://doi.org/10.1007/BF01900510",
+        "https://doi.org/10.1007/BF02565913",
+        "https://doi.org/10.1017/S0305004100038317",
+        "https://doi.org/10.2307/1969917",
+        "https://doi.org/10.2307/1990357",
+        "https://doi.org/10.2307/1994182",
+        "https://doi.org/10.24033/bsmf.1481",
+        "https://doi.org/10.4064/fm-22-1-257-261",
+        "https://link.springer.com/book/10.1007/978-3-642-61698-3",
+        "https://www.numdam.org/item/ASNSP_1939_2_8_3-4_301_0/"
+      ],
+      "local_failures": [],
+      "external_results": []
+    },
+    "error_catalogue": {
+      "status": "passed",
+      "source_sha256": "e70c1cda7d270c18b027a31389c01411bc474ce412d82cfdf9bd79f8395fc7b9",
+      "passes": [
+        {
+          "pass": 1,
+          "returncode": 0,
+          "seconds": 0.451
+        },
+        {
+          "pass": 2,
+          "returncode": 0,
+          "seconds": 0.43
+        },
+        {
+          "pass": 3,
+          "returncode": 0,
+          "seconds": 0.411
+        }
+      ],
+      "warnings": [],
+      "source_unchanged": true,
+      "pdf_sha256": "019148dad46f1bc9c29aed6ce9be188d2b529834380beca491ea05f097468997",
+      "raw_logs": "/opt/rocq/federer-build/verification/coverage-2026-11-16/3.2.45-sharp/documents/error-catalogue",
+      "group": "llm",
+      "umask": "0002",
+      "nice": 10
+    },
+    "build_artifact_permissions": {
+      "status": "passed",
+      "artifact_count": 50,
+      "group": "llm",
+      "group_read_write": true
+    },
+    "full_artifact_permission_record": "/opt/rocq/federer-build/verification/coverage-2026-11-16/3.2.45-sharp/documents/coverage3245-sharp-permissions.json"
+  }
+}

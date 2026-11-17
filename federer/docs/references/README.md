@@ -44,11 +44,11 @@ that the formalisation refutes and that Federer's list does not correct,
 together with proposed corrections, the error in the list itself, and the
 corrections of the list adopted here. Each entry was checked against the
 printed text of the 1969 edition (Springer reprint, which does not
-incorporate the 1987 corrections). The list was synchronized on 4 November
-2026 through the validated work in 3.2.48, with the deferred and partial
-items explicitly excluded from completion claims. It includes the later
-local corrections in 3.2.37, 3.2.38 and 3.2.46, and a separate section for
-the convention-dependent line endpoints of 3.2.42–3.2.44.
+incorporate the 1987 corrections). The catalogue covers the registered
+formalisation through 3.4.12 and its completed supplements, with explicit
+omissions and proof limits retained. Its 133 entries include the local
+corrections in 1.4.4–1.4.5, 2.10.11 and 3.2.45; the Chapter 3 analytic
+corrections; and the convention-dependent line endpoints of 3.2.42–3.2.44.
 
 An editorial note also distinguishes the raw Steiner power from the
 normalized quotient in the erratum's p. 5, book p. 275 line 2 replacement.
@@ -57,8 +57,7 @@ leaves `r^(m-j)`. This note does not claim an additional kernel-checked
 counterexample. The erratum transcription preserves the scan.
 The compiled PDFs are not tracked.
 
-The catalogue was reorganised on 9 November 2026. It retains all 123
-earlier entries and adds five published Chapter 3 corrections: two
+Five entries record further published Chapter 3 corrections: two
 bibliographical references, the comparison at book p. 280 line 6, and
 the replacements at p. 326 line 3 and p. 327 line 24. The consulted
 reprint already prints the corrected p. 280 inequality. These additions
@@ -141,7 +140,7 @@ mathematical validation. Subsequent resumed builds and proof audits are
 recorded in `docs/verification.txt`.
 
 The counts above describe the original annotation pass. Later proof
-changes and their validation have separate dated records.
+changes and their validation have separate records.
 
 ## Consulted passages: Chapter 2
 
@@ -212,13 +211,15 @@ the general inequality are checked. The local counterexample
 refutes the p. 188 auxiliary closed-ball-family remark in a compact real
 subspace. It is separate from the erratum's script-S correction (erratum p. 4,
 book p. 188 line 21), and does not disprove the spherical integral equality.
-The integer Hausdorff and spherical specialisations also check, including
-boundedly compact spaces without a supplied finite-mass support cover.
+The Hausdorff and spherical specialisations are proved in every
+nonnegative real degree, including boundedly compact spaces without a
+supplied finite-mass support cover. The original integer interfaces remain.
 [`spherical_weighted_proper_equality`](../../theories/SphericalProperWeighted.v#L59)
 repairs the false closed-family justification by the existing Hausdorff
 comparison. The Gross and integral-geometric applications in the final
 paragraph of p. 188 are proved for arbitrary nonnegative extended inputs;
-real-degree Hausdorff/spherical extensions remain pending.
+the real-degree Hausdorff and spherical extensions are also complete;
+see the [2.10.24 supplement](../checkpoints/2.10.24-supplement-validation.json).
 
 The supporting weighted projection-cover estimates for 2.10.24, p. 188, read
 the actual gauge definitions 2.10.4(1) and 2.10.5(1), pp. 172–173, and the
@@ -421,7 +422,7 @@ For Federer 2.10.43 the actual printed proof on p. 201 was read. The formal
 proof allows nonnegative coefficients and repeated contact points: a strictly
 positive weighted squared-distance source budget replaces pruning and the
 split between one and several contacts. it has no extension-theorem
-counterpart. No working- erratum entry applies to p. 201. Both private graph
+counterpart. No working erratum entry applies to p. 201. Both private graph
 and scaling witnesses are hidden by opaque
 [KirszbraunExtensionSealed.v](../../theories/KirszbraunExtensionSealed.v);
 downstream results use only agreement and global-bound laws.
@@ -518,9 +519,9 @@ For 3.2.40, printed p. 276, the local published sources
 [Gross1918](../bibliography.md#gross1918), pp. 184–187, and
 [Kneser1955](../bibliography.md#kneser1955), Satz 5, pp. 386–387,
 were consulted. The Cantor-square proof is registered and validated.
-The private recovery material for the incomplete Kneser example is
-excluded from this public snapshot.
-The user deferred the second example on 2 November 2026; it is not a
+Private recovery material for the incomplete Kneser example is excluded
+from this public snapshot.
+The user deferred the second example; it is not a
 completed formalisation. Neither source supplies an assumed theorem or
 new project axiom in the registered development.
 
@@ -772,7 +773,7 @@ local/global examples. The formalisation adapts the cubic surface to a
 one-sided flat coefficient and proves its obstruction by real Taylor
 coefficients. The published coefficient and complex proof are distinguished
 from that adaptation. The compact-component result cited to 3.4.8(11)
-remains an explicit later obligation.
+is now validated in [`AnalyticSetCompactComponents.v`](../../theories/AnalyticSetCompactComponents.v).
 
 ### Weierstrass division and preparation, 3.4.6 (pp. 321–324)
 
@@ -788,14 +789,107 @@ passed; see the [validation record](../checkpoints/3.4.6-validation.json).
 At the start of 3.4.8, apply the published correction at
 book p. 326 line 3 to its dual basis space.
 
+### Real analytic reduction, 3.4.7 (pp. 324–325)
+
+Read the two null exceptional-direction sets on p. 324, then the
+Noetherian and unique-factorization inductions on p. 325 in
+[Federer1969](../bibliography.md#federer1969). The formalisation expands
+the printed finite-module and Gauss references within the project.
+Actual division and its unique finite remainders prove that distinguished
+polynomial primes remain analytic primes. This proves the final
+paragraph's nontrivial factor reflection by a different route; it does
+not identify the selected factors with preparations of the two given
+analytic factors. See the [3.4.7 account](../chapter3/3.4.md#item-3-4-7).
+No published correction changes this item. All registered item checks
+passed; see the [validation record](../checkpoints/3.4.7-validation.json).
+
+### 3.4.8 — Analytic stratification (pp. 326–337)
+
+Registered validation covers definitions (1)–(4) and every numbered
+conclusion (5)–(16). The stronger auxiliary proof claim remains outside
+that certification. Apply
+both published corrections: p. 326 line 3 places the second basis in
+the covector space; p. 327 line 24 replaces the complete boundary and
+earlier-stratum assertions. See the [item account](../chapter3/3.4.md#item-3-4-8).
+
+The expanded algebra uses these primary passages:
+
+- [Bourbaki1972](../bibliography.md#bourbaki1972), Chapter III, §2, no. 10,
+  Corollaries 1 and 3, p. 184: polynomial and finite-algebra Noetherianity.
+- The same book, Chapter III, §3, no. 1, Corollary 1, p. 197:
+  Artin–Rees; §3, no. 2, Proposition 5, pp. 200–201: Krull intersection.
+- The same book, Chapter V, §1, no. 1, Theorem 1, pp. 303–304:
+  the finite-module criterion for integrality.
+- [Bourbaki1990](../bibliography.md#bourbaki1990), Chapter IV, §2, nos. 1–2,
+  pp. IV.14–18: polynomial division and factorization over a field.
+- The same book, Chapter V, §3, no. 1, Theorem 1 and Corollary 1,
+  pp. V.16–17; §3, no. 2, Proposition 2, p. V.18; §4, no. 2,
+  Proposition 4, pp. V.21–22: algebraic extensions and separability.
+- The same book, Chapter V, §7, no. 2, Proposition 3, pp. V.37–38,
+  and §7, no. 4, Theorem 1 and Proposition 7, pp. V.40–41:
+  the separable primitive element theorem.
+
+These are proof sources. The corresponding algebraic arguments are
+proved within the project. The stronger sigma-compactness sentence for
+$E_m$ on p. 328 is not certified; the numbered Borel conclusion is
+proved by actual compact incidence projections and finite Borel
+operations. This distinction is retained in the divergence register.
+
+### 3.4.9 — Analytic families (p. 337)
+
+The component-family theorem uses the original local analytic-set
+definition of 3.4.5, p. 321, and every corrected law of 3.4.8(11),
+p. 327. The sphere-cut argument retains the original functional equations
+and inequality. Compact closed balls, local component finiteness and the
+existing relative clopen component identity prove the finite count for
+every sufficiently small positive radius. No source correction or
+additional numbered-theorem hypothesis is introduced. See the
+[section account](../chapter3/3.4.md#item-3-4-9).
+
+### 3.4.10 — Dimension and singular parts (pp. 337–338)
+
+The compact bounds and manifold cover reuse the original corrected
+stratification and dimension results of 3.4.8. For the negative example,
+[WhitneyBruhat1959](../bibliography.md#whitneybruhat1959), §11(c), p. 159,
+gives Cartan's actual polynomial surface $yz(x^2-zy^2)+x^4=0$.
+The formal proof verifies its geometry through the project's analytic
+inverse, tangent and identity theorems. It does not assume the printed
+formula for its full singular locus. See the
+[section account](../chapter3/3.4.md#item-3-4-10).
+
+### 3.4.11 — Tangent hulls and homogeneous majorants (p. 338)
+
+The proof reuses the original first nonzero germ jets, the Taylor theorem
+of 3.1.11, the Haar comparison and depth laws of 3.4.8, and its completed
+relative-open null-dimension theorem (16). The original cusp has equation
+$x_1^3=x_2^2$. Its actual positive-half-axis tangent and nonanalyticity
+are proved within the project. No additional source or correction is
+needed. See the [section account](../chapter3/3.4.md#item-3-4-11).
+
+### 3.4.12 — Complex analytic extension (pp. 338–339)
+
+Use [Federer1969](../bibliography.md#federer1969), pp. 338–339,
+with the earlier passages of 3.4.5–11 and the adopted published
+corrections to 3.4.8. The project proves the complex extension using
+actual complex derivatives, unitary Haar reductions, and paired real
+coordinates. The independent dimension comparison corrects the reversed
+factor in the final display on p. 339. The connected punctured square
+graph supplies an additional counterexample to carrying over the real
+componentwise projection-homeomorphism conclusion. The correct complex
+conclusion is a finite covering with local holomorphic sections.
+These are project qualifications, not published erratum entries.
+The cited external expositions remain bibliographical source accounts;
+their contents are not claimed formalised. See the
+[section account](../chapter3/3.4.md#item-3-4-12).
+
 ## English writing
 
 The user requires strict adherence to [Strunk2011](../bibliography.md#strunk2011)
 for all English prose in this project. The supplied electronic copy contains
 William Strunk, Jr.'s text, including the eighteen numbered rules of usage
 and composition, the sections on form, word choice, and spelling, and the
-exercises. The text was read on 5 November 2026. Apply the guide to comments,
+exercises. Apply the guide to comments,
 documentation, reports, replies, and commit messages.
 
-The supplied edition was reviewed again on 9 November 2026 for the
+The supplied edition was reviewed again for the
 documentation reorganisation. See the [writing rules](../maintenance.md#english-and-mathematical-language).

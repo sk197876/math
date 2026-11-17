@@ -1,0 +1,243 @@
+{
+  "item": "3.2.45-product-upper",
+  "scope": "The complete Gillespie Euclidean-factor product upper inequality in Federer 3.2.45, p. 280, on the original ordinary partial-product domain. Both factors are arbitrary; the second mass may be infinite. A stronger finite-second-mass helper admits total zero-times-infinity multiplication. Mixed-volume section comparisons, the sharp Q_infinity <= Q_1 refinement and product lower equality remain pending.",
+  "status": "passed",
+  "date": "2026-11-17",
+  "base_revision": "5887fa33c661145f9c6a8b35fdab0360a4540e88",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "nice": 10,
+  "umask": "0002",
+  "group": "llm",
+  "stages": {
+    "build": {
+      "stage": "build",
+      "status": "passed",
+      "started": "2026-11-17T00:15:38.753809+01:00",
+      "finished": "2026-11-17T00:23:52.497581+01:00",
+      "seconds": 493.733,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "make",
+        "-j1",
+        "all"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3063.227,
+      "memory_admission_mib": 5120,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/3.2.45-product-upper/20261117-001538-build/raw.log"
+    },
+    "kernel": {
+      "stage": "kernel",
+      "status": "passed",
+      "started": "2026-11-17T00:23:53.131575+01:00",
+      "finished": "2026-11-17T00:30:26.445232+01:00",
+      "seconds": 393.31,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "rocqchk",
+        "-silent",
+        "-Q",
+        "theories",
+        "Federer",
+        "-Q",
+        "tests",
+        "FedererTests",
+        "Federer.GillespieProductUpper",
+        "FedererTests.ConvexProductUpperExamples"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3355.07,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/3.2.45-product-upper/20261117-002352-kernel/raw.log"
+    },
+    "audit": {
+      "stage": "audit-targeted",
+      "status": "passed",
+      "started": "2026-11-17T00:30:27.109983+01:00",
+      "finished": "2026-11-17T00:33:55.415624+01:00",
+      "seconds": 208.301,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "-B",
+        "tools/dependency_audit.py",
+        "5887fa33c661145f9c6a8b35fdab0360a4540e88",
+        "--targeted-imports"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 2920.234,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/3.2.45-product-upper/20261117-003026-audit-targeted/raw.log"
+    }
+  },
+  "audit": {
+    "base": "5887fa33c661145f9c6a8b35fdab0360a4540e88",
+    "changed_modules": 21,
+    "affected_modules": 21,
+    "entries": 28313,
+    "old_entries": 28284,
+    "audited": 29,
+    "audited_old": 0,
+    "audited_new": 29,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": [],
+    "targeted_imports": true,
+    "imported_query_modules": 21
+  },
+  "earlier_assumption_sets_preserved": true,
+  "new_theories": 20,
+  "new_regressions": 3,
+  "new_public_queries": 29,
+  "registered_source_count": 11542,
+  "source_sha256": {
+    "theories/ConvexGeometricProductSlice.v": "f978fdee8ecd5593210580274cf9a77b57d2315a0c3cd83a5cd901ad44887cf2",
+    "theories/ConstantEdgeSymmetricCoefficients.v": "4c94301fb5e2a22b69d606aa9a327e0950f4303010cd5f90e97ddec50d84d96f",
+    "theories/CoordinateCubeIntrinsicVolumes.v": "888419973667fa0b30a359443b5a51ca089ade7f0b99d00f9351a56ae02adbf6",
+    "theories/ConvexProjectionDegreeBound.v": "805576583338ce91e33768a8b4b46efd9277c5857cfd57ee2262345bebf90e17",
+    "theories/ProjectionDiameterCostContraction.v": "0f3355d1ba4d1717963f61bf27daa4f19bca4bd620205d80fc764c67eae5449a",
+    "theories/ConvexIntrinsicDegreeDiameterBound.v": "b1393930d7b24bc3a5f250e8593349ca7f4d68c2d2d8bdc0f5efae1db79c5964",
+    "theories/HausdorffDiameterCostBelowPower.v": "a33616b783a054a7a2f1f79662bd67ca0ec9ca68debe2bdefe5b154ccd40e5f6",
+    "theories/ConvexIntrinsicDegreePowerBound.v": "e82a9dd9eb1128bcebebcb6200f3428636ca15500758ed58b59f99f503cf41d2",
+    "theories/FinitePositivePowerMajorant.v": "cd7898d2d137584aa373eb4ed1b0d986d6accffb9ecc0e62accec4e2255adc6a",
+    "theories/ConvexIntrinsicUniformDegreeBound.v": "0a6de89ede35427d1df521f362d2b7471e014571797e9bc2bfedbaea28105044",
+    "theories/FiniteBinomialConvolutionBound.v": "6e7bb8b5c228c074e21c0ada3f553b743c1cf533c5c954b20772885fe717270b",
+    "theories/ConvexCubeProductIntrinsicBound.v": "3000391175b3bfef87cdc678ad06d32f0cd2a702d6dd227825180564bd7df536",
+    "theories/ConvexCubeSubdivisionCostBound.v": "838310ab78f3a0d41a81b0a055ca74ee3d875cf4fda3a7ec98e1b9eb842c3c6f",
+    "theories/ConvexCubeProductCutoff.v": "b908ace8ecabfdaa3a5aa37bfc3fcaffc8a02588a37cf2ad7a7d776a50fc8847",
+    "theories/ConvexCubeProductUpperBound.v": "79b440c09304b7618466f4a1bdf94090d29345782da0a4fda318ef3b26503313",
+    "theories/ConvexGeometricProductCompactFinite.v": "159c6349dc3406a3e3f03ea856dacd7565f6a874e80a37a4d3715ee9cbb493eb",
+    "theories/ConvexGeometricProductSliceHaar.v": "885c00633627f9a3327b5f60e68a8304faf5779d2e72f49e0ce178901d4b8527",
+    "theories/EuclideanInvariantNonnegativeMultiple.v": "b3ed212a0d2a024c9aedba57d0875524edb532419313a575f826c96bb6df5460",
+    "theories/ConvexGeometricProductUpperBound.v": "e8c59f40fe58a33f0128ddc126a56ed5ebbe2add0a403db8c28cb34df21bfe7e",
+    "theories/GillespieProductUpper.v": "e7bfe4cd787a0e49dc8e12fca00217f601bf6559abfcddb1e485ce68f7b26a76",
+    "tests/ConvexProductUpperExamples.v": "bf3035f5b5e77696ebeae803a192231630c945e78165e6c392c3a31796e2141a",
+    "tests/Assumptions.v": "185d880e2dfa0cd69f01fb677b6878b5a4fe1356f1b0a1f951427b07117cae4e",
+    "_CoqProject": "c4e3ee994861bf03ac0cdd21cff170dbbbe5d15d2d913785dc686edd29dea1f1",
+    "Makefile": "43a3e4d08f4cb834ebbdf060420c96889834b190c1fea761895727dc979bb366"
+  },
+  "all_proof_inputs_sha256": "4fbcaa6a64ef14a9680897cade73d3ae0218b3c6e000c7f207359f2ba230422e",
+  "complete_input_record": "/opt/rocq/federer-build/verification/coverage-2026-11-16/3.2.45-product-upper/20261117-003026-audit-targeted/status.json",
+  "earlier_mathematical_proof_sources_changed": false,
+  "clean": false,
+  "adopt": false,
+  "copied_private_proof_objects": false,
+  "private_attempts": {
+    "path": "/opt/rocq/federer-build/drafts/coverage-2026-11-16/3.2.45-positive/checks",
+    "failed_attempts_excluded": true,
+    "final_registered_compilation_covers_every_final_source_byte": true
+  },
+  "source_route": [
+    "Reuse the existing Fubini-isodiametric projection bound and the actual projection-composition averages to prove the printed beta-weighted degree-drop inequality.",
+    "Reuse the original Cartesian intrinsic-volume convolution of 3.2.36 and the actual elementary symmetric cube coefficients. A finite degree constant gives the printed cube-product intrinsic estimate, with zero side and degree endpoints.",
+    "Use the existing opaque equal-cube subdivision and metric Caratheodory covering laws. Choose the first mesh and a smaller second-factor cutoff, then remove the positive polynomial margin. The actual original Q_1 cube-product upper estimate retains arbitrary second factors of finite mass.",
+    "Reuse restriction and image measures, Borel preimages and the all-set isometric-embedding theorem. The actual product slice is a measure with measurable Borel sets, finite compact values and translation invariance.",
+    "Reuse Borel regularisation, the countable compact Euclidean cover and Haar uniqueness. Include the zero-measure branch. The original unit-cube upper bound controls the finite nonnegative Haar multiplier; domination by regularisation gives the arbitrary first-factor upper bound.",
+    "For infinite second-factor mass, the original ordinary partial-product domain forces positive first-factor mass and an infinite right member. No undefined ordinary product is silently assigned a value."
+  ],
+  "coverage_qualification": "This closes the original product upper inequality in 3.2.45, including arbitrary factors, both zero-degree endpoints and infinite second-factor mass whenever the original product is defined. The finite-second-mass helper also proves a total-product zero-factor extension. The full mixed-volume section comparison, sharp Q_infinity <= Q_1 and Gillespie product lower/equality assertions remain pending. Exponent continuity is already complete. Preserve the printed-estimate counterexamples and explicit user omissions.",
+  "registered_comment_changes": {
+    "theories/ConvexCubeSubdivisionCostBound.v": {
+      "private_sha256": "a4e0a4d4aeb4efbf0389990d35ccdf2d9d7c884173848642e996b9e779ff0ebd",
+      "registered_sha256": "838310ab78f3a0d41a81b0a055ca74ee3d875cf4fda3a7ec98e1b9eb842c3c6f",
+      "uncommented_tokens_unchanged": true
+    },
+    "theories/ConvexCubeProductCutoff.v": {
+      "private_sha256": "cae945bc8f8860161f519dc614da9e64d1d0ef5383e92dd7b201474184a95dba",
+      "registered_sha256": "b908ace8ecabfdaa3a5aa37bfc3fcaffc8a02588a37cf2ad7a7d776a50fc8847",
+      "uncommented_tokens_unchanged": true
+    },
+    "theories/ConvexCubeProductUpperBound.v": {
+      "private_sha256": "41c18fa9b26b722353134c5c579b99facc65baf1856c2cfe4ef76abb44bfa25b",
+      "registered_sha256": "79b440c09304b7618466f4a1bdf94090d29345782da0a4fda318ef3b26503313",
+      "uncommented_tokens_unchanged": true
+    }
+  },
+  "documentation": {
+    "local_links": {
+      "markdown_files": 120,
+      "links_checked": 55681,
+      "external_requested": false,
+      "external_urls": [
+        "https://doi.org/10.1007/BF01700486",
+        "https://doi.org/10.1007/BF01900510",
+        "https://doi.org/10.1007/BF02565913",
+        "https://doi.org/10.1017/S0305004100038317",
+        "https://doi.org/10.2307/1969917",
+        "https://doi.org/10.2307/1990357",
+        "https://doi.org/10.2307/1994182",
+        "https://doi.org/10.24033/bsmf.1481",
+        "https://doi.org/10.4064/fm-22-1-257-261",
+        "https://link.springer.com/book/10.1007/978-3-642-61698-3",
+        "https://www.numdam.org/item/ASNSP_1939_2_8_3-4_301_0/"
+      ],
+      "local_failures": [],
+      "external_results": []
+    },
+    "error_catalogue": {
+      "status": "passed",
+      "source_sha256": "5afb828b03751d3c1476f93dab4053f8d392da6c3e4206ec9389bce91676c796",
+      "passes": [
+        {
+          "pass": 1,
+          "returncode": 0,
+          "seconds": 0.551
+        },
+        {
+          "pass": 2,
+          "returncode": 0,
+          "seconds": 0.387
+        },
+        {
+          "pass": 3,
+          "returncode": 0,
+          "seconds": 0.396
+        }
+      ],
+      "warnings": [],
+      "source_unchanged": true,
+      "pdf_sha256": "559bda9e70acda62f97d30b6d965f713de7849f981f08ae95280359eebb62d4f",
+      "raw_logs": "/opt/rocq/federer-build/verification/coverage-2026-11-16/3.2.45-product-upper/documents/error-catalogue",
+      "group": "llm",
+      "umask": "0002",
+      "nice": 10
+    },
+    "build_artifact_permissions": {
+      "status": "passed",
+      "group": "llm",
+      "group_read_write": true,
+      "artifact_count": 105,
+      "errors": []
+    },
+    "full_artifact_permission_record": "/opt/rocq/federer-build/verification/coverage-2026-11-16/3.2.45-product-upper/documents/coverage3245-product-upper-permissions.json"
+  }
+}

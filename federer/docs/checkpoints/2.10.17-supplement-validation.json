@@ -1,0 +1,161 @@
+{
+  "item": "2.10.17",
+  "scope": "Original partial-quotient assertion of 2.10.17(3), retaining every printed hypothesis",
+  "status": "passed",
+  "date": "2026-11-16",
+  "base_revision": "151300eeec4f2e626dd96902ec8fa1824262dd03",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "nice": 10,
+  "umask": "0002",
+  "group": "llm",
+  "stages": {
+    "build": {
+      "stage": "build",
+      "status": "passed",
+      "started": "2026-11-16T12:31:01.827958+01:00",
+      "finished": "2026-11-16T12:32:06.985295+01:00",
+      "seconds": 65.149,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "make",
+        "-j2",
+        "all"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 4600.324,
+      "memory_admission_mib": 5120,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 2,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.17/20261116-123101-build/raw.log"
+    },
+    "kernel": {
+      "stage": "kernel",
+      "status": "passed",
+      "started": "2026-11-16T12:33:08.150874+01:00",
+      "finished": "2026-11-16T12:36:24.240163+01:00",
+      "seconds": 196.085,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "rocqchk",
+        "-silent",
+        "-Q",
+        "theories",
+        "Federer",
+        "-Q",
+        "tests",
+        "FedererTests",
+        "FedererTests.CaratheodoryOriginalDensityExamples"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 4965.391,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.17/20261116-123307-kernel/raw.log"
+    },
+    "audit": {
+      "stage": "audit-targeted",
+      "status": "passed",
+      "started": "2026-11-16T12:37:22.065548+01:00",
+      "finished": "2026-11-16T12:37:39.105628+01:00",
+      "seconds": 17.035,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "-B",
+        "tools/dependency_audit.py",
+        "151300ee",
+        "--targeted-imports"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 4004.16,
+      "memory_admission_mib": 4096,
+      "memory_reserve_mib": 1536,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=50,s=256k",
+      "raw_log": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.17/20261116-123721-audit-targeted/raw.log"
+    }
+  },
+  "audit": {
+    "base": "151300ee",
+    "changed_modules": 2,
+    "affected_modules": 2,
+    "entries": 27832,
+    "old_entries": 27827,
+    "audited": 5,
+    "audited_old": 0,
+    "audited_new": 5,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": [],
+    "targeted_imports": true,
+    "imported_query_modules": 2
+  },
+  "earlier_assumption_sets_preserved": true,
+  "new_theories": 1,
+  "new_regressions": 2,
+  "new_public_queries": 5,
+  "registered_source_count": 11299,
+  "source_sha256": {
+    "theories/CaratheodoryOriginalDensity.v": "f86794a1699593bd8fda68c49dd927383159f41fee945237db52ce430dbc6897",
+    "tests/CaratheodoryOriginalDensityExamples.v": "364b65af925042673a7e45ef5bf2efdfb46e6833e98a1530c72c02acdaf3e7a9",
+    "tests/Assumptions.v": "3546ebbc6065dae49764f46aa680bf79e6e85c270af2da48ba5d0c0f58c086b1",
+    "_CoqProject": "a01a4a2c587c0dce58626bed3bdbef0d11f7164ff2278c1d4e7da4d04d147e5e",
+    "Makefile": "8250afea017b7361d1ac0d58c2bd94c0b0fd14a593f84b2a0c231253617b0bbc"
+  },
+  "all_proof_inputs_sha256": "d8f6f57b87876608b63f7004dd4d4cc440f48f088a23492967a5b49111e14757",
+  "complete_input_record": "/opt/rocq/federer-build/verification/coverage-2026-11-16/2.10.17/20261116-123721-audit-targeted/status.json",
+  "earlier_mathematical_proof_sources_changed": false,
+  "clean": false,
+  "adopt": false,
+  "copied_private_proof_objects": false,
+  "private_attempts": {
+    "path": "/opt/rocq/federer-build/drafts/coverage-2026-11-16/2.10.17/checks",
+    "failed_attempts_excluded": true,
+    "final_registered_compilation_covers_every_final_source_byte": true
+  },
+  "source_route": [
+    "2.10.1 singleton-generator cover gives uncut measure at most cost",
+    "zero cost therefore gives zero restricted uncut mass",
+    "a strict original upper limit below one transfers to the existing auxiliary quotient",
+    "reuse the existing subcritical null-locus theorem"
+  ],
+  "coverage_qualification": "The original quotient remains partial. The proved counterexample to original part (2) and its corrected variant remain unchanged. Explicit user deferrals remain.",
+  "documentation_checks": {
+    "markdown_files": 120,
+    "links_checked": 54689,
+    "local_failures": [],
+    "external_requests": false,
+    "error_catalogue_typeset": true,
+    "tex_passes": 3,
+    "final_tex_warnings": [],
+    "error_catalogue_sha256": "b48c937d029b2510c842853c8b38bb13b0be44476dbbfea2c1e71a93015c658a"
+  },
+  "artifact_permissions": {
+    "checked": 8,
+    "group": "llm",
+    "group_read_write": true
+  }
+}
