@@ -225,23 +225,20 @@
     "docs/checkpoints/3.3.11-source-account.md": "Preserve the mathematical source account and completed forward example, omitting agent continuation instructions.",
     "docs/checkpoints/README.md": "Index the public reports, including Chapter 4.",
     "docs/checkpoints/coverage-completion.md": "Keep the completed coverage table, source method and intentional omissions; omit private workflow and draft continuation plans.",
-    "docs/maintenance.md": "Use the established public Federer path.",
     "docs/references/README.md": "Keep the book and erratum account and the validated Cantor-square scope.",
+    "docs/references/federer-errors.tex": "Link to the current GitHub directory for the formalisation.",
     "docs/resources.md": "Use the configured opam root.",
     "docs/toc.md": "Keep the homology prerequisite in the public documentation.",
     "docs/validation.md": "Keep the validation accounts and link the public reports."
   },
   "other_public_adaptations": {
     "CONVENTIONS.md": "Use the public layout and a checkout-relative example path.",
-    "DPDRG2018/README.md": "Link to the public Federer folder and describe the existing formalisation.",
-    "DPDRG2018/docs/divergences.md": "Use the public Federer folder.",
-    "DPGPR2026/README.md": "Link to the public Federer folder and describe the existing formalisation.",
+    "DPDRG2018/README.md": "Describe the existing formalisation in the opening paragraph.",
+    "DPGPR2026/README.md": "Describe the existing formalisation in the opening paragraph.",
     "DPGPR2026/docs/classes-ibp.md": "Format a differential identity as code to preserve the literal brackets.",
-    "README.md": "Keep the established public Federer path and link the snapshot record.",
-    "allard1972/README.md": "Link to the public Federer folder and describe the existing formalisation.",
-    "allard1972/docs/divergences.md": "Use the public Federer folder.",
-    "tools/rocq_run.sh": "Use the configured opam root and the public Federer folder.",
-    "tools/subproject_build.py": "Use the public Federer folder in the module docstring."
+    "README.md": "Link the snapshot record.",
+    "allard1972/README.md": "Describe the existing formalisation in the opening paragraph.",
+    "tools/rocq_run.sh": "Use the configured opam root."
   },
   "licence_status": "The parent repository retains its LGPL 2.1 LICENSE.",
   "export_checks": {

@@ -5,7 +5,7 @@ and F. Ghiraldin, “Rectifiability of varifolds with locally bounded first
 variation with respect to anisotropic surface energies”, *Comm. Pure
 Appl. Math.* 71 (2018), no. 6, 1123–1148 (bibliography key
 `DePhilippis2018`). It builds on the Federer library of
-[federer/](../federer/README.md) and on
+[federer1969/](../federer1969/README.md) and on
 [allard1972/](../allard1972/README.md).
 
 The subproject [DPGPR2026/](../DPGPR2026/README.md) needs Appendix A of

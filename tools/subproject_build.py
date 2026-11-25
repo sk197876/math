@@ -1,4 +1,4 @@
-"""Prepare the external build tree of a Rocq subproject other than federer.
+"""Prepare the external build tree of a Rocq subproject other than federer1969.
 
 The sources stay in the checkout. ``prepare`` links every ``.v`` file named in
 the subproject's ``_CoqProject`` into the build directory, copies

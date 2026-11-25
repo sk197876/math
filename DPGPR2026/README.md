@@ -5,7 +5,7 @@ and F. Rindler, “Scale-invariant bounds on thin sets for measures
 satisfying a first-order PDE and the anisotropic Michael–Simon
 inequality”, preprint, 28 September 2026,
 [arXiv:2609.34573](https://doi.org/10.48550/arXiv.2609.34573). It builds
-on the Federer library of [federer/](../federer/README.md), on
+on the Federer library of [federer1969/](../federer1969/README.md), on
 Allard's paper ([allard1972/](../allard1972/README.md)) and on Appendix A
 of De Philippis, De Rosa and Ghiraldin
 ([DPDRG2018/](../DPDRG2018/README.md)).

@@ -6,7 +6,7 @@ This register lists the places where the formalisation of Appendix A of
 De Philippis, De Rosa and Ghiraldin (2018), pp. 1143–1144, departs from
 the printed text or from the blueprint
 ([blueprint/dpdrg_blueprint.tex](../blueprint/dpdrg_blueprint.tex)). The
-kinds are those of `federer/docs/divergences.md`:
+kinds are those of `federer1969/docs/divergences.md`:
 
 - **Proof route.** A different argument from DDG's or the blueprint's.
 - **Hypothesis or convention.** A changed hypothesis, a stronger or more

@@ -1,7 +1,7 @@
 # Conventions for the subprojects allard1972, DPDRG2018 and DPGPR2026
 
 These rules govern the Rocq formalisations built on top of the Federer
-library (`federer/`, logical name `Federer`). They cover the material needed
+library (`federer1969/`, logical name `Federer`). They cover the material needed
 for the anisotropic Michael–Simon inequality of De Philippis, Gennaioli, Pigati and Rindler
 (DPGPR 2026, Theorem 1.6), formalised close to the original papers and
 with the encapsulation used for Federer's book.
@@ -59,26 +59,26 @@ cd /opt/rocq/DPGPR2026-build && "/path/to/math/tools/rocq_run.sh" \
 `Check`, `About`, `Print`, `Search` and `Fail` in a scratch file are the
 probing tools; a goal can be printed with
 `match goal with |- ?G => idtac G end.` Companion builds read the existing
-Federer artifacts. Build Federer separately using its [build guide](federer/README.md#build-environment).
+Federer artifacts. Build Federer separately using its [build guide](federer1969/README.md#build-environment).
 
 ## Use of the Federer library
 
-- Read `federer/docs/symbols.md` (notation → declarations),
-  `federer/docs/contents.md` (numbered item → files and names) and
-  the section accounts `federer/docs/chapterN/*.md`, which state the
+- Read `federer1969/docs/symbols.md` (notation → declarations),
+  `federer1969/docs/contents.md` (numbered item → files and names) and
+  the section accounts `federer1969/docs/chapterN/*.md`, which state the
   qualifications of each formalised item. `docs/divergences.md` records
   corrections of the printed book.
 - Use only public interfaces. Never import a module whose name ends in
   `Construction` or `Witness`, or any module that the Federer
   documentation calls private; use the corresponding `Sealed`/interface
   module and the predicate laws.
-- Search before proving: `grep -rn` in `federer/theories`, or
+- Search before proving: `grep -rn` in `federer1969/theories`, or
   `/opt/rocq/federer-build/tooling/rocqet/search --limit 8 "query"`.
 - Federer's measure theory, integrals, Lebesgue and Hausdorff measures,
   exponential, logarithm, π and derivatives are its own (MathComp
   analysis is not used for measures or integrals). Work with them.
 - Euclidean space is `inner_metric_space (@euclidean_inner_productP R n)`
-  over `R : realType`, as in `federer/theories/ClosedRectifiableMinkowski.v`;
+  over `R : realType`, as in `federer1969/theories/ClosedRectifiableMinkowski.v`;
   linear maps are `Hom X Y` (`Federer.Hom`), the adjoint is `inner_adjoint`,
   the trace of an endomorphism `trace_Hom`. Confirm the details in the
   library before use.
@@ -94,7 +94,7 @@ obtained from a representation theorem) is introduced in four layers:
 2. `NameConstruction.v`: a proof that an object with the property exists;
 3. `NameSealed.v`: a `Module Type` signature exposing only the object and
    its laws, and an opaque module `Module Name : NameSignature` choosing
-   the witness (see `federer/theories/NormOperatorNorm*.v`);
+   the witness (see `federer1969/theories/NormOperatorNorm*.v`);
 4. `Name.v`: the public interface used by every later file.
 
 Later files import only the interface (and the predicate file), never the

@@ -132,7 +132,7 @@ Rocq-Elpi 3.3.1 and algebra-tactics 1.2.7. Exact package versions are in
 Python 3 runs the documentation and audit helpers. The source materials are
 needed for source consultation, not for compiling the proofs.
 
-Run these commands in the `federer/` folder with your configured opam root.
+Run these commands in the `federer1969/` folder with your configured opam root.
 The [resource guard](docs/resources.md) supports shared build machines.
 
 ```sh

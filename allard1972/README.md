@@ -4,7 +4,7 @@ This subproject formalises W. K. Allard, “On the first variation of a
 varifold”, *Ann. of Math. (2)* 95 (1972), 417–491,
 [doi:10.2307/1970868](https://doi.org/10.2307/1970868)
 (bibliography key `Allard1972`). It builds on the Federer library of
-[federer/](../federer/README.md).
+[federer1969/](../federer1969/README.md).
 
 The folder [blueprint/](blueprint/) holds the LaTeX blueprint of the
 formalisation of the whole paper, sections 2–8. It gives every numbered

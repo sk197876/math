@@ -1,7 +1,7 @@
 #!/bin/bash
 # Run a Rocq command (make, rocq compile, rocqchk, ...) for the subprojects
 # allard1972, DPDRG2018 and DPGPR2026 under the resource policy of
-# federer/docs/resources.md:
+# federer1969/docs/resources.md:
 #   - weekdays 07:00-17:00 Europe/Warsaw: at most two such commands at once
 #     (two lock slots under /opt/rocq/locks); nights and weekends unrestricted;
 #   - always nice 10, umask 0002, group llm and the pinned opam switch.

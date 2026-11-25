@@ -4,7 +4,7 @@ This register lists the places where the formalisation of W. K. Allard,
 “On the first variation of a varifold”, *Ann. of Math.* 95 (1972),
 417–491, departs from the printed text or from the blueprint
 (`blueprint/sections2to5.tex`) in a statement or a proof. The kinds are
-those of `federer/docs/divergences.md`:
+those of `federer1969/docs/divergences.md`:
 
 - **Proof route.** A different argument from Allard's or the blueprint's.
 - **Hypothesis or convention.** A changed hypothesis, a stronger or more
