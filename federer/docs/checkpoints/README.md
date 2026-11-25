@@ -172,17 +172,39 @@ and incident records. Companion logs and text reports remain alongside them.
 | [3.4.8-private-checks.json](3.4.8-private-checks.json) |
 | [3.1-initial-full-validation.json](3.1-initial-full-validation.json) |
 | [3.2-checkpoint-full-validation.json](3.2-checkpoint-full-validation.json) |
+| [4.1.1-validation.json](4.1.1-validation.json) |
+| [4.1.2-validation.json](4.1.2-validation.json) |
+| [4.1.3-validation.json](4.1.3-validation.json) |
+| [4.1.4-validation.json](4.1.4-validation.json) |
+| [4.1.5-validation.json](4.1.5-validation.json) |
+| [4.1.6-validation.json](4.1.6-validation.json) |
+| [4.1.7-validation.json](4.1.7-validation.json) |
+| [4.1.8-validation.json](4.1.8-validation.json) |
+| [4.1.9-validation.json](4.1.9-validation.json) |
+| [4.1.10-validation.json](4.1.10-validation.json) |
+| [4.1.11-validation.json](4.1.11-validation.json) |
+| [4.1.12-validation.json](4.1.12-validation.json) |
+| [4.1.13-validation.json](4.1.13-validation.json) |
+| [4.1.14-validation.json](4.1.14-validation.json) |
+| [4.1.15-validation.json](4.1.15-validation.json) |
+| [4.1.16-validation.json](4.1.16-validation.json) |
+| [4.1.17-validation.json](4.1.17-validation.json) |
+| [4.1.18-validation.json](4.1.18-validation.json) |
+| [4.1.19-validation.json](4.1.19-validation.json) |
+| [4.1.20-validation.json](4.1.20-validation.json) |
+| [4.1.21-validation.json](4.1.21-validation.json) |
+| [4.1.22-validation.json](4.1.22-validation.json) |
+| [4.1.23-validation.json](4.1.23-validation.json) |
+| [4.1.24-validation.json](4.1.24-validation.json) |
+| [4.1.25-validation.json](4.1.25-validation.json) |
+| [4.1.26-validation.json](4.1.26-validation.json) |
+| [4.1.27-validation.json](4.1.27-validation.json) |
 | [documentation-audit.json](documentation-audit.json) |
 | [3.1-release-validation.json](3.1-release-validation.json) |
 | [3.3-validation.json](3.3-validation.json) |
 | [chapter2-release-validation.json](chapter2-release-validation.json) |
 | [source-comment-cleanup.json](source-comment-cleanup.json) |
 | [chapter3-targeted-audit.json](chapter3-targeted-audit.json) |
-
-
-
-
-
 
 - [Full-project validation after 3.4](chapter3-full-validation.json).
 

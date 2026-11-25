@@ -1,0 +1,45 @@
+(** Federer (1969), 4.1.23, pp. 379–380:
+    the original real polyhedral approximation theorem,
+    its opaque actual approximant and both separate
+    mass and compact-flat bounds. Supporting laws retain
+    every printed normal, step-field, simple-vector,
+    rotation, rectangle and transverse-cone reduction. *)
+From Federer Require Export PolyhedralApproximationUP
+  PolyhedralApproximationExistence PolyhedralApproximationSealed.
+From Federer Require Export
+  AffineConvexHullImage CharacteristicCartesianCurrent
+  CharacteristicCurrentAlgebra CharacteristicCurrentDifferenceMass
+  CharacteristicCurrentFiniteUnion CharacteristicCurrentNullBoundary
+  CharacteristicScaledApproximation ClosedCoordinateBoxConvex
+  ClosedCoordinateBoxGeometry CompactCharacteristicCurrent
+  CompactCharacteristicFieldDecomposition CompactCharacteristicSetDifference
+  CompactCharacteristicSummableField CompactSummableAmbientFieldLift
+  CompactSummableAmbientFieldRepresentative CompactSummableExactFiniteCost
+  CompactSummableFiniteCells CompactSummableFiniteImageApproximation
+  CoordinateBoxCartesianFactors CoordinateBoxFamilyApproximation
+  CoordinateBoxStandardApproximation CurrentCartesianAtomicReplacement
+  CurrentCartesianPrefixVector CurrentCartesianZeroFactorMass
+  CurrentCharacteristicDegreeTransport CurrentDensityAlmostAgreement
+  CurrentEqualDomainFlat CurrentFiniteImageDensityApproximation
+  CurrentFlatFiniteSumBound CurrentMassFiniteSumBound
+  CurrentOpenRestrictionIdentity CurrentPrefixVectorMass
+  CurrentVectorOptimalSimpleDecomposition CurrentVectorSimpleUnitReduction
+  EuclideanCellBoxApproximation FiniteImageCurrentPolyhedralApproximation
+  FiniteImageMeasurableCells FiniteTaggedPartitionCharacteristic
+  FiniteTaggedPartitionDiameter FiniteTaggedPartitionNonempty
+  FlatCurrentNormalMassApproximation FullSummableFieldPolyhedralApproximation
+  MeasurableCellBoxApproximation MeasurableCellPolyhedralApproximation
+  MeasurableLoneNormComparison MeasurableStandardCellApproximation
+  MeasureCompactCoreSetError NormalCurrentAmbientInclusion
+  NormalFullPolyhedralApproximation NormalFullSmoothCoefficientApproximation
+  NormalPolyhedralApproximation NormalSmoothCoefficientApproximation
+  NormalZeroCurrentAtomicFlatBound NormalZeroCurrentPointCone
+  OrthogonalApproximationTransport OrthogonalCellApproximation
+  OrthogonalCharacteristicCurrent OrthogonalSmoothCurrentBounds
+  PolyhedralAffinePushforward PolyhedralApproximationEndpoints
+  PolyhedralFiniteApproximationBudget PolyhedralNormalReduction
+  PositiveAtomicZeroCurrentMass ScalarRectangleAtomicPolyhedral
+  ScalarRectangleBoxDensity ScalarRectangleCoordinateApproximation
+  ScalarRectangleEndpointSequence ScalarRectangleIntegralPolyhedral
+  ScalarRectangleProductApproximation ScalarRectangleProductDensity
+  TransverseAtomicApproximation TransverseAtomicPartition.

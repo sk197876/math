@@ -14,6 +14,7 @@ homogeneous polynomial majorants, including their complex analytic
 extensions and the required covering and dimension corrections.
 The original real auxiliary compact-union assertion of 3.4.8(5) also has a
 validated supplement for arbitrary proper ideals.
+Formalisation of Chapter 4 begins with §4.1.
 
 ## Sources and principles
 
@@ -59,6 +60,25 @@ after that release passed, preserving every earlier assumption set.
 The compact-cover supplement closes the original real
 auxiliary proof limit in 3.4.8(5) and has its own validation record.
 
+Chapter 4 is in progress. Items 4.1.1–4.1.27 are complete and validated.
+They cover test functions, distributions, differential forms, currents,
+Cartesian products, homotopy, cones, joins, oriented simplexes, flat
+seminorms and flat chains, smooth and Lipschitz images, flat-current
+support laws, convex support hulls, mass approximation, summable form
+contractions, smoothing, compact L1 representations, flat cochains,
+integral-geometric null support, its null-set corollaries, integral and
+real polyhedral chains with simultaneous flat and mass approximation,
+rectifiable currents, integral currents and integral flat chains,
+Lipschitz images of summable currents with their full-fibre area density,
+the signed degree of a Lipschitz map on a bounded set, and the oriented
+simplex as the image of the open unit cube.
+The documented corrections in 4.1.1, 4.1.7, 4.1.8, 4.1.15, 4.1.17 and
+4.1.19, the degree-zero qualification in 4.1.25 and the degenerate-case
+univalence qualification in 4.1.27 remain explicit.
+Items 4.1.28–4.1.34 remain pending. The
+[4.1 guide](docs/chapter4/4.1.md) records coverage and the distinction
+between the literal final test topology and its locally convex counterpart.
+
 The [section guides](docs/toc.md) give the precise scope of each item.
 The [coverage completion record](docs/checkpoints/coverage-completion.md)
 records completion of the proof obligations authorised after the Chapter 3
@@ -77,7 +97,7 @@ bypasses are forbidden.
 ## Documentation and repository layout
 
 Start at **[docs/toc.md](docs/toc.md)**. Each Federer subsection has its own
-account in `docs/chapter1/`, `docs/chapter2/` or `docs/chapter3/`, with entries for its numbered
+account in `docs/chapter1/`, `docs/chapter2/`, `docs/chapter3/` or `docs/chapter4/`, with entries for its numbered
 items. The maps are:
 
 - [contents.md](docs/contents.md): Federer item numbers to source modules and declarations.
@@ -112,16 +132,11 @@ Rocq-Elpi 3.3.1 and algebra-tactics 1.2.7. Exact package versions are in
 Python 3 runs the documentation and audit helpers. The source materials are
 needed for source consultation, not for compiling the proofs.
 
-Run from the repository root. On this shared host, the daytime resource policy
-permits up to eight compiler workers with memory-aware admission and a 1.5 GiB
-RAM reserve. Between 17:00 and 07:00 Europe/Warsaw, use as many resources as
-are useful. Keep registered inputs stable during validation, run the
-validation stages sequentially, and avoid overlapping top-level makes.
-The manual example below uses two workers.
-Use your configured opam root.
+Run these commands in the `federer/` folder with your configured opam root.
+The [resource guard](docs/resources.md) supports shared build machines.
 
 ```sh
-opam exec --switch=RP.2026.02.0~9.1~2026.01 -- nice -n 10 make -j2
+opam exec --switch=RP.2026.02.0~9.1~2026.01 -- nice -n 10 make -j1
 opam exec --switch=RP.2026.02.0~9.1~2026.01 -- nice -n 10 make check
 opam exec --switch=RP.2026.02.0~9.1~2026.01 -- nice -n 10 make audit
 ```
@@ -129,7 +144,7 @@ opam exec --switch=RP.2026.02.0~9.1~2026.01 -- nice -n 10 make audit
 | Target | Effect |
 | --- | --- |
 | `make` / `make all` | Generate the Rocq Makefile and compile registered theories and all registered example suites. |
-| `make check` | Build as needed, then recursively kernel-check the public Chapter 1, 2 and developing Chapter 3 interfaces and all registered example suites. |
+| `make check` | Build as needed, then recursively kernel-check the public chapter interfaces and all registered example suites. |
 | `make audit` | Build as needed, then freshly run every `Print Assumptions` query and rewrite `docs/assumptions.log`. |
 | `make doc` | Build as needed and generate coqdoc HTML with the project index in `html/`. |
 | `make clean` | Remove generated compilation artifacts and HTML. |
@@ -137,17 +152,11 @@ opam exec --switch=RP.2026.02.0~9.1~2026.01 -- nice -n 10 make audit
 | `ADOPT=1 make prepare-build` | Take over a build directory owned by another checkout: repoint its source links, keep the artifacts of unchanged sources and drop those of changed or removed modules. |
 | `make migrate-build` | Relocate old in-source artifacts, verifying copies and preserving timestamps; retain obsolete outputs separately. |
 
-All these targets run in a separate build directory. The two working
-checkouts on this host share `/opt/rocq/federer-build`, selected by the
-ignored local file `.build-dir`, and use it in turn. The checkout whose
-links the tree holds is recorded in its ownership marker; another checkout
-takes it over with `ADOPT=1 make prepare-build` before building, so stored
-artifacts of unchanged sources are reused and only changed modules are
-recompiled. On this host build directories use group `llm` and setgid
-inheritance. Make recipes use `BUILD_UMASK=0002` by default so new outputs
-remain readable and writable by the group; use `umask 0002` for direct Rocq
-and audit commands as well. Other clones default to `_build/`; override with
-`BUILD_DIR=/absolute/path` as an environment variable or a make argument.
+All these targets run in a separate build directory. The default is
+`_build/`. Override it with `BUILD_DIR=/absolute/path` or an ignored
+`.build-dir` file. The build tree records which checkout owns its source
+links. To build the companion subprojects with their committed load paths,
+build Federer with `BUILD_DIR=/opt/rocq/federer-build`.
 
 The build tree contains individual source symlinks, compiled files (`.vo`,
 `.vos`, `.vok`, `.glob`, `.aux`), generated Makefiles and dependencies, and
@@ -170,6 +179,11 @@ toolchain and dependency consistency must be checked, and the reuse scope
 recorded with the verification results. The normal build also works from
 source without another checkout.
 
+For proof development, the project has used Rocq MCP, a local
+Rocqet library index and MathComp guidance. The
+[development account](docs/validation.md#proof-development-aids) explains
+their use within the project's formalisation and validation rules.
+
 ## Documentation maintenance
 
 Use the [maintenance guide](docs/maintenance.md) to update maps and check links.
@@ -177,11 +191,6 @@ Use the [rendering guide](docs/rendering.md) to generate HTML with mathematics.
 
 ## Public snapshot
 
-This snapshot contains the verified proof sources through 3.4.12 and the
-completed coverage supplements, together with current documentation. It
-retains the documented source corrections, qualifications and intentional
-omissions. [PUBLIC_SNAPSHOT.json](PUBLIC_SNAPSHOT.json) identifies the
-source revision, validation evidence, exclusions and export checks.
-Agent instructions, memories, restart and progress handoffs, unfinished
-draft recovery, local settings and generated build artifacts are excluded.
-Copying these sources does not constitute a new mathematical validation.
+This snapshot includes the validated sources through 4.1.27 and the
+completed coverage supplements. [PUBLIC_SNAPSHOT.json](PUBLIC_SNAPSHOT.json)
+records the source revision, validation evidence, and export checks.

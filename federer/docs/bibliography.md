@@ -48,6 +48,12 @@ Nicolas Bourbaki. *Elements of Mathematics: Commutative Algebra*.
 Hermann, Paris, and Addison-Wesley, Reading, Massachusetts, 1972.
 English translation of *Algèbre commutative*, Chapters 1–7.
 
+### Bourbaki1987
+
+Nicolas Bourbaki. *Topological Vector Spaces: Chapters 1–5*.
+Elements of Mathematics. Springer-Verlag, Berlin and Heidelberg, 1987.
+DOI: [10.1007/978-3-642-61715-7](https://doi.org/10.1007/978-3-642-61715-7).
+
 ### Bourbaki1990
 
 Nicolas Bourbaki. *Algebra II: Chapters 4–7*. Elements of Mathematics.
@@ -169,6 +175,12 @@ Martin Kneser. “Einige Bemerkungen über das Minkowskische Flächenmaß.”
 *Archiv der Mathematik* **6** (1955), 382–390.
 DOI: [10.1007/BF01900510](https://doi.org/10.1007/BF01900510).
 
+### Menne2016
+
+Ulrich Menne. “Weakly differentiable functions on varifolds.”
+*Indiana University Mathematics Journal* **65**, no. 3 (2016), 977–1088.
+DOI: [10.1512/iumj.2016.65.5829](https://doi.org/10.1512/iumj.2016.65.5829).
+
 ### Perron1948
 
 Federer’s label: [PO].
@@ -180,6 +192,12 @@ Oskar Perron. *Irrationalzahlen*. Chelsea Publishing Company, New York, 1948.
 Stanisław Saks. “Remark on the differentiability of the Lebesgue indefinite
 integral.” *Fundamenta Mathematicae* **22** (1934), 257–261.
 DOI: [10.4064/fm-22-1-257-261](https://doi.org/10.4064/fm-22-1-257-261).
+
+### Schwartz1973
+
+Laurent Schwartz. *Radon Measures on Arbitrary Topological Spaces and
+Cylindrical Measures*. Tata Institute of Fundamental Research Studies
+in Mathematics, vol. 6. Oxford University Press, London, 1973.
 
 ### Ward1964
 

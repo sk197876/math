@@ -109,9 +109,22 @@ and [`InverseFunctionExamples.v`](../tests/InverseFunctionExamples.v).
 The [3.4 guide](chapter3/3.4.md) lists its separate public interfaces and
 compiled regression suites, including [HolomorphicGeometry.v](../theories/HolomorphicGeometry.v).
 
-Before Chapter 4, the user requests formalisation of
-[EilenbergSteenrod1952](bibliography.md#eilenbergsteenrod1952). This
-future prerequisite is recorded in the project plan.
+## Chapter 4: Homological integration theory
+
+Section 4.1 is in progress. Items 4.1.1–4.1.27 are complete and validated,
+with the documented corrections in 4.1.1, 4.1.7, 4.1.8, 4.1.15, 4.1.17 and
+4.1.19, the degree-zero qualification in 4.1.25 and the degenerate-case
+univalence qualification in 4.1.27. Items 4.1.28–4.1.34 remain pending. The [section guide](chapter4/4.1.md) records
+coverage item by item, beginning with test functions and distributions.
+It distinguishes Federer's literal final test topology from the locally
+convex topology discussed in the published supporting literature.
+
+| Section | Printed pages |
+| --- | --- |
+| [4.1 Differential forms and currents](chapter4/4.1.md) | 343–394 |
+
+Formalisation of [EilenbergSteenrod1952](bibliography.md#eilenbergsteenrod1952)
+remains a prerequisite for later homology results.
 
 ## Maps
 
@@ -133,6 +146,9 @@ for coqdoc output, its location, and its contents.
 
 ## Records and references
 
+The [build resource guide](resources.md) describes the current laptop,
+automatic daytime and overnight profiles, and the guarded build commands.
+
 The [checkpoint guide](checkpoints/README.md) distinguishes historical
 progress notes from current coverage and the active work queue.
 
@@ -144,7 +160,7 @@ progress notes from current coverage and the active work queue.
 - [federer-erratum.tex](references/federer-erratum.tex): the working erratum transcription.
 - [federer-errors.tex](references/federer-errors.tex): the error catalogue, convention qualifications, and published corrections, with their verification status.
 
-- [validation.md](validation.md): release accounts and their recorded scope.
+- [validation.md](validation.md): release accounts, their scope and [proof development aids](validation.md#proof-development-aids).
 - [rendering.md](rendering.md): coqdoc and Markdown HTML instructions.
 - [maintenance.md](maintenance.md): document structure, writing rules, and checks.
 

@@ -1,0 +1,1625 @@
+\pdfoutput=1
+
+\documentclass[a4paper,twoside,leqno]{article}
+
+\input{preambule.tex}
+
+\input{macros.tex}
+
+% Local notation of this note.
+\newcommand{\heatop}{\mathcal{H}}          % heat operator  \partial_t + \Delta
+\newcommand{\sv}[1]{\varsigma_{#1}}        % the numbers of 2.4
+\newcommand{\dUps}{\overrightarrow{\Upsilon}} % the polar of Upsilon, Federer 4.1.5
+\setlength{\emergencystretch}{2em}
+
+\date{\today}
+
+\title{Blueprint of a formalisation of the anisotropic Michael--Simon inequality of De~Philippis,
+    Gennaioli, Pigati and Rindler}
+
+\author{Working note}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+\label{sec:intro}
+
+De~Philippis, Gennaioli, Pigati and Rindler~\cite[Theorem~1.1]{DePhilippisGennaioliPigatiRindler2026}
+prove a scale-invariant bound on the mass of a~measure satisfying a~first order constraint. Suppose
+$\mu = (\HM^{\vdim} \restrict M) \restrict \theta$ is a~finite measure carried by a~Borel set $M
+\subseteq \R^{\adim}$ with $\HM^{\vdim}(M) < \infty$. Suppose a~measurable map $X$ takes values in
+a~compact convex set $K$ of linear maps whose $\vdim$-th singular values are bounded away from
+zero, and the divergence of the matrix valued measure $X\mu$ is a~finite measure. Then
+$\mu(\R^{\adim}) \le C \, \HM^{\vdim}(M)^{1/\vdim} \, |\mathrm{div}(X\mu)|(\R^{\adim})$. As
+an~application, the same authors obtain the Michael--Simon inequality for rectifiable varifolds
+whose first variation with respect to an~anisotropic integrand~$F$ is a~finite measure, provided
+$F$ satisfies the condition (AC1) of De~Philippis, De~Rosa and
+Ghiraldin~\cite[Theorem~1.6]{DePhilippisGennaioliPigatiRindler2026}. The proof applies the heat
+semigroup to a~part of~$\mu$ carried by a~compact rectifiable set. It bounds the Fisher
+information of the heated measure by the constraint, compares the resulting growth of its entropy
+with the Minkowski content of the compact set, and adapts the heat-flow identities of Gennaioli
+and Rindler~\cite[section~3]{Gennaioli2026}.
+
+This note is a~blueprint for a~formalisation of these two results, in Lean or in Rocq. Each
+assertion of the proof is matched with an~item of Federer's book~\cite{Federer1969}, an~item of
+Allard's paper~\cite{Allard1972}, a~lemma of De~Philippis, De~Rosa and
+Ghiraldin~\cite{DePhilippis2018}, or a~lemma of this note. Every lemma of this note is stated with
+all its hypotheses and proved from the preceding items. The notation is that of Federer.
+Vector valued measures are replaced by linear functionals on spaces of continuous maps, as
+in~\cite[2.5.12, 2.5.14, 4.1.5]{Federer1969}, and varifolds are treated as
+in~\cite{Allard1972}. Hence the lemmas of this note, together with~\cite[Lemmas~A.1
+and~A.2]{DePhilippis2018}, are the results to be formalised on top of formalisations of
+Federer's book and of Allard's paper.
+
+Theorem~\ref{thm:main} reproduces~\cite[Theorem~1.1]{DePhilippisGennaioliPigatiRindler2026} under
+the additional hypothesis that $M$ is countably $(\HM^{\vdim},\vdim)$ rectifiable. The authors
+of~\cite{DePhilippisGennaioliPigatiRindler2026} remove this hypothesis
+by~\cite[Proposition~3.1]{ArroyoRabasa2019}; see~\cite[Remark~1.2 and the proof of
+Theorem~1.1]{DePhilippisGennaioliPigatiRindler2026}. The additional hypothesis holds in the
+application to varifolds. Hence Theorem~\ref{thm:MS}
+reproduces~\cite[Theorem~1.6]{DePhilippisGennaioliPigatiRindler2026} in full. Theorems~1.3
+and~1.4 of~\cite{DePhilippisGennaioliPigatiRindler2026} are not treated.
+
+The deduction follows~\cite{DePhilippisGennaioliPigatiRindler2026} line by line, with four
+changes. First, the cut-off arguments mentioned
+in~\cite{DePhilippisGennaioliPigatiRindler2026} for integrations by parts on~$\R^{\adim}$ are
+replaced by the classes of functions of polynomial growth and of Gaussian decay
+of~\ref{def:classes}. Second, the smooth cut-off function~$\chi$ of~\cite[proof of
+Lemma~3.2]{DePhilippisGennaioliPigatiRindler2026} is replaced by a~piecewise affine one. This
+requires only the Lipschitz property~\ref{lem:spectral} of the spectral calculus, instead of its
+smoothness, and the integration by parts~\ref{lem:ibp} for locally Lipschitzian vector fields.
+Third, the singular values are replaced by the numbers $\sv{\vdim}(X)$ of~\ref{def:sv}, and
+$\Lambda$ bounds the Hilbert--Schmidt norm, as assumed at the beginning of~\cite[section~3]
+{DePhilippisGennaioliPigatiRindler2026}. Fourth, the Minkowski content estimate in the proof
+of~\cite[(4.2)]{DePhilippisGennaioliPigatiRindler2026} is deduced from~\cite[3.2.39]{Federer1969}
+for an~arbitrary compact $\vdim$ rectifiable set. Table~\ref{tab:correspondence} lists the
+correspondence of the items. Table~\ref{tab:dependencies} in section~\ref{sec:summary} lists the
+dependencies of all items of this note.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{p{0.52\textwidth}p{0.3\textwidth}}
+        \cite{DePhilippisGennaioliPigatiRindler2026} & this note \\ \hline
+        (3.1), (3.2), (3.4) & \ref{def:heat_objects} \\
+        (3.3), (3.4), the identity before (3.12) & \ref{lem:identities} \\
+        (3.6) and the identities in the proof of Lemma~3.1 & \ref{lem:heat_calculus} \\
+        Lemma~3.1 with (3.7)--(3.12) & \ref{lem:DGPR31} \\
+        (3.14), (3.15), (3.18) & proof of~\ref{lem:DGPR32} \\
+        (3.16) & \ref{lem:semiconvex} \\
+        (3.17) & \ref{lem:ibp} \\
+        Lemma~3.2 & \ref{lem:DGPR32} \\
+        (4.1) & \ref{lem:upper_entropy} \\
+        (4.2) & \ref{lem:tube}, \ref{lem:lower_entropy} \\
+        proof of Theorem~1.1 & \ref{lem:inner}, \ref{lem:compact_case}, \ref{thm:main} \\
+        first variation formula of section~1.2 & \ref{lem:first_variation} \\
+        Theorem~1.6 & \ref{thm:MS}
+    \end{tabular}
+    \caption{Items of~\cite{DePhilippisGennaioliPigatiRindler2026} and of this note.}
+    \label{tab:correspondence}
+\end{table}
+
+\section{Notation and auxiliary linear algebra}
+\label{sec:notation}
+
+\begin{miniremark}
+    \label{mr:sec_notation}
+    This section fixes the notation and recalls linear functionals representable by integration.
+    It then introduces the numbers $\sv{\vdim}(X)$ and proves five auxiliary facts: properties of
+    $\sv{\vdim}$ in~\ref{lem:sv}, a~Lipschitzian spectral calculus in~\ref{lem:spectral},
+    a~trace comparison in~\ref{lem:trace}, compactness of convex hulls in~\ref{lem:hull}, and the
+    position of barycentres in~\ref{lem:barycentre}.
+\end{miniremark}
+
+\begin{miniremark}
+    \label{mr:notation}
+    Throughout, $\adim$ and $\vdim$ are integers with $1 \le \vdim \le \adim$, and $Y$ is
+    a~finite dimensional inner product space. We fix an~orthonormal basis $\varepsilon_1, \ldots,
+    \varepsilon_{\adim}$ of~$\R^{\adim}$ and its dual basis $\omega_1, \ldots, \omega_{\adim}$
+    of~$\Hom(\R^{\adim},\R)$. The quantities below defined through these bases are traces or norms
+    in the sense of~\cite[1.7.9, 1.7.10]{Federer1969}; hence they do not depend on the choice of
+    the bases.
+
+    Suppose $V$ and $Z$ are finite dimensional inner product spaces. Following~\cite[1.7.4,
+    1.7.9]{Federer1969}, $\transpose{A} \in \Hom(Z,V)$ is the adjoint of $A \in \Hom(V,Z)$, the
+    space $\Hom(V,Z)$ carries the inner product $A \bullet B = \trace(\transpose{A} \circ B)$, and
+    $|A| = (A \bullet A)^{1/2}$. We write $\|A\| = \sup \{ |A(v)| : v \in V,\ |v| \le 1 \}$. Then
+    $\|A\| \le |A| \le (\dim V)^{1/2} \|A\|$ by~\cite[1.7.9]{Federer1969}, $\|\transpose{A}\| =
+    \|A\|$ by~\cite[1.7.6]{Federer1969}, and $|B \circ A| \le \|B\| \, |A|$ and $|A \circ C| \le |A| \, \|C\|$ whenever $B \in
+    \Hom(Z,Z')$ and $C \in \Hom(V',V)$. For $\psi \in \Hom(Z,\R)$ and $z \in Z$ we write $\langle z, \psi \rangle =
+    \psi(z)$ and $\|\psi\| = \sup \{ \langle z, \psi \rangle : |z| \le 1 \}$. For $\omega \in
+    \Hom(V,\R)$ and $b \in Z$, the map $\omega \cdot b \in \Hom(V,Z)$ is given by $(\omega \cdot
+    b)(v) = \omega(v) b$ for $v \in V$; then $(\omega \cdot b) \bullet A = \omega(\transpose{A}(b))$
+    for $A \in \Hom(V,Z)$; see~\cite[2.3(4)]{Allard1972}. We write $\SymEnd{\R^{\adim}} =
+    \End{\R^{\adim}} \cap \{ A : \transpose{A} = A \}$. Each $A \in \SymEnd{\R^{\adim}}$ admits an
+    orthonormal basis of~$\R^{\adim}$ consisting of eigenvectors of~$A$
+    by~\cite[1.7.3]{Federer1969}.
+
+    Suppose $Z$ is a~finite dimensional normed space. Following~\cite[1.10.1,
+    3.1.11]{Federer1969}, $\textstyle\bigodot^j(\R^{\adim},Z)$ is the space of symmetric $j$~linear
+    maps of $\R^{\adim}$ into~$Z$, and $\uD^j f(x) \in \textstyle\bigodot^j(\R^{\adim},Z)$ is the
+    $j$-th differential at~$x$ of a~map~$f$ of class~$j$. For $f : \R^{\adim} \to \R$ of class~$2$
+    we define $\grad f(x) \in \R^{\adim}$ by $\uD f(x)(v) = \grad f(x) \bullet v$ for $v \in
+    \R^{\adim}$, and
+    \begin{displaymath}
+        \Delta f(x) = \textsum{j=1}{\adim} \uD^2 f(x)(\varepsilon_j,\varepsilon_j) \,;
+    \end{displaymath}
+    the same formula defines $\Delta f(x) \in Z$ for $f : \R^{\adim} \to Z$ of class~$2$. For $g :
+    \R^{\adim} \to \R^{\adim}$ and $W : \R^{\adim} \to \Hom(\R^{\adim},Y)$ of class~$1$ we define
+    $\mathrm{div}\, g(x) = \trace \uD g(x) = \textsum{j=1}{\adim} \uD g(x)(\varepsilon_j) \bullet
+    \varepsilon_j$, the covector $\mathrm{div}\, W(x) \in \Hom(Y,\R)$ by
+    \begin{displaymath}
+        \langle y, \mathrm{div}\, W(x) \rangle = \textsum{j=1}{\adim} \uD W(x)(\varepsilon_j)
+        (\varepsilon_j) \bullet y
+        = \trace \bigl[ \R^{\adim} \ni v \mapsto \transpose{(\uD W(x)(v))}(y) \bigr]
+    \end{displaymath}
+    for $y \in Y$,
+    and $|\uD W(x)|^2 = \textsum{j=1}{\adim} |\uD W(x)(\varepsilon_j)|^2$, which is the norm
+    of~\cite[1.7.9]{Federer1969} on~$\Hom(\R^{\adim},\Hom(\R^{\adim},Y))$.
+
+    For $0 < T < \infty$ we set $\Omega_T = (\R \times \R^{\adim}) \cap \{ (t,x) : t < T \}$. For
+    a~map $f$ defined on~$\Omega_T$ we write $f_t = f(t,\cdot)$; then $\uD f_t(x)$, $\uD^2 f_t(x)$,
+    $\grad f_t(x)$, $\Delta f_t(x)$ are taken with respect to~$x$, $\partial_t f(t,x)$ is the
+    derivative with respect to~$t$, and $\uD^j f(t,x)$ is the $j$-th differential with respect to
+    $(t,x) \in \R \times \R^{\adim}$.
+
+    We use $\LM^{\adim}$, $\HM^{\vdim}$, $\cball{a}{r}$, $\oball{a}{r}$, $\dist(x,E)$,
+    $\unitmeasure{m} = \LM^m(\cball{0}{1})$, $\phi \restrict A$, and the measure $\phi \restrict
+    f$ with density~$f$ as in~\cite[2.4.10]{Federer1969}. By~\cite[2.7.16(1)]{Federer1969},
+    $\unitmeasure{m} = \pi^{m/2} / \Gamma(1 + m/2)$. Following~\cite[2.5.14, 4.1.1]{Federer1969},
+    $\ccspace{\R^{\adim}}$, $\ccspace{\R^{\adim}}^+$, $\ccspace{\R^{\adim},Z}$,
+    $\dspace{\R^{\adim}}{Z}$ and $\distr{\R^{\adim}}{Z}$ denote the spaces of continuous functions
+    with compact support, their nonnegative members, continuous maps into~$Z$ with compact
+    support, smooth maps into~$Z$ with compact support, and distributions of type~$Z$. Following
+    \cite[2.5]{Allard1972}, $\VF(\R^{\adim}) = \dspace{\R^{\adim}}{\R^{\adim}}$. The notions
+    \emph{$\vdim$~rectifiable} and \emph{countably $(\HM^{\vdim},\vdim)$ rectifiable} are those
+    of~\cite[3.2.14]{Federer1969}. We call a~measure $\phi$ over~$\R^{\adim}$ a~\emph{Borel
+    measure} if all Borel subsets of~$\R^{\adim}$ are $\phi$~measurable.
+\end{miniremark}
+
+\begin{miniremark}
+    \label{mr:functionals}
+    Suppose $Z$ is a~finite dimensional inner product space and $\Theta : \ccspace{\R^{\adim},Z}
+    \to \R$ is a~linear functional such that
+    \begin{displaymath}
+        \|\Theta\|(f) = \sup \bigl\{ \Theta(\xi) : \xi \in \ccspace{\R^{\adim},Z},\ |\xi(x)| \le
+        f(x) \text{ for } x \in \R^{\adim} \bigr\} < \infty
+        \quad \text{for $f \in \ccspace{\R^{\adim}}^+$} \,.
+    \end{displaymath}
+    By~\cite[2.5.12]{Federer1969} in the form for~$\ccspace{\R^{\adim}}$ given in the last
+    paragraph of~\cite[2.5.14]{Federer1969}, $\|\Theta\|$ is a~monotone Daniell integral; we
+    denote by~$\|\Theta\|$ also the associated Radon measure over~$\R^{\adim}$ and call it the
+    variation measure of~$\Theta$. There is a~$\|\Theta\|$ measurable map $\overrightarrow{\Theta}
+    : \R^{\adim} \to \Hom(Z,\R)$ such that $\|\overrightarrow{\Theta}(x)\| = 1$ for
+    $\|\Theta\|$~almost all~$x$ and
+    \begin{displaymath}
+        \Theta(\xi) = \textint{}{} \langle \xi(x), \overrightarrow{\Theta}(x) \rangle
+        \ud \|\Theta\| x
+        \quad \text{for $\xi \in \ccspace{\R^{\adim},Z}$} \,.
+    \end{displaymath}
+    A~distribution $\Theta \in \distr{\R^{\adim}}{Z}$ is \emph{representable by integration} if
+    $\|\Theta\|(f) < \infty$ for $f \in \ccspace{\R^{\adim}}^+$, where $\|\Theta\|(f)$ is defined
+    with $\dspace{\R^{\adim}}{Z}$ in place of~$\ccspace{\R^{\adim},Z}$; the preceding statements
+    then hold with $\dspace{\R^{\adim}}{Z}$ in place of~$\ccspace{\R^{\adim},Z}$
+    by~\cite[4.1.5]{Federer1969}. If moreover $\|\Theta\|(\R^{\adim}) < \infty$, we put
+    $\Theta(g) = \textint{}{} \langle g(x), \overrightarrow{\Theta}(x) \rangle \ud \|\Theta\| x$
+    for every bounded continuous map $g : \R^{\adim} \to Z$.
+
+    Two consequences of these definitions are used. If $\nu$ is a~Radon measure over~$\R^{\adim}$
+    and $|\Theta(g)| \le \textint{}{} |g| \ud \nu$ for $g \in \dspace{\R^{\adim}}{Z}$, then
+    $\Theta$ is representable by integration and $\|\Theta\|(A) \le \nu(A)$ for $A \subseteq
+    \R^{\adim}$, because $\|\Theta\|(f) \le \textint{}{} f \ud \nu$ for $f \in
+    \ccspace{\R^{\adim}}^+$ and both measures are Radon measures; see~\cite[2.5.14]{Federer1969}.
+    If $C \subseteq \R^{\adim}$ is closed and $\Theta(g) = 0$ whenever $g \in
+    \dspace{\R^{\adim}}{Z}$ and $\spt g \cap C = \varnothing$, then $\|\Theta\|(f) = 0$ for $f \in
+    \ccspace{\R^{\adim}}^+$ with $\spt f \cap C = \varnothing$; hence $\|\Theta\|(\R^{\adim}
+    \without C) = 0$ by~\cite[2.5.14]{Federer1969}.
+\end{miniremark}
+
+\begin{definition}
+    \label{def:sv}
+    For $X \in \Hom(\R^{\adim},Y)$ we define
+    \begin{displaymath}
+        \sv{\vdim}(X) = \sup \bigl\{ \inf \{ |X(v)| : v \in P,\ |v| = 1 \} : P \in
+        \grass{\adim}{\vdim} \bigr\} \,,
+    \end{displaymath}
+    where $\grass{\adim}{\vdim}$ is the set of $\vdim$~dimensional linear subspaces
+    of~$\R^{\adim}$.
+\end{definition}
+
+\begin{lemma}
+    \label{lem:sv}
+    Suppose $X, X' \in \Hom(\R^{\adim},Y)$ and $c \in \R$. Then the following four statements
+    hold.
+    \begin{enumerate}
+        \item \label{i:sv:hom} $\sv{\vdim}(cX) = |c| \, \sv{\vdim}(X)$.
+        \item \label{i:sv:lip} $|\sv{\vdim}(X) - \sv{\vdim}(X')| \le \|X - X'\|$.
+        \item \label{i:sv:rank} $\sv{\vdim}(X) > 0$ if and only if $\dim \im X \ge \vdim$.
+        \item \label{i:sv:eigen} If $0 < a \le \sv{\vdim}(X)$, $u_1, \ldots, u_{\adim}$ is an
+        orthonormal basis of~$\R^{\adim}$, and $\transpose{X} \circ X (u_i) = a_i u_i$ for $i = 1,
+        \ldots, \adim$, then $\card \{ i : a_i \ge a^2 \} \ge \vdim$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Statement~\ref{i:sv:hom} is evident. Since $|X(v)| \le |X'(v)| + \|X - X'\|$ for $|v| = 1$, we
+    obtain $\sv{\vdim}(X) \le \sv{\vdim}(X') + \|X - X'\|$; exchanging $X$ and~$X'$
+    gives~\ref{i:sv:lip}.
+
+    Suppose $\dim \im X \ge \vdim$. Since $\dim (\ker X)^\perp = \dim \im X$, there is $P \in
+    \grass{\adim}{\vdim}$ with $P \subseteq (\ker X)^\perp$. The function $[v \mapsto |X(v)|]$ is
+    positive and continuous on the compact set $P \cap \{ v : |v| = 1 \}$; hence its infimum there
+    is positive and $\sv{\vdim}(X) > 0$. Suppose $\dim \im X < \vdim$. Then $\dim \ker X > \adim -
+    \vdim$, hence every $P \in \grass{\adim}{\vdim}$ contains a~unit vector of~$\ker X$, and
+    $\sv{\vdim}(X) = 0$. This proves~\ref{i:sv:rank}.
+
+    Suppose $0 < a' < a$. There is $P \in \grass{\adim}{\vdim}$ with $|X(v)| \ge a' |v|$ for $v \in
+    P$. Let $L$ be the linear span of $\{ u_i : a_i < a'^2 \}$. For $v \in L$ we have $|X(v)|^2 =
+    v \bullet \transpose{X} \circ X(v) = \textsum{i}{} a_i (u_i \bullet v)^2$, where $i$ ranges over
+    $\{ i : a_i < a'^2 \}$; hence $|X(v)| < a' |v|$ if $v \ne 0$. Thus $P \cap L = \{0\}$, $\dim L
+    \le \adim - \vdim$, and $\card \{ i : a_i \ge a'^2 \} \ge \vdim$. Since the set $\{ a_1,
+    \ldots, a_{\adim} \}$ is finite, letting $a'$ increase to~$a$ yields~\ref{i:sv:eigen}.
+\end{proof}
+
+\begin{remark}
+    \label{rem:sv_singular}
+    Suppose $X \in \Hom(\R^{\adim},Y)$, $u_1, \ldots, u_{\adim}$ is an orthonormal basis
+    of~$\R^{\adim}$, $\transpose{X} \circ X(u_i) = a_i u_i$ for $i = 1, \ldots, \adim$, and $a_1
+    \ge a_2 \ge \cdots \ge a_{\adim}$; such a~basis exists by~\cite[1.7.3]{Federer1969}. Then
+    $\sv{\vdim}(X) = a_{\vdim}^{1/2}$. Indeed, $|X(v)|^2 \ge a_{\vdim} |v|^2$ for $v$ in the linear
+    span of $u_1, \ldots, u_{\vdim}$, whence $\sv{\vdim}(X) \ge a_{\vdim}^{1/2}$; and
+    $\sv{\vdim}(X)^2 > a_{\vdim}$ would give $\card \{ i : a_i > a_{\vdim} \} \ge \vdim$
+    by~\ref{lem:sv}\ref{i:sv:eigen} applied with some $a$ satisfying $a_{\vdim} < a^2 <
+    \sv{\vdim}(X)^2$, which is impossible. Hence $\sv{\vdim}(X)$ is the $\vdim$-th singular value
+    $\sigma_{\vdim}(X)$ of~\cite[Theorem~1.1]{DePhilippisGennaioliPigatiRindler2026}. This
+    identification is used only to compare the constants of this note with those
+    of~\cite{DePhilippisGennaioliPigatiRindler2026}.
+\end{remark}
+
+\begin{definition}
+    \label{def:spectral}
+    Suppose $\chi : \R \to \R$ is Lipschitzian, $A \in \SymEnd{\R^{\adim}}$, $u_1, \ldots,
+    u_{\adim}$ is an orthonormal basis of~$\R^{\adim}$, and $A(u_i) = a_i u_i$ for $i = 1, \ldots,
+    \adim$. We define $\hat\chi(A) \in \End{\R^{\adim}}$ by
+    \begin{displaymath}
+        \hat\chi(A)(v) = \textsum{i=1}{\adim} \chi(a_i) (u_i \bullet v) u_i
+        \quad \text{for $v \in \R^{\adim}$} \,.
+    \end{displaymath}
+    The map $\hat\chi(A)$ does not depend on the choice of $u_1, \ldots, u_{\adim}$: for each $a
+    \in \R$, the map $[v \mapsto \textsum{i}{} (u_i \bullet v) u_i]$, where $i$ ranges over $\{ i :
+    a_i = a \}$, is the orthogonal projection of~$\R^{\adim}$ onto $\ker (A - a \id{\R^{\adim}})$.
+\end{definition}
+
+\begin{lemma}
+    \label{lem:spectral}
+    Suppose $\chi$ and $\hat\chi$ are as in~\ref{def:spectral}, and $A, A' \in
+    \SymEnd{\R^{\adim}}$. Then $\hat\chi(A) \in \SymEnd{\R^{\adim}}$, every eigenvalue
+    of~$\hat\chi(A)$ belongs to $\chi[\{ a : \ker(A - a \id{\R^{\adim}}) \ne \{0\} \}]$, and
+    \begin{displaymath}
+        |\hat\chi(A) - \hat\chi(A')| \le \Lip(\chi) \, |A - A'| \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    The first two assertions are evident from~\ref{def:spectral}. Let $u_1, \ldots, u_{\adim}$ and
+    $a_1, \ldots, a_{\adim}$ be as in~\ref{def:spectral}, and $u'_1, \ldots, u'_{\adim}$ and
+    $a'_1, \ldots, a'_{\adim}$ the corresponding objects for~$A'$. Let $\pi_i$ and $\pi'_j$ be the
+    orthogonal projections of~$\R^{\adim}$ onto the linear spans of $\{u_i\}$ and $\{u'_j\}$. Then
+    $\textsum{i}{} \pi_i = \id{\R^{\adim}} = \textsum{j}{} \pi'_j$, $A = \textsum{i}{} a_i \pi_i$,
+    and $A' = \textsum{j}{} a'_j \pi'_j$. Hence
+    \begin{displaymath}
+        \hat\chi(A) - \hat\chi(A') = \textsum{i,j}{} (\chi(a_i) - \chi(a'_j)) \, \pi_i \circ \pi'_j
+        \,, \qquad
+        A - A' = \textsum{i,j}{} (a_i - a'_j) \, \pi_i \circ \pi'_j \,.
+    \end{displaymath}
+    Since $\pi_i \circ \pi_{i'} = 0$ for $i \ne i'$, $\pi'_j \circ \pi'_{j'} = 0$ for $j \ne j'$,
+    and the trace is invariant under cyclic permutations,
+    \begin{displaymath}
+        (\pi_i \circ \pi'_j) \bullet (\pi_{i'} \circ \pi'_{j'})
+        = \trace(\pi'_j \circ \pi_i \circ \pi_{i'} \circ \pi'_{j'}) = 0
+        \quad \text{whenever $(i,j) \ne (i',j')$} \,.
+    \end{displaymath}
+    Therefore
+    \begin{multline*}
+        |\hat\chi(A) - \hat\chi(A')|^2 = \textsum{i,j}{} (\chi(a_i) - \chi(a'_j))^2 |\pi_i \circ
+        \pi'_j|^2 \\
+        \le \Lip(\chi)^2 \textsum{i,j}{} (a_i - a'_j)^2 |\pi_i \circ \pi'_j|^2 =
+        \Lip(\chi)^2 |A - A'|^2 \,. \qedhere
+    \end{multline*}
+\end{proof}
+
+\begin{lemma}
+    \label{lem:trace}
+    Suppose $g \in \textstyle\bigodot^2(\R^{\adim},\R)$, $g(v,v) \ge 0$ for $v \in \R^{\adim}$, $Q
+    \in \SymEnd{\R^{\adim}}$, and $\|Q\| \le 1$. Then
+    \begin{displaymath}
+        \textsum{j=1}{\adim} g(Q(\varepsilon_j),Q(\varepsilon_j)) \le \textsum{j=1}{\adim}
+        g(\varepsilon_j,\varepsilon_j) \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    Both sides are traces of symmetric bilinear forms with respect to~$\bullet$; hence they do not
+    depend on the orthonormal basis~\cite[1.7.10]{Federer1969}. Choose an~orthonormal basis $u_1,
+    \ldots, u_{\adim}$ with $Q(u_j) = q_j u_j$~\cite[1.7.3]{Federer1969}. Then $|q_j| \le 1$ and
+    $\textsum{j}{} g(Q(u_j),Q(u_j)) = \textsum{j}{} q_j^2 g(u_j,u_j) \le \textsum{j}{}
+    g(u_j,u_j)$.
+\end{proof}
+
+\begin{lemma}
+    \label{lem:hull}
+    If $Z$ is a~finite dimensional normed space and $A \subseteq Z$ is compact, then $\conv A$ is
+    compact.
+\end{lemma}
+
+\begin{proof}
+    Let $d = \dim Z$. Suppose $z = \textsum{i=0}{m} c_i a_i$ with $a_i \in A$, $c_i > 0$,
+    $\textsum{i}{} c_i = 1$, and $m > d$. The vectors $a_1 - a_0, \ldots, a_m - a_0$ are linearly
+    dependent; hence there are $b_0, \ldots, b_m \in \R$, not all zero, with $\textsum{i}{} b_i
+    a_i = 0$ and $\textsum{i}{} b_i = 0$. Some $b_i$ is positive. With $\tau = \min \{ c_i / b_i :
+    b_i > 0 \}$ we have $z = \textsum{i}{} (c_i - \tau b_i) a_i$, where $c_i - \tau b_i \ge 0$,
+    $\textsum{i}{} (c_i - \tau b_i) = 1$, and at least one coefficient vanishes. By induction on
+    $m$, $\conv A$ is the image of the compact set $A^{d+1} \times (\R^{d+1} \cap \{ c : c_i \ge
+    0,\ \textsum{i}{} c_i = 1 \})$ under the continuous map $[(a,c) \mapsto \textsum{i}{} c_i
+    a_i]$.
+\end{proof}
+
+\begin{lemma}
+    \label{lem:barycentre}
+    Suppose $Z$ is a~finite dimensional normed space, $K \subseteq Z$ is compact and convex, $\nu$
+    is a~measure over a~set~$\Omega$ with $0 < \nu(\Omega) < \infty$, and $f : \Omega \to K$ is
+    $\nu$~measurable. Then $\nu(\Omega)^{-1} \textint{}{} f \ud \nu \in K$.
+\end{lemma}
+
+\begin{proof}
+    The integral exists by~\cite[2.4.12]{Federer1969}, because $f$ is bounded. The membership is
+    part of Jensen's inequality~\cite[2.4.19]{Federer1969}, applied to the closed convex set~$K$
+    and the zero function on~$K$.
+\end{proof}
+
+\section{Heat flow of finite measures with compact support}
+\label{sec:heat}
+
+\begin{miniremark}
+    \label{mr:sec_heat}
+    This section collects the properties of the heat kernel and of heat extensions of finite
+    measures with compact support used in sections~\ref{sec:estimates} and~\ref{sec:entropy}. It
+    introduces the classes of functions of polynomial growth and of Gaussian decay, which justify
+    all integrations by parts on~$\R^{\adim}$ and all differentiations under the integral sign.
+    It ends with the log-semiconvexity of heat extensions~\ref{lem:semiconvex}
+    (\cite[(3.16)]{DePhilippisGennaioliPigatiRindler2026}) and the integration by parts formula
+    \ref{lem:ibp} (\cite[(3.17)]{DePhilippisGennaioliPigatiRindler2026}).
+\end{miniremark}
+
+\begin{definition}
+    \label{def:heat}
+    For $0 < s < \infty$ and $z \in \R^{\adim}$ we set $p_s(z) = (4 \pi s)^{-\adim/2} \exp(-|z|^2
+    / (4s))$. Suppose $\nu$ is a~Borel measure over~$\R^{\adim}$, $0 < r < \infty$, $\nu(\R^{\adim})
+    < \infty$, $\nu(\R^{\adim} \without \cball{0}{r}) = 0$, $Z$ is a~finite dimensional normed
+    space, and $f : \R^{\adim} \to Z$ is bounded and $\nu$~measurable. The \emph{heat extension}
+    of $(\nu,f)$ is the map $u : (0,\infty) \times \R^{\adim} \to Z$ given by
+    \begin{displaymath}
+        u(s,x) = \textint{}{} p_s(x-y) f(y) \ud \nu y
+        \quad \text{for $0 < s < \infty$ and $x \in \R^{\adim}$} \,,
+    \end{displaymath}
+    where the integral is that of~\cite[2.4.12]{Federer1969}.
+\end{definition}
+
+\begin{lemma}
+    \label{lem:kernel}
+    For $0 < s < \infty$, $z, v, w \in \R^{\adim}$, and $j \in \nat$ the following six statements
+    hold.
+    \begin{enumerate}
+        \item \label{i:k:mass} $\textint{}{} p_s \ud \LM^{\adim} = 1$.
+        \item \label{i:k:moment} $\textint{}{} |z|^2 p_s(z) \ud \LM^{\adim} z = 2 \adim s$.
+        \item \label{i:k:heat} $\partial_s p_s(z) = \Delta p_s(z)$.
+        \item \label{i:k:bound} $\|\uD^j p_s(z)\| \le c(\adim,j) \, s^{-j/2} (1 + |z| s^{-1/2})^j \,
+        p_s(z)$, where $0 < c(\adim,j) < \infty$ depends only on $\adim$ and~$j$.
+        \item \label{i:k:formulas} $\uD p_s(z)(v) = - (2s)^{-1} (z \bullet v) \, p_s(z)$ and
+        $\uD^2 p_s(z)(v,w) = \bigl( (4s^2)^{-1} (z \bullet v)(z \bullet w) - (2s)^{-1} v \bullet w
+        \bigr) p_s(z)$.
+        \item \label{i:k:max} $p_s(z) \le (4 \pi s)^{-\adim/2}$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Statements~\ref{i:k:formulas} and~\ref{i:k:max} follow by direct computation,
+    and~\ref{i:k:heat} follows from~\ref{i:k:formulas}, since both sides equal $((4s^2)^{-1}|z|^2
+    - \adim (2s)^{-1}) p_s(z)$. By Fubini's theorem~\cite[2.6.2]{Federer1969}, \ref{i:k:mass}
+    and~\ref{i:k:moment} reduce to the one-dimensional identities $\textint{}{} \exp(-\tau^2/(4s))
+    \ud \LM^1 \tau = (4 \pi s)^{1/2}$ and $\textint{}{} \tau^2 \exp(-\tau^2/(4s)) \ud \LM^1 \tau =
+    2s (4\pi s)^{1/2}$. For~\ref{i:k:bound}, note $p_s(z) = s^{-\adim/2} p_1(s^{-1/2} z)$. By
+    induction on~$j$, $\uD^j p_1(w) = P_j(w) p_1(w)$ for a~polynomial function $P_j : \R^{\adim}
+    \to \textstyle\bigodot^j(\R^{\adim},\R)$ of degree at most~$j$; indeed $P_0 = 1$ and
+    \begin{displaymath}
+        P_{j+1}(w)(v_0, \ldots, v_j) = \uD P_j(w)(v_0)(v_1, \ldots, v_j) - 2^{-1} (w \bullet v_0)
+        P_j(w)(v_1, \ldots, v_j) \,.
+    \end{displaymath}
+    Hence $\|P_j(w)\| \le c(\adim,j)(1 + |w|)^j$ and $\uD^j p_s(z) =
+    s^{-\adim/2} s^{-j/2} \uD^j p_1(s^{-1/2} z)$, which gives~\ref{i:k:bound}.
+\end{proof}
+
+\begin{lemma}
+    \label{lem:heat_extension}
+    Suppose $\nu$, $r$, $Z$, $f$ and~$u$ are as in~\ref{def:heat}, and $c(\adim,j)$ is as
+    in~\ref{lem:kernel}\ref{i:k:bound}. Then the following four statements hold.
+    \begin{enumerate}
+        \item \label{i:he:smooth} The map~$u$ is of class~$\infty$, $\partial_s u = \Delta u$, and
+        $\uD^j u_s(x) = \textint{}{} \uD^j p_s(x-y) f(y) \ud \nu y$ for $0 < s < \infty$, $x \in
+        \R^{\adim}$, and $j \in \nat$.
+        \item \label{i:he:bound} For $0 < s < \infty$, $x \in \R^{\adim}$, and $j \in \nat$,
+        \begin{displaymath}
+            \|\uD^j u_s(x)\| \le c(\adim,j) \, s^{-j/2} \bigl( 1 + (|x| + r) s^{-1/2} \bigr)^j
+            \textint{}{} p_s(x-y) |f(y)| \ud \nu y \,.
+        \end{displaymath}
+        \item \label{i:he:gauss} For $0 < s < \infty$ and $x \in \R^{\adim}$,
+        \begin{displaymath}
+            \textint{}{} p_s(x-y) |f(y)| \ud \nu y \le (4 \pi s)^{-\adim/2} \exp \bigl(
+            - \max \{ |x| - r, 0 \}^2 / (4s) \bigr) \textint{}{} |f| \ud \nu \,;
+        \end{displaymath}
+        if moreover $Z = \R$ and $f \ge 0$, then $u(s,x) \ge (4 \pi s)^{-\adim/2} \exp(-(|x| +
+        r)^2/(4s)) \textint{}{} f \ud \nu$.
+        \item \label{i:he:mass} $\textint{}{} u_s \ud \LM^{\adim} = \textint{}{} f \ud \nu$ for $0
+        < s < \infty$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Suppose $0 < s_0 < s_1 < \infty$. By~\ref{lem:kernel}\ref{i:k:bound}\ref{i:k:heat}, every
+    derivative of $[(s,z) \mapsto p_s(z)]$ is bounded on $[s_0,s_1] \times \R^{\adim}$. Hence
+    differentiation under the integral sign, justified by the mean value theorem and Lebesgue's
+    bounded convergence theorem~\cite[2.4.9]{Federer1969}, gives~\ref{i:he:smooth}, where $\partial_s
+    u = \Delta u$ follows from~\ref{lem:kernel}\ref{i:k:heat}. Since $|x - y| \le |x| + r$ for
+    $y \in \cball{0}{r}$, \ref{i:he:bound} follows from~\ref{i:he:smooth}
+    and~\ref{lem:kernel}\ref{i:k:bound}. Since $\max \{ |x| - r, 0 \} \le |x - y| \le |x| + r$ for $y
+    \in \cball{0}{r}$, we obtain~\ref{i:he:gauss}. Finally, \ref{i:he:mass} follows from Fubini's
+    theorem~\cite[2.6.2]{Federer1969} and~\ref{lem:kernel}\ref{i:k:mass}.
+\end{proof}
+
+\begin{definition}
+    \label{def:classes}
+    Suppose $Z$ is a~finite dimensional normed space. A~map $f : \R^{\adim} \to Z$ of
+    class~$\infty$ has \emph{polynomial growth} if for each $j \in \nat$ there is $0 < c <
+    \infty$ with $\|\uD^j f(x)\| \le c (1 + |x|)^c$ for $x \in \R^{\adim}$; it has
+    \emph{Gaussian decay} if for each $j \in \nat$ there is $0 < c < \infty$ with $\|\uD^j f(x)\|
+    \le c \exp(-|x|^2/c)$ for $x \in \R^{\adim}$.
+
+    Suppose $0 < T < \infty$. A~map $f : \Omega_T \to Z$ of class~$\infty$ has \emph{polynomial
+    growth before~$T$} if for each $j \in \nat$ and each compact interval $J \subseteq \R \cap \{ t
+    : t < T \}$ there is $0 < c < \infty$ with $\|\uD^j f(t,x)\| \le c (1 + |x|)^c$ for $t \in
+    J$ and $x \in \R^{\adim}$; \emph{Gaussian decay before~$T$} is defined likewise with $c
+    \exp(-|x|^2/c)$ in place of $c (1 + |x|)^c$.
+
+    A~locally Lipschitzian map $e : \R^{\adim} \to \R^{\adim}$ has \emph{polynomial growth} if
+    there is $0 < c < \infty$ with $|e(x)| + \Lip(e|\cball{x}{1}) \le c (1 + |x|)^c$ for $x \in
+    \R^{\adim}$.
+\end{definition}
+
+\begin{lemma}
+    \label{lem:classes}
+    Suppose $0 < T < \infty$, $Z_1$, $Z_2$, $Z_3$ are finite dimensional normed spaces, and $\beta :
+    Z_1 \times Z_2 \to Z_3$ is bilinear. Then the following three statements hold.
+    \begin{enumerate}
+        \item \label{i:cl:product} If $f_1 : \Omega_T \to Z_1$ and $f_2 : \Omega_T \to Z_2$ have
+        polynomial growth before~$T$, then so does $[(t,x) \mapsto \beta(f_1(t,x),f_2(t,x))]$;
+        if moreover $f_2$ has Gaussian decay before~$T$, then so does this map. The same holds
+        for maps on~$\R^{\adim}$ and the classes without time.
+        \item \label{i:cl:dt} If $f : \Omega_T \to Z_1$ has Gaussian decay before~$T$, then the
+        map $[t \mapsto \textint{}{} f_t \ud \LM^{\adim}]$ is of class~$1$ on $\R \cap \{ t : t < T
+        \}$, and its derivative at~$t$ is $\textint{}{} \partial_t f(t,x) \ud \LM^{\adim} x$.
+        \item \label{i:cl:div} If $g : \R^{\adim} \to \R^{\adim}$ is of class~$1$ and there is $0 <
+        c < \infty$ with $|g(x)| + \|\uD g(x)\| \le c \exp(-|x|^2/c)$ for $x \in \R^{\adim}$,
+        then $\textint{}{} \mathrm{div}\, g \ud \LM^{\adim} = 0$. If $f : \R^{\adim} \to \R$ has
+        Gaussian decay, then $\textint{}{} \Delta f \ud \LM^{\adim} = 0$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Statement~\ref{i:cl:product} follows from the Leibniz formula~\cite[3.1.11]{Federer1969} for
+    $\uD^j \beta(f_1,f_2)$ and from $(1 + |x|)^c \exp(-|x|^2/c') \le c'' \exp(-|x|^2/(2c'))$,
+    where $c''$ depends on $c$ and~$c'$. For~\ref{i:cl:dt}, the difference quotients in~$t$ of
+    $f(\cdot,x)$ are bounded on each compact interval by $c \exp(-|x|^2/c)$, by the mean value
+    theorem; Lebesgue's bounded convergence theorem~\cite[2.4.9]{Federer1969} gives the derivative
+    and its continuity. For~\ref{i:cl:div}, $\textint{}{} \mathrm{div}\, g \ud \LM^{\adim} =
+    \textsum{j=1}{\adim} \textint{}{} \uD g(x)(\varepsilon_j) \bullet \varepsilon_j \ud
+    \LM^{\adim} x$. By Fubini's theorem~\cite[2.6.2]{Federer1969}, the $j$-th term is an~iterated
+    integral whose inner integral is the integral over a~line parallel to~$\varepsilon_j$ of the
+    derivative of $[x \mapsto g(x) \bullet \varepsilon_j]$ along that line; it vanishes, since the
+    function tends to zero at infinity. Finally, $\Delta f = \mathrm{div} \grad f$.
+\end{proof}
+
+\begin{lemma}
+    \label{lem:semiconvex}
+    Suppose $\nu$ and~$r$ are as in~\ref{def:heat}, $\nu(\R^{\adim}) > 0$, and $u$ is the heat
+    extension of $(\nu,1)$. Then, for $0 < s < \infty$ and $x, v \in \R^{\adim}$,
+    \begin{displaymath}
+        |\grad \log u_s(x)| \le (2s)^{-1} (|x| + r) \,, \qquad
+        \uD^2 \log u_s(x)(v,v) \ge - (2s)^{-1} |v|^2 \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    By~\ref{lem:heat_extension}\ref{i:he:gauss}, $u_s(x) > 0$. Let $\pi = u_s(x)^{-1} \nu
+    \restrict [y \mapsto p_s(x-y)]$; then $\pi(\R^{\adim}) = 1$ and $\pi(\R^{\adim} \without
+    \cball{0}{r}) = 0$. Let $w(y) = (x - y) \bullet v$ for $y \in \R^{\adim}$.
+    By~\ref{lem:heat_extension}\ref{i:he:smooth} and~\ref{lem:kernel}\ref{i:k:formulas},
+    \begin{displaymath}
+        \frac{\uD u_s(x)(v)}{u_s(x)} = - \frac{1}{2s} \textint{}{} w \ud \pi \,, \qquad
+        \frac{\uD^2 u_s(x)(v,v)}{u_s(x)} = \frac{1}{4s^2} \textint{}{} w^2 \ud \pi -
+        \frac{|v|^2}{2s} \,.
+    \end{displaymath}
+    Since $|w(y)| \le (|x| + r) |v|$ for $y \in \cball{0}{r}$, the first inequality follows. Since
+    $\uD^2 \log u_s(x)(v,v) = u_s(x)^{-1} \uD^2 u_s(x)(v,v) - (u_s(x)^{-1} \uD u_s(x)(v))^2$ and
+    $(\textint{}{} w \ud \pi)^2 \le \textint{}{} w^2 \ud \pi$ by H\"older's
+    inequality~\cite[2.4.14]{Federer1969}, the second inequality follows.
+\end{proof}
+
+\begin{lemma}
+    \label{lem:ibp}
+    Suppose $\rho : \R^{\adim} \to \R$ is of class~$\infty$, $\rho(x) > 0$ for $x \in
+    \R^{\adim}$, $\rho$ has Gaussian decay, $\uD \log \rho$ has polynomial growth, and $e :
+    \R^{\adim} \to \R^{\adim}$ is a~locally Lipschitzian map of polynomial growth. Then $e$ is
+    differentiable at $\LM^{\adim}$~almost all points and
+    \begin{displaymath}
+        - \textint{}{} \rho \, \uD^2 \log \rho(e,e) \ud \LM^{\adim}
+        = \textint{}{} \rho \bigl[ (\mathrm{div}\, e + \uD \log \rho(e))^2 - \trace(\uD e \circ
+        \uD e) \bigr] \ud \LM^{\adim} \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    Differentiability almost everywhere holds by Rademacher's theorem~\cite[3.1.6]{Federer1969}.
+    Let $h = \log \rho$. Suppose first that $e$ is of class~$\infty$ and $e$, $\uD e$, $\uD^2 e$
+    have polynomial growth in the sense that their norms are bounded by $c(1 + |x|)^c$. Set $b =
+    \mathrm{div}\, e + \uD h(e)$. Since $\uD \rho = \rho \uD h$, we have $\mathrm{div}(\rho e) =
+    \rho b$. Since $\uD^2 e(x)$ is symmetric,
+    \begin{displaymath}
+        \mathrm{div} \bigl[ x \mapsto \uD e(x)(e(x)) \bigr] = \uD(\mathrm{div}\, e)(e) + \trace(\uD
+        e \circ \uD e) \,.
+    \end{displaymath}
+    The maps $b \rho e$ and $[x \mapsto \rho(x) \uD e(x)(e(x))]$ satisfy the hypothesis
+    of~\ref{lem:classes}\ref{i:cl:div} by the Leibniz formula~\cite[3.1.11]{Federer1969}, because
+    $\rho$ has Gaussian decay and $e$, $\uD e$, $\uD^2 e$, $\uD h$, $\uD^2 h$ have polynomial
+    growth. Since
+    $\mathrm{div}(b \rho e) = \rho b^2 + \rho \uD b(e)$ and $\uD b(e) = \uD(\mathrm{div}\, e)(e) +
+    \uD^2 h(e,e) + \uD h(\uD e(e))$, we obtain
+    \begin{align}
+        0 & = \textint{}{} \rho b^2 \ud \LM^{\adim} + \textint{}{} \rho \, \uD(\mathrm{div}\, e)(e)
+        \ud \LM^{\adim} + \textint{}{} \rho \, \uD^2 h(e,e) \ud \LM^{\adim} + \textint{}{} \rho
+        \, \uD h(\uD e(e)) \ud \LM^{\adim} \,, \label{eq:ibp:1} \\
+        0 & = \textint{}{} \rho \, \uD h(\uD e(e)) \ud \LM^{\adim} + \textint{}{} \rho \,
+        \uD(\mathrm{div}\, e)(e) \ud \LM^{\adim} + \textint{}{} \rho \trace(\uD e \circ \uD e) \ud
+        \LM^{\adim} \,, \label{eq:ibp:2}
+    \end{align}
+    where~\eqref{eq:ibp:2} expresses $\textint{}{} \mathrm{div}[x \mapsto \rho(x) \uD
+    e(x)(e(x))] \ud \LM^{\adim} = 0$. Subtracting~\eqref{eq:ibp:2} from~\eqref{eq:ibp:1} gives the
+    conclusion.
+
+    In the general case let $\Phi \in \dspace{\R^{\adim}}{\R}$ satisfy $\Phi \ge 0$, $\spt \Phi
+    \subseteq \cball{0}{1}$ and $\textint{}{} \Phi \ud \LM^{\adim} = 1$, let $\Phi_\epsilon(x) =
+    \epsilon^{-\adim} \Phi(\epsilon^{-1} x)$ as in~\cite[4.1.2]{Federer1969}, and let
+    $e_\epsilon(x) = \textint{}{} \Phi_\epsilon(x-y) e(y) \ud \LM^{\adim} y$ for $0 < \epsilon \le
+    1$. Then $e_\epsilon$ is of class~$\infty$. For $x, v \in \R^{\adim}$, the difference
+    quotients $\tau^{-1}(e(y + \tau v) - e(y))$ are bounded for $y \in \cball{x}{1}$ and $0 <
+    |\tau| \le 1$, and converge to $\uD e(y)(v)$ for $\LM^{\adim}$~almost all~$y$; hence, by
+    Lebesgue's bounded convergence theorem~\cite[2.4.9]{Federer1969},
+    \begin{displaymath}
+        \uD e_\epsilon(x) = \textint{}{} \Phi_\epsilon(x-y) \uD e(y) \ud \LM^{\adim} y \,.
+    \end{displaymath}
+    With $c$ as in~\ref{def:classes} for~$e$, we have $\|\uD e(y)\| \le c(1 + |y|)^c$ at points of
+    differentiability, and therefore
+    \begin{displaymath}
+        |e_\epsilon(x)| + |\uD e_\epsilon(x)| \le (1 + \adim^{1/2}) \, c \, (2 + |x|)^c
+        \quad \text{for $x \in \R^{\adim}$ and $0 < \epsilon \le 1$} \,.
+    \end{displaymath}
+    Moreover, $\uD^2 e_\epsilon(x)(v,w) = \textint{}{} \uD \Phi_\epsilon(x-y)(w) \, \uD e(y)(v) \ud
+    \LM^{\adim} y$, so the first case applies to~$e_\epsilon$. As $\epsilon \to 0+$,
+    $e_\epsilon(x) \to e(x)$ for every~$x$, and $\uD e_\epsilon(x) \to \uD e(x)$ at every Lebesgue
+    point~$x$ of~$\uD e$, hence for $\LM^{\adim}$~almost all~$x$ by~\cite[2.9.9]{Federer1969}. The
+    integrands of the conclusion for~$e_\epsilon$ are bounded by $\rho(x) \, c' (1 + |x|)^{c'}$,
+    where $c'$ does not depend on~$\epsilon$, and this function is $\LM^{\adim}$~summable.
+    Lebesgue's bounded convergence theorem~\cite[2.4.9]{Federer1969} yields the conclusion
+    for~$e$.
+\end{proof}
+
+\section{Heat estimates}
+\label{sec:estimates}
+
+\begin{miniremark}
+    \label{mr:standing}
+    This section reproduces~\cite[section~3]{DePhilippisGennaioliPigatiRindler2026}: the heated
+    objects~\ref{def:heat_objects}, their identities~\ref{lem:identities}, their
+    regularity~\ref{lem:regularity}, the calculus of the heat operators~\ref{lem:heat_calculus},
+    and the two integral estimates~\ref{lem:DGPR31} and~\ref{lem:DGPR32}.
+
+    In this section and in section~\ref{sec:entropy} we assume the following hypotheses, called
+    \emph{(S)}. The space $Y$ is a~finite dimensional inner product space, $K \subseteq
+    \Hom(\R^{\adim},Y)$ is nonempty, compact and convex, $0 < \lambda < \infty$, $0 < \Lambda <
+    \infty$, and
+    \begin{displaymath}
+        \sv{\vdim}(X) \ge \lambda \quad \text{and} \quad |X| \le \Lambda
+        \qquad \text{for $X \in K$} \,.
+    \end{displaymath}
+    The measure $\mu$ is a~Borel measure over~$\R^{\adim}$ with $\mu(\R^{\adim}) = 1$ and
+    $\mu(\R^{\adim} \without \cball{0}{r_0}) = 0$ for some $0 < r_0 < \infty$. The map $X :
+    \R^{\adim} \to K$ is $\mu$~measurable, and $\sigma : \ccspace{\R^{\adim},\Hom(\R^{\adim},Y)}
+    \to \R$ is given by
+    \begin{displaymath}
+        \sigma(\Phi) = \textint{}{} X(x) \bullet \Phi(x) \ud \mu x
+        \quad \text{for $\Phi \in \ccspace{\R^{\adim},\Hom(\R^{\adim},Y)}$} \,.
+    \end{displaymath}
+    The distribution $\Upsilon \in \distr{\R^{\adim}}{Y}$ is representable by integration,
+    $\delta = \|\Upsilon\|(\R^{\adim}) < \infty$, and
+    \begin{displaymath}
+        \Upsilon(g) = - \sigma(\uD g) \quad \text{for $g \in \dspace{\R^{\adim}}{Y}$} \,.
+    \end{displaymath}
+    Finally, $0 < T < \infty$, $\mu_0$ is a~Borel measure over~$\R^{\adim}$ with $\mu_0(A) \le
+    \mu(A)$ for $A \subseteq \R^{\adim}$, and $\gamma = \mu_0(\R^{\adim}) > 0$. Thus $0 < \gamma
+    \le 1$. The map $\dUps : \R^{\adim} \to \Hom(Y,\R)$ is that of~\ref{mr:functionals},
+    modified on a~$\|\Upsilon\|$ null set so that $\|\dUps(z)\| \le 1$ for $z \in \R^{\adim}$.
+
+    In the language of~\cite{DePhilippisGennaioliPigatiRindler2026}, $\sigma$ is the measure $X
+    \mu$, $\Upsilon$ is its row-wise divergence, $\|\Upsilon\|$ is $|\mathrm{div}\, \sigma|$, and
+    the hypotheses $\mu(\R^{\adim}) = 1$ and $\mu(\R^{\adim} \without \cball{0}{r_0}) = 0$ are
+    those at the beginning of~\cite[section~3]{DePhilippisGennaioliPigatiRindler2026}.
+\end{miniremark}
+
+\begin{definition}
+    \label{def:heat_objects}
+    Assume (S). For $(t,x) \in \Omega_T$ we define
+    \begin{gather}
+        U(t,x) = \textint{}{} p_{T-t}(x-y) \ud \mu y \,, \qquad
+        W(t,x) = \textint{}{} p_{T-t}(x-y) X(y) \ud \mu y \,, \\
+        R(t,x) = \textint{}{} p_{T-t}(x-y) \ud \|\Upsilon\| y \,, \qquad
+        \Psi(t,x) = \textint{}{} p_{T-t}(x-y) \dUps(y) \ud \|\Upsilon\| y \,, \\
+        S(t,x) = U(t,x) + (T-t)^{1/2} R(t,x) \,, \qquad
+        \rho(t,x) = \textint{}{} p_{T-t}(x-y) \ud \mu_0 y \,.
+    \end{gather}
+    Thus $W(t,x) \in \Hom(\R^{\adim},Y)$ and $\Psi(t,x) \in \Hom(Y,\R)$. Whenever $S(t,x) > 0$ and
+    $\rho(t,x) > 0$ we further define
+    \begin{gather}
+        B(t,x) = S(t,x)^{-1} W(t,x) \,, \qquad
+        \zeta(t,x) = \grad \log S_t(x) \,, \qquad
+        \eta(t,x) = S(t,x)^{-1} \Psi(t,x) \,, \\
+        \kappa(t,x) = \frac{R(t,x)}{2 (T-t)^{1/2} S(t,x)} \,, \qquad
+        q(t,x) = \frac{\rho(t,x)}{S(t,x)} \,, \qquad
+        I(\rho_t) = \textint{}{} \rho_t |\grad \log \rho_t|^2 \ud \LM^{\adim} \,.
+    \end{gather}
+    For a~map $f : \Omega_T \to Z$ of class~$2$ into a~finite dimensional normed space~$Z$ we
+    define $\heatop f, \heatop_\zeta f : \Omega_T \to Z$ by
+    \begin{displaymath}
+        \heatop f(t,x) = \partial_t f(t,x) + \Delta f_t(x) \,, \qquad
+        \heatop_\zeta f(t,x) = \heatop f(t,x) + 2 \uD f_t(x)(\zeta(t,x)) \,.
+    \end{displaymath}
+    These are $P_{T-t}\mu$, $P_{T-t}\sigma$, $P_{T-t}|\mathrm{div}\,\sigma|$,
+    $P_{T-t}\mathrm{div}\,\sigma$, $\mathcal{H}$ and $\mathcal{H}_\zeta$
+    of~\cite[(3.1), (3.2), (3.4), (3.6)]{DePhilippisGennaioliPigatiRindler2026}, with $W$ in place
+    of~$V$; positivity of $S$ and~$\rho$ is proved in~\ref{lem:identities}.
+\end{definition}
+
+\begin{lemma}
+    \label{lem:identities}
+    Assume (S). Then the following seven statements hold.
+    \begin{enumerate}
+        \item \label{i:id:spt} $\|\Upsilon\|(\R^{\adim} \without \cball{0}{r_0}) = 0$.
+        \item \label{i:id:div} The maps $U$, $W$, $R$, $\Psi$, $S$, $\rho$ are of class~$\infty$,
+        and $\mathrm{div}\, W_t(x) = \Psi(t,x)$ and $\|\Psi(t,x)\| \le R(t,x)$ for $(t,x) \in
+        \Omega_T$.
+        \item \label{i:id:heat} $\heatop U = 0$, $\heatop W = 0$, $\heatop R = 0$, $\heatop \Psi =
+        0$, $\heatop \rho = 0$, and $\heatop S = - \kappa S$ on~$\Omega_T$.
+        \item \label{i:id:mass} $\textint{}{} U_t \ud \LM^{\adim} = 1$, $\textint{}{} R_t \ud
+        \LM^{\adim} = \delta$, $\textint{}{} S_t \ud \LM^{\adim} = 1 + (T-t)^{1/2} \delta$, and
+        $\textint{}{} \rho_t \ud \LM^{\adim} = \gamma$ for $t < T$.
+        \item \label{i:id:bounds} On~$\Omega_T$ we have $0 < \rho \le U \le S$, $\kappa \ge 0$,
+        $U^{-1} W \in K$, $|B| \le \Lambda$, and $\|\eta\| \le (T-t)^{-1/2}$.
+        \item \label{i:id:divB} For $(t,x) \in \Omega_T$ and $y \in Y$,
+        \begin{displaymath}
+            \langle y, \mathrm{div}\, B_t(x) \rangle + B(t,x)(\zeta(t,x)) \bullet y = \langle y,
+            \eta(t,x) \rangle \,.
+        \end{displaymath}
+        \item \label{i:id:sv} If $(t,x) \in \Omega_T$ and $U(t,x) \ge (T-t)^{1/2} R(t,x)$, then
+        $\sv{\vdim}(B(t,x)) \ge \lambda/2$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    If $g \in \dspace{\R^{\adim}}{Y}$ and $\spt g \cap \cball{0}{r_0} = \varnothing$, then $\uD
+    g(x) = 0$ for $\mu$~almost all~$x$, hence $\Upsilon(g) = -\sigma(\uD g) = 0$;
+    thus~\ref{i:id:spt} follows from~\ref{mr:functionals}. By~\ref{i:id:spt}, $U$, $W$, $R$,
+    $\Psi$ and $\rho$ are of the form $[(t,x) \mapsto u(T-t,x)]$, where $u$ is the heat extension
+    of $(\mu,1)$, $(\mu,X)$, $(\|\Upsilon\|,1)$, $(\|\Upsilon\|,\dUps)$, $(\mu_0,1)$, all with
+    $r = r_0$. Hence they and~$S$ are of class~$\infty$ by~\ref{lem:heat_extension}\ref{i:he:smooth}.
+
+    To prove $\mathrm{div}\, W_t(x) = \Psi(t,x)$, fix $(t,x) \in \Omega_T$ and $y \in Y$, write $s
+    = T - t$, and let $g(z) = p_s(x-z) y$ for $z \in \R^{\adim}$. Choose $\varphi \in
+    \dspace{\R^{\adim}}{\R}$ with $\varphi(z) = 1$ for $z \in \oball{0}{r_0 + 1}$. Then $\varphi g
+    \in \dspace{\R^{\adim}}{Y}$. By~\ref{i:id:spt},
+    \begin{displaymath}
+        \Upsilon(\varphi g) = \textint{}{} p_s(x-z) \langle y, \dUps(z) \rangle \ud \|\Upsilon\| z
+        = \langle y, \Psi(t,x) \rangle \,.
+    \end{displaymath}
+    Since $\uD(\varphi g)(z) = \uD g(z) = - \uD p_s(x-z) \cdot y$ for $z \in \oball{0}{r_0 + 1}$,
+    \begin{displaymath}
+        \Upsilon(\varphi g) = - \sigma(\uD(\varphi g)) = \textint{}{} X(z) \bullet (\uD p_s(x-z)
+        \cdot y) \ud \mu z = \textint{}{} \uD p_s(x-z)(\transpose{X(z)}(y)) \ud \mu z \,.
+    \end{displaymath}
+    On the other hand, $\uD W_t(x)(v) = \textint{}{} \uD p_s(x-z)(v) X(z) \ud \mu z$
+    by~\ref{lem:heat_extension}\ref{i:he:smooth}, hence
+    \begin{displaymath}
+        \langle y, \mathrm{div}\, W_t(x) \rangle = \textsum{j=1}{\adim} \textint{}{} \uD
+        p_s(x-z)(\varepsilon_j) \, (X(z)(\varepsilon_j) \bullet y) \ud \mu z = \textint{}{} \uD
+        p_s(x-z)(\transpose{X(z)}(y)) \ud \mu z \,.
+    \end{displaymath}
+    Combining the three displays gives $\mathrm{div}\, W_t(x) = \Psi(t,x)$. Since $\|\dUps(z)\| = 1$
+    for $\|\Upsilon\|$~almost all~$z$, we have $\|\Psi(t,x)\| \le R(t,x)$. This
+    proves~\ref{i:id:div}.
+
+    Since $\partial_t [u(T-t,x)] = - \partial_s u(T-t,x) = - \Delta u_{T-t}(x)$
+    by~\ref{lem:heat_extension}\ref{i:he:smooth}, the first five equations of~\ref{i:id:heat} hold.
+    Moreover, $\heatop((T-t)^{1/2} R) = -2^{-1} (T-t)^{-1/2} R + (T-t)^{1/2} \heatop R = - \kappa
+    S$, whence $\heatop S = -\kappa S$. Statement~\ref{i:id:mass} follows
+    from~\ref{lem:heat_extension}\ref{i:he:mass}.
+
+    By~\ref{lem:heat_extension}\ref{i:he:gauss}, $U > 0$ and $\rho > 0$; since $\mu_0 \le \mu$, we
+    have $\rho \le U$, and $U \le S$ by definition. Hence $B$, $\zeta$, $\eta$, $\kappa$, $q$ are
+    defined on~$\Omega_T$, and $\kappa \ge 0$. By~\ref{lem:barycentre} applied to the measure $\mu
+    \restrict [y \mapsto p_{T-t}(x-y)]$ and the map~$X$, we have $U(t,x)^{-1} W(t,x) \in K$; hence
+    $|B| = (U/S) \, |U^{-1} W| \le \Lambda$. Since $(T-t)^{1/2} R \le S$ and $\|\Psi\| \le R$, we
+    obtain $\|\eta\| \le S^{-1} R \le (T-t)^{-1/2}$. This proves~\ref{i:id:bounds}.
+
+    Since $\uD B_t(x)(v) = S^{-1} \uD W_t(x)(v) - S^{-2} \uD S_t(x)(v) \, W(t,x)$ and
+    $\textsum{j}{} \uD S_t(x)(\varepsilon_j) W(t,x)(\varepsilon_j) = W(t,x)(\grad S_t(x))$,
+    \begin{displaymath}
+        \langle y, \mathrm{div}\, B_t(x) \rangle = S^{-1} \langle y, \mathrm{div}\, W_t(x) \rangle
+        - S^{-1} B(t,x)(\grad S_t(x)) \bullet y \,,
+    \end{displaymath}
+    with $S = S(t,x)$; together with~\ref{i:id:div} this gives~\ref{i:id:divB}.
+
+    Suppose $U(t,x) \ge (T-t)^{1/2} R(t,x)$. Then $S(t,x) \le 2 U(t,x)$. Moreover, $B(t,x) = c
+    \, U(t,x)^{-1} W(t,x)$, where $c = U(t,x) / S(t,x) \ge 1/2$ and $U(t,x)^{-1} W(t,x) \in K$.
+    Hence $\sv{\vdim}(B(t,x)) \ge \lambda/2$ by~\ref{lem:sv}\ref{i:sv:hom}. This proves~\ref{i:id:sv}.
+\end{proof}
+
+\begin{lemma}
+    \label{lem:regularity}
+    Assume (S). Then $U$, $W$, $R$, $\Psi$, $S$ and $\rho$ have Gaussian decay before~$T$, and
+    $\log S$, $\log \rho$, $q$, $\log q$, $B$, $\zeta$, $\eta$ and $\kappa$ are of class~$\infty$
+    and have polynomial growth before~$T$. In particular, for $t < T$, the function $\rho_t$
+    satisfies the hypotheses on~$\rho$ in~\ref{lem:ibp}.
+\end{lemma}
+
+\begin{proof}
+    Let $J \subseteq \R \cap \{ t : t < T \}$ be a~compact interval; then $T - t$ ranges over
+    a~compact subset of $(0,\infty)$ for $t \in J$. By~\ref{lem:heat_extension}\ref{i:he:smooth},
+    each derivative of order~$j$ with respect to $(t,x)$ of $U$, $W$, $R$, $\Psi$, $\rho$ is
+    a~linear combination of derivatives with respect to~$x$ of order at most~$2j$; the same holds
+    for~$S$, since $[t \mapsto (T-t)^{1/2}]$ is smooth on~$J$. By~\ref{lem:heat_extension}
+    \ref{i:he:bound}\ref{i:he:gauss} and $\max \{ |x| - r_0, 0 \}^2 \ge 2^{-1} |x|^2 - r_0^2$,
+    these maps have Gaussian decay before~$T$. Moreover, \ref{lem:heat_extension}\ref{i:he:bound}
+    together with $\textint{}{} p_{T-t}(x-y) |X(y)| \ud \mu y \le \Lambda U(t,x)$, $R \le
+    (T-t)^{-1/2} S$ and~\ref{lem:identities}\ref{i:id:bounds} yields $0 < c < \infty$ with
+    \begin{equation}
+        \label{eq:reg:ratio}
+        \|\uD^j F(t,x)\| \le c (1 + |x|)^{2j} S(t,x) \,, \qquad
+        \|\uD^j \rho(t,x)\| \le c (1 + |x|)^{2j} \rho(t,x)
+    \end{equation}
+    for $F \in \{ U, W, R, \Psi, S \}$, $t \in J$, $x \in \R^{\adim}$, and $j \le j_0$, for any
+    given~$j_0$. By the chain rule~\cite[3.1.11]{Federer1969}, $\uD^j \log S$ is a~polynomial in
+    the maps $S^{-1} \uD^i S$ with $1 \le i \le j$, and likewise for~$\log \rho$;
+    by~\eqref{eq:reg:ratio}, they have polynomial growth. By~\ref{lem:heat_extension}
+    \ref{i:he:gauss}, $|\log S(t,x)| + |\log \rho(t,x)| \le c (1 + |x|)^2$ for $t \in J$. Hence
+    $\log S$, $\log \rho$ and $\log q = \log \rho - \log S$ have polynomial growth before~$T$; so
+    does $q = \exp(\log q) \le 1$, whose derivatives are $q$ times polynomials in the derivatives
+    of $\log q$. Similarly the derivatives of $S^{-1}$ are $S^{-1}$ times polynomials in the
+    derivatives of $\log S$. By the Leibniz formula and~\eqref{eq:reg:ratio}, $B = S^{-1} W$,
+    $\eta = S^{-1} \Psi$, $\kappa = 2^{-1} (T-t)^{-1/2} S^{-1} R$ and $\zeta = \grad \log S$ have
+    polynomial growth before~$T$. The final statement follows, because the hypotheses
+    of~\ref{lem:ibp} on~$\rho$ concern only a~fixed time.
+\end{proof}
+
+\begin{lemma}
+    \label{lem:heat_calculus}
+    Assume (S). Suppose $Z$ is a~finite dimensional inner product space, $f : \Omega_T \to Z$ and
+    $g, \varphi : \Omega_T \to \R$ are of class~$2$, $\varphi > 0$, and $\Phi : (0,\infty) \to \R$
+    is of class~$2$. Then the following five identities hold on~$\Omega_T$.
+    \begin{enumerate}
+        \item \label{i:hc:S} $\heatop(S f) = S \heatop_\zeta f - \kappa S f$.
+        \item \label{i:hc:product} $\heatop_\zeta(g f) = g \heatop_\zeta f + (\heatop_\zeta g) f + 2
+        \uD f_t(x)(\grad g_t(x))$.
+        \item \label{i:hc:square} $\heatop_\zeta |f|^2 = 2 f \bullet \heatop_\zeta f + 2 |\uD f_t
+        (x)|^2$.
+        \item \label{i:hc:chain} $\heatop_\zeta(\Phi \circ \varphi) = (\Phi' \circ \varphi)
+        \heatop_\zeta \varphi + (\Phi'' \circ \varphi) |\grad \varphi_t(x)|^2$.
+        \item \label{i:hc:Bq} $\heatop_\zeta B = \kappa B$ and $\heatop_\zeta q = \kappa q$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    The operators $\partial_t$ and $[f \mapsto \uD f_t(x)(\zeta(t,x))]$ are derivations, while
+    $\Delta(g f) = g \Delta f + f \Delta g + 2 \uD f(\grad g)$, $\Delta |f|^2 = 2 f \bullet \Delta f
+    + 2 |\uD f|^2$, and $\Delta (\Phi \circ \varphi) = (\Phi' \circ \varphi) \Delta \varphi +
+    (\Phi'' \circ \varphi) |\grad \varphi|^2$ by~\cite[3.1.11]{Federer1969}. This
+    gives~\ref{i:hc:product}--\ref{i:hc:chain}, and also $\heatop(S f) = (\heatop S) f + S \heatop
+    f + 2 \uD f(\grad S)$; with~\ref{lem:identities}\ref{i:id:heat} and $\grad S = S \zeta$ the
+    latter gives~\ref{i:hc:S}. Since $W = S B$, $\rho = S q$ and $\heatop W = 0 = \heatop
+    \rho$, \ref{i:hc:S} yields $S \heatop_\zeta B - \kappa S B = 0$ and $S \heatop_\zeta q - \kappa
+    S q = 0$, which is~\ref{i:hc:Bq}.
+\end{proof}
+
+\begin{miniremark}
+    \label{mr:strategy31}
+    Lemma~\ref{lem:DGPR31} is~\cite[Lemma~3.1]{DePhilippisGennaioliPigatiRindler2026}, which
+    replaces~\cite[Lemma~3.2]{Gennaioli2026}. The function $J(t) = \textint{}{} \rho_t \log q_t
+    \ud \LM^{\adim}$ is bounded between $\gamma \log(\gamma / (1 + (T-t)^{1/2} \delta))$ and~$0$ by
+    Jensen's inequality, and its derivative dominates $\textint{}{} \rho_t |\grad \log q_t|^2 \ud
+    \LM^{\adim}$. This controls the gradient of~$B$ through the time derivative of $\textint{}{}
+    \rho_t |B_t|^2 \ud \LM^{\adim}$, and then $B(\zeta)$ through
+    \ref{lem:identities}\ref{i:id:divB}, which is~\cite[(3.9)]{Gennaioli2026}.
+\end{miniremark}
+
+\begin{lemma}
+    \label{lem:DGPR31}
+    Assume (S). There is $0 < C < \infty$, depending only on $\adim$ and~$\Lambda$, such that
+    \begin{displaymath}
+        \int_0^T \textint{}{} \rho_t \bigl( |\uD B_t|^2 + |B_t(\grad \log \rho_t)|^2 \bigr) \ud
+        \LM^{\adim} \ud \LM^1 t \le C \gamma \Bigl( 1 + \log \frac{1 + T^{1/2} \delta}{\gamma}
+        \Bigr) \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    Set $L = \log((1 + T^{1/2} \delta)/\gamma)$; then $L \ge 0$, since $\gamma \le 1$.
+    By~\ref{lem:regularity} and~\ref{lem:classes}\ref{i:cl:product}, the maps $\rho \log q$,
+    $\rho |B|^2$ and $\rho \, |\uD B_t(x)|^2$ have Gaussian decay before~$T$. For $0 \le t < T$
+    define $J(t) = \textint{}{} \rho_t \log q_t \ud \LM^{\adim}$. Since $q \le 1$, we have $J(t)
+    \le 0$. Applying Jensen's inequality~\cite[2.4.19]{Federer1969} to the probability measure
+    $(1 + (T-t)^{1/2} \delta)^{-1} \LM^{\adim} \restrict S_t$ (see~\ref{lem:identities}
+    \ref{i:id:mass}), the convex function $[r \mapsto r \log r]$ on $[0,\infty)$, and the
+    function~$q_t$, we obtain
+    \begin{equation}
+        \label{eq:31:J}
+        \gamma \log \frac{\gamma}{1 + (T-t)^{1/2} \delta} \le J(t) \le 0
+        \quad \text{for $0 \le t < T$} \,.
+    \end{equation}
+    By~\ref{lem:heat_calculus}\ref{i:hc:S}\ref{i:hc:chain}\ref{i:hc:Bq} with $f = q \log q$ and
+    $\Phi(r) = r \log r$,
+    \begin{displaymath}
+        \heatop(\rho \log q) = S \bigl( (1 + \log q) \kappa q + q^{-1} |\grad q|^2 \bigr) - \kappa
+        S q \log q = \kappa \rho + \rho |\grad \log q|^2 \,.
+    \end{displaymath}
+    By~\ref{lem:classes}\ref{i:cl:dt}\ref{i:cl:div}, $J'(t) = \textint{}{} \heatop(\rho \log
+    q)(t,x) \ud \LM^{\adim} x$. Since $\kappa \ge 0$, integration over $[0,\tau]$,
+    \eqref{eq:31:J}, and Lebesgue's increasing convergence theorem~\cite[2.4.7]{Federer1969} as
+    $\tau \to T-$ yield
+    \begin{equation}
+        \label{eq:31:gradq}
+        \int_0^T \textint{}{} \rho_t |\grad \log q_t|^2 \ud \LM^{\adim} \ud \LM^1 t \le - J(0)
+        \le \gamma L \,.
+    \end{equation}
+    By~\ref{lem:heat_calculus}\ref{i:hc:S}\ref{i:hc:product}\ref{i:hc:square}\ref{i:hc:Bq},
+    $\heatop_\zeta(q |B|^2) = 3 \kappa q |B|^2 + 2 q |\uD B|^2 + 2 \grad q \bullet \grad |B|^2$,
+    and since $S \grad q = \rho \grad \log q$,
+    \begin{displaymath}
+        \heatop(\rho |B|^2) = 2 \rho |\uD B|^2 + 2 \rho \grad \log q \bullet \grad |B|^2 + 2 \kappa
+        \rho |B|^2 \,.
+    \end{displaymath}
+    Since $\grad |B_t|^2(x) \bullet v = 2 B(t,x) \bullet \uD B_t(x)(v)$, we have $|\grad |B_t|^2(x)|
+    \le 2 \Lambda |\uD B_t(x)|$ by~\ref{lem:identities}\ref{i:id:bounds}. Hence,
+    by~\ref{lem:classes}\ref{i:cl:dt}\ref{i:cl:div} and the inequality $4 \Lambda a b \le a^2 + 4
+    \Lambda^2 b^2$,
+    \begin{displaymath}
+        \frac{\ud}{\ud t} \textint{}{} \rho_t |B_t|^2 \ud \LM^{\adim} \ge \textint{}{} \rho_t |\uD
+        B_t|^2 \ud \LM^{\adim} - 4 \Lambda^2 \textint{}{} \rho_t |\grad \log q_t|^2 \ud \LM^{\adim}
+        \,.
+    \end{displaymath}
+    Integrating over $[0,\tau]$, using $\textint{}{} \rho_\tau |B_\tau|^2 \ud \LM^{\adim} \le
+    \Lambda^2 \gamma$ and~\eqref{eq:31:gradq}, and letting $\tau \to T-$, we obtain
+    \begin{equation}
+        \label{eq:31:DB}
+        \int_0^T \textint{}{} \rho_t |\uD B_t|^2 \ud \LM^{\adim} \ud \LM^1 t \le \Lambda^2 \gamma +
+        4 \Lambda^2 \gamma L \,.
+    \end{equation}
+    Since $\rho \|\eta\|^2 \le (T-t)^{-1} \rho$, and since $\rho \|\eta\|^2 \le S \|\eta\|^2 =
+    S^{-1} \|\Psi\|^2 \le (S^{-1} R) R \le (T-t)^{-1/2} R$ by~\ref{lem:identities}
+    \ref{i:id:div}\ref{i:id:bounds}, statement~\ref{lem:identities}\ref{i:id:mass} gives
+    \begin{equation}
+        \label{eq:31:eta}
+        \textint{}{} \rho_t \|\eta_t\|^2 \ud \LM^{\adim} \le m(t) \,, \quad \text{where} \quad m(t)
+        = \min \{ \gamma (T-t)^{-1}, \delta (T-t)^{-1/2} \} \,, \quad \text{for $0 \le t < T$} \,.
+    \end{equation}
+    We show
+    \begin{equation}
+        \label{eq:31:min}
+        \int_0^T m(t) \ud \LM^1 t \le 4 \gamma \log(1 + T^{1/2} \delta / \gamma) \le 4 \gamma L
+        \,.
+    \end{equation}
+    Set $a = T^{1/2} \delta / \gamma$. If $a \le 1$, then $\int_0^T m \ud \LM^1 \le \int_0^T
+    \delta (T-t)^{-1/2} \ud \LM^1 t = 2 \gamma a \le 4 \gamma \log(1 + a)$, since $\log(1 + a) \ge
+    a/2$ for $0 \le a \le 1$. If $a > 1$, then $\gamma^2 \delta^{-2} < T$ and, with $s = T - t$,
+    \begin{displaymath}
+        \int_0^T m \ud \LM^1 \le \int_0^{\gamma^2/\delta^2} \delta s^{-1/2} \ud \LM^1 s +
+        \int_{\gamma^2/\delta^2}^T \gamma s^{-1} \ud \LM^1 s = 2 \gamma + 2 \gamma \log a \le 4
+        \gamma \log(1 + a) \,,
+    \end{displaymath}
+    since $[a \mapsto 4 \log(1+a) - 2 - 2 \log a]$ is nondecreasing on $[1,\infty)$ and positive
+    at~$1$. The second inequality of~\eqref{eq:31:min} holds because $1 + a \le (1 + T^{1/2}
+    \delta)/\gamma$.
+
+    By~\ref{lem:identities}\ref{i:id:divB}, $|B(\zeta)| = \sup \{ B(\zeta) \bullet y : |y| \le 1 \}
+    \le \|\eta\| + \|\mathrm{div}\, B\|$, and $\|\mathrm{div}\, B_t(x)\| \le \adim^{1/2} |\uD
+    B_t(x)|$ by the Cauchy--Schwarz inequality. Moreover, $B(\grad \log \rho) = B(\zeta) +
+    B(\grad \log q)$ and $\|B\| \le \Lambda$. Hence
+    \begin{displaymath}
+        |B(\grad \log \rho)|^2 \le 2 |B(\zeta)|^2 + 2 \Lambda^2 |\grad \log q|^2 \le 4 \|\eta\|^2
+        + 4 \adim |\uD B|^2 + 2 \Lambda^2 |\grad \log q|^2 \,.
+    \end{displaymath}
+    Combining this with \eqref{eq:31:gradq}, \eqref{eq:31:DB}, \eqref{eq:31:eta}
+    and~\eqref{eq:31:min}, we obtain the conclusion with $C = (16 \adim + 6) \Lambda^2 + 16$.
+\end{proof}
+
+\begin{miniremark}
+    \label{mr:strategy32}
+    Lemma~\ref{lem:DGPR32} is~\cite[Lemma~3.2]{DePhilippisGennaioliPigatiRindler2026}. At each
+    time $t$ the field $Q = \hat\chi(\transpose{B_t} \circ B_t)$ is an~approximate projection of
+    rank at least~$\vdim$ on the set where $U_t \ge (T-t)^{1/2} R_t$. Along its image the Hessian
+    of $\log \rho_t$ is estimated by integration by parts~\ref{lem:ibp} and~\ref{lem:DGPR31}; in
+    the remaining $\adim - \vdim$ directions it is estimated by the log-semiconvexity
+    \ref{lem:semiconvex}. The trace comparison~\ref{lem:trace} combines the two estimates.
+\end{miniremark}
+
+\begin{lemma}
+    \label{lem:DGPR32}
+    Assume (S). There is $0 < C < \infty$, depending only on $\adim$, $\lambda$ and~$\Lambda$,
+    such that
+    \begin{displaymath}
+        \int_0^\tau \Bigl( I(\rho_t) - \frac{(\adim - \vdim) \gamma}{2 (T-t)} \Bigr) \ud \LM^1 t
+        \le C \gamma \Bigl( 1 + \log \frac{1 + T^{1/2} \delta}{\gamma} \Bigr)
+        \quad \text{for $0 \le \tau < T$} \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    Define $\chi : \R \to [0,1]$ by $\chi(a) = 0$ for $a \le \lambda^2/16$, $\chi(a) = 16 a /
+    (3 \lambda^2) - 1/3$ for $\lambda^2/16 \le a \le \lambda^2/4$, and $\chi(a) = 1$ for $a \ge
+    \lambda^2/4$. Then $\Lip(\chi) = 16/(3 \lambda^2)$ and
+    \begin{equation}
+        \label{eq:32:chi}
+        \chi(a)^2 \le \chi(a) \le 16 a / (3 \lambda^2) \quad \text{for $a \ge 0$} \,.
+    \end{equation}
+    Fix $0 \le t < T$ and define $Q(x) = \hat\chi(\transpose{B(t,x)} \circ B(t,x))$ for $x \in
+    \R^{\adim}$, where $\transpose{B(t,x)} \in \Hom(Y,\R^{\adim})$. Let $x \in \R^{\adim}$, let
+    $u_1, \ldots, u_{\adim}$ be an~orthonormal basis with $\transpose{B(t,x)} \circ B(t,x)(u_i) =
+    a_i u_i$, and note $a_i = |B(t,x)(u_i)|^2 \ge 0$. By~\ref{def:spectral}, $Q(x) \in
+    \SymEnd{\R^{\adim}}$, $\|Q(x)\| \le 1$, $|Q(x)|^2 = \textsum{i}{} \chi(a_i)^2 \le \adim$, and,
+    by~\eqref{eq:32:chi},
+    \begin{equation}
+        \label{eq:32:QB}
+        |Q(x)(w)|^2 = \textsum{i}{} \chi(a_i)^2 (u_i \bullet w)^2 \le \frac{16}{3 \lambda^2}
+        \textsum{i}{} a_i (u_i \bullet w)^2 = \frac{16}{3 \lambda^2} |B(t,x)(w)|^2
+        \quad \text{for $w \in \R^{\adim}$} \,.
+    \end{equation}
+    If $U(t,x) \ge (T-t)^{1/2} R(t,x)$, then $\card \{ i : a_i \ge \lambda^2/4 \} \ge \vdim$
+    by~\ref{lem:identities}\ref{i:id:sv} and~\ref{lem:sv}\ref{i:sv:eigen}, hence $|Q(x)|^2 \ge
+    \vdim$.
+
+    By~\ref{lem:spectral}, $|Q(x) - Q(x')| \le \Lip(\chi) |\transpose{B(t,x)} \circ B(t,x) -
+    \transpose{B(t,x')} \circ B(t,x')|$. Hence $Q$ is locally Lipschitzian, and at each point~$x$
+    of differentiability of~$Q$, using $|\transpose{(\uD B_t(x)(v))} \circ B(t,x) +
+    \transpose{B(t,x)} \circ \uD B_t(x)(v)| \le 2 \Lambda |\uD B_t(x)(v)|$ for $v \in \R^{\adim}$,
+    \begin{equation}
+        \label{eq:32:DQ}
+        |\uD Q(x)| \le 2 \Lambda \Lip(\chi) |\uD B_t(x)| = \frac{32 \Lambda}{3 \lambda^2} |\uD
+        B_t(x)| \,.
+    \end{equation}
+    By~\ref{lem:regularity}, the maps $e_j = [x \mapsto Q(x)(\varepsilon_j)]$, for $j = 1, \ldots,
+    \adim$, are locally Lipschitzian maps of polynomial growth.
+
+    Let $h(x) = \uD^2 \log \rho_t(x)$. By~\ref{lem:semiconvex}, $h(x)(v,v) \ge -(2(T-t))^{-1}
+    |v|^2$. Applying~\ref{lem:trace} to $g = h(x) + (2(T-t))^{-1} [(v,w) \mapsto v \bullet w]$ and
+    $Q(x)$, we obtain
+    \begin{equation}
+        \label{eq:32:split}
+        - \Delta \log \rho_t(x) \le \frac{\adim - |Q(x)|^2}{2 (T-t)} - \textsum{j=1}{\adim}
+        h(x)(e_j(x),e_j(x)) \quad \text{for $x \in \R^{\adim}$} \,.
+    \end{equation}
+    Let $G = \R^{\adim} \cap \{ x : U(t,x) \ge (T-t)^{1/2} R(t,x) \}$. Since $\rho_t \le U_t <
+    (T-t)^{1/2} R_t$ on $\R^{\adim} \without G$, statement~\ref{lem:identities}\ref{i:id:mass}
+    gives $\textint{\R^{\adim} \without G}{} \rho_t \ud \LM^{\adim} \le \min \{ \gamma,
+    (T-t)^{1/2} \delta \}$. Since $\adim - |Q|^2 \le \adim - \vdim$ on~$G$ and $\adim - |Q|^2 \le
+    \adim$ everywhere,
+    \begin{equation}
+        \label{eq:32:trace}
+        \textint{}{} \rho_t (\adim - |Q|^2) \ud \LM^{\adim} \le (\adim - \vdim) \gamma + \adim \min
+        \{ \gamma, (T-t)^{1/2} \delta \} \,.
+    \end{equation}
+    Since $\grad \rho_t = \rho_t \grad \log \rho_t$ has Gaussian decay, \ref{lem:classes}
+    \ref{i:cl:div} applied to $\mathrm{div}(\rho_t \grad \log \rho_t) = \rho_t \Delta \log \rho_t +
+    \rho_t |\grad \log \rho_t|^2$ gives $I(\rho_t) = - \textint{}{} \rho_t \Delta \log \rho_t \ud
+    \LM^{\adim}$. By~\ref{lem:ibp},
+    \begin{displaymath}
+        - \textint{}{} \rho_t \, h(e_j,e_j) \ud \LM^{\adim} = \textint{}{} \rho_t \bigl[
+        (\mathrm{div}\, e_j + \uD \log \rho_t(e_j))^2 - \trace(\uD e_j \circ \uD e_j) \bigr] \ud
+        \LM^{\adim} \,.
+    \end{displaymath}
+    At points of differentiability of~$Q$ we have $(\mathrm{div}\, e_j)^2 \le \adim |\uD e_j|^2$,
+    $|\trace(\uD e_j \circ \uD e_j)| \le |\uD e_j|^2$, $\textsum{j}{} |\uD e_j|^2 = |\uD Q|^2$,
+    and, since $Q$ is symmetric, $\textsum{j}{} (\uD \log \rho_t(e_j))^2 = \textsum{j}{} (Q(\grad
+    \log \rho_t) \bullet \varepsilon_j)^2 = |Q(\grad \log \rho_t)|^2$. Combining these facts with
+    \eqref{eq:32:split}, \eqref{eq:32:trace}, \eqref{eq:32:QB} and~\eqref{eq:32:DQ}, we obtain
+    \begin{equation}
+        \label{eq:32:I}
+        I(\rho_t) - \frac{(\adim - \vdim) \gamma}{2 (T-t)} \le \frac{\adim}{2} m(t) + C_1
+        \textint{}{} \rho_t \bigl( |\uD B_t|^2 + |B_t(\grad \log \rho_t)|^2 \bigr) \ud
+        \LM^{\adim} \,,
+    \end{equation}
+    where $m$ is as in~\ref{lem:DGPR31}\eqref{eq:31:eta} and $C_1 = (2 \adim + 1)(32 \Lambda / (3
+    \lambda^2))^2 + 32/(3 \lambda^2)$. The right-hand side of~\eqref{eq:32:I} and $I(\rho_t)$ are
+    continuous in~$t$ by~\ref{lem:regularity} and~\ref{lem:classes}\ref{i:cl:dt}. Integrating
+    \eqref{eq:32:I} over $[0,\tau]$ and applying~\ref{lem:DGPR31}\eqref{eq:31:min}
+    and~\ref{lem:DGPR31} gives the conclusion.
+\end{proof}
+
+\section{Entropy}
+\label{sec:entropy}
+
+\begin{miniremark}
+    \label{mr:sec_entropy}
+    This section reproduces the two entropy bounds~\cite[(4.1), (4.2)]
+    {DePhilippisGennaioliPigatiRindler2026}. The upper bound~\ref{lem:upper_entropy} follows
+    from~\ref{lem:DGPR32}, since the time derivative of the entropy is the Fisher
+    information~\ref{lem:entropy}. The lower bound~\ref{lem:lower_entropy} holds when $\mu_0 = \mu
+    \restrict E$ for a~compact $\vdim$ rectifiable set~$E$; it follows from the Gaussian tube
+    estimate~\ref{lem:tube}, which rests on the Minkowski content
+    theorem~\cite[3.2.39]{Federer1969}. The hypotheses (S) of~\ref{mr:standing} remain in force.
+\end{miniremark}
+
+\begin{definition}
+    \label{def:entropy}
+    Assume (S). For $t < T$ we define $H(\rho_t) = \textint{}{} \rho_t \log \rho_t \ud
+    \LM^{\adim}$ and
+    \begin{displaymath}
+        \tilde H(\rho_t) = H(\rho_t) + 2^{-1} (\adim - \vdim) \gamma \log(T-t) \,.
+    \end{displaymath}
+\end{definition}
+
+\begin{lemma}
+    \label{lem:entropy}
+    Assume (S). Then $[t \mapsto H(\rho_t)]$ is of class~$1$ on $\R \cap \{ t : t < T \}$ with
+    derivative $[t \mapsto I(\rho_t)]$, and $H(\rho_0) \le \gamma \log \gamma - 2^{-1} \adim
+    \gamma \log(4 \pi T)$.
+\end{lemma}
+
+\begin{proof}
+    By~\ref{lem:regularity} and~\ref{lem:classes}\ref{i:cl:product}, the map $\rho \log \rho$ and
+    the map $[(t,x) \mapsto (1 + \log \rho(t,x)) \grad \rho_t(x)]$ have Gaussian decay
+    before~$T$. Since $\partial_t \rho = - \Delta \rho$ by~\ref{lem:identities}\ref{i:id:heat},
+    \begin{displaymath}
+        \partial_t (\rho \log \rho) = - (1 + \log \rho) \Delta \rho = - \mathrm{div}\bigl[ (1 +
+        \log \rho) \grad \rho \bigr] + \rho |\grad \log \rho|^2 \,.
+    \end{displaymath}
+    Hence the first assertion follows from~\ref{lem:classes}\ref{i:cl:dt}\ref{i:cl:div}.
+    By~\ref{lem:kernel}\ref{i:k:max}, $\rho_0 \le \gamma (4 \pi T)^{-\adim/2}$, hence $\rho_0 \log
+    \rho_0 \le \rho_0 \log(\gamma (4 \pi T)^{-\adim/2})$; integration and~\ref{lem:identities}
+    \ref{i:id:mass} give the second assertion.
+\end{proof}
+
+\begin{lemma}
+    \label{lem:upper_entropy}
+    Assume (S). There is $0 < C < \infty$, depending only on $\adim$, $\lambda$ and~$\Lambda$,
+    such that
+    \begin{displaymath}
+        \tilde H(\rho_\tau) \le - 2^{-1} \vdim \gamma \log T + C \gamma \Bigl( 1 + \log \frac{1 +
+        T^{1/2} \delta}{\gamma} \Bigr)
+        \quad \text{for $0 \le \tau < T$} \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    By~\ref{lem:entropy}, $\tilde H(\rho_\tau) - \tilde H(\rho_0) = \int_0^\tau ( I(\rho_t) -
+    (\adim - \vdim) \gamma / (2(T-t)) ) \ud \LM^1 t$, which is bounded by~\ref{lem:DGPR32}.
+    By~\ref{lem:entropy}, $\gamma \le 1$ and $4 \pi > 1$,
+    \begin{displaymath}
+        \tilde H(\rho_0) \le \gamma \log \gamma - 2^{-1} \adim \gamma \log(4 \pi) - 2^{-1} \adim
+        \gamma \log T + 2^{-1} (\adim - \vdim) \gamma \log T \le - 2^{-1} \vdim \gamma \log T \,.
+        \qedhere
+    \end{displaymath}
+\end{proof}
+
+\begin{lemma}
+    \label{lem:tube}
+    Suppose $E \subseteq \R^{\adim}$ is compact and $\vdim$~rectifiable, $\HM^{\vdim}(E) > 0$,
+    and
+    \begin{displaymath}
+        \gamma_s = \textint{}{} \exp \bigl( - \dist(x,E)^2 / (4s) \bigr) \ud \LM^{\adim} x
+        \quad \text{for $0 < s < \infty$} \,.
+    \end{displaymath}
+    Then there is $0 < s_0 \le 1$ such that $\gamma_s \le c(\adim) \, s^{(\adim - \vdim)/2}
+    \HM^{\vdim}(E)$ for $0 < s < s_0$, where $c(\adim) = 1 + 2 (4 \pi)^{\adim/2}$.
+\end{lemma}
+
+\begin{proof}
+    Let $E_r = \R^{\adim} \cap \{ x : \dist(x,E) < r \}$ for $0 < r < \infty$. Since
+    \begin{displaymath}
+        \exp(-d^2 / (4s)) = \int_0^\infty \CF{(d,\infty)}(r) \, (2s)^{-1} r \exp(-r^2/(4s)) \ud
+        \LM^1 r \quad \text{for $0 \le d < \infty$} \,,
+    \end{displaymath}
+    Fubini's theorem~\cite[2.6.2]{Federer1969} gives
+    \begin{equation}
+        \label{eq:tube:layer}
+        \gamma_s = \int_0^\infty (2s)^{-1} r \exp(-r^2/(4s)) \, \LM^{\adim}(E_r) \ud \LM^1 r \,.
+    \end{equation}
+    Since $E$ is closed and $\vdim$~rectifiable, $\lim_{r \to 0+} \LM^{\adim}(E_r) /
+    (\unitmeasure{\adim - \vdim} r^{\adim - \vdim}) = \HM^{\vdim}(E)$ by~\cite[3.2.37,
+    3.2.39]{Federer1969}. Since $\HM^{\vdim}(E) > 0$, there is $0 < r_1 \le 1$ with
+    $\LM^{\adim}(E_r) \le 2 \unitmeasure{\adim - \vdim} r^{\adim - \vdim} \HM^{\vdim}(E)$ for $0
+    < r < r_1$. Choose $0 < R_0 < \infty$ with $E \subseteq \cball{0}{R_0}$; then
+    $\LM^{\adim}(E_r) \le \unitmeasure{\adim} (R_0 + r)^{\adim}$. With $m = \adim - \vdim$, the
+    substitution $r = 2 s^{1/2} \tau$ and $\unitmeasure{m} \Gamma(1 + m/2) = \pi^{m/2}$ give
+    \begin{align*}
+        \int_0^{r_1} (2s)^{-1} r \exp(-r^2/(4s)) \, 2 \unitmeasure{m} r^m \HM^{\vdim}(E) \ud \LM^1
+        r & \le 2 \unitmeasure{m} \, 2^m \Gamma(1 + m/2) \, s^{m/2} \HM^{\vdim}(E) \\
+        & \le 2 (4 \pi)^{\adim/2} s^{m/2} \HM^{\vdim}(E) \,.
+    \end{align*}
+    For $0 < s \le 1$, the substitution $r = s^{1/2} \tau$ gives
+    \begin{displaymath}
+        \int_{r_1}^\infty (2s)^{-1} r \exp(-r^2/(4s)) \, \unitmeasure{\adim} (R_0 + r)^{\adim} \ud
+        \LM^1 r \le c_1 \exp(-r_1^2/(8s)) \,,
+    \end{displaymath}
+    where $c_1 = \unitmeasure{\adim} \int_0^\infty 2^{-1} \tau \exp(-\tau^2/8) (R_0 +
+    \tau)^{\adim} \ud \LM^1 \tau$.
+    Since $s^{-m/2} \exp(-r_1^2/(8s)) \to 0$ as $s \to 0+$, there is $0 < s_0 \le 1$ with $c_1
+    \exp(-r_1^2/(8s)) \le s^{m/2} \HM^{\vdim}(E)$ for $0 < s < s_0$. The conclusion follows
+    from~\eqref{eq:tube:layer} and the last two displays.
+\end{proof}
+
+\begin{lemma}
+    \label{lem:lower_entropy}
+    Assume (S). Suppose $E \subseteq \R^{\adim}$ is compact and $\vdim$~rectifiable,
+    $\HM^{\vdim}(E) > 0$, and $\mu_0 = \mu \restrict E$. Then
+    \begin{displaymath}
+        \liminf_{t \to T-} \tilde H(\rho_t) \ge \gamma \log \frac{\gamma}{\HM^{\vdim}(E)} - \gamma
+        \bigl( \log c(\adim) + 2^{-1} \adim \bigr) \,,
+    \end{displaymath}
+    where $c(\adim)$ is as in~\ref{lem:tube}.
+\end{lemma}
+
+\begin{proof}
+    Let $s_0$ and $\gamma_s$ be as in~\ref{lem:tube}, and suppose $T - s_0 < t < T$ and $t \ge 0$.
+    Set $s = T - t$, $\varphi = \gamma^{-1} \rho_t$ and $\psi(x) = \gamma_s^{-1} \exp(-\dist(x,E)^2
+    / (4s))$ for $x \in \R^{\adim}$. Both functions are positive and continuous, and their
+    integrals equal~$1$ by~\ref{lem:identities}\ref{i:id:mass}. Jensen's
+    inequality~\cite[2.4.19]{Federer1969}, applied to the probability measure $\LM^{\adim}
+    \restrict \psi$, the convex function $[r \mapsto r \log r]$ and the function $\varphi/\psi$,
+    gives $\textint{}{} \varphi \log(\varphi/\psi) \ud \LM^{\adim} \ge 0$; the integrals exist
+    by~\ref{lem:regularity}, since $\dist(x,E)^2 \le 2 |x|^2 + 2 R_0^2$ for some $R_0$. Hence
+    \begin{displaymath}
+        H(\rho_t) = \gamma \textint{}{} \varphi \log \varphi \ud \LM^{\adim} + \gamma \log \gamma
+        \ge \gamma \log \gamma - \gamma \log \gamma_s - (4s)^{-1} \textint{}{} \rho_t(x)
+        \dist(x,E)^2 \ud \LM^{\adim} x \,.
+    \end{displaymath}
+    Since $\mu_0(\R^{\adim} \without E) = 0$ and $\dist(x,E) \le |x - y|$ for $y \in E$, Fubini's
+    theorem~\cite[2.6.2]{Federer1969} and~\ref{lem:kernel}\ref{i:k:moment} give
+    \begin{displaymath}
+        \textint{}{} \rho_t(x) \dist(x,E)^2 \ud \LM^{\adim} x \le \textint{E}{} \textint{}{} |x -
+        y|^2 p_s(x-y) \ud \LM^{\adim} x \ud \mu_0 y = 2 \adim s \gamma \,.
+    \end{displaymath}
+    By~\ref{lem:tube}, $\log \gamma_s \le \log c(\adim) + 2^{-1}(\adim - \vdim) \log s + \log
+    \HM^{\vdim}(E)$. Therefore
+    \begin{displaymath}
+        \tilde H(\rho_t) = H(\rho_t) + 2^{-1} (\adim - \vdim) \gamma \log s \ge \gamma \log
+        \frac{\gamma}{\HM^{\vdim}(E)} - \gamma \log c(\adim) - 2^{-1} \adim \gamma \,.
+        \qedhere
+    \end{displaymath}
+\end{proof}
+
+\section{The mass bound}
+\label{sec:main}
+
+\begin{miniremark}
+    \label{mr:sec_main}
+    This section proves~\cite[Theorem~1.1]{DePhilippisGennaioliPigatiRindler2026} for countably
+    $(\HM^{\vdim},\vdim)$ rectifiable sets~$M$. A~compact $\vdim$ rectifiable set $E \subseteq M$
+    carrying at least half of~$\mu$ is provided by~\ref{lem:inner}. For compactly supported~$\mu$,
+    the entropy bounds~\ref{lem:upper_entropy} and~\ref{lem:lower_entropy} with $T =
+    \|\Upsilon\|(\R^{\adim})^{-2}$ give the conclusion~\ref{lem:compact_case}. The general case
+    follows by a~cut-off in~\ref{thm:main}. The hypotheses (S) of~\ref{mr:standing} are not
+    assumed in this section.
+\end{miniremark}
+
+\begin{lemma}
+    \label{lem:inner}
+    Suppose $M \subseteq \R^{\adim}$ is a~Borel set which is countably $(\HM^{\vdim},\vdim)$
+    rectifiable, $\HM^{\vdim}(M) < \infty$, $\theta : M \to [0,\infty)$ is $\HM^{\vdim} \restrict
+    M$ summable, $\mu = (\HM^{\vdim} \restrict M) \restrict \theta$, and $0 < \epsilon < \infty$.
+    Then there is a~compact $\vdim$~rectifiable set $E \subseteq M$ with $\mu(\R^{\adim} \without
+    E) < \epsilon$.
+\end{lemma}
+
+\begin{proof}
+    By~\cite[3.2.14]{Federer1969} there are bounded sets $A_1, A_2, \ldots \subseteq \R^{\vdim}$
+    and Lipschitzian maps $f_i : A_i \to \R^{\adim}$ with $\HM^{\vdim}(M \without
+    \tbcup_{i=1}^\infty f_i[A_i]) = 0$. Extend $f_i$ to a~Lipschitzian map of~$\R^{\vdim}$ into
+    $\R^{\adim}$ by Kirszbraun's theorem~\cite[2.10.43]{Federer1969}, and set $F_i = f_i[\Clos
+    A_i]$. Then $F_i$ is compact and $\vdim$~rectifiable, and $\mu(\R^{\adim} \without
+    \tbcup_{i=1}^\infty F_i) = 0$. Since $\mu(\R^{\adim}) < \infty$, there is $j$ with
+    $\mu(\R^{\adim} \without F) < \epsilon/2$, where $F = \tbcup_{i=1}^j F_i$ is compact and
+    $\vdim$~rectifiable~\cite[3.2.14]{Federer1969}. The set $M \cap F$ is a~Borel set and $\mu$ is
+    a~Borel measure; by~\cite[2.2.2]{Federer1969} there is a~closed set $E \subseteq M \cap F$
+    with $\mu((M \cap F) \without E) < \epsilon/2$. The set~$E$ is compact, and it is
+    $\vdim$~rectifiable as a~closed subset of~$F$~\cite[3.2.14]{Federer1969}. Since $\mu(\R^{\adim}
+    \without M) = 0$, we have $\mu(\R^{\adim} \without E) < \epsilon$.
+\end{proof}
+
+\begin{miniremark}
+    \label{mr:hypotheses_main}
+    In~\ref{lem:compact_case} and~\ref{thm:main} we consider the following data. The space $Y$
+    is a~finite dimensional inner product space, $K \subseteq \Hom(\R^{\adim},Y)$ is nonempty,
+    compact and convex, $0 < \lambda < \infty$, $0 < \Lambda < \infty$, and $\sv{\vdim}(X) \ge
+    \lambda$ and $|X| \le \Lambda$ for $X \in K$. The set $M \subseteq \R^{\adim}$ is a~Borel set
+    which is countably $(\HM^{\vdim},\vdim)$ rectifiable, $\HM^{\vdim}(M) < \infty$, $\theta : M
+    \to [0,\infty)$ is $\HM^{\vdim} \restrict M$ summable, $X : M \to K$ is $\HM^{\vdim}
+    \restrict M$ measurable, $\mu = (\HM^{\vdim} \restrict M) \restrict \theta$, and
+    \begin{displaymath}
+        \sigma(\Phi) = \textint{}{} X(x) \bullet \Phi(x) \ud \mu x
+        \quad \text{for $\Phi \in \ccspace{\R^{\adim},\Hom(\R^{\adim},Y)}$} \,.
+    \end{displaymath}
+    The distribution $\Upsilon \in \distr{\R^{\adim}}{Y}$ is representable by integration,
+    $\|\Upsilon\|(\R^{\adim}) < \infty$, and $\Upsilon(g) = - \sigma(\uD g)$ for $g \in
+    \dspace{\R^{\adim}}{Y}$.
+\end{miniremark}
+
+\begin{lemma}
+    \label{lem:compact_case}
+    There is $0 < C < \infty$, depending only on $\adim$, $\lambda$ and~$\Lambda$, with the
+    following property. If the data of~\ref{mr:hypotheses_main} are given and $\mu(\R^{\adim}
+    \without \cball{0}{r_0}) = 0$ for some $0 < r_0 < \infty$, then
+    \begin{displaymath}
+        \mu(\R^{\adim}) \le C \, \HM^{\vdim}(M)^{1/\vdim} \, \|\Upsilon\|(\R^{\adim}) \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    Let $C_0$ be the constant of~\ref{lem:upper_entropy}, $c(\adim)$ that of~\ref{lem:tube}, $C_1 =
+    C_0 + \log c(\adim) + 2^{-1} \adim$, $C_2 = \log 2 + C_1 (1 + \log 4)$, and $C = \exp(C_2)$. If
+    $\mu(\R^{\adim}) = 0$ there is nothing to prove. Otherwise, replacing $\theta$ by $\theta /
+    \mu(\R^{\adim})$ and $\Upsilon$ by $\Upsilon / \mu(\R^{\adim})$, we may assume
+    $\mu(\R^{\adim}) = 1$, since both sides of the conclusion are homogeneous of degree one in
+    $(\theta,\Upsilon)$. Extend $X$ to~$\R^{\adim}$ by a~constant value in~$K$ on $\R^{\adim}
+    \without M$, and set $\delta = \|\Upsilon\|(\R^{\adim})$.
+
+    By~\ref{lem:inner} there is a~compact $\vdim$~rectifiable set $E \subseteq M$ with $\gamma =
+    \mu(E) > 1/2$. Since $\mu$ is absolutely continuous with respect to $\HM^{\vdim}$, we have $0
+    < \HM^{\vdim}(E) \le \HM^{\vdim}(M) < \infty$. For each $0 < T < \infty$, the hypotheses (S)
+    of~\ref{mr:standing} hold with $\mu_0 = \mu \restrict E$. Combining~\ref{lem:upper_entropy}
+    with~\ref{lem:lower_entropy} and dividing by~$\gamma$, we obtain
+    \begin{equation}
+        \label{eq:cc:main}
+        \log \frac{\gamma}{\HM^{\vdim}(E)} \le - \frac{\vdim}{2} \log T + C_1 \Bigl( 1 + \log
+        \frac{1 + T^{1/2} \delta}{\gamma} \Bigr)
+        \quad \text{for $0 < T < \infty$} \,.
+    \end{equation}
+    If $\delta = 0$, the right-hand side of~\eqref{eq:cc:main} tends to $-\infty$ as $T \to \infty$,
+    which is impossible. Hence $\delta > 0$. Taking $T = \delta^{-2}$ in~\eqref{eq:cc:main} and
+    using $1/2 < \gamma \le 1$, we obtain $- \log 2 - \log \HM^{\vdim}(E) \le \vdim \log \delta +
+    C_1 (1 + \log 4)$, that is, $\HM^{\vdim}(E) \, \delta^{\vdim} \ge \exp(-C_2)$. Hence $1 \le
+    \exp(C_2/\vdim) \HM^{\vdim}(E)^{1/\vdim} \delta \le C \, \HM^{\vdim}(M)^{1/\vdim} \delta$.
+\end{proof}
+
+\begin{theorem}
+    \label{thm:main}
+    There is $0 < C < \infty$, depending only on $\adim$, $\lambda$ and~$\Lambda$, such that
+    \begin{displaymath}
+        \mu(\R^{\adim}) \le C \, \HM^{\vdim}(M)^{1/\vdim} \, \|\Upsilon\|(\R^{\adim})
+    \end{displaymath}
+    whenever the data of~\ref{mr:hypotheses_main} are given.
+\end{theorem}
+
+\begin{proof}
+    Let $C$ be the constant of~\ref{lem:compact_case}. Choose $\varphi \in \dspace{\R^{\adim}}{\R}$
+    with $0 \le \varphi \le 1$, $\varphi(x) = 1$ for $|x| \le 1$, and $\spt \varphi \subseteq
+    \cball{0}{2}$, and set $c_0 = \sup \{ |\grad \varphi(x)| : x \in \R^{\adim} \}$. For $1 \le
+    \varrho < \infty$ let $\varphi_\varrho(x) = \varphi(\varrho^{-1} x)$, $\theta_\varrho =
+    \varphi_\varrho \theta$, $\mu_\varrho = (\HM^{\vdim} \restrict M) \restrict \theta_\varrho$,
+    $\sigma_\varrho(\Phi) = \textint{}{} X \bullet \Phi \ud \mu_\varrho$, and $\Upsilon_\varrho(g)
+    = - \sigma_\varrho(\uD g)$ for $g \in \dspace{\R^{\adim}}{Y}$. Since $\uD(\varphi_\varrho g) =
+    \varphi_\varrho \uD g + \uD \varphi_\varrho \cdot g$ and $X \bullet (\uD \varphi_\varrho \cdot
+    g) = \uD \varphi_\varrho(\transpose{X}(g))$,
+    \begin{displaymath}
+        \Upsilon_\varrho(g) = \Upsilon(\varphi_\varrho g) + \textint{}{} \uD
+        \varphi_\varrho(x)(\transpose{X(x)}(g(x))) \ud \mu x \,.
+    \end{displaymath}
+    Since $\|\transpose{X(x)}\| \le |X(x)| \le \Lambda$ and $|\grad \varphi_\varrho| \le c_0 /
+    \varrho$, we obtain $|\Upsilon_\varrho(g)| \le \textint{}{} |g| \ud \nu_\varrho$ with
+    $\nu_\varrho = \|\Upsilon\| + c_0 \Lambda \varrho^{-1} \mu$. By~\ref{mr:functionals},
+    $\Upsilon_\varrho$ is representable by integration and $\|\Upsilon_\varrho\|(\R^{\adim}) \le
+    \|\Upsilon\|(\R^{\adim}) + c_0 \Lambda \varrho^{-1} \mu(\R^{\adim})$. The data
+    $(\theta_\varrho, \mu_\varrho, \sigma_\varrho, \Upsilon_\varrho)$ satisfy the hypotheses
+    of~\ref{lem:compact_case} with $r_0 = 2 \varrho$. Hence
+    \begin{displaymath}
+        \mu_\varrho(\R^{\adim}) \le C \, \HM^{\vdim}(M)^{1/\vdim} \bigl( \|\Upsilon\|(\R^{\adim}) +
+        c_0 \Lambda \varrho^{-1} \mu(\R^{\adim}) \bigr) \,.
+    \end{displaymath}
+    Since $\mu(\cball{0}{\varrho}) \le \mu_\varrho(\R^{\adim})$ and $\mu(\cball{0}{\varrho}) \to
+    \mu(\R^{\adim})$ as $\varrho \to \infty$, letting $\varrho \to \infty$ gives the
+    conclusion.
+\end{proof}
+
+\section{Varifolds and the Michael--Simon inequality}
+\label{sec:varifolds}
+
+\begin{miniremark}
+    \label{mr:sec_varifolds}
+    This section deduces~\cite[Theorem~1.6]{DePhilippisGennaioliPigatiRindler2026}
+    from~\ref{thm:main}. It recalls Allard's notation, defines the anisotropic first variation
+    and the map~$B_F$, proves the first variation formula~\ref{lem:first_variation} following
+    \cite[Lemma~A.2]{DePhilippis2018}, and shows in~\ref{lem:KF} that (AC1) yields the
+    constants $\lambda$ and~$\Lambda$ of~\ref{mr:hypotheses_main}.
+\end{miniremark}
+
+\begin{miniremark}
+    \label{mr:varifolds}
+    Following~\cite[2.3]{Allard1972}, we identify each $\vdim$~dimensional linear subspace
+    of~$\R^{\adim}$ with the orthogonal projection of~$\R^{\adim}$ onto it, and write
+    $\pgrass{\adim}{\vdim}$ for the set of these projections; for $S \in \pgrass{\adim}{\vdim}$ we
+    set $S^\perp = \id{\R^{\adim}} - S$. The set $\pgrass{\adim}{\vdim}$ is a~compact submanifold
+    of class~$\infty$ of~$\End{\R^{\adim}}$, and
+    \begin{displaymath}
+        \Tan(\pgrass{\adim}{\vdim},S) = \SymEnd{\R^{\adim}} \cap \{ A : S \circ A \circ S = 0,\
+        S^\perp \circ A \circ S^\perp = 0 \}
+    \end{displaymath}
+    by~\cite[Appendix~A]{DePhilippis2018}. Following~\cite[3.1]{Allard1972}, a~$\vdim$
+    dimensional varifold in~$\R^{\adim}$ is a~Radon measure~$V$ over $\R^{\adim} \times
+    \pgrass{\adim}{\vdim}$, $\Var{\vdim}(\R^{\adim})$ is the space of these varifolds, and
+    $\|V\|$ is the weight of~$V$. The space $\RVar{\vdim}(\R^{\adim})$ of rectifiable varifolds is
+    that of~\cite[3.5]{Allard1972}. For a~smooth map $f : \R^{\adim} \to \R^{\adim}$, $f_\# V$ is
+    the image varifold of~\cite[3.2(1)]{Allard1972}. We denote by $\density^{\vdim}(\|V\|,x)$,
+    $\density^{*\vdim}(\|V\|,x)$ and $\Tan^{\vdim}(\|V\|,x)$ the density, the upper density and
+    the approximate tangent plane, as in~\cite[2.10.19]{Federer1969} and~\cite[3.5]{Allard1972}.
+
+    In this section $F : \pgrass{\adim}{\vdim} \to (0,\infty)$ is of class~$1$
+    in the sense of~\cite[3.1.22]{Federer1969}, and $\uD F(S) \in
+    \Hom(\Tan(\pgrass{\adim}{\vdim},S),\R)$ denotes its differential at~$S$. For $V \in
+    \Var{\vdim}(\R^{\adim})$ with $\|V\|(\R^{\adim}) < \infty$ we set $\mathbf{F}(V) =
+    \textint{}{} F(S) \ud V(x,S)$, which is~\cite[(1.3)]{DePhilippisGennaioliPigatiRindler2026}.
+\end{miniremark}
+
+\begin{definition}
+    \label{def:BF}
+    For $S \in \pgrass{\adim}{\vdim}$ we define $B_F(S) \in \End{\R^{\adim}}$ by
+    \begin{displaymath}
+        B_F(S) \bullet L = F(S) \, (S \bullet L) + \uD F(S) \bigl( S^\perp \circ L \circ S +
+        \transpose{(S^\perp \circ L \circ S)} \bigr)
+    \end{displaymath}
+    for $L \in \End{\R^{\adim}}$;
+    the argument of $\uD F(S)$ belongs to $\Tan(\pgrass{\adim}{\vdim},S)$
+    by~\cite[Lemma~A.1]{DePhilippis2018}. This is~\cite[(A.5)]{DePhilippis2018} for an~integrand
+    not depending on the point. We set $K_F = \conv B_F[\pgrass{\adim}{\vdim}]$, and say that $F$
+    satisfies \emph{(AC1)} if $\dim \im A \ge \vdim$ for every $A \in K_F$;
+    see~\cite[section~1.2]{DePhilippisGennaioliPigatiRindler2026}. If $F$ satisfies (AC1), we set
+    \begin{displaymath}
+        \lambda(F) = \inf \{ \sv{\vdim}(A) : A \in K_F \} \,, \qquad
+        \Lambda(F) = \sup \{ |A| : A \in K_F \} \,.
+    \end{displaymath}
+\end{definition}
+
+\begin{lemma}
+    \label{lem:first_variation}
+    Suppose $V \in \Var{\vdim}(\R^{\adim})$, $\|V\|(\R^{\adim}) < \infty$, $g \in
+    \VF(\R^{\adim})$, and $\phi_t(x) = x + t g(x)$ for $t \in \R$ and $x \in \R^{\adim}$. Then
+    there is $0 < t_0 < \infty$ such that $\phi_t$ is a~diffeomorphism of~$\R^{\adim}$ onto
+    itself for $|t| < t_0$, the derivative of $[t \mapsto \mathbf{F}(\phi_{t\#} V)]$ at $t = 0$
+    exists, and
+    \begin{displaymath}
+        \delta_F V(g) = \frac{\ud}{\ud t} \mathbf{F}(\phi_{t\#} V) \Big|_{t=0} = \textint{}{}
+        B_F(S) \bullet \uD g(x) \ud V(x,S) \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    The first assertion is stated in the proof of~\cite[Lemma~A.2]{DePhilippis2018}.
+    By~\cite[3.2(1)]{Allard1972}, for $|t| < t_0$,
+    \begin{displaymath}
+        \mathbf{F}(\phi_{t\#} V) = \textint{}{} F(S_t(x,S)) \, \|\extpower{\vdim}(\uD \phi_t(x)
+        \circ S)\| \ud V(x,S) \,,
+    \end{displaymath}
+    where $S_t(x,S) \in \pgrass{\adim}{\vdim}$ is the orthogonal projection onto $\uD \phi_t(x)[\im
+    S]$. Since $\uD \phi_t(x) = \id{\R^{\adim}} + t \uD g(x)$, we have
+    \begin{displaymath}
+        \frac{\ud}{\ud t} \|\extpower{\vdim}(\uD \phi_t(x) \circ S)\| \Big|_{t=0} = \uD g(x) \bullet
+        S \,, \qquad
+        \frac{\ud}{\ud t} S_t(x,S) \Big|_{t=0} = S^\perp \circ \uD g(x) \circ S + \transpose{(S^\perp
+        \circ \uD g(x) \circ S)}
+    \end{displaymath}
+    by~\cite[2.4(1)]{Allard1972} and~\cite[Lemma~A.1]{DePhilippis2018}. The integrand equals
+    $F(S)$ for $x \notin \spt g$, and its derivative in~$t$ is bounded on $\{ t : |t| \le t_0/2
+    \} \times \R^{\adim} \times \pgrass{\adim}{\vdim}$. Differentiation under the integral sign,
+    justified by the mean value theorem and~\cite[2.4.9]{Federer1969}, and~\ref{def:BF} give the
+    conclusion.
+\end{proof}
+
+\begin{lemma}
+    \label{lem:KF}
+    The set $K_F$ is compact and convex. If $F$ satisfies (AC1), then $0 < \lambda(F) \le
+    \Lambda(F) < \infty$, $\sv{\vdim}(A) \ge \lambda(F)$ and $|A| \le \Lambda(F)$ for $A \in K_F$.
+\end{lemma}
+
+\begin{proof}
+    The map~$B_F$ is continuous, because $F$ is of class~$1$; hence $B_F[\pgrass{\adim}{\vdim}]$
+    is compact, and $K_F$ is compact by~\ref{lem:hull}. Suppose $F$ satisfies (AC1).
+    By~\ref{lem:sv}\ref{i:sv:rank}, $\sv{\vdim}(A) > 0$ for $A \in K_F$. Since $\sv{\vdim}$ is
+    continuous by~\ref{lem:sv}\ref{i:sv:lip}, it attains a~positive minimum on~$K_F$; hence
+    $\lambda(F) > 0$. Since $\sv{\vdim}(A) \le \|A\| \le |A|$, we have $\lambda(F) \le
+    \Lambda(F)$, and $\Lambda(F) < \infty$ by compactness.
+\end{proof}
+
+\begin{theorem}
+    \label{thm:MS}
+    Suppose $F$ satisfies (AC1). There is $0 < C < \infty$, depending only on $\adim$,
+    $\lambda(F)$ and $\Lambda(F)$, with the following property. Suppose $V \in
+    \RVar{\vdim}(\R^{\adim})$, $\|V\|(\R^{\adim}) < \infty$, $\density^{\vdim}(\|V\|,x) \ge 1$ for
+    $\|V\|$~almost all~$x$, the linear functional $\delta_F V$ on~$\VF(\R^{\adim})$
+    of~\ref{lem:first_variation} is representable by integration, $\|\delta_F V\|(\R^{\adim}) <
+    \infty$, and $M = \R^{\adim} \cap \{ x : 1 \le \density^{\vdim}(\|V\|,x) < \infty \}$. Then
+    \begin{gather}
+        \|V\|(\R^{\adim}) \le C \, \HM^{\vdim}(M)^{1/\vdim} \, \|\delta_F V\|(\R^{\adim}) \,,
+        \label{eq:MS:MS} \\
+        \|V\|(\R^{\adim})^{(\vdim - 1)/\vdim} \le C \, \|\delta_F V\|(\R^{\adim})
+        \quad \text{if $\vdim > 1$} \,.
+        \label{eq:MS:sobolev}
+    \end{gather}
+\end{theorem}
+
+\begin{proof}
+    Let $C$ be the constant of~\ref{thm:main} for $Y = \R^{\adim}$, $\lambda = \lambda(F)$ and
+    $\Lambda = \Lambda(F)$. The functions $[x \mapsto \|V\| \cball{x}{r}]$ are upper
+    semicontinuous for $0 < r < \infty$, and $[r \mapsto \|V\| \cball{x}{r}]$ is continuous from
+    the right; hence the upper and lower densities of~$\|V\|$ are Borel functions, and $M$ is the
+    Borel set of points at which both are equal, finite, and at least~$1$. By~\cite[2.10.19(3)]{Federer1969}, applied to the measure~$\|V\|$, the
+    set~$M$, the open set~$\R^{\adim}$ and a~number $0 < \tau < 1$, and by $\HM^{\vdim} \le
+    \mathscr{S}^{\vdim}$~\cite[2.10.6]{Federer1969}, we have $\tau \HM^{\vdim}(M) \le
+    \|V\|(\R^{\adim})$; letting $\tau \to 1-$,
+    \begin{equation}
+        \label{eq:MS:HM}
+        \HM^{\vdim}(M) \le \|V\|(\R^{\adim}) < \infty \,.
+    \end{equation}
+
+    By~\cite[3.5]{Allard1972}, $V = \textsum{i=1}{\infty} c_i \, \var{}(E_i)$ for some positive
+    numbers $c_i$ and $\HM^{\vdim}$~measurable sets $E_i$ meeting every compact set in
+    an~$(\HM^{\vdim},\vdim)$ rectifiable set. Hence $A = \tbcup_{i=1}^\infty E_i$ is countably
+    $(\HM^{\vdim},\vdim)$ rectifiable~\cite[3.2.14]{Federer1969} and $\|V\|(\R^{\adim} \without A)
+    = 0$; thus $\|V\| \restrict A = \|V\|$. By~\cite[2.10.19(4)]{Federer1969} applied to $\|V\|$
+    and the $\|V\|$~measurable set~$A$, and by $\HM^{\vdim} \le \mathscr{S}^{\vdim}$, we obtain
+    $\density^{\vdim}(\|V\|,x) = 0$ for $\HM^{\vdim}$~almost all $x \in \R^{\adim} \without A$;
+    hence $\HM^{\vdim}(M \without
+    A) = 0$, and $M$ is countably $(\HM^{\vdim},\vdim)$ rectifiable.
+
+    By~\cite[3.5(1)]{Allard1972}, for $\|V\|$~almost all~$x$ the density
+    $\density^{\vdim}(\|V\|,x)$ exists and is finite, $\Tan^{\vdim}(\|V\|,x) \in
+    \pgrass{\adim}{\vdim}$, $\|V\| = \HM^{\vdim} \restrict \density^{\vdim}(\|V\|,\cdot)$, and
+    \begin{equation}
+        \label{eq:MS:V}
+        V(\alpha) = \textint{}{} \alpha(x,\Tan^{\vdim}(\|V\|,x)) \, \density^{\vdim}(\|V\|,x) \ud
+        \HM^{\vdim} x
+        \quad \text{for $\alpha \in \ccspace{\R^{\adim} \times \pgrass{\adim}{\vdim}}$} \,.
+    \end{equation}
+    By hypothesis and~\cite[3.5(1)]{Allard1972}, $\|V\|(\R^{\adim} \without M) = 0$. Let $\theta(x) = \density^{\vdim}(\|V\|,x)$
+    for $x \in M$; then $\|V\| = (\HM^{\vdim} \restrict M) \restrict \theta$, and $\theta$ is
+    $\HM^{\vdim} \restrict M$ summable. Fix $S_0 \in \pgrass{\adim}{\vdim}$, and let $X(x) =
+    B_F(\Tan^{\vdim}(\|V\|,x))$ for those $x \in M$ at which $\Tan^{\vdim}(\|V\|,x) \in
+    \pgrass{\adim}{\vdim}$, and $X(x) = B_F(S_0)$ for the other $x \in M$. Then $X : M \to K_F$ is
+    $\HM^{\vdim} \restrict M$ measurable by~\cite[3.5(1)]{Allard1972}. Let $\sigma(\Phi) =
+    \textint{}{} X \bullet \Phi \ud \|V\|$ for $\Phi \in
+    \ccspace{\R^{\adim},\End{\R^{\adim}}}$, and $\Upsilon = - \delta_F V$. For $g \in
+    \VF(\R^{\adim})$ the function $[(x,S) \mapsto B_F(S) \bullet \uD g(x)]$ belongs to
+    $\ccspace{\R^{\adim} \times \pgrass{\adim}{\vdim}}$; hence, by~\ref{lem:first_variation}
+    and~\eqref{eq:MS:V},
+    \begin{displaymath}
+        \Upsilon(g) = - \textint{}{} B_F(S) \bullet \uD g(x) \ud V(x,S) = - \sigma(\uD g) \,.
+    \end{displaymath}
+    Moreover, $\|\Upsilon\| = \|\delta_F V\|$. By~\ref{lem:KF}, the data $Y = \R^{\adim}$, $K =
+    K_F$, $\lambda(F)$, $\Lambda(F)$, $M$, $\theta$, $X$, $\mu = \|V\|$, $\sigma$, $\Upsilon$
+    satisfy~\ref{mr:hypotheses_main}. Hence~\ref{thm:main} gives~\eqref{eq:MS:MS}.
+    Suppose $\vdim > 1$. If $\|V\|(\R^{\adim}) > 0$, combining~\eqref{eq:MS:MS}
+    with~\eqref{eq:MS:HM} and dividing by $\|V\|(\R^{\adim})^{1/\vdim}$ gives~\eqref{eq:MS:sobolev};
+    otherwise~\eqref{eq:MS:sobolev} is trivial.
+\end{proof}
+
+\section{Dependencies and formalisation notes}
+\label{sec:summary}
+
+\begin{miniremark}
+    \label{mr:sec_summary}
+    This section lists the dependencies of all items in Table~\ref{tab:dependencies} and records
+    which parts of the deduction are available in existing libraries.
+\end{miniremark}
+
+\begin{table}[ht]
+    \centering
+    \small
+    \begin{tabular}{p{0.06\textwidth}p{0.3\textwidth}p{0.54\textwidth}}
+        item & source & uses \\ \hline
+        \ref{lem:sv} & new & \cite[1.7.3, 1.7.9]{Federer1969} \\
+        \ref{lem:spectral} & new & \cite[1.7.3, 1.7.9]{Federer1969} \\
+        \ref{lem:trace} & new & \cite[1.7.3, 1.7.10]{Federer1969} \\
+        \ref{lem:hull} & new (Carath\'eodory) & --- \\
+        \ref{lem:barycentre} & --- & \cite[2.4.12, 2.4.19]{Federer1969} \\
+        \ref{lem:kernel} & new & \cite[2.6.2]{Federer1969} \\
+        \ref{lem:heat_extension} & new & \cite[2.4.9, 2.4.12, 2.6.2]{Federer1969},
+        \ref{lem:kernel} \\
+        \ref{lem:classes} & new & \cite[2.4.9, 2.6.2, 3.1.11]{Federer1969} \\
+        \ref{lem:semiconvex} & DGPR (3.16) & \cite[2.4.14]{Federer1969}, \ref{lem:kernel},
+        \ref{lem:heat_extension} \\
+        \ref{lem:ibp} & DGPR (3.17) & \cite[2.4.9, 2.9.9, 3.1.6, 4.1.2]{Federer1969},
+        \ref{lem:classes} \\
+        \ref{lem:identities} & DGPR (3.1)--(3.4), GR (3.9) & \cite[2.5.14, 4.1.5]{Federer1969},
+        \ref{lem:sv}, \ref{lem:barycentre}, \ref{lem:heat_extension} \\
+        \ref{lem:regularity} & --- & \cite[3.1.11]{Federer1969}, \ref{lem:heat_extension},
+        \ref{lem:classes}, \ref{lem:identities} \\
+        \ref{lem:heat_calculus} & DGPR (3.6) & \cite[3.1.11]{Federer1969}, \ref{lem:identities}
+        \\
+        \ref{lem:DGPR31} & DGPR Lemma~3.1 & \cite[2.4.7, 2.4.19]{Federer1969},
+        \ref{lem:classes}, \ref{lem:identities}--\ref{lem:heat_calculus} \\
+        \ref{lem:DGPR32} & DGPR Lemma~3.2 & \ref{lem:sv}, \ref{lem:spectral}, \ref{lem:trace},
+        \ref{lem:classes}--\ref{lem:ibp}, \ref{lem:identities}, \ref{lem:regularity},
+        \ref{lem:DGPR31} \\
+        \ref{lem:entropy} & DGPR section~4 & \ref{lem:kernel}, \ref{lem:classes},
+        \ref{lem:identities}, \ref{lem:regularity} \\
+        \ref{lem:upper_entropy} & DGPR (4.1) & \ref{lem:DGPR32}, \ref{lem:entropy} \\
+        \ref{lem:tube} & DGPR proof of (4.2) & \cite[2.6.2, 2.7.16, 3.2.37, 3.2.39]{Federer1969} \\
+        \ref{lem:lower_entropy} & DGPR (4.2) & \cite[2.4.19, 2.6.2]{Federer1969},
+        \ref{lem:kernel}, \ref{lem:identities}, \ref{lem:regularity}, \ref{lem:tube} \\
+        \ref{lem:inner} & new & \cite[2.2.2, 2.10.43, 3.2.14]{Federer1969} \\
+        \ref{lem:compact_case} & DGPR proof of Theorem~1.1 & \ref{lem:upper_entropy},
+        \ref{lem:lower_entropy}, \ref{lem:inner} \\
+        \ref{thm:main} & DGPR Theorem~1.1 for rectifiable~$M$ & \ref{mr:functionals}, \ref{lem:compact_case} \\
+        \ref{lem:first_variation} & DDG Lemma~A.2 & \cite[2.4(1), 3.2(1)]{Allard1972},
+        \cite[Lemma~A.1]{DePhilippis2018}, \cite[2.4.9]{Federer1969} \\
+        \ref{lem:KF} & --- & \ref{lem:sv}, \ref{lem:hull} \\
+        \ref{thm:MS} & DGPR Theorem~1.6 & \cite[3.5]{Allard1972}, \cite[2.10.6, 2.10.19,
+        3.2.14]{Federer1969}, \ref{thm:main}, \ref{lem:first_variation}, \ref{lem:KF}
+    \end{tabular}
+    \caption{Dependencies. DGPR is~\cite{DePhilippisGennaioliPigatiRindler2026}, GR
+    is~\cite{Gennaioli2026}, DDG is~\cite{DePhilippis2018}; ``new'' marks results which are in
+    none of the three sources.}
+    \label{tab:dependencies}
+\end{table}
+
+\begin{remark}
+    \label{rem:rocq}
+    For a~formalisation in Rocq on top of a~formalisation of Federer's book, the items to be
+    added are those marked ``new'' or attributed to DGPR in Table~\ref{tab:dependencies}, the
+    formalisation of~\cite[2.3--4.3]{Allard1972} cited in section~\ref{sec:varifolds}, and
+    \cite[Lemmas~A.1 and~A.2]{DePhilippis2018}. All other inputs are numbered items of
+    Federer's book. The heat flow layer of section~\ref{sec:heat} is self-contained: it requires
+    only integration with respect to Borel measures, Fubini's theorem, differentiation under the
+    integral sign, and the one-dimensional Gaussian integrals. Positivity of the heat kernel is
+    used in~\ref{lem:heat_extension}\ref{i:he:gauss}, \ref{lem:semiconvex}
+    and~\ref{lem:regularity}; hence the heat extension must be formalised for measures, not
+    merely for functions in~$\Lp{p}$.
+\end{remark}
+
+\begin{remark}
+    \label{rem:lean}
+    For a~formalisation in Lean, Mathlib provides Lebesgue and Hausdorff measures, Fubini's
+    theorem, Fr\'echet derivatives, Jensen's inequality, Rademacher's theorem, Lebesgue's
+    differentiation theorem, Gaussian integrals and Carath\'eodory's theorem on convex hulls; the
+    exact declaration names should be checked against the current Mathlib. The library Tau~Ceti
+    contains countably rectifiable sets (\url{TauCeti/Geometry/MeasureTheory/Rectifiable/Basic.lean}),
+    varifolds and their weights (\url{TauCeti/Geometry/MeasureTheory/Varifold/Euclidean.lean}),
+    the heat semigroup on~$\Lp{p}$ (\url{TauCeti/Analysis/PDE/HeatKernel/Semigroup.lean}),
+    an~entropy functional (\url{TauCeti/MeasureTheory/Integral/Entropy.lean}), and limits of
+    volumes of thickenings of compact sets
+    (\url{TauCeti/Analysis/BoundedVariation/MinkowskiContent.lean}). The following inputs were
+    not found there and have to be formalised: distributions representable by integration
+    (\ref{mr:functionals}), the Minkowski content of closed rectifiable
+    sets~\cite[3.2.39]{Federer1969}, heat extensions of measures (\ref{lem:heat_extension}), and
+    Allard's image varifolds and rectifiable varifolds~\cite[3.2, 3.5]{Allard1972}.
+\end{remark}
+
+\bibliographystyle{halpha}
+\bibliography{blueprint}
+
+\end{document}

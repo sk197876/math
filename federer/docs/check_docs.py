@@ -111,7 +111,7 @@ def check(paths, request_external=False):
 
     for path in paths:
         data = page(path)
-        if re.fullmatch(r"[123]\.\d+\.md", path.name) and re.fullmatch(r"chapter[123]", path.parent.name):
+        if re.fullmatch(r"[1-4]\.\d+\.md", path.name) and re.fullmatch(r"chapter[1-4]", path.parent.name):
             level = 0
             titles = 0
             for depth, anchor, label in data["headings"]:

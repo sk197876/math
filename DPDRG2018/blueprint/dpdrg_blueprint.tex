@@ -1,0 +1,2133 @@
+\pdfoutput=1
+
+\documentclass[a4paper,twoside,leqno]{article}
+
+\input{preambule.tex}
+
+\input{macros.tex}
+
+\usepackage{longtable}
+
+% Local notation of this note (names checked to be unused in macros.tex).
+\newcommand{\Gk}{\pgrass{\adim}{\vdim}}        % the Grassmannian of k planes as projections
+\newcommand{\Gh}{\pgrass{\adim}{\adim-1}}      % hyperplanes as projections
+\DeclareMathOperator{\TM}{TM}                   % tangent measures in the sense of DDG (2.1)
+\newcommand{\MS}{\textbf{[MS path]}}            % marks the minimal path needed by DPGPR2026
+\setlength{\emergencystretch}{2em}
+
+\date{\today}
+
+\title{Blueprint of a formalisation of the rectifiability theorem of De~Philippis, De~Rosa and
+    Ghiraldin}
+
+\author{Working note}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+\label{sec:intro}
+
+Allard's rectifiability theorem~\cite[5.5(1)]{Allard1972} asserts that a~$\vdim$ dimensional
+varifold whose first variation is a~Radon measure is rectifiable on the set where its weight has
+positive lower $\vdim$ dimensional density. De~Philippis, De~Rosa and Ghiraldin~\cite{DePhilippis2018}
+replace the area integrand by an~anisotropic integrand $F : \Omega \times \Gk \to (0,\infty)$ of
+class~$1$, where $\Omega$ is an~open subset of~$\R^{\adim}$ and $\Gk$ is the Grassmannian of
+$\vdim$~planes, identified with orthogonal projections. The first variation of a~varifold~$V$ with
+respect to~$F$ is
+\begin{displaymath}
+    \delta_F V(g) = \textint{}{} \bigl( \uD_x F(x,T)(g(x)) + B_F(x,T) \bullet \uD g(x) \bigr) \ud
+    V(x,T) \quad \text{for $g \in \dspace{\Omega}{\R^{\adim}}$},
+\end{displaymath}
+where $B_F(x,T) \in \End{\R^{\adim}}$ is computed from $F$ and its derivative in~\ref{def:BF}. The
+paper's main result, \cite[Theorem~1.2]{DePhilippis2018}, is~\ref{ddg:1.2} below: if $F$
+satisfies the \emph{atomic condition} (AC) at every point, then for every varifold~$V$ with
+$\delta_F V$ representable by integration the part $\overline V$ of~$V$ over the set of positive
+lower density is rectifiable; for an~integrand not depending on the point, (AC) is also necessary.
+The atomic condition at~$x$ requires, for every probability measure~$\sigma$ over~$\Gk$, that the
+kernel of $A_x(\sigma) = \textint{}{} B_F(x,T) \ud \sigma(T)$ has dimension at most $\adim -
+\vdim$, with equality only if $\sigma$ is a~Dirac measure; see~\ref{def:BF}.
+In codimension one, \cite[Theorem~1.3]{DePhilippis2018} identifies (AC) with the strict
+convexity of the one-homogeneous even extension of~$F$; this is~\ref{ddg:1.3} below.
+
+The proof of the sufficiency in~\ref{ddg:1.2} has three parts. Blow-ups of~$V$ at almost every
+point split as a~tangent measure times the fibre measure $V^{(x)}$ of~\cite[3.3]{Allard1972};
+the frozen first variation of such a~blow-up vanishes, so its tangent measure is invariant in
+the directions of $\im A_x(V^{(x)})^*$. Together with a~packing estimate, (AC) forces $V^{(x)}$ to
+be a~Dirac measure~\ref{ddg:3.1}. A~compactness argument for the projections of blow-ups, which
+rests on the Calder\'on--Zygmund theory, shows $\|\overline V\| \ll \HM^{\vdim}$
+in~\ref{ddg:3.4}. Finally Preiss's rectifiability criterion~\cite[5.3]{Preiss1987} yields the
+rectifiability in~\ref{ddg:2.2}.
+
+This note is a~blueprint for a~formalisation of~\cite{DePhilippis2018} in the Rocq proof
+assistant. The formalisation is planned on top of the existing formalisation of Federer's
+book~\cite{Federer1969} and of a~planned formalisation of Allard's paper~\cite{Allard1972}. Every
+numbered item records its source in the optional title of its heading and carries a~label of the
+form \texttt{ddg:N.M} for the items of~\cite{DePhilippis2018} and \texttt{new:...} for auxiliary
+items introduced here. Each step of every proof is justified by an~item of~\cite{Federer1969},
+of~\cite{Allard1972}, of an~external work with an~exact locator, or by an~earlier item of this
+note. Several arguments that the paper leaves to the reader are supplied: the tangent space of the
+Grassmannian and its dimension in~\ref{ddg:A.tan}, the smoothness of the curve in Lemma~A.1
+in~\ref{new:projformula}, the identity (A.7) in~\ref{new:BFderiv}, and the identification of the
+directions of invariance in~\ref{new:kerim}. A~few arguments are replaced by shorter ones: the
+cylinder decomposition in the proof of Lemma~3.1 by a~packing estimate, the Vitali convergence
+theorem in Lemma~3.3 by a~direct estimate, the Fr\'echet--Kolmogorov estimate (3.9) by an~Arzel\`a--Ascoli
+argument~\ref{new:convcompact}, and the reference to an~external proposition in~\cite[Lemma~2.3]{DePhilippis2018} by
+a~Lebesgue point argument. The corrections of the paper are collected in~\ref{rem:errors}.
+
+The formalisation of~\cite{DePhilippis2018} serves the formalisation of the anisotropic
+Michael--Simon inequality of De~Philippis, Gennaioli, Pigati and Rindler, which needs only the
+first variation formula for integrands not depending on the point. The items on this
+\emph{minimal path} are marked \MS{} in their headings and in the last column of
+table~\ref{tab:dependencies}; \ref{rem:ms} describes the path.
+
+\begin{table}[ht]
+    \centering
+    \small
+    \begin{tabular}{lll}
+        paper & statement & here \\ \hline
+        (1.2), (1.4), (2.8) & $\overline V$, $\mathbf{V}_F(\Omega)$, first variation & \ref{def:firstvar} \\
+        (1.3), Def.~1.1, (2.7), (2.9) & $B_F$, $A_x(\sigma)$, (AC) & \ref{def:BF} \\
+        Theorem~1.2 & rectifiability & \ref{ddg:1.2} \\
+        Theorem~1.3 & codimension one & \ref{ddg:1.3} \\
+        (2.1) & tangent measures & \ref{def:tangent} \\
+        Lemma~2.1 & a~tangent measure with mass near~$0$ & \ref{ddg:2.1} \\
+        Lemma~2.2 & rectifiability criterion & \ref{ddg:2.2} \\
+        Lemma~2.3 & blow-ups of varifolds & \ref{ddg:2.3} \\
+        (2.4)--(2.6) & restriction to~$\overline V$ & \ref{ddg:2.4-6} \\
+        (2.10)--(2.12) & properties of~$B_F$ & \ref{ddg:2.10-12} \\
+        Lemma~2.4 & invariance of tangent measures & \ref{ddg:2.4} \\
+        Lemma~3.1 & the fibre is a~Dirac measure & \ref{ddg:3.1} \\
+        Lemma~3.2 & strong constancy lemma & \ref{ddg:3.2} \\
+        Lemma~3.3 & a~compactness criterion & \ref{ddg:3.3} \\
+        Lemma~3.4 & $\|\overline V\| \ll \HM^{\vdim}$ & \ref{ddg:3.4} \\
+        section~5 & codimension one computations & \ref{new:Gx}--\ref{new:strictconv} \\
+        (A.1), (A.2) & Grassmannian and its tangent space & \ref{ddg:A.1}, \ref{ddg:A.tan} \\
+        Lemma~A.1 & derivative of the moving plane & \ref{ddg:A.lemma1} \\
+        Lemma~A.2 & first variation formula & \ref{ddg:A.2}, \ref{ddg:A.2const} \\
+        Theorem~B.1 & Preiss's criterion & \ref{ddg:B.1}
+    \end{tabular}
+    \caption{Correspondence between~\cite{DePhilippis2018} and this note.}
+    \label{tab:correspondence}
+\end{table}
+
+\section{Notation and preliminaries}
+\label{sec:prelim}
+
+\begin{miniremark}
+    \label{mr:prelim}
+    This section fixes the notation, studies tangent measures and blow-ups of varifolds, defines
+    the anisotropic first variation and the atomic condition, and proves~\cite[Lemmas~2.1, 2.3
+    and~2.4]{DePhilippis2018} together with auxiliary lemmas. The rectifiability
+    criterion~\cite[Lemma~2.2]{DePhilippis2018} is~\ref{ddg:2.2} in appendix~\ref{sec:B}. Throughout, $\adim$ and
+    $\vdim$ are integers with $1 \le \vdim \le \adim$; the paper's~$d$ is our~$\vdim$. The set
+    $\Omega$ is an~open subset of~$\R^{\adim}$.
+\end{miniremark}
+
+\begin{miniremark}
+    \label{mr:notation}
+    We follow~\cite[pp.~669--671]{Federer1969}. For finite dimensional inner product spaces $X$
+    and~$Z$, $\transpose{A} \in \Hom(Z,X)$ is the adjoint of $A \in \Hom(X,Z)$, $\Hom(X,Z)$
+    carries the inner product $A \bullet B = \trace(\transpose{A} \circ B)$ and the norm $|A| = (A
+    \bullet A)^{1/2}$, and $\|A\| = \sup \{ |A(v)| : |v| \le 1 \}$;
+    see~\cite[1.7.4, 1.7.9]{Federer1969} and~\cite[2.2]{Allard1972}. We have $\ker A = X \cap
+    \{ v : v \bullet \transpose{A}(z) = 0 \text{ for $z \in Z$} \}$, that is, $\ker A$ is the
+    orthogonal complement of $\im \transpose{A}$, because $A(v) \bullet z = v \bullet
+    \transpose{A}(z)$. For $\omega \in \Hom(X,\R)$ and $b \in Z$, the map $\omega \cdot b \in
+    \Hom(X,Z)$ is given by $(\omega \cdot b)(v) = \omega(v) b$; then $(\omega \cdot b) \bullet A =
+    \omega(\transpose{A}(b))$ for $A \in \Hom(X,Z)$, see~\cite[2.3(4)]{Allard1972}. We write
+    $\SymEnd{\R^{\adim}} = \End{\R^{\adim}} \cap \{ A : \transpose{A} = A \}$ and $\id{} =
+    \id{\R^{\adim}}$. The determinant is that of~\cite[1.3.4]{Federer1969}, and $\extpower{m}$ is
+    the $m$-th exterior power with the inner product of~\cite[1.7.5]{Federer1969}.
+
+    Following~\cite[2.3]{Allard1972} and~\ref{ddg:A.1}, $\Gk$ is the set of orthogonal
+    projections of~$\R^{\adim}$ onto $\vdim$~dimensional subspaces, and $T^\perp = \id{} - T$ for
+    $T \in \Gk$. By~\ref{ddg:A.tan}, $\Gk$ is a~compact submanifold of class~$\infty$
+    of~$\End{\R^{\adim}}$. For $T \in \Gk$ we write $\Pi_T : \R^{\adim} \to \im T$ for the map
+    with $\Pi_T(v) = T(v)$; it differs from~$T$ only in its codomain.
+
+    We use $\oball{a}{r} = \R^{\adim} \cap \{ x : |x - a| < r \}$, $\cball{a}{r} = \R^{\adim} \cap
+    \{ x : |x - a| \le r \}$, $\HM^m$, $\LM^m$, and $\unitmeasure{m} = \LM^m(\cball{0}{1})$;
+    see~\cite[2.7.16, 2.10.2]{Federer1969}. We write $\HM^m = \LM^m$ on~$\R^m$
+    by~\cite[2.10.35]{Federer1969}; hence $\HM^{\vdim}(W \cap \oball{0}{r}) =
+    \unitmeasure{\vdim} r^{\vdim}$ for a~$\vdim$~dimensional subspace~$W$ by the isometric
+    invariance of~$\HM^{\vdim}$. For a~measure~$\mu$, a~set~$A$ and a~map~$f$, $\mu \restrict A$
+    and $f_\# \mu$ are as in~\cite[2.1.2]{Federer1969}, and $\mu \restrict \theta$ is the measure
+    with density~$\theta$~\cite[2.4.10]{Federer1969}.
+
+    Radon measures over a~locally compact separable metric space~$X$ are those
+    of~\cite[2.2.5]{Federer1969}; we identify them with nonnegative linear functionals
+    on~$\ccspace{X}$ by~\cite[2.5.14]{Federer1969}. A~sequence $\mu_j$ \emph{converges weakly}
+    to~$\mu$ if $\mu_j(\psi) \to \mu(\psi)$ for $\psi \in \ccspace{X}$. We use the following
+    facts of~\cite[2.6(2)]{Allard1972}: if $\sup \{ \mu_j(C) : j \}< \infty$ for every compact~$C
+    \subset X$, then a~subsequence converges weakly; if $\mu_j \to \mu$ weakly, then $\mu(O) \le
+    \liminf_j \mu_j(O)$ for open~$O$ and $\mu(C) \ge \limsup_j \mu_j(C)$ for compact~$C$.
+
+    The derivation theory of~\cite[2.8.18, 2.9]{Federer1969} is formulated for the class of
+    measures of~\cite[2.9.1]{Federer1969}. For a~Radon measure~$\mu$ over~$\Omega$ we apply it to
+    the measures $\mu \restrict C$, extended by zero to~$\R^{\adim}$, where $C$ ranges over
+    a~sequence of compact sets with union~$\Omega$ and $C_m \subset \Int C_{m+1}$; at points of
+    $\Int C$ and for small radii the quantities computed for $\mu$ and for $\mu \restrict C$
+    coincide. We refer to this procedure as the \emph{local application} of these results.
+
+    We follow~\cite[4.1.1, 4.1.5]{Federer1969} for $\dspace{U}{Y}$, $\distr{U}{Y}$ and for
+    distributions representable by integration; for such~$T$, $\|T\|$ is the Radon measure with
+    \begin{equation}
+        \label{eq:mr:notation:var}
+        \|T\|(O) = \sup \{ T(\phi) : \phi \in \dspace{O}{Y},\ |\phi| \le 1 \} \quad \text{for open $O
+        \subset U$}.
+    \end{equation}
+    The functions $\Phi_\varepsilon$ and the convolutions $\Phi_\varepsilon * f$ are those
+    of~\cite[4.1.2]{Federer1969}. When $W$ is a~$\vdim$~dimensional subspace, distributions,
+    $\LM^{\vdim}$ and $\Phi_\varepsilon$ on~$W$ are defined through a~linear isometry of~$\R^{\vdim}$
+    onto~$W$; $\LM^{\vdim}$ on~$W$ is $\HM^{\vdim} \restrict W$.
+
+    Following~\cite[3.1, 3.3, 3.5]{Allard1972}, $\Var{\vdim}(\Omega)$ is the space of Radon
+    measures over $\Omega \times \Gk$, $\|V\|$ is the weight of $V \in \Var{\vdim}(\Omega)$, and
+    $V^{(x)}$ is the $\|V\|$~measurable family of Radon measures over~$\Gk$ such that, for
+    $\|V\|$~almost all~$x$, $V^{(x)}(\Gk) = 1$, and
+    \begin{equation}
+        \label{eq:mr:notation:disint}
+        V(\alpha) = \textint{}{} \textint{}{} \alpha(x,T) \ud V^{(x)}(T) \ud \|V\|(x) \quad
+        \text{for $\alpha \in \ccspace{\Omega \times \Gk}$}.
+    \end{equation}
+    The space $\RVar{\vdim}(\Omega)$ and the varifolds $\var{}(E)$ are those
+    of~\cite[3.5]{Allard1972}. For a~Radon measure~$\nu$ over an~open set~$U$ and a~Radon
+    measure~$\sigma$ over~$\Gk$, $\nu \times \sigma \in \Var{\vdim}(U)$ is given by $(\nu
+    \times \sigma)(\alpha) = \textint{}{} \textint{}{} \alpha(y,T) \ud \sigma(T) \ud \nu(y)$.
+
+    For $V \in \Var{\vdim}(\Omega)$ we set
+    \begin{displaymath}
+        P_V = \Omega \cap \{ x : \ldensity^{\vdim}(\|V\|,x) > 0 \} \,, \qquad \overline V = V
+        \restrict (P_V \times \Gk) \,;
+    \end{displaymath}
+    this is~\cite[(1.2)]{DePhilippis2018}. Densities are those of~\cite[2.10.19]{Federer1969}
+    and~\cite[2.8(2)]{Allard1972}, defined with closed balls; by~\ref{new:densities} the open
+    balls of~\cite[p.~1126]{DePhilippis2018} give the same values.
+\end{miniremark}
+
+\begin{lemma}[new]
+    \label{new:densities}
+    Suppose $\mu$ is a~Radon measure over~$\Omega$ and $x \in \Omega$. Then
+    \begin{gather}
+        \label{eq:new:densities:1}
+        \ldensity^{\vdim}(\mu,x) = \liminf_{r \to 0+} \frac{\mu(\oball{x}{r})}{\unitmeasure{\vdim}
+        r^{\vdim}} \,, \qquad
+        \udensity^{\vdim}(\mu,x) = \limsup_{r \to 0+} \frac{\mu(\oball{x}{r})}{\unitmeasure{\vdim}
+        r^{\vdim}} \,, \\
+        \label{eq:new:densities:2}
+        \frac{\textint{\oball{x}{r}}{} f \ud \mu}{\mu(\oball{x}{r})} \le \sup \Bigl\{
+        \frac{\textint{\cball{x}{s}}{} f \ud \mu}{\mu(\cball{x}{s})} : 0 < s < r,\ \mu(\cball{x}{s}) > 0
+        \Bigr\}
+    \end{gather}
+    whenever $f$ is a~nonnegative $\mu$~integrable function, $\cball{x}{r} \subset \Omega$ and
+    $\mu(\oball{x}{r}) > 0$. Moreover, $\Omega \cap \{ y : \ldensity^{\vdim}(\mu,y) > 0 \}$ is
+    a~Borel set.
+\end{lemma}
+
+\begin{proof}
+    For $0 < \lambda < 1$ and small $r > 0$ we have $\cball{x}{\lambda r} \subset \oball{x}{r} \subset
+    \cball{x}{r}$; hence
+    \begin{displaymath}
+        \lambda^{\vdim} \frac{\mu(\cball{x}{\lambda r})}{\unitmeasure{\vdim} (\lambda r)^{\vdim}}
+        \le \frac{\mu(\oball{x}{r})}{\unitmeasure{\vdim} r^{\vdim}} \le
+        \frac{\mu(\cball{x}{r})}{\unitmeasure{\vdim} r^{\vdim}} \,.
+    \end{displaymath}
+    Taking lower and upper limits as $r \to 0+$ and then letting $\lambda \to 1-$
+    gives~\eqref{eq:new:densities:1}. Since $\oball{x}{r}$ is the union of the increasing family
+    $\cball{x}{s}$, $0 < s < r$, the bounded convergence theorem~\cite[2.4.9]{Federer1969} gives
+    $\textint{\oball{x}{r}}{} f \ud \mu = \lim_{s \to r-} \textint{\cball{x}{s}}{} f \ud \mu$ and
+    $\mu(\oball{x}{r}) = \lim_{s \to r-} \mu(\cball{x}{s})$; this
+    yields~\eqref{eq:new:densities:2}.
+
+    For an~integer $m \ge 1$ let $\Omega_m = \Omega \cap \{ y : \dist(y, \R^{\adim} \without \Omega)
+    > 1/m \}$ and, for rational $0 < q < 1/m$, let $h_q(y) = \mu(\oball{y}{q}) /
+    (\unitmeasure{\vdim} q^{\vdim})$ for $y \in \Omega_m$. If $y_i \to y$ in~$\Omega_m$ and $0 < q' < q$,
+    then $\oball{y}{q'} \subset \oball{y_i}{q}$ for large~$i$; hence $\liminf_i h_q(y_i) \ge
+    \mu(\oball{y}{q'}) / (\unitmeasure{\vdim} q^{\vdim})$, and letting $q' \to q-$ shows that
+    $h_q$ is lower semicontinuous. Since $[ r \mapsto \mu(\oball{y}{r}) ]$ is continuous from the
+    left,~\eqref{eq:new:densities:1} gives $\ldensity^{\vdim}(\mu,y) = \lim_{j \to \infty} \inf
+    \{ h_q(y) : q \text{ rational},\ 0 < q < 1/j \}$ for $y \in \Omega_m$. Hence
+    $\ldensity^{\vdim}(\mu,\cdot)$ is a~Borel function on each~$\Omega_m$, and the last
+    assertion follows because $\Omega = \bigcup_m \Omega_m$.
+\end{proof}
+
+\begin{definition}[{\cite[(2.1)]{DePhilippis2018}}]
+    \label{def:tangent}
+    Suppose $\mu$ is a~Radon measure over~$\Omega$, $x \in \spt \mu$ and $0 < r <
+    \dist(x,\R^{\adim} \without \Omega)$. We define the Radon measure $\mu_{x,r}$ over
+    $\oball{0}{1}$ by
+    \begin{displaymath}
+        \mu_{x,r}(\psi) = \mu(\oball{x}{r})^{-1} \textint{\oball{x}{r}}{} \psi((y-x)/r) \ud \mu(y)
+        \quad \text{for $\psi \in \ccspace{\oball{0}{1}}$},
+    \end{displaymath}
+    and we let $\TM(\mu,x)$ be the set of Radon measures~$\nu$ over~$\oball{0}{1}$ such that
+    $\mu_{x,r_j} \to \nu$ weakly for some sequence $r_j \to 0+$; its members are the
+    \emph{tangent measures} of~$\mu$ at~$x$. For $V \in \Var{\vdim}(\Omega)$ and $x \in \spt
+    \|V\|$ we define $V_{x,r} \in \Var{\vdim}(\oball{0}{1})$ by
+    \begin{displaymath}
+        V_{x,r}(\alpha) = \|V\|(\oball{x}{r})^{-1} \textint{\oball{x}{r} \times \Gk}{}
+        \alpha((y-x)/r,T) \ud V(y,T) \quad \text{for $\alpha \in \ccspace{\oball{0}{1} \times
+        \Gk}$}.
+    \end{displaymath}
+\end{definition}
+
+\begin{remark}
+    \label{rem:tangent}
+    The measure $\mu_{x,r}$ is the image of $\mu(\oball{x}{r})^{-1} \, \mu \restrict \oball{x}{r}$
+    under $[ y \mapsto (y-x)/r ]$, which maps $\oball{x}{r}$ onto $\oball{0}{1}$; hence
+    $\mu_{x,r}(\oball{0}{1}) = 1$. Taking $\alpha(z,T) = \psi(z)$ for $\psi \in
+    \ccspace{\oball{0}{1}}$ in the definition of $V_{x,r}$ gives $\|V_{x,r}\| = \|V\|_{x,r}$. By the facts
+    of~\cite[2.6(2)]{Allard1972} recalled in~\ref{mr:notation}, every sequence $r_j \to 0+$ has
+    a~subsequence along which $\mu_{x,r_j}$ converges weakly, and $\nu(\oball{0}{1}) \le 1$ for
+    $\nu \in \TM(\mu,x)$. By~\cite[3.2(1), (2)]{Allard1972}, $V_{x,r}$ equals the varifold
+    $r^{\vdim} \|V\|(\oball{x}{r})^{-1} (\eta_{x,r})_\# V$ of~\cite[p.~1129]{DePhilippis2018} restricted to
+    $\oball{0}{1} \times \Gk$, where $\eta_{x,r}(y) = (y - x)/r$.
+\end{remark}
+
+\begin{lemma}[{\cite[Lemma~2.1]{DePhilippis2018}, corrected}]
+    \label{ddg:2.1}
+    Suppose $\mu$ is a~Radon measure over~$\Omega$, $x \in \Omega$, $\ldensity^{\vdim}(\mu,x)
+    > 0$ and $0 < t < 1$. Then there exist $\nu \in \TM(\mu,x)$ and a~sequence $r_j \to 0+$
+    with $\mu_{x,r_j} \to \nu$ weakly and $\nu(\cball{0}{t}) \ge t^{\vdim}$.
+\end{lemma}
+
+\begin{proof}
+    We have $x \in \spt \mu$. We first show
+    \begin{equation}
+        \label{eq:ddg:2.1:1}
+        \limsup_{r \to 0+} \mu(\oball{x}{tr}) / \mu(\oball{x}{r}) \ge t^{\vdim} \,.
+    \end{equation}
+    If~\eqref{eq:ddg:2.1:1} fails, there are $0 < \varepsilon < 1$ and $r_0 > 0$ with
+    $\mu(\oball{x}{tr}) \le (1-\varepsilon) t^{\vdim} \mu(\oball{x}{r})$ for $0 < r \le r_0$. By
+    induction, $\mu(\oball{x}{t^i r_0}) \le (1 - \varepsilon)^i t^{i\vdim} \mu(\oball{x}{r_0})$
+    for every positive integer~$i$; hence
+    \begin{displaymath}
+        \frac{\mu(\oball{x}{t^i r_0})}{\unitmeasure{\vdim} (t^i r_0)^{\vdim}} \le (1 -
+        \varepsilon)^i \frac{\mu(\oball{x}{r_0})}{\unitmeasure{\vdim} r_0^{\vdim}} \to 0 \,,
+    \end{displaymath}
+    as $i \to \infty$,
+    which contradicts $\ldensity^{\vdim}(\mu,x) > 0$ by~\ref{new:densities}. By~\eqref{eq:ddg:2.1:1}
+    there is $r_j \to 0+$ with $\liminf_j \mu(\oball{x}{t r_j}) / \mu(\oball{x}{r_j}) \ge
+    t^{\vdim}$; passing to a~subsequence by~\ref{rem:tangent}, $\mu_{x,r_j} \to \nu$ weakly for
+    some $\nu \in \TM(\mu,x)$. Since $\cball{0}{t}$ is a~compact subset of~$\oball{0}{1}$ and
+    $\mu_{x,r_j}(\cball{0}{t}) \ge \mu_{x,r_j}(\oball{0}{t}) = \mu(\oball{x}{tr_j}) /
+    \mu(\oball{x}{r_j})$, the upper semicontinuity on compact sets~\cite[2.6(2)(c)]{Allard1972}
+    gives $\nu(\cball{0}{t}) \ge \limsup_j \mu_{x,r_j}(\cball{0}{t}) \ge t^{\vdim}$.
+\end{proof}
+
+\begin{lemma}[new]
+    \label{new:approx}
+    Suppose $X$ is a~compact metric space and $Y$ is an~open subset of~$\R^m$.
+    \begin{enumerate}
+        \item
+        \label{i:new:approx:sep}
+        There is a~countable subset of~$\ccspace{X}$ which is dense in~$\ccspace{X}$ with respect
+        to the supremum norm.
+        \item
+        \label{i:new:approx:prod}
+        If $\alpha \in \ccspace{Y \times X}$, $K$ is the image of $\spt \alpha$ under the
+        projection onto~$Y$, $C$ is a~compact subset of~$Y$ with $K \subset \Int C$, and
+        $\varepsilon > 0$, then there exist finitely many $\psi_l \in \ccspace{Y}$ and $\phi_l \in
+        \ccspace{X}$ with $\spt \psi_l \subset C$ and
+        $|\alpha(y,z) - \textsum{l}{} \psi_l(y) \phi_l(z)| \le \varepsilon$ for $(y,z) \in Y \times
+        X$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Suppose $Z$ is a~metric space, $K \subset Z$ is compact, $0 < \delta < \infty$, $z_1, \ldots,
+    z_p \in K$ and $K \subset \bigcup_l \oball{z_l}{\delta/2}$, where balls are taken in~$Z$, and
+    $\eta \in \ccspace{Z}$ satisfies $0 \le \eta \le 1$, $\eta(z) = 1$ for $z \in K$ and $\eta(z) =
+    0$ whenever $\dist(z,K) \ge \delta/4$. Set $\theta_l(z) = \sup \{ \delta - \dist(z,z_l), 0
+    \}$, $\Theta = \textsum{l}{} \theta_l$ and $\psi_l = \eta \theta_l / \sup \{ \Theta,
+    \delta/4 \}$. If $\dist(z,K) < \delta/4$, then $\dist(z,z_l) < 3\delta/4$ for some~$l$,
+    hence $\Theta(z) \ge \delta/4$. Therefore
+    \begin{equation}
+        \label{eq:new:approx:1}
+        \psi_l \in \ccspace{Z} \,, \qquad \psi_l \ge 0 \,, \qquad \textsum{l}{} \psi_l = \eta \,,
+        \qquad \psi_l(z) = 0 \quad \text{whenever $\dist(z,z_l) \ge \delta$}.
+    \end{equation}
+    We prove~\ref{i:new:approx:sep}. For each positive integer~$m$, apply this construction with
+    $Z = K = X$, $\eta = 1$, $\delta = 1/m$ and a~finite $\delta/2$~net, and let $D_m$ be the set
+    of the functions $\textsum{l}{} q_l \psi_l$ with rational~$q_l$. If $f \in \ccspace{X}$ and
+    $|f(z) - f(z')| \le \varepsilon$ whenever $\dist(z,z') < 1/m$, choose rational~$q_l$ with
+    $|q_l - f(z_l)| \le \varepsilon$; then~\eqref{eq:new:approx:1} gives $|f - \textsum{l}{} q_l
+    \psi_l| \le \textsum{l}{} \psi_l |f - f(z_l)| + \textsum{l}{} \psi_l |f(z_l) - q_l| \le
+    2\varepsilon$. Hence $\bigcup_m D_m$ is countable and dense.
+
+    We prove~\ref{i:new:approx:prod}. Since $\alpha$ is uniformly continuous, there is $\delta >
+    0$ with $\delta < \dist(K, \R^m \without \Int C)$ and $|\alpha(y,z) - \alpha(y',z)| \le
+    \varepsilon$ whenever $|y - y'| < \delta$. Apply the construction with $Z = Y$, a~finite
+    $\delta/2$~net $y_1, \ldots, y_p$ of~$K$ and $\eta \in \ccspace{Y}$ with $\spt \eta \subset
+    C$, and set $\phi_l = \alpha(y_l,\cdot)$. By~\eqref{eq:new:approx:1} and since $\eta = 1$
+    on~$K$,
+    \begin{displaymath}
+        \bigl| \alpha(y,z) - \textsum{l}{} \psi_l(y) \alpha(y_l,z) \bigr|
+        = \bigl| (1 - \eta(y)) \alpha(y,z) + \textsum{l}{} \psi_l(y) (\alpha(y,z) - \alpha(y_l,z))
+        \bigr| \le \textsum{l}{} \psi_l(y) \varepsilon \le \varepsilon \,,
+    \end{displaymath}
+    since $(1 - \eta(y)) \alpha(y,z) = 0$ and $|y - y_l| < \delta$ whenever $\psi_l(y) \ne 0$.
+\end{proof}
+
+\begin{lemma}[{\cite[Lemma~2.3]{DePhilippis2018}, new proof}]
+    \label{ddg:2.3}
+    Suppose $V \in \Var{\vdim}(\Omega)$. Then for $\|V\|$~almost all~$x$ the following holds:
+    whenever $r_j \to 0+$, $\nu$ is a~Radon measure over $\oball{0}{1}$ and $\|V\|_{x,r_j} \to
+    \nu$ weakly, we have $V_{x,r_j} \to \nu \times V^{(x)}$ weakly.
+\end{lemma}
+
+\begin{proof}
+    By~\ref{new:approx}\ref{i:new:approx:sep} there is a~countable dense subset~$D$
+    of~$\ccspace{\Gk}$. For $\phi \in \ccspace{\Gk}$ the function $f_\phi = [ y \mapsto
+    V^{(y)}(\phi) ]$ is $\|V\|$~measurable and $|f_\phi| \le \sup |\phi|$ $\|V\|$~almost
+    everywhere by~\cite[3.3]{Allard1972}. The local application of~\cite[2.8.18,
+    2.9.9]{Federer1969} yields a~set~$N$ with $\|V\|(N) = 0$ such that, for $x \in \Omega
+    \without N$ and $\phi \in D$, $x \in \spt \|V\|$, $V^{(x)}(\Gk) = 1$, and
+    \begin{displaymath}
+        \lim_{s \to 0+} \|V\|(\cball{x}{s})^{-1} \textint{\cball{x}{s}}{} |f_\phi(y) - f_\phi(x)|
+        \ud \|V\|(y) = 0 \,.
+    \end{displaymath}
+    Fix such~$x$. By~\ref{new:densities}\eqref{eq:new:densities:2} the same limit holds with
+    $\oball{x}{r}$ in place of~$\cball{x}{s}$. For $\psi \in \ccspace{\oball{0}{1}}$ and $\phi
+    \in D$, \ref{mr:notation}\eqref{eq:mr:notation:disint} applied to $[ (y,T) \mapsto
+    \psi((y-x)/r) \phi(T) ]$ gives
+    \begin{equation}
+        \label{eq:ddg:2.3:1}
+        \bigl| V_{x,r}(\psi \phi) - \|V\|_{x,r}(\psi) f_\phi(x) \bigr| \le \sup |\psi| \,
+        \|V\|(\oball{x}{r})^{-1} \textint{\oball{x}{r}}{} |f_\phi(y) - f_\phi(x)| \ud \|V\|(y) \to 0
+    \end{equation}
+    as $r \to 0+$, where $(\psi\phi)(y,T) = \psi(y)\phi(T)$. Since $V_{x,r}(|\psi| \cdot 1) \le
+    \sup |\psi|$ and $|f_\phi(x)| \le \sup|\phi|$, approximating $\phi \in \ccspace{\Gk}$
+    uniformly by members of~$D$ shows that~\eqref{eq:ddg:2.3:1} holds for every $\phi \in
+    \ccspace{\Gk}$. Suppose now $\|V\|_{x,r_j} \to \nu$ weakly. Then $V_{x,r_j}(\psi \phi) \to
+    \nu(\psi) V^{(x)}(\phi) = (\nu \times V^{(x)})(\psi\phi)$. Let $\alpha \in
+    \ccspace{\oball{0}{1} \times \Gk}$ and $\varepsilon > 0$, and let $C$ be a~compact subset
+    of~$\oball{0}{1}$ whose interior contains the projection of $\spt \alpha$.
+    By~\ref{new:approx}\ref{i:new:approx:prod} there is $\beta = \textsum{l}{} \psi_l \phi_l$ with
+    $\spt \psi_l \subset C$ and $|\alpha - \beta| \le \varepsilon$. Since $V_{x,r_j}(C \times
+    \Gk) \le 1$ and $(\nu \times V^{(x)})(C \times \Gk) \le \nu(\oball{0}{1}) \le 1$
+    by~\ref{rem:tangent}, we obtain $\limsup_j |V_{x,r_j}(\alpha) - (\nu \times
+    V^{(x)})(\alpha)| \le 2 \varepsilon$.
+\end{proof}
+
+\begin{lemma}[{\cite[(2.4)--(2.6)]{DePhilippis2018}}]
+    \label{ddg:2.4-6}
+    Suppose $V \in \Var{\vdim}(\Omega)$ and $\mu = \|\overline V\| = \|V\| \restrict P_V$. Then
+    $P_V$ is a~Borel set, and for $\|V\|$~almost all $x \in P_V$,
+    \begin{gather}
+        \label{eq:ddg:2.4-6:1}
+        \lim_{r \to 0+} \|V\|(\oball{x}{r} \without P_V) / \|V\|(\oball{x}{r}) = 0 \,, \qquad
+        \ldensity^{\vdim}(\mu,x) = \ldensity^{\vdim}(\|V\|,x) > 0 \,, \\
+        \label{eq:ddg:2.4-6:2}
+        \TM(\mu,x) = \TM(\|V\|,x) \,, \quad \text{and $\mu_{x,r_j} \to \nu$ weakly if and only if
+        $\|V\|_{x,r_j} \to \nu$ weakly}.
+    \end{gather}
+    In particular $\ldensity^{\vdim}(\mu,x) > 0$ for $\mu$~almost all~$x$.
+\end{lemma}
+
+\begin{proof}
+    The set $P_V$ is Borel by~\ref{new:densities}. The local application
+    of~\cite[2.8.18, 2.9.11]{Federer1969} with $A = P_V$ gives the first equation
+    of~\eqref{eq:ddg:2.4-6:1} for $\|V\|$~almost all $x \in P_V$, first for closed balls and then,
+    by~\ref{new:densities}\eqref{eq:new:densities:2} applied with $f = \CF{\Omega \without P_V}$, for
+    open balls. For such~$x$, $\mu(\oball{x}{r}) / \|V\|(\oball{x}{r}) \to 1$; this gives the second
+    equation of~\eqref{eq:ddg:2.4-6:1}, and positivity holds because $x \in P_V$. For $\psi \in
+    \ccspace{\oball{0}{1}}$,
+    \begin{displaymath}
+        \bigl| \mu_{x,r}(\psi) - \|V\|_{x,r}(\psi) \bigr| \le \sup|\psi| \Bigl( \Bigl| 1 -
+        \frac{\|V\|(\oball{x}{r})}{\mu(\oball{x}{r})} \Bigr| + \frac{\|V\|(\oball{x}{r} \without
+        P_V)}{\mu(\oball{x}{r})} \Bigr) \to 0 \quad \text{as $r \to 0+$},
+    \end{displaymath}
+    which implies~\eqref{eq:ddg:2.4-6:2}.
+\end{proof}
+
+\begin{lemma}[new]
+    \label{new:translation}
+    Suppose $\nu$ is a~Radon measure over~$\oball{0}{1}$, $e \in \R^{\adim}$, and
+    $\textint{}{} \uD \phi(y)(e) \ud \nu(y) = 0$ for $\phi \in \dspace{\oball{0}{1}}{\R}$. If $C$
+    is a~compact subset of~$\R^{\adim}$, $s \in \R$, and $C + \tau e \subset \oball{0}{1}$ for
+    $\tau$ between $0$ and~$s$, then $\nu(C + se) = \nu(C)$. In particular, if $w \in \R^{\adim}$,
+    $\R w = \R e$ and $0 < \rho < \infty$, then
+    \begin{displaymath}
+        \nu(\cball{w}{\rho}) = \nu(\cball{0}{\rho}) \quad \text{if $|w| + \rho < 1$}, \qquad
+        \nu(\oball{w}{\rho}) = \nu(\oball{0}{\rho}) \quad \text{if $|w| + \rho \le 1$}.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    The set $H = \bigcup \{ C + \tau e : \tau \text{ between $0$ and $s$} \}$ is a~compact subset
+    of~$\oball{0}{1}$; let $0 < \varepsilon_0 < \dist(H, \R^{\adim} \without \oball{0}{1})/3$. For
+    $0 < \varepsilon < \varepsilon_0$ set $C_\varepsilon = \R^{\adim} \cap \{ y : \dist(y,C) \le
+    2\varepsilon \}$ and $\phi_\varepsilon = \Phi_\varepsilon * \CF{C_\varepsilon}$, where
+    $\Phi_\varepsilon$ is that of~\cite[4.1.2]{Federer1969}. Then $\phi_\varepsilon$ is of
+    class~$\infty$, $0 \le \phi_\varepsilon \le 1$, $\phi_\varepsilon(y) = 1$ if $\dist(y,C) \le
+    \varepsilon$, and $\phi_\varepsilon(y) = 0$ if $\dist(y,C) \ge 3 \varepsilon$. For $\tau$
+    between $0$ and~$s$ the function $[ y \mapsto \phi_\varepsilon(y - \tau e) ]$ belongs to
+    $\dspace{\oball{0}{1}}{\R}$, and its derivative in direction~$e$ at~$y$ is $\uD
+    \phi_\varepsilon(y - \tau e)(e)$. By the mean value theorem and the bounded convergence
+    theorem~\cite[2.4.9]{Federer1969}, the function $[ \tau \mapsto \textint{}{} \phi_\varepsilon(y
+    - \tau e) \ud \nu(y) ]$ is differentiable with derivative $- \textint{}{} \uD
+    \phi_\varepsilon(y - \tau e)(e) \ud \nu(y) = 0$; hence $\textint{}{} \phi_\varepsilon(y - se)
+    \ud \nu(y) = \textint{}{} \phi_\varepsilon \ud \nu$. As $\varepsilon \to 0+$,
+    $\phi_\varepsilon \to \CF{C}$ and $\phi_\varepsilon(\cdot - se) \to \CF{C + se}$ pointwise,
+    with values in $[0,1]$ and supports in a~fixed compact subset of $\oball{0}{1}$; the bounded
+    convergence theorem gives $\nu(C + se) = \nu(C)$.
+
+    For the second assertion, write $w = se$ if $e \ne 0$ (otherwise $w = 0$ and there is nothing
+    to prove). If $|w| + \rho < 1$, apply the first assertion with $C = \cball{0}{\rho}$. If $|w| +
+    \rho \le 1$, apply it with $C = \cball{0}{\rho'}$ for $\rho' < \rho$ and let $\rho' \to \rho-$.
+\end{proof}
+
+\begin{miniremark}[\MS]
+    \label{mr:integrands}
+    In sections~\ref{sec:prelim}--\ref{sec:proof12}, $F : \Omega \times \Gk \to (0,\infty)$ is of
+    class~$1$: it is the restriction of a~map~$\tilde F$ of class~$1$ defined on an~open subset
+    of $\R^{\adim} \times \End{\R^{\adim}}$ containing $\Omega \times \Gk$. Then $F$ is of
+    class~$1$ relative to the submanifold $\Omega \times \Gk$ in the sense
+    of~\cite[3.1.22]{Federer1969}. For $(x,T) \in \Omega \times \Gk$ we denote by $\uD_x F(x,T)
+    \in \Hom(\R^{\adim},\R)$ and $\uD_T F(x,T) \in \Hom(\Tan(\Gk,T),\R)$ the partial
+    differentials, that is, $\uD_x F(x,T)(v) = \uD \tilde F(x,T)(v,0)$ and $\uD_T F(x,T)(A) = \uD
+    \tilde F(x,T)(0,A)$. Both depend continuously on $(x,T)$. The frozen integrand of $x \in
+    \Omega$ is $F_x = F(x,\cdot)$, as in~\cite[(2.7)]{DePhilippis2018}; it is extended to $\R^{\adim}
+    \times \Gk$ by $F_x(y,T) = F(x,T)$ whenever a~point-dependent integrand is required.
+\end{miniremark}
+
+\begin{definition}[{\cite[(1.3), (2.9), Definition~1.1]{DePhilippis2018}; \MS}]
+    \label{def:BF}
+    For $(x,T) \in \Omega \times \Gk$ we define $B_F(x,T) \in \End{\R^{\adim}}$ by
+    \begin{displaymath}
+        B_F(x,T) \bullet L = F(x,T) (T \bullet L) + \uD_T F(x,T) \bigl( T^\perp \circ L \circ T +
+        \transpose{(T^\perp \circ L \circ T)} \bigr) \quad \text{for $L \in \End{\R^{\adim}}$};
+    \end{displaymath}
+    the argument of $\uD_T F(x,T)$ belongs to $\Tan(\Gk,T)$ by~\ref{ddg:A.tan}. We set $C_F(x,T)
+    = B_F(x,T) - F(x,T) T$. For a~Radon measure~$\sigma$ over~$\Gk$ with $\sigma(\Gk) = 1$ we set
+    \begin{displaymath}
+        A_x(\sigma) = \textint{}{} B_F(x,T) \ud \sigma(T) \in \End{\R^{\adim}} \,,
+    \end{displaymath}
+    the integral of a~continuous function with values in a~finite dimensional space. We say that
+    $F$ satisfies the \emph{atomic condition} \emph{(AC)} at~$x$ if, for every such~$\sigma$,
+    \begin{enumerate}
+        \item
+        \label{i:def:BF:ac1}
+        $\dim \ker A_x(\sigma) \le \adim - \vdim$, and
+        \item
+        \label{i:def:BF:ac2}
+        if $\dim \ker A_x(\sigma) = \adim - \vdim$, then $\sigma = \Dirac{T_0}$ for some $T_0
+        \in \Gk$.
+    \end{enumerate}
+    For an~integrand $F : \Gk \to (0,\infty)$ not depending on the point, $B_F(T)$, $C_F(T)$ and
+    $A(\sigma)$ are defined by the same formulae.
+\end{definition}
+
+\begin{definition}[{\cite[(1.4), (2.8)]{DePhilippis2018}; \MS}]
+    \label{def:firstvar}
+    For $V \in \Var{\vdim}(\Omega)$ we define $\delta_F V \in \distr{\Omega}{\R^{\adim}}$ by
+    \begin{displaymath}
+        \delta_F V(g) = \textint{}{} \bigl( \uD_x F(x,T)(g(x)) + B_F(x,T) \bullet \uD g(x) \bigr)
+        \ud V(x,T) \quad \text{for $g \in \dspace{\Omega}{\R^{\adim}}$}.
+    \end{displaymath}
+    By~\ref{ddg:A.2}, $\delta_F V(g)$ is the derivative at $t = 0$ of the anisotropic energy of
+    the image of~$V$ under $[ x \mapsto x + t g(x) ]$. We let $\mathbf{V}_F(\Omega)$ be the set
+    of those $V \in \Var{\vdim}(\Omega)$ for which $\delta_F V$ is representable by integration
+    in the sense of~\cite[4.1.5]{Federer1969}, and we say $V$ is \emph{$F$~stationary} if
+    $\delta_F V = 0$.
+\end{definition}
+
+\begin{lemma}[{\cite[(2.10)--(2.12)]{DePhilippis2018}}]
+    \label{ddg:2.10-12}
+    The following hold.
+    \begin{enumerate}
+        \item
+        \label{i:ddg:2.10-12:cont}
+        The maps $B_F$ and $C_F$ are continuous; hence, for every compact $C \subset \Omega$,
+        there is a~bounded function $\omega_C : [0,\infty) \to [0,\infty)$ with $\lim_{s \to 0+}
+        \omega_C(s) = 0$ and
+        \begin{displaymath}
+            |F(x,T) - F(x,S)| + |B_F(x,T) - B_F(x,S)| + |C_F(x,T) - C_F(x,S)| \le \omega_C(|T - S|)
+        \end{displaymath}
+        for $x \in C$ and $S, T \in \Gk$.
+        \item
+        \label{i:ddg:2.10-12:C}
+        If $(x,T) \in \Omega \times \Gk$, $\omega \in \Hom(\R^{\adim},\R)$ and $b \in \im T$, then
+        $C_F(x,T) \bullet (\omega \cdot b) = 0$.
+        \item
+        \label{i:ddg:2.10-12:bound}
+        If $C \subset \Omega$ is compact, $c = \sup \{ |F(x,T)| + \|\uD_x F(x,T)\| + |B_F(x,T)|
+        : x \in C,\ T \in \Gk \}$, $V \in \Var{\vdim}(\Omega)$ and $g \in
+        \dspace{\Omega}{\R^{\adim}}$ with $\spt g \subset C$, then $|\delta_F V(g)| \le c (\sup |g|
+        + \sup |\uD g|) \|V\|(C)$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    The map $[ (x,T,L) \mapsto B_F(x,T) \bullet L ]$ is continuous by~\ref{mr:integrands}, and
+    $B_F(x,T) = \textsum{i,j}{} (B_F(x,T) \bullet E_{ij}) E_{ij}$ for an~orthonormal basis
+    $E_{ij}$ of~$\End{\R^{\adim}}$; this gives the continuity of $B_F$ and of $C_F$. Uniform
+    continuity on the compact set $C \times \Gk$ yields~$\omega_C$, which is bounded because the
+    three maps are bounded there and $|T - S| \le 2 \vdim^{1/2}$. For~\ref{i:ddg:2.10-12:C},
+    $C_F(x,T) \bullet L = \uD_T F(x,T)(T^\perp \circ L \circ T + \transpose{(T^\perp \circ L
+    \circ T)})$ and $T^\perp \circ (\omega \cdot b) \circ T = (\omega \circ T) \cdot T^\perp(b) =
+    0$. Assertion~\ref{i:ddg:2.10-12:bound} follows from~\ref{def:firstvar}.
+\end{proof}
+
+\begin{lemma}[new]
+    \label{new:kerim}
+    If $(x,T) \in \Omega \times \Gk$, then $\transpose{B_F(x,T)}(b) = F(x,T) b$ for $b \in \im T$,
+    $\im \transpose{B_F(x,T)} = \im T$, and $\ker B_F(x,T) = \ker T$.
+\end{lemma}
+
+\begin{proof}
+    Let $B = B_F(x,T)$, $\omega \in \Hom(\R^{\adim},\R)$ and $b \in \R^{\adim}$.
+    By~\ref{mr:notation} and~\ref{def:BF},
+    \begin{equation}
+        \label{eq:new:kerim:1}
+        \begin{gathered}
+            \omega(\transpose{B}(b)) = B \bullet (\omega \cdot b) = F(x,T) \, \omega(T(b)) + \uD_T
+            F(x,T)(Q) \,, \\
+            Q = (\omega \circ T) \cdot T^\perp(b) + \transpose{((\omega \circ T) \cdot T^\perp(b))}
+            \,.
+        \end{gathered}
+    \end{equation}
+    If $b \in \im T$, then $T^\perp(b) = 0$, so $Q = 0$ and $\omega(\transpose{B}(b)) = F(x,T)
+    \omega(b)$ for every~$\omega$; hence $\transpose{B}(b) = F(x,T) b$, and $\im T \subset \im
+    \transpose{B}$ because $F(x,T) > 0$. If $\omega \circ T = 0$, then $Q = 0$ and $\omega(T(b)) = 0$,
+    so $\omega(\transpose{B}(b)) = 0$ for every~$b$. Since $\im T = \R^{\adim} \cap \{ v :
+    \omega(v) = 0 \text{ whenever } \omega \circ T = 0 \}$, we obtain $\im \transpose{B} \subset
+    \im T$. Finally $\ker B$ is the orthogonal complement of $\im \transpose{B} = \im T$
+    by~\ref{mr:notation}, which is $\ker T$.
+\end{proof}
+
+\begin{lemma}[{\cite[Lemma~2.4]{DePhilippis2018}}]
+    \label{ddg:2.4}
+    Suppose $V \in \mathbf{V}_F(\Omega)$. Then for $\|V\|$~almost all~$x$ the following holds:
+    whenever $r_j \to 0+$ and $\|V\|_{x,r_j} \to \nu$ weakly, we have
+    \begin{gather}
+        \label{eq:ddg:2.4:1}
+        \textint{}{} A_x(V^{(x)}) \bullet \uD g(y) \ud \nu(y) = 0 \quad \text{for $g \in
+        \dspace{\oball{0}{1}}{\R^{\adim}}$}, \\
+        \label{eq:ddg:2.4:2}
+        \textint{}{} \uD \phi(y)(e) \ud \nu(y) = 0 \quad \text{for $\phi \in
+        \dspace{\oball{0}{1}}{\R}$ and $e \in \im \transpose{A_x(V^{(x)})}$}.
+    \end{gather}
+\end{lemma}
+
+\begin{proof}
+    By the local application of~\cite[2.8.18, 2.9.5]{Federer1969} to $\|\delta_F V\|$ and $\|V\|$,
+    and by~\ref{new:densities}\eqref{eq:new:densities:2}, for $\|V\|$~almost all~$x$,
+    \begin{equation}
+        \label{eq:ddg:2.4:3}
+        \limsup_{r \to 0+} \|\delta_F V\|(\oball{x}{r}) / \|V\|(\oball{x}{r}) < \infty \,.
+    \end{equation}
+    Let $x$ satisfy~\eqref{eq:ddg:2.4:3} and the conclusion of~\ref{ddg:2.3}, let $C \subset
+    \Omega$ be a~compact neighbourhood of~$x$, and let $\omega_C$ and~$c$ be as
+    in~\ref{ddg:2.10-12}. Suppose $\|V\|_{x,r_j} \to \nu$ weakly; then $V_{x,r_j} \to \nu \times
+    V^{(x)}$ weakly. Let $g \in \dspace{\oball{0}{1}}{\R^{\adim}}$ and $g_j(z) = g((z - x)/r_j)$, so
+    that $\uD g_j(z) = r_j^{-1} \uD g((z-x)/r_j)$. For large~$j$, $\cball{x}{r_j} \subset C$ and, by
+    the definitions of $V_{x,r_j}$ and $\delta_F V$,
+    \begin{multline*}
+        \textint{}{} B_F(x,T) \bullet \uD g(y) \ud V_{x,r_j}(y,T)
+        = \frac{r_j}{\|V\|(\oball{x}{r_j})} \Bigl( \delta_F V(g_j) - \textint{}{} \uD_x F(z,T)(g_j(z))
+        \ud V(z,T) \\
+        - \textint{}{} \bigl( B_F(z,T) - B_F(x,T) \bigr) \bullet \uD g_j(z) \ud V(z,T) \Bigr) \,.
+    \end{multline*}
+    The modulus of the right side is at most
+    \begin{displaymath}
+        \begin{aligned}
+            & r_j \sup|g| \, \frac{\|\delta_F V\|(\oball{x}{r_j})}{\|V\|(\oball{x}{r_j})} + r_j c
+            \sup|g| \\
+            & \qquad + \sup |\uD g| \sup \{ |B_F(z,T) - B_F(x,T)| : z \in \oball{x}{r_j},\ T \in
+            \Gk \} \,,
+        \end{aligned}
+    \end{displaymath}
+    which tends to~$0$ by~\eqref{eq:ddg:2.4:3} and the uniform continuity of~$B_F$ on $C \times
+    \Gk$~\ref{ddg:2.10-12}\ref{i:ddg:2.10-12:cont}. The function $[ (y,T) \mapsto B_F(x,T) \bullet
+    \uD g(y) ]$ belongs to $\ccspace{\oball{0}{1} \times \Gk}$; hence the left side tends to
+    $\textint{}{} \textint{}{} B_F(x,T) \bullet \uD g(y) \ud V^{(x)}(T) \ud \nu(y) =
+    \textint{}{} A_x(V^{(x)}) \bullet \uD g(y) \ud \nu(y)$, which proves~\eqref{eq:ddg:2.4:1}. Let
+    $A = A_x(V^{(x)})$, $\phi \in \dspace{\oball{0}{1}}{\R}$, $b \in \R^{\adim}$ and $g = \phi \,
+    b$. Then $\uD g(y) = \uD \phi(y) \cdot b$ and $A \bullet (\uD \phi(y) \cdot b) = \uD
+    \phi(y)(\transpose{A}(b))$ by~\ref{mr:notation}; hence~\eqref{eq:ddg:2.4:1}
+    gives~\eqref{eq:ddg:2.4:2} with $e = \transpose{A}(b)$.
+\end{proof}
+
+\section{Intermediate lemmata}
+\label{sec:intermediate}
+
+\begin{miniremark}
+    \label{mr:intermediate}
+    This section proves that the fibre measures of a~varifold in $\mathbf{V}_F(\Omega)$ are
+    Dirac measures at points of positive lower density~\ref{ddg:3.1}, proves the strong constancy
+    lemma~\ref{ddg:3.2}, and deduces $\|\overline V\| \ll \HM^{\vdim}$ in~\ref{ddg:3.4}. The
+    analytic input of~\ref{ddg:3.2} is collected in~\ref{new:convcompact}--\ref{new:mollcompact};
+    it includes the external results~\ref{new:newton} and~\ref{new:weak11}. In this section $F$ is
+    as in~\ref{mr:integrands}.
+\end{miniremark}
+
+\begin{lemma}[{\cite[Lemma~3.1]{DePhilippis2018}, new proof}]
+    \label{ddg:3.1}
+    Suppose $F$ satisfies (AC) at every point of~$\Omega$ and $V \in \mathbf{V}_F(\Omega)$. Then
+    for $\|V\|$~almost all $x \in P_V$ there is $T \in \Gk$ with $V^{(x)} = \Dirac{T}$.
+\end{lemma}
+
+\begin{proof}
+    Let $t = \frac 12 (8 (\vdim + 1)^{1/2})^{-\vdim - 1}$. Suppose $x \in P_V$ satisfies the
+    conclusions of~\ref{ddg:2.3} and~\ref{ddg:2.4} and $V^{(x)}(\Gk) = 1$; this holds for
+    $\|V\|$~almost all $x \in P_V$. By~\ref{ddg:2.1} there are $r_j \to 0+$ and $\nu \in
+    \TM(\|V\|,x)$ with $\|V\|_{x,r_j} \to \nu$ weakly and $\nu(\cball{0}{t}) \ge t^{\vdim}$.
+    Let $A = A_x(V^{(x)})$ and $Z = \im \transpose{A}$. By~\ref{ddg:2.4}\eqref{eq:ddg:2.4:2}
+    and~\ref{new:translation},
+    \begin{equation}
+        \label{eq:ddg:3.1:1}
+        \nu(\cball{w}{t}) = \nu(\cball{0}{t}) \ge t^{\vdim} \quad \text{for $w \in Z$ with $|w| \le
+        1/2$}.
+    \end{equation}
+    Suppose $V^{(x)}$ is not a~Dirac measure. Then (AC) gives $\dim \ker A < \adim - \vdim$;
+    since $\ker A$ is the orthogonal complement of~$Z$ by~\ref{mr:notation}, $\dim Z \ge \vdim + 1$.
+    Choose orthonormal vectors $f_1, \ldots, f_{\vdim+1} \in Z$, let $m$ be the integer with $m - 1
+    < (8 t (\vdim+1)^{1/2})^{-1} \le m$, and set $y_\kappa = 4t \textsum{l=1}{\vdim+1} \kappa_l f_l$
+    for $\kappa \in \{0, \ldots, m-1\}^{\vdim+1}$. Then $|y_\kappa| \le 4t(m-1)(\vdim+1)^{1/2} <
+    1/2$, the balls $\cball{y_\kappa}{t}$ are pairwise disjoint because $|y_\kappa - y_{\kappa'}|
+    \ge 4t$ for $\kappa \ne \kappa'$, and they are contained in~$\oball{0}{1}$. By~\eqref{eq:ddg:3.1:1}
+    and~\ref{rem:tangent},
+    \begin{displaymath}
+        1 \ge \nu(\oball{0}{1}) \ge \textsum{\kappa}{} \nu(\cball{y_\kappa}{t}) \ge m^{\vdim+1}
+        t^{\vdim} \ge (8 t (\vdim+1)^{1/2})^{-\vdim-1} t^{\vdim} = 2 \,,
+    \end{displaymath}
+    a~contradiction. Hence $V^{(x)}$ is a~Dirac measure.
+\end{proof}
+
+\begin{lemma}[new]
+    \label{new:convcompact}
+    Suppose $G \in \Lploc{1}(\LM^m)$, $C_0 \subset \R^m$ is compact, $0 \le c < \infty$, and $h_j \in
+    \Lp{1}(\LM^m)$ satisfy $h_j(y) = 0$ for $y \notin C_0$ and $\textint{}{} |h_j| \ud \LM^m \le c$.
+    Then the functions $G * h_j = [ x \mapsto \textint{}{} G(x - y) h_j(y) \ud \LM^m(y) ]$ have
+    a~subsequence converging in $\Lp{1}(\LM^m \restrict M)$ for every compact $M \subset \R^m$.
+\end{lemma}
+
+\begin{proof}
+    The functions $G * h_j$ are defined $\LM^m$~almost everywhere and are locally summable by
+    Fubini's theorem~\cite[2.6.2]{Federer1969}. By a~diagonal argument it suffices to show that,
+    for each compact~$M$, the set $\{ G * h_j : j \}$ is totally bounded in $\Lp{1}(\LM^m
+    \restrict M)$. Let $M' = \{ x - y : x \in M,\ y \in C_0 \}$ and $\varepsilon > 0$.
+    By~\cite[2.5.3, 2.5.14]{Federer1969} there is $G' \in \ccspace{\R^m}$ with $\textint{M'}{}
+    |G - G'| \ud \LM^m < \varepsilon$, and by~\cite[4.1.2]{Federer1969} there is $G_\varepsilon =
+    \Phi_\delta * G'$ of class~$\infty$ with compact support and $\textint{M'}{} |G -
+    G_\varepsilon| \ud \LM^m < 2\varepsilon$. Fubini's theorem gives
+    \begin{displaymath}
+        \textint{M}{} |G * h_j - G_\varepsilon * h_j| \ud \LM^m \le \textint{}{} \textint{M}{} |(G -
+        G_\varepsilon)(x - y)| \ud \LM^m(x) \, |h_j(y)| \ud \LM^m(y) \le 2 \varepsilon c \,.
+    \end{displaymath}
+    The functions $G_\varepsilon * h_j$ satisfy $|G_\varepsilon * h_j| \le c \sup |G_\varepsilon|$
+    and $\Lip(G_\varepsilon * h_j) \le c \Lip(G_\varepsilon)$; by~\cite[2.10.21]{Federer1969} their
+    restrictions to~$M$ form a~relatively compact set for uniform convergence on~$M$, hence a~totally
+    bounded subset of $\Lp{1}(\LM^m \restrict M)$. Therefore $\{ G * h_j : j \}$ is covered by
+    finitely many balls of radius $3 \varepsilon c + \varepsilon$ in $\Lp{1}(\LM^m \restrict M)$.
+\end{proof}
+
+\begin{lemma}[{external: \cite[(2.12), (2.13), (2.17), Lemma~4.1, Lemma~4.2]{Gilbarg2001a}}]
+    \label{new:newton}
+    Suppose $m \ge 1$, $\varepsilon_1, \ldots, \varepsilon_m$ is the standard basis
+    of~$\R^m$, and $\Gamma : \R^m \without \{0\} \to \R$ is given by
+    \begin{displaymath}
+        \Gamma(z) = \frac{|z|^{2-m}}{m (2 - m) \unitmeasure{m}} \ \text{if $m > 2$}, \qquad
+        \Gamma(z) = \frac{\log |z|}{2 \pi} \ \text{if $m = 2$}, \qquad
+        \Gamma(z) = \frac{|z|}{2} \ \text{if $m = 1$}.
+    \end{displaymath}
+    Write $\uD_i f = \uD f(\cdot)(\varepsilon_i)$. Then the following hold.
+    \begin{enumerate}
+        \item
+        \label{i:new:newton:loc}
+        The function $\Gamma$ is of class~$\infty$ on $\R^m \without \{0\}$, $|\uD_i \Gamma(z)| \le
+        (m \unitmeasure{m})^{-1} |z|^{1-m}$, and $\Gamma, \uD_i \Gamma \in \Lploc{1}(\LM^m)$.
+        \item
+        \label{i:new:newton:rep}
+        If $Y \in \dspace{\R^m}{\R}$, then $Y = \Gamma * \Delta Y$, where $\Delta Y = \textsum{i}{}
+        \uD_i \uD_i Y$.
+        \item
+        \label{i:new:newton:der}
+        If $Y \in \dspace{\R^m}{\R}$, then $\Gamma * Y$ is of class~$\infty$, $\uD_i(\Gamma * Y) =
+        \Gamma * \uD_i Y = (\uD_i \Gamma) * Y$ and $\uD_i \uD_l (\Gamma * Y) = \Gamma * \uD_i \uD_l Y$.
+        \item
+        \label{i:new:newton:pv}
+        If $m \ge 2$, $Y \in \dspace{\R^m}{\R}$ and $x \in \R^m$, then the limit
+        \begin{displaymath}
+            K_{il} Y(x) = \lim_{\varepsilon \to 0+} \textint{\R^m \without \cball{x}{\varepsilon}}{}
+            \uD_i \uD_l \Gamma(x - y) Y(y) \ud \LM^m(y)
+        \end{displaymath}
+        exists and $\uD_i \uD_l (\Gamma * Y)(x) = K_{il} Y(x) + \delta_{il} m^{-1} Y(x)$, where
+        $\delta_{il}$ is Kronecker's symbol.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    For $m \ge 2$, $\Gamma$ is the fundamental solution of~\cite[(2.12)]{Gilbarg2001a},
+    where $\omega_m = \unitmeasure{m}$, and~\cite[(2.13)]{Gilbarg2001a} gives $\uD_i \Gamma(z) = z_i
+    / (m \unitmeasure{m} |z|^m)$; for $m = 1$, $\uD \Gamma(z)(1) = \frac 12 \operatorname{sign}
+    z$. If $0 \le q < m$ and $0 < R < \infty$, then $\LM^m(\cball{0}{R} \cap \{ z : |z|^{-q} > s
+    \}) \le \unitmeasure{m} \inf \{ R^m, s^{-m/q} \}$ for $0 < s < \infty$, and Fubini's
+    theorem~\cite[2.6.2]{Federer1969} gives $\textint{\cball{0}{R}}{} |z|^{-q} \ud \LM^m(z) =
+    \textint{0}{\infty} \LM^m(\cball{0}{R} \cap \{ z : |z|^{-q} > s \}) \ud \LM^1(s) < \infty$; the
+    logarithm is dominated by such powers near~$0$. This gives~\ref{i:new:newton:loc}. For $m \ge 2$,
+    \ref{i:new:newton:rep} is Green's representation formula~\cite[(2.17)]{Gilbarg2001a}, since
+    $\Gamma$ is even; for $m = 1$ it follows from two integrations by parts on $(-\infty,x)$ and
+    $(x,\infty)$. For~\ref{i:new:newton:der}, $\Gamma * Y(x) = \textint{}{} \Gamma(z) Y(x - z) \ud
+    \LM^m(z)$, and differentiation under the integral sign, justified by the mean value theorem
+    and~\cite[2.4.9]{Federer1969} because $\Gamma$ is locally summable and the derivatives of~$Y$
+    are bounded with compact support, gives $\uD^\alpha (\Gamma * Y) = \Gamma * \uD^\alpha Y$ for
+    every multiindex~$\alpha$; the identity $\uD_i(\Gamma * Y) = (\uD_i \Gamma) * Y$
+    is~\cite[Lemma~4.1]{Gilbarg2001a} for $m \ge 2$ and an~integration by parts for $m = 1$.
+
+    For~\ref{i:new:newton:pv}, let $R$ be so large that $\spt Y \subset \oball{x}{R}$, and apply
+    \cite[Lemma~4.2, (4.9)]{Gilbarg2001a} with $\Omega_0 = \oball{x}{R}$:
+    \begin{equation}
+        \label{eq:new:newton:1}
+        \uD_i \uD_l (\Gamma * Y)(x) = \textint{\oball{x}{R}}{} \uD_i \uD_l \Gamma(x - y) (Y(y) -
+        Y(x)) \ud \LM^m(y) + c_{il}(x,R) \, Y(x) \,,
+    \end{equation}
+    where $c_{il}(x,R) = - \textint{\partial \oball{x}{R}}{} \uD_i \Gamma(x - y) \nu_l(y) \ud
+    \HM^{m-1}(y)$ and $\nu_l(y) = (y_l - x_l)/R$. The integral in~\eqref{eq:new:newton:1}
+    converges absolutely because $|Y(y) - Y(x)| \le \Lip(Y) |y - x|$ and $|\uD_i \uD_l \Gamma(z)|
+    \le c(m) |z|^{-m}$. Since $\uD_i \uD_l \Gamma(z) = (m \unitmeasure{m})^{-1} (\delta_{il} |z|^2 -
+    m z_i z_l) |z|^{-m-2}$ and $\LM^m$ is invariant under reflections and permutations of
+    coordinates, $\textint{\oball{0}{R} \without \cball{0}{\varepsilon}}{} z_i z_l |z|^{-m-2} \ud
+    \LM^m(z) = \delta_{il} m^{-1} \textint{\oball{0}{R} \without \cball{0}{\varepsilon}}{}
+    |z|^{-m} \ud \LM^m(z)$; hence $\textint{\oball{0}{R} \without \cball{0}{\varepsilon}}{} \uD_i
+    \uD_l \Gamma \ud \LM^m = 0$ for $0 < \varepsilon < R$, the limit $K_{il} Y(x)$ exists, and it
+    equals the integral in~\eqref{eq:new:newton:1}. The same invariance of $\HM^{m-1}$ gives
+    $c_{il}(x,R) = c(m) \delta_{il}$ for a~number $c(m)$ independent of $x$, $R$ and~$i$, because
+    $\uD_i \Gamma(x - y) = - \nu_i(y) / (m \unitmeasure{m} R^{m-1})$ on $\partial \oball{x}{R}$.
+    Finally $\textsum{i}{} \uD_i \uD_i \Gamma(z) = 0$ for $z \ne 0$, so $\textsum{i}{} K_{ii} Y =
+    0$, while $\textsum{i}{} \uD_i \uD_i (\Gamma * Y) = \Gamma * \Delta Y = Y$
+    by~\ref{i:new:newton:rep} and~\ref{i:new:newton:der}. Summing~\eqref{eq:new:newton:1} over $i =
+    l$ at a~point~$x$ with $Y(x) \ne 0$ yields $m \, c(m) = 1$.
+\end{proof}
+
+\begin{lemma}[{external: \cite[Theorems~5.2.10 and~5.3.3]{Grafakos2014}}]
+    \label{new:weak11}
+    Suppose $m \ge 2$ and $K_{il}$ is as in~\ref{new:newton}\ref{i:new:newton:pv}. There is
+    $c(m) < \infty$ such that
+    \begin{displaymath}
+        \lambda \, \LM^m \bigl( \{ x : |K_{il} Y(x)| > \lambda \} \bigr) \le c(m) \textint{}{} |Y|
+        \ud \LM^m \quad \text{for $Y \in \dspace{\R^m}{\R}$ and $0 < \lambda < \infty$}.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    The kernel $\uD_i \uD_l \Gamma(z) = \Omega_{il}(z/|z|) |z|^{-m}$ with $\Omega_{il}(\theta) = (m
+    \unitmeasure{m})^{-1} (\delta_{il} - m \theta_i \theta_l)$ is homogeneous of degree~$-m$, of
+    class~$\infty$ on $\R^m \without \{0\}$, with $\Omega_{il}$ even and of mean value zero
+    on~$\sphere{m-1}$. By~\cite[Theorem~5.2.10]{Grafakos2014} the singular integral with
+    kernel $\Omega_{il}$ is bounded on $\Lp{2}(\LM^m)$. The kernel satisfies the size condition
+    \cite[(5.3.4)]{Grafakos2014} by homogeneity and the smoothness condition
+    \cite[(5.3.12)]{Grafakos2014} because $|\uD(\uD_i \uD_l \Gamma)(z)| \le c |z|^{-m-1}$, and the
+    principal value defines the tempered distribution of~\cite[(5.3.7)]{Grafakos2014}.
+    Hence~\cite[Theorem~5.3.3, (5.3.13)]{Grafakos2014} gives the conclusion.
+    % UNVERIFIED: that a smooth even Omega satisfies hypothesis (5.2.24) of Grafakos 5.2.10.
+    % The paper cites [17, chap. 4], which matches the chapter numbering of the 2nd edition
+    % (2008) of Grafakos's Classical Fourier Analysis, not the 3rd edition (2014) used here.
+\end{proof}
+
+\begin{lemma}[{\cite[Lemma~3.3]{DePhilippis2018}, new proof}]
+    \label{ddg:3.3}
+    Suppose $v_j$, $a_j$, $b_j \in \Lploc{1}(\LM^m)$, $v_j \ge 0$, $v_j = a_j + b_j$, $(b_j)$
+    converges in $\Lp{1}(\LM^m \restrict M)$ to some~$b$ for every compact~$M$,
+    \begin{displaymath}
+        \lim_{j \to \infty} \sup_{\lambda > 0} \lambda \, \LM^m \bigl( \{ x : |a_j(x)| > \lambda
+        \} \bigr) = 0 \,, \quad \text{and} \quad \lim_{j \to \infty} \textint{}{} \psi a_j \ud \LM^m
+        = 0 \quad \text{for $\psi \in \dspace{\R^m}{\R}$}.
+    \end{displaymath}
+    Then $v_j \to b$ in $\Lp{1}(\LM^m \restrict M)$ for every compact~$M$. Consequently, if $(b_j)$
+    is only assumed to have, for each subsequence, a~further subsequence converging in
+    $\Lp{1}(\LM^m \restrict M)$ for every compact~$M$, then $(v_j)$ has the same property.
+\end{lemma}
+
+\begin{proof}
+    Let $\psi \in \dspace{\R^m}{\R}$ with $\psi \ge 0$, and write $a_j^- = \sup \{ -a_j, 0 \}$.
+    Since $v_j \ge 0$, we have $a_j^- \le |b_j| \le |b| + |b_j - b|$, and $|a_j| = a_j + 2
+    a_j^-$. For $0 < \lambda < \infty$ let $E_j = \{ x : |a_j(x)| > \lambda \}$. Then
+    \begin{displaymath}
+        \textint{}{} \psi a_j^- \ud \LM^m \le \textint{}{} \psi |b_j - b| \ud \LM^m + \lambda
+        \textint{}{} \psi \ud \LM^m + \textint{E_j}{} \psi |b| \ud \LM^m \,.
+    \end{displaymath}
+    For $0 < M < \infty$, $\textint{E_j}{} \psi |b| \ud \LM^m \le M \LM^m(E_j) + \textint{\{ \psi |b|
+    > M \}}{} \psi |b| \ud \LM^m$, where $\LM^m(E_j) \le \lambda^{-1} \sup_{s > 0} s \LM^m(\{ |a_j|
+    > s \}) \to 0$, and the last integral tends to~$0$ as $M \to \infty$
+    by~\cite[2.4.9]{Federer1969}. Letting first $j \to \infty$ and then $\lambda \to 0+$ gives $\textint{}{} \psi a_j^- \ud \LM^m \to 0$. Hence $\textint{}{} \psi
+    |a_j| \ud \LM^m = \textint{}{} \psi a_j \ud \LM^m + 2 \textint{}{} \psi a_j^- \ud \LM^m \to 0$.
+    Choosing $\psi = 1$ on~$M$, we obtain $\textint{M}{} |v_j - b| \ud \LM^m \le \textint{}{}
+    \psi |a_j| \ud \LM^m + \textint{}{} \psi |b_j - b| \ud \LM^m \to 0$. The second assertion
+    follows by applying the first to subsequences.
+\end{proof}
+
+\begin{lemma}[new]
+    \label{new:variation}
+    Suppose $U$ is an~open subset of a~finite dimensional inner product space~$W$, $\kappa_1$ and
+    $\kappa_2$ are Radon measures over~$U$ with $\kappa_1(U) + \kappa_2(U) < \infty$, and $T =
+    \kappa_1 - \kappa_2 \in \distr{U}{\R}$. Then $T$ is representable by integration, $\|T\|(U) \le
+    \kappa_1(U) + \kappa_2(U)$, and $\kappa_1(B) - \kappa_2(B) \le \|T\|(U)$ for every Borel set $B
+    \subset U$.
+\end{lemma}
+
+\begin{proof}
+    Since $|T(\phi)| \le (\kappa_1 + \kappa_2)(|\phi|)$, $T$ is representable by integration and
+    the first inequality follows from~\ref{mr:notation}\eqref{eq:mr:notation:var}. Let $\varepsilon >
+    0$. By~\cite[2.2.5]{Federer1969} there are a~compact set $C \subset B$ and an~open set~$O$
+    with $C \subset O \subset U$, $\kappa_1(B \without C) \le \varepsilon$ and $\kappa_2(O
+    \without C) \le \varepsilon$. As in the proof of~\ref{new:translation}, there is $\phi \in
+    \dspace{O}{\R}$ with $0 \le \phi \le 1$ and $\phi(y) = 1$ for $y \in C$. Then $\|T\|(U) \ge
+    T(\phi) \ge \kappa_1(C) - \kappa_2(O) \ge \kappa_1(B) - \kappa_2(B) - 2 \varepsilon$.
+\end{proof}
+
+\begin{lemma}[new]
+    \label{new:mollcompact}
+    Suppose $W$ is an~$m$~dimensional inner product space, $U_t = W \cap \oball{0}{t}$ for $0 < t
+    \le 1$, $C_0 \subset U_1$ is compact, and $u_j$ are Radon measures over~$W$ with $\spt u_j
+    \subset C_0$ and $\sup_j u_j(W) < \infty$. Assume that for every subsequence $(u_{j_i})$ and
+    every sequence $\varepsilon_i \to 0+$ the functions $\Phi_{\varepsilon_i} * u_{j_i}$ have
+    a~subsequence converging in $\Lp{1}(\LM^m \restrict U_t)$ for every $0 < t < 1$. Then there are
+    a~subsequence $(u_{j_i})$ and $\beta \in \Lp{1}(\LM^m \restrict U_1)$ such that
+    \begin{displaymath}
+        \lim_{i \to \infty} \|u_{j_i} - \LM^m \restrict \beta\|(U_t) = 0 \quad \text{for $0 < t <
+        1$},
+    \end{displaymath}
+    where $u_{j_i} - \LM^m \restrict \beta$ is regarded as a~member of $\distr{U_1}{\R}$.
+\end{lemma}
+
+\begin{proof}
+    Let $c = \sup_j u_j(W)$. For $\psi \in \dspace{U_1}{\R}$, a~Radon measure~$u$ with $u(W) \le c$
+    and $\varepsilon > 0$, Fubini's theorem~\cite[2.6.2]{Federer1969} gives $\textint{}{} \psi \,
+    (\Phi_\varepsilon * u) \ud \LM^m = u(\check\Phi_\varepsilon * \psi)$ with
+    $\check\Phi_\varepsilon(z) = \Phi_\varepsilon(-z)$, and $|\check \Phi_\varepsilon * \psi - \psi|
+    \le \sup \{ |\psi(y - z) - \psi(y)| : y \in W,\ |z| \le \varepsilon \}$ because $\spt
+    \Phi_\varepsilon \subset \oball{0}{\varepsilon}$ and $\textint{}{} \Phi_\varepsilon \ud \LM^m
+    = 1$~\cite[4.1.2]{Federer1969}. Hence
+    \begin{equation}
+        \label{eq:new:mollcompact:1}
+        \lim_{\varepsilon \to 0+} \sup \Bigl\{ \Bigl| \textint{}{} \psi \, (\Phi_\varepsilon * u)
+        \ud \LM^m - u(\psi) \Bigr| : u(W) \le c \Bigr\} = 0 \,, \qquad \textint{}{}
+        |\Phi_\varepsilon * u| \ud \LM^m \le c \,.
+    \end{equation}
+    Applying the hypothesis with $\varepsilon_i = 1/i$ we obtain a~subsequence, which we relabel
+    $(u_j)$, and $\beta$ with $\Phi_{1/j} * u_j \to \beta$ in $\Lp{1}(\LM^m \restrict U_t)$ for
+    $0 < t < 1$. By~\eqref{eq:new:mollcompact:1}, $\textint{U_1}{} |\beta| \ud \LM^m \le c$ and
+    $u_j(\psi) \to \textint{}{} \psi \beta \ud \LM^m$ for $\psi \in \dspace{U_1}{\R}$.
+
+    Suppose there are $0 < t < 1$, $\delta > 0$ and an~infinite set~$I$ of indices with $\|u_j -
+    \LM^m \restrict \beta\|(U_t) > \delta$ for $j \in I$. For $j \in I$,
+    \ref{mr:notation}\eqref{eq:mr:notation:var} yields $\psi_j \in \dspace{U_t}{\R}$ with $|\psi_j|
+    \le 1$ and $u_j(\psi_j) - \textint{}{} \psi_j \beta \ud \LM^m > \delta$,
+    and~\eqref{eq:new:mollcompact:1} yields $0 < \varepsilon_j' < 1/j$ with $\textint{U_t}{}
+    |\Phi_{\varepsilon_j'} * u_j - \beta| \ud \LM^m > \delta$. By the hypothesis there are
+    an~infinite set $I' \subset I$ and~$\beta'$ with $\Phi_{\varepsilon_j'} * u_j \to \beta'$ in
+    $\Lp{1}(\LM^m \restrict U_s)$ for $0 < s < 1$ as $j \to \infty$ in~$I'$.
+    By~\eqref{eq:new:mollcompact:1}, $\textint{}{} \psi \beta' \ud \LM^m = \lim_{j \in I'}
+    u_j(\psi) = \textint{}{} \psi \beta \ud \LM^m$ for $\psi \in \dspace{U_1}{\R}$. Hence
+    $\Phi_\varepsilon * (\beta - \beta')(x) = 0$ whenever $\oball{x}{\varepsilon} \cap W \subset
+    U_1$, and~\cite[4.1.2, 2.9.9]{Federer1969} give $\beta = \beta'$ $\LM^m$~almost everywhere
+    on~$U_1$. This contradicts $\textint{U_t}{} |\Phi_{\varepsilon_j'} * u_j - \beta| \ud \LM^m >
+    \delta$ for $j \in I'$.
+\end{proof}
+
+\begin{lemma}[{\cite[Lemma~3.2]{DePhilippis2018}}]
+    \label{ddg:3.2}
+    Suppose $S \in \Gk$, $U = \oball{0}{1}$, $K \subset U$ is compact, $0 \le N < \infty$, and
+    $\omega : [0,\infty) \to [0,\infty)$ is bounded with $\lim_{s \to 0+} \omega(s) = 0$. For each
+    positive integer~$j$ suppose $F_j : U \times \Gk \to (0,\infty)$ is as in~\ref{mr:integrands}
+    with $\Omega$ replaced by~$U$, $W_j \in \mathbf{V}_{F_j}(U)$, and
+    \begin{enumerate}
+        \item
+        \label{i:ddg:3.2:1}
+        $\spt \|W_j\| \subset K$, $\|W_j\|(U) \le 1$ and $\|\delta_{F_j} W_j\|(U) \le N$;
+        \item
+        \label{i:ddg:3.2:2}
+        $F_j(z,T) + \|\uD_x F_j(z,T)\| \le N$ for $(z,T) \in U \times \Gk$;
+        \item
+        \label{i:ddg:3.2:3}
+        $|F_j(z,T) - F_j(z,T')| + |B_{F_j}(z,T) - B_{F_j}(z,T')| \le \omega(|T - T'|)$ for $z \in
+        U$ and $T, T' \in \Gk$;
+        \item
+        \label{i:ddg:3.2:4}
+        $\delta_j = \textint{}{} |T - S| \ud W_j(z,T) \to 0$ as $j \to \infty$.
+    \end{enumerate}
+    Let $u_j = (\Pi_S)_\# (\|W_j\| \restrict F_j(\cdot,S))$, a~Radon measure over $\im S$. Then
+    there are a~subsequence $(u_{j_i})$ and $\beta \in \Lp{1}(\HM^{\vdim} \restrict (U \cap \im
+    S))$ with
+    \begin{displaymath}
+        \lim_{i \to \infty} \|u_{j_i} - \HM^{\vdim} \restrict \beta\|(U \cap \oball{0}{t} \cap \im S) =
+        0 \quad \text{for $0 < t < 1$}.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    Let $W = \im S$, $\Pi = \Pi_S$, let $e_1, \ldots, e_{\vdim}$ be an~orthonormal basis of~$W$,
+    and write $\uD_i \psi = \uD \psi(\cdot)(e_i)$ for functions $\psi$ on~$W$. Choose $0 < \rho <
+    1$ with $\Pi[K] \subset \oball{0}{\rho}$ and, as in the proof of~\ref{new:translation}, $\chi
+    \in \dspace{U}{\R}$ with $0 \le \chi \le 1$ and $\chi = 1$ on a~neighbourhood of~$K$. For $(z,T)
+    \in U \times \Gk$ let
+    \begin{displaymath}
+        X_j(z,T) = (F_j(z,S) - F_j(z,T)) \id{} + F_j(z,T) (S - T) + C_{F_j}(z,S) - C_{F_j}(z,T) \in
+        \End{\R^{\adim}} \,.
+    \end{displaymath}
+    Since $C_{F_j}(z,T) = B_{F_j}(z,T) - F_j(z,T) T$, \ref{i:ddg:3.2:2} and~\ref{i:ddg:3.2:3}
+    give $|X_j(z,T)| \le \omega_1(|S - T|)$, where $\omega_1(s) = (\adim^{1/2} + 1 +
+    \vdim^{1/2}) \omega(s) + 2 N s$. For $0 < \eta < \infty$, Chebyshev's inequality and
+    $\|W_j\|(U) \le 1$ give $\textint{}{} \omega_1(|S - T|) \ud W_j \le \sup \omega_1[0,\eta] +
+    \eta^{-1} \delta_j \sup \omega_1[0, 2 \vdim^{1/2}]$; hence, by~\ref{i:ddg:3.2:4},
+    \begin{equation}
+        \label{eq:ddg:3.2:1}
+        \lim_{j \to \infty} \textint{}{} |X_j(z,T)| \ud W_j(z,T) = 0 \,.
+    \end{equation}
+
+    Let $\psi \in \dspace{W}{\R}$, $i \in \{1, \ldots, \vdim\}$, $z \in U$, $T \in \Gk$ and $L =
+    (\uD \psi(\Pi(z)) \circ \Pi) \cdot e_i$. By~\ref{mr:notation}, $\id{} \bullet L = S \bullet
+    L = \uD_i \psi(\Pi(z))$, and $C_{F_j}(z,S) \bullet L = 0$
+    by~\ref{ddg:2.10-12}\ref{i:ddg:2.10-12:C}. Since $B_{F_j}(z,T) \bullet L = F_j(z,T) (T \bullet
+    L) + C_{F_j}(z,T) \bullet L$,
+    \begin{equation}
+        \label{eq:ddg:3.2:2}
+        \begin{gathered}
+            F_j(z,S) \, \uD_i \psi(\Pi(z)) = X_j(z,T) \bullet L + B_{F_j}(z,T) \bullet L \,, \\
+            X_j(z,T) \bullet L = \textsum{l=1}{\vdim} \uD_l \psi(\Pi(z)) \, e_l \bullet
+            \transpose{X_j(z,T)}(e_i) \,.
+        \end{gathered}
+    \end{equation}
+    We define $\xi_j^{il}$, $f_j^i$, $g_j^i \in \distr{W}{\R}$ by
+    \begin{gather*}
+        \xi_j^{il}(\psi) = \textint{}{} \psi(\Pi(z)) \, e_l \bullet \transpose{X_j(z,T)}(e_i) \ud
+        W_j(z,T) \,, \\
+        f_j^i(\psi) = \textint{}{} \psi(\Pi(z)) \, \uD_x F_j(z,T)(e_i) \ud W_j(z,T) \,, \qquad
+        g_j^i(\psi) = \delta_{F_j} W_j \bigl( [ z \mapsto \chi(z) \psi(\Pi(z)) e_i ] \bigr) \,.
+    \end{gather*}
+    They are representable by integration, their supports lie in $\Pi[K]$, and
+    \begin{equation}
+        \label{eq:ddg:3.2:3}
+        \|\xi_j^{il}\|(W) \le \textint{}{} |X_j| \ud W_j \,, \qquad \|f_j^i\|(W) \le N \,, \qquad
+        \|g_j^i\|(W) \le N \,,
+    \end{equation}
+    by~\ref{i:ddg:3.2:1}, \ref{i:ddg:3.2:2} and~\ref{mr:notation}\eqref{eq:mr:notation:var}. The
+    vector field $h = [ z \mapsto \chi(z) \psi(\Pi(z)) e_i ]$ satisfies $\uD h(z) = L$ for $z$
+    near~$K$; hence~\ref{def:firstvar} gives $\textint{}{} B_{F_j}(z,T) \bullet L \ud W_j(z,T) =
+    g_j^i(\psi) - f_j^i(\psi)$. Integrating~\eqref{eq:ddg:3.2:2} with respect to~$W_j$ we obtain
+    \begin{equation}
+        \label{eq:ddg:3.2:4}
+        u_j(\uD_i \psi) = \textsum{l}{} \xi_j^{il}(\uD_l \psi) + g_j^i(\psi) - f_j^i(\psi) \quad
+        \text{for $\psi \in \dspace{W}{\R}$}.
+    \end{equation}
+
+    Let $\varepsilon_j \to 0+$ with $\varepsilon_j < (1 - \rho)/2$. We set $v_j =
+    \Phi_{\varepsilon_j} * u_j$, $Y_j^{il} = \Phi_{\varepsilon_j} * \xi_j^{il}$ and $h_j^i =
+    \Phi_{\varepsilon_j} * (f_j^i - g_j^i)$. By~\cite[4.1.2, 4.1.5]{Federer1969} these are
+    functions of class~$\infty$ with supports in $C_1 = W \cap \cball{0}{(1+\rho)/2}$, $v_j \ge 0$,
+    and~\eqref{eq:ddg:3.2:4} becomes $\uD_i v_j = \textsum{l}{} \uD_l Y_j^{il} + h_j^i$.
+    By~\eqref{eq:ddg:3.2:1}, \eqref{eq:ddg:3.2:3} and Fubini's theorem,
+    \begin{equation}
+        \label{eq:ddg:3.2:5}
+        \lim_{j \to \infty} \textint{}{} |Y_j^{il}| \ud \LM^{\vdim} = 0 \,, \qquad \textint{}{}
+        |h_j^i| \ud \LM^{\vdim} \le 2N \,.
+    \end{equation}
+    With $\Gamma$ of~\ref{new:newton} for $m = \vdim$, \ref{new:newton}\ref{i:new:newton:rep},
+    \ref{i:new:newton:der} give $v_j = \Gamma * \Delta v_j = a_j + b_j$, where
+    \begin{displaymath}
+        a_j = \textsum{i,l}{} \uD_i \uD_l (\Gamma * Y_j^{il}) \,, \qquad b_j = \textsum{i}{}
+        (\uD_i \Gamma) * h_j^i \,.
+    \end{displaymath}
+    By~\ref{new:newton}\ref{i:new:newton:loc}, \eqref{eq:ddg:3.2:5} and~\ref{new:convcompact},
+    every subsequence of $(b_j)$ has a~further subsequence converging in $\Lp{1}(\LM^{\vdim}
+    \restrict M)$ for every compact~$M$. If $\vdim \ge 2$, \ref{new:newton}\ref{i:new:newton:pv}
+    gives $a_j = \textsum{i,l}{} K_{il} Y_j^{il} + \vdim^{-1} \textsum{i}{} Y_j^{ii}$; if $\vdim =
+    1$, \ref{new:newton}\ref{i:new:newton:rep} gives $a_j = Y_j^{11}$. Since $\{ |\textsum{p=1}{M}
+    c_p| > \lambda \} \subset \bigcup_p \{ |c_p| > \lambda/M \}$, \ref{new:weak11},
+    Chebyshev's inequality and~\eqref{eq:ddg:3.2:5} yield $\sup_{\lambda > 0} \lambda
+    \LM^{\vdim}(\{ |a_j| > \lambda \}) \to 0$. For $\psi \in \dspace{W}{\R}$, integration by
+    parts and Fubini's theorem give $\textint{}{} \psi \, \uD_i \uD_l (\Gamma * Y_j^{il}) \ud
+    \LM^{\vdim} = \textint{}{} (\Gamma * \uD_i \uD_l \psi) Y_j^{il} \ud \LM^{\vdim}$, because
+    $\Gamma$ is even; since $\Gamma * \uD_i \uD_l \psi$ is continuous
+    by~\ref{new:newton}\ref{i:new:newton:der},
+    \begin{displaymath}
+        \Bigl| \textint{}{} \psi a_j \ud \LM^{\vdim} \Bigr| \le \textsum{i,l}{} \sup \{ |\Gamma *
+        \uD_i \uD_l \psi(y)| : y \in C_1 \} \textint{}{} |Y_j^{il}| \ud \LM^{\vdim} \to 0 \,.
+    \end{displaymath}
+    By~\ref{ddg:3.3}, every subsequence of $(v_j)$ has a~further subsequence converging in
+    $\Lp{1}(\LM^{\vdim} \restrict M)$ for every compact~$M$. Since the hypotheses on $(F_j, W_j)$
+    are inherited by subsequences and $(\varepsilon_j)$ was arbitrary, the hypotheses
+    of~\ref{new:mollcompact} hold for $(u_j)$ with $C_0 = \Pi[K]$ and $\sup_j u_j(W) \le N$;
+    \ref{new:mollcompact} gives the conclusion.
+\end{proof}
+
+\begin{lemma}[{\cite[Lemma~3.4]{DePhilippis2018}}]
+    \label{ddg:3.4}
+    Suppose $F$ satisfies (AC) at every point of~$\Omega$ and $V \in \mathbf{V}_F(\Omega)$. Then
+    $\|V\|(A) = 0$ whenever $A \subset P_V$ and $\HM^{\vdim}(A) = 0$; that is, $\|\overline V\|
+    \ll \HM^{\vdim}$.
+\end{lemma}
+
+\begin{proof}
+    Suppose $A \subset P_V$, $\HM^{\vdim}(A) = 0$ and $\|V\|(A) > 0$. Since $\HM^{\vdim}$ is Borel
+    regular~\cite[2.8(1)]{Allard1972} and $P_V$ is a~Borel set~\ref{ddg:2.4-6}, we may assume that
+    $A$ is a~Borel set. By the local application of~\cite[2.8.18, 2.9.11]{Federer1969},
+    by~\ref{new:densities}\eqref{eq:new:densities:2}, \ref{ddg:2.3}, \ref{ddg:2.4}\eqref{eq:ddg:2.4:3}
+    and~\ref{ddg:3.1}, there is $x \in A$ such that
+    \begin{equation}
+        \label{eq:ddg:3.4:1}
+        \lim_{r \to 0+} \frac{\|V\|(\oball{x}{r} \without A)}{\|V\|(\oball{x}{r})} = 0 \,, \qquad
+        \limsup_{r \to 0+} \frac{\|\delta_F V\|(\oball{x}{r})}{\|V\|(\oball{x}{r})} = c_x < \infty
+        \,,
+    \end{equation}
+    the conclusion of~\ref{ddg:2.3} holds at~$x$, and $V^{(x)} = \Dirac{S}$ for some $S \in \Gk$.
+    By~\ref{ddg:2.1} with $t = 1/4$ and~\ref{ddg:2.3}, there are $r_j \to 0+$ and $\nu \in
+    \TM(\|V\|,x)$ with $\nu(\cball{0}{1/4}) \ge 4^{-\vdim}$, $\|V\|_{x,r_j} \to \nu$ and $V_{x,r_j}
+    \to \nu \times \Dirac{S}$ weakly. Let $C \subset \Omega$ be a~compact neighbourhood of~$x$; we
+    assume $\cball{x}{r_j} \subset C$. Let $\omega_C$ and~$c$ be as in~\ref{ddg:2.10-12} and
+    $\lambda_C = \inf F[C \times \Gk] > 0$.
+
+    Let $U = \oball{0}{1}$, $K = \cball{0}{3/4}$, choose $\chi \in \dspace{U}{\R}$ with $0 \le \chi
+    \le 1$, $\chi = 1$ on $\cball{0}{1/2}$ and $\spt \chi \subset K$, and define $F_j(z,T) = F(x +
+    r_j z, T)$ and $W_j \in \Var{\vdim}(U)$ by $W_j(\alpha) = V_{x,r_j}(\chi \alpha)$. Then
+    $\uD_x F_j(z,T) = r_j \uD_x F(x + r_j z, T)$ and $B_{F_j}(z,T) = B_F(x + r_j z, T)$. For $g \in
+    \dspace{U}{\R^{\adim}}$, a~change of variables in~\ref{def:firstvar} gives
+    \begin{displaymath}
+        \delta_{F_j} V_{x,r_j}(g) = \frac{r_j}{\|V\|(\oball{x}{r_j})} \, \delta_F V \bigl( [ y
+        \mapsto g((y - x)/r_j) ] \bigr) \,,
+    \end{displaymath}
+    and $\chi \, \uD g = \uD(\chi g) - \uD \chi \cdot g$; hence
+    \begin{displaymath}
+        \begin{aligned}
+            |\delta_{F_j} W_j(g)| & = \Bigl| \delta_{F_j} V_{x,r_j}(\chi g) - \textint{}{} B_{F_j}(z,T)
+            \bullet (\uD \chi(z) \cdot g(z)) \ud V_{x,r_j}(z,T) \Bigr| \\
+            & \le \Bigl( r_j \frac{\|\delta_F V\|(\oball{x}{r_j})}{\|V\|(\oball{x}{r_j})} + c \sup
+            |\uD \chi| \Bigr) \sup |g| \,.
+        \end{aligned}
+    \end{displaymath}
+    By~\eqref{eq:ddg:3.4:1} and~\ref{mr:notation}\eqref{eq:mr:notation:var}, for large~$j$
+    hypotheses~\ref{i:ddg:3.2:1}--\ref{i:ddg:3.2:3} of~\ref{ddg:3.2} hold with $N = c_x + 1 + c
+    (1 + \sup |\uD \chi|)$ and $\omega = \omega_C$. Moreover, since $[ (z,T) \mapsto \chi(z) |T - S|
+    ]$ belongs to $\ccspace{U \times \Gk}$, $\textint{}{} |T - S| \ud W_j \to \textint{}{}
+    \chi(z) |T - S| \ud (\nu \times \Dirac{S})(z,T) = 0$. By~\ref{ddg:3.2}, after passing to
+    a~subsequence, there is~$\beta$ with
+    \begin{equation}
+        \label{eq:ddg:3.4:2}
+        \lim_{j \to \infty} \|\lambda_j - \HM^{\vdim} \restrict \beta\|(U_t) = 0 \,, \qquad
+        \lambda_j = \Pi_\# (\|W_j\| \restrict F_j(\cdot,S)) \,, \qquad U_t = \im S \cap
+        \oball{0}{t} \,,
+    \end{equation}
+    where $\Pi = \Pi_S$ and $t = 3/4$.
+
+    Let $\sigma_j$ be the Radon measure over~$U$ given by $\sigma_j(\psi) =
+    \|V\|(\oball{x}{r_j})^{-1} \textint{A \cap \oball{x}{r_j}}{} \psi((y-x)/r_j) \ud \|V\|(y)$,
+    and $\kappa_j = \Pi_\#(\sigma_j \restrict (\chi F_j(\cdot,S)))$. Then $\lambda_j - \kappa_j$ is
+    a~measure with
+    \begin{equation}
+        \label{eq:ddg:3.4:3}
+        (\lambda_j - \kappa_j)(\im S) \le \sup F[C \times \Gk] \, \frac{\|V\|(\oball{x}{r_j}
+        \without A)}{\|V\|(\oball{x}{r_j})} \to 0 \,.
+    \end{equation}
+    The set $E_j = \Pi[\{ (y - x)/r_j : y \in A \}]$ satisfies $\HM^{\vdim}(E_j) \le r_j^{-\vdim}
+    \HM^{\vdim}(A) = 0$ by~\cite[2.10.11]{Federer1969}, since $\Lip \Pi \le 1$; let $E_j'$ be
+    a~Borel set with $E_j \subset E_j'$ and $\HM^{\vdim}(E_j') = 0$. Then $\kappa_j(\im S \without
+    E_j') = 0$. By~\ref{new:variation} applied with $B = U_t \cap E_j'$, by~\eqref{eq:ddg:3.4:2},
+    \eqref{eq:ddg:3.4:3} and the subadditivity of $\|\cdot\|(U_t)$ that follows
+    from~\ref{mr:notation}\eqref{eq:mr:notation:var},
+    \begin{displaymath}
+        \begin{aligned}
+            \kappa_j(U_t) & = \kappa_j(U_t \cap E_j') - \textint{U_t \cap E_j'}{} \beta \ud
+            \HM^{\vdim} \le \|\kappa_j - \HM^{\vdim} \restrict \beta\|(U_t) \\
+            & \le \|\lambda_j - \HM^{\vdim} \restrict \beta\|(U_t) + (\lambda_j - \kappa_j)(\im S)
+            \to 0 \,.
+        \end{aligned}
+    \end{displaymath}
+    On the other hand, $\oball{0}{1/2} \subset \Pi^{-1}[U_t]$ and $\chi = 1$ on $\oball{0}{1/2}$;
+    hence, by the lower semicontinuity on open sets~\cite[2.6(2)(c)]{Allard1972}
+    and~\eqref{eq:ddg:3.4:3},
+    \begin{displaymath}
+        \liminf_{j \to \infty} \kappa_j(U_t) \ge \liminf_{j \to \infty} \bigl( \lambda_C
+        \|V\|_{x,r_j}(\oball{0}{1/2}) - (\lambda_j - \kappa_j)(\im S) \bigr) \ge \lambda_C
+        \nu(\oball{0}{1/2}) \ge \lambda_C 4^{-\vdim} > 0 \,,
+    \end{displaymath}
+    a~contradiction.
+\end{proof}
+
+\section{Proof of Theorem~1.2}
+\label{sec:proof12}
+
+\begin{miniremark}
+    \label{mr:proof12}
+    This section states and proves~\cite[Theorem~1.2]{DePhilippis2018}. The sufficiency combines
+    \ref{ddg:2.4-6}, \ref{new:kerim}, \ref{ddg:2.4}, \ref{ddg:3.1} and~\ref{ddg:3.4} with the
+    rectifiability criterion~\ref{ddg:2.2}; the necessity is an~explicit construction. In this
+    section $F$ is as in~\ref{mr:integrands}.
+\end{miniremark}
+
+\begin{theorem}[{\cite[Theorem~1.2]{DePhilippis2018}}]
+    \label{ddg:1.2}
+    The following hold.
+    \begin{enumerate}
+        \item
+        \label{i:ddg:1.2:suff}
+        If $F$ satisfies (AC) at every point of~$\Omega$ and $V \in \mathbf{V}_F(\Omega)$, then
+        $\overline V \in \RVar{\vdim}(\Omega)$.
+        \item
+        \label{i:ddg:1.2:nec}
+        Suppose $F_0 : \Gk \to (0,\infty)$ and $F(x,T) = F_0(T)$ for $(x,T) \in \Omega \times \Gk$.
+        Then $\overline V \in \RVar{\vdim}(\Omega)$ for every $V \in \mathbf{V}_F(\Omega)$ if and only
+        if $F_0$ satisfies (AC).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}[Proof of~\ref{ddg:1.2}\ref{i:ddg:1.2:suff}]
+    Let $\mu = \|\overline V\| = \|V\| \restrict P_V$. By~\ref{ddg:2.4-6},
+    $\ldensity^{\vdim}(\mu,x) > 0$ for $\mu$~almost all~$x$. Let $Z = \Omega \cap \{ x :
+    \udensity^{\vdim}(\mu,x) = \infty \}$, let $C \subset \Omega$ be compact and let $O$ be an~open
+    set with $C \subset O$ and $\Clos O$ a~compact subset of~$\Omega$. For $0 < s < \infty$,
+    \cite[2.10.19(3)]{Federer1969} gives $\mu(O) \ge s \, \mathscr{S}^{\vdim}(Z \cap C)$;
+    hence $\mathscr{S}^{\vdim}(Z \cap C) = 0$, so $\HM^{\vdim}(Z \cap C) = 0$
+    by~\cite[2.10.6]{Federer1969}, and $\mu(Z \cap C) = 0$ by~\ref{ddg:3.4}. Therefore
+    \begin{equation}
+        \label{eq:ddg:1.2:1}
+        0 < \ldensity^{\vdim}(\mu,x) \le \udensity^{\vdim}(\mu,x) < \infty \quad \text{for
+        $\mu$~almost all~$x$}.
+    \end{equation}
+    By~\ref{ddg:3.1}, for $\mu$~almost all~$x$ there is $T_x \in \Gk$ with $V^{(x)} =
+    \Dirac{T_x}$; then $A_x(V^{(x)}) = B_F(x,T_x)$ and $\im \transpose{B_F(x,T_x)} = \im T_x$
+    by~\ref{new:kerim}. Let $x$ also satisfy~\ref{ddg:2.4-6}\eqref{eq:ddg:2.4-6:2} and the
+    conclusion of~\ref{ddg:2.4}. If $\nu \in \TM(\mu,x)$, then $\|V\|_{x,r_j} \to \nu$ weakly for
+    some $r_j \to 0+$, and~\ref{ddg:2.4}\eqref{eq:ddg:2.4:2} gives
+    \begin{equation}
+        \label{eq:ddg:1.2:2}
+        \textint{}{} \uD \phi(y)(e) \ud \nu(y) = 0 \quad \text{for $\phi \in
+        \dspace{\oball{0}{1}}{\R}$ and $e \in \im T_x$}.
+    \end{equation}
+    By~\eqref{eq:ddg:1.2:1}, \eqref{eq:ddg:1.2:2} and~\ref{ddg:2.2} there is $V' \in
+    \RVar{\vdim}(\Omega)$ with $\|V'\| = \mu$ and $V'^{(x)} = \Dirac{T_x}$ for $\mu$~almost
+    all~$x$. Since $\overline V = V \restrict (P_V \times \Gk)$,
+    \ref{mr:notation}\eqref{eq:mr:notation:disint} gives, for $\alpha \in \ccspace{\Omega \times
+    \Gk}$,
+    \begin{displaymath}
+        \begin{aligned}
+            \overline V(\alpha) & = \textint{P_V}{} \textint{}{} \alpha(x,T) \ud V^{(x)}(T) \ud
+            \|V\|(x) = \textint{}{} \alpha(x,T_x) \ud \mu(x) \\
+            & = \textint{}{} \textint{}{} \alpha(x,T) \ud V'^{(x)}(T) \ud \mu(x) = V'(\alpha) \,;
+        \end{aligned}
+    \end{displaymath}
+    hence $\overline V = V' \in \RVar{\vdim}(\Omega)$.
+\end{proof}
+
+\begin{proof}[Proof of~\ref{ddg:1.2}\ref{i:ddg:1.2:nec}]
+    The atomic condition of~$F$ at any point is that of~$F_0$, and $A_x(\sigma) = A(\sigma)$ for
+    $x \in \Omega$. If $F_0$ satisfies (AC), the conclusion follows
+    from~\ref{ddg:1.2}\ref{i:ddg:1.2:suff}. Suppose $F_0$ does not satisfy (AC). Then there is
+    a~Radon measure~$\sigma$ over~$\Gk$ with $\sigma(\Gk) = 1$ such that either $\dim \ker
+    A(\sigma) > \adim - \vdim$, or $\dim \ker A(\sigma) = \adim - \vdim$ and $\sigma$ is not
+    a~Dirac measure. Let $A = A(\sigma)$, $W = \im \transpose{A}$ and $m = \dim W$. Since $\ker A$
+    is the orthogonal complement of~$W$, $m < \vdim$ in the first case and $m = \vdim$ in the
+    second. Choose $a \in \Omega$, let $E = \Omega \cap (a + W)$, and define $V \in
+    \Var{\vdim}(\Omega)$ by
+    \begin{displaymath}
+        V(\alpha) = \textint{E}{} \textint{}{} \alpha(y,T) \ud \sigma(T) \ud \HM^m(y) \quad
+        \text{for $\alpha \in \ccspace{\Omega \times \Gk}$};
+    \end{displaymath}
+    $V$ is a~Radon measure because $\HM^m(W \cap \oball{0}{r}) = \unitmeasure{m} r^m$, and $\|V\| =
+    \HM^m \restrict E$. For $y \in E$ and $0 < r < \inf \{ 1, \dist(y, \R^{\adim} \without \Omega)
+    \}$ we have $\|V\|(\oball{y}{r}) = \unitmeasure{m} r^m \ge \unitmeasure{m} r^{\vdim}$; hence $E
+    \subset P_V$ and $\overline V = V$.
+
+    We show $\delta_F V = 0$. Let $f_1, \ldots, f_{\adim}$ be an~orthonormal basis
+    of~$\R^{\adim}$. For $L \in \End{\R^{\adim}}$, $A \bullet L = \transpose{A} \bullet
+    \transpose{L} = \trace(A \circ \transpose{L}) = \textsum{l}{} f_l \bullet L(\transpose{A}(f_l))$.
+    Since $\uD_x F = 0$, \ref{def:firstvar} and Fubini's theorem~\cite[2.6.2]{Federer1969} give,
+    for $g \in \dspace{\Omega}{\R^{\adim}}$,
+    \begin{displaymath}
+        \delta_F V(g) = \textint{E}{} A \bullet \uD g(y) \ud \HM^m(y) = \textsum{l}{}
+        \textint{a + W}{} \uD (f_l \bullet g)(y)(\transpose{A}(f_l)) \ud \HM^m(y) \,,
+    \end{displaymath}
+    where $g$ is extended by zero to~$\R^{\adim}$. If $m = 0$, then $W = \{0\}$ and every term
+    vanishes. If $m > 0$, let $\iota : \R^m \to W$ be a~linear isometry; then $\HM^m \restrict (a +
+    W) = (a + \iota)_\# \LM^m$ by~\cite[2.10.35]{Federer1969} and the isometric invariance
+    of~$\HM^m$. For $h \in \dspace{\R^{\adim}}{\R}$ and $w \in W$, $\textint{a+W}{} \uD h(y)(w) \ud
+    \HM^m(y) = \textint{}{} \uD(h \circ (a + \iota))(z)(\iota^{-1}(w)) \ud \LM^m(z) = 0$ by Fubini's
+    theorem and the fundamental theorem of calculus. Hence $\delta_F V = 0$ and $V \in
+    \mathbf{V}_F(\Omega)$.
+
+    Suppose $V \in \RVar{\vdim}(\Omega)$. By~\cite[3.5(1)(a)]{Allard1972}, for $\|V\|$~almost
+    all~$y$, $\density^{\vdim}(\|V\|,y) < \infty$ and $V^{(y)}$ is a~Dirac measure. Since $E$ is
+    a~nonempty relatively open subset of $a + W$, $\|V\|(E) = \HM^m(E) > 0$. If $m < \vdim$, then
+    $\|V\|(\oball{y}{r}) / (\unitmeasure{\vdim} r^{\vdim}) = \unitmeasure{m} r^{m - \vdim} /
+    \unitmeasure{\vdim} \to \infty$ for $y \in E$, a~contradiction. If $m = \vdim$, let $D$ be
+    a~countable dense subset of $\ccspace{\Gk}$~\ref{new:approx}\ref{i:new:approx:sep}. For
+    $\phi \in D$ and $\psi \in \ccspace{\Omega}$,
+    \ref{mr:notation}\eqref{eq:mr:notation:disint} gives $\textint{}{} \psi(y) V^{(y)}(\phi) \ud
+    \|V\|(y) = V(\psi \phi) = \textint{}{} \psi(y) \sigma(\phi) \ud \|V\|(y)$; hence, by the local
+    application of~\cite[2.8.18, 2.9.8]{Federer1969}, $V^{(y)}(\phi) = \sigma(\phi)$ for $\phi \in
+    D$ and $\|V\|$~almost all~$y$. By density, $V^{(y)} = \sigma$ for $\|V\|$~almost all~$y$, and
+    $\sigma$ is not a~Dirac measure, a~contradiction. Thus $\overline V = V \notin
+    \RVar{\vdim}(\Omega)$ although $V \in \mathbf{V}_F(\Omega)$.
+\end{proof}
+
+\section{Proof of Theorem~1.3}
+\label{sec:proof13}
+
+\begin{miniremark}
+    \label{mr:proof13}
+    This section treats the case $\vdim = \adim - 1$ with $\adim \ge 2$. It defines the
+    one-homogeneous even function $G_x$ associated with~$F$, computes $B_F$ in terms of~$G_x$
+    in~\ref{new:BG}, characterises the strict convexity of~$G_x$ by~\cite[(5.3)]{DePhilippis2018}
+    in~\ref{new:strictconv}, and proves~\cite[Theorem~1.3]{DePhilippis2018}. Instead of the even
+    probability measures over~$\sphere{\adim-1}$ used in~\cite[section~5]{DePhilippis2018}, we
+    work directly with probability measures over~$\Gh$. In this section $F : \Omega \times \Gh \to
+    (0,\infty)$ is as in~\ref{mr:integrands} with $\vdim = \adim - 1$, and $x \in \Omega$ is fixed.
+\end{miniremark}
+
+\begin{definition}[{\cite[(1.5), (5.1)]{DePhilippis2018}}]
+    \label{new:Gx}
+    For $\nu \in \sphere{\adim-1}$ we define $N(\nu) \in \End{\R^{\adim}}$ by $N(\nu)(w) = w - (\nu
+    \bullet w) \nu$ for $w \in \R^{\adim}$. We define $G_x : \R^{\adim} \to \R$ by
+    \begin{displaymath}
+        G_x(\lambda \nu) = |\lambda| F(x, N(\nu)) \quad \text{for $\lambda \in \R$ and $\nu \in
+        \sphere{\adim-1}$},
+    \end{displaymath}
+    and, for $v \in \R^{\adim} \without \{0\}$, $B_{G_x}(v) = G_x(v) \id{} - \uD G_x(v) \cdot v \in
+    \End{\R^{\adim}}$. We say that $G_x$ is \emph{strictly convex} if $G_x(a + b) < G_x(a) + G_x(b)$
+    whenever $a, b \in \R^{\adim}$ are linearly independent.
+\end{definition}
+
+\begin{lemma}[new]
+    \label{new:Gxprop}
+    The map $N$ is of class~$\infty$, $N(\nu) \in \Gh$, $\ker N(\nu) = \R \nu$, $N(-\nu) = N(\nu)$,
+    and every $T \in \Gh$ equals $N(\nu)$ exactly for the two unit vectors $\pm \nu \in \ker T$. The
+    function $G_x$ is well defined, continuous, of class~$1$ on $\R^{\adim} \without \{0\}$, and
+    \begin{gather}
+        \label{eq:new:Gxprop:1}
+        G_x(-v) = G_x(v) \,, \qquad G_x(\lambda v) = \lambda G_x(v) \,, \qquad G_x(v) \le c |v|
+        \quad \text{for $v \in \R^{\adim}$ and $\lambda \ge 0$}, \\
+        \label{eq:new:Gxprop:2}
+        \uD G_x(\lambda v) = \uD G_x(v) \,, \qquad \uD G_x(-v) = - \uD G_x(v) \,, \qquad \uD
+        G_x(v)(v) = G_x(v) \quad \text{for $v \ne 0$ and $\lambda > 0$},
+    \end{gather}
+    where $c = \sup F[\{x\} \times \Gh]$. If $G_x$ is strictly convex, then $G_x(a + b) \le G_x(a)
+    + G_x(b)$ for $a, b \in \R^{\adim}$, and $G_x$ is convex.
+\end{lemma}
+
+\begin{proof}
+    The assertions on~$N$ follow from~\ref{ddg:A.1}, since $N(\nu)$ is symmetric, idempotent, and
+    has trace $\adim - 1$. If $\lambda \nu = \lambda' \nu'$ with $\nu, \nu' \in \sphere{\adim-1}$,
+    then $|\lambda| = |\lambda'|$ and either $\lambda = 0$ or $\nu' = \pm \nu$; hence $G_x$ is well
+    defined. For $v \ne 0$, $G_x(v) = |v| F(x, N(v/|v|))$; this is a~composition of maps of
+    class~$1$ by~\ref{mr:integrands}, and~\eqref{eq:new:Gxprop:1} is immediate, which also gives
+    continuity at~$0$. Differentiating $G_x(\lambda v) = \lambda G_x(v)$ and $G_x(-v) = G_x(v)$
+    with respect to~$v$, and $[ t \mapsto G_x(tv) = t G_x(v) ]$ at $t = 1$,
+    gives~\eqref{eq:new:Gxprop:2}. Suppose $G_x$ is strictly convex. If $a, b$ are linearly
+    dependent, say $b = \lambda a$, then $G_x(a + b) = |1 + \lambda| G_x(a) \le (1 + |\lambda|)
+    G_x(a) = G_x(a) + G_x(b)$. For $0 \le t \le 1$, $G_x((1-t)a + tb) \le G_x((1-t)a) + G_x(tb) =
+    (1-t) G_x(a) + t G_x(b)$.
+\end{proof}
+
+\begin{lemma}[new]
+    \label{new:jacobian}
+    Suppose $M \in \End{\R^{\adim}}$ is invertible, $\nu \in \sphere{\adim-1}$ and $\nu' =
+    \transpose{(M^{-1})}(\nu)$. Then $M[\im N(\nu)] = \im N(\nu'/|\nu'|)$ and $\|\extpower{\adim-1}(M
+    \circ N(\nu))\| = |\det M| \, |\nu'|$.
+\end{lemma}
+
+\begin{proof}
+    Let $e_1, \ldots, e_{\adim}$ be an~orthonormal basis with $e_{\adim} = \nu$, let $\xi = e_1
+    \wedge \cdots \wedge e_{\adim-1}$, $\eta = \extpower{\adim-1} M(\xi) = M(e_1) \wedge \cdots
+    \wedge M(e_{\adim-1})$ and $u = \nu'/|\nu'|$. For $i < \adim$, $M(e_i) \bullet \nu' = e_i
+    \bullet \transpose{M}(\transpose{(M^{-1})}(\nu)) = e_i \bullet \nu = 0$; hence $M(e_1),
+    \ldots, M(e_{\adim-1})$ form a~basis of $\im N(u)$, which proves the first assertion. By the
+    choice of the inner product on~$\extpower{\adim-1}\R^{\adim}$~\cite[1.7.5]{Federer1969},
+    $\extpower{\adim-1} N(\nu)$ is the orthogonal projection onto~$\R \xi$ and $|\xi| = 1$; since
+    $\extpower{\adim-1}(M \circ N(\nu)) = \extpower{\adim-1} M \circ \extpower{\adim-1} N(\nu)$ has
+    rank at most one, $\|\extpower{\adim-1}(M \circ N(\nu))\| = |\eta|$. Write $M(\nu) = w + (u
+    \bullet M(\nu)) u$ with $w \in \im N(u)$; then $\eta \wedge w = 0$, and
+    \begin{displaymath}
+        \det(M) \, \xi \wedge \nu = \extpower{\adim} M(\xi \wedge \nu) = \eta \wedge M(\nu) = (u
+        \bullet M(\nu)) \, \eta \wedge u
+    \end{displaymath}
+    by~\cite[1.3.4]{Federer1969}. If $f_1, \ldots, f_{\adim-1}$ is an~orthonormal basis of
+    $\im N(u)$, then $\eta = \pm |\eta| f_1 \wedge \cdots \wedge f_{\adim-1}$ and $|\eta \wedge u| =
+    |\eta|$, $|\xi \wedge \nu| = 1$ by~\cite[1.7.5]{Federer1969}. Finally $u \bullet M(\nu) =
+    |\nu'|^{-1} \transpose{(M^{-1})}(\nu) \bullet M(\nu) = |\nu'|^{-1}$. Hence $|\det M| = |\eta| /
+    |\nu'|$.
+\end{proof}
+
+\begin{lemma}[{\cite[section~5, p.~1141]{DePhilippis2018}}]
+    \label{new:BG}
+    If $\nu \in \sphere{\adim-1}$, then $B_F(x,N(\nu)) = B_{G_x}(\nu) = B_{G_x}(-\nu)$.
+\end{lemma}
+
+\begin{proof}
+    Let $L \in \End{\R^{\adim}}$ and $M_t = \id{} + tL$. For $|t| \, \|L\| < 1$, $M_t$ is
+    invertible; we restrict $t$ further so that $\det M_t > 0$. Let $\nu_t =
+    \transpose{(M_t^{-1})}(\nu)$ and let $T(t)$ be the orthogonal projection onto $M_t[\im
+    N(\nu)]$. By~\ref{new:jacobian}, $T(t) = N(\nu_t / |\nu_t|)$ and $\|\extpower{\adim-1}(M_t
+    \circ N(\nu))\| = \det(M_t) |\nu_t|$; hence, by~\ref{new:Gx},
+    \begin{displaymath}
+        F(x,T(t)) \, \|\extpower{\adim-1}(M_t \circ N(\nu))\| = \det(M_t) \, G_x(\nu_t) \,.
+    \end{displaymath}
+    The derivative of the left side at $t = 0$ is $B_F(x,N(\nu)) \bullet L$ by~\ref{new:BFderiv}.
+    The map $[ A \mapsto A^{-1} ]$ is of class~$\infty$ on the open set of invertible
+    endomorphisms with derivative $[ H \mapsto - A^{-1} \circ H \circ A^{-1} ]$, because its
+    coefficients are rational functions by~\cite[1.3.4]{Federer1969} and $A \circ A^{-1} =
+    \id{}$; hence $\frac{\ud}{\ud t} \nu_t |_{t=0} = -\transpose{L}(\nu)$. Moreover $\frac{\ud}{\ud
+    t} \det M_t |_{t=0} = \trace L$ by~\cite[2.2(1)]{Allard1972}. Since $G_x$ is of class~$1$
+    near $\nu_0 = \nu \ne 0$, the derivative of the right side at $t = 0$ is
+    \begin{displaymath}
+        G_x(\nu) \trace L - \uD G_x(\nu)(\transpose{L}(\nu)) = (G_x(\nu) \id{}) \bullet L - (\uD
+        G_x(\nu) \cdot \nu) \bullet L = B_{G_x}(\nu) \bullet L
+    \end{displaymath}
+    by~\ref{mr:notation}. Since $L$ is arbitrary, $B_F(x,N(\nu)) = B_{G_x}(\nu)$; the second
+    equality follows from $N(-\nu) = N(\nu)$.
+\end{proof}
+
+\begin{lemma}[{\cite[(5.3)]{DePhilippis2018}; new}]
+    \label{new:strictconv}
+    The function $G_x$ is strictly convex if and only if
+    \begin{equation}
+        \label{eq:new:strictconv:1}
+        G_x(\nu) > \uD G_x(\nu_0)(\nu) \quad \text{whenever $\nu, \nu_0 \in \sphere{\adim-1}$ and
+        $\nu \ne \pm \nu_0$}.
+    \end{equation}
+    If~\eqref{eq:new:strictconv:1} holds, then $G_x(\nu) > |\uD G_x(\nu_0)(\nu)|$ whenever $\nu,
+    \nu_0 \in \sphere{\adim-1}$ and $\nu \ne \pm \nu_0$.
+\end{lemma}
+
+\begin{proof}
+    Write $G = G_x$. Suppose $G$ is strictly convex, and $\nu, \nu_0$ are as
+    in~\eqref{eq:new:strictconv:1}; then $\nu_0$ and~$\nu$ are linearly independent. For $0 < s \le
+    1$, convexity~\ref{new:Gxprop} gives $G(\nu_0 + s \nu) \le (1-s) G(\nu_0) + s G(\nu_0 + \nu)$;
+    hence $s^{-1}(G(\nu_0 + s\nu) - G(\nu_0)) \le G(\nu_0 + \nu) - G(\nu_0)$, and letting $s \to
+    0+$ gives $\uD G(\nu_0)(\nu) \le G(\nu_0 + \nu) - G(\nu_0) < G(\nu)$.
+
+    Conversely, assume~\eqref{eq:new:strictconv:1}. If $c, a \in \R^{\adim}$ are linearly
+    independent, then $c/|c| \ne \pm a/|a|$, and~\eqref{eq:new:Gxprop:1},
+    \eqref{eq:new:Gxprop:2} give $\uD G(c)(a) = |a| \, \uD G(c/|c|)(a/|a|) < |a| G(a/|a|) = G(a)$.
+    Let $a, b$ be linearly independent and $c = a + b$; then $c$ is linearly independent of~$a$ and
+    of~$b$, and $G(a + b) = \uD G(c)(c) = \uD G(c)(a) + \uD G(c)(b) < G(a) + G(b)$
+    by~\eqref{eq:new:Gxprop:2}. The last assertion follows by applying~\eqref{eq:new:strictconv:1}
+    to $-\nu$ and using $G(-\nu) = G(\nu)$.
+\end{proof}
+
+\begin{theorem}[{\cite[Theorem~1.3]{DePhilippis2018}}]
+    \label{ddg:1.3}
+    The integrand~$F$ satisfies (AC) at~$x$ if and only if $G_x$ is strictly convex.
+\end{theorem}
+
+\begin{proof}
+    Write $G = G_x$ and, for $\nu_0, \nu \in \R^{\adim} \without \{0\}$,
+    \begin{displaymath}
+        \Phi(\nu_0,\nu) = G(\nu_0) G(\nu) - \uD G(\nu_0)(\nu) \, \uD G(\nu)(\nu_0) \,.
+    \end{displaymath}
+    By~\eqref{eq:new:Gxprop:1} and~\eqref{eq:new:Gxprop:2}, $\Phi(\nu_0, \lambda \nu) = |\lambda|
+    \Phi(\nu_0,\nu)$ for $\lambda \ne 0$, and $\Phi(\nu_0,\nu_0) = 0$. By~\ref{new:Gx}
+    and~\eqref{eq:new:Gxprop:2}, for unit vectors $\nu_0, \nu$,
+    \begin{equation}
+        \label{eq:ddg:1.3:1}
+        B_G(\nu)(\nu_0) = G(\nu) \nu_0 - \uD G(\nu)(\nu_0) \nu \,, \qquad \uD G(\nu_0)
+        \bigl( B_G(\nu)(\nu_0) \bigr) = \Phi(\nu_0,\nu) \,, \qquad B_G(\nu)(\nu) = 0 \,.
+    \end{equation}
+
+    Suppose $G$ is strictly convex. Let $\sigma$ be a~Radon measure over~$\Gh$ with $\sigma(\Gh)
+    = 1$, $A = A_x(\sigma)$, and suppose $A(\nu_0) = 0$ for some $\nu_0 \in \sphere{\adim-1}$. The
+    function $\Psi(T) = \Phi(\nu_0,\nu)$ for $T = N(\nu)$ is well defined and continuous on~$\Gh$
+    by~\ref{new:Gxprop}, since locally $\nu$ can be chosen as $T^\perp(w)/|T^\perp(w)|$ for a~fixed
+    $w$. By~\ref{new:BG} and~\eqref{eq:ddg:1.3:1}, applying the linear map $[ B \mapsto \uD
+    G(\nu_0)(B(\nu_0)) ]$ under the integral,
+    \begin{displaymath}
+        0 = \uD G(\nu_0)(A(\nu_0)) = \textint{}{} \uD G(\nu_0)\bigl( B_F(x,T)(\nu_0) \bigr) \ud
+        \sigma(T) = \textint{}{} \Psi \ud \sigma \,.
+    \end{displaymath}
+    By~\ref{new:strictconv}, $\Psi(N(\nu)) \ge G(\nu_0) G(\nu) - |\uD G(\nu_0)(\nu)| \, |\uD
+    G(\nu)(\nu_0)| > 0$ for $\nu \ne \pm \nu_0$, and $\Psi(N(\nu_0)) = 0$. Hence $\sigma =
+    \Dirac{N(\nu_0)}$, $A = B_F(x,N(\nu_0))$, and $\ker A = \ker N(\nu_0) = \R \nu_0$
+    by~\ref{new:kerim}. Consequently, $\dim \ker A_x(\sigma) \le 1$ for every~$\sigma$, and $\dim
+    \ker A_x(\sigma) = 1$ implies that $\sigma$ is a~Dirac measure; this is (AC) at~$x$.
+
+    Suppose $F$ satisfies (AC) at~$x$, let $\nu_0, \nu \in \sphere{\adim-1}$ with $\nu \ne \pm
+    \nu_0$, and let $\sigma = \frac 12 (\Dirac{N(\nu)} + \Dirac{N(\nu_0)})$. Since $N(\nu) \ne
+    N(\nu_0)$, $\sigma$ is not a~Dirac measure, so (AC) gives $\ker A_x(\sigma) = \{0\}$. Since
+    $\nu, \nu_0$ are linearly independent, so are $2A_x(\sigma)(\nu) = G(\nu_0)\nu - \uD
+    G(\nu_0)(\nu) \nu_0$ and $2A_x(\sigma)(\nu_0) = G(\nu)\nu_0 - \uD G(\nu)(\nu_0) \nu$,
+    by~\ref{new:BG} and~\eqref{eq:ddg:1.3:1}; their coefficient determinant with respect to $\nu,
+    \nu_0$ is $\Phi(\nu_0,\nu)$, hence $\Phi(\nu_0,\nu) \ne 0$. Thus the continuous function $h =
+    \Phi(\nu_0,\cdot)$ has no zero on $S' = \sphere{\adim-1} \without \{ \nu_0, -\nu_0 \}$, and
+    $h(-\nu) = h(\nu)$ by~\eqref{eq:new:Gxprop:2}. Since $\uD G(\nu_0)(\nu_0) = G(\nu_0) > 0$, the
+    kernel of $\uD G(\nu_0)$ has dimension $\adim - 1 \ge 1$ and contains some $\nu_1 \in S'$, and
+    $h(\nu_1) = G(\nu_0) G(\nu_1) > 0$. If $\adim \ge 3$, $S'$ is connected, being the image of the
+    connected set $\R^{\adim} \without \R \nu_0$ under $[ v \mapsto v/|v| ]$; if $\adim = 2$, $S'$
+    has two connected components, the open arcs between $\nu_0$ and $-\nu_0$, interchanged by $[
+    v \mapsto -v ]$. In both cases $h > 0$ on~$S'$, that is,
+    \begin{equation}
+        \label{eq:ddg:1.3:2}
+        \Phi(\nu_0,v) > 0 \quad \text{whenever $v \in \R^{\adim} \without \R \nu_0$}.
+    \end{equation}
+    Let $P = (G(\nu_0)^{-1} \uD G(\nu_0)) \cdot \nu_0 \in \End{\R^{\adim}}$; then $P \circ P = P$
+    by~\eqref{eq:new:Gxprop:2}. For $0 \le t \le 1$ let $v_t = t \nu + (1 - t) P(\nu)$ and $g(t) =
+    G(v_t)$. Then $P(v_t) = P(\nu)$, $v_t - P(v_t) = t(\nu - P(\nu))$, and $v_t \notin \R \nu_0$
+    for $0 < t \le 1$. Hence $g$ is continuous on $[0,1]$, differentiable on $(0,1]$, and for $0
+    < t \le 1$,
+    \begin{displaymath}
+        t g'(t) = \uD G(v_t)(v_t - P(v_t)) = G(v_t) - G(\nu_0)^{-1} \uD G(\nu_0)(v_t) \, \uD
+        G(v_t)(\nu_0) = G(\nu_0)^{-1} \Phi(\nu_0, v_t) > 0
+    \end{displaymath}
+    by~\eqref{eq:new:Gxprop:2} and~\eqref{eq:ddg:1.3:2}. By the mean value theorem, $g$ is
+    strictly increasing on $(0,1]$; by continuity, $g(1) > g(1/2) \ge g(0)$. Therefore, by~\eqref{eq:new:Gxprop:1},
+    \begin{displaymath}
+        G(\nu) = g(1) > g(0) = G(P(\nu)) = |\uD G(\nu_0)(\nu)| \, G(\nu_0)^{-1} G(\nu_0) \ge \uD
+        G(\nu_0)(\nu) \,,
+    \end{displaymath}
+    which is~\eqref{eq:new:strictconv:1}; \ref{new:strictconv} shows that $G$ is strictly
+    convex.
+\end{proof}
+
+\appendix
+
+\section{First variation with respect to anisotropic integrands}
+\label{sec:A}
+
+\begin{miniremark}
+    \label{mr:A}
+    This appendix identifies the Grassmannian with a~set of orthogonal projections, proves that
+    it is a~submanifold of class~$\infty$ of dimension $\vdim(\adim - \vdim)$ with the tangent
+    space of~\cite[Appendix~A]{DePhilippis2018}, computes the derivative of a~moving plane
+    (\cite[Lemma~A.1]{DePhilippis2018}), and proves the first variation formula
+    \cite[Lemma~A.2]{DePhilippis2018}, first for integrands depending on the point and then, as
+    a~corollary, for integrands not depending on it. All items of this appendix lie on the
+    minimal path described in~\ref{rem:ms}; on that path, \ref{ddg:A.2} is needed only for
+    integrands not depending on the point, for which the terms involving $\uD_x F$ vanish.
+\end{miniremark}
+
+\begin{lemma}[{\cite[(A.1)]{DePhilippis2018}; \MS}]
+    \label{ddg:A.1}
+    For $T \in \End{\R^{\adim}}$, $T \in \Gk$ if and only if $T \circ T = T$, $\transpose{T} = T$ and
+    $\trace T = \vdim$. If $T \in \Gk$, then $T^\perp \in \pgrass{\adim}{\adim - \vdim}$, $\im
+    T^\perp = \ker T$, $T \circ T^\perp = T^\perp \circ T = 0$ and $|T| = \vdim^{1/2}$.
+\end{lemma}
+
+\begin{proof}
+    By~\cite[2.3]{Allard1972}, the orthogonal projection~$S$ onto a~subspace is characterised by
+    $S \circ S = S$, $\transpose{S} = S$ and $\im S$ being that subspace, and $\trace S = \dim \im
+    S$ by~\cite[2.3(3)]{Allard1972}. Conversely, if $T \circ T = T$ and $\transpose{T} = T$,
+    then~\cite[1.7.3]{Federer1969} yields an~orthonormal basis of eigenvectors of~$T$; each
+    eigenvalue~$\lambda$ satisfies $\lambda^2 = \lambda$, so $T$ is the orthogonal projection onto
+    the span of the eigenvectors with eigenvalue~$1$, whose number is $\trace T = \vdim$. The
+    remaining assertions follow from the same basis, and $|T|^2 = \trace(\transpose{T} \circ T) =
+    \trace T$.
+\end{proof}
+
+\begin{lemma}[new; \MS]
+    \label{new:projformula}
+    Suppose $T \in \Gk$, $J \in \End{\R^{\adim}}$, $J \circ T^\perp = 0$, and $Q = \transpose{J}
+    \circ J + T^\perp$ is invertible. Then $P = J \circ Q^{-1} \circ \transpose{J} \in \Gk$ and $\im
+    P = \im J$. Moreover, if $L \in \End{\R^{\adim}}$, $J_t = (\id{} + tL) \circ T$ and $Q_t =
+    \transpose{J_t} \circ J_t + T^\perp$, then there is an~open interval $I \ni 0$ such that, for $t
+    \in I$, $Q_t$ is invertible and the orthogonal projection $T(t)$ onto $(\id{} + tL)[\im T]$
+    equals $J_t \circ Q_t^{-1} \circ \transpose{J_t}$; the map $[ I \ni t \mapsto T(t) ]$ is of
+    class~$\infty$.
+\end{lemma}
+
+\begin{proof}
+    Since $J \circ T^\perp = 0$ and $T^\perp \circ T^\perp = T^\perp$, we have $Q \circ T^\perp =
+    T^\perp$; since $Q$ is symmetric, also $T^\perp \circ Q = T^\perp$. Hence $Q^{-1} \circ T^\perp =
+    T^\perp = T^\perp \circ Q^{-1}$, and $\transpose{J} \circ J = Q - T^\perp$ gives
+    \begin{displaymath}
+        P \circ P = J \circ Q^{-1} \circ (Q - T^\perp) \circ Q^{-1} \circ \transpose{J} = P - J
+        \circ T^\perp \circ Q^{-1} \circ \transpose{J} = P \,.
+    \end{displaymath}
+    Since $\transpose{Q} = Q$, we have $\transpose{(Q^{-1})} = Q^{-1}$, whence $\transpose{P} = J \circ \transpose{(Q^{-1})} \circ \transpose{J} = P$. Moreover $\trace P = \trace(Q^{-1} \circ \transpose{J} \circ J) =
+    \trace(\id{} - Q^{-1} \circ T^\perp) = \adim - \trace T^\perp = \vdim$ by~\ref{ddg:A.1}.
+    By~\ref{ddg:A.1}, $P \in \Gk$. Moreover $\im P \subset \im J$, $\dim \im J \le \dim \im T =
+    \vdim$ because $J = J \circ T$, and $\dim \im P = \vdim$; hence $\im P = \im J$.
+
+    For the second part, $J_t \circ T^\perp = 0$ and $Q_0 = T + T^\perp = \id{}$. The invertible
+    endomorphisms form an~open set on which $[ A \mapsto A^{-1} ]$ is of class~$\infty$, since its
+    coefficients are rational functions by~\cite[1.3.4]{Federer1969}. Hence there is an~open
+    interval $I \ni 0$ on which $Q_t$ is invertible and $[ t \mapsto Q_t^{-1} ]$ is of
+    class~$\infty$. The first part gives $J_t \circ Q_t^{-1} \circ \transpose{J_t} \in \Gk$ with
+    image $\im J_t = (\id{} + tL)[\im T]$.
+\end{proof}
+
+\begin{lemma}[{\cite[(A.2) and p.~1143]{DePhilippis2018}; \MS}]
+    \label{ddg:A.tan}
+    The set $\Gk$ is a~compact $\vdim(\adim - \vdim)$~dimensional submanifold of class~$\infty$
+    of~$\End{\R^{\adim}}$ in the sense of~\cite[3.1.19]{Federer1969}, and for $T \in \Gk$,
+    \begin{multline*}
+        \Tan(\Gk,T) = \SymEnd{\R^{\adim}} \cap \{ A : T \circ A \circ T = 0,\ T^\perp \circ A \circ
+        T^\perp = 0 \} \\
+        = \SymEnd{\R^{\adim}} \cap \{ A : A = A \circ T + T \circ A \} = \{ X + \transpose{X} : X \in
+        H_T \} \,,
+    \end{multline*}
+    where $H_T = \End{\R^{\adim}} \cap \{ X : X = T^\perp \circ X \circ T \}$, a~vector space of
+    dimension $\vdim(\adim - \vdim)$.
+\end{lemma}
+
+\begin{proof}
+    The set $\Gk$ is closed by~\ref{ddg:A.1} and bounded since $|T| = \vdim^{1/2}$; hence it is
+    compact. The restriction map $[ X \mapsto X | \im T ]$ is a~linear isomorphism of $H_T$ onto
+    $\Hom(\im T, \ker T)$; hence $\dim H_T = \vdim(\adim - \vdim)$. Denote the three sets in the
+    display by $S_1$, $S_2$, $S_3$. If $A \in S_2$, then $T \circ A \circ T = 2 T \circ A \circ
+    T$ and $T^\perp \circ A \circ T^\perp = T^\perp \circ A \circ T \circ T^\perp + T^\perp \circ
+    T \circ A \circ T^\perp = 0$; so $A \in S_1$. If $A \in S_1$, then $A = (T + T^\perp) \circ A
+    \circ (T + T^\perp) = T^\perp \circ A \circ T + T \circ A \circ T^\perp = X + \transpose{X}$
+    with $X = T^\perp \circ A \circ T \in H_T$; so $A \in S_3$. If $X \in H_T$, then $\transpose{X}
+    = T \circ \transpose{X} \circ T^\perp$, and $(X + \transpose{X}) \circ T + T \circ (X +
+    \transpose{X}) = X + \transpose{X}$; so $S_3 \subset S_2$.
+
+    For $X \in H_T$ let $J_X = (\id{} + X) \circ T$. Since $T \circ X \circ T = 0$,
+    $\transpose{J_X} \circ J_X = T + T \circ \transpose{X} \circ X \circ T$, and $Q_X =
+    \transpose{J_X} \circ J_X + T^\perp = \id{} + T \circ \transpose{X} \circ X \circ T$ satisfies
+    $Q_X(v) \bullet v \ge |v|^2$; hence $Q_X$ is invertible. By~\ref{new:projformula}, $\Psi(X) =
+    J_X \circ Q_X^{-1} \circ \transpose{J_X} \in \Gk$ and $\im \Psi(X) = \{ v + X(v) : v \in \im T
+    \}$. The map $\Psi : H_T \to \End{\R^{\adim}}$ is of class~$\infty$, $\Psi(0) = T$, and, since
+    $Q_X - \id{}$ is quadratic in~$X$, $\uD \Psi(0)(X) = X \circ T + T \circ \transpose{X} = X +
+    \transpose{X}$. If $X + \transpose{X} = 0$, then $X = T^\perp \circ (X + \transpose{X})
+    \circ T = 0$; hence $\uD \Psi(0)$ is injective with image $S_3$.
+
+    For $A$ in the open set $O = \End{\R^{\adim}} \cap \{ A : T \circ A \circ T + T^\perp \text{ is
+    invertible} \}$ define $\varphi(A) = T^\perp \circ A \circ (T \circ A \circ T + T^\perp)^{-1}
+    \circ T \in H_T$; $\varphi$ is of class~$\infty$ and $\varphi(T) = 0$. Suppose $S \in \Gk \cap
+    O$ and $\|S - T\| < 1$, and let $M = T \circ S \circ T + T^\perp$. Then $M[\im T] \subset \im
+    T$, so $M^{-1}(u) \in \im T$ for $u \in \im T$, and $R(u) = S(M^{-1}(u))$ satisfies $R(u) \in \im
+    S$ and $T(R(u)) = M(M^{-1}(u)) = u$. Since $T | \im S$ is injective (if $v \in \im S$ and
+    $T(v) = 0$, then $|v| = |S(v) - T(v)| \le \|S - T\| |v|$), $R$ maps $\im T$ onto $\im S$, and
+    $R(u) = u + \varphi(S)(u)$ for $u \in \im T$. Hence $\im S = \im \Psi(\varphi(S))$ and $S =
+    \Psi(\varphi(S))$. Conversely, if $X \in H_T$ and $S = \Psi(X)$ is as above, then
+    $\{ u + X(u) : u \in \im T \} = \{ u + \varphi(S)(u) : u \in \im T \}$ forces $X = \varphi(S)$,
+    since $X(u), \varphi(S)(u) \in \ker T$. Choosing a~convex open neighbourhood~$V'$ of~$0$
+    in~$H_T$ and an~open neighbourhood $O' \subset O$ of~$T$ such that $\Psi[V'] \subset O'$,
+    $\varphi[O'] \subset V'$ and $\|S - T\| < 1$ for $S \in O'$, we obtain $\Gk \cap O' = \Psi[V']$
+    and $\varphi \circ \Psi = \id{V'}$. This is condition~\cite[3.1.19(4)]{Federer1969}, so $\Gk$ is
+    a~submanifold of class~$\infty$ and dimension $\dim H_T$. By~\cite[3.1.21]{Federer1969}, its
+    tangent space at~$T$ is $\im \uD \Psi(0) = S_3$.
+\end{proof}
+
+\begin{lemma}[{\cite[Lemma~A.1]{DePhilippis2018}; \MS}]
+    \label{ddg:A.lemma1}
+    If $T \in \Gk$, $L \in \End{\R^{\adim}}$, and $T(t)$ is as in~\ref{new:projformula}, then
+    \begin{displaymath}
+        T'(0) = T^\perp \circ L \circ T + \transpose{(T^\perp \circ L \circ T)} \in \Tan(\Gk,T) \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    By~\ref{new:projformula}, $T(t) = J_t \circ Q_t^{-1} \circ \transpose{J_t}$ with $J_t = T + t L
+    \circ T$ and $Q_t = \id{} + t(T \circ L \circ T + T \circ \transpose{L} \circ T) + t^2 T \circ
+    \transpose{L} \circ L \circ T$. Since $Q_0 = \id{}$, the derivative of $[ t \mapsto Q_t^{-1} ]$
+    at~$0$ is $-(T \circ L \circ T + T \circ \transpose{L} \circ T)$; see the proof
+    of~\ref{new:BG}. The product rule gives
+    \begin{displaymath}
+        T'(0) = L \circ T - T \circ L \circ T - T \circ \transpose{L} \circ T + T \circ
+        \transpose{L} = T^\perp \circ L \circ T + T \circ \transpose{L} \circ T^\perp \,,
+    \end{displaymath}
+    and $T \circ \transpose{L} \circ T^\perp = \transpose{(T^\perp \circ L \circ T)}$. The last
+    assertion follows from~\ref{ddg:A.tan}, because $T^\perp \circ L \circ T \in H_T$.
+\end{proof}
+
+\begin{lemma}[{\cite[(A.7), (A.8)]{DePhilippis2018}; new; \MS}]
+    \label{new:BFderiv}
+    Suppose $T \in \Gk$, $L \in \End{\R^{\adim}}$, and $T(t)$ is as in~\ref{new:projformula}. Then
+    $\|\extpower{\vdim} T\| = 1$,
+    \begin{displaymath}
+        \frac{\ud}{\ud t} \|\extpower{\vdim}((\id{} + tL) \circ T)\| \Big|_{t=0} = L \bullet T \,,
+        \qquad
+        B_F(x,T) \bullet L = \frac{\ud}{\ud t} \Bigl( F(x,T(t)) \, \|\extpower{\vdim}((\id{} + tL)
+        \circ T)\| \Bigr) \Big|_{t=0}
+    \end{displaymath}
+    for $x \in \Omega$, and the same holds for an~integrand not depending on the point.
+\end{lemma}
+
+\begin{proof}
+    If $e_1, \ldots, e_{\adim}$ is an~orthonormal basis with $e_1, \ldots, e_{\vdim} \in \im T$,
+    the vectors $e_{\lambda}$ form an~orthonormal basis of~$\extpower{\vdim} \R^{\adim}$
+    by~\cite[1.7.5]{Federer1969}, and $\extpower{\vdim} T$ is the orthogonal projection onto $\R
+    \, e_1 \wedge \cdots \wedge e_{\vdim}$; hence $\|\extpower{\vdim} T\| = 1$. The first formula
+    is~\cite[2.4(1)]{Allard1972}. By~\ref{mr:integrands}, \ref{ddg:A.lemma1} and the chain
+    rule~\cite[3.1.11, 3.1.22]{Federer1969}, $\frac{\ud}{\ud t} F(x,T(t))|_{t=0} = \uD_T F(x,T)
+    (T^\perp \circ L \circ T + \transpose{(T^\perp \circ L \circ T)})$. The product rule
+    and~\ref{def:BF} give the second formula.
+\end{proof}
+
+\begin{lemma}[new; \MS]
+    \label{new:flow}
+    Suppose $g \in \dspace{\Omega}{\R^{\adim}}$, $\varphi_t(x) = x + t g(x)$ for $t \in \R$ and $x
+    \in \R^{\adim}$, where $g$ is extended by zero, and
+    \begin{displaymath}
+        t_0 = \inf \bigl\{ (1 + \Lip g)^{-1}, \ \dist(\spt g, \R^{\adim} \without \Omega) (1 + \sup
+        |g|)^{-1} \bigr\} \,.
+    \end{displaymath}
+    If $|t| < t_0$, then $\varphi_t$ is of class~$\infty$, univalent, $\varphi_t(x) = x$ for $x
+    \notin \spt g$, $\varphi_t[\Omega] \subset \Omega$, $\varphi_t | \Omega$ is a~proper map of
+    $\Omega$ into~$\Omega$, and $\uD \varphi_t(x) = \id{} + t \uD g(x)$ is invertible for $x \in
+    \R^{\adim}$.
+\end{lemma}
+
+\begin{proof}
+    For $x, y \in \R^{\adim}$, $|\varphi_t(x) - \varphi_t(y)| \ge (1 - |t| \Lip g) |x - y|$, which
+    gives univalence; $|\uD \varphi_t(x)(v)| \ge (1 - |t| \Lip g) |v|$ gives invertibility. If $x
+    \in \spt g$, then $|\varphi_t(x) - x| \le |t| \sup |g| < \dist(\spt g, \R^{\adim} \without
+    \Omega)$, so $\varphi_t(x) \in \Omega$. If $C \subset \Omega$ is compact, then $\Omega \cap
+    \varphi_t^{-1}[C]$ is a~closed subset of the compact set $C \cup \spt g$.
+\end{proof}
+
+\begin{lemma}[{\cite[Lemma~A.2]{DePhilippis2018}; \MS}]
+    \label{ddg:A.2}
+    Suppose $V \in \Var{\vdim}(\Omega)$, $g$, $\varphi_t$ and~$t_0$ are as in~\ref{new:flow}, and,
+    for $|t| < t_0$ and $(x,T) \in \Omega \times \Gk$, $T_t(x,T) \in \Gk$ is the orthogonal
+    projection onto $\uD \varphi_t(x)[\im T]$ and
+    \begin{displaymath}
+        I(t) = \textint{}{} \bigl( F(\varphi_t(x), T_t(x,T)) \, \|\extpower{\vdim}(\uD \varphi_t(x)
+        \circ T)\| - F(x,T) \bigr) \ud V(x,T) \,.
+    \end{displaymath}
+    Then the integrand vanishes for $x \notin \spt g$, $I$ is differentiable at~$0$, and $I'(0) =
+    \delta_F V(g)$. If $\|V\|(\Omega) < \infty$ and $F$ is bounded, then $I(t) = \mathbf{F}(\varphi_{t\#}
+    V) - \mathbf{F}(V)$, where $\mathbf{F}(W) = \textint{}{} F \ud W$ and $\varphi_{t\#} V$ is the
+    image of~$V$ under $\varphi_t | \Omega$ in the sense of~\cite[3.2]{Allard1972}.
+\end{lemma}
+
+\begin{proof}
+    By~\ref{new:projformula} with $J = \uD \varphi_t(x) \circ T$, $T_t(x,T) = J \circ Q^{-1} \circ
+    \transpose{J}$ with $Q = \transpose{J} \circ J + T^\perp$ invertible, because $\uD \varphi_t(x)$
+    is invertible by~\ref{new:flow}. Hence the function
+    \begin{displaymath}
+        H(t,x,T) = F(\varphi_t(x), T_t(x,T)) \, \|\extpower{\vdim}(\uD \varphi_t(x) \circ T)\|
+    \end{displaymath}
+    is of class~$1$ on $\{ t : |t| < t_0 \} \times \Omega \times \Gk$, since $\extpower{\vdim}(\uD
+    \varphi_t(x) \circ T) \ne 0$ and the norm is of class~$\infty$ away from~$0$. Moreover
+    $H(t,x,T) = F(x,T)$ for $x \notin \spt g$. By the chain rule, \ref{ddg:A.lemma1}
+    and~\ref{new:BFderiv} with $L = \uD g(x)$, and~\ref{def:BF},
+    \begin{displaymath}
+        \begin{aligned}
+            \partial_t H(0,x,T) & = \uD_x F(x,T)(g(x)) + \uD_T F(x,T)\bigl(T^\perp \circ \uD g(x)
+            \circ T + \transpose{(T^\perp \circ \uD g(x) \circ T)}\bigr) \\
+            & \qquad + F(x,T) \, \uD g(x) \bullet T \\
+            & = \uD_x F(x,T)(g(x)) + B_F(x,T) \bullet \uD g(x) \,.
+        \end{aligned}
+    \end{displaymath}
+    The function $\partial_t H$ is continuous, hence bounded by some $M < \infty$ on the compact
+    set $\{ t : |t| \le t_0/2 \} \times \spt g \times \Gk$. By the mean value theorem $|t^{-1}(H(t,x,T)
+    - F(x,T))| \le M \CF{\spt g}(x)$ for $0 < |t| \le t_0/2$, and the bounded convergence
+    theorem~\cite[2.4.9]{Federer1969}, with $\|V\|(\spt g) < \infty$, gives $I'(0) = \textint{}{}
+    \partial_t H(0,x,T) \ud V(x,T) = \delta_F V(g)$ by~\ref{def:firstvar}. The last assertion
+    follows from the formula of~\cite[3.2(1)]{Allard1972} for $\varphi_{t\#} V$, applied to the
+    bounded Borel function~$F$, since $\varphi_t | \Omega$ is a~smooth proper map
+    by~\ref{new:flow}.
+\end{proof}
+
+\begin{corollary}[{\cite[Lemma~A.2]{DePhilippis2018} for $F$ not depending on the point; \MS}]
+    \label{ddg:A.2const}
+    Suppose $F : \Gk \to (0,\infty)$ is the restriction of a~map of class~$1$ defined on an~open
+    subset of $\End{\R^{\adim}}$ containing~$\Gk$, $V \in \Var{\vdim}(\Omega)$, $\|V\|(\Omega) <
+    \infty$, $g \in \dspace{\Omega}{\R^{\adim}}$, and $\varphi_t$, $t_0$ are as
+    in~\ref{new:flow}. Then $[ t \mapsto \mathbf{F}(\varphi_{t\#} V) ]$ is differentiable at~$0$
+    and
+    \begin{displaymath}
+        \frac{\ud}{\ud t} \mathbf{F}(\varphi_{t\#} V) \Big|_{t=0} = \textint{}{} B_F(T) \bullet
+        \uD g(x) \ud V(x,T) \,.
+    \end{displaymath}
+\end{corollary}
+
+\begin{proof}
+    Apply~\ref{ddg:A.2} to the integrand $[ (x,T) \mapsto F(T) ]$, which is bounded because $\Gk$
+    is compact~\ref{ddg:A.tan}, has $\uD_x = 0$, and has $B$ equal to $B_F(T)$ by~\ref{def:BF}.
+\end{proof}
+
+\section{Proof of Lemma~2.2}
+\label{sec:B}
+
+\begin{miniremark}
+    \label{mr:B}
+    This appendix states Preiss's rectifiability criterion~\ref{ddg:B.1}, verifies its hypotheses
+    in~\ref{new:preissA} and~\ref{new:preissB}, identifies the tangent measures of rectifiable
+    weights in~\ref{new:flat}, and proves the rectifiability criterion~\ref{ddg:2.2}, which is
+    \cite[Lemma~2.2]{DePhilippis2018} with a~conclusion adapted to~\cite[3.5]{Allard1972}.
+    Throughout, $\mu$ is a~Radon measure over~$\Omega$, and $\mu'$ denotes the measure over
+    $\R^{\adim}$ given by $\mu'(A) = \mu(A \cap \Omega)$; it is a~measure in the sense
+    of~\cite[1.5]{Preiss1987} and almost finite in the sense of~\cite[1.6(8)]{Preiss1987}.
+\end{miniremark}
+
+\begin{theorem}[{\cite[5.3]{Preiss1987}; external; \cite[Theorem~B.1]{DePhilippis2018}}]
+    \label{ddg:B.1}
+    Suppose $1 \le m < \adim$ are integers, $\Phi$ is an~almost finite measure over~$\R^{\adim}$,
+    and for $\Phi$~almost all~$x$,
+    \begin{gather*}
+        \liminf_{r \to 0+} \frac{\Phi \bigl( \cball{x}{r} \cap \{ z : \Phi(\cball{z}{s}) < (1 -
+        2^{-m-6}) (s/r)^m \Phi(\cball{x}{r}) \text{ for some $0 < s < r$} \} \bigr)}
+        {\Phi(\cball{x}{r})} = 0 \,, \\
+        \liminf_{r \to 0+} \sup_{V \in \grass{\adim}{m}} \inf \Bigl\{ \frac{\Phi(\cball{z}{8^{-m-9}
+        m^{-4} r})}{\Phi(\cball{x}{r})} : z \in (x + V) \cap \cball{x}{r} \Bigr\} > 0 \,.
+    \end{gather*}
+    Then $\Phi$ is $m$~rectifiable in the sense of~\cite[5.1(1)]{Preiss1987}: $\Phi$ is absolutely
+    continuous with respect to~$\HM^m$, and $\Phi$~almost all of $\R^{\adim}$ is covered by
+    countably many $m$~dimensional submanifolds of class~$1$ of~$\R^{\adim}$.
+\end{theorem}
+
+\begin{remark}
+    \label{rem:B.1}
+    % UNVERIFIED: the OCR of Preiss 1.1 and 5.3 loses the relation symbols; closed balls in 1.1
+    % and the range 1 <= m < n in 5.3 are read from the printed page, to be rechecked.
+    Preiss's balls are closed~\cite[1.1]{Preiss1987}. The statement
+    in~\cite[Theorem~B.1]{DePhilippis2018} uses open balls, the non-strict inequality, and the
+    constant $2^{-d-9} d^{-4}$ in place of $8^{-m-9} m^{-4}$; the verification below uses
+    Preiss's form.
+\end{remark}
+
+\begin{lemma}[new]
+    \label{new:preissA}
+    If $\ldensity^{\vdim}(\mu,x) > 0$ for $\mu$~almost all~$x$, then the first condition
+    of~\ref{ddg:B.1} holds for $\Phi = \mu'$, $m = \vdim$ and $\mu'$~almost all~$x$.
+\end{lemma}
+
+\begin{proof}
+    Let $\alpha = 1 - 2^{-\vdim-6}$. For positive integers~$j$ and rational $q > 0$ let $\Omega_j =
+    \Omega \cap \{ y : |y| \le j,\ \dist(y, \R^{\adim} \without \Omega) \ge 2/j \}$ and
+    \begin{displaymath}
+        E(j,q) = \Omega_j \cap \{ z : \mu(\cball{z}{s}) \ge q \unitmeasure{\vdim} s^{\vdim} \text{
+        for $0 < s < 1/j$} \} \,.
+    \end{displaymath}
+    For $s < 1/j$ the function $[ z \mapsto \mu(\cball{z}{s}) ]$ is upper semicontinuous on~$\Omega_j$,
+    because $\cball{z'}{s} \subset \cball{z}{s + \delta}$ for $|z' - z| \le \delta$ and
+    $\mu(\cball{z}{s}) = \lim_{\delta \to 0+} \mu(\cball{z}{s + \delta})$; hence $E(j,q)$ is
+    closed. By the local application of~\cite[2.8.18, 2.9.11]{Federer1969}, there is $N$ with
+    $\mu(N) = 0$ such that every $x \in E(j,q) \without N$ satisfies $\lim_{r \to 0+}
+    \mu(\cball{x}{r} \without E(j,q)) / \mu(\cball{x}{r}) = 0$ for all $j$ and~$q$.
+
+    Let $x \in \Omega \without N$ with $a = \ldensity^{\vdim}(\mu,x) > 0$. Choose rational~$q$
+    with $\alpha a < q < a$ and~$j$ with $x \in E(j,q)$, and choose $r_i \to 0+$ with $r_i < 1/j$
+    and $\mu(\cball{x}{r_i}) / (\unitmeasure{\vdim} r_i^{\vdim}) \to a$. For large~$i$, $\alpha
+    \mu(\cball{x}{r_i}) < q \unitmeasure{\vdim} r_i^{\vdim}$. If $z \in \cball{x}{r_i}$, $0 < s <
+    r_i$ and $\mu'(\cball{z}{s}) < \alpha (s/r_i)^{\vdim} \mu(\cball{x}{r_i})$, then
+    $\mu(\cball{z}{s}) < q \unitmeasure{\vdim} s^{\vdim}$, so $z \notin E(j,q)$. Hence the set in the
+    first condition of~\ref{ddg:B.1} with $r = r_i$ is contained in $\cball{x}{r_i} \without
+    E(j,q)$, and its measure divided by $\mu(\cball{x}{r_i})$ tends to~$0$.
+\end{proof}
+
+\begin{lemma}[new]
+    \label{new:preissB}
+    Suppose $x \in \Omega$, $0 < \ldensity^{\vdim}(\mu,x) \le \udensity^{\vdim}(\mu,x) < \infty$,
+    $V$ is a~$\vdim$~dimensional subspace, and $\textint{}{} \uD \phi(y)(e) \ud \nu(y) = 0$ for $\nu
+    \in \TM(\mu,x)$, $\phi \in \dspace{\oball{0}{1}}{\R}$ and $e \in V$. Then the second condition
+    of~\ref{ddg:B.1} holds at~$x$ for $\Phi = \mu'$ and $m = \vdim$.
+\end{lemma}
+
+\begin{proof}
+    Let $a = \ldensity^{\vdim}(\mu,x)$, $b = \udensity^{\vdim}(\mu,x)$ and $\beta = 8^{-\vdim-9}
+    \vdim^{-4}$. By~\ref{new:densities}, for $0 < t < 1$,
+    \begin{equation}
+        \label{eq:new:preissB:1}
+        \liminf_{r \to 0+} \frac{\mu(\oball{x}{tr})}{\mu(\oball{x}{r})} \ge \frac{a t^{\vdim}}{b} \,.
+    \end{equation}
+    Suppose the conclusion fails. Since $\mu(\cball{z}{\beta r}) \ge \mu(\oball{z}{\beta r})$ and
+    $\mu(\cball{x}{r}) \le \mu(\oball{x}{2r})$, there are $r_i \to 0+$ and $z_i \in (x + V) \cap
+    \cball{x}{r_i}$ with $\mu(\oball{z_i}{\beta r_i}) / \mu(\oball{x}{2r_i}) \to 0$. Let $\rho_i =
+    2r_i$ and $w_i = (z_i - x)/\rho_i \in V \cap \cball{0}{1/2}$. Then $\oball{w_i}{\beta/2}
+    \subset \oball{0}{1}$ and $\mu_{x,\rho_i}(\oball{w_i}{\beta/2}) \to 0$. Passing to
+    a~subsequence, $w_i \to w \in V \cap \cball{0}{1/2}$ and $\mu_{x,\rho_i} \to \nu$ weakly for
+    some $\nu \in \TM(\mu,x)$. For large~$i$, $\oball{w}{\beta/4} \subset \oball{w_i}{\beta/2}$;
+    by~\cite[2.6(2)(c)]{Allard1972}, $\nu(\oball{w}{\beta/4}) = 0$. By~\ref{new:translation}, since
+    $|w| + \beta/4 < 1$, $\nu(\oball{0}{\beta/4}) = 0$. On the other hand,
+    \cite[2.6(2)(c)]{Allard1972} and~\eqref{eq:new:preissB:1} with $t = \beta/8$ give
+    $\nu(\oball{0}{\beta/4}) \ge \nu(\cball{0}{\beta/8}) \ge \limsup_i
+    \mu_{x,\rho_i}(\oball{0}{\beta/8}) \ge a (\beta/8)^{\vdim} / b > 0$, a~contradiction.
+\end{proof}
+
+\begin{lemma}[new]
+    \label{new:flat}
+    Suppose $V' \in \RVar{\vdim}(\Omega)$ and $\mu = \|V'\|$. Then for $\mu$~almost all~$x$,
+    $\Tan^{\vdim}(\mu,x) \in \grass{\adim}{\vdim}$ and
+    \begin{displaymath}
+        \TM(\mu,x) = \bigl\{ \unitmeasure{\vdim}^{-1} \HM^{\vdim} \restrict (\Tan^{\vdim}(\mu,x) \cap
+        \oball{0}{1}) \bigr\} \,.
+    \end{displaymath}
+    If, moreover, $W$ is a~subspace and $\textint{}{} \uD \phi(y)(e) \ud \nu(y) = 0$ for $\nu \in
+    \TM(\mu,x)$, $\phi \in \dspace{\oball{0}{1}}{\R}$ and $e \in W$, then $W \subset
+    \Tan^{\vdim}(\mu,x)$.
+\end{lemma}
+
+\begin{proof}
+    By~\cite[3.5(1)(a)]{Allard1972} and the remark following~\cite[3.5(1)]{Allard1972}, for
+    $\mu$~almost all~$x$, $0 < \density^{\vdim}(\mu,x) < \infty$, $P = \Tan^{\vdim}(\mu,x) \in
+    \grass{\adim}{\vdim}$, and $\VarTan(V',x) = \{ \density^{\vdim}(\mu,x) \var{}(P) \}$. Fix
+    such~$x$. By the definition of $\VarTan$ in~\cite[3.4]{Allard1972}
+    and~\cite[3.4(1), 2.6(2)(a)]{Allard1972}, every sequence $r_i \to 0+$ has a~subsequence along
+    which $r_i^{-\vdim} \textint{}{} \alpha((y - x)/r_i, T) \ud V'(y,T)$ converges to
+    $\density^{\vdim}(\mu,x) \var{}(P)(\alpha)$ for $\alpha \in \ccspace{\R^{\adim} \times \Gk}$.
+    Taking $\alpha(y,T) = \psi(y)$ and using $\|\var{}(P)\| = \HM^{\vdim} \restrict
+    P$~\cite[3.5]{Allard1972}, we obtain
+    \begin{displaymath}
+        \lim_{r \to 0+} r^{-\vdim} \textint{}{} \psi((y - x)/r) \ud \mu(y) =
+        \density^{\vdim}(\mu,x) \textint{P}{} \psi \ud \HM^{\vdim} \quad \text{for $\psi \in
+        \ccspace{\R^{\adim}}$}.
+    \end{displaymath}
+    Since $\mu(\oball{x}{r}) / (\unitmeasure{\vdim} r^{\vdim}) \to \density^{\vdim}(\mu,x)$
+    by~\ref{new:densities}, $\mu_{x,r}(\psi) \to \unitmeasure{\vdim}^{-1} \textint{P}{} \psi \ud
+    \HM^{\vdim}$ for $\psi \in \ccspace{\oball{0}{1}}$ as $r \to 0+$; this proves the first
+    assertion.
+
+    For the second, let $e \in W$ and write $e = e' + e''$ with $e' \in P$ and $e''$ orthogonal
+    to~$P$. Let $\theta : \R \to \R$ be of class~$\infty$ with $\theta(s) > 0$ for $s < 1/16$ and
+    $\theta(s) = 0$ for $s \ge 1/16$, for instance $\theta(s) = \exp(1/(s - 1/16))$ for $s < 1/16$,
+    and let $\phi(y) = \theta(|y|^2) (e'' \bullet y)$. Then $\phi \in \dspace{\oball{0}{1}}{\R}$ and
+    $\uD \phi(y)(e) = 2 \theta'(|y|^2) (y \bullet e)(e'' \bullet y) + \theta(|y|^2) (e'' \bullet
+    e)$, which equals $\theta(|y|^2) |e''|^2$ for $y \in P$. Hence
+    \begin{displaymath}
+        0 = \textint{}{} \uD \phi(y)(e) \ud \nu(y) = \unitmeasure{\vdim}^{-1} |e''|^2 \textint{P
+        \cap \oball{0}{1/4}}{} \theta(|y|^2) \ud \HM^{\vdim}(y) \,,
+    \end{displaymath}
+    and the integral is positive because $\HM^{\vdim}(P \cap \oball{0}{1/4}) > 0$. Thus $e'' = 0$
+    and $e \in P$.
+\end{proof}
+
+\begin{lemma}[{\cite[Lemma~2.2]{DePhilippis2018}, conclusion adapted}]
+    \label{ddg:2.2}
+    Suppose that $0 < \ldensity^{\vdim}(\mu,x) \le \udensity^{\vdim}(\mu,x) < \infty$ for
+    $\mu$~almost all~$x$, and that for $\mu$~almost all~$x$ there is $T_x \in \Gk$ with
+    \begin{displaymath}
+        \textint{}{} \uD \phi(y)(e) \ud \nu(y) = 0 \quad \text{for $\nu \in \TM(\mu,x)$, $\phi \in
+        \dspace{\oball{0}{1}}{\R}$ and $e \in \im T_x$}.
+    \end{displaymath}
+    Then $\mu'$ is absolutely continuous with respect to~$\HM^{\vdim}$, $\mu'$~almost all
+    of~$\R^{\adim}$ is covered by countably many $\vdim$~dimensional submanifolds of class~$1$,
+    and there is $V' \in \RVar{\vdim}(\Omega)$ with $\|V'\| = \mu$ and $V'^{(x)} = \Dirac{T_x}$ for
+    $\mu$~almost all~$x$.
+\end{lemma}
+
+\begin{proof}
+    If $\vdim < \adim$, \ref{new:preissA}, \ref{new:preissB} with $V = \im T_x$,
+    and~\ref{ddg:B.1} give the first two assertions; for $x \in \Omega$ and small~$r$ the balls
+    $\cball{x}{r}$ lie in~$\Omega$, so the quantities of~\ref{ddg:B.1} for~$\mu'$ are those
+    for~$\mu$. If $\vdim = \adim$, let $A \subset \Omega$ with $\LM^{\adim}(A) = 0$; for $0 < s <
+    \infty$, \cite[2.10.19(1)]{Federer1969} gives $\mu(A \cap \{ x : \udensity^{\adim}(\mu,x) <
+    s \}) \le 2^{\adim} s \LM^{\adim}(A) = 0$, hence $\mu(A) = 0$, and $\R^{\adim}$ itself is the
+    required submanifold. Let $M_1, M_2, \ldots$ be the submanifolds; each $M_i$ is locally
+    compact~\cite[3.1.19]{Federer1969}, hence a~Borel set.
+
+    We show that $\Tan^{\vdim}(\mu,x)$ is contained in a~$\vdim$~dimensional subspace for
+    $\mu$~almost all~$x$. Let $C \subset \Omega$ be compact, let $C'$ be a~compact neighbourhood
+    of~$C$ in~$\Omega$, and let $A_i = C' \without M_i$. By~\cite[2.10.19(4)]{Federer1969},
+    $\udensity^{\vdim}(\mu \restrict A_i, x) = 0$ for $\HM^{\vdim}$~almost all $x \in \Omega
+    \without A_i$, hence for $\mu$~almost all $x \in C \cap M_i$, because $\mu' \ll \HM^{\vdim}$.
+    For such~$x$, $\mu \restrict (\Omega \without M_i)$ and $\mu \restrict A_i$ agree near~$x$, and
+    the definition~\cite[2.8(3)]{Allard1972} gives $\Tan^{\vdim}(\mu,x) \subset \Tan(M_i,x)$,
+    which is a~$\vdim$~dimensional subspace by~\cite[3.1.21]{Federer1969}. Since $C$ and~$i$
+    are arbitrary, the claim follows.
+
+    By~\cite[2.8(5)]{Allard1972}, every compact subset of $P' = \Omega \cap \{ x : 0 <
+    \udensity^{\vdim}(\mu,x) < \infty \}$ is $(\HM^{\vdim},\vdim)$ rectifiable and $\mu =
+    \HM^{\vdim} \restrict \theta$, where $\theta(x) = \density^{\vdim}(\mu,x)$; moreover
+    $\mu(\Omega \without P') = 0$ by hypothesis. By~\cite[2.3.3]{Federer1969} there are
+    $\HM^{\vdim}$~measurable sets $E_1, E_2, \ldots$ with $\theta \CF{P'} = \textsum{i=1}{\infty}
+    i^{-1} \CF{E_i}$; then $E_i \subset P'$. If $C \subset \Omega$ is compact, then
+    $\HM^{\vdim}(E_i \cap C) \le i \mu(C) < \infty$; by~\cite[2.2.5]{Federer1969} there are compact
+    sets $K_l \subset P' \cap C$ with $\mu(P' \cap C \without \bigcup_l K_l) = 0$, hence
+    $\HM^{\vdim}(E_i \cap C \without \bigcup_l K_l) = 0$, and $E_i \cap C$ is $(\HM^{\vdim},\vdim)$
+    rectifiable in the sense of~\cite[2.8(4)]{Allard1972}. Therefore $V' = \textsum{i=1}{\infty}
+    i^{-1} \var{}(E_i)$ belongs to $\RVar{\vdim}(\Omega)$ by~\cite[3.5]{Allard1972}, and $\|V'\| =
+    \textsum{i}{} i^{-1} \HM^{\vdim} \restrict E_i = \HM^{\vdim} \restrict (\theta \CF{P'}) = \mu$.
+
+    By~\cite[3.5(1)(a)]{Allard1972}, $V'^{(x)} = \Dirac{\Tan^{\vdim}(\mu,x)}$ for $\mu$~almost
+    all~$x$, where $\Tan^{\vdim}(\mu,x)$ is identified with the orthogonal projection onto it.
+    By~\ref{new:flat} applied with $W = \im T_x$, $\im T_x \subset \Tan^{\vdim}(\mu,x)$ for
+    $\mu$~almost all~$x$; both are $\vdim$~dimensional, so $T_x$ is the orthogonal projection onto
+    $\Tan^{\vdim}(\mu,x)$ and $V'^{(x)} = \Dirac{T_x}$.
+\end{proof}
+
+\section{Dependencies and formalisation notes}
+\label{sec:deps}
+
+\begin{miniremark}
+    \label{mr:deps}
+    This section lists every numbered item with its source, the results it uses, and its
+    membership in the minimal path; it then describes the minimal path, the external dependencies,
+    the use of~\cite{Federer1969}, the unverified locators, and the corrections of the paper.
+\end{miniremark}
+
+\begingroup
+\small
+\setlength{\LTpre}{0pt}
+\begin{longtable}{p{0.12\textwidth}p{0.19\textwidth}p{0.53\textwidth}l}
+    item & source & uses & MS \\ \hline
+    \endhead
+    \ref{new:densities} & new & \cite[2.4.9]{Federer1969} & \\
+    \ref{def:tangent} & DDG (2.1) & \cite[2.6(2)]{Allard1972} & \\
+    \ref{ddg:2.1} & DDG Lemma~2.1 & \ref{new:densities}, \cite[2.6(2)(c)]{Allard1972} & \\
+    \ref{new:approx} & new & --- & \\
+    \ref{ddg:2.3} & DDG Lemma~2.3 & \ref{new:densities}, \ref{new:approx},
+        \cite[3.3]{Allard1972}, \cite[2.8.18, 2.9.9]{Federer1969} & \\
+    \ref{ddg:2.4-6} & DDG (2.4)--(2.6) & \ref{new:densities}, \cite[2.8.18, 2.9.11]{Federer1969} & \\
+    \ref{new:translation} & new & \cite[2.4.9, 4.1.2]{Federer1969} & \\
+    \ref{mr:integrands} & DDG (2.7) & \cite[3.1.22]{Federer1969} & MS \\
+    \ref{def:BF} & DDG (1.3), (2.9), Def.~1.1 & \ref{ddg:A.tan} & MS \\
+    \ref{def:firstvar} & DDG (1.4), (2.8) & \cite[4.1.5]{Federer1969}, \ref{ddg:A.2} & MS \\
+    \ref{ddg:2.10-12} & DDG (2.10)--(2.12) & \ref{def:BF} & \\
+    \ref{new:kerim} & new & \ref{def:BF} & \\
+    \ref{ddg:2.4} & DDG Lemma~2.4 & \ref{ddg:2.3}, \ref{ddg:2.10-12}, \ref{new:densities},
+        \cite[2.8.18, 2.9.5]{Federer1969} & \\
+    \ref{ddg:3.1} & DDG Lemma~3.1 & \ref{ddg:2.1}, \ref{ddg:2.3}, \ref{ddg:2.4},
+        \ref{new:translation} & \\
+    \ref{new:convcompact} & new & \cite[2.5.3, 2.5.14, 2.6.2, 2.10.21, 4.1.2]{Federer1969} & \\
+    \ref{new:newton} & external & \cite[(2.12), (2.13), (2.17), Lemmas~4.1, 4.2]{Gilbarg2001a},
+        \cite[2.4.9, 2.6.2]{Federer1969} & \\
+    \ref{new:weak11} & external & \cite[Theorems~5.2.10, 5.3.3]{Grafakos2014} & \\
+    \ref{ddg:3.3} & DDG Lemma~3.3 & \cite[2.4.9]{Federer1969} & \\
+    \ref{new:variation} & new & \cite[2.2.5, 4.1.2, 4.1.5]{Federer1969} & \\
+    \ref{new:mollcompact} & new & \cite[2.6.2, 2.9.9, 4.1.2, 4.1.5]{Federer1969} & \\
+    \ref{ddg:3.2} & DDG Lemma~3.2 & \ref{ddg:2.10-12}, \ref{new:convcompact}, \ref{new:newton},
+        \ref{new:weak11}, \ref{ddg:3.3}, \ref{new:mollcompact}, \cite[4.1.2,
+        4.1.5]{Federer1969} & \\
+    \ref{ddg:3.4} & DDG Lemma~3.4 & \ref{ddg:2.1}, \ref{ddg:2.3}, \ref{ddg:2.4}, \ref{ddg:3.1},
+        \ref{ddg:3.2}, \ref{new:variation}, \cite[2.8.18, 2.9.11, 2.10.11]{Federer1969},
+        \cite[2.6(2)(c), 2.8(1)]{Allard1972} & \\
+    \ref{ddg:1.2} & DDG Theorem~1.2 & \ref{ddg:2.4-6}, \ref{new:kerim}, \ref{ddg:2.4},
+        \ref{ddg:3.1}, \ref{ddg:3.4}, \ref{ddg:2.2}, \ref{new:approx}, \cite[2.6.2, 2.8.18, 2.9.8,
+        2.10.6, 2.10.19(3), 2.10.35]{Federer1969}, \cite[3.5(1)(a)]{Allard1972} & \\
+    \ref{new:Gx} & DDG (1.5), (5.1) & --- & \\
+    \ref{new:Gxprop} & new & \ref{ddg:A.1} & \\
+    \ref{new:jacobian} & new & \cite[1.3.4, 1.7.5]{Federer1969} & \\
+    \ref{new:BG} & DDG section~5 & \ref{new:jacobian}, \ref{new:BFderiv},
+        \cite[2.2(1)]{Allard1972}, \cite[1.3.4]{Federer1969} & \\
+    \ref{new:strictconv} & DDG (5.3) & \ref{new:Gxprop} & \\
+    \ref{ddg:1.3} & DDG Theorem~1.3 & \ref{new:BG}, \ref{new:strictconv}, \ref{new:kerim},
+        \ref{new:Gxprop} & \\
+    \ref{ddg:A.1} & DDG (A.1) & \cite[2.3, 2.3(3)]{Allard1972}, \cite[1.7.3]{Federer1969} & MS \\
+    \ref{new:projformula} & new & \ref{ddg:A.1}, \cite[1.3.4]{Federer1969} & MS \\
+    \ref{ddg:A.tan} & DDG (A.2) & \ref{new:projformula}, \cite[3.1.19(4), 3.1.21]{Federer1969} &
+        MS \\
+    \ref{ddg:A.lemma1} & DDG Lemma~A.1 & \ref{new:projformula}, \ref{ddg:A.tan} & MS \\
+    \ref{new:BFderiv} & DDG (A.7), (A.8) & \ref{ddg:A.lemma1}, \cite[2.4(1)]{Allard1972},
+        \cite[1.7.5, 3.1.11, 3.1.22]{Federer1969} & MS \\
+    \ref{new:flow} & new & --- & MS \\
+    \ref{ddg:A.2} & DDG Lemma~A.2 & \ref{new:projformula}, \ref{ddg:A.lemma1},
+        \ref{new:BFderiv}, \ref{new:flow}, \cite[2.4.9]{Federer1969}, \cite[3.2(1)]{Allard1972} &
+        MS \\
+    \ref{ddg:A.2const} & DDG Lemma~A.2 & \ref{ddg:A.2}, \ref{ddg:A.tan} & MS \\
+    \ref{ddg:B.1} & DDG Theorem~B.1 & \cite[5.3]{Preiss1987} (external) & \\
+    \ref{new:preissA} & new & \cite[2.8.18, 2.9.11]{Federer1969} & \\
+    \ref{new:preissB} & new & \ref{new:densities}, \ref{new:translation},
+        \cite[2.6(2)(c)]{Allard1972} & \\
+    \ref{new:flat} & new & \ref{new:densities}, \cite[2.6(2)(a), 3.4, 3.4(1), 3.5,
+        3.5(1)(a)]{Allard1972} & \\
+    \ref{ddg:2.2} & DDG Lemma~2.2 & \ref{ddg:B.1}, \ref{new:preissA}, \ref{new:preissB},
+        \ref{new:flat}, \cite[2.2.5, 2.3.3, 2.10.19(1)(4), 3.1.19, 3.1.21]{Federer1969},
+        \cite[2.8(3)(4)(5), 3.5, 3.5(1)(a)]{Allard1972} & \\
+    \caption{Dependencies. ``DDG'' refers to~\cite{DePhilippis2018}; ``MS'' marks the minimal
+    path of~\ref{rem:ms}.}
+    \label{tab:dependencies}
+\end{longtable}
+\endgroup
+
+\begin{remark}[minimal path]
+    \label{rem:ms}
+    The formalisation of the anisotropic Michael--Simon inequality of De~Philippis, Gennaioli,
+    Pigati and Rindler needs only the first variation formula for an~integrand $F : \Gk \to
+    (0,\infty)$ not depending on the point, applied to varifolds of finite mass in~$\R^{\adim}$.
+    The minimal path consists of the following items, in this order: the identification of~$\Gk$
+    with orthogonal projections~\ref{ddg:A.1}; the projection formula~\ref{new:projformula}; the
+    submanifold structure of~$\Gk$, its tangent space and its dimension~\ref{ddg:A.tan}; the
+    standing hypothesis on~$F$ in~\ref{mr:integrands} and the definition of~$B_F$
+    in~\ref{def:BF}; the definition of $\delta_F V$ in~\ref{def:firstvar}; the derivative of the
+    moving plane~\ref{ddg:A.lemma1}; the derivative of the
+    weighted Jacobian~\ref{new:BFderiv}; the elementary properties of $[ x \mapsto x + t g(x) ]$
+    in~\ref{new:flow}; and the first variation formula~\ref{ddg:A.2} with its
+    corollary~\ref{ddg:A.2const}. Besides~\cite{Federer1969}, this path uses
+    only~\cite[2.2, 2.3, 2.3(3), 2.3(4), 2.4(1), 3.1, 3.2(1)]{Allard1972}; it does not use
+    sections~\ref{sec:prelim}--\ref{sec:proof13} beyond~\ref{mr:notation}, \ref{mr:integrands},
+    \ref{def:BF} and~\ref{def:firstvar}, nor any external result. For the use in the
+    Michael--Simon inequality one takes $\Omega = \R^{\adim}$ and $\|V\|(\R^{\adim}) < \infty$
+    in~\ref{ddg:A.2const}.
+\end{remark}
+
+\begin{remark}[external dependencies]
+    \label{rem:external}
+    The following results are not contained in~\cite{Federer1969} or~\cite{Allard1972} and must
+    be formalised separately or assumed.
+    \begin{enumerate}
+        \item Preiss's rectifiability criterion~\cite[5.3]{Preiss1987}, together with the
+        definitions of~\cite[1.1, 1.5, 1.6(8), 5.1(1)]{Preiss1987}; used in~\ref{ddg:B.1}
+        and~\ref{ddg:2.2}. This is by far the deepest dependency.
+        \item The Calder\'on--Zygmund theory: \cite[Theorem~5.2.10]{Grafakos2014} for the
+        boundedness on~$\Lp{2}$ of singular integrals with even kernels, and
+        \cite[Theorem~5.3.3]{Grafakos2014} with conditions~\cite[(5.3.4), (5.3.7),
+        (5.3.12)]{Grafakos2014} for the weak type $(1,1)$ estimate~\cite[(5.3.13)]{Grafakos2014};
+        used in~\ref{new:weak11}. For the specific kernels $\uD_i \uD_l \Gamma$ the
+        $\Lp{2}$~bound may alternatively be obtained from Plancherel's theorem, the multiplier being
+        bounded.
+        \item Potential theory of the Laplacian: \cite[(2.12), (2.13), (2.17), Lemma~4.1,
+        Lemma~4.2 and (4.9)]{Gilbarg2001a}; used in~\ref{new:newton}.
+    \end{enumerate}
+\end{remark}
+
+\begin{remark}[use of Federer's book]
+    \label{rem:federer}
+    All cited items of~\cite{Federer1969} lie in chapters~1--3 or in 4.1.1--4.1.27, namely
+    \cite[4.1.2, 4.1.5]{Federer1969}; none of the exceptions 1.1.3, the examples of 2.8.8--9,
+    2.10.46 and Kneser's paragraph of 3.2.40 is used. Hence no item beyond the formalised range
+    of~\cite{Federer1969} is required. The derivation theory~\cite[2.8.18, 2.9]{Federer1969} is
+    used through the local application described in~\ref{mr:notation}; a~small library lemma
+    performing this localisation will be used repeatedly.
+\end{remark}
+
+\begin{remark}[locators to be rechecked]
+    \label{rem:unverified}
+    The source contains comments marked \texttt{UNVERIFIED} at the following places: the
+    hypothesis~\cite[(5.2.24)]{Grafakos2014} for smooth even kernels in~\ref{new:weak11}; the
+    reading of closed balls in~\cite[1.1]{Preiss1987} and of the range $1 \le m < \adim$
+    in~\cite[5.3]{Preiss1987} in~\ref{rem:B.1}. In addition, the following locators
+    of~\cite{Federer1969} were assigned from the table of contents or from memory of their content
+    rather than from a~reading of the full statement: 2.1.2 (notation $\mu \restrict A$, $f_\#
+    \mu$), 2.2.5 (regularity of Radon measures), 2.5.3 (density of the Daniell lattice in~$\Lp{1}$),
+    2.10.21 (compactness of equi-Lipschitzian families), 3.1.11 (chain rule), and 3.1.21
+    (tangent space of a~submanifold as the image of the differential of a~parametrisation).
+\end{remark}
+
+\begin{remark}[errors and gaps in the paper]
+    \label{rem:errors}
+    The following corrections were made; the numbers refer to~\cite{DePhilippis2018}.
+    \begin{enumerate}
+        \item Lemma~2.1: upper semicontinuity is applied to the open ball~$B_t$; it holds for
+        compact sets. The conclusion is stated in~\ref{ddg:2.1} for the closed ball.
+        \item Lemma~2.3 is proved in~\cite[p.~1130]{DePhilippis2018} by reference to Proposition~9 of the paper numbered~[10] there; a~direct proof
+        is given in~\ref{ddg:2.3}.
+        \item Lemma~2.4: the estimate ``$\|F - F_x\|_{C^1} o(1)$'' is imprecise; the proof
+        in~\ref{ddg:2.4} uses $r_j \to 0$ for the $\uD_x F$ term and the uniform continuity
+        of~$B_F$ for the other.
+        \item Lemma~3.1: the decomposition of an~invariant measure in a~cylinder and its constant
+        are replaced by a~packing estimate in~\ref{ddg:3.1}.
+        \item Lemma~3.2: the claim that the precompactness of $u_j * \rho_{\varepsilon_j}$ for
+        every $\varepsilon_j$ suffices is not proved; see~\ref{new:mollcompact}. The formula
+        $\Delta^{-1} \operatorname{div} \operatorname{div} Y = K * Y$ omits the term
+        $\vdim^{-1} \trace Y$ coming from~\cite[(4.9)]{Gilbarg2001a}; it is harmless because
+        $\|Y_j\|_{\Lp{1}} \to 0$. The case $\vdim = 1$ is not covered by~(3.8). The citation
+        ``[17, chap.~4]'' matches the second edition of Grafakos's book; in the third edition the
+        result is~\cite[Theorem~5.3.3]{Grafakos2014}. The modulus~$\omega$ need not be concave, and
+        hypothesis~(1) is used only through the bounds of~\ref{ddg:3.2}\ref{i:ddg:3.2:2},
+        \ref{i:ddg:3.2:3}, which include the continuity of~$F_j$ in the plane variable.
+        \item Lemma~3.3: the Vitali convergence theorem is replaced by an~elementary estimate
+        in~\ref{ddg:3.3}.
+        \item Lemma~3.4: the Radon--Nikodym decomposition with respect to $\HM^d \restrict \{
+        \density_*^d > 0 \}$ is not justified as written, since that measure is not shown to be
+        Radon; the proof in~\ref{ddg:3.4} argues by contradiction on an~$\HM^{\vdim}$~null Borel
+        set and needs neither this decomposition nor Theorem~6.9 of the book numbered~[19] in~\cite[p.~1137]{DePhilippis2018}.
+        \item Section~4, Step~1: the identity $\im \transpose{B_F(x,T_x)} = \im T_x$ is used
+        tacitly; it is~\ref{new:kerim}. The conclusion $T_x K = T_x$ of Lemma~2.2 needs the
+        identification of tangent measures of rectifiable measures; see~\ref{new:flat}
+        and~\ref{ddg:2.2}.
+        \item Section~4, Step~2: the varifold is constructed in~$\R^n$; for general~$\Omega$ the
+        plane is translated through a~point of~$\Omega$ as in~\ref{ddg:1.2}.
+        \item Section~5, Step~2: no point where $\Phi(\nu_0,\cdot) > 0$ is exhibited; one is
+        supplied in~\ref{ddg:1.3}. The equality $G(P_x \nu) = \langle d G(x), \nu \rangle$ needs
+        an~absolute value; the inequality~(5.3) still follows.
+        \item Strict convexity of a~one-homogeneous function is not defined in the paper; the
+        definition in~\ref{new:Gx} and its equivalence with~(5.3) in~\ref{new:strictconv} are
+        supplied.
+        \item Theorem~B.1 misquotes Preiss's constant $8^{-m-9} m^{-4}$ as $2^{-d-9} d^{-4}$ and
+        uses open balls; Preiss's criterion requires $m < n$, so the case $\vdim = \adim$ is
+        treated separately in~\ref{ddg:2.2}.
+    \end{enumerate}
+\end{remark}
+
+\bibliographystyle{halpha}
+\bibliography{blueprint}
+
+\end{document}

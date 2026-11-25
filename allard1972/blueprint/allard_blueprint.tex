@@ -1,0 +1,232 @@
+\pdfoutput=1
+
+\documentclass[a4paper,twoside,leqno]{article}
+
+\input{preambule.tex}
+
+\input{macros.tex}
+
+\usepackage{longtable}
+
+% Local notation of this note (names checked against preambule.tex and macros.tex).
+\newcommand{\Gk}[2][\vdim]{\mathbf{G}_{#1}(#2)}   % Allard's G_k(M)
+\newcommand{\MS}{\textsuperscript{MS}}              % entry on the Michael--Simon path
+\setlength{\emergencystretch}{2em}
+
+\date{\today}
+
+\title{Blueprint of a formalisation of Allard's paper on the first variation of a varifold}
+
+\author{Working note}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+\label{sec:intro}
+
+Allard's paper~\cite{Allard1972} develops the theory of $\vdim$~dimensional varifolds whose first
+variation is a~Radon measure. A~varifold~$V$ in an open set $U \subseteq \R^{\adim}$ is a~Radon
+measure on $U \times \pgrass{\adim}{\vdim}$, its weight $\|V\|$ is the image of~$V$ under the
+projection onto~$U$, and its first variation is $\delta V(g) = \textint{}{} \uD g(x) \bullet S \ud
+V(x,S)$ for smooth compactly supported vector fields~$g$. The rectifiability
+theorem~\cite[5.5(1)]{Allard1972}, formalised in~\ref{al:5.5(1)}, asserts that if $\|\delta V\|$
+is a~Radon measure, then the restriction of~$V$ to the set where $\udensity^{\vdim}(\|V\|,\cdot) >
+0$ is a~rectifiable varifold: at almost every such point the density exists, the approximate
+tangent cone of $\|V\|$ is a~$\vdim$~dimensional plane~$T$, and the measure on the Grassmannian
+attached to the point is the Dirac measure at~$T$. The compactness theorem for rectifiable
+varifolds~\cite[5.6]{Allard1972}, formalised in~\ref{al:5.6}, states that the rectifiable varifolds
+with locally bounded weight and first variation and with density bounded below by a~fixed positive
+continuous function form a~compact set.
+
+The integral analogue~\cite[6.4]{Allard1972} asserts that the integral varifolds~$V$ in~$U$ with
+$(\|V\| + \|\delta V\|)(G_i) \le M_i$ for a~countable open cover $G_1, G_2, \ldots$ of~$U$ form
+a~compact set. The isoperimetric inequality~\cite[7.1]{Allard1972} bounds, for nonnegative
+$\varphi \in \dspace{U}{\R}$, the integral of~$\varphi$ with respect to~$\|V\|$ over the set where
+$\density^{\vdim}(\|V\|,\cdot) \ge 1$ by a~constant depending on $\adim$ and~$\vdim$ times
+$(\textint{}{} \varphi \ud \|V\|)^{1/\vdim}$ times $\textint{}{} \varphi \ud \|\delta V\| +
+\textint{}{} |S(\grad \varphi(x))| \ud V(x,S)$. The regularity theorem~\cite[8.19]{Allard1972}
+asserts that if $\density^{\vdim}(\|V\|,\cdot) \ge 1$ almost everywhere, the weight ratio of~$V$
+in a~cylinder over a~plane~$T$ is close to that of a~plane, the tilt excess with respect to~$T$ is
+small, and the first variation satisfies an $\Lp{p}$ bound with $p > \vdim$, then near the axis
+of the cylinder $\spt \|V\|$ is the graph of a~map of class $1$ whose derivative is H\"older
+continuous with exponent $1 - \vdim/p$.
+
+Sections~\ref{sec:prelim}--\ref{sec:rectifiability} of this note treat sections~2--5
+of~\cite{Allard1972}; sections~6--8, if present in this version, are written separately. Every
+numbered item of Allard with mathematical content receives an entry titled by its locator, with
+a~precise statement and a~linear proof in which each assertion is matched with an item of
+Federer's book~\cite{Federer1969}, an earlier entry, or an auxiliary lemma titled ``new''. Allard
+writes his varifolds in a~smooth submanifold~$M$ of an open set~$U$; we keep this generality in
+sections~\ref{sec:prelim}--\ref{sec:first_variation} and take $M = U$ in
+section~\ref{sec:rectifiability}, as Allard does. Corrections to Allard's text are recorded in
+remarks following the corresponding entries.
+
+The Rocq formalisation of Federer's book covers chapters~1--3, except~1.1.3, the examples
+of~2.8.8--9, 2.10.46 and the second paragraph of~3.2.40, and the items~4.1.1--4.1.27. Items
+from~4.1.28 on, from sections~4.2--4.5, and from chapter~5 are outside the formalised range; they
+are listed in~\ref{rem:beyond}. The entries marked~\MS\ form the shortest path to the
+Michael--Simon inequality, described in~\ref{rem:ms_path}.
+
+\input{sections2to5.tex}
+
+\InputIfFileExists{sections6to8.tex}{}{}
+
+\section{Dependencies and formalisation notes}
+\label{sec:dependencies}
+
+\begin{miniremark}
+    \label{mr:dependencies}
+    Table~\ref{tab:dependencies} lists, for each entry of
+    sections~\ref{sec:prelim}--\ref{sec:rectifiability}, its source and the entries and items of
+    Federer's book used in its proof; the last column marks the Michael--Simon path. The
+    corresponding table for sections~6--8 follows it when available. The remarks below describe
+    the Michael--Simon path and collect the items of Federer's book beyond the formalised range.
+\end{miniremark}
+
+\begin{center}
+\small
+\begin{longtable}{p{0.13\textwidth}p{0.17\textwidth}p{0.55\textwidth}p{0.07\textwidth}}
+    \caption{Dependencies of sections~\ref{sec:prelim}--\ref{sec:rectifiability}; ``new'' marks
+    auxiliary lemmas not stated in~\cite{Allard1972}, ``corrected'' marks items whose statement
+    was corrected.}
+    \label{tab:dependencies} \\
+    item & source & uses & MS \\
+    \hline
+    \endfirsthead
+    item & source & uses & MS \\
+    \hline
+    \endhead
+\ref{al:2.1} & \cite[2.1]{Allard1972} & \cite[3.1.21, 2.5.13]{Federer1969} & MS \\
+\ref{al:2.2} & \cite[2.2]{Allard1972} & \cite[1.3.1, 1.7.4--1.7.6, 1.7.9]{Federer1969} & MS \\
+\ref{al:2.2(1)} & \cite[2.2(1)]{Allard1972} & \cite[1.3.1, 1.3.4, 1.4.3]{Federer1969} & MS \\
+\ref{al:2.2(2)} & \cite[2.2(2)]{Allard1972} & \cite[1.7.6]{Federer1969} & MS \\
+\ref{al:2.3(1)} & \cite[2.3(1)--(5)]{Allard1972} & \cite[1.7.6]{Federer1969} & MS \\
+\ref{new:grass_compact} & new & \ref{al:2.3(1)} & MS \\
+\ref{new:projection_formula} & new & \cite[1.7.6]{Federer1969} & MS \\
+\ref{al:2.4} & \cite[2.4]{Allard1972} & \cite[1.3.4, 1.7.5, 1.7.6, 1.7.9]{Federer1969} & MS \\
+\ref{al:2.4(1)} & \cite[2.4(1)]{Allard1972} & \ref{al:2.2(1)}, \ref{al:2.3(1)}, \ref{al:2.4}, \cite[1.7.6]{Federer1969} & MS \\
+\ref{al:2.5} & \cite[2.5]{Allard1972} & \cite[3.1.19, 3.1.21]{Federer1969} &  \\
+\ref{new:charts} & new & \ref{new:projection_formula}, \cite[3.1.19, 3.1.21]{Federer1969} &  \\
+\ref{al:2.5(1)} & \cite[2.5(1)--(3)]{Allard1972} & \ref{new:charts} &  \\
+\ref{al:2.6(1)} & \cite[2.6(1)]{Allard1972} & \cite[2.1.2, 2.1.3, 2.2.3]{Federer1969} & MS \\
+\ref{al:2.6(2)} & \cite[2.6(2)]{Allard1972} & \cite[2.2.2, 2.2.3, 2.2.5, 2.5.13, 2.5.14, 2.5.19]{Federer1969} & MS \\
+\ref{al:2.6(2)(a)} & \cite[2.6(2)(a)--(d)]{Allard1972} & \cite[2.4.6, 2.5.19, 2.6.2]{Federer1969} & MS \\
+\ref{new:countable_dense} & new & --- & MS \\
+\ref{al:2.6(3)} & \cite[2.6(3)]{Allard1972} & \ref{new:countable_dense}, \cite[2.9.19]{Federer1969} &  \\
+\ref{new:weak_metric} & new & \ref{al:2.6(2)(a)}, \ref{new:countable_dense} & MS \\
+\ref{al:2.7(1)} & \cite[2.7(1)]{Allard1972}, corrected & \cite[2.8.9, 2.8.14]{Federer1969} &  \\
+\ref{al:2.7(2)} & \cite[2.7(2)]{Allard1972} & \ref{al:2.7(1)}, \ref{al:2.6(2)(a)} &  \\
+\ref{al:2.8(1)} & \cite[2.8(1)--(3)]{Allard1972} & \cite[2.7.16, 2.10.2, 2.10.19, 3.2.16]{Federer1969} & MS \\
+\ref{al:2.8(2)} & \cite[2.8(2)]{Allard1972} & \cite[2.2.2, 2.2.3, 2.10.6, 2.10.19]{Federer1969} & MS \\
+\ref{al:2.8(4)} & \cite[2.8(4)]{Allard1972} & --- & MS \\
+\ref{new:rectifiable_equiv} & new & \cite[3.1.19, 3.2.14, 3.2.29]{Federer1969} & MS \\
+\ref{new:simple_to_projection} & new & \ref{new:grass_compact}, \cite[1.6.1]{Federer1969} & MS \\
+\ref{al:2.8(4)(a)} & \cite[2.8(4)(a)(b)]{Allard1972} & \ref{new:rectifiable_equiv}, \ref{new:simple_to_projection}, \ref{al:2.8(2)}, \cite[3.2.19, 3.2.25]{Federer1969} & MS \\
+\ref{al:2.8(5)} & \cite[2.8(5)]{Allard1972}, corrected & \ref{al:2.8(2)}, \ref{al:2.8(4)(a)}, \cite[2.2.5, 2.8.18, 2.9.2, 2.9.5, 2.9.7, 3.2.14, 3.2.16, 3.3.17]{Federer1969} &  \\
+\ref{al:2.8(6)} & \cite[2.8(6)]{Allard1972}, corrected & \ref{al:2.4}, \ref{al:2.8(4)(a)}, \cite[2.10.43, 3.2.14, 3.2.16, 3.2.19, 3.2.20, 3.2.22]{Federer1969} &  \\
+\ref{al:3.1:lem} & \cite[3.1]{Allard1972} & \ref{new:charts}, \ref{new:grass_compact}, \cite[2.2.17, 3.1.19]{Federer1969} & MS \\
+\ref{al:3.2(1)} & \cite[3.2(1)]{Allard1972} & \ref{new:projection_formula}, \ref{al:2.4}, \cite[2.2.3, 2.3.3, 2.4.7]{Federer1969} & MS \\
+\ref{al:3.2(2)} & \cite[3.2(2)]{Allard1972} & \ref{al:2.4}, \ref{al:3.2(1)} & MS \\
+\ref{al:3.3} & \cite[3.3]{Allard1972} & \ref{new:countable_dense}, \cite[2.8.18, 2.9.2, 2.9.5--2.9.7]{Federer1969} &  \\
+\ref{al:3.4(1)} & \cite[3.4(1)--(3)]{Allard1972} & \ref{al:2.6(2)(a)}, \ref{new:weak_metric}, \ref{al:3.2(2)}, \ref{al:3.3} &  \\
+\ref{al:3.5:lem} & \cite[3.5]{Allard1972} & \ref{al:2.8(4)(a)}, \cite[2.2.3, 2.3.2]{Federer1969} & MS \\
+\ref{new:density_tangent} & new & \ref{al:2.8(2)}, \ref{al:2.8(4)(a)}, \cite[2.8.18, 2.9.9]{Federer1969} & MS \\
+\ref{al:3.5(1)} & \cite[3.5(1)]{Allard1972} & \ref{new:density_tangent}, \ref{al:3.5:lem}; ``if'' part: \ref{al:2.8(5)}, \ref{al:3.3}, \cite[2.3.3]{Federer1969} & MS (b), (a) ``only if'' \\
+\ref{al:3.5(2)} & \cite[3.5(2)]{Allard1972} & \ref{new:density_tangent} &  \\
+\ref{al:3.5(3)} & \cite[3.5(3)]{Allard1972} & \ref{al:2.8(6)}, \ref{al:3.2(1)}, \ref{new:density_tangent}, \cite[3.2.20, 3.2.22]{Federer1969} &  \\
+\ref{al:4.1} & \cite[4.1]{Allard1972} & \ref{al:2.4(1)}, \ref{al:3.2(1)}, \ref{al:3.5(3)}, \cite[2.4.9]{Federer1969} &  \\
+\ref{al:4.2:lem} & \cite[4.2]{Allard1972} & \ref{al:2.3(1)}, \cite[2.3.2, 4.1.5]{Federer1969} & MS \\
+\ref{al:4.3} & \cite[4.3(1)--(5)]{Allard1972} & \cite[2.5.12, 2.8.18, 2.9.2, 2.9.5, 2.9.7, 2.9.10, 4.1.5]{Federer1969} &  \\
+\ref{al:4.4} & \cite[4.4(1)]{Allard1972} & \ref{al:2.5(1)}, \ref{al:4.2:lem} &  \\
+\ref{new:divergence} & new & \ref{al:2.2(1)}, \ref{al:2.4}, \ref{new:charts}, \cite[2.6.2, 3.2.3, 3.2.5]{Federer1969} &  \\
+\ref{al:4.5} & \cite[4.5]{Allard1972} & \ref{new:divergence}, \ref{al:3.2(1)} &  \\
+\ref{al:4.6(1)} & \cite[4.6(1)]{Allard1972} & \ref{al:2.3(1)}, \ref{al:4.3} &  \\
+\ref{al:4.6(2)} & \cite[4.6(2)]{Allard1972} & \ref{al:4.6(1)}, \cite[3.1.19]{Federer1969} &  \\
+\ref{al:4.6(3)} & \cite[4.6(3)]{Allard1972}, corrected & \ref{al:4.6(2)}, \ref{al:4.4}, \ref{al:4.5}, \cite[3.2.3, 3.2.5, 4.1.4]{Federer1969} &  \\
+\ref{al:4.7} & \cite[4.7]{Allard1972} & \ref{al:4.5}, \cite[4.5.5, 4.5.6, 4.5.11, 4.5.12]{Federer1969} (beyond range) &  \\
+\ref{al:4.8} & \cite[4.8(1)--(4)]{Allard1972} & \ref{al:4.2:lem}, \ref{al:4.7}; (d): \cite[4.1.9]{Federer1969}, \cite[4.2]{Federer1969} (beyond range) &  \\
+\ref{al:4.9(1)} & \cite[4.9]{Allard1972} & \ref{al:3.2(1)}, \ref{al:4.1} &  \\
+\ref{al:4.10(1)} & \cite[4.10(1)]{Allard1972} & \ref{al:4.3}, \cite[2.4.9]{Federer1969} &  \\
+\ref{al:4.10(2)} & \cite[4.10(2)]{Allard1972} & \ref{al:4.10(1)}, \ref{al:2.6(3)}, \cite[2.9.19, 2.9.20]{Federer1969} &  \\
+\ref{al:4.11} & \cite[4.11]{Allard1972} & \ref{al:4.2:lem} &  \\
+\ref{al:4.12} & \cite[4.12]{Allard1972} & \ref{al:3.2(2)}, \ref{al:3.4(1)}, \ref{al:4.11} &  \\
+\ref{al:5.1(1)} & \cite[5.1(1)]{Allard1972} & \ref{al:2.3(1)}, \ref{al:4.2:lem}, \ref{al:4.3}, \cite[2.5.17, 4.1.4]{Federer1969} &  \\
+\ref{al:5.1(2)} & \cite[5.1(2)]{Allard1972} & \ref{al:5.1(1)}, \cite[2.4.7]{Federer1969} &  \\
+\ref{al:5.1(3)} & \cite[5.1(3)]{Allard1972} & \ref{al:5.1(1)} &  \\
+\ref{al:5.1(4)} & \cite[5.1(4)]{Allard1972} & \ref{al:4.3}, \ref{al:5.1(3)} &  \\
+\ref{al:5.2(1)} & \cite[5.2(1)]{Allard1972} & \ref{al:2.5(1)}, \ref{al:4.4} &  \\
+\ref{al:5.2(2)} & \cite[5.2(2)]{Allard1972} & \ref{al:5.1(2)}, \ref{al:4.10(1)}, \ref{al:2.6(3)}, \ref{al:5.2(1)} &  \\
+\ref{al:5.2(3)} & \cite[5.2(3)]{Allard1972} & \ref{al:4.10(1)} (outline) &  \\
+\ref{al:5.3} & \cite[5.3]{Allard1972} & \ref{al:5.1(2)}, \ref{al:5.2(2)}, \ref{al:4.6(3)}, \cite[2.6.2]{Federer1969} &  \\
+\ref{al:5.4} & \cite[5.4]{Allard1972} & \ref{al:2.7(2)}, \ref{al:5.1(3)}, \ref{al:5.1(4)} &  \\
+\ref{al:5.5(1)} & \cite[5.5(1)]{Allard1972} & \ref{al:3.3}, \ref{al:3.4(1)}, \ref{al:3.5(1)}, \ref{al:4.3}, \ref{al:4.12}, \ref{al:5.1(4)}, \ref{al:5.3}, \ref{al:5.4}, \cite[2.8.18, 2.9.13, 3.2.16]{Federer1969} &  \\
+\ref{al:5.5(2)} & \cite[5.5(2)]{Allard1972} & \ref{al:2.8(2)}, \ref{al:3.5(1)}, \ref{al:5.5(1)} &  \\
+\ref{al:5.5(3)} & \cite[5.5(3)]{Allard1972} & \cite[4.1.25]{Federer1969}, \cite[4.2, 4.2.10]{Federer1969} (beyond range) &  \\
+\ref{al:5.6} & \cite[5.6]{Allard1972} & \ref{al:2.6(2)(a)}, \ref{new:weak_metric}, \ref{al:4.11}, \ref{al:5.4}, \ref{al:5.5(1)} &  \\
+\end{longtable}
+\end{center}
+
+\InputIfFileExists{table6to8.tex}{}{}
+
+\begin{remark}
+    \label{rem:ms_path}
+    The Michael--Simon inequality~\cite[Theorem~2.1]{Michael1973}, formulated for varifolds
+    in~$\R^{\adim}$, needs only the case $M = U = \R^{\adim}$ and the following entries: the linear algebra \ref{al:2.2(1)}, \ref{al:2.2(2)}, \ref{al:2.3(1)},
+    \ref{new:grass_compact}, \ref{new:projection_formula}, \ref{al:2.4} and~\ref{al:2.4(1)};
+    measures and weak convergence \ref{al:2.6(1)}, \ref{al:2.6(2)}, \ref{al:2.6(2)(a)},
+    \ref{new:countable_dense} and~\ref{new:weak_metric}; densities and rectifiable sets
+    \ref{al:2.8(1)}, \ref{al:2.8(2)}, \ref{al:2.8(4)}, \ref{new:rectifiable_equiv},
+    \ref{new:simple_to_projection} and~\ref{al:2.8(4)(a)}; varifolds and their images
+    \ref{al:3.1}, \ref{al:3.1:lem}, \ref{al:3.2}, \ref{al:3.2(1)} for $C^1$ diffeomorphisms
+    of~$\R^{\adim}$ and \ref{al:3.2(2)}; rectifiable varifolds \ref{al:3.5}, \ref{al:3.5:lem},
+    \ref{new:density_tangent}, the ``only if'' part of~\ref{al:3.5(1)}(a) together with the
+    measurability of $[x \mapsto \Tan^{\vdim}(\|V\|,x)]$, and~\ref{al:3.5(1)}(b); finally the
+    definition~\ref{al:4.2} with~\ref{al:4.2:lem}. The proof of~\ref{al:3.5(1)}(b) given first
+    proceeds directly from $V = \textsum{i=1}{\infty} c_i \var{}(E_i)$
+    through~\cite[2.8.18, 2.9.9, 2.10.19(4), 3.2.19, 3.2.25]{Federer1969}; it avoids~\ref{al:3.3},
+    \ref{al:2.8(5)} and~\cite[3.3.17]{Federer1969}. Submanifolds (\ref{al:2.5}--\ref{al:2.5(1)}),
+    covering theorems (\ref{al:2.7(1)}, \ref{al:2.7(2)}), varifold tangents~\ref{al:3.4(1)} and
+    sections~\ref{sec:first_variation}--\ref{sec:rectifiability} beyond~\ref{al:4.2:lem} are not
+    needed on this path.
+\end{remark}
+
+\begin{remark}
+    \label{rem:beyond}
+    The following items of Federer's book used or cited in this blueprint lie beyond the
+    formalised range.
+    \begin{enumerate}
+        \item \cite[4.5.5, 4.5.6, 4.5.11, 4.5.12]{Federer1969}: exterior normals, the
+            Gauss--Green theorem and sets of locally finite perimeter, used in~\ref{al:4.7}
+            and~\ref{al:4.8}(a). A lighter route for smooth or polyhedral~$E$ uses the
+            divergence theorem~\ref{new:divergence} on each face.
+        \item \cite[4.2, 4.2.10]{Federer1969}: integral currents and their isoperimetric
+            inequality, used in~\ref{al:4.8}(d) and~\ref{al:5.5(3)}; these remarks are not
+            formalised. The homotopy formula~\cite[4.1.9]{Federer1969} and the lemma on Lipschitz
+            images~\cite[4.1.25]{Federer1969} used there lie within the formalised range.
+        \item \cite[5.4.3]{Federer1969}: the monotonicity formula for minimising currents,
+            cited by Allard only as motivation for~\ref{al:5.1(1)}.
+        \item \cite[4.5.9(18)]{Federer1969}: credited by Allard in~\ref{rem:7.3}; not used in
+            the proof.
+        \item \cite[5.2.5]{Federer1969}: regularity of solutions of elliptic systems, cited by
+            Allard in~\ref{al:8.15}; replaced by~\ref{new:meanvalue}.
+        \item \cite[5.2.6]{Federer1969}: regularity of weak solutions, cited by Allard
+            in~\ref{al:8.16} (printed there as 2.5.6); replaced by~\ref{new:weyl}.
+        \item \cite[4.1.5]{Federer1969}, the representation of distributions of order zero by
+            integration, lies inside the formalised range~4.1.1--4.1.27; so does the constancy
+            theorem~\cite[4.1.4]{Federer1969}.
+    \end{enumerate}
+    In sections~\ref{sec:compactness}--\ref{sec:regularity}, the Gauss--Green
+    theorem~\cite[4.5.6, 4.5.12]{Federer1969} enters only through~\ref{al:7.2}, which
+    uses~\ref{al:4.7}; the corollary~\ref{al:6.4:cor} and~\ref{al:7.4} avoid it. With the
+    replacements above, the compactness theorem, the isoperimetric inequality~\ref{al:7.1} and the
+    regularity theorem need no item of Federer's book beyond the formalised range.
+\end{remark}
+
+\bibliographystyle{halpha}
+\bibliography{blueprint}
+
+\end{document}

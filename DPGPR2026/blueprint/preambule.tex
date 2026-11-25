@@ -1,0 +1,170 @@
+% \documentclass[a4paper,draft,twoside,leqno]{article}
+% \documentclass[a4paper,twoside,leqno]{article}
+
+\usepackage{a4wide}
+
+\usepackage[p,osf]{scholax}
+% T1 and textcomp are loaded by package. Change that here, if you want
+% load sans and typewriter packages here, if needed
+\usepackage{amsmath,amsthm}% must be loaded before newtxmath
+% amssymb should not be loaded
+\usepackage[scaled=1.075,ncf,vvarbb]{newtxmath}% need to scale up math package
+% vvarbb selects the STIX version of blackboard bold.
+
+
+% The usual ams packages
+% \usepackage{amssymb}
+% \usepackage{amsmath}
+% \usepackage{mathtools}          % for multilined environment
+% \usepackage{amsthm}
+
+% % for incrementing two counters at the same time
+% \usepackage{xassoccnt}
+
+% for the \vvvert command
+% \usepackage{mathabx}
+
+% microtype for better typesetting
+\usepackage{microtype}
+
+% for \llbracket and \rrbracket
+\usepackage[only,llbracket,rrbracket]{stmaryrd}
+
+% To produce nice calligraphic letters for Lebesgue and Hausdorff measure with
+% '\mathscr{L}'
+% \usepackage{mathrsfs} %% !!!!
+
+% To insert figures.
+\usepackage{graphicx}
+
+% for mean value integral sign
+% \usepackage{esint}                % load after the AMS packages
+
+% for different enumeration styles
+\usepackage{enumitem}
+% \setlist[enumerate,1]{label=(\alph*),resume}
+\setlist[enumerate,1]{label=(\alph*)}
+\setlist[enumerate,2]{label=(\roman*)}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\usepackage{url}
+\usepackage[hidelinks,colorlinks=true,linkcolor=blue,citecolor=darkgray,linktocpage=false]{hyperref}
+
+% To show only referenced labels
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+
+% For the symbol \mathds{1} used for the characteristic function
+\usepackage{dsfont}
+
+% \usepackage{phonetic}
+% \usepackage{extpfeil}
+% \usepackage[all]{xy}
+
+% to ease referencing
+% \usepackage[notref,notcite]{showkeys}
+
+% No hyphenation is better than an odd looking one
+\hyphenation{Lip-schitz-ian Besicovitch}
+
+% "empty" theorem enviroment for use in the introduction
+\newtheoremstyle{citing}% name
+  {3pt}%      Space above, empty = `usual value'
+  {3pt}%      Space below
+  {\itshape}% Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {.}%        Punctuation after thm head
+  {.5em}%     Space after thm head: " " = normal interword space;
+        %       \newline = linebreak
+  {\thmnote{#3}}% Thm head spec
+\theoremstyle{citing}
+\newtheorem*{citing}{}
+
+% theorem, lemma, corollary, remark, example and definition as usual
+% also, intro_problem to describe the problem dealt with in the introduction
+% and miniremark as environment without name to gather assumptions and the
+% like
+\theoremstyle{definition}
+\newtheorem*{intro_problem}{Problem}
+
+\newcounter{introcnt}
+\newcounter{claimcount}
+\theoremstyle{remark}
+\newtheorem{claim}[claimcount]{Claim}
+\newtheorem{subclaim}{Claim}[claimcount]
+
+\swapnumbers
+\theoremstyle{plain}
+
+\newtheorem{introthm}[introcnt]{Theorem}
+\newtheorem{introcol}[introcnt]{Corollary}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem*{definition*}{Definition}
+\newtheorem{miniremark}[theorem]{}
+\newtheorem{question}[theorem]{Question}
+\newtheorem*{question*}{Question}
+
+% If equation numbers are used at all they are Roman as the enumeration is
+% arabic
+% \renewcommand{\theequation}{\Roman{equation}}
+%\numberwithin{equation}{theorem}
+
+% some counters
+\newcounter{counter1}
+\newcounter{counter2}
+
+% Commands to conveniently subdevide proofs into several steps
+\theoremstyle{definition}
+\swapnumbers
+\newtheorem{step}{Step} % the environment for steps
+\newenvironment{proofinsteps}{\begin{proof}\setcounter{step}{0}}{\end{proof}}
+
+% to reset equation counter each time the theorem counter increases
+\usepackage{chngcntr}
+
+% % for \lefthalfcup and \righthalfcup
+% \usepackage{MnSymbol}
+
+% \usepackage{lmodern}
+
+% To have the same numbering for equations and enumerates
+%
+% Warning: putting a numbered equation inside myenumerate may spoil the
+% numbering!
+%
+\newenvironment{myenumerate}{
+  \begin{enumerate}
+      \setcounter{enumi}{\value{equation}}
+    }{
+      \setcounter{equation}{\value{enumi}}
+  \end{enumerate}
+}
+
+% Equation numbers should reset on each new item (theorem, remark, lemma, etc.).
+\counterwithin*{equation}{theorem}
+\counterwithin*{enumi}{theorem}
+
+
+% Local Variables:
+% coding: utf-8
+% eval: (custom-set-variables  '(LaTeX-indent-level 4) '(LaTeX-item-indent -4) '(indent-tabs-mode nil))
+% eval: (ispell-change-dictionary "british")
+% eval: (flyspell-mode)
+% End:

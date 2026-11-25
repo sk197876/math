@@ -1,0 +1,24 @@
+{
+  "timezone": "Europe/Warsaw",
+  "day_start_hour": 7,
+  "night_start_hour": 17,
+  "unrestricted_weekdays": [5, 6],
+  "day": {
+    "reserve_mib": 2560,
+    "cpu_quota_percent": 200,
+    "cpu_weight": 10,
+    "io_weight": 10,
+    "max_workers": 2,
+    "memory_limit_factor": 1.25
+  },
+  "night": {
+    "reserve_mib": 0,
+    "cpu_quota_percent": null,
+    "cpu_weight": 100,
+    "io_weight": 100,
+    "max_workers": null,
+    "memory_limit_factor": null
+  },
+  "nice": 10,
+  "poll_seconds": 0.25
+}

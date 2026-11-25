@@ -1,0 +1,35 @@
+(** Federer (1969), 4.1.7, pp. 355–359:
+    original differential currents and their
+    test actions, boundary and products,
+    integral representation and orienting fields,
+    mass and normality, and proper pushforward.
+    This interface exports the annotated public
+    laws of the actual spaces and
+    opaque operators. The literal final test
+    topology and explicit boundary conventions remain. *)
+From Federer Require Export CurrentCoefficientNorms CurrentSpaces CurrentEvaluation
+  CurrentCompactSupport CurrentDirectionalDerivative DistributionTargetTranspose
+  CurrentContraction CurrentVectorProduct CurrentBoundary CurrentBoundarySquared
+  CurrentBoundaryContraction CurrentBoundaryCoordinates CurrentCoordinateExpansion
+  CurrentContractionDirectionalProduct CurrentVectorDirectionalProduct CurrentZeroVectorContraction CurrentZeroVectorBoundary
+  CurrentScalarDistributions RadonMeasureCurrent RadonDaniellCurrent CurrentDirac CurrentDiracDensity DiracCurrentBounds
+  CurrentDensityUP CurrentDensitySealed CurrentDensityUniqueness CurrentDensityArithmetic
+  CurrentLebesgueDensity CurrentLebesgueBoundary CurrentConstantDensity
+  CurrentOpenRestriction CurrentOpenRestrictionBoundary CurrentDualityDiagram
+  EuclideanFundamentalCurrent EuclideanFundamentalCurrentNonzero
+  EuclideanFundamentalCurrentVariation EuclideanFundamentalCurrentOrientation TopCurrentConstancy TopCurrentGlobalConstancy
+  CurrentIntegrationCriterion NormalisedCurrentSealed CurrentBallLimitsUP CurrentOrientationSealed CurrentOrientationAlmost
+  OpenCurrentDensityUP OpenCurrentDensitySealed CurrentDensityVariation
+  CurrentMeasurableProducts CurrentMeasurableRestriction CurrentMeasurableSmoothAgreement CurrentRestrictionLone
+  CurrentGlobalComassUP CurrentGlobalComassSealed CurrentGlobalComassBound
+  CurrentMassUP CurrentMassSealed CurrentMassBasic CurrentMassRepresentation
+  NormalCurrentsUP CurrentNormalMass NormalCurrentSpaces NormalCurrentFiniteMass
+  LocallyNormalCutoffCriterion LocallyNormalPointCriterion NormalCurrentClassOneBoundary
+  CurrentProperSupport CurrentProperSupportRestriction CurrentProperSupportDomain
+  SmoothFormPullbackUP SmoothFormPullbackSealed SmoothFormPullbackContinuity
+  CurrentPushforwardUP CurrentPushforwardSealed CurrentPushforwardCongruence
+  CurrentPushforwardCutoff CurrentPushforwardSupport CurrentPushforwardBoundary CurrentPushforwardProjection
+  CurrentPushforwardVariation CurrentPushforwardOrientationWeight CurrentPushforwardNormality
+  CurrentPushforwardBaireProjection CurrentPushforwardBorelRestriction CurrentPushforwardComposition CurrentPushforwardDirac
+  HalflineCurrents HalflineCurrentBoundary HalflineCurrentSupport HalflineFiniteNormalMass HalflineCurrentTopology
+  HalflineCurrentExample HalflinePrimitiveBoundary HalflineSecondPrimitive HalflinePrimitiveNonuniqueness HalflinePrimitiveUniqueness.

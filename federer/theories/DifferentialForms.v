@@ -1,0 +1,20 @@
+(** Federer (1969), 4.1.6, pp. 351–355:
+    differential forms and multivector fields, their
+    original coordinate expansions and induced norms,
+    exterior differentiation, divergence and pullback.
+    The signed derivative and tensor composites are
+    specified independently and their values are opaque.
+    Twice differentiability retains its literal meaning. *)
+From Federer Require Export PointwiseFieldSpaceUP PointwiseFieldSpaceSealed
+  DifferentialFormFields DifferentialFormScalarOperations DifferentialFormPointwiseNorms
+  DifferentialFormContractions DifferentialFormPairingIdentification DifferentialFormDuality DifferentialFormHodgeValues
+  EuclideanCoordinateForms OriginalCoordinateFormFields OriginalFormCoefficientExpansion
+  DifferentialFormCoefficientEmbedding AlternatingFormNormUP AlternatingFormNormSealed EuclideanFormNorm AlternatingFormZeroNorm
+  OneFormOperatorNorm RealDifferentialFormCalculus ZeroFormScalarProduct FormCoefficientProductBound
+  ExteriorDifferentialUP ExteriorDifferentialSealed ExteriorDerivativeUP ExteriorDerivativeSealed
+  ExteriorDifferentialOperator ExteriorDerivativeCoordinates ExteriorDerivativeZeroDegree
+  ExteriorDerivativeLeibniz ExteriorDerivativeSquared ExteriorDifferentialTensor
+  ExteriorDifferentialCoefficients OriginalFormCoefficientDifferentials ExteriorDerivativeFiniteSum
+  DivergenceUP DivergenceSealed DivergenceCoordinates DivergenceDerivative DivergenceDuality
+  DifferentialFormPullbackUP DifferentialFormPullbackSealed DifferentialFormPullbackLaws
+  DifferentialFormCoefficientMaps ExteriorDifferentialCoefficientNaturality PullbackExteriorDerivative.

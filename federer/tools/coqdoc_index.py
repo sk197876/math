@@ -26,7 +26,35 @@ INTERFACES = [
     ('theories/Graded.v', 'Chapter 1.2: graded algebras and the tensor algebra'),
     ('theories/Exterior.v', 'Chapter 1.3: the exterior algebra'),
     ('theories/MeasureTheory.v', 'Chapter 2: general measure theory'),
-    ('theories/Rectifiability.v', 'Chapter 3: rectifiability (development in progress)'),
+    ('theories/Rectifiability.v', 'Chapter 3: rectifiability'),
+    ('theories/Distributions.v', 'Chapter 4.1.1: test functions and distributions'),
+    ('theories/Smoothing.v', 'Chapter 4.1.2: regularisation'),
+    ('theories/TensorTestDensity.v', 'Chapter 4.1.3: test tensor density'),
+    ('theories/DistributionConstancy.v', 'Chapter 4.1.4: distribution constancy'),
+    ('theories/DistributionsByIntegration.v', 'Chapter 4.1.5: representation by integration'),
+    ('theories/DifferentialForms.v', 'Chapter 4.1.6: differential forms'),
+    ('theories/Currents.v', 'Chapter 4.1.7: currents and proper pushforward'),
+    ('theories/CartesianCurrents.v', 'Chapter 4.1.8: Cartesian products and finite Stokes'),
+    ('theories/CurrentHomotopies.v', 'Chapter 4.1.9: homotopy formulas and affine mass estimates'),
+    ('theories/CurrentCones.v', 'Chapter 4.1.10: cones and exactness'),
+    ('theories/CurrentJoins.v', 'Chapter 4.1.11: joins and oriented simplexes'),
+    ('theories/FlatCurrents.v', 'Chapter 4.1.12: flat seminorms and flat chains'),
+    ('theories/CurrentFlatAffineImages.v', 'Chapter 4.1.13: affine images in the flat seminorm'),
+    ('theories/LipschitzCurrents.v', 'Chapter 4.1.14: locally Lipschitz images of flat currents'),
+    ('theories/FlatCurrentSupports.v', 'Chapter 4.1.15: support coincidence and flat-current supports'),
+    ('theories/ConvexCurrentSupport.v', 'Chapter 4.1.16: nearest retraction and convex-hull flat support'),
+    ('theories/FlatMassContractions.v', 'Chapter 4.1.17: finite-mass flat closure and summable-form contractions'),
+    ('theories/CurrentSmoothing.v', 'Chapter 4.1.18: current regularisation and exact smoothing homotopies'),
+    ('theories/FlatCurrentRepresentation.v', 'Chapter 4.1.18: compact L1 representation and the flat-current quotient'),
+    ('theories/FlatCochains.v', 'Chapter 4.1.19: flat cochains, bounded forms and weak exterior derivatives'),
+    ('theories/CurrentFlatIntegralGeometricNull.v', 'Chapter 4.1.20: flat currents with integral-geometric null support'),
+    ('theories/FlatCurrentNullCorollaries.v', 'Chapter 4.1.21: null supports and variation of flat currents'),
+    ('theories/PolyhedralCurrents.v', 'Chapter 4.1.22: integral and real polyhedral chains'),
+    ('theories/PolyhedralApproximation.v', 'Chapter 4.1.23: polyhedral approximation and mass bounds'),
+    ('theories/IntegralCurrents.v', 'Chapter 4.1.24: rectifiable currents, integral currents and integral flat chains'),
+    ('theories/CurrentLipschitzArea.v', 'Chapter 4.1.25: Lipschitz images of summable currents and their area density'),
+    ('theories/LipschitzDegree.v', 'Chapter 4.1.26: signed degree of a Lipschitz map on a bounded set'),
+    ('theories/SimplexCubeCurrents.v', 'Chapter 4.1.27: the simplex as an image of the open unit cube'),
 ]
 
 
@@ -67,8 +95,9 @@ def main():
            'li{margin:.15em 0} .decls{font-size:90%} h4{margin-bottom:.2em}</style>',
            '</head>', '<body>', '<div id="main">',
            '<h1>Federer-Rocq: Geometric Measure Theory in Rocq</h1>',
-           '<p>Generated documentation of the Rocq formalisation of Chapters 1 and 2 of '
-           'Herbert Federer, <i>Geometric Measure Theory</i> (1969), with the developing Chapter 3. Statements and '
+           '<p>Generated documentation of the Rocq formalisation of '
+           'Herbert Federer, <i>Geometric Measure Theory</i> (1969), covering Chapters 1–3 '
+           'and part of Chapter 4. Statements and '
            'documentation comments are shown; proofs are omitted. Each declaration is '
            'preceded by a comment naming its source in the book.</p>',
            '<p><a href="toc.html">Table of contents (all modules)</a> &middot; '

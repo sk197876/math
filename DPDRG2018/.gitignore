@@ -1,0 +1,11 @@
+# Generated LaTeX output of the blueprint.
+blueprint/*.pdf
+blueprint/*.aux
+blueprint/*.bbl
+blueprint/*.blg
+blueprint/*.log
+blueprint/*.out
+blueprint/*.toc
+blueprint/*.fls
+blueprint/*.fdb_latexmk
+blueprint/*.synctex.gz

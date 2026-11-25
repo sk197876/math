@@ -1,0 +1,1273 @@
+{
+  "item": "4.1.7",
+  "scope": "All original assertions, printed pp. 355\u2013359: actual form/current spaces; all eight identities for arbitrary currents; measurable products and restrictions; scalar, Radon and Lebesgue currents; constancy, original partial ball orientation and exact variation; mass, local normality and normality; class-one boundary action; proper pushforward with weighted variation and Baire/Borel projections; and the actual half-line example with the corrected uniqueness qualification.",
+  "status": "passed",
+  "date": "2026-11-19",
+  "base_revision": "ab59bd1053d6cb36cd144c1945b7b218dfde5132",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "nice": 10,
+  "umask": "0002",
+  "group": "llm",
+  "stages": {
+    "build": {
+      "stage": "build",
+      "status": "passed",
+      "started": "2026-11-19T18:19:10.995318+01:00",
+      "finished": "2026-11-19T19:19:44.859293+01:00",
+      "seconds": 3633.684,
+      "guard_wall_seconds": 3633.853,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "make",
+        "-j2",
+        "all"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 1724.148,
+      "peak_scope_memory_mib": 4709.539,
+      "estimated_whole_process_tree_memory_mib": 4096,
+      "compiler_worker_ceiling": 2,
+      "OCAMLRUNPARAM": "o=20,O=40,s=128k",
+      "resource_guard_sha256": "7346382dfb36a45b90ed2e19233329c357c3714ccfb5394c20ef9804380ee3bb",
+      "resource_policy_sha256": "a2ed66eb19f95cec2e7504418359b85f5f1d9bf10e8c5ee1ba70b97cb278366f",
+      "resource_policy": "Automatic Europe/Warsaw day/night policy, including live transitions",
+      "private_compiler_lock": "Exclusive shared POSIX lock held through registered stage",
+      "resource_report": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-181910-build/resources.json",
+      "raw_log": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-181910-build/raw.log",
+      "complete_input_record": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-181910-build/status.json"
+    },
+    "kernel": {
+      "stage": "kernel",
+      "status": "passed",
+      "started": "2026-11-19T20:25:56.845404+01:00",
+      "finished": "2026-11-19T20:34:48.491711+01:00",
+      "seconds": 531.426,
+      "guard_wall_seconds": 531.637,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "rocqchk",
+        "-silent",
+        "-Q",
+        "theories",
+        "Federer",
+        "-Q",
+        "tests",
+        "FedererTests",
+        "Federer.Currents",
+        "FedererTests.EmptyCurrentDomainExamples",
+        "FedererTests.EuclideanCurrentEndpointExamples",
+        "FedererTests.HalflineCurrentBoundaryExamples"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 3899.836,
+      "peak_scope_memory_mib": 2118.637,
+      "estimated_whole_process_tree_memory_mib": 2048,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=40,s=128k",
+      "resource_guard_sha256": "7346382dfb36a45b90ed2e19233329c357c3714ccfb5394c20ef9804380ee3bb",
+      "resource_policy_sha256": "a2ed66eb19f95cec2e7504418359b85f5f1d9bf10e8c5ee1ba70b97cb278366f",
+      "resource_policy": "Automatic Europe/Warsaw day/night policy, including live transitions",
+      "private_compiler_lock": "Exclusive shared POSIX lock held through registered stage",
+      "resource_report": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-202556-kernel/resources.json",
+      "raw_log": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-202556-kernel/raw.log",
+      "complete_input_record": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-202556-kernel/status.json"
+    },
+    "audit-plan": {
+      "stage": "audit-plan",
+      "status": "passed",
+      "started": "2026-11-19T20:35:57.709990+01:00",
+      "finished": "2026-11-19T20:35:59.730084+01:00",
+      "seconds": 1.549,
+      "guard_wall_seconds": 2.002,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "-B",
+        "tools/dependency_audit.py",
+        "ab59bd1053d6cb36cd144c1945b7b218dfde5132",
+        "--dry-run"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 5876.691,
+      "peak_scope_memory_mib": 112.504,
+      "estimated_whole_process_tree_memory_mib": 512,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=40,s=128k",
+      "resource_guard_sha256": "7346382dfb36a45b90ed2e19233329c357c3714ccfb5394c20ef9804380ee3bb",
+      "resource_policy_sha256": "a2ed66eb19f95cec2e7504418359b85f5f1d9bf10e8c5ee1ba70b97cb278366f",
+      "resource_policy": "Automatic Europe/Warsaw day/night policy, including live transitions",
+      "private_compiler_lock": "Exclusive shared POSIX lock held through registered stage",
+      "resource_report": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-203557-audit-plan/resources.json",
+      "raw_log": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-203557-audit-plan/raw.log",
+      "complete_input_record": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-203557-audit-plan/status.json"
+    },
+    "audit": {
+      "stage": "audit-targeted",
+      "status": "passed",
+      "started": "2026-11-19T20:37:06.152879+01:00",
+      "finished": "2026-11-19T21:29:18.449758+01:00",
+      "seconds": 3131.941,
+      "guard_wall_seconds": 3132.289,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "-B",
+        "tools/dependency_audit.py",
+        "ab59bd1053d6cb36cd144c1945b7b218dfde5132",
+        "--targeted-imports"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 1443.84,
+      "peak_scope_memory_mib": 2756.816,
+      "estimated_whole_process_tree_memory_mib": 4096,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=40,s=128k",
+      "resource_guard_sha256": "7346382dfb36a45b90ed2e19233329c357c3714ccfb5394c20ef9804380ee3bb",
+      "resource_policy_sha256": "a2ed66eb19f95cec2e7504418359b85f5f1d9bf10e8c5ee1ba70b97cb278366f",
+      "resource_policy": "Automatic Europe/Warsaw day/night policy, including live transitions",
+      "private_compiler_lock": "Exclusive startup check; released during the audit so isolated night-time private checks may proceed. Registered build and kernel stages remain excluded.",
+      "resource_report": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-203705-audit-targeted/resources.json",
+      "raw_log": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-203705-audit-targeted/raw.log",
+      "complete_input_record": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-203705-audit-targeted/status.json"
+    },
+    "build_reconfirmation": {
+      "stage": "build",
+      "status": "passed",
+      "started": "2026-11-19T20:25:11.288575+01:00",
+      "finished": "2026-11-19T20:25:40.304869+01:00",
+      "seconds": 28.858,
+      "guard_wall_seconds": 29.009,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "make",
+        "-j1",
+        "all"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 5406.066,
+      "peak_scope_memory_mib": 557.848,
+      "estimated_whole_process_tree_memory_mib": 2048,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=40,s=128k",
+      "resource_guard_sha256": "7346382dfb36a45b90ed2e19233329c357c3714ccfb5394c20ef9804380ee3bb",
+      "resource_policy_sha256": "a2ed66eb19f95cec2e7504418359b85f5f1d9bf10e8c5ee1ba70b97cb278366f",
+      "resource_policy": "Automatic Europe/Warsaw day/night policy, including live transitions",
+      "private_compiler_lock": "Exclusive shared POSIX lock held through registered stage",
+      "resource_report": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-202510-build/resources.json",
+      "raw_log": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-202510-build/raw.log",
+      "complete_input_record": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-202510-build/status.json"
+    }
+  },
+  "audit": {
+    "base": "ab59bd1053d6cb36cd144c1945b7b218dfde5132",
+    "changed_modules": 385,
+    "affected_modules": 385,
+    "entries": 30505,
+    "old_entries": 29589,
+    "audited": 916,
+    "audited_old": 0,
+    "audited_new": 916,
+    "unresolved_names": 0,
+    "closed": 1,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": [],
+    "targeted_imports": true,
+    "imported_query_modules": 384
+  },
+  "earlier_assumption_sets_preserved": true,
+  "earlier_assumption_results_compared": 29589,
+  "new_theories": 382,
+  "new_example_sources": 3,
+  "new_public_queries": 916,
+  "registered_source_count": 12702,
+  "source_sha256": {
+    "theories/AbstractUnitDualPairingMeasurable.v": "7c7c662118189d2d3eb9c381d940e07c58048cd798fb5a8f2142720d4f336b18",
+    "theories/AlmostConstantBallQuotient.v": "de8ce6b6d0cd3d3b26fb9916ef64ab19cbdcf9a08cd7121b8abfb9225585bacd",
+    "theories/BoundedBaireFieldLocalIntegral.v": "4e27d2124a23962b17bafb4c1c0a4d668f50378110df5765a28e515931b9fc6d",
+    "theories/BoundedBilinearCompactLone.v": "e993b01bf5f225a1ec189f254845885c0d5480767c0f4206ca79c186548717d9",
+    "theories/BoundedCurrentDensityUniqueness.v": "14778444c52f0e72b70de5252852e5ac9c5d4bdae3e6873a4db51b401fa626b5",
+    "theories/BoundedDualTestDensity.v": "42b4d7b2712ec3c79339138a5387272cdbbd10ef64ae058e89e0084736650cf9",
+    "theories/BoundedRealDensityMeasure.v": "d8daf18275abe2fe6944db7c3d51462c35ea2bdedaf8a6159756d5c091e51327",
+    "theories/CharacteristicRadonLocalIntegral.v": "fdea7e5ab5ebcadeecdde97c66f4bf6f036d0bc94d6569fe401a10be8e04b2c1",
+    "theories/ComassInducedNormEquality.v": "a4426e4b395339f1e1d230f34058d04e1719b7c7889b10f51f48ed232e234295",
+    "theories/ComassRealNorm.v": "1e1d546711397d09e4045d9352802da73951de7d94448ebf61242b548e049665",
+    "theories/CompactRepresentedCurrentMass.v": "b10b55d775b1e57090a43fbbb67a09dc9c86590d7b66c257f2def7b1f4a0cb9d",
+    "theories/CompactScalarOpenSupport.v": "82e91197341f18eda1a8b5041e1a3b64314b43ba5944201d274d626f5360bac4",
+    "theories/ContinuousConvolutionLinearImage.v": "446b10466bf78daa1c05b4004c4b1eb96b9d39fbdd4f1987fb62e7c135425996",
+    "theories/ContinuousRadonFieldLocalIntegral.v": "866e7b67157fef404b35f180e843d2a65c054ae42168af20cce613fcbf6c763e",
+    "theories/ContinuousSmoothingEventualUniform.v": "46154570e99a0c81f6193bf39100c67fd066399d84523e83bcf2c6d3386d4d76",
+    "theories/CountableCompactOpenInner.v": "bae3122ca701d48a25f7dd866caf74df66427ca9c6a23ac75360eaccdfbffd0b",
+    "theories/CountableLocalFiniteMetricRadon.v": "bbc70352f8861e5b753e8ebc49f2e622732bc6cd138d1a5748be4d9f1900bac2",
+    "theories/CountableRadonDensity.v": "e4cb9a0e2b88abd23d7e3d9f7d79493fa4986a91519a38c249cec5b393de65b1",
+    "theories/CountablyFiniteBorelCover.v": "51740c078685b6c2e2c3e5265a5aa1c8134e3657903ec3cf460aed1197af00cb",
+    "theories/CountablyFiniteDensityBorel.v": "d79c3da576d03ebc925734c0bebb0ab657a30f6cd082b16bebd3a893e0421995",
+    "theories/CountablyFiniteLocalNull.v": "c08289545ddbe9510be14e86032112b9182ce454279e9aacaf6c4b4b0017ccfe",
+    "theories/CurrentBaireFormPullback.v": "59c7fb701f5f70d0c582518e6180c58b3f98df0b14dbc00d7a0d7ac2e189098a",
+    "theories/CurrentBaireProjectionPairing.v": "c923aafafc89854b63556f103e04c41fea0e9d59ad5727ed72fbfcad297dd04b",
+    "theories/CurrentBaireTestProductLone.v": "11c58ac4d5deb343ac2165321610ff4a3c9f3eb95b62601015d763855cfac89d",
+    "theories/CurrentBaireTestSourceMeasurable.v": "e05a67f0bf0c7515d630d33b2adce551645fe55044bf0ad1d38d7d5360e2ba27",
+    "theories/CurrentBallLimitsLinear.v": "bd0544068b56f4c2ec7a93c9b11e72a2f3d63882f186bf426858aa61eaf3d295",
+    "theories/CurrentBallLimitsUP.v": "2692fb0d9abb2e919db05357e0c1c4ddf4b9bea4c6c9d05e4a8248699f4718c2",
+    "theories/CurrentBallLimitsUnique.v": "392f94629874ecaab3ad1201d291f6cb721dac19fba8761c4a7c4d61472f63a3",
+    "theories/CurrentBallQuotientLinear.v": "a1c5061d084e864787ec8a85c7f3463072b11fb950b899aca8aed5e80a9a273f",
+    "theories/CurrentBorelZeroForm.v": "1c006292533cb49d40e84f9f2502d020112dc89f2af736df83f7ff9717ea96fc",
+    "theories/CurrentBoundary.v": "526197011e2c47060666c29f45caaca144b2de566aaca4ed9818a0e263d723c2",
+    "theories/CurrentBoundaryContraction.v": "0b7918091947a69e8369935ccd6e801a396f34e763c2e1708ef5aabb8fcb6c1f",
+    "theories/CurrentBoundaryCoordinates.v": "61a653442cc718e0ab9cba16ee736629f197a434fd99f1bf98ac1bde2af70c3f",
+    "theories/CurrentBoundaryDerivativeZero.v": "c40dec2c07d0c1f7ad624032489b16e6540d0750e0ec0feeb6d440440d135cd7",
+    "theories/CurrentBoundarySquared.v": "332636c00c16d7956b680ff0200d24aa9cbc203c7c080024d9a9c15f09982759",
+    "theories/CurrentBoundarySupport.v": "7447936328bdfc7f461ddcb41e21c6bc118cd5c9440e09ab7db053ffc6d9b8e5",
+    "theories/CurrentBoundedDensityTransfer.v": "a18da8c37c78ce4df1cb2604608327522576991c89288f25f10551e35749b4a0",
+    "theories/CurrentCharacteristicContraction.v": "a040c2f5f97d00db825839497d18cf51915157a93d450b939daa18a47867e14b",
+    "theories/CurrentCharacteristicDensity.v": "6ee5c9f4c6253eba72074750762d60eab5c2d9cdb537e34a03e19311a0e9f7e7",
+    "theories/CurrentClassOneCutoff.v": "ad51b89355c478feb4a1db387cb43e625541eca3645cad22178b0eeae4bd6ab8",
+    "theories/CurrentClassOneDerivativeConvolution.v": "801b9c0d271336266a7fe4f80c539bb6fcbf23b2c3111827ea6c9d45b5c42645",
+    "theories/CurrentClassOneDivergence.v": "7bd8de2b3c6150c83466de42f3741344bd73361f7e727e77121b8cb2660a26f0",
+    "theories/CurrentClassOneExterior.v": "f29d52908965e44a59ff0c3f6826622a900569648aee7c3e3ba2fee4aad9134b",
+    "theories/CurrentClassOneExteriorCompact.v": "a6b2b48e962c15498aa9ff206e3ea23fed1cb2cc14e115113b69588d8caa909f",
+    "theories/CurrentClassOneExteriorConvolution.v": "a8614e6409e65f5f3ab7d2222eaba45de0d0dc06dccc93abdd6143f82bd7a9e5",
+    "theories/CurrentClassOneSmoothingUniform.v": "14962984a8c96ea0243b3639500389acd975c280d1e94c192b0f46c8d457512d",
+    "theories/CurrentClassOneTestApproximation.v": "2f6d2d34179aa66484cbe92b0f0452df9115eaa8eb16ab4bb77978e618ad2d19",
+    "theories/CurrentCoefficientCompleteness.v": "e2652420b5c1e66eac7a6af32e6100a7abbaad7cf95f75ce24e599d7527a0ad6",
+    "theories/CurrentCoefficientNorms.v": "5e344431e22c4807d91f80bddc6e0c380f9361b77bfbea496b29ab9fdf7a5c2e",
+    "theories/CurrentCompactBoundaryObstruction.v": "8b07e652c754ddc204498c019b871bc2fd8fd245fbb418c7da6cae7799f5fafc",
+    "theories/CurrentCompactGaugeSupport.v": "43e4e8cb8feef6eae098feef8459d6fb188d47112f0e6148265521a0b2bebab7",
+    "theories/CurrentCompactSupport.v": "685acd13b9327e47c259277c4580117a70a74753483191c1addd76fbbc1770a8",
+    "theories/CurrentCompositeImageCutoff.v": "4fdbe11cb345957f70f9009d47337207332e92e240f3de461b92d6c4f3e41e95",
+    "theories/CurrentCompositeProperness.v": "c9764a645ad3b71f61b580b30fadd4dc2c2f0f5f650e8ded1199f5d186bd3ca1",
+    "theories/CurrentConstantDensity.v": "a72a16539f75adb4433858b61a6172cb2354b26c151d4b5377c6c674847c292a",
+    "theories/CurrentConstantDensityUniqueness.v": "d0796257aaef1a05dfb58432723d6a6f2eece28f872e7c7199ea63768f43e627",
+    "theories/CurrentConstantFieldDirectional.v": "bb949bd6f23ff320ffbb1bae4ab694e4d7876c871f021f7df0f442637f5c73e7",
+    "theories/CurrentConstantFields.v": "64ff0f22c4b73971f827baaeebb768bce9be90c7f99305b61a28b35d6d32c2bc",
+    "theories/CurrentConstantTestDirectional.v": "47e5341582fedcefd0f97910f9b1f98db7a4adac1998b1b60f769279a3af478f",
+    "theories/CurrentContraction.v": "f964e0d803b7a4d6ea140d9bdde2faf71681ae180810339069cd2fb547ac6a11",
+    "theories/CurrentContractionCompactSupport.v": "46bc6c2289f85b3657d45800da250b42ad6772b92532cf96461d93cb76bbecee",
+    "theories/CurrentContractionDirectionalProduct.v": "46415c9666202ce50f411c3c0eaa8e3ed72a79915dcb33be81f29c99747fe4f1",
+    "theories/CurrentContractionSupport.v": "478f51520b234490e60db7af686e057a8025050ee4a5ae1e4a5211cefde1a10c",
+    "theories/CurrentCoordinateExpansion.v": "05278e3375c0d6dd1e1f7d7086a8d5ee8017159fc55c406fb7a06afc79455e37",
+    "theories/CurrentDegreeTransport.v": "4e3ac042b2b83f3e0695b019dcf9aa3f696fe59d58efdddd206b1f2cab6ed540",
+    "theories/CurrentDegreeTransportDerivatives.v": "6adf4b973118a6b13f665ed5750a2b9c954377c131295b512d2a714c83155e00",
+    "theories/CurrentDegreeTransportIdentity.v": "98676333484c524f09a4b6878b9a1e790ee8929031c1c5c2ed7b0b9232fa3bc6",
+    "theories/CurrentDegreeTransportInverse.v": "90eee2e775ac990eab66703f45c0f41c4bb482e3a1c0f80d7b3f129908b31d1b",
+    "theories/CurrentDegreeTransportSupport.v": "2e0656e6b054d79e99e6f987b37571fb2e4c125c70f20ff6619d85d1dbbc1374",
+    "theories/CurrentDensityAction.v": "b043fb0a0ad5a0a70d185a39c843b146f4825daac49b30cffd1f9e68b441e054",
+    "theories/CurrentDensityArithmetic.v": "85dfc25b4b32b3b42d82b177528f8f92383032b9abaa964206fd4aba742563ee",
+    "theories/CurrentDensityBorelVersion.v": "8313849d8e7801a303f3cdb55b4eb782380a31ea3f8af35f733ebf63a68488ee",
+    "theories/CurrentDensityExistence.v": "5551d8e7b1a762d05eaa0a2a4c5cf118a80a819f37201f55a2bcf49e237c22a7",
+    "theories/CurrentDensityNormMeasurable.v": "a4c3a85e80a193b3415d6b039018377d14e9a5dc874d490b70d93eeae8a4f7d1",
+    "theories/CurrentDensityNormalisation.v": "9d599cc35b16272ac54897a136b0c1ef83b4dd80f777def6e61412163ba8ed29",
+    "theories/CurrentDensityNormalisedAction.v": "609c3a71d68992b875ca43cd73bebb44cd3465568349cbbf152e9ac22f4cf196",
+    "theories/CurrentDensitySealed.v": "711a8ec5deefeb9a8948c7d49b015b378fd4ee01ed94182bd4492496236c90d6",
+    "theories/CurrentDensityUP.v": "57f52d4e7722cc29aa83eae9d57937ff725792d72a4444a5d4f7b99389d74d71",
+    "theories/CurrentDensityUniqueness.v": "a70e61b2d09aa6ad7a12db0aa45fe9fc7769a9b77060d34bfaa276c4dcb205fa",
+    "theories/CurrentDensityVariation.v": "5ff24d46f65c6f49eb0e07bdfc821427b3edc0d7cbabf29c3b53389750ea1843",
+    "theories/CurrentDensityVariationBoundedDensity.v": "3e0c4161c9a949d4785e404c78cf8fc8016abc091262aa778a5cbd23dc865b88",
+    "theories/CurrentDensityVariationUpper.v": "77a234dd7c4d84e8792206fcbaebb8da2413ce7529243505138be946ada74afe",
+    "theories/CurrentDirac.v": "60c516048309b2f7c2e996c9cdb6b555bab0327cc6cd6d71cf9750d9090fe490",
+    "theories/CurrentDiracDensity.v": "bcdea84951c9d440075fdb9944ecec6195fbc1cfae877a327b37505dfe50d19b",
+    "theories/CurrentDirectionalDerivative.v": "fa2ee39fed4bed7ccd70e9c0d87fc1eb5cfc43a62ce2943dc4438c99a641e533",
+    "theories/CurrentDivergenceMap.v": "81612261e928d318c40cc18e7d76ffad34d987c9f9926c75e4ffe548a05a620a",
+    "theories/CurrentDomain.v": "1a942efe0eff1f6e0e248a5157cb98c9962b7f33345b189c4b02b3c50eda5467",
+    "theories/CurrentDomainGeometry.v": "1eb85f8df3941283f58b548c1f44893e11b1b71eddea7b5525bfe6a2bb41c80a",
+    "theories/CurrentDualNorm.v": "d1dabbe539e0b56a393aba327f41770544f4df17b55d042f22e62528eacdd911",
+    "theories/CurrentDualityCoefficients.v": "d58aa273a5b90afb5f7ef42840730a007fdb72fd9e9cb8cc4776bc84f7396759",
+    "theories/CurrentDualityDiagram.v": "d99b30d1c4b109ff147c0c1056d15bf095fe65825cc765f53ba46cc88ca79b66",
+    "theories/CurrentEvaluation.v": "c9ad388f7eae9520ad486aa341e591ef07421d26a0d8a066b8b7f3a356b454e9",
+    "theories/CurrentExteriorDerivativeSquared.v": "6111a55c09478d72a77fc97ac0f515f88cb9a55c4c1c3b04dd9ce371592d929a",
+    "theories/CurrentExteriorDifferentialMap.v": "3dea4865b5fcbd804fd206e68eebf4a9846fba119f51b13da21ef7a547345186",
+    "theories/CurrentFiniteMassRepresentation.v": "9307028ab3b216e7ba9efb23e08694524e25565b4a5c313f8120fb60c38491ce",
+    "theories/CurrentFormInducedNorm.v": "f3a2a6b86c7232e71fb1c1558841e26b49d5d6dbc5758f2f4b417e04c70dd4b7",
+    "theories/CurrentFormProductZero.v": "c50345a663d59f5bdecf0d1ed7c3cc26a25c56e2b8d896eb193f9e5623d3a217",
+    "theories/CurrentFormPullbackOnDomain.v": "b477186545e3a42f60ea32e777cf75f0b579b36b0f0448b146d8c3c0d15ad28d",
+    "theories/CurrentFormWedgeBound.v": "252ab5039a8f736bdf6ca15d88a9add78c68646f4144c68c4df1b9a790e8de52",
+    "theories/CurrentGlobalComassBound.v": "231c4753cf086d038112dc694a2d79d635abba228d06b4f740ec4f956eed02eb",
+    "theories/CurrentGlobalComassExistence.v": "8a631e5afabc478243d39d0c845d1759b0b68d106cbff9cef2748b4b38fbb5ac",
+    "theories/CurrentGlobalComassSealed.v": "a65f897aaa9c13427fea5daec3774f96e94a599b3d5767b5f707d52db85fbc33",
+    "theories/CurrentGlobalComassUP.v": "d3394a2c596b4ab56f9a03ffee799824eaf6a0941cfc70f220fc46a5cb0b58c7",
+    "theories/CurrentImageDensityMeasurable.v": "7c4c3f71586b8b1fbc3ca0255946980ad4e22eba6f1bff260288ff6540536608",
+    "theories/CurrentImageDensityPairing.v": "63e39a07662427e5d0792ec9df88b2407264e495557341c2ccbe4ac182eb1113",
+    "theories/CurrentImageWeightRadon.v": "01e8fc9850c942fdb839efa2201b3b48ea1f11d2fbef4e03624ca0135887b203",
+    "theories/CurrentIntegrationCriterion.v": "ee6e949a5967fdf498089423b18ccb97184d88246c1b63ffa6d6a4d1c62a30e3",
+    "theories/CurrentInteriorPairing.v": "ac9f72b839a9f4320c3cd3c9b1302077598a932f8532eb1c3caee496442a2f58",
+    "theories/CurrentLebesgueBoundary.v": "e1b9b4da09d9a134e916898cfa7f5460e3cb642d76b5b857b45629bcaa09a55e",
+    "theories/CurrentLebesgueDensity.v": "51888aeb145d7ce1e8312de7446c14211b15e1d0f526557616a02fb69bd070aa",
+    "theories/CurrentLocalRepresentation.v": "db136b7a64d2ae753c3db09db64266b1539d831cd6115cad9174f138f6ed29f9",
+    "theories/CurrentLoneExtension.v": "32760265efae79b8a50a54687556ffe0e8ed42c20600072e86f802d07b0e102d",
+    "theories/CurrentLoneOriginalAgreement.v": "a89d99cf66f01767ff83a6dc4f22d0f2b1bcfc75ac8b647c54071006e9d8f504",
+    "theories/CurrentLoneUniformLimit.v": "a20728c27ba875c54ffcb4fd868a34742355046da310a099b2f6ec934f8d115e",
+    "theories/CurrentMapDifferential.v": "0f8f5ebbb079a6f108ebf684d4b9e75a81b8de9eb7363adde86618b826d015ef",
+    "theories/CurrentMassBasic.v": "e0f6d8eebbf91ce81d34c3e3905aca0a0592b0bf431c8713cbb12f6c6bedb6f8",
+    "theories/CurrentMassExistence.v": "05cb79e37b0ecde1cde14666e91b0296bcf3971253ce95ff9933499cf6ab13bb",
+    "theories/CurrentMassRepresentation.v": "9ebfbfbeea0804749bf4f77370f524959eae5d8d1e827f903685da8c08ede044",
+    "theories/CurrentMassSealed.v": "cbb85c243447d6d612f113fd2df764809e8735c3b100588f13712700579d5cff",
+    "theories/CurrentMassUP.v": "c19240d601e4b8eaaa5492031678c4f3925bcd971e28cc67a58601980debab5e",
+    "theories/CurrentMassVariation.v": "b8f32a9a32ed1a09098d0c2d2ab12af2350ff3cf4bd3f623cf986ecf1ecb78a2",
+    "theories/CurrentMeasurableMultiplierExistence.v": "0c7a1a4ddd82ad4485c3e766fe85a5b3eed4e6aba435d212ef354f333b0d8b60",
+    "theories/CurrentMeasurableMultiplierSealed.v": "6274678dee85cbbb2e5105587694db08585b0cddaeac190ec12364bc1554648f",
+    "theories/CurrentMeasurableMultiplierSupport.v": "185f9270d861f178dd2962f714d50ca8c5a9b9b13f54ea62cd06a16cff855566",
+    "theories/CurrentMeasurableMultiplierUP.v": "14d50e25a325311d622e8f9d0c7410812ea7152658128f9d2bcc5d3baf560458",
+    "theories/CurrentMeasurableProductCoefficients.v": "00d517dd716eca5d243843ab4c9ea5f95c85ab24bd9cb1af248070d952fa8d9f",
+    "theories/CurrentMeasurableProducts.v": "f44b11c00e4680d8e6d1e98b4d7dda07922e3728cf5da3a57f9a301d6e62f577",
+    "theories/CurrentMeasurableRestriction.v": "7ac09ebea1e9fcfcf9165f933709b0a24c730bad855f003d5340c0bb2f7396a6",
+    "theories/CurrentMeasurableSmoothAgreement.v": "b5454ec80fef5e3865581c35751a320628ea9896e1dfa45f89b23baf49d1e6d3",
+    "theories/CurrentMultivectorDual.v": "7b94c96b34259c72f947be201b3160bfe2997885c599fa40dda3e7d3e1663709",
+    "theories/CurrentNormDensityRadon.v": "56a175f9f1381d8c40f8d442960be744a5a95281ebd706951e5b14903d19e78f",
+    "theories/CurrentNormalMass.v": "d1f156b4fddf0083c069735dd23d5d5ec0d608a8069d2d728d5f27159ae74e5e",
+    "theories/CurrentOneCovectorMap.v": "ec918ca89bc9a4d4399cbf95d4dd7b9ec586e959cb46385a177171331b9f0551",
+    "theories/CurrentOpenConstantDensity.v": "86d09722697c887e2b1b37d696d4b4c173fcefd794993655becef3456614736f",
+    "theories/CurrentOpenRestriction.v": "52668ed6dffd79bb8016de4c4b17fc4983976e350b3efe002725dba2d52b870d",
+    "theories/CurrentOpenRestrictionBoundary.v": "8691360b5dd9b72779a90079ed4f6862ea226b9a1ae9a5b666ed9f10b435393e",
+    "theories/CurrentOpenRestrictionLocality.v": "e861c024e56eb5204495d16df0d6cba31abda8024130613bbf3eb63c65494b25",
+    "theories/CurrentOrientationAlmost.v": "3b08d50bfd85b5a5110cecc0f2d52c446bc6935ff34085043071897197eeeb1f",
+    "theories/CurrentOrientationExistence.v": "d54fb50d8a2bd557c62093a7c800f9d66a9229595a1c7029712e821c888e201c",
+    "theories/CurrentOrientationSealed.v": "7d358bce7257299d95691adc8b10d1ed8f782b12869113b81182cbb4da731d83",
+    "theories/CurrentOriginalBallFormula.v": "567a8ef4fe6ae66b05449a3dc351b4022d1d766f4cd920e06bae2f0359b01cf2",
+    "theories/CurrentPointEvaluation.v": "2cd680775ca2f5f532a9bb671946afbc30f60208d6475d3800491a9a679f3161",
+    "theories/CurrentPointwiseRepresentation.v": "28febc7b5f1ea1461730549ae53799f625091c349ea8ea3ef8af3a2ea98b40e6",
+    "theories/CurrentPositiveContraction.v": "6ba529521e4137735934bc0cfe7003b53bb24c60ded848bc827385747f8795d4",
+    "theories/CurrentPositiveInteriorPairing.v": "5568f813d3688efa188b86d544e126154b995cca7d55202588ba06fa0dc6788d",
+    "theories/CurrentProperPullbackTests.v": "6ff0410a83e6d24d13f528cf48e831da2a8289662aeb55cd4e9df4f96470b411",
+    "theories/CurrentProperSupport.v": "95cd65d6d747a4bd82061fbd69c968676b4119e9cd7bd457d1c7fd39b048ce01",
+    "theories/CurrentProperSupportDomain.v": "42c8ef63e6b580e06421a62a12491c910a70fc7e47d72bb300664b4522c86fe5",
+    "theories/CurrentProperSupportRestriction.v": "93475c3c7c4a01d6208f2654928ec4215686af37f6e669468e319246f9a24915",
+    "theories/CurrentPullbackClass.v": "02fde359e717947abd2d3a178dbdac0688763a6f987332db60f18a8c69ecd6fe",
+    "theories/CurrentPullbackGenerators.v": "d3c184f500647731b2cd7c24163ff70b68f9a1aa4c2c1d63927a6c120915d4dd",
+    "theories/CurrentPushforwardBaireProjection.v": "5d209cda0c0b90d1b3b7a73a4cbc3da857030fe9def7e2a0a52ba4350a550de1",
+    "theories/CurrentPushforwardBorelRestriction.v": "cd808c959df06e50102bc81c496913e6ae05909f6fafd09147d08efd5d520f06",
+    "theories/CurrentPushforwardBoundary.v": "7aaa1627f0038a2712d0a5d7525c21f6cbc0c03aabca49b5d6ead7b3850a48a3",
+    "theories/CurrentPushforwardComposition.v": "504bce4e6a37f50d4928d763d11c152c57152c1a221682cad85b2622f51f98c0",
+    "theories/CurrentPushforwardCongruence.v": "50abdbf4023814d2620c80b4bdb28096a9e6fc1bdda4ff4b53fc32fabc329b20",
+    "theories/CurrentPushforwardCutoff.v": "8972df3981cc660aa16432698577c9b68b6197d59089407fa63bde52e1cb450e",
+    "theories/CurrentPushforwardDirac.v": "1b0c884ebe7f8f41c47f43de9fe730ceb2bc2966c280f419e2923fa648a518b7",
+    "theories/CurrentPushforwardExistence.v": "59449b533dc0c98de8b8b2480429436bcb58cf4ac8c709b6abf2425762a0d492",
+    "theories/CurrentPushforwardIntegralAction.v": "770e81eccab3c790d9c9bbfb614f96ac5d7550427728a828aa291cf47ae610d7",
+    "theories/CurrentPushforwardNormality.v": "41ac99b154a1f8354f94933f2b1ba1e16ad1d8b1ad85ab76069d9ddc94a1f90b",
+    "theories/CurrentPushforwardOrientationWeight.v": "195ca8e71d9b12c4f57ab6f6a7a1f819bfa12a55aaee8548813e3651f5224c8b",
+    "theories/CurrentPushforwardProjection.v": "7c31c4c47eb503f5774988e3057ac3fd6daaf745cf32d46e08d4c3de959aa616",
+    "theories/CurrentPushforwardSealed.v": "3f21793577a4ee87b692770f5fa3bb90c3df298bbd2d74ecaffaa69a0ca7f124",
+    "theories/CurrentPushforwardSupport.v": "37c39bf40b14a7a64f62f1a8606cba52d3c89b0feea40da4a88e84c5446c1a48",
+    "theories/CurrentPushforwardTargetDensity.v": "afcc939eb9112506f835836b09277a07e3fac762275401bce88ca6925605818b",
+    "theories/CurrentPushforwardUP.v": "45b5db80c60ab25d0faa6c0687b7a07ad4170e4bffe5db91369529bbbed07e07",
+    "theories/CurrentPushforwardVariation.v": "1d99e37cc7e846a707d65116d9e46d85a5aba7fcfa50e4dcb3a50aa0ef96ed61",
+    "theories/CurrentPushforwardWeight.v": "8fb89054562c58e83ebee2ee1d47fc044900767a2ca7e1a78497d58c8b87d9c7",
+    "theories/CurrentPushforwardWeightedLone.v": "69bc22733d20aa64bfa49260fe198ab80f52de8b224021d5022fc20b961266ae",
+    "theories/CurrentPushforwardWeightedTestAction.v": "d15663b237ddd525baadd49d8db69b15f0936717d0d7dd9db50db200231585ff",
+    "theories/CurrentRadonAnnihilation.v": "8320c9c5422ad46dd8f3cdc179a27054776491951a84d4e50591426bd05c7a97",
+    "theories/CurrentRadonSupport.v": "faf33ea8cea11f646152749b5c99072c72c70073dbf15418cc22b257def526a9",
+    "theories/CurrentRepresentableDegreeTransport.v": "3c41ef08e947a96652572ed56a2386e74642f5df149686fbdcbb3b4ecebe0fd0",
+    "theories/CurrentRepresentableLinear.v": "25baf7b9126eeac609ba035aca0932e330c4b21c11b9a4335f1ea9d0d41415ed",
+    "theories/CurrentRepresentableSmoothProducts.v": "0996fc09caf95960815f1d0d39be2ed3c194727cbe651e9396b59638ca21cb13",
+    "theories/CurrentRestrictionLone.v": "285161558f14acaed52b55aed627ac618bb61b793c5d7d032483c254daafc0e2",
+    "theories/CurrentScalarBoundaryContraction.v": "a17829d7a9f9ece81598c4833deeefc8bbdba7a6e76d2c519f27db4d930bb081",
+    "theories/CurrentScalarCutoffs.v": "aa41826c1e3a586110f29b41d088010a27097850c9a47481243fb00996685911",
+    "theories/CurrentScalarDistributions.v": "839ad83c0a91a6d9b092271e91df0fc2cae7341547654266179a72b5b4013560",
+    "theories/CurrentScalarFormProduct.v": "d90d25e99f81c02f76baaf7a2959a9484344e3c551960e456225fc97a5c475cb",
+    "theories/CurrentScalarPlateau.v": "1c0187515b05c55c848b4ceeec2f44e710806e9460e9586a6ad72f70cc23dbd3",
+    "theories/CurrentScalarTestMaps.v": "cc0b1100c5a1ecfcd599ccbd67b8723a4b27bf74c23419b913911ae7e9a026df",
+    "theories/CurrentScalarUnitNorm.v": "684586d12f153ee30208ff4778a63f1d461a2fe08762ac4d9f61ca4ca11f335d",
+    "theories/CurrentSmoothDuality.v": "16cbba16f1d5ed582afaccbbc061116837022376f3f2e82075231c9cce6c68cb",
+    "theories/CurrentSmoothDualityDifferential.v": "f2e7874c77c8dd63b3bf44c5120d94c4544d9baa881a85689c115a68ea24d4e8",
+    "theories/CurrentSmoothLebesgue.v": "579d0af31057134279dde3e25b6eb6e0a2f293dbd7bc77ab63630cd1c9dec200",
+    "theories/CurrentSmoothLebesgueBoundary.v": "cd162c267f4c8ade9c7ce5c8264cb7b5dec551548395607699e68af250697e88",
+    "theories/CurrentSpaces.v": "e4e98616736bcfe732014cc366854125fd3d75143ed35fd44b19897ddb2ce0a5",
+    "theories/CurrentSupportAgreement.v": "dc7afb82a285c56a5d569fedfbf67f0526e9a32128879a35ace97f118f0816f4",
+    "theories/CurrentSupportExtensionality.v": "ea3ba944dae5bee8a4d366d53fbe364523de1fdafa882b43157ce077292cad1b",
+    "theories/CurrentSupportGeometry.v": "8c759d5a02087b0e8baac079747e4f1644ea784fd0a1ba275aa144f393eb6a57",
+    "theories/CurrentSupportMapTopology.v": "b5399e26ffa77bfb633304f7961ae1e955999d8ba4b85ef3083470070bf7152b",
+    "theories/CurrentTestCoordinateExpansion.v": "481c620b37445a2324c57d5870d8bc80a48d7cfe4018d6b67cc5efc20fe4bd2e",
+    "theories/CurrentTestDirectionalInclusion.v": "5e2ef2f22cf7fd15779ae076ad368aaadb31f7f936a7d4ecedf915b312964c9a",
+    "theories/CurrentTestExteriorAgreement.v": "f4b8c5acf32a86c93e79440cf0dd755a9612e8db4dd6b8bcdeb19046d90111f2",
+    "theories/CurrentTestExteriorCoordinates.v": "d0b1133aea117cb1fd4f6e84175a49ea5f8f21f6568b4e8ea20badebee9044fa",
+    "theories/CurrentTestExteriorDerivative.v": "59a674857a443701201bd5d3adf07e595734dc6769f7a43c4b08781695107870",
+    "theories/CurrentTestExteriorLeibniz.v": "90c262ddf0f204e5fc94e863dfc30f429eedda4fe75ba724977e83c65b358c51",
+    "theories/CurrentTestExteriorPlateau.v": "dbaa46fa0e0b5dc7667af9e1bdc4dddc52fe5e7a9f0b3d1f221053a1f890b592",
+    "theories/CurrentTestFormDirectionalProduct.v": "701f9ead4f359a0313d124591ca02c56902640d6d624b4ce41d700449b491dad",
+    "theories/CurrentTestFormProduct.v": "33d895b60961f33fbcd1ac4d00df5a9636745ebe536ced567162b4fa8a5858ba",
+    "theories/CurrentTestNearSupportAgreement.v": "443d3f7eb69cca45c81cf130241897e1c1a7b32c4a8cbe8e071488c2307b937f",
+    "theories/CurrentTestValueLaws.v": "90a465ce41ad88d3fba5576ae84f3d1961fb9a79ffa06f5db9af2702d8345e02",
+    "theories/CurrentTestVectorDirectionalProduct.v": "a5c80b4cba9ca8391d0134995e044c503a8219f64bf53fac4d9811ac10e768b3",
+    "theories/CurrentTestVectorInterior.v": "682b4371b8809721aade2984029f6f2cc3aa922f77de6c40b4258ac4972109d5",
+    "theories/CurrentUnitBorelDensity.v": "0a669989a6903d4556db00cadee211d91e5e7ee3b27d02e9714a4f7a71618401",
+    "theories/CurrentUnitDensityTestIntegral.v": "fd4f54cda0547e49b074e9d9647f536b78a4131afa4ade58d830aa0e353a7945",
+    "theories/CurrentUnitSmoothPairing.v": "6e059631d00b8790ff119e785736a40ca77360b2e8e732f365818db5189cc48f",
+    "theories/CurrentVectorContraction.v": "85feda92cd7a21c71ce5715bc468555871b12b54f8355dca6de5fa982ae4e157",
+    "theories/CurrentVectorDirectionalDerivative.v": "f72548f4b962f1a480b178a3b3a1c2ac7b33dc89ab0840e47e71c27048afa5ed",
+    "theories/CurrentVectorDirectionalProduct.v": "bb9d70f97b61706a84af2dae3ca42fdd710c2dc62605155a703ffd97480005c2",
+    "theories/CurrentVectorFormInterior.v": "0e13a845ecd8be6d53e341221a2e29c6873e093dbe26efb9b9baf1eb2401947f",
+    "theories/CurrentVectorInteriorSupport.v": "a6994c6ba37c55bfda1a3488c5d9065f502110c5dfd7c532e6336c16c4ddf7df",
+    "theories/CurrentVectorProduct.v": "e612fb812c1c33a90bbde8b789eca95d5be21163a20b88d8d62bde57f0bd9cb8",
+    "theories/CurrentVectorSpaces.v": "70ec4e4f59934c7f718dc0e9319367af4629979c7e453d4809f694c0a6df3c3e",
+    "theories/CurrentWeakNormTopology.v": "756dc5d6bd7c814acc6650f9cabaa4f39190c7ed23517084197bf56640823ea3",
+    "theories/CurrentWeightedUnitDensity.v": "3acfb7202a0b34cd194be289baf432ff3721d16d1b0f32d6a3779ba927632920",
+    "theories/CurrentZeroCovectorMaps.v": "dc495e9833c487a309edd7f8e1f95da6df2236983f8288f7f9642894448bef5e",
+    "theories/CurrentZeroTestVectorContraction.v": "db7e9f772cbfc4a3b5dd5a103000d2370f91090d06924e87505eeaa1e81c31c4",
+    "theories/CurrentZeroVectorBoundary.v": "8200458ae550b42dd5c9afca44eac56de3ce8e5f8d2218dd0835cd983b0ecb23",
+    "theories/CurrentZeroVectorContraction.v": "e86686d5c7c08679c9a7cbf0c4047863533fa0205225f7ef72584a9acb78d3d3",
+    "theories/CurrentZeroVectorProduct.v": "b77e8c155daba3c16fd277d6273aa26bd7cc83f0aed873a37d617feebe7a86f2",
+    "theories/Currents.v": "fb1c48f782d2f4cb94f67c53c9f31ebafec0507c1e521cfe4baffa25dab1f219",
+    "theories/DiracCurrentBounds.v": "ee87abd5d4f3d7a39f8fc4f70c1f42aab8af7a438a3bad97d316267666b88eff",
+    "theories/DistributionFiniteGaugeBound.v": "6d226120071ae6e8642b123af6587aaf3015a4e48e02d4028afa9da65a2e5b32",
+    "theories/DistributionTargetTranspose.v": "b0f066d84f0e37a388df734b6872949e631b4f14a484acdd3dfefb6ac16b3ae8",
+    "theories/DominatedNonnegativePairingLimit.v": "9eb0c154ded7e0ddf95a52881c2a369cefb5c44b5b8f239c15b0285e70e941fd",
+    "tests/EmptyCurrentDomainExamples.v": "44265ea8464767e2f8aaeb8f8811b58bcbcbfc9adf2319914e9d8f80315da678",
+    "tests/EuclideanCurrentEndpointExamples.v": "32fb79127ecdaacb8101744bdc0947d77e06be99e21b821eec6e03077bd85ec5",
+    "theories/EuclideanFullDomainMeasure.v": "f8aa3e796071e1371c46caec9e42ab9e3773b5f733e0390c6fb73a6a11848f7d",
+    "theories/EuclideanFundamentalCurrent.v": "e037fc16d2ad6067021bec5182e43fbc800ea153295eb553f46f33a47f4ef1c6",
+    "theories/EuclideanFundamentalCurrentNonzero.v": "cb1c1fb5a7e6c8ccf17e00d700722dc4e508175c253dcb95b3d42b9824dcfc6a",
+    "theories/EuclideanFundamentalCurrentOrientation.v": "c0c77abebd745cfa804562d220d7006717f77381e02916f2caa99a501f22acbf",
+    "theories/EuclideanFundamentalCurrentVariation.v": "6dc3271af26f37eddd9ae3d07962ce2717bd5f8b0021833b0497edbd2c5a6097",
+    "theories/EuclideanOneCompactPrimitiveIntegral.v": "5c53efa453ef3dbd727a8162159cc4a7928fd9c5da1fcd3d2e19867663e06728",
+    "theories/EuclideanTopCurrentMass.v": "6891d5357a6656184eb2e5e423071abb1d028ad967b7127e7e6d9255d32b50c4",
+    "theories/ExteriorPairingFunctionalNorm.v": "58a2d765e4143ad1a7c0301193301694bbae1b158ef85e7ee885167d3ac3fe84",
+    "theories/FiniteCompactGaugeTranspose.v": "90d9fbde0fad038f52107d973045902ddb004e491bf45698c128da7bd7dc1032",
+    "theories/FiniteCoordinateMeasurability.v": "7653a15a6f2764e6b9c4986a947a6edddb3a1c75eadf72b4bb211513e1e6f094",
+    "theories/FiniteDistributionVariationLinear.v": "3da77e322fe7243f93103e504b3f22866eab1d936a38ca1daebc2304fcd26c77",
+    "theories/FiniteMeasureLoneUniformBound.v": "d2627989ea1dfb5be983aaf1dfefe90941699ee682b57bf99215b40be9bcb7ed",
+    "theories/FiniteMultivectorDual.v": "13992ef9a47443361cdd664f0008649931a8fbadd0f5d6d1d9972de6063e45cd",
+    "theories/FiniteScalarContinuousCombination.v": "a7cc595dcec72b96d1cfb4f62bbb43b5fb98cc9942a383df39b0a61442bc5f7e",
+    "theories/FiniteSmoothBilinearConstruction.v": "c9328dbd2b973ec54e519345816355d5326456eefb18e6d492aad17effcd23f9",
+    "theories/FunctionalSupportRelativeClosed.v": "d51db1c8e76c4efd1f5b59ef8fd9357de2533829cc725eb8d652e8945e56f0e1",
+    "theories/HalflineCurrentBoundary.v": "1f5b2e5f6880b5a8e4ea49cd7fddbf4d0d524b43e2826b7fda4660bc4e04db6a",
+    "tests/HalflineCurrentBoundaryExamples.v": "c26d3ad87f78446eec8f3311110a0e2ceeca3eb2be04e496cf6e3a06cdd9f0f3",
+    "theories/HalflineCurrentExample.v": "eb6fbfd959c0b9e1aec0f999653b5844f53e3fdb444936a878930f84f2201e48",
+    "theories/HalflineCurrentSupport.v": "c01c212a5c2f5d47de306477e6652dbc00eba7ea0d51a839bebd049b7e5960f3",
+    "theories/HalflineCurrentSupportObstruction.v": "ca5c56d619b3776e3c466266b42725afa00b55b7e1b35570548d64597b8a574a",
+    "theories/HalflineCurrentTopology.v": "f32c5fb49fe9cc183d74dc643041197e5fc4c05faba589d97fe8554de436ad34",
+    "theories/HalflineCurrents.v": "ca4c6f5fd8a7d03f205776397e7e4e4b3d45682d875267d2ef71ed5470ec2fd2",
+    "theories/HalflineFiniteNormalMass.v": "9ede5dca442b36c232af5c094c0eefab9ff6b3b1e682f242a5b44926556c5c60",
+    "theories/HalflineInclusionSmooth.v": "a34c49856e4328b354b4ddf9c56613f4b06ac7d4e014337ecd62e7b226ca8057",
+    "theories/HalflineOpenRestriction.v": "8b78724b0ff7cb319901ed5783b7e8f3cbb6e8f6a2fc619aaeb11c281b0fe955",
+    "theories/HalflinePrimitiveBoundary.v": "88b3d49ed7001cf0e7c876685a85e48e4647002a916807429d63ee63828dadca",
+    "theories/HalflinePrimitiveNonuniqueness.v": "84f59a149ea67aa94bbb4e6c0b1f997b50dcc3eeabb56dfe8b3641ddcdb3f027",
+    "theories/HalflinePrimitiveUniqueness.v": "0d9bb1b2cecf2262b316d92970a69c4c62eb1ccfcd87e7d02b857469c8ebfbd2",
+    "theories/HalflineSecondPrimitive.v": "9ebadae871efdcbdcc52ca167e00ad893c98b3a83e7a690aa31d8d91a0c1cc9b",
+    "theories/LocallyNormalCutoffCriterion.v": "e4bd0f6bccb1fd9dbe99ccd92cb9c5434e04aa3dc777512c38571d44d0bef325",
+    "theories/LocallyNormalPointCriterion.v": "7a6668463830103d3643c68d4f69df7c5c9ccd8ee8f6b93778577a9743918935",
+    "theories/LocallyNormalScalarContraction.v": "730ee04c7d49311b6dbfe1bab5342f318098273699209a13bfe144857b2e9e63",
+    "theories/LoneLipschitzContinuity.v": "1991984cd1474f8c6e327b7b3d0f4c68b092ae0c94acca5ba8ede448529fb7ba",
+    "theories/MassFunctionalNorm.v": "45e624eace74ccb38d6f8ec45008c402df1dd46b4251e1fb9f7ac139374c604f",
+    "theories/MassRealNorm.v": "4bf33a4cd2e55db0e3615c7f61ec6ae030f399adeea98e23d922e8cc43d25726",
+    "theories/MeasurableBoundedBilinearProduct.v": "64e0f87de99fd760355d089c7f011ee40fcb7be68425d8f05ada76efc933c121",
+    "theories/MeasurableCompactNormIntegral.v": "a334944f23e9a7f0ffad122d929c5ba23793ac56a8e36cf736839c56dd06e706",
+    "theories/MultivectorDualExistence.v": "1da8c7840a9d7e3dfce007f2e4a7a9c6f94bfed52a1c3d1598e88c0d131ec0dc",
+    "theories/MultivectorDualSealed.v": "e9eb0c760ac9cfcb4058585ca69e84fc7ba71eca8aa20c4385c8f29067f72f40",
+    "theories/MultivectorDualUP.v": "15badc065be8ba2fe91fc97375b36ef8dd916673d0f9a0508e81b2e57c2690a4",
+    "theories/NormClassZeroFiniteSum.v": "911046ba5f7ff85416bdaaca649547ad18ad227bf69a32638011b22d3a197d8c",
+    "theories/NormDominatedFunctionSupport.v": "6fb18d609e47a730944cbb3464e4bfcdebff32941e1c3ff1f78f674405eed456",
+    "theories/NormFiniteBilinearBound.v": "ec4275f9ebd7e8c2728438ad974a0e6621913bb944528132a05a08930a0eed34",
+    "theories/NormSmoothPostcompose.v": "75b3df46cc43cd6ccfd98d5c966b9f3b9fdd0ca8d7a0051ec8ee3f23eb5e83c8",
+    "theories/NormalCurrentBoundary.v": "651445d8ff520175aa9f47dc45b73806c5497f19dd17ca37f2c1947d0a13a726",
+    "theories/NormalCurrentClassOneBoundary.v": "1c94788b3259f739288c97040bd606c1ddd1cad950b22fb4e8bbd02cef36e085",
+    "theories/NormalCurrentClassOneMembership.v": "e2133e20d641045ee771cedd78386d719c382a04e0d0b124567af3bcfdc0ff0c",
+    "theories/NormalCurrentContinuousLoneMember.v": "125841b6c91f0392bc410a50aa93bf3e02696fdd67188d27a0818c8d40b802f4",
+    "theories/NormalCurrentFiniteMass.v": "883dd800af6adaf5ad6a2a56ab042b728ac43fecf2224d7eb9f46677a625f522",
+    "theories/NormalCurrentLinear.v": "082557e2af28c2b033219025053d0a526f8bcb35d99d17373bbed46b4274f06e",
+    "theories/NormalCurrentLoneLimit.v": "a59387a21aeb6a1d537d85c54b7e3b46b92577ba4a21fc6570b9450e0ef7f84d",
+    "theories/NormalCurrentSpaces.v": "3a34bdb464891702a168ce3db62ecdf0b78d39a2d3df56ed4d387515f68850bd",
+    "theories/NormalCurrentsUP.v": "2481d2cb1afe7ccab3960ca48b16fdf2abb84d288e4323e0e7e67b9ec3b6c0bb",
+    "theories/NormalisedCurrentSealed.v": "720971c3e8d748b29d0aa766317484b326dae46cc59014428c6580edad2918c2",
+    "theories/NormalisedDistributionTotalMass.v": "99b793aa6a8c1465228beaf2db2b8f2f2b4c30a2164647f6e38ae0815cf7a0d9",
+    "theories/OpenCurrentDensityExistence.v": "f599387e4ee7cf4aa0a0374ec423df8f4e31153c3f93e3d328042655e0eb92f0",
+    "theories/OpenCurrentDensitySealed.v": "6255ca42341f7902dd5d120eb6b8a63b9bab682ceabd70e718b7bb9d7647e04f",
+    "theories/OpenCurrentDensityUP.v": "4c471248806256fc543b5b129d2991a2020568a806b79924c25a04a4d78ab312",
+    "theories/OpenDistributionFromField.v": "dbb7784cb2d5bf7f89875a9b3b3b04d1cfd0634297a4d8579820b194c8bb900c",
+    "theories/OpenDistributionIntegralTestBound.v": "2695ad82fb7e35d6d6be2409dee778d08ae9ae3bf143bb1922db3d0cc01466af",
+    "theories/OpenFamilyFiniteHomSum.v": "dd61140cea91327bbaacc4df5fd83b1b5768eec367e66fcd519b83260ef998f9",
+    "theories/PositiveScalarGraphLimit.v": "dded73b38571f24b64950e4fa4cdce3ad3f7df711b14e355d1ec74ec84dd2631",
+    "theories/PositiveScalarGraphLinearLimits.v": "8adc181ae0ae9add25b2cd98b5407be3324aabb62f535104fde14d5498a84f7e",
+    "theories/ProperMapComposition.v": "b63ecbe88fdc63c3ebf8747f4560ce4e72480ec462d8268bf4ee9c3f2b5983ce",
+    "theories/ProperSmallerClosedSubset.v": "a38cf2544b40ac0ffd921770db3d0e2d33621b011938a5a97613b4904be7ae11",
+    "theories/RadonBoundedDensityIdentification.v": "4dbe7e65f5ed3321a0b3b20659b534cb3bf9b34e906e1fee9cf7f4274cde31f1",
+    "theories/RadonBoundedPositiveDensity.v": "4e058e53686136fe4b0b7796e790d35ca7d2fc6b2d7a1c6c0bb2f29876bf41f9",
+    "theories/RadonCarriedProperPushforward.v": "4b4436bab1e144ed3448863318a0a3943dece4cc5a169022497fc6f672206d3c",
+    "theories/RadonCompactCoverCountablyMeasurable.v": "bced8ea73b28e00bfd525f5f34763e97fe353fab601c5ec4e24046855173d89d",
+    "theories/RadonCompactScalarIntegral.v": "e691d5859c73240ecdd450f5963c9e3b4f15b3c3b6b3333857abdd7778500732",
+    "theories/RadonDaniellCurrent.v": "6e8e78c21bd02d89f0a963bcb500bbf47613b7fbaf56c4005b3a97af53cdaf30",
+    "theories/RadonImageLpPullback.v": "ec476c3de4cbdee8e1f4ae39a440eee4343ea513913fed671dcd90dc24c1ada2",
+    "theories/RadonImagePartialMeasurability.v": "de4e3f276472c573dbba86a9484c37a4892f58dee75f602fd6e84ad449fa4703",
+    "theories/RadonImageUnitPairing.v": "7d015186d033b8246706b672866aae8322afb72f5545535bbc62a3598090858d",
+    "theories/RadonMeasureCurrent.v": "db6e66f3c75bd49eeda05b35ad7a956502b4ccc8d69e006b64930d0b8273c0f3",
+    "theories/RadonOrderedCompactDensity.v": "49adb102a4e6b0c08df3ec2b43f997f58a40e78a7511ed5c778c300e11715042",
+    "theories/RadonPositiveCompactComparison.v": "756215b776188f6947c3df73176cf1b038fd3a5227159fcb478cccad0d04a82b",
+    "theories/RadonPositiveCompactDensity.v": "76893033d34f424d403b8e9c3b49f9f371c7b83d1d48047749ab082153f246ae",
+    "theories/RadonPositiveCompactUniqueness.v": "f130c70e13d48a67e9c31c2403bc75a4bf504864d86d402b9d8ce6d19c651dde",
+    "theories/RadonWeightedPushforwardIntegral.v": "5162a1f48551e5672f17b8dc390e1dc80d31ae617de6be2aec11f9037403cd62",
+    "theories/RealClassOneSegmentIntegral.v": "ab3b5cb47c8f8d1fca2855ba3bde7b149526b8e7a47d47bb3313050d576ce2ba",
+    "theories/RealCompactPrimitiveIntegral.v": "131ac9dd530c3a2d35733929ec7f31e20a168b8b75090a7cc03278cddf54332e",
+    "theories/RealFiniteDensityIntegral.v": "461508b907bd2f9485ee35a83ad1a8f159c2c0006b622717eeae9c80e87b65d2",
+    "theories/RealFunctionalNormCongruence.v": "74b291d6a996b9179f17c546abf050845eb37e64a0f8e5cc89008cd5f5c6afa4",
+    "theories/SmoothBilinearContinuousExistence.v": "cc56d272dec9139586a72e0230a32a22b6a39b8f92e3cd67b00dce5350952e66",
+    "theories/SmoothBilinearMultiplierContinuity.v": "1d93eacada9ac8ec2aee7b87268e1483cc7d763c0481d8d1768c12b76d84344d",
+    "theories/SmoothBilinearMultiplierDifferential.v": "c84779885c8bc098e375c610d239197706ff4f7f42403325277950dbc7b58e28",
+    "theories/SmoothBilinearMultiplierExistence.v": "5661e1377d4c84f92c2d1db1038879a7a5a225d036494837bfa7f49f827d9055",
+    "theories/SmoothBilinearMultiplierSealed.v": "8b65f5c49b2de7449d4a54bf529515b47977d5a2dc322385daf086ad9da5245e",
+    "theories/SmoothBilinearMultiplierSupport.v": "4a3d1c102fc8d44042ad6b7731842263651b50d1fdfc8e8fb1b9bf9f3a6f42f8",
+    "theories/SmoothBilinearMultiplierUP.v": "8b645909faf2bca4b74a9bed4b703684126dc60f31b23c86bba05168e987db34",
+    "theories/SmoothBilinearTransposeFiniteGauge.v": "0329797a8cba2fe212d60cda4a7ba154987ded8d553d6c87bfcac1937429e907",
+    "theories/SmoothCompactImage.v": "487141ae721c17c5c7bae77df8fb774fd3433af670a4e66f678ec3f5c3ba3435",
+    "theories/SmoothConstantDirectional.v": "e0c64d8a7ba1709db18d133cc275d9aae905883eedc9db99e3bee683ea3fd1d1",
+    "theories/SmoothConstantExistence.v": "81fbe4c6a8189b357817bb40f48ea573875495ed9f27f09153b8cc5cc8b1f5b6",
+    "theories/SmoothConstantSealed.v": "7255ef61bafffe67b4e78754804886494779358e86f65b60522836125ce6730d",
+    "theories/SmoothConstantUP.v": "b22a95ab084df6e0eae643e6a625a1ae8bf845594b805c55c68f27563deac133",
+    "theories/SmoothCurrentDivergence.v": "4ef8ef2b2d5e1f97143c471b857fbf9df8c094c3ca5450fc0303b12c0625f27f",
+    "theories/SmoothCurrentDivergenceCoordinates.v": "59cbcafe9369781cc762ab1a96069a0dc0514c31aa3002618298ee87462d1dc5",
+    "theories/SmoothCurrentExteriorCoordinates.v": "fc95ec82a814a298e9f31a84d47e394a2224a34178b67d2e87f9a9c88a85a6aa",
+    "theories/SmoothCurrentExteriorDerivative.v": "ea630762ed0d53909fc7770bb7f6b2fd6ffd7b51a017d688cc1773b38d285dd9",
+    "theories/SmoothCurrentExteriorLeibniz.v": "2b6e0d1de5fbc43a43bd864e83e9ef9990edd5811541d1acfa33ef4d218745b0",
+    "theories/SmoothCurrentFormDirectionalProduct.v": "3b873788f71bf0daf349b1a44e91aefdb67f6b0dba50c8b2879fa1e918ac01cb",
+    "theories/SmoothCurrentFormProduct.v": "0b7f43bfb0451ce35502e8a6e4c63fd0150399aeea89ce98ebb6a3b457e5e9a5",
+    "theories/SmoothCurrentOneCovector.v": "abe02a6925b620350885ed6de63e38377d7648f2b7a5f6bd9bd176984be4a317",
+    "theories/SmoothCurrentVectorContraction.v": "d17c300f1f967a6191813acadf2a87865ce74135a2680c4e8b237df2c0c775b1",
+    "theories/SmoothCurrentVectorDirectionalProduct.v": "4ee215009a3d64c1c52d62c752265c69274c414fa9f705c6bc951ca8b4616b01",
+    "theories/SmoothCurrentVectorInterior.v": "a4ded0d0e1eddfffab33b0c22718128a5d1657e2a9bb22310d55b254cb1d4365",
+    "theories/SmoothDomainCompactOpenCover.v": "2ea3f9415c16ef39c14fc568b13de6154349d3bf38cc635535a59e13b7a36620",
+    "theories/SmoothFieldNormContinuity.v": "a713e04fcc7ba50d3086e61972781be7fac98f3de2cfbbf44252b66359d90a49",
+    "theories/SmoothFirstOrderContinuity.v": "23bc432bc92547fc920f153aea1249a090fa85dd97306d8cb55c777e5626495c",
+    "theories/SmoothFirstOrderExistence.v": "e493728aef79b89eb765fb856fa11c02c7f47e0f69d5b4950bec7cc2e707391f",
+    "theories/SmoothFirstOrderHigherBound.v": "4fe5856047d7bb4a1837177bb149bcbc5e5cb936ebf94e1f881224753c3bee3f",
+    "theories/SmoothFirstOrderSealed.v": "2432f0a46d431e1495dd95ab13e428ab5fbb32803e846898289f1bae8ca323be",
+    "theories/SmoothFirstOrderSeminormBound.v": "767f799871f8d79587eb3b93874c05a03c439dca850f8e70aad7ef0a26abd60f",
+    "theories/SmoothFirstOrderSupport.v": "902af987264d81e5593e2b0fc88049e5e3fe767435b4b8ddc940e01633cefbb0",
+    "theories/SmoothFirstOrderUP.v": "3f570d826e3d73d40610a61cd5c85966540498de2204ee14639cd85abd329a61",
+    "theories/SmoothFormPullbackComposition.v": "b5689308f5a95a1687a91aeda84eb4604757688e7fa229bcdd6c0b6e00e3ec77",
+    "theories/SmoothFormPullbackContinuity.v": "f3eb7f57a0673f0969e5c21be9bae984eca6de47548a497f2a40d55a1fbb1426",
+    "theories/SmoothFormPullbackDifferential.v": "b8f44da9b644c492cd182d92c9276cc25c942792854f14435da7fc45ff5e55b3",
+    "theories/SmoothFormPullbackExistence.v": "b4ea400b011684ffc32cfb0175f97ff05a2b19a8cb3714b097dfad2184a8dc7a",
+    "theories/SmoothFormPullbackProduct.v": "aa87c1c1650d2c54cf5558250df97a598b27f0796733d0acc012334ae12ba99c",
+    "theories/SmoothFormPullbackSealed.v": "9cbdf996b2594540eea3d8002e42e31014041c9e21573adfc63f068734347d05",
+    "theories/SmoothFormPullbackSupport.v": "5e20f20e6d093c4703a2f32030d980ddfaf73e59d260d23c5b1ab2875a12b290",
+    "theories/SmoothFormPullbackUP.v": "25939624fcf2e2772bb215f9309044e5324f3623366e7c988f35a4fcd06ce869",
+    "theories/SmoothPrecompositionContinuity.v": "f1646dfd24cff68aebfea780e3a721e1d7459aed893ccd2633824c1af1dd1599",
+    "theories/SmoothPrecompositionExistence.v": "ba1488ade15ffafca92b24801f9f6b692d29feee32feebbd0eabdb2f7c864ad7",
+    "theories/SmoothPrecompositionInnerBounds.v": "e6bd969a2c926b465219b9f0ee94fb561ac0acee993c9a8ef8550468dbcff440",
+    "theories/SmoothPrecompositionPositiveBound.v": "1e587423afe15be07f80407e0cd8a6d87037eab5c8c9d0c6817f30c1b254905f",
+    "theories/SmoothPrecompositionSealed.v": "f82c608fc7da7c2954785e67d001054588a7e611ca588dba54e317df77333744",
+    "theories/SmoothPrecompositionSeminormBound.v": "819a56a9f36be06cc97d708dc29f38008bf57d1f5cf091f7f1405f9f6f91101e",
+    "theories/SmoothPrecompositionUP.v": "333ead001c681e3e959b8c98718047e68d6f2238d555c7da6a2811fa900a29fa",
+    "theories/SmoothPullbackCutoffTests.v": "b1291ee3ff0205e124c9924dd4254f1aefa20242974ac77ddcc3c24b568eab4c",
+    "theories/SmoothRadonFieldLocalIntegral.v": "c55ead08de37ec0ff933ca4dabf9944b17b834710c3e1a53ad97f9dd378b7ea6",
+    "theories/SmoothTargetOperatorContinuity.v": "c816de112d3e356aa960cd03424d170792c03854ad5912e1947e075c3ee23d6d",
+    "theories/SmoothTargetOperatorDerivatives.v": "6955f4381f9578d23f060e3de774dc36046a9fbc97380726a22577e5f823f99d",
+    "theories/SmoothTargetOperatorExistence.v": "389ca08313e32874263bb2f197fc2d699bfcbc813ddb1e129464ebfe8470f079",
+    "theories/SmoothTargetOperatorSealed.v": "3d9a537b9f25e7abdceefd13198e9cb3d8c2522c68f55a7bae88a7bc22f5c2fe",
+    "theories/SmoothTargetOperatorSeminormBound.v": "891c95b7bf1919e91047b524827acde2d8b60939a82a40e0af83572178ec3361",
+    "theories/SmoothTargetOperatorSupport.v": "5b8ec457610287fb5f99c31f1fad8843ea24a4ae24d1b3ecb7b80901d6422060",
+    "theories/SmoothTargetOperatorUP.v": "a3848d8a21a621604c6f2e4e5615063d0749b041951edc9a53f693c8b704d7b7",
+    "theories/SupportedSmoothOperatorSupport.v": "2130fbaf5e2266269f20066b2bc19e7077fcfa466d6558f35e9d49c36b1d66a5",
+    "theories/SupportedSmoothOperatorTests.v": "df3bbdd5913358d970a7496976eacfa41b45bf1fb40ec3cbb7d1bfd82abc0852",
+    "theories/TestDualOperatorSupport.v": "b11bc8849d7a068d37f085d6b724b0bbf81820affe0934b7f0b61de265843ccd",
+    "theories/TestTargetOperator.v": "addc6b6fb0192790a54f5abba6f29fd8178875f6b571a5733b501da7ff9b798e",
+    "theories/TopCurrentBoundary.v": "78cc38c79565fe378ea9ff48fd18fc551f0513428992411f89eb9bd1aebf3ffe",
+    "theories/TopCurrentConstancy.v": "a3e30477c8eaaff9077831b6fd26480a44a032db86375254abb21abd42ffb7bc",
+    "theories/TopCurrentContractionAlgebra.v": "a2179c84e1ae1feb7abd7fa457eb4fa103ff488aa5c827ef1dbc3356f09d9668",
+    "theories/TopCurrentDerivativeSupport.v": "ca168d3fc1b914fc2815a31a64a967895901ffe5fcbb1ca92658849b06a20c10",
+    "theories/TopCurrentGlobalConstancy.v": "3ddf86e4b34be83832b80398ce21e93a018caa7cb1dde4787640ac67c18b60ea",
+    "theories/UnitBilinearLocalIntegral.v": "4a5448a6ec1dd6ade6a8c09f196c07b9b8d41f0bc5585e55b8d9b42a652f247f",
+    "theories/VectorLoneCharacteristicPiece.v": "00eb35af7b23d97dbf0381ea36c3bbd811e97364b514ae36555e24b3dadfbe92",
+    "theories/WeightedDualTotalPairing.v": "da3e8c03c068e09d9008621ec31b62aa6f0cca22653712eaea458daafc8b2c67",
+    "theories/ZeroDegreeCovectorNorm.v": "8e673d2ef45c40e406c49db83c0c3e14f268db64b1c710da8c77971d1a8d85f9"
+  },
+  "all_proof_inputs_sha256": "9092ac30e5dd4de5a9f2bc8a57d0ae5fe63be85f529118737cf4481ee6c2e39d",
+  "complete_input_record": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-203705-audit-targeted/status.json",
+  "earlier_mathematical_proof_sources_changed": false,
+  "clean": false,
+  "adopt": false,
+  "copied_private_proof_objects": false,
+  "kernel_consumers": [
+    "Federer.Currents",
+    "FedererTests.EmptyCurrentDomainExamples",
+    "FedererTests.EuclideanCurrentEndpointExamples",
+    "FedererTests.HalflineCurrentBoundaryExamples"
+  ],
+  "private_attempts": {
+    "path": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.7",
+    "failed_attempts_excluded": true,
+    "final_registered_compilation_covers_every_final_source_byte": true,
+    "source_only_registration": true
+  },
+  "query_registration_correction": {
+    "scope": "Audit-query registration correction only; no mathematical source or proof object changed",
+    "excluded_query": "Federer.NormalisedCurrentSealed.NormalisedCurrent.representation_data",
+    "reason": "The module signature intentionally hides the private representation witness. It is not a public constant.",
+    "public_queries_retained": [
+      "Federer.NormalisedCurrentSealed.NormalisedCurrent.measure",
+      "Federer.NormalisedCurrentSealed.NormalisedCurrent.auxiliary_density",
+      "Federer.NormalisedCurrentSealed.NormalisedCurrent.laws"
+    ],
+    "existence_queries_retained": [
+      "Federer.CurrentIntegrationCriterion.normalised_current_representation_exists"
+    ],
+    "initial_queries": 917,
+    "corrected_queries": 916,
+    "old_queries_unchanged": 29589,
+    "failed_attempt": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-193004-audit-targeted",
+    "partial_results_not_promoted": true,
+    "before_sha256": "e1a37e443704ebcbbc4ee3aff215e0b364f93ad2f5d18e4ee2d7cdbe1744b3e4",
+    "after_sha256": "e9c629a650116ec431528dd7b8bb11610a3be1f80746df3fe5db66e66fdaa7d9",
+    "allowed_assumptions_changed": false,
+    "module_signature_changed": false
+  },
+  "query_name_preflight": {
+    "queries": 916,
+    "status": "passed",
+    "seconds": 25.182,
+    "complete_record": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-202307-query-name-preflight/status.json",
+    "raw_log": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-202307-query-name-preflight/raw.log"
+  },
+  "initial_registered_kernel_check": {
+    "stage": "kernel",
+    "status": "passed",
+    "started": "2026-11-19T19:20:10.329235+01:00",
+    "finished": "2026-11-19T19:29:09.482612+01:00",
+    "seconds": 538.717,
+    "guard_wall_seconds": 539.145,
+    "command": [
+      "opam",
+      "exec",
+      "--switch=RP.2026.02.0~9.1~2026.01",
+      "--",
+      "rocqchk",
+      "-silent",
+      "-Q",
+      "theories",
+      "Federer",
+      "-Q",
+      "tests",
+      "FedererTests",
+      "Federer.Currents",
+      "FedererTests.EmptyCurrentDomainExamples",
+      "FedererTests.EuclideanCurrentEndpointExamples",
+      "FedererTests.HalflineCurrentBoundaryExamples"
+    ],
+    "inputs_unchanged": true,
+    "revision_unchanged": true,
+    "warnings": [],
+    "minimum_available_mib": 4038.539,
+    "peak_scope_memory_mib": 2171.703,
+    "estimated_whole_process_tree_memory_mib": 2048,
+    "compiler_worker_ceiling": 1,
+    "OCAMLRUNPARAM": "o=20,O=40,s=128k",
+    "resource_guard_sha256": "7346382dfb36a45b90ed2e19233329c357c3714ccfb5394c20ef9804380ee3bb",
+    "resource_policy_sha256": "a2ed66eb19f95cec2e7504418359b85f5f1d9bf10e8c5ee1ba70b97cb278366f",
+    "resource_policy": "Automatic Europe/Warsaw day/night policy, including live transitions",
+    "private_compiler_lock": "Exclusive shared POSIX lock held through registered stage",
+    "resource_report": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-192009-kernel/resources.json"
+  },
+  "initial_registered_kernel_record": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.7/20261119-192009-kernel/status.json",
+  "mathematical_sources_identical_across_all_registered_attempts": true,
+  "coverage_qualification": [
+    "Every actual current is a continuous dual member for the original literal final test topology. No equality with its locally convex coarsening or joint vector continuity is assumed.",
+    "All eight printed identities retain arbitrary currents, including the two zero-current identities without a measure representation premise.",
+    "Measurable coefficients retain local variation summability and restrictions retain every variation-measurable set, including infinite masses.",
+    "The orienting field has exactly the original scalar ball-limit domain. Its partial graph is measurable and conull, with mass one almost everywhere and the original integral action.",
+    "The Radon density current has its exact variation on every set. The Euclidean current has its stated orientation at every point, including dimension zero.",
+    "The empty-domain global comass is minus infinity under the original empty-supremum convention; the actual empty-domain current has mass zero.",
+    "Both local normality criteria and actual opaque normal/fixed-support vector spaces are proved. The normal-current boundary identity retains every class-one form without an added compact-support premise on the form.",
+    "Pushforward requires properness only on the actual source current support. Its original partial-orientation weight gives the sharp variation bound; bounded Baire projection and every relative Borel restriction are included.",
+    "Pushforward composition assumes only properness of the composite on the original source support.",
+    "The p. 359 bare uniqueness claim is refuted by actual left and negative-right primitives. Agreement with the original interval current on the open half-line gives the corrected uniqueness. The support obstruction is proved independently.",
+    "The printed p. 357 sign is correct. No error is claimed there.",
+    "Later items 4.1.8\u20134.1.34 remain required, including the mathematical identities in 4.1.33 and 4.1.34. Pure historical remarks and external pointers are outside the requested proof scope."
+  ],
+  "documentation": {
+    "links": {
+      "markdown_files": 123,
+      "links_checked": 59898,
+      "external_requested": false,
+      "external_urls": [
+        "https://doi.org/10.1007/978-3-642-61715-7",
+        "https://doi.org/10.1007/BF01700486",
+        "https://doi.org/10.1007/BF01900510",
+        "https://doi.org/10.1007/BF02565913",
+        "https://doi.org/10.1017/S0305004100038317",
+        "https://doi.org/10.1512/iumj.2016.65.5829",
+        "https://doi.org/10.2307/1969917",
+        "https://doi.org/10.2307/1990357",
+        "https://doi.org/10.2307/1994182",
+        "https://doi.org/10.24033/bsmf.1481",
+        "https://doi.org/10.4064/fm-22-1-257-261",
+        "https://link.springer.com/book/10.1007/978-3-642-61698-3",
+        "https://www.numdam.org/item/ASNSP_1939_2_8_3-4_301_0/"
+      ],
+      "local_failures": [],
+      "external_results": []
+    },
+    "rendering": {
+      "scope": "Documentation rendering and typesetting only",
+      "artifact_directory": "/opt/rocq/federer-build/documentation/4.1.7",
+      "initial_attempt_retained": "/opt/rocq/federer-build/documentation/4.1.7/initial-two-pass-attempt",
+      "html_sources_sha256": {
+        "docs/chapter4/4.1.md": "0fc01bcde889342b3c7b9b7e43209ccc418ce93a0c271fd47861c972155a9751",
+        "docs/contents.md": "9ba96f83dac937509cd8128542af314cb05c7325c31e575f0d41a8d6a475c176",
+        "docs/index.md": "8fbdcbb2407737694bbdd9358774cfbabf0dd2f00dcd33f8e318b32ecaf5fe1b",
+        "docs/symbols.md": "d23864e5bafd296a59b16edbf362a3288410d340fb528bb76b2eea02d2dd58a2",
+        "docs/divergences.md": "dd362a3c4fb1481f9ab52c785314ecb7dff93a250bd434fd0e779d4f36734b81"
+      },
+      "html": [
+        {
+          "path": "/opt/rocq/federer-build/documentation/4.1.7/html/chapter4/4.1.html",
+          "bytes": 112786,
+          "mathml_elements": 100,
+          "tables": 8
+        },
+        {
+          "path": "/opt/rocq/federer-build/documentation/4.1.7/html/contents.html",
+          "bytes": 6638709,
+          "mathml_elements": 0,
+          "tables": 0
+        },
+        {
+          "path": "/opt/rocq/federer-build/documentation/4.1.7/html/divergences.html",
+          "bytes": 1031213,
+          "mathml_elements": 4,
+          "tables": 25
+        },
+        {
+          "path": "/opt/rocq/federer-build/documentation/4.1.7/html/index.html",
+          "bytes": 351544,
+          "mathml_elements": 1,
+          "tables": 9
+        },
+        {
+          "path": "/opt/rocq/federer-build/documentation/4.1.7/html/symbols.html",
+          "bytes": 567920,
+          "mathml_elements": 932,
+          "tables": 11
+        }
+      ],
+      "latex_runs": [
+        {
+          "pass": 1,
+          "returncode": 0
+        },
+        {
+          "pass": 2,
+          "returncode": 0
+        },
+        {
+          "pass": 3,
+          "returncode": 0,
+          "seconds": 0.402
+        }
+      ],
+      "catalogue_entries": 135,
+      "compiled_tex_sha256": "c28425c567c1b3382ba4f64d054e94dd6151bd9dcae6b945edbf53bf96504fea",
+      "pdf": {
+        "path": "/opt/rocq/federer-build/documentation/4.1.7/federer-errors.pdf",
+        "bytes": 370056
+      },
+      "latex_layout_warning_lines": [],
+      "status": "passed",
+      "finished": "2026-11-19T21:35:02.642529+01:00"
+    },
+    "tex_proof_references": {
+      "scope": "Static error-catalogue proof-reference check",
+      "status": "passed",
+      "identifiers_checked": 154,
+      "unresolved_identifiers": [],
+      "identifier_sources": {
+        "symmetric_prescribed_fibre_condition": [
+          "theories/SymmetricFunctionFibres.v"
+        ],
+        "federer_2_10_44_scalar_formula": [
+          "theories/McShaneExtensionTheorem.v"
+        ],
+        "federer_2_10_44_scalar": [
+          "theories/McShaneExtensionTheorem.v"
+        ],
+        "critical_original_projected_union_length": [
+          "theories/CriticalProjectedUnionLength.v"
+        ],
+        "extended_seminorm_norming_functional": [
+          "theories/ExtendedSeminormNorming.v"
+        ],
+        "agreement_image_cover_remainder": [
+          "theories/ManifoldCoverImageRemainder.v"
+        ],
+        "approximate_growth_ae_domain_measurable": [
+          "theories/ApproximateGrowthDomainMeasurable.v"
+        ],
+        "literal_zeroth_comass": [
+          "theories/ComassZeroDegree.v"
+        ],
+        "literal_zeroth_comass_negative": [
+          "theories/ComassZeroDegree.v"
+        ],
+        "grassmann_no_covariant_integral": [
+          "theories/GrassmannWeilCondition.v"
+        ],
+        "mass_positive_convex_representation": [
+          "theories/MassPositiveConvexRepresentation.v"
+        ],
+        "zero_dimensional_positive_convex_impossible": [
+          "theories/MassPositiveConvexRepresentation.v"
+        ],
+        "product_measure_associative_countable": [
+          "theories/ProductMeasureAssociativity.v"
+        ],
+        "symmetric_fibre_cardinality": [
+          "theories/SymmetricWordFibreCount.v"
+        ],
+        "uniform_action_invariant_integral_exists": [
+          "theories/InvariantIntegralExistence.v"
+        ],
+        "lebesgue_product_not_associative": [
+          "theories/LebesgueAssociativityCounterexample.v"
+        ],
+        "simple_iff_dimension": [
+          "theories/SimpleDimensionCriterion.v"
+        ],
+        "kirszbraun_corner_pair_distances": [
+          "theories/KirszbraunCornerDistances.v"
+        ],
+        "kirszbraun_printed_two_needs_distinct": [
+          "theories/KirszbraunCornerDistances.v"
+        ],
+        "riemannian_punctured_line_infinite_distance": [
+          "theories/RiemannianDisconnectedChart.v"
+        ],
+        "structure_corrected_strict_superlevel": [
+          "theories/StructureLimsupLevels.v"
+        ],
+        "bounded_convex_intrinsic_section_comparison": [
+          "theories/BoundedConvexIntrinsicSectionComparison.v"
+        ],
+        "simple_dimension_zero_counterexample": [
+          "theories/SimpleBoundary.v"
+        ],
+        "uniform_action_orbit_basis": [
+          "theories/UniformActionLaws.v"
+        ],
+        "rectifiable_coordinate_projection_lower": [
+          "theories/RectifiableCoordinateLower.v"
+        ],
+        "zero_minkowski_contents_counting": [
+          "theories/MinkowskiZeroCounting.v"
+        ],
+        "federer_2_10_38": [
+          "theories/CompactEnclosingBox.v"
+        ],
+        "printed_topological_refinement_not_measure": [
+          "theories/OpenRefinementNonmonotonicity.v"
+        ],
+        "Omega_W": [
+          "theories/OmegaConstruction.v"
+        ],
+        "Omega_W_unique": [
+          "theories/OmegaConstruction.v"
+        ],
+        "exterior_product_norm_equality": [
+          "theories/ExteriorHadamardEquality.v"
+        ],
+        "halfline_primitive_unique_with_agreement": [
+          "theories/HalflinePrimitiveUniqueness.v"
+        ],
+        "positive_minkowski_contents_not_measures": [
+          "theories/MinkowskiNonmeasure.v"
+        ],
+        "zero_minkowski_contents_are_measures": [
+          "theories/MinkowskiNonmeasure.v"
+        ],
+        "differentiable_representative_relative_agreement": [
+          "theories/MeasureApproximateRelativeAgreement.v"
+        ],
+        "D_p_preserves_simple": [
+          "theories/DualityBoundary.v"
+        ],
+        "D_p_zero_degree_counterexample": [
+          "theories/DualityBoundary.v"
+        ],
+        "D_upper_zero_degree_counterexample": [
+          "theories/DualityBoundary.v"
+        ],
+        "is_equal_cost_interval_family": [
+          "theories/EqualCostIntervalFamilyUP.v"
+        ],
+        "halfline_primitive_nonuniqueness": [
+          "theories/HalflinePrimitiveNonuniqueness.v"
+        ],
+        "homogeneous_covariant_measure_radon": [
+          "theories/HomogeneousCovariantMeasureRadon.v"
+        ],
+        "federer_3_2_27": [
+          "theories/RectifiableCoordinateProjectionBounds.v"
+        ],
+        "federer_2_10_17_2": [
+          "theories/CaratheodoryDensityUpperBound.v"
+        ],
+        "topological_caratheodory_metric_agreement": [
+          "theories/TopologicalMetricAgreement.v"
+        ],
+        "rectifiable_coarea_subset_formula": [
+          "theories/RectifiableCoareaSubsetFormula.v"
+        ],
+        "empty_compact_enclosing_box_endpoint_counterexample": [
+          "theories/EmptyCompactBoxCounterexample.v"
+        ],
+        "circular_disc_conical_upper_density_almost": [
+          "theories/CircularDiscConicalUpperDensity.v"
+        ],
+        "Omega_W_not_injective": [
+          "theories/CoefficientNoninjectivity.v"
+        ],
+        "Omega_W_injective_requires_coefficient_line": [
+          "theories/CoefficientNoninjectivity.v"
+        ],
+        "Omega_W_noninjective_unless_coefficient_line": [
+          "theories/CoefficientNoninjectivity.v"
+        ],
+        "inner_boundary_layer_volume_nonempty_core": [
+          "theories/InnerBoundaryLayerVolume.v"
+        ],
+        "smooth_test_noncompact_nonembedding": [
+          "theories/SmoothTestNonembedding.v"
+        ],
+        "smooth_test_nonzero_source_nonembedding": [
+          "theories/SmoothTestNonembedding.v"
+        ],
+        "hadamard_zero_factor_counterexample": [
+          "theories/ExteriorHadamardCorrection.v"
+        ],
+        "federer_3_2_44": [
+          "theories/RectifiableBoundaryIsoperimetric.v"
+        ],
+        "federer_3_2_29": [
+          "theories/RectifiableManifoldCharacterisation.v"
+        ],
+        "federer_2_10_17_3": [
+          "theories/CaratheodoryDensityLowerBound.v"
+        ],
+        "Omega_relative_finite_bijective": [
+          "theories/RelativeOmegaFinite.v"
+        ],
+        "outer_boundary_layer_volume_nonempty": [
+          "theories/OuterBoundaryLayerVolume.v"
+        ],
+        "zero_domain_Omega_pair_injective": [
+          "theories/ZeroDimensionalCoefficients.v"
+        ],
+        "printed_caratheodory_density_bound_false": [
+          "theories/SubsingletonDensityCounterexample.v"
+        ],
+        "convex_integral_geometric_infinity_below_first": [
+          "theories/ConvexIntegralGeometricSharpComparison.v"
+        ],
+        "federer_3_2_42": [
+          "theories/BoundaryLayerVolume.v"
+        ],
+        "noetherian_irreducible_component_decomposition": [
+          "theories/NoetherianIrreducibleComponents.v"
+        ],
+        "affine_parametrisation_fibre": [
+          "theories/AffineSubspaceParametrisation.v"
+        ],
+        "binary_vertical_spherical_values": [
+          "theories/BinaryVerticalSphericalValues.v"
+        ],
+        "spherical_weighted_proper_equality": [
+          "theories/SphericalProperWeighted.v"
+        ],
+        "borel_baire_target_criterion_with_empty": [
+          "theories/BaireTargetCriterion.v"
+        ],
+        "stieltjes_image_requires_onto": [
+          "theories/StieltjesImageSurjectivity.v"
+        ],
+        "stieltjes_image_unrestricted_false": [
+          "theories/StieltjesImageSurjectivity.v"
+        ],
+        "lusin_borel_version_metric": [
+          "theories/LusinBorelVersion.v"
+        ],
+        "lusin_borel_version_radon": [
+          "theories/LusinBorelVersion.v"
+        ],
+        "ordinary_tensor_commutative_iff": [
+          "theories/OrdinaryTensorClassification.v"
+        ],
+        "ordinary_tensor_anticommutative_iff": [
+          "theories/OrdinaryTensorClassification.v"
+        ],
+        "ordinary_tensor_neither_iff": [
+          "theories/OrdinaryTensorClassification.v"
+        ],
+        "empty_target_borel_baire_counterexample": [
+          "theories/BaireEmptyTargetBoundary.v"
+        ],
+        "symmetric_diagonal_monomial": [
+          "theories/SymmetricDiagonalBinomial.v"
+        ],
+        "analytic_empty_germ_not_proper_prime": [
+          "theories/AnalyticEmptyGermBoundary.v"
+        ],
+        "analytic_empty_germ_two_literal_families": [
+          "theories/AnalyticEmptyGermBoundary.v"
+        ],
+        "weighted_miss_capacity_empty_positive": [
+          "theories/ErratumWeightedHitCounterexample.v"
+        ],
+        "weighted_miss_capacity_not_measure": [
+          "theories/ErratumWeightedHitCounterexample.v"
+        ],
+        "federer_2_10_11_real_spherical_corrected": [
+          "theories/RealSphericalMultiplicityBound.v"
+        ],
+        "circular_disc_actual_cap_counterexample": [
+          "theories/CircularDiscActualCapCounterexample.v"
+        ],
+        "gillespie_euclidean_product_upper": [
+          "theories/GillespieProductUpper.v"
+        ],
+        "convex_exponent_no_finite_secant_constant": [
+          "theories/ConvexExponentNoFiniteSecant.v"
+        ],
+        "federer_3_4_8_16": [
+          "theories/Federer348RelativeOpenDimension.v"
+        ],
+        "positive_closure_volume_isoperimetric": [
+          "theories/IsoperimetricInequality.v"
+        ],
+        "federer_3_2_43": [
+          "theories/IsoperimetricInequality.v"
+        ],
+        "covector_dimension_zero_counterexample": [
+          "theories/CovectorBoundary.v"
+        ],
+        "rectifiable_coordinate_upper_requires_measurability": [
+          "theories/RectifiableCoordinateCounterexample.v"
+        ],
+        "symmetric_negative_unit_not_empty_sum": [
+          "theories/SymmetricZeroDegreeDecomposition.v"
+        ],
+        "federer_2_10_11_spherical_counterexample": [
+          "theories/BinarySphericalMultiplicityCounterexample.v"
+        ],
+        "Omega_W_surjective_requires_scalar_coefficients": [
+          "theories/CoefficientImage.v"
+        ],
+        "nonmeasurable_domain_converse_counterexample": [
+          "theories/ClassOneApproximationCounterexamples.v"
+        ],
+        "riemannian_distance_no_curve": [
+          "theories/RiemannianDistance.v"
+        ],
+        "zero_dimensional_test_topology_counterexample": [
+          "theories/ZeroDimensionalTestTopologyCounterexample.v"
+        ],
+        "norm_differential_sharp_limits": [
+          "theories/NormDifferentialSharpLimits.v"
+        ],
+        "norm_ratio_zero_source_exception": [
+          "theories/NormDifferentialSharpLimits.v"
+        ],
+        "analytic_irreducible_proper_prime_equivalence": [
+          "theories/AnalyticIrreducibleProperPrime.v"
+        ],
+        "finite_product_association_invariance": [
+          "theories/FiniteMeasureAssociations.v"
+        ],
+        "steiner_minimal_radius_contains_sphere": [
+          "theories/SteinerMinimalSphere.v"
+        ],
+        "gross_measure": [
+          "theories/ProjectionMeasure.v"
+        ],
+        "noncommutative_exterior_extension_impossible": [
+          "theories/NoncommutativeObstruction.v"
+        ],
+        "critical_square_original_singleton_qualification": [
+          "theories/CriticalSquareZeroDiameterQualification.v"
+        ],
+        "zero_parent_cantor_split_impossible": [
+          "theories/CantorSplitRadiusUP.v"
+        ],
+        "critical_original_positive_diameter_attainment": [
+          "theories/CriticalPositiveDiameterAttainment.v"
+        ],
+        "zero_left_invariant_measure_not_radon": [
+          "theories/CovariantMeasureRadonCounterexample.v"
+        ],
+        "simple_covector_iff_dimension": [
+          "theories/CovectorDimension.v"
+        ],
+        "convex_nonincreasing_reciprocal_secant": [
+          "theories/ConvexReciprocalSecant.v"
+        ],
+        "analytic_printed_constant_term_bound_fails": [
+          "theories/AnalyticConstantTermCorrection.v"
+        ],
+        "analytic_point_stratification": [
+          "theories/AnalyticPointStratification.v"
+        ],
+        "critical_original_orthogonal_projection_bound": [
+          "theories/CriticalOriginalAllProjectionBound.v"
+        ],
+        "federer_3_2_22_3": [
+          "theories/RectifiablePartialCoareaFormula.v"
+        ],
+        "stabiliser_scaling_exists": [
+          "theories/StabiliserModularFunction.v"
+        ],
+        "topological_caratheodory_is_measure": [
+          "theories/TopologicalCaratheodoryMeasure.v"
+        ],
+        "circular_disc_buffered_cone_mass": [
+          "theories/CircularDiscBufferedConeMass.v"
+        ],
+        "caratheodory_density_divide": [
+          "theories/CaratheodoryDensityQuotient.v"
+        ],
+        "topological_caratheodory_continuous_measurable": [
+          "theories/TopologicalContinuousMeasurability.v"
+        ],
+        "measure_approximate_empty_zero": [
+          "theories/MeasureApproximateBoundary.v"
+        ],
+        "measure_approximate_empty_agreement_not_closure": [
+          "theories/MeasureApproximateBoundary.v"
+        ],
+        "convex_integral_geometric_section_upper_integral": [
+          "theories/ConvexIntegralGeometricSections.v"
+        ],
+        "infinite_seminorm_has_no_norming_functional": [
+          "theories/ExtendedSeminormNormingCorrection.v"
+        ],
+        "shrinking_ball_wrong_center_counterexample": [
+          "theories/SteinerRadiusCenterCorrection.v"
+        ],
+        "federer_3_1_17": [
+          "theories/ClassOneApproximationConverse.v"
+        ],
+        "projection_three_one_moment": [
+          "theories/ProjectionThreeOneMoment.v"
+        ],
+        "weighted_hit_measure_is_measure": [
+          "theories/WeightedHitMeasure.v"
+        ],
+        "analytic_coordinate_zero_degree_cost": [
+          "theories/AnalyticCoordinateMajorant.v"
+        ],
+        "closed_ball_hausdorff_closedness_counterexample": [
+          "theories/ClosedBallHausdorffApproximation.v"
+        ],
+        "lipschitz_small_manifold_remainder": [
+          "theories/LipschitzSmallManifoldRemainder.v"
+        ],
+        "unit_segment_convex_exponent_values": [
+          "theories/ConvexExponentSecantCounterexample.v"
+        ],
+        "convex_exponent_secant_counterexample": [
+          "theories/ConvexExponentSecantCounterexample.v"
+        ],
+        "critical_original_cantor_square_sharp_length": [
+          "theories/CriticalCantorSquareSharpLength.v"
+        ],
+        "affine_coordinate_cube_steiner_estimate": [
+          "theories/AffineCubeSteinerEstimate.v"
+        ],
+        "stieltjes_image_induced_measures": [
+          "theories/StieltjesImageMeasures.v"
+        ],
+        "federer_2_10_17_3_original": [
+          "theories/CaratheodoryOriginalDensity.v"
+        ],
+        "missing_steiner_constant_counterexample_exists": [
+          "theories/MissingSteinerConstantCounterexample.v"
+        ],
+        "federer_3_2_45_product": [
+          "theories/ConvexGeometricProductTheorem.v"
+        ],
+        "symmetric_degree_zero_mass_specification": [
+          "theories/SymmetricDegreeZeroMass.v"
+        ],
+        "empty_source_no_finite_mcshane_envelope": [
+          "theories/EmptyMcShaneSource.v"
+        ],
+        "coefficient_pair_not_surjective": [
+          "theories/CoefficientCounterexample.v"
+        ],
+        "convex_integral_geometric_measure_continuous": [
+          "theories/ConvexIntegralGeometricContinuity.v"
+        ],
+        "halfline_current_supported_primitive_impossible": [
+          "theories/HalflineCurrentSupportObstruction.v"
+        ],
+        "measurable_function_total_extension": [
+          "theories/MeasurableTotalExtension.v"
+        ],
+        "isoperimetric_null_line_singleton_exclusion_example": [
+          "tests/IsoperimetricExamples.v"
+        ],
+        "boundary_layer_empty_core_line_exclusion_example": [
+          "tests/BoundaryLayerVolumeExamples.v"
+        ],
+        "empty_target_extension_counterexample": [
+          "tests/MeasureExamples.v"
+        ],
+        "borel_version_empty_target_counterexample": [
+          "tests/MeasureExamples.v"
+        ],
+        "empty_space_orbit_family_not_basis_example": [
+          "tests/MeasureExamples.v"
+        ],
+        "invariant_integral_empty_space_example": [
+          "tests/MeasureExamples.v"
+        ],
+        "symmetric_zero_ambient_empty_word": [
+          "tests/GradedExamples.v"
+        ],
+        "zero_left_plane_ordinary_exception": [
+          "tests/OrdinaryTensorClassificationExamples.v"
+        ],
+        "line_plane_ordinary_neither": [
+          "tests/OrdinaryTensorClassificationExamples.v"
+        ],
+        "compact_minkowski_constant_map_correction_example": [
+          "tests/DifferentialExamples.v"
+        ],
+        "unit_segment_positive_reciprocal_regression": [
+          "tests/ConvexExponentExamples.v"
+        ]
+      }
+    }
+  },
+  "artifact_permissions": {
+    "scope": "Read-only host permission and registered source-byte check",
+    "filesystem_view": "host",
+    "checked_registered_files": 2310,
+    "includes_hidden_aux": true,
+    "group": "llm",
+    "group_gid": 1003,
+    "group_rw_failures": [],
+    "registered_source_byte_mismatches": []
+  }
+}

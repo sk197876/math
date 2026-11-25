@@ -1,0 +1,15 @@
+(** Federer (1969), 4.1.3, p. 348: public interface for the
+    canonical coordinate test tensor map and its dense image
+    in the original literal final test topology. The Banach
+    target need not be separable; constructors remain opaque. *)
+From Federer Require Export
+  ContinuousConvolutionIteratedKernel ContinuousConvolutionMultiPartial ContinuousFiniteKernelJetApproximation ContinuousFiniteKernelPartialQuadrature
+  ContinuousFiniteKernelSeminormApproximation ContinuousKernelConstantIntegral ContinuousSmoothDerivativeUniform ContinuousSmoothSmoothingConvergence
+  ContinuousSmoothSmoothingExistence ContinuousSmoothSmoothingPartials ContinuousSmoothingInputDirectional ContinuousSmoothingInputIteration
+  ContinuousSmoothingInputMultiPartial ContinuousSmoothingLocallyUniform ContinuousSmoothingSmoothness ContinuousTestSmoothingConvergence
+  EuclideanCoordinateLoneBound FiniteTensorImageSums NormedInvariantVectorIntegral NormedSmoothingSubstitution
+  ScalarLineSmoothingTest SeparatedKernelExistence SeparatedKernelSealed SeparatedSmoothingKernel
+  SeparatedTestTensorLift TensorKernelApproximation TensorSmoothingClosure TestCommonSupportApproximation
+  TestCoordinateProductRepresentation TestCoordinateProductSmooth TestCoordinateProductSupport TestCoordinateProductUpdate
+  TestLineAffinePrecomposition TestLineSupportBound TestPointwiseLinearLaws TestTensorDensityTheorem
+  TestTensorMapExistence TestTensorMapSealed TestTensorMapUP TranslatedSeparatedTestImage.

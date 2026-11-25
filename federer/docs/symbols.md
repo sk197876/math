@@ -391,82 +391,86 @@ definitions.
 | 3.4.12 | $\mathscr V^{\mathbf C}_a$ | complex analytic variety germs | [holomorphic variety germ laws](../theories/HolomorphicVarietyGermUP.v) |
 | 3.4.12 | $\mathbf U(n)$ | unitary group | [unitary group](../theories/UnitaryGroup.v) |
 | 3.4.12 | $\dim_{\mathbf C}$ | complex dimension | [original opaque depth](../theories/HolomorphicDepthSealed.v), [independent real comparison](../theories/HolomorphicRealGermDimension.v) |
-| 4.1.1 | $\mathscr E$ | functions of class $\infty$ | not formalised |
-| 4.1.1 | $\nu^i_K$ | seminorm $\sup$ of $\lVert D^j \phi \rVert$ on $K$ for $j \le i$ | not formalised |
-| 4.1.1 | $\mathscr E'$ | continuous linear functionals on $\mathscr E$ | not formalised |
-| 4.1.1 | $\operatorname{spt}$ | support of a function or functional | not formalised |
-| 4.1.1 | $\mathscr E'_K$ | members of $\mathscr E'$ supported in $K$ | not formalised |
-| 4.1.1 | $\mathscr D_K$ | functions of class $\infty$ supported in $K$ | not formalised |
-| 4.1.1 | $\mathscr D$ | test functions | not formalised |
-| 4.1.1 | $\mathscr D'$ | distributions | not formalised |
-| 4.1.1 | $T \mathbin{\llcorner} v$ | product of a distribution and a function | not formalised |
-| 4.1.1 | $T D_j$ | $\phi \mapsto T(D_j \phi)$ | not formalised |
-| 4.1.1 | $T D^\alpha$ | $\phi \mapsto T(D^\alpha \phi)$ | not formalised |
-| 4.1.1 | $D_j T$ | distributional partial derivative | not formalised |
-| 4.1.1 | $D^\alpha T$ | distributional partial derivative of order $\alpha$ | not formalised |
-| 4.1.1 | $T_x \phi(x)$ | alternative notation for $T(\phi)$ | not formalised |
-| 4.1.2 | $\Phi_\varepsilon$ | mollifier | not formalised |
-| 4.1.2 | $T_\varepsilon$ | regularised distribution | not formalised |
-| 4.1.2 | $\ast$ | convolution | not formalised |
-| 4.1.5 | $\lVert S \rVert$ | variation measure of a distribution | not formalised |
-| 4.1.6 | $\wedge$ | exterior product of forms and vectorfields | not formalised |
-| 4.1.6 | $\mathbin{\lrcorner}$ | interior product of fields | not formalised |
-| 4.1.6 | $\mathbin{\llcorner}$ | interior product of fields | not formalised |
-| 4.1.6 | $\langle \xi, \phi \rangle$ | pointwise pairing | not formalised |
-| 4.1.6 | $\lVert \phi \rVert$ | pointwise comass of a form | not formalised |
-| 4.1.6 | $\lVert \xi \rVert$ | pointwise mass of a vectorfield | not formalised |
-| 4.1.6 | $X_\lambda$ | product of coordinate covectors | not formalised |
-| 4.1.6 | $e_\lambda$ | product of standard base vectors | not formalised |
-| 4.1.6 | $(DX)_\lambda$ | product of coordinate differentials | not formalised |
-| 4.1.6 | $\mathbf e_\lambda$ | constant $m$-vectorfield | not formalised |
-| 4.1.6 | $\mathbf D_p \xi$ | duality applied to a vectorfield | not formalised |
-| 4.1.6 | $\mathbf D^p \phi$ | duality applied to a form | not formalised |
-| 4.1.6 | $\ast \xi$ | Hodge star of a vectorfield | not formalised |
-| 4.1.6 | $\ast \phi$ | Hodge star of a form | not formalised |
-| 4.1.6 | $d\phi$ | exterior derivative | not formalised |
-| 4.1.6 | $\operatorname{div} \xi$ | divergence | not formalised |
-| 4.1.6 | $f^{\#}$ | pull-back of forms | not formalised |
-| 4.1.7 | $\mathscr E^m$ | forms of class $\infty$ | not formalised |
-| 4.1.7 | $\mathscr E_m$ | currents with compact support | not formalised |
-| 4.1.7 | $\mathscr D^m$ | forms with compact support | not formalised |
-| 4.1.7 | $\mathscr D_m$ | currents | not formalised |
-| 4.1.7 | $T \mathbin{\llcorner} \phi$ | interior product of a current and a form | not formalised |
-| 4.1.7 | $T \wedge \xi$ | product of a current and a vectorfield | not formalised |
-| 4.1.7 | $\partial T$ | boundary | not formalised |
-| 4.1.7 | $\mathbf E^n$ | current $\mathscr L^n \wedge e_1 \wedge \dots \wedge e_n$ | not formalised |
-| 4.1.7 | $\vec S$ | orienting $m$-vectorfield | not formalised |
-| 4.1.7 | $\mathbf M$ | mass | not formalised |
-| 4.1.7 | $\mathbf N$ | normal mass $\mathbf M(T) + \mathbf M(\partial T)$ | not formalised |
-| 4.1.7 | $\mathbf N_m$ | normal currents | not formalised |
-| 4.1.7 | $\mathbf N^{\mathrm{loc}}_m$ | locally normal currents | not formalised |
-| 4.1.7 | $\mathbf N_{m,K}$ | normal currents supported in $K$ | not formalised |
-| 4.1.7 | $f_{\#}$ | push-forward of currents | not formalised |
-| 4.1.8 | $S \times T$ | Cartesian product of currents | not formalised |
-| 4.1.8 | $[u, v]$ | oriented interval | not formalised |
-| 4.1.9 | $h_t$ | $h(t, \cdot)$ | not formalised |
-| 4.1.9 | $\dot h_t$ | velocity of a homotopy | not formalised |
-| 4.1.11 | $S \mathbin{\times\!\!\!\!\times} T$ | join of currents | not formalised |
-| 4.1.11 | $[u_0, \dots, u_m]$ | oriented simplex | not formalised |
-| 4.1.12 | $\mathbf F_K$ | flat seminorm | not formalised |
-| 4.1.12 | $\mathbf F_{m,K}$ | flat chains in $K$ | not formalised |
-| 4.1.12 | $\mathbf F_m$ | flat chains | not formalised |
-| 4.1.12 | $\mathbf F^{\mathrm{loc}}_m$ | locally flat chains | not formalised |
-| 4.1.14 | $f_{\#}$ | push-forward of flat chains | not formalised |
-| 4.1.19 | $\mathbf F$ | flat norm of a flat cochain | not formalised |
-| 4.1.22 | $\mathscr P_{m,K}$ | integral polyhedral chains in $K$ | not formalised |
-| 4.1.22 | $\mathbf P_{m,K}$ | real polyhedral chains in $K$ | not formalised |
-| 4.1.22 | $\mathscr P_m$ | integral polyhedral chains | not formalised |
-| 4.1.22 | $\mathbf P_m$ | real polyhedral chains | not formalised |
-| 4.1.24 | $\mathscr R_{m,K}$ | rectifiable currents in $K$ | not formalised |
-| 4.1.24 | $\mathscr R_m$ | rectifiable currents | not formalised |
-| 4.1.24 | $\mathbf I_{m,K}$ | integral currents in $K$ | not formalised |
-| 4.1.24 | $\mathbf I_m$ | integral currents | not formalised |
-| 4.1.24 | $\mathscr F_{m,K}$ | integral flat chains in $K$ | not formalised |
-| 4.1.24 | $\mathscr F_m$ | integral flat chains | not formalised |
-| 4.1.24 | $\mathscr R^{\mathrm{loc}}_m$ | locally rectifiable currents | not formalised |
-| 4.1.24 | $\mathbf I^{\mathrm{loc}}_m$ | locally integral currents | not formalised |
-| 4.1.24 | $\mathscr F^{\mathrm{loc}}_m$ | locally integral flat chains | not formalised |
-| 4.1.24 | $\mathscr F_K$ | integral flat seminorm | not formalised |
+| 4.1.1 | $\mathscr E$ | functions of class $\infty$ | [`distribution_smooth_space`](../theories/Distributions.v#L36) |
+| 4.1.1 | $\nu^i_K$ | seminorm $\sup$ of $\lVert D^j \phi \rVert$ on $K$ for $j \le i$ | [`smooth_function_derivative_seminorm`](../theories/SmoothFunctionTopology.v#L33) |
+| 4.1.1 | $\mathscr E'$ | continuous linear functionals on $\mathscr E$ | [`continuous_real_dual_space`](../theories/ContinuousRealDual.v#L21) |
+| 4.1.1 | $\operatorname{spt}$ | support of a function or functional | [`smooth_function_support`](../theories/SmoothFunctionSupport.v#L16), [`smooth_functional_support`](../theories/FunctionalSupportUP.v#L26) |
+| 4.1.1 | $\mathscr E'_K$ | members of $\mathscr E'$ supported in $K$ | [`smooth_dual_fixed_support_weakly_closed`](../theories/SmoothDualFixedSupportClosed.v#L53) |
+| 4.1.1 | $\mathscr D_K$ | functions of class $\infty$ supported in $K$ | [`smooth_fixed_test_space`](../theories/SmoothTestSpaces.v#L27) |
+| 4.1.1 | $\mathscr D$ | test functions | [`distribution_test_space`](../theories/Distributions.v#L69) |
+| 4.1.1 | $\mathscr D'$ | distributions | [`distribution_space`](../theories/Distributions.v#L91) |
+| 4.1.1 | $T \mathbin{\llcorner} v$ | product of a distribution and a function | [`distribution_scalar_restriction`](../theories/DistributionScalarRestriction.v#L42) |
+| 4.1.1 | $T D_j$ | $\phi \mapsto T(D_j \phi)$ | [`distribution_test_directional_derivative`](../theories/DistributionDirectionalDerivative.v#L46) |
+| 4.1.1 | $T D^\alpha$ | $\phi \mapsto T(D^\alpha \phi)$ | [`distribution_test_iterated_derivative`](../theories/DistributionIteratedDerivative.v#L41) |
+| 4.1.1 | $D_j T$ | distributional partial derivative | [`distribution_directional_derivative`](../theories/DistributionDirectionalDerivative.v#L51) |
+| 4.1.1 | $D^\alpha T$ | distributional partial derivative of order $\alpha$ | [`distribution_multiindex_derivative`](../theories/DistributionMultiindexDerivative.v#L43) |
+| 4.1.1 | $T_x \phi(x)$ | alternative notation for $T(\phi)$ | [`continuous_real_dual_evaluation`](../theories/ContinuousRealDual.v#L27) |
+| 4.1.2 | $\Phi_\varepsilon$ | mollifier | [`regularising_kernel_family`](../theories/Smoothing.v#L70), [`regularising_kernel_family_laws`](../theories/Smoothing.v#L76) |
+| 4.1.2 | $T_\varepsilon$ | regularised distribution | `SmoothedDistributionFamily.value`, [`is_smoothed_distribution_family`](../theories/SmoothedDistributionFamilyUP.v#L14) |
+| 4.1.2 | $\ast$ | convolution | [`is_smoothing_convolution`](../theories/SmoothingConvolutionUP.v#L17), [`is_partial_smoothing_convolution`](../theories/PartialSmoothingConvolutionUP.v#L27) |
+| 4.1.3 | $\gamma$ | common one-variable scalar test factor | `SeparatedKernel.factor`, `SeparatedKernel.laws` |
+| 4.1.3 | $[\bigotimes_n\mathscr D(\mathbf R,\mathbf R)]\otimes Y$ | original coordinate test tensor source and its dense image | [`is_test_tensor_map`](../theories/TestTensorMapUP.v#L16), `TestTensorMap.value`, [`test_tensor_dense_map_exists`](../theories/TestTensorDensityTheorem.v#L77) |
+| 4.1.4 | $C_\varepsilon$ | component of the fixed centre in the original inward locus | `InnerComponentFamily.value`, `InnerComponentFamily.laws`, [`inner_component_eventually_contains_compact`](../theories/InnerComponentExhaustion.v#L64) |
+| 4.1.4 | $\alpha_\varepsilon$, $\alpha$ | actual smooth dual constants and the unique local representing functional | [`regularisation_centre_scale_independent`](../theories/RegularisationConstantScaleIndependence.v#L97), [`domain_constant_functional_unique`](../theories/DomainConstantFunctionalUniqueness.v#L57), [`distribution_derivative_support_constant`](../theories/DistributionConstancy.v#L80) |
+| 4.1.5 | $\lVert S \rVert$ | original scalar-test gauge; its representing Radon measure when finite on $\mathscr K(U)^+$ | `DistributionVariation.laws`, [`is_finite_distribution_variation`](../theories/DistributionFiniteVariationUP.v#L19), [`is_normalised_distribution_representation`](../theories/NormalisedDistributionRepresentationUP.v#L21) |
+| 4.1.6 | $\wedge$ | exterior product of forms and vectorfields | [`differential_form_product_values`](../theories/DifferentialFormFields.v#L71) |
+| 4.1.6 | $\mathbin{\lrcorner}$ | interior product of fields | [`field_right_interior_values`](../theories/DifferentialFormContractions.v#L26) |
+| 4.1.6 | $\mathbin{\llcorner}$ | interior product of fields | [`field_left_interior_values`](../theories/DifferentialFormContractions.v#L47) |
+| 4.1.6 | $\langle \xi, \phi \rangle$ | pointwise pairing | [`field_form_pairing_values`](../theories/DifferentialFormContractions.v#L66), [`field_pairing_interior_evaluation`](../theories/DifferentialFormPairingIdentification.v#L16) |
+| 4.1.6 | $\lVert \phi \rVert$ | pointwise comass of a form | [`real_form_field_comass`](../theories/DifferentialFormPointwiseNorms.v#L81) |
+| 4.1.6 | $\lVert \xi \rVert$ | pointwise mass of a vectorfield | [`multivector_field_mass`](../theories/DifferentialFormPointwiseNorms.v#L67) |
+| 4.1.6 | $X_\lambda$ | product of coordinate covectors | [`euclidean_coordinate_products_dual`](../theories/EuclideanCoordinateForms.v#L47) |
+| 4.1.6 | $e_\lambda$ | product of standard base vectors | [`euclidean_coordinate_products_dual`](../theories/EuclideanCoordinateForms.v#L47) |
+| 4.1.6 | $(DX)_\lambda$ | product of coordinate differentials | [`original_coordinate_product_field_values`](../theories/OriginalCoordinateFormFields.v#L43) |
+| 4.1.6 | $\mathbf e_\lambda$ | constant $m$-vectorfield | [`original_coordinate_multivector_field_values`](../theories/OriginalCoordinateFormFields.v#L61) |
+| 4.1.6 | $\mathbf D_p \xi$ | duality applied to a vectorfield | [`field_duality_lower_values`](../theories/DifferentialFormDuality.v#L24) |
+| 4.1.6 | $\mathbf D^p \phi$ | duality applied to a form | [`field_duality_upper_values`](../theories/DifferentialFormDuality.v#L40) |
+| 4.1.6 | $\ast \xi$ | Hodge star of a vectorfield | [`field_hodge_vector_values`](../theories/DifferentialFormHodgeValues.v#L17) |
+| 4.1.6 | $\ast \phi$ | Hodge star of a form | [`field_hodge_covector_values`](../theories/DifferentialFormHodgeValues.v#L27) |
+| 4.1.6 | $d\phi$ | exterior derivative | [`has_exterior_derivative`](../theories/ExteriorDerivativeUP.v#L16), `ExteriorDerivative.laws` |
+| 4.1.6 | $\operatorname{div} \xi$ | divergence | `FieldDivergence.laws`, [`divergence_coordinate_formula`](../theories/DivergenceCoordinates.v#L21) |
+| 4.1.6 | $f^{\#}$ | pull-back of forms | `DifferentialFormPullback.laws`, [`original_pullback_exterior_derivative`](../theories/PullbackExteriorDerivative.v#L82) |
+| 4.1.7 | $\mathscr E^m$ | forms of class $\infty$ | [`current_smooth_space`](../theories/CurrentSpaces.v#L32) |
+| 4.1.7 | $\mathscr E_m$ | currents with compact support | [`current_smooth_dual_space`](../theories/CurrentSpaces.v#L108) |
+| 4.1.7 | $\mathscr D^m$ | forms with compact support | [`current_test_space`](../theories/CurrentSpaces.v#L64) |
+| 4.1.7 | $\mathscr D_m$ | currents | [`current_space`](../theories/CurrentSpaces.v#L82) |
+| 4.1.7 | $T \mathbin{\llcorner} \phi$ | interior product of a current and a form | [`current_contraction`](../theories/CurrentContraction.v#L33) |
+| 4.1.7 | $T \wedge \xi$ | product of a current and a vectorfield | [`current_vector_product`](../theories/CurrentVectorProduct.v#L31) |
+| 4.1.7 | $\partial T$ | boundary | [`current_boundary`](../theories/CurrentBoundary.v#L37) |
+| 4.1.7 | $\mathbf E^n$ | current $\mathscr L^n \wedge e_1 \wedge \dots \wedge e_n$ | [`euclidean_fundamental_current`](../theories/EuclideanFundamentalCurrent.v#L20) |
+| 4.1.7 | $\vec S$ | orienting $m$-vectorfield | `CurrentOrientation.laws` |
+| 4.1.7 | $\mathbf M$ | mass | `CurrentMass.laws` |
+| 4.1.7 | $\mathbf N$ | normal mass $\mathbf M(T) + \mathbf M(\partial T)$ | [`current_normal_mass`](../theories/NormalCurrentsUP.v#L59) |
+| 4.1.7 | $\mathbf N_m$ | normal currents | [`normal_current_space`](../theories/NormalCurrentSpaces.v#L107) |
+| 4.1.7 | $\mathbf N^{\mathrm{loc}}_m$ | locally normal currents | [`locally_normal_current_space`](../theories/NormalCurrentSpaces.v#L87) |
+| 4.1.7 | $\mathbf N_{m,K}$ | normal currents supported in $K$ | [`supported_normal_current_space`](../theories/NormalCurrentSpaces.v#L127) |
+| 4.1.7 | $f_{\#}$ | push-forward of currents | `CurrentPushforward.laws` |
+| 4.1.8 | $S \times T$ | Cartesian product of currents | `CartesianCurrentProduct.laws` |
+| 4.1.8 | $[u, v]$ | oriented interval | `OrientedSegmentCurrent.laws`, [`scalar_oriented_segment_interval_restriction`](../theories/ScalarOrientedSegmentInterval.v#L129) |
+| 4.1.9 | $h_t$ | $h(t, \cdot)$ | [`current_homotopy_slice_map`](../theories/CurrentHomotopyUP.v#L54) |
+| 4.1.9 | $\dot h_t$ | velocity of a homotopy | [`current_homotopy_time_velocity`](../theories/CurrentHomotopyTimeVelocity.v#L19) |
+| 4.1.11 | $S \mathbin{\times\!\!\!\!\times} T$ | join of currents | `CurrentJoin.laws`; all boundary cases, affine images, mass bound and associativity |
+| 4.1.11 | $[u_0, \dots, u_m]$ | oriented simplex | `OrientedSimplexCurrent.laws`, [`oriented_simplex_current_boundary`](../theories/OrientedSimplexCurrentBoundary.v#L34), [`oriented_simplex_current_permutation`](../theories/OrientedSimplexPermutation.v#L20) |
+| 4.1.12 | $\mathbf F_K$ | flat seminorm | `CurrentFlatFormSeminorm.laws`, [`current_flat_norm`](../theories/CurrentFlatNorm.v#L32) |
+| 4.1.12 | $\mathbf F_{m,K}$ | flat chains in $K$ | [`is_flat_current_supported_in`](../theories/FlatCurrentsUP.v#L36), [`flat_current_space_laws`](../theories/FlatCurrentSpaces.v#L69), [`flat_current_complete`](../theories/FlatCurrentSpaces.v#L105) |
+| 4.1.12 | $\mathbf F_m$ | flat chains | [`is_flat_current`](../theories/FlatCurrentsUP.v#L45), [`flat_current_union_subspace`](../theories/FlatCurrentUnion.v#L74) |
+| 4.1.12 | $\mathbf F^{\mathrm{loc}}_m$ | locally flat chains | [`is_locally_flat_current`](../theories/FlatCurrentsUP.v#L53), [`locally_flat_point_criterion`](../theories/LocallyFlatPointCriterion.v#L33) |
+| 4.1.14 | $f_{\#}$ | push-forward of flat chains | [`CurrentFlatLipschitzPushforward.value`](../theories/CurrentFlatLipschitzPushforwardSealed.v#L64), [`CurrentLipschitzPushforward.value`](../theories/CurrentLipschitzPushforwardSealed.v#L53) |
+| 4.1.19 | $\mathbf F$ | flat norm of a flat cochain | [`flat_cochain_norm`](../theories/FlatCochainSpace.v#L114), [`flat_cochain_norm_is_norm`](../theories/FlatCochainNormLaws.v#L49) |
+| 4.1.22 | $\mathscr P_{m,K}$ | integral polyhedral chains in $K$ | [`integral_polyhedral_current_class`](../theories/PolyhedralCurrentAlgebra.v#L40) |
+| 4.1.22 | $\mathbf P_{m,K}$ | real polyhedral chains in $K$ | [`polyhedral_current_subspace`](../theories/PolyhedralCurrentAlgebra.v#L119) |
+| 4.1.22 | $\mathscr P_m$ | integral polyhedral chains | [`is_integral_polyhedral_current`](../theories/PolyhedralCurrentUnion.v#L40) |
+| 4.1.22 | $\mathbf P_m$ | real polyhedral chains | [`is_polyhedral_current`](../theories/PolyhedralCurrentUnion.v#L46) |
+| 4.1.24 | $\mathscr R_{m,K}$ | rectifiable currents in $K$ | [`is_rectifiable_current_supported_in`](../theories/RectifiableCurrentApproximationUP.v#L85) |
+| 4.1.24 | $\mathscr R_m$ | rectifiable currents | [`is_rectifiable_current`](../theories/IntegralCurrentClassesUP.v#L34) |
+| 4.1.24 | $\mathbf I_{m,K}$ | integral currents in $K$ | [`is_integral_current_supported_in`](../theories/IntegralCurrentClassesUP.v#L41) |
+| 4.1.24 | $\mathbf I_m$ | integral currents | [`is_integral_current`](../theories/IntegralCurrentClassesUP.v#L51) |
+| 4.1.24 | $\mathscr F_{m,K}$ | integral flat chains in $K$ | [`is_integral_flat_current_supported_in`](../theories/IntegralCurrentClassesUP.v#L58) |
+| 4.1.24 | $\mathscr F_m$ | integral flat chains | [`is_integral_flat_current`](../theories/IntegralCurrentClassesUP.v#L66) |
+| 4.1.24 | $\mathscr R^{\mathrm{loc}}_m$ | locally rectifiable currents | [`is_locally_rectifiable_current`](../theories/IntegralCurrentClassesUP.v#L74) |
+| 4.1.24 | $\mathbf I^{\mathrm{loc}}_m$ | locally integral currents | [`is_locally_integral_current`](../theories/IntegralCurrentClassesUP.v#L82) |
+| 4.1.24 | $\mathscr F^{\mathrm{loc}}_m$ | locally integral flat chains | [`is_locally_integral_flat_current`](../theories/IntegralCurrentClassesUP.v#L90) |
+| 4.1.24 | $\mathscr F_K$ | integral flat size | `IntegralFlatSize.value` |
 | 4.1.31 | $\int_B \phi$ | integral over an oriented submanifold | not formalised |
 | 4.1.31 | $\int_{\partial A} \psi$ | integral over an oriented boundary | not formalised |
 | 4.1.34 | $[\alpha, \beta]$ | Lie product of vectorfields | not formalised |
@@ -885,6 +889,112 @@ each declaration retains the hypotheses stated in its source.
 | 3.4.10, pp. 337–338 | $\dim S$, $R$ and $S\setminus R$ | [`analytic_set_dimension`](../theories/AnalyticSetDimension.v), [`AnalyticRegularLocus.value`](../theories/AnalyticRegularLocusSealed.v); attained original supremum and exact neighbourhood laws |
 | 3.4.11, p. 338 | $\operatorname{var}\operatorname{ideal}\gamma_0[\operatorname{Tan}(S,a)]$, $F$ and the cusp | [`federer_3_4_11`](../theories/Federer3411TangentHull.v), [`federer_3_4_11_finite_polynomial_majorant`](../theories/Federer3411PolynomialMajorant.v), [`AnalyticCusp.set`](../theories/AnalyticCuspSealed.v); actual original hull, finite global equations and exact tangent |
 | 3.4.12, pp. 338–339 | $\mathscr O_a^{\mathbf C}$, $\operatorname{ideal}_{\mathbf C}$, $\dim_{\mathbf C}$ and $U(n)$ | [HolomorphicGeometry.v](../theories/HolomorphicGeometry.v), [HolomorphicDepthSealed.v](../theories/HolomorphicDepthSealed.v), [UnitaryGroup.v](../theories/UnitaryGroup.v); independent ideal depth, local holomorphic sheets, and $\dim_{\mathbf R}=2\dim_{\mathbf C}$ |
+
+### 4.1 Differential forms and currents
+
+| Federer item | Printed notation | Rocq declarations and scope |
+| --- | --- | --- |
+| 4.1.1, pp. 343–344 | $\mathscr E(U,Y)$ and $\nu_K^i$ | [`distribution_smooth_space`](../theories/Distributions.v#L36), [`smooth_function_derivative_seminorm`](../theories/SmoothFunctionTopology.v#L33); the exact supremum over all derivatives through order i |
+| 4.1.1, pp. 344–345 | $\mathscr D_K(U,Y)$, $\mathscr D(U,Y)$ and $\mathscr D'(U,Y)$ | [`smooth_fixed_test_space`](../theories/SmoothTestSpaces.v#L27), [`distribution_test_space`](../theories/Distributions.v#L69), [`distribution_space`](../theories/Distributions.v#L91); the original final topology and continuous real dual |
+| 4.1.1, pp. 344–345 | $\operatorname{spt}\phi$ and $\operatorname{spt}T$ | [`smooth_function_support`](../theories/SmoothFunctionSupport.v#L16), [`smooth_functional_support`](../theories/FunctionalSupportUP.v#L26); source-relative support and annihilating open sets |
+| 4.1.1, p. 346 | $D_jT=-TD_j$ and $D^\alpha T=(-1)^iTD^\alpha$ | [`distribution_directional_derivative`](../theories/DistributionDirectionalDerivative.v#L51), [`distribution_multiindex_derivative`](../theories/DistributionMultiindexDerivative.v#L43); actual weakly continuous operators |
+| 4.1.1, p. 346 | $T(\phi)=\int\langle\phi,\xi\rangle$ | `DistributionFromDualField.laws`, [`distribution_integral_derivative_action`](../theories/DistributionIntegralByParts.v#L64); weak dual measurability, local norm integrability and the class-one derivative identity |
+| 4.1.2, pp. 346–347 | $\Phi$, $\Phi_\varepsilon$ and $D^i\Phi_\varepsilon$ | [`regularising_kernel_laws`](../theories/Smoothing.v#L64), [`regularising_kernel_family_laws`](../theories/Smoothing.v#L76), [`smoothing_dilation_exact_derivative_norm`](../theories/SmoothingDilationExactBounds.v#L35); independently specified kernel and exact dilation laws |
+| 4.1.2, p. 347 | $\Phi_\varepsilon*f$ and $\Phi_\varepsilon*D^if$ | [`is_smoothing_convolution`](../theories/SmoothingConvolutionUP.v#L17), [`is_partial_smoothing_convolution`](../theories/PartialSmoothingConvolutionUP.v#L27), [`smoothing_input_higher_differential_exists`](../theories/SmoothingInputHigherDifferential.v#L47), [`reflexive_input_smoothing_commutes`](../theories/ReflexiveInputSmoothing.v#L67); original partial domains and actual integrals |
+| 4.1.2, pp. 347–348 | $T_\varepsilon$, $g_\varepsilon$, $\psi$ and $\omega_j$ | [`is_smoothed_distribution_family`](../theories/SmoothedDistributionFamilyUP.v#L14), [`is_smoothed_distribution_density`](../theories/SmoothedDistributionDensityUP.v#L16), [`finite_kernel_test_sum_seminorm_approximation`](../theories/FiniteKernelTestSumSeminormApproximation.v#L76), [`arbitrary_open_smoothing_exists`](../theories/ArbitraryOpenSmoothing.v#L94); actual density, finite sums and arbitrary-open joint weak approximation |
+| 4.1.3, p. 348 | $\gamma$ and the image of $[\bigotimes_n\mathscr D(\mathbf R,\mathbf R)]\otimes Y$ | `SeparatedKernel.factor`, `TestTensorMap.value`, [`test_tensor_map_dense`](../theories/TestTensorDensityTheorem.v#L49); actual normalized coordinate product and dense canonical image for every Banach target |
+| 4.1.4, pp. 348–349 | $C_\varepsilon$, $\alpha_\varepsilon$ and $T(f)=\int_U\alpha(f)$ | `InnerComponentFamily.value`, [`regularisation_centre_scale_independent`](../theories/RegularisationConstantScaleIndependence.v#L97), [`distribution_derivative_support_constant`](../theories/DistributionConstancy.v#L80); original inward components, fixed unit-mass test and literal original-domain integral |
+| 4.1.5, pp. 349–350 | $G_S$, $T$ and $\lVert S\rVert$ | `DistributionVariation.value`, `DistributionContinuousExtension.value`, [`distribution_original_gauge_variation_value`](../theories/DistributionSubspaceVariation.v#L73); literal compact scalar-test gauge, sharp compact extension and original Radon variation |
+| 4.1.5, p. 350 | $k$, $S(f)$ on $L^1$, and $S(b_{x,r}y)/\lVert S\rVert B(x,r)$ | [`is_normalised_distribution_representation`](../theories/NormalisedDistributionRepresentationUP.v#L21), `DualLoneIntegral.value`, [`distribution_original_ball_formula`](../theories/DistributionOriginalBallFormula.v#L73); actual weak dual density and simultaneous original ball limits |
+| 4.1.5, p. 350 | $\liminf_i\lVert S_i\rVert$ and $M$ | [`distribution_weak_scalar_variation_lower_limit`](../theories/DistributionWeakLowerSemicontinuity.v#L60), [`distribution_weak_open_variation_lower_limit`](../theories/DistributionWeakLowerSemicontinuity.v#L91), [`distribution_original_monotone_bound_weak_compact`](../theories/DistributionMonotoneWeakCompactness.v#L71); original weak topology and monotone finite bounds |
+| 4.1.6, pp. 351–352 | $\lVert\phi\rVert$, $|\phi|$ and the norm on $A_m(\mathbf R^n,W)$ | [`real_form_field_comass`](../theories/DifferentialFormPointwiseNorms.v#L81), [`real_form_field_length`](../theories/DifferentialFormPointwiseNorms.v#L57), `AlternatingFormNorm.laws`; distinct original comass, Euclidean length and multilinear operator norm |
+| 4.1.6, pp. 352–355 | $d^2=0$, $\operatorname{div}$ and $d(f^\#\phi)=f^\#d\phi$ | [`exterior_derivative_squared_zero`](../theories/ExteriorDerivativeSquared.v#L82), [`field_divergence_duality`](../theories/DivergenceDuality.v#L23), [`original_pullback_exterior_derivative`](../theories/PullbackExteriorDerivative.v#L82); original degrees, signs and partial domains |
+| 4.1.7, pp. 357–358 | $\vec T$, $\lVert T\rVert$, $\mathbf M(T)$ and $\mathbf N(T)$ | `CurrentOrientation.laws`, [`current_density_exact_variation`](../theories/CurrentDensityVariation.v#L53), `CurrentMass.laws`, [`current_normal_mass`](../theories/NormalCurrentsUP.v#L59); original partial orientation, exact variation and extended masses |
+| 4.1.7, p. 359 | $f_\#$ | `CurrentPushforward.laws`, [`current_pushforward_original_weighted_variation`](../theories/CurrentPushforwardOrientationWeight.v#L119); properness on actual support and the original orientation weight |
+| 4.1.8, pp. 360–361 | $S\times T$, $\phi_S$, $\lVert S\rVert\times\lVert T\rVert$ | `CartesianCurrentProduct.laws`, `CartesianSlice.laws`, [`current_cartesian_original_variation_upper`](../theories/CurrentCartesianOriginalComparison.v#L82), [`current_cartesian_original_variation_lower`](../theories/CurrentCartesianOriginalComparison.v#L93); all mixed degrees and the exact binomial coefficient |
+| 4.1.8, p. 362 | $[u,v]$, $\prod_k[u_k,v_k]$, $\mathbf E^\nu\mathbin{\llcorner}B$ | `OrientedSegmentCurrent.laws`, `OrientedRectangleCurrent.laws`, [`oriented_rectangle_stokes`](../theories/OrientedRectangleStokes.v#L34), [`scalar_rectangle_euclidean_restriction`](../theories/ScalarRectangleBoxCurrent.v#L91); one-based face signs and the original open coordinate box |
+| 4.1.9, p. 363 | $h_t$, $\dot h_t$, $h_\#([0,1]\times T)$ | [`current_homotopy_slice_map`](../theories/CurrentHomotopyUP.v#L54), [`current_homotopy_time_velocity`](../theories/CurrentHomotopyTimeVelocity.v#L19), `CurrentDeformationChain.laws`; original open interval and closed support cylinder |
+| 4.1.9, p. 363 | $[h^\#\psi]_{[0,1]}$, $g^\#\psi-f^\#\psi=[h^\#(d\psi)]_{[0,1]}+d([h^\#\psi]_{[0,1]})$ | `CurrentHomotopyTransgression.laws`, [`current_homotopy_transgression_velocity_integral`](../theories/CurrentHomotopyTransgressionVelocity.v#L86), [`current_homotopy_positive_form_formula`](../theories/CurrentHomotopyPositiveFormFormula.v#L53); every original source point; the derivative summand is omitted in degree zero ([`current_homotopy_zero_form_formula`](../theories/CurrentHomotopyZeroFormFormula.v#L50)) |
+| 4.1.9, pp. 363–364 | $\dot h_t\wedge(\Lambda_jDh_t)\vec T$, $\int_0^1 h_{t\#}(\lVert T\rVert\mathbin{\llcorner}\lVert\dot h_t\wedge(\Lambda_jDh_t)\vec T\rVert)\,dt$ | [`current_homotopy_slice_weight_graph`](../theories/CurrentHomotopySliceMeasures.v#L74), `CurrentHomotopyIntegralMeasure.laws`, [`current_homotopy_sharp_slice_variation`](../theories/CurrentHomotopyIntegralMeasureLaws.v#L65); exact partial orientation and literal scalar time integral |
+| 4.1.9, p. 364 | $\frac{\lvert g-f\rvert}{j+1}\sum_{k=0}^j\lVert Df\rVert^k\lVert Dg\rVert^{j-k}$ | [`scalar_affine_power_moment`](../theories/ScalarAffinePowerMoment.v#L138), [`current_affine_homotopy_mass_estimates`](../theories/CurrentAffineHomotopyMass.v#L184); exact affine mean and endpoint maximum, including degree zero |
+| 4.1.10, p. 364 | $h(t,x)=(1-t)u+tx$, $C_uT=h_\#([0,1]\times T)$ | `CurrentConeHomotopy.laws`, `CurrentOpenCone.laws`; the latter acts on every original test in the open domain |
+| 4.1.10, p. 364 | $\psi=d([h^\#\psi]_{[0,1]})$ | [`current_cone_test_poincare`](../theories/CurrentConePoincare.v#L62), [`current_cone_test_primitive_integral`](../theories/CurrentConePrimitiveIntegral.v#L52); the erratum specifies compact tests, and the smooth primitive need not be compact |
+| 4.1.10, p. 364 | $T(1)\delta_u$, $T=T(1)\delta_u+\partial C_uT$ | [`current_compact_constant_zero_pushforward`](../theories/CurrentElementaryPushforwards.v#L67), [`current_compact_zero_cone`](../theories/CurrentConeCurrentFormulas.v#L117); the original zero-degree term remains present, including dimension zero |
+| 4.1.11, pp. 364–365 | $F(x,t,y)=(1-t)x+ty$ | `CurrentJoinMap.laws`; `CurrentJoin.laws` specifies the compact-current image |
+| 4.1.11, p. 365 | $i!j!/(i+j+1)!$ | [`current_join_factorial_mass_bound`](../theories/CurrentJoinMassCoefficient.v#L169), [`current_join_original_triple_integral`](../theories/CurrentJoinMassCoefficient.v#L155), [`current_join_spatial_double_integral`](../theories/CurrentJoinMassCoefficient.v#L140); exact original mass coefficient |
+| 4.1.11, pp. 365–366 | $[u_0,\ldots,u_m]$, $\operatorname{index}(\sigma)$ | `OrientedSimplexCurrent.laws`, [`oriented_simplex_current_permutation`](../theories/OrientedSimplexPermutation.v#L20); independent Dirac base and join recursion, with the original Chapter 1 index |
+| 4.1.11, p. 366 | $[a,b]\times[u_0,\ldots,u_m]$, $m!$ | [`current_simplex_prism_formula`](../theories/CurrentSimplexPrism.v#L59), [`current_full_rectangle_decomposition`](../theories/CurrentFullRectangleDecomposition.v#L33); the original signed prism cells and factorial corner-simplex decomposition |
+| 4.1.11, p. 366 | $H$, $f$, $g$ | `CurrentJoinAssociatorMaps.barycentre_laws`, `CurrentJoinAssociatorMaps.left_triangle_laws`, `CurrentJoinAssociatorMaps.right_triangle_laws`; the printed barycentric proof of [`current_join_associativity`](../theories/CurrentJoinAssociativity.v#L64) |
+| 4.1.12, p. 367 | $\mathbf F_K(\phi)=\max\{\nu_K^0(\phi),\nu_K^0(d\phi)\}$ | `CurrentFlatFormSeminorm.laws`, [`current_flat_form_seminorm_formula`](../theories/CurrentFlatFormSeminormLaws.v#L40); the actual compact form and derivative seminorms |
+| 4.1.12, pp. 367–368 | $\mathbf F_K(T)=\min_S\{\mathbf M(T-\partial S)+\mathbf M(S)\}$ | [`current_flat_minimum_attained`](../theories/CurrentFlatMinimum.v#L58), [`current_flat_minimum_normal_filling`](../theories/CurrentFlatMinimum.v#L94); $T$ and $S$ have support in $K$, and the attained minimum includes infinite values |
+| 4.1.12, p. 369 | $\binom{i+j+2}{i+1}$ | [`current_flat_cartesian_lower`](../theories/CurrentFlatCartesianLower.v#L58); the printed coefficient, with the original partial-product domain |
+| 4.1.12, pp. 368–369 | $S=\sum_{k\ge1}[4^{-k},2\,4^{-k}]$, $S=\sum_{k\ge1}k[u_k,v_k]$, $T=\partial S$ | `DyadicIntervalCurrent.laws`, `WeightedIntervalCurrent.laws`; the two original flat-chain series and their boundaries |
+| 4.1.12, p. 369 | $\psi_M(x,y)=\sum_{k\le M}k^{-3}\phi_k(x)\phi_k(y)$ | [`weighted_interval_product_test_values`](../theories/WeightedIntervalProductTests.v#L78), [`weighted_interval_product_test_global_bounds`](../theories/WeightedIntervalProductTestBounds.v#L77), [`weighted_interval_product_test_action`](../theories/WeightedIntervalProductAction.v#L55); comass at most one, derivative comass at most two and exact harmonic action |
+| 4.1.13, p. 369 | $C=\{(1-t)f(x)+tg(x):x\in\operatorname{spt}T,\ 0\le t\le1\}$ | [`current_affine_segment_hull`](../theories/CurrentAffineSegmentHull.v#L45), [`current_affine_image_compact_carrier`](../theories/CurrentFlatAffineImages.v#L57); exactly the original compact index |
+| 4.1.13, p. 369 | $\rho(x)=\max\{\lVert Df(x)\rVert,\lVert Dg(x)\rVert\}$ | [`federer_4_1_13_positive`](../theories/CurrentFlatAffineImages.v#L181), [`current_map_differential_open_restriction`](../theories/CurrentMapDifferentialOpenRestriction.v#L18); actual original-domain derivative maximum |
+| 4.1.13, pp. 369–370 | $\lVert T\rVert(\lvert g-f\rvert\rho^m)$ and $\lVert\partial T\rVert(\lvert g-f\rvert\rho^{m-1})$ | [`current_affine_restricted_weight_integral_iff`](../theories/CurrentAffineWeightRestrictionIntegral.v#L76), [`federer_4_1_13_positive_integrals`](../theories/CurrentFlatAffineImages.v#L142), [`federer_4_1_13_zero_integral`](../theories/CurrentFlatAffineImages.v#L278); actual original variation integrals with no extra integrability premise; degree zero has only its displacement integral |
+| 4.1.14, pp. 370–371 | $f_\#: \mathcal F_{m,K}(U)\to\mathcal F_{m,f(K)}(V)$ and $\mathbf F_E(f_\#T-(g_i)_\#S)\to0$ | [`is_current_compact_lipschitz_image`](../theories/CurrentCompactLipschitzPushforwardUP.v#L47), `CurrentCompactLipschitzPushforward.map`, `CurrentCompactLipschitzPushforward.laws`; every original source representative and K-only bounded family |
+| 4.1.14, p. 371 | $\max\{\operatorname{Lip}(f|K)^m,\operatorname{Lip}(f|K)^{m+1}\}$ | [`current_lipschitz_flat_coefficient`](../theories/CurrentLipschitzFlatCoefficient.v#L14), `CurrentCompactLipschitzPushforward.map_bound`; the least compact-restriction constant, including zero |
+| 4.1.14, p. 371 | $(f_\#T)(\phi)=[f_\#(T\mathbin{\llcorner}\gamma)](\phi)$ | [`is_current_lipschitz_pushforward_cutoff`](../theories/CurrentLipschitzPushforwardUP.v#L26), [`is_current_lipschitz_image`](../theories/CurrentLipschitzPushforwardUP.v#L49), [`is_current_lipschitz_pushforward_cutoff`](../theories/CurrentLipschitzPushforwardUP.v#L26), `CurrentLipschitzPushforward.laws`; the exact original interior plateau condition |
+| 4.1.14, pp. 371–372 | $\lVert f_\#T\rVert\le f_\#(\lVert T\rVert\mathbin{\llcorner}\sigma^m)$ and $\lVert T\rVert(|g-f|\sigma^m)$ | [`current_finite_mass_lipschitz_image_majorant_variation`](../theories/CurrentFiniteMassLipschitzMajorantVariation.v#L28), [`current_flat_lipschitz_majorant_variation`](../theories/CurrentFlatLipschitzMajorantVariation.v#L55), [`current_lipschitz_affine_chain_mass`](../theories/CurrentLipschitzAffineChainMass.v#L75); original continuous Lebesgue-AE majorant, actual source variation and every target set |
+| 4.1.14, p. 372 | $(f_\#T)(\phi)=T(f^\#\phi)$ | [`current_flat_lipschitz_class_one_continuous_action`](../theories/CurrentFlatLipschitzClassOneAction.v#L75); actual class-one differential and every continuous target form, with both L1 memberships proved |
+| 4.1.14, pp. 371–372 | $g_\#T-f_\#T=\partial C(T)+C(\partial T)$ for $m>0$; $g_\#T-f_\#T=\partial C(T)$ for $m=0$ | [`current_lipschitz_homotopy_positive_formula`](../theories/CurrentLipschitzHomotopyPositiveFormula.v#L88), [`current_lipschitz_homotopy_zero_formula`](../theories/CurrentLipschitzHomotopyZeroFormula.v#L76); actual original locally flat deformation chains |
+| 4.1.15, p. 372 | $\Psi_r(y)$ | `RadialShrinkMap.value`, `RadialShrinkMap.laws`; zero for $|y|<r$, radial displacement $(1-r/|y|)y$ outside, nonexpanding |
+| 4.1.15, p. 372 | $G_r=f+\Psi_r\circ(g-f)$ | `RadialAgreementMap.value`, `RadialAgreementMap.laws`; ambient-valued intermediate map |
+| 4.1.15, p. 372 | $Z_{r,\epsilon}$ | [`radial_smoothing_agreement_locus`](../theories/RadialSmoothingAgreement.v#L22), [`radial_smoothing_valid_local_locus`](../theories/RadialSmoothingLocusOpen.v#L89); original strict threshold on every point of a closed ball, with the local convolution domain explicit |
+| 4.1.15, p. 373 | $\mathcal F_{m,K}(U)\cap\{T:\operatorname{spt}T\subset C\}$ | [`current_flat_retraction_localisation`](../theories/CurrentFlatLipschitzRetraction.v#L50); equals the actual $C$-indexed flat space when $K$ admits a Lipschitz retraction onto $C$ |
+| 4.1.15, p. 373 | $T(1)\delta_u$ | [`current_flat_zero_point_support`](../theories/CurrentFlatPointSupport.v#L69); coefficient is the existing [`current_compact_total`](../theories/CurrentCompactSmoothValue.v#L107) for every compactness witness |
+| 4.1.15, p. 373 | $\delta_0\wedge e_1$ | [`point_one_current`](../theories/PointOneCurrent.v#L44), [`point_one_current_dirac_vector_product`](../theories/PointOneCurrentProduct.v#L29); actual point one-current, mass one and nonflat |
+| 4.1.15, p. 373 | $(\psi_i)_\#T=(-1)^iT$ | `PointOneOscillatingMaps.value`, [`point_one_current_oscillating_images`](../theories/PointOneCurrentOscillation.v#L51); actual compact smooth approximants with bounded differentials |
+| 4.1.16, pp. 373–374 | $f(x)\in C$, $|x-f(x)|=\operatorname{dist}(x,C)$ | `EuclideanConvexNearestMap.value`, [`euclidean_convex_nearest_map_graph`](../theories/EuclideanConvexNearestMapLaws.v#L65); opaque nearest-point map for nonempty closed convex $C$, with Lipschitz constant at most one |
+| 4.1.16, p. 374 | $C=\operatorname{conv}(\operatorname{spt}T)$ | [`current_flat_convex_hull_index`](../theories/EuclideanFlatConvexHullIndex.v#L60); the precise compact convex hull of the actual support, including the empty hull |
+| 4.1.16, p. 374 | $\mathbf F_K(T)=\mathbf F_C(T)$ | [`euclidean_flat_current_convex_hull_norm`](../theories/EuclideanFlatConvexHull.v#L99); every compact $K$ containing $C$, with the original flat norm |
+| 4.1.17, p. 374 | $\overline{\mathcal N_{m,K}(U)}^{\mathbf M}$ | [`is_normal_current_mass_closure`](../theories/CurrentNormalMassClosure.v#L35), [`federer_4_1_17_mass_closure`](../theories/FlatFiniteMassClosure.v#L109); equals the finite-mass part of $\mathcal F_{m,K}(U)$ |
+| 4.1.17, p. 374 | $Q+\partial S$ | [`flat_finite_mass_normal_approximation`](../theories/FlatFiniteMassClosure.v#L65); the published normal approximant with mass error $\mathbf M(T-Q-\partial S)$ |
+| 4.1.17, p. 374 | $T\llcorner\phi\in\mathcal F_{m-i,K}(U)$ | [`federer_4_1_17_summable_contraction`](../theories/FlatCurrentMeasurableContraction.v#L129); every original variation-summable $i$-form, including $i=0$ and $i=m$ |
+| 4.1.17, p. 374 | $L^1(\lVert T\rVert,\Lambda^i\mathbb R^n)$ | [`current_variation_form_test_lone_dense`](../theories/CurrentVariationFormLone.v#L125), [`current_variation_form_test_partial_lone_dense`](../theories/CurrentVariationFormLone.v#L145); actual smooth tests approximate total and conull partial coefficients |
+| 4.1.18, p. 374 | $\Phi_\epsilon(-z)$, $\tau_z(x)=x+z$ | [`current_smoothing_translation_average`](../theories/CurrentSmoothingTranslationAverage.v#L55); the reflected original kernel, without an evenness premise |
+| 4.1.18, p. 374 | $H^z(t,x)=x+tz$, $H_\epsilon T$ | [`current_translation_homotopy_coordinates`](../theories/CurrentTranslationHomotopy.v#L50), `CurrentSmoothingDeformation.value`, `CurrentSmoothingDeformation.laws`; actual translation-chain average |
+| 4.1.18, p. 375 | $C(\epsilon)=\{x:\operatorname{dist}(x,\operatorname{spt}T)\le\epsilon\}$ | [`current_smoothing_support_tube`](../theories/CurrentSmoothingSupportTube.v#L45), [`current_smoothing_deformation_support_tube`](../theories/CurrentSmoothingSupportTube.v#L68), [`current_smoothing_flat_error`](../theories/CurrentSmoothingFlatError.v#L49); closed tube, including empty support |
+| 4.1.18, p. 375 | $\lVert T_\epsilon\rVert\le\int\Phi_\epsilon(-z)\tau_{z\#}\lVert T\rVert\,dz$ | `EuclideanKernelRadonAverage.laws`, [`current_smoothing_variation_domination`](../theories/CurrentSmoothingVariationDomination.v#L58); actual Radon average and comparison on every target set |
+| 4.1.18, p. 375 | $\Omega_m$, $J(\xi,\eta)$ | [`compact_summable_multivector_space`](../theories/CompactSummableMultivectors.v#L36), [`current_lone_pair_cost`](../theories/CurrentLonePairCost.v#L39), [`current_lone_pair_cost_integral`](../theories/CurrentLonePairCost.v#L64); compact-support representatives and the original L1 seminorm |
+| 4.1.18, pp. 375–376 | $q(\xi,\eta)=\mathcal L^n\wedge\xi+\partial(\mathcal L^n\wedge\eta)$ | `CurrentLonePair.laws`, [`current_lone_pair_flat_current_formula`](../theories/CurrentLonePairFlatLaws.v#L39); exact actual current and its opaque flat-union value |
+| 4.1.18, p. 376 | $T_i$, $\xi=\sum_i\xi_i$, $S=\sum_iS_i$, $C=K_{\delta/2}$ | [`flat_smoothing_iteration_exists`](../theories/CurrentFlatSmoothingIterationExistence.v#L129), [`flat_smoothing_iteration_series_exists`](../theories/CurrentFlatSmoothingIterationSeries.v#L113), [`flat_smoothing_iteration_limit_identity`](../theories/CurrentFlatSmoothingIterationIdentity.v#L71); original residuals, common support and joint cost |
+| 4.1.18, p. 376 | $\mathcal F_n(U)=\{\mathcal L^n\wedge\xi:\xi\in\Omega_n\}$ | [`current_top_flat_density`](../theories/CurrentTopFlatDensity.v#L37); no prior finite-mass or absolute-continuity premise |
+| 4.1.18, p. 377 | $\ker q=\overline{\{(\operatorname{div}\eta,\eta)\}}^{J}$ | [`current_lone_pair_kernel_graph_closure`](../theories/CurrentLonePairKernelClosure.v#L60); closure in the original one-seminorm topology, with the positive divergence sign |
+| 4.1.19, p. 377 | $\alpha(T)\le c\,\mathbf F_K(T)$, $\mathbf F(\alpha)$ | [`is_original_flat_cochain_bound`](../theories/FlatCochainUP.v#L42), [`flat_cochain_norm`](../theories/FlatCochainSpace.v#L114); the same finite bound for every compact index, with the nonnegative norm convention |
+| 4.1.19, p. 377 | $(d\alpha)(S)=\alpha(\partial S)$ | [`flat_cochain_coboundary_evaluation`](../theories/FlatCochainCoboundary.v#L115), [`flat_cochain_coboundary_squared`](../theories/FlatCochainCoboundary.v#L140); actual boundary and all natural degrees |
+| 4.1.19, p. 377 | $\beta(\xi,\eta)=\alpha(q(\xi,\eta))$, $\mathbf F(\alpha)=\sup_{J\le1}\beta$ | [`flat_cochain_pair_functional`](../theories/FlatCochainPairFunctional.v#L37), [`flat_cochain_original_pair_norm`](../theories/FlatCochainOriginalRepresentation.v#L53), [`flat_cochain_original_signed_supremum`](../theories/FlatCochainOriginalRepresentation.v#L64); the original compact L1 pair map and signed closed-unit-ball supremum |
+| 4.1.19, p. 377 | $\phi,\psi$, $\int_U(\langle\operatorname{div}\eta,\phi\rangle+\langle\eta,\psi\rangle)=0$ | [`is_flat_cochain_pair_density`](../theories/FlatCochainRepresentationUP.v#L73), [`is_weak_current_exterior_pair`](../theories/CurrentWeakExteriorPairUP.v#L42), [`flat_cochain_original_weak_pair_converse`](../theories/FlatCochainOriginalConverse.v#L48); bounded measurable forms and both original coefficient actions |
+| 4.1.19, p. 377 | $\mathbf F(\alpha)=\max\{\operatorname*{ess\,sup}\lVert\phi\rVert,\operatorname*{ess\,sup}\lVert\psi\rVert\}$ | [`flat_cochain_original_form_essential_norm`](../theories/FlatCochainOriginalRepresentation.v#L99); exact for arbitrary representatives; [`flat_cochain_original_selected_global_comass`](../theories/FlatCochainOriginalSelectedComass.v#L25) retains the literal global-M formula for selected representatives on nonempty U |
+| 4.1.19, p. 377 | $d\phi=\psi$ almost everywhere, $d(\Phi_\epsilon*\phi)=\Phi_\epsilon*\psi$ | [`current_class_one_weak_exterior_graph_iff`](../theories/CurrentClassOneWeakExteriorIff.v#L80), [`current_weak_exterior_smoothing_iff`](../theories/CurrentWeakExteriorSmoothingIff.v#L50); the actual derivative graph and the original closed-kernel-ball domain inside U |
+| 4.1.19, p. 377 | $d\alpha\leftrightarrow(\psi,0)$ | [`flat_cochain_original_coboundary_representation`](../theories/FlatCochainOriginalCoboundary.v#L24); both action laws and the weak equation |
+| 4.1.20, p. 378 | $\mathcal I_1^m(\operatorname{spt}T)=0\Longrightarrow T=0$ | [`current_flat_integral_geometric_null`](../theories/CurrentFlatIntegralGeometricNull.v#L29); original exponent-one integral-geometric measure, positive degree and arbitrary original open $U$ |
+| 4.1.20, p. 378 | $\mathcal L^m((p_\lambda\circ g)(\operatorname{spt}T))=0$ for every $\lambda$ | [`integral_geometric_null_coordinate_rotation`](../theories/IntegralGeometricNullCoordinateRotation.v#L26); one actual orthogonal rotation works for the entire finite coordinate family |
+| 4.1.21, p. 378 | $\mathcal I_1^m(B\cap\operatorname{spt}T)=0\Longrightarrow\operatorname{spt}T\cap B=\varnothing$ | [`current_flat_relative_integral_geometric_null`](../theories/CurrentFlatRelativeNullSupport.v#L51); $m>0$, flat T and support minus B relatively closed in the original U |
+| 4.1.21, p. 378 | $\mathcal I_1^m(E)=0\Longrightarrow\lVert T\rVert(E)=0$ | [`current_flat_integral_geometric_null_variation`](../theories/CurrentFlatNullVariation.v#L120); arbitrary $E\subset U$, positive degree, flatness and finite mass |
+| 4.1.21, p. 378 | $\lVert T\mathbin{\llcorner}A\rVert=\lVert T\rVert\mathbin{\llcorner}A$, $M(T\mathbin{\llcorner}A)=\lVert T\rVert(A)$ | [`current_measurable_restriction_variation`](../theories/CurrentMeasurableRestrictionVariation.v#L84), [`current_measurable_restriction_mass`](../theories/CurrentMeasurableRestrictionVariation.v#L125); actual restriction and every original representation witness |
+| 4.1.22, p. 379 | $\mathscr P_{m,K}(U)\subset\mathbf P_{m,K}(U)$ | [`integral_polyhedral_current_is_polyhedral`](../theories/PolyhedralCurrentAlgebra.v#L132); the additive subgroup lies in its real algebraic span |
+| 4.1.22, p. 379 | $\mathscr P_m(U)=\bigcup_K\mathscr P_{m,K}(U)$, $\mathbf P_m(U)=\bigcup_K\mathbf P_{m,K}(U)$ | [`integral_polyhedral_union_subgroup`](../theories/PolyhedralCurrentUnion.v#L86), [`polyhedral_current_union_subspace`](../theories/PolyhedralCurrentUnion.v#L126), [`polyhedral_current_union_span_laws`](../theories/PolyhedralCurrentUnion.v#L149); all original compact indices are retained |
+| 4.1.23, p. 379 | $P\in\mathbf P_{m,C}(U)$ | [`PolyhedralApproximation.value`](../theories/PolyhedralApproximationSealed.v#L51); one opaque approximant with the original compact flat and mass bounds |
+| 4.1.23, p. 380 | $Q=\sum_k\mathscr L^{n-m}(B_k)[b_k]$, $P=R\times Q$ | [`transverse_atomic_flat_mass_approximation_exists`](../theories/TransverseAtomicApproximation.v#L32), [`scalar_rectangle_product_polyhedral_approximation`](../theories/ScalarRectangleProductApproximation.v#L93); retain actual rectangular factors and nonempty tagged Borel pieces |
+| 4.1.24, p. 380 | $\mathscr R_{m,K}(U)$, $\mathscr R_m(U)$ | [`is_rectifiable_current_supported_in`](../theories/RectifiableCurrentApproximationUP.v#L85), [`is_rectifiable_current`](../theories/IntegralCurrentClassesUP.v#L34); mass approximation by $f_\#P$ with $P\in\mathscr P_{m,C}(Z)$ and $f(C)\subset K$ |
+| 4.1.24, p. 381 | $\mathbf I_{m,K}(U)$, $\mathbf I_m(U)$ | [`is_integral_current_supported_in`](../theories/IntegralCurrentClassesUP.v#L41), [`is_integral_current`](../theories/IntegralCurrentClassesUP.v#L51); $\mathbf I_{0,K}(U)=\mathscr R_{0,K}(U)$ |
+| 4.1.24, p. 381 | $\mathscr F_{m,K}(U)$, $\mathscr F_m(U)$ | [`is_integral_flat_current_supported_in`](../theories/IntegralCurrentClassesUP.v#L58), [`is_integral_flat_current`](../theories/IntegralCurrentClassesUP.v#L66); currents $R+\partial S$ with both terms rectifiable in the same K |
+| 4.1.24, p. 381 | $\mathscr R_m^{\rm loc}(U)$, $\mathbf I_m^{\rm loc}(U)$, $\mathscr F_m^{\rm loc}(U)$ | [`is_locally_rectifiable_current`](../theories/IntegralCurrentClassesUP.v#L74), [`is_locally_integral_current`](../theories/IntegralCurrentClassesUP.v#L82), [`is_locally_integral_flat_current`](../theories/IntegralCurrentClassesUP.v#L90); the literal germ condition |
+| 4.1.24, p. 382 | $\mathscr F_K(T)$ | `IntegralFlatSize.value`, [`is_integral_flat_size`](../theories/IntegralFlatSizeUP.v#L38); the infimum of $\mathbf M(R)+\mathbf M(S)$ over same-K rectifiable decompositions |
+| 4.1.25, p. 383 | $f_\#(\mathscr L^m\wedge\xi)(\phi)=\int\langle[\bigwedge_m\mathrm Df(x)]\xi(x),\phi[f(x)]\rangle\,d\mathscr L^mx$ | [`current_lipschitz_lebesgue_action`](../theories/CurrentLipschitzLebesgueAction.v#L79), [`current_lipschitz_lebesgue_action_integrand`](../theories/CurrentLipschitzLebesgueActionIntegrand.v#L39); the integrand keeps the partial domain of $\mathrm Df$ |
+| 4.1.25, p. 383 | $[\bigwedge_m\mathrm Df(x)]\xi(x)/J_mf(x)$ | `CurrentAreaNormalisedImage.value`, [`is_current_area_normalised_image`](../theories/CurrentAreaNormalisedImageUP.v#L35); defined exactly where $\mathrm Df(x)$ exists and $J_mf(x)>0$ |
+| 4.1.25, p. 383 | $\eta(y)=\sum_{x\in f^{-1}\{y\}}[\bigwedge_m\mathrm Df(x)]\xi(x)/J_mf(x)$ | `CurrentAreaFibreDensity.value`, [`is_current_area_fibre_sum`](../theories/CurrentAreaFibreSumUP.v#L43); defined for $\mathscr H^m$ almost all $y$ |
+| 4.1.25, p. 383 | $f_\#(\mathscr L^m\wedge\xi)=\mathscr H^m\wedge\eta$ | [`current_lipschitz_hausdorff_action`](../theories/CurrentLipschitzHausdorffAction.v#L67), [`current_lipschitz_hausdorff_density`](../theories/CurrentLipschitzHausdorffDensity.v#L85) |
+| 4.1.26, p. 383 | $\operatorname{degree}f\vert A$ | `LipschitzDegree.value`, [`is_lipschitz_degree`](../theories/LipschitzDegreeUP.v#L24); the signed fibre sum, defined for $\mathscr L^m$ almost all $y$ |
+| 4.1.26, p. 383 | $\operatorname{sign}\det\mathrm Df(x)$ | `LipschitzDegreeSummand.value` on $A$; [`lipschitz_determinant_sign`](../theories/LipschitzDeterminantSign.v#L25) on the whole source; defined exactly where $\mathrm Df(x)$ exists |
+| 4.1.26, p. 383 | $\mathbf E^m\mathbin{\llcorner}A$ | [`euclidean_characteristic_current`](../theories/EuclideanCharacteristicCurrent.v#L28); flat for bounded $A$ by [`current_bounded_characteristic_flat`](../theories/CurrentBoundedCharacteristicFlat.v#L27) |
+| 4.1.26, p. 384 | $\operatorname{Bdry}A$ | [`lipschitz_degree_source_boundary`](../theories/LipschitzDegreeBoundaryImage.v#L30), the intersection of the closures of $A$ and $\mathbf R^m\sim A$ |
+| 4.1.27, p. 384 | $f(x)=u_0+\sum_{i=1}^m(\prod_{j=1}^ix_j)(u_i-u_{i-1})$ | `SimplexCubeParametrisation.value`, [`is_simplex_cube_parametrisation`](../theories/SimplexCubeParametrisationUP.v#L49), [`simplex_cube_prefix_product`](../theories/SimplexCubeParametrisationUP.v#L24) |
+| 4.1.27, p. 384 | $C=\mathbf R^m\cap\{x:0<x_i<1\text{ for }i=1,\dots,m\}$ | [`euclidean_open_unit_cube`](../theories/EuclideanOpenUnitCube.v#L17); the whole point $\mathbf R^0$ when $m=0$ |
+| 4.1.27, p. 384 | $\zeta=(u_1-u_0)\wedge\dots\wedge(u_m-u_{m-1})$ | [`simplex_consecutive_orientation`](../theories/SimplexCubeParametrisationUP.v#L40); the empty product $1$ when $m=0$ |
+| 4.1.27, p. 384 | $\eta(y)=\zeta/\vert\zeta\vert$ on $f(C)$, $\eta(y)=0$ elsewhere | `SimplexHausdorffDensity.value`, [`is_simplex_hausdorff_density`](../theories/SimplexHausdorffDensityUP.v#L34), [`simplex_normalised_orientation`](../theories/SimplexHausdorffDensityUP.v#L24); zero everywhere when $\zeta=0$ |
 
 ### Notes on the supplements
 

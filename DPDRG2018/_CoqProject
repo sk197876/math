@@ -1,0 +1,21 @@
+-Q theories DPDRG
+-Q tests DPDRGTests
+-Q /opt/rocq/federer-build/theories Federer
+-Q /opt/rocq/allard1972-build/theories Allard
+-arg -w -arg -notation-overridden,-ambiguous-paths,-redundant-canonical-projection,-notation-incompatible-prefix
+theories/DdgLinearAlgebra.v
+theories/DdgGrassmann.v
+theories/DdgMovingPlane.v
+theories/DdgLemmaA1.v
+theories/DdgGrassmannTangent.v
+theories/DdgHomInner.v
+theories/DdgAnisotropicIntegrandUP.v
+theories/DdgAnisotropicIntegrandSealed.v
+theories/DdgAnisotropicIntegrand.v
+theories/DdgWeightedJacobian.v
+tests/Assumptions.v
+theories/DdgFlow.v
+theories/DdgAnisotropicIntegrandConstruction.v
+theories/DdgWeightedJacobianEstimate.v
+theories/DdgFirstVariation.v
+theories/DdgFirstVariationPoint.v

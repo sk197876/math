@@ -2,6 +2,7 @@
 
 Usage (from the repository root, after a successful build):
     python3 tools/dependency_audit.py BASE [--dry-run] [--targeted-imports]
+        [--workers N]
 BASE is the last commit whose docs/assumptions.log is a complete audit of
 its tests/Assumptions.v. An entry `Print Assumptions N.` is audited again
 when N belongs to a module that changed since BASE or depends, directly or
@@ -23,10 +24,19 @@ old result are unchanged. Unqualified or ambiguous selected queries fail
 closed in this mode; use the original full-import mode for such entries.
 This avoids loading unrelated historical theories into focused audits.
 
+Optional --workers N with N greater than one requires targeted imports.
+Every independent ordinary compiler imports the same sorted selected module
+union. Unique scratch trees retain each log; results merge by original query
+position, including repeated names. The existing resource policy caps the
+requested count and interrupts a parallel run when weekday limits resume.
+Use the outer resource guard with a whole-job estimate of at least 3072 MiB
+per admitted worker. The serial path and its default import order are unchanged.
+
 Compiled metadata and scratch files live in BUILD_DIR (environment), the
 directory named in .build-dir, or _build/ by default. Tracked audit records
 remain in the source checkout.
 """
+import argparse
 import json
 import os
 import re
@@ -45,8 +55,44 @@ GLOB_KINDS = {'def', 'prf', 'thm', 'lem', 'ax', 'ind', 'constr', 'rec', 'proj', 
               'class', 'coe', 'abbrev', 'syndef', 'scheme', 'canonstruc'}
 
 
-def git(*args):
-    return subprocess.check_output(['git', *args], cwd=ROOT, text=True)
+def git(*args, quiet=False):
+    return subprocess.check_output(['git', *args], cwd=ROOT, text=True,
+                                   stderr=subprocess.DEVNULL if quiet else None)
+
+
+def show_at(base, rel):
+    """The file rel of this subproject at revision base.
+
+    Revisions before the move into federer1969/ have the subproject at the
+    repository root; the plain path then names the same file.
+    """
+    try:
+        return git('show', base + ':./' + rel, quiet=True)
+    except subprocess.CalledProcessError:
+        return git('show', base + ':' + rel)
+
+
+def changed_paths(base):
+    """Paths, relative to this subproject, changed since base.
+
+    A pure rename that keeps the path relative to the subproject, as in the
+    move into federer1969/, is not a change.
+    """
+    prefix = git('rev-parse', '--show-prefix').strip()
+    paths = []
+    for line in git('diff', '--name-status', '-M', base, '--').splitlines():
+        status, *names = line.split('\t')
+        new = names[-1]
+        if new.startswith(prefix):
+            rel = new[len(prefix):]
+        elif prefix and new.split('/')[0] in ('theories', 'tests'):
+            rel = new  # a deleted file of the layout before the move
+        else:
+            continue
+        if status == 'R100' and names[0] in (rel, prefix + rel):
+            continue
+        paths.append(rel)
+    return paths + git('ls-files', '--others', '--exclude-standard').split()
 
 
 def split_results(log):
@@ -106,14 +152,29 @@ def qualified_query_import(name, modules):
     return 'From %s Require Import %s.' % (namespace, module)
 
 
+def parse_options(argv):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('base')
+    parser.add_argument('--dry-run', action='store_true')
+    parser.add_argument('--targeted-imports', action='store_true')
+    parser.add_argument('--workers', type=int, default=1)
+    args = parser.parse_args(argv)
+    if args.workers < 1:
+        parser.error('--workers must be positive')
+    if args.workers > 1 and not args.targeted_imports:
+        parser.error('--workers greater than one requires --targeted-imports')
+    return args
+
+
 def main():
+    args = parse_options(sys.argv[1:])
     os.umask(0o002)
     check_owner(BUILD)
-    base = sys.argv[1]
-    dry = '--dry-run' in sys.argv[2:]
-    targeted = '--targeted-imports' in sys.argv[2:]
-    old_file = git('show', base + ':tests/Assumptions.v')
-    old_log = git('show', base + ':docs/assumptions.log')
+    base = args.base
+    dry = args.dry_run
+    targeted = args.targeted_imports
+    old_file = show_at(base, 'tests/Assumptions.v')
+    old_log = show_at(base, 'docs/assumptions.log')
     new_file = (ROOT / 'tests' / 'Assumptions.v').read_text()
     errors = []
     if not new_file.startswith(old_file):
@@ -123,8 +184,7 @@ def main():
     if len(old_results) != n_old:
         raise SystemExit('the log of %s has %d results for %d entries' % (base, len(old_results), n_old))
 
-    changed = {str(Path(p).with_suffix('')) for p in git('diff', '--name-only', base, '--').split()
-               + git('ls-files', '--others', '--exclude-standard').split()
+    changed = {str(Path(p).with_suffix('')) for p in changed_paths(base)
                if p.endswith('.v') and p.split('/')[0] in ('theories', 'tests')
                and p != 'tests/Assumptions.v'}
     deps = module_graph()
@@ -174,22 +234,42 @@ def main():
         return
     if targeted:
         keep = sorted(target_imports) + [''] + target_queries
-    scratch = BUILD / 'tests' / 'DependencyAuditScratch.v'
-    scratch.write_text('\n'.join(keep) + '\n')
-    try:
-        r = subprocess.run(['opam', 'exec', '--switch=' + SWITCH, '--', 'rocq', 'compile',
-                            '-w', WARNINGS, '-Q', 'theories', 'Federer', '-Q', 'tests', 'FedererTests',
-                            str(scratch)], cwd=BUILD, capture_output=True, text=True)
-    finally:
-        for suffix in ('.v', '.vo', '.vos', '.vok', '.glob'):
-            p = scratch.with_suffix(suffix)
-            if p.exists():
-                p.unlink()
-        aux = scratch.parent / ('.' + scratch.stem + '.aux')
-        if aux.exists():
-            aux.unlink()
-    log = r.stdout + r.stderr
-    (BUILD / 'tests' / 'DependencyAuditScratch.log').write_text(log)
+    parallel = None
+    if args.workers > 1:
+        import resource_guard as guard
+        from parallel_dependency_audit import (admitted_workers,
+            current_worker_ceiling, run_parallel_audit)
+        try:
+            workers = admitted_workers(args.workers, target_queries, guard)
+        except ValueError as error:
+            raise SystemExit(str(error)) from error
+        prefix = ['opam', 'exec', '--switch=' + SWITCH, '--', 'rocq',
+                  'compile', '-w', WARNINGS, '-Q', 'theories', 'Federer',
+                  '-Q', 'tests', 'FedererTests']
+        parallel = run_parallel_audit(target_queries, target_imports,
+            workers, BUILD, prefix, split_results, ALLOWED,
+            ceiling_now=lambda: current_worker_ceiling(guard))
+        errors.extend(parallel['errors'])
+        log = parallel['log']
+        r = subprocess.CompletedProcess(prefix, 0, log, '')
+    else:
+        scratch = BUILD / 'tests' / 'DependencyAuditScratch.v'
+        scratch.write_text('\n'.join(keep) + '\n')
+        try:
+            r = subprocess.run(['opam', 'exec', '--switch=' + SWITCH, '--', 'rocq', 'compile',
+                                '-w', WARNINGS, '-Q', 'theories', 'Federer', '-Q', 'tests', 'FedererTests',
+                                str(scratch)], cwd=BUILD, capture_output=True, text=True)
+        finally:
+            for suffix in ('.v', '.vo', '.vos', '.vok', '.glob'):
+                p = scratch.with_suffix(suffix)
+                if p.exists():
+                    p.unlink()
+            aux = scratch.parent / ('.' + scratch.stem + '.aux')
+            if aux.exists():
+                aux.unlink()
+
+        log = r.stdout + r.stderr
+        (BUILD / 'tests' / 'DependencyAuditScratch.log').write_text(log)
     if r.returncode:
         errors.append('compile failed')
     if re.search('Warning:|Error:', log):
@@ -198,6 +278,8 @@ def main():
     if len(fresh) != len(selected):
         errors.append('result count mismatch %d != %d' % (len(fresh), len(selected)))
     found = set(re.findall(r"^([A-Za-z][A-Za-z0-9_'.]*)\s*:", log, re.M)) - {'Axioms'}
+    if parallel is not None:
+        found.update(parallel['assumptions'])
     if found - ALLOWED:
         errors.append('unexpected assumptions: ' + ', '.join(sorted(found - ALLOWED)))
     results = old_results + [None] * (k - n_old)
@@ -225,7 +307,12 @@ def main():
         'unresolved_names': unresolved,
         'closed': sum(1 for x in fresh if x.startswith('Closed')),
         'assumptions': sorted(found), 'errors': errors,
-        'targeted_imports': targeted, 'imported_query_modules': len(target_imports) if targeted else None}, indent=2))
+        'targeted_imports': targeted, 'imported_query_modules': len(target_imports) if targeted else None,
+        **({'requested_workers': args.workers, 'workers': parallel['workers'],
+            'parallel_run_directory': parallel['run_directory'],
+            'parallel_merged_log': (str(Path(parallel['run_directory'])/'merged.log')
+                if parallel['run_directory'] is not None else None)}
+           if parallel is not None else {})}, indent=2))
     sys.exit(1 if errors else 0)
 
 

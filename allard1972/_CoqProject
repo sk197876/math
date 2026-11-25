@@ -1,0 +1,28 @@
+-Q theories Allard
+-Q tests AllardTests
+-Q /opt/rocq/federer-build/theories Federer
+-arg -w -arg -notation-overridden,-ambiguous-paths,-redundant-canonical-projection,-notation-incompatible-prefix
+theories/AllardHomInnerProduct.v
+theories/AllardExteriorPowers.v
+theories/AllardOrthogonalProjectors.v
+theories/AllardGrassmann.v
+theories/AllardGrassmannSubspaces.v
+theories/AllardJacobians.v
+tests/Assumptions.v
+theories/AllardProjectionFormula.v
+theories/AllardProjectionContinuity.v
+theories/AllardVarifolds.v
+theories/AllardImageVarifoldMaps.v
+theories/AllardImageVarifoldUP.v
+theories/AllardImageVarifoldConstruction.v
+theories/AllardImageVarifoldSealed.v
+theories/AllardImageVarifold.v
+theories/AllardRectifiableVarifolds.v
+theories/AllardSimpleProjection.v
+theories/AllardTangentMeasurability.v
+theories/AllardSetVarifold.v
+theories/AllardRectifiableSum.v
+theories/AllardRectifiableIntegral.v
+theories/AllardRectifiableTangent.v
+theories/AllardRectifiableDensity.v
+theories/AllardRectifiableStructure.v

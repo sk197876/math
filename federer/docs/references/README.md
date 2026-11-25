@@ -8,6 +8,7 @@
 - [Annotation validation](#annotation-validation)
 - [Consulted passages: Chapter 2](#consulted-passages-chapter-2)
 - [Consulted passages: Chapter 3](#consulted-passages-chapter-3)
+- [Consulted passages: Chapter 4](#consulted-passages-chapter-4)
 - [English writing](#english-writing)
 
 ## Editions and corrections
@@ -45,9 +46,10 @@ together with proposed corrections, the error in the list itself, and the
 corrections of the list adopted here. Each entry was checked against the
 printed text of the 1969 edition (Springer reprint, which does not
 incorporate the 1987 corrections). The catalogue covers the registered
-formalisation through 3.4.12 and its completed supplements, with explicit
-omissions and proof limits retained. Its 133 entries include the local
-corrections in 1.4.4–1.4.5, 2.10.11 and 3.2.45; the Chapter 3 analytic
+formalisation through 3.4.12 and its completed supplements, together with
+the validated items 4.1.1–4.1.24, with explicit omissions and proof limits
+retained. Its 142 entries include the local
+corrections in 1.4.4–1.4.5, 2.10.11, 3.2.45, 4.1.15 and 4.1.19; the Chapter 3 analytic
 corrections; and the convention-dependent line endpoints of 3.2.42–3.2.44.
 
 An editorial note also distinguishes the raw Steiner power from the
@@ -519,8 +521,6 @@ For 3.2.40, printed p. 276, the local published sources
 [Gross1918](../bibliography.md#gross1918), pp. 184–187, and
 [Kneser1955](../bibliography.md#kneser1955), Satz 5, pp. 386–387,
 were consulted. The Cantor-square proof is registered and validated.
-Private recovery material for the incomplete Kneser example is excluded
-from this public snapshot.
 The user deferred the second example; it is not a
 completed formalisation. Neither source supplies an assumed theorem or
 new project axiom in the registered development.
@@ -881,6 +881,446 @@ These are project qualifications, not published erratum entries.
 The cited external expositions remain bibliographical source accounts;
 their contents are not claimed formalised. See the
 [section account](../chapter3/3.4.md#item-3-4-12).
+
+## Consulted passages: Chapter 4
+
+### 4.1.1 — Test functions and distributions (pp. 343–346)
+
+[Federer1969](../bibliography.md#federer1969) gives the exact derivative
+seminorms, support definitions, weak duals, literal final test topology,
+restriction maps, derivatives and integral-distribution formula.
+[Menne2016](../bibliography.md#menne2016), Definition 2.13 and Remarks
+2.14–2.17, p. 996, distinguishes this final topology from the locally
+convex inductive topology. The two have the same continuous linear maps
+into locally convex spaces. The formalisation proves this comparison for
+the actual compact-support test steps and uses the original topology in
+the quotient-limit theorem.
+
+The zero-dimensional counterexample to the p. 344 nonembedding sentence
+is a project finding, absent from Federer's erratum. See the
+[section account](../chapter4/4.1.md#item-4-1-1) and
+[error catalogue](federer-errors.tex).
+
+The user also supplied [Bourbaki1987](../bibliography.md#bourbaki1987) and
+[Schwartz1973](../bibliography.md#schwartz1973) for the topological-vector
+and Radon-measure foundations. The supplied Bourbaki copy remains
+unreadable; no passage from it is claimed consulted. Schwartz's text has
+been extracted; its specific proof use will be recorded under the item
+concerned. The original Radon and vector Daniell results proved in
+Chapter 2 supply the representation theorem in 4.1.5.
+
+### 4.1.5 — Representation by integration (pp. 349–350)
+
+Both original printed pages were read visually. The formalisation keeps
+Federer's gauge on positive compact continuous scalar tests, proves its
+convolution extension and sharp bound, and identifies it with the original
+Daniell variation and its Radon measure in the finite-gauge case. The
+original L1 extension, simultaneous characteristic-ball formula, scalar
+Daniell variation, weak lower semicontinuity and monotone-bound compactness
+are included. See the [item account](../chapter4/4.1.md#item-4-1-5).
+
+[Menne2016](../bibliography.md#menne2016), Definition 2.18 and Remark 2.19,
+p. 997, distinguishes its general largest Borel regular variation measure
+from Federer's original scalar-test gauge outside the Radon case. The
+formalisation preserves that distinction; it assigns the original Radon
+variation only after proving the finite-gauge criterion. The test topology
+remains Federer's literal final topology. No unpublished lecture notes
+are used or cited. The unreadable Bourbaki copy supplies no claimed
+passage, and no new Schwartz passage is claimed for this proof.
+
+### 4.1.6 — Differential forms (pp. 351–355)
+
+All five original printed pages were read visually. The formalisation
+follows the pointwise algebra, coordinate expansion, exterior derivative,
+graded product rule, square-zero argument, divergence and duality sign.
+The pullback commutation proof uses the original coordinate generators.
+The general normed-coefficient case follows by bounded norming functionals
+and the earlier separation theorem. See the
+[item account](../chapter4/4.1.md#item-4-1-6).
+
+The earlier tensor, exterior and multilinear results supply the algebra
+and exact induced norm. The original second-differential theorem supplies
+symmetry without continuity of the second derivative. No new passage from
+the unreadable Bourbaki copy or from Schwartz is claimed consulted, and no
+unpublished lecture notes are cited.
+
+### 4.1.7 — Currents, mass and proper pushforward (pp. 355–359)
+
+All five original printed pages were read visually. The formalisation
+retains all eight current identities, the original partial ball orientation,
+exact variation, both local normality criteria and support-proper
+pushforward. The class-one boundary formula keeps the original unrestricted
+form. Bounded Baire projection and relative Borel restrictions use the
+original orientation weight. See the [item account](../chapter4/4.1.md#item-4-1-7).
+
+On p. 359 the boundary equation alone does not determine the whole-line
+primitive. The original left primitive and a negative right primitive give
+actual distinct currents with the same boundary. Agreement with the interval
+current on the open half-line supplies the intended uniqueness condition.
+The support obstruction is proved independently. This project correction
+is absent from the published erratum. The printed sign on p. 357 is correct.
+The proof reuses the preceding current, distribution, Radon and calculus
+results; no new passage from Bourbaki or Schwartz is claimed consulted.
+
+### 4.1.8 — Cartesian products of currents (pp. 360–362)
+
+All three original printed pages were read visually. The formalisation
+retains every mixed test degree, all three boundary cases, the compact-first
+projection, the original Radon product density and both variation bounds.
+The printed hypothesis that either orientation is simple gives equality and the original
+partial orientation. Segments, point products, finite Stokes and the actual
+Euclidean restriction to the ordered open box are included, with the empty
+product. See the [item account](../chapter4/4.1.md#item-4-1-8).
+
+The line after the definition of the slice on p. 360 assigns its
+second-factor vector to the wrong ambient space: read R^n for R^m.
+The formal slice corrects that type and retains every original dimension
+and hypothesis. The correction is absent from the repository transcription
+of the published erratum. The equality question without simplicity remains
+source prose. The proofs reuse the preceding tensor density, fixed-support
+continuity bounds, exterior algebra and product integrals. No new passage
+from Bourbaki or Schwartz is claimed consulted. The
+[registered validation](../checkpoints/4.1.8-validation.json) passes.
+
+### 4.1.9 — Homotopy formulas and affine mass estimates (pp. 363–364)
+
+Both original printed pages were read visually. The formalisation retains
+the open time interval, support-cylinder properness, both current identities,
+both original compact test restatements and both pointwise form identities.
+The represented-current clause uses the exact original partial orientation
+weight and literal integral of the actual weighted slice images. All three
+affine estimates retain the printed mixed-power coefficient, degree zero
+and infinite masses. See the [item account](../chapter4/4.1.md#item-4-1-9).
+
+The published erratum, p. 6, book p. 363 line 2, changes the English
+article A to roman type. This is typographical and changes no mathematical
+assertion. No new mathematical source error was found in this item. The
+proofs reuse the preceding current products, proper pushforwards, point
+currents, exterior norm bounds and nonnegative Fubini theorem. No new passage
+from Bourbaki or Schwartz is claimed consulted. No unpublished source is used.
+
+### 4.1.10 — Cone primitives and star-shaped domains (p. 364)
+
+The original printed page was read visually and compared with the published
+erratum, p. 6, book p. 364 line 11. The latter corrects the current-space
+subscript to the compact-test superscript. The formalisation retains the
+exact original test class, smooth primitive, compact-current endpoints and
+all three current conclusions on every original star-shaped open domain.
+The exact compact segment support avoids a uniform enlarged-time hypothesis.
+Positive top degree and degree zero remain separate. See the
+[item account](../chapter4/4.1.md#item-4-1-10) and
+[registered validation](../checkpoints/4.1.10-validation.json).
+
+The proofs reuse the immediately preceding homotopy identities, actual zero
+extension, compact smooth-current extension, current restriction and
+above-dimension exterior algebra. No new mathematical source error was
+found. The final homology pointer remains commentary. No new passage from
+Bourbaki or Schwartz is claimed consulted; no unpublished source is used.
+
+### 4.1.11 — Joins and oriented simplexes (pp. 364–366)
+
+All three printed pages were read visually. The formalisation retains every
+original mathematical paragraph: the compact-current join and all boundary
+cases, signed interchange, affine naturality, exact mass coefficient, point
+cones, simplex boundary and orientation, affine parametrisation, prism and
+factorial rectangle decompositions, and associativity. The latter follows
+the original barycentric maps and common triangle. See the
+[item account](../chapter4/4.1.md#item-4-1-11) and
+[registered validation](../checkpoints/4.1.11-validation.json).
+
+The proofs reuse the preceding Cartesian product, proper pushforward,
+exterior algebra, point-current and cone laws. Algebraic assertions retain
+arbitrary compact currents; mass assertions retain the printed integral
+representation hypotheses. Dimension zero and degenerate vertices remain
+included. No new mathematical source error was found. No new passage from
+Bourbaki or Schwartz is claimed consulted; no unpublished source is used.
+
+### 4.1.12 — Flat seminorms and flat chains (pp. 367–369)
+
+All three printed pages were read visually. The formalisation retains the
+original form and current seminorms, the attained mass minimum, flat-chain
+closure and completeness, the local criterion, support-neighbourhood
+localisation, boundary and multiplier estimates, both Cartesian estimates
+and both in-book counterexamples. The weighted example retains its exact
+support bound, mass, cutoffs, test values and unbounded harmonic action.
+See the [item account](../chapter4/4.1.md#item-4-1-12) and
+[registered validation](../checkpoints/4.1.12-validation.json).
+
+The proofs reuse the preceding Hahn–Banach theorem, seminorm bounds,
+normal-current mass and boundary laws, compact cutoffs and Cartesian laws.
+The dyadic example's support obstruction follows from preceding local
+normality and compact top-degree results. These supply the original claim
+for which the book anticipates 4.1.18.
+The finite-mass nonflat example anticipated here is proved in
+[4.1.15](../chapter4/4.1.md#item-4-1-15), including its actual bounded-derivative
+smooth approximation and both nonconvergent image degrees. No new
+mathematical source error was found in 4.1.12. No new passage
+from Bourbaki or Schwartz is claimed consulted; no unpublished source is
+used.
+
+### 4.1.13 — Flat estimates for smooth images (pp. 369–370)
+
+Both printed pages were read visually. The original proposition assumes
+only that the union of affine segments over the current support lies in
+the target. Its proof chooses a smaller source neighbourhood, applies the
+preceding homotopy formulas and estimates both deformation-chain masses
+by the final inequalities of 4.1.9. The separate zero-degree statement has
+only the displacement integral. See the
+[item account](../chapter4/4.1.md#item-4-1-13).
+
+The formalisation follows that argument and retains the exact original compact
+set, maps, derivative maximum and variation measures. It reuses the
+preceding test zero extension, normal-current support and mass laws,
+proper pushforward, Radon density variation, compact-product neighbourhoods
+and image integration. No new mathematical source error was found. No
+new passage from Bourbaki or Schwartz is claimed consulted; no unpublished
+source is used. The [registered validation](../checkpoints/4.1.13-validation.json) covers the complete numbered scope.
+
+### 4.1.14 — Lipschitz images of flat currents (pp. 370–372)
+
+All three printed pages were read visually. The item defines compact
+Lipschitz images through every allowed smooth approximation, constructs
+normal limits, and extends the operator to the original complete flat
+spaces. Its second page gives the proper local cutoff definition and
+formal properties. The last assertions concern continuous
+Lebesgue-almost-everywhere derivative majorants, affine deformation bounds
+and evaluation of every continuous form under a class-one map. All these
+assertions belong to the numbered item. See the
+[item account](../chapter4/4.1.md#item-4-1-14).
+
+The formalisation reuses the preceding source restriction, exact Radon
+variation transport, normal-current estimates, complete flat spaces,
+compact Lipschitz extension and convolution laws. Each prescribed
+relatively compact source admits the required family; the independent
+image law retains every original K-only bounded family. The local
+operator uses every admissible scalar cutoff and properness only on
+actual support. The weighted clauses retain the original variation
+measures and Lebesgue-almost-everywhere hypothesis; the class-one identity
+permits every continuous target form. No new mathematical source error
+was found. The [registered validation](../checkpoints/4.1.14-validation.json)
+covers the complete original numbered scope.
+
+### 4.1.15 — Support coincidence and flat-current supports (pp. 372–373)
+
+Both printed pages were read visually. The formalisation keeps the
+original radial shrink map, both squared-norm calculations, its
+nonexpansion and the ambient agreement map. The proof uses genuine
+convolution with one common normalized kernel. The closed-ball agreement
+locus, its open local domain, fixed-radius capture and simultaneous
+two-parameter errors retain the original bounds. Compact target margins
+supply an original-target-valued source neighbourhood internally.
+
+The final support-coincidence law requires equality only on the actual
+support of the flat current. Compact retraction localisation, the two
+point-support formulas, all three section-image sets and the arbitrary
+affine-plane obstruction follow from the preceding actual image laws.
+No normality, finite mass or flat index equal to the support is assumed.
+
+The example is the actual one-current $\delta_0\wedge e_1$ on the line.
+Its support is one point, its mass is one and its derivative boundary has
+infinite mass. Its different images under identity and the zero map
+prove nonflatness and complete the forward reference in 4.1.12. Genuine
+compact smooth scalar tests tend uniformly to zero with one common
+derivative bound and alternating derivatives at zero. Their degree-one
+images have no weak limit; the pushed boundaries give the corresponding
+degree-zero statement.
+
+The final sentence on p. 373 prints $\mathscr D_0(\mathbb R)$ for images
+of a one-current. The intended target is $\mathscr D_1(\mathbb R)$, since
+smooth pushforward preserves degree. This local correction is absent
+from the published erratum. It is recorded in the
+[error catalogue](federer-errors.tex) and the
+[divergence register](../divergences.md). See the
+[item account](../chapter4/4.1.md#item-4-1-15) and
+[registered validation](../checkpoints/4.1.15-validation.json).
+No new passage from Bourbaki or Schwartz is claimed consulted; no
+unpublished source is used.
+
+### 4.1.16 — Convex retractions and flat norms (pp. 373–374)
+
+Both printed pages were read visually. The nearest-point relation is
+specified independently, existence is proved from the preceding closed-set
+theorem, and the resulting map is opaque. Its graph is precisely the
+original distance-minimising relation. The full segment square, its
+minimum at zero, both variational inequalities and the pair inequality
+give the original Lipschitz bound one. The convex set is nonempty and
+closed; it may be unbounded. The ambient dimension may be zero.
+
+The actual current conclusions use the precise convex hull of the support.
+This hull is compact, and the current belongs to its indexed flat space.
+The flat norm there equals the flat norm at every larger compact index.
+Empty support is handled before choosing a nearest-point map; its convex
+hull stays empty. No normality, finite mass or membership indexed by the
+unconvexified support is added. Actual endpoint assertions retain the zero
+current, empty hull and a nonzero point current in zero ambient dimension.
+
+The ambient space on p. 373, line 29 is $\mathbb R^n$, as corrected in
+Federer's [published erratum](federer-erratum.tex), p. 6. This published
+misprint is separate from the local degree correction in the preceding
+item. No new source error was found. The parenthetical positive-reach
+pointer remains outside-source commentary. See the
+[item account](../chapter4/4.1.md#item-4-1-16),
+[registered validation](../checkpoints/4.1.16-validation.json) and
+[error catalogue](federer-errors.tex). No unpublished source is used.
+
+### 4.1.17 — Mass approximation and summable contractions (p. 374)
+
+The printed page was read visually. Both original mathematical paragraphs
+are retained: the exact normal mass-closure equality and contraction by
+every original variation-summable differential form. The first proof uses
+the preceding attained normal filling. The approximant is $Q+\partial S$,
+as specified in Federer's [published erratum](federer-erratum.tex), p. 7,
+book p. 374, line 16. This is a published proof correction; no new local
+source error or counterexample is claimed.
+
+The second proof follows the original smooth approximation argument. The
+earlier graded boundary identity supplies normality of smooth
+contractions. Compact test bounds give flat continuity, and the original
+smooth test density gives $L^1$ approximation for the actual variation.
+The original measurable contraction then follows by mass approximation
+in the same compact index. The final statement derives representation
+and local summability from the original assumptions and permits
+unbounded, nonsmooth coefficients without compact support. The separate
+density law preserves conull partial coefficient domains.
+
+Both zero-degree endpoints and empty domains or compact indices remain.
+The actual nonzero point current in $\mathbb R^0$ checks the singleton
+mass closure, its failure for the empty index, and scalar unit
+contraction. See the [item account](../chapter4/4.1.md#item-4-1-17),
+[registered validation](../checkpoints/4.1.17-validation.json) and
+[error catalogue](federer-errors.tex). No unpublished source is used.
+
+### 4.1.18 — Smoothing and compact L1 representations (pp. 374–377)
+
+All four printed pages were read visually. The final kernel-closure
+paragraph on p. 377 belongs to 4.1.18 despite the running page header.
+Every in-book mathematical assertion is retained. No new source error
+was found, and the error catalogue gains no new entry for this item.
+
+The smoothing formulas retain the original reflected kernel
+$\Phi_\epsilon(-z)$; its defining laws do not assume evenness. The actual
+translation deformation, current and form homotopies, sharp mass and
+support bounds, compact flat error and weak variation convergence use
+the preceding book interfaces. The averaged variation is an actual
+Radon measure, with comparison on every set. The represented current
+need not have compact support or finite total mass.
+
+The two original pair propositions keep every compact index, the exact
+radius-$\delta$ support enlargement and cost at most
+$\mathbf F_K(T)+\delta$. The second starts with any compact-index flat
+current. The proof follows the printed normal approximation, smoothing
+residual iteration, common radius-$\delta/2$ support, both infinite sums
+and downward degree induction. It does not add normality or finite
+mass to the original input. Surjectivity, quotient fibres and top-degree
+density are proved for the actual flat-current union.
+
+The raw integral size J is a seminorm under null-set changes. The L1
+convergence laws respect almost equality. The literal kernel closure
+keeps the original raw pair space, J topology and actual compact-support
+representatives. This distinction is not a new error claim. The final
+closure has the positive divergence sign from the
+previous boundary convention; both inclusions are proved by smoothing
+and closed-kernel continuity.
+
+The actual nonzero point current in $\mathbb R^0$ checks smoothing,
+unit-mass top-degree representation and the quantitative pair with zero
+next-degree coefficient. The general statements retain empty domains
+and compact sets and every original degree case. See the
+[item account](../chapter4/4.1.md#item-4-1-18),
+[registered validation](../checkpoints/4.1.18-validation.json) and
+[error catalogue](federer-errors.tex). No unpublished source is used.
+
+### 4.1.19 — Flat cochains and measurable forms (pp. 377–378)
+
+Both printed pages were read visually. The mathematical assertions are on
+p. 377; the continuation on p. 378 is historical commentary. The preceding
+kernel-closure paragraph on p. 377 belongs to 4.1.18. Every mathematical
+group of 4.1.19 is retained: the common cochain bound, norm, coboundary,
+compact L1 pair functional, signed unit-ball supremum, measurable
+representation and its almost uniqueness, weak equation, converse,
+class-one and smoothing criteria, and the coboundary pair.
+
+The literal global comass in 4.1.7 is a pointwise supremum. It remains
+unchanged. Arbitrary measurable representatives require the essential
+norm formula; selected representatives recover the printed global formula
+on nonempty U. The actual zero-cochain singleton-spike counterexample
+proves that distinction. The smooth zero first form with a one-form null
+spike proves that the class-one parenthesis needs almost equality unless
+the second form is continuous. Neither correction appears in the supplied
+published erratum. The two entries belong in the project's error catalogue,
+not in its transcription of Federer's list.
+
+The least-bound convention is explicitly nonnegative, consistently with
+the preceding norm conventions. The empty-domain literal global comass is
+minus infinity, while the cochain norm is zero. Original smoothing
+convolutions are evaluated where their closed kernel balls lie inside U;
+no equation is asserted across the boundary of a zero extension. These
+are endpoint and domain qualifications, not further source-error entries.
+No additional external source is claimed consulted. See the
+[item account](../chapter4/4.1.md#item-4-1-19),
+[registered validation](../checkpoints/4.1.19-validation.json) and
+[error catalogue](federer-errors.tex). No unpublished source is used.
+
+### 4.1.20 — Integral-geometric null support (p. 378)
+
+The entire original item on printed p. 378 was read visually. Its single
+assertion is the positive-degree null-support theorem for the exponent-one
+integral-geometric measure. The proof uses the original 2.10.5 and 1.7.4
+rotation step, the 4.1.6 coordinate expansion and the 4.1.18 top-degree
+flat-current representation. The final statement retains arbitrary open
+source domains and adds no finite-mass or normality premise. No new source
+error or additional external source is claimed. See the
+[item account](../chapter4/4.1.md#item-4-1-20) and
+[registered validation](../checkpoints/4.1.20-validation.json).
+
+### 4.1.21 — Null-set corollaries for flat currents (p. 378)
+
+The entire original item on printed p. 378 was read visually. Both
+corollaries use the preceding null-support theorem. The first retains an
+arbitrary original B and the printed relative closedness of support minus
+B. Its compact scalar cutoff has no mass or representation premise. The
+second retains an arbitrary original E: Borel regularity supplies a null
+hull before the actual Radon variation is reduced to compact subsets.
+Finite mass supplies the representation. Compact measurable restriction,
+exact support and exact mass close the argument. No new source error or
+additional external source is claimed. See the
+[item account](../chapter4/4.1.md#item-4-1-21) and
+[registered validation](../checkpoints/4.1.21-validation.json).
+
+### 4.1.22 — Integral and real polyhedral chains (p. 379)
+
+The entire original item on printed p. 379 was read visually. It defines
+the fixed-index integral subgroup generated by oriented simplexes whose
+full vertex hull lies in K, its real algebraic span, and the two unions
+over all compact subsets of the original open U. The formalisation uses
+the actual simplex currents of 4.1.11. Independent generation laws and
+opaque carriers retain the original group and vector-space structures.
+Normality, fixed-index support, flatness, boundary and open restriction
+are proved for use by the following items. No additional external source
+or new source error is claimed. See the
+[item account](../chapter4/4.1.md#item-4-1-22) and
+[registered validation](../checkpoints/4.1.22-validation.json).
+
+### Polyhedral approximation in 4.1.23
+
+The account of 4.1.23 retains the printed theorem and all five proof
+reductions on pp. 379–380, including the transverse atomic error and exact
+rectangular mass identity. It adds no source-error entry. The reference
+to 4.2.24 remains a later normal-mass approximation obligation.
+
+### Integral currents in 4.1.24
+
+The whole item on printed pp. 380–382 was read visually; the published
+erratum has no entry for these pages. The account retains the literal
+mass-approximation definition of rectifiable currents, the separate
+degree-zero integral clause, every inclusion of the diagram, the local
+germ classes, the integral flat infimum and its complete metric, the
+series estimate and the final flat decomposition with its attained flat
+filling. Integer coefficients are retained throughout. The attained
+integral minimum of 4.2.18 and the characterisations of 4.1.28 remain
+forward references. No new source error is claimed. See the
+[item account](../chapter4/4.1.md#item-4-1-24) and
+[registered validation](../checkpoints/4.1.24-validation.json).
 
 ## English writing
 

@@ -1,0 +1,77 @@
+% BEYOND: Federer 4.5.6, 4.5.12 (Gauss--Green theorem for sets of locally finite perimeter), through \ref{al:4.7} -- needed by al:7.2 (Allard 7.2); al:6.4:cor and al:7.4 avoid them.
+% BEYOND: Federer 5.2.5 (regularity of solutions of elliptic systems) -- cited by Allard in 8.15; replaced by new:meanvalue, not used.
+% BEYOND: Federer 5.2.6 (printed as 2.5.6 by Allard) -- cited in 8.16 for the regularity of weak solutions; replaced by new:weyl, not used.
+% BEYOND: Federer 4.5.9(18) -- credited in rem:7.3 (Allard 7.3) only, not used in the proof.
+%
+% Items 1.7.5--1.7.6, 2.2.5, 2.4.7, 2.4.9, 2.4.12, 2.4.14, 2.4.15, 2.6.2, 2.8.9, 2.8.18, 2.9.9,
+% 2.9.19, 2.9.20, 2.10.11, 2.10.21, 2.10.35, 2.10.43, 3.1.6, 3.1.13, 3.2.3, 3.2.5, 3.2.13, 3.2.17,
+% 3.2.19, 4.1.2 of Federer used below are within the formalised range.  Federer 3.1.14 (cited
+% by Allard in 8.1(2)) and 4.1.25 (cited by Allard in 8.3, apparently in error) are mentioned in
+% remarks only.
+
+\begin{center}
+\small
+\begin{longtable}{p{0.14\textwidth}p{0.22\textwidth}p{0.56\textwidth}}
+    \caption{Dependencies of sections~\ref{sec:compactness}--\ref{sec:regularity}; ``new'' marks
+    auxiliary lemmas not stated in~\cite{Allard1972}, ``corrected'' marks items whose statement
+    or proof corrects Allard's text, as described in the remark following the item.}
+    \label{tab:dependencies6to8} \\
+    item & source & uses \\
+    \hline
+    \endfirsthead
+    item & source & uses \\
+    \hline
+    \endhead
+\ref{new:mono} & new & \ref{al:5.1(3)}, \ref{al:4.3}, \ref{al:5.1(1)} \\
+\ref{al:6.1} & \cite[6.1]{Allard1972}, corrected & \ref{new:mono}, \ref{al:4.10(2)} \\
+\ref{al:6.2} & \cite[6.2]{Allard1972}, corrected & \ref{new:mono}, \ref{al:6.1}, \ref{al:6.1(4)}, \ref{al:6.1(5)}, \ref{al:6.1(6)}, \ref{al:6.1(8)}, \ref{al:6.1(9)}, \ref{al:6.1(10)}, \ref{al:6.1(11)}, \ref{al:6.1(12)} \\
+\ref{al:6.3} & \cite[6.3]{Allard1972}, corrected & \ref{al:6.2}, \ref{al:3.5(1)}, \ref{al:2.7(1)}, \ref{al:2.6(2)(a)}, \ref{al:5.1(4)}, \ref{al:3.2(1)}, \ref{al:2.8(2)}, \ref{al:3.5(3)}, \ref{al:2.8(1)}, \cite[2.10.11]{Federer1969} \\
+\ref{al:6.4} & \cite[6.4]{Allard1972} & \ref{al:2.6(2)(a)}, \ref{new:weak_metric}, \ref{al:5.6}, \ref{al:3.5(1)}, \ref{al:2.7(2)}, \ref{al:5.5(1)}, \ref{al:3.4(1)}, \ref{al:3.4}, \ref{al:3.2(1)}, \ref{al:3.2(2)}, \ref{new:countable_dense}, \ref{al:3.5}, \ref{al:3.5(3)}, \ref{new:mono}, \ref{al:4.12}, \ref{al:6.3} \\
+\ref{al:6.4:cor} & \cite[6.4, Corollary]{Allard1972}, corrected & \ref{al:4.4}, \ref{new:divergence}, \ref{al:6.4}, \ref{al:4.11}, \ref{al:2.6(2)(a)}, \ref{al:4.6(1)}, \ref{al:4.6(3)}, \ref{al:3.5(1)}, \ref{al:2.8(1)}, \cite[2.4.14, 3.1.13]{Federer1969} \\
+\ref{al:6.4:rem} & \cite[6.4, Remark]{Allard1972} & \ref{al:6.4:cor}, \ref{al:4.1}, \cite[2.4.9, 2.6.2, 2.9.20, 3.2.3, 3.2.5]{Federer1969} \\
+\ref{al:6.5} & \cite[6.5]{Allard1972}, corrected & \ref{al:5.2(2)}, \ref{al:3.4}, \ref{al:4.12}, \ref{al:4.11}, \ref{al:3.4(1)}, \ref{al:3.2(2)}, \ref{al:5.4}, \ref{al:5.5(1)}, \ref{al:3.5(1)}, \ref{al:3.5(3)}, \ref{al:6.4} \\
+\ref{new:cutoff} & new & \cite[4.1.2]{Federer1969} \\
+\ref{al:7.1} & \cite[7.1]{Allard1972}, corrected & \ref{al:4.2:lem}, \ref{al:2.3(1)}, \ref{al:4.3}, \ref{al:5.1(1)}, \ref{al:2.7(1)} \\
+\ref{al:7.2} & \cite[7.2]{Allard1972}, corrected & \ref{al:2.5}, \ref{new:divergence}, \ref{al:4.7}, \ref{al:4.4}, \ref{new:cutoff}, \ref{al:7.1}, \cite[3.1.13, 3.2.3, 3.2.5, 3.2.19]{Federer1969}, \cite[4.5.6, 4.5.12]{Federer1969} through~\ref{al:4.7} (beyond range) \\
+\ref{al:7.3} & \cite[7.3]{Allard1972}, corrected & \ref{al:4.10(2)}, \ref{new:cutoff}, \ref{al:7.1}, \cite[2.4.7, 2.4.15, 2.9.20]{Federer1969} \\
+\ref{al:7.4} & \cite[7.4]{Allard1972}, corrected & \ref{al:7.2}, \ref{al:4.4}, \ref{new:divergence}, \ref{al:2.5}, \ref{al:7.3}, \cite[2.4.9, 2.4.14, 3.1.13]{Federer1969} \\
+\ref{al:7.5(1)} & \cite[7.5(1)]{Allard1972} & definitions only \\
+\ref{al:7.5(2)} & \cite[7.5(2)]{Allard1972}, corrected & \ref{al:2.3(1)}, \ref{al:4.2:lem}, \ref{al:4.3} \\
+\ref{al:7.5(3)} & \cite[7.5(3)(4)]{Allard1972}, corrected & \ref{al:2.3(1)} \\
+\ref{al:7.5(5)} & \cite[7.5(5)]{Allard1972} & \ref{new:cutoff}, \ref{al:2.3(1)}, \cite[2.4.7]{Federer1969} \\
+\ref{al:7.5(6)} & \cite[7.5(6)]{Allard1972}, corrected & \ref{al:7.5(3)}, \ref{al:7.5(5)}, \ref{new:cutoff}, \ref{al:7.3} \\
+\ref{al:8.2} & \cite[8.2]{Allard1972} & \ref{al:3.2(2)}, \ref{al:4.2:lem}, \ref{al:3.2(1)} \\
+\ref{al:8.3} & \cite[8.3]{Allard1972}, corrected & \ref{al:4.10(1)}, \ref{new:cutoff}, \ref{al:7.1}, \cite[2.9.19]{Federer1969} \\
+\ref{new:conv_plane} & new & \ref{al:2.6(2)(a)} \\
+\ref{al:8.4} & \cite[8.4]{Allard1972} & \ref{al:2.6(2)(a)}, \ref{new:weak_metric}, \ref{al:4.11}, \ref{al:5.4}, \ref{al:5.1(2)}, \ref{al:8.3}, \ref{al:5.3}, \ref{new:conv_plane} \\
+\ref{al:8.5} & \cite[8.5]{Allard1972} & \ref{al:8.3}, \ref{al:4.3}, \ref{al:5.1(1)}, \cite[2.4.14]{Federer1969} \\
+\ref{al:8.6} & \cite[8.6]{Allard1972} & \ref{al:8.5}, \ref{al:5.1(1)} \\
+\ref{al:8.7} & \cite[8.7]{Allard1972} & definitions only \\
+\ref{al:8.8} & \cite[8.8]{Allard1972}, corrected & \ref{al:8.2}, \ref{al:3.2(2)}, \ref{al:8.6}, \ref{al:8.5}, \ref{al:8.4}, \ref{al:4.11}, \ref{al:5.4}, \ref{al:5.3}, \ref{al:2.6(2)(a)}, \ref{new:conv_plane}, \ref{al:5.1(2)} \\
+\ref{al:8.9(1)} & \cite[8.9(1)]{Allard1972} & \ref{al:2.3(1)} \\
+\ref{al:8.9(2)} & \cite[8.9(2)]{Allard1972} & --- \\
+\ref{al:8.9(3)} & \cite[8.9(3)]{Allard1972} & --- \\
+\ref{al:8.9(4)} & \cite[8.9(4)]{Allard1972} & \ref{al:8.9(2)}, \ref{al:8.9(1)} \\
+\ref{al:8.9(5)} & \cite[8.9(5)]{Allard1972} & \ref{al:8.9(3)} \\
+\ref{al:8.10} & \cite[8.10]{Allard1972} & definitions only \\
+\ref{al:8.11} & \cite[8.11]{Allard1972} & \ref{al:8.2}, \ref{new:cutoff}, \ref{al:2.3(1)}, \ref{al:8.9(3)}, \ref{al:8.9(2)}, \ref{al:4.2}, \cite[2.4.9, 4.1.2]{Federer1969} \\
+\ref{al:8.12} & \cite[8.12]{Allard1972}, corrected & \ref{al:6.2}, \ref{al:2.7(1)}, \ref{al:2.8(2)}, \ref{al:8.11}, \cite[2.2.5, 2.8.9, 2.8.18, 2.10.11, 2.10.43]{Federer1969} \\
+\ref{al:8.13} & \cite[8.13]{Allard1972} & \ref{new:cutoff}, \ref{al:2.3(1)}, \ref{al:8.9(3)}, \ref{al:8.9(2)}, \ref{al:4.2:lem}, \cite[2.4.7]{Federer1969} \\
+\ref{al:8.14} & \cite[8.14]{Allard1972}, corrected & \ref{al:2.4}, \ref{al:2.3(1)}, \cite[1.7.5]{Federer1969} \\
+\ref{new:ibp} & new & \cite[2.6.2, 2.9.20, 3.1.6]{Federer1969} \\
+\ref{new:meanvalue} & new & \ref{new:ibp}, \cite[3.2.13]{Federer1969} \\
+\ref{al:8.15} & \cite[8.15]{Allard1972}, corrected & \ref{new:meanvalue}, \cite[2.9.20, 2.10.35, 4.1.2]{Federer1969} \\
+\ref{new:weyl} & new & \ref{new:meanvalue}, \cite[2.6.2, 2.8.9, 2.8.18, 2.9.9, 4.1.2]{Federer1969} \\
+\ref{new:rellich} & new & \ref{new:ibp}, \cite[2.4.12, 2.10.21, 4.1.2]{Federer1969} \\
+\ref{al:8.16} & \cite[8.16]{Allard1972}, corrected & \ref{al:8.14}, \ref{al:8.15}, \ref{al:3.2(1)}, \ref{al:3.2(2)}, \ref{al:8.2}, \ref{al:8.12}, \ref{new:cutoff}, \ref{al:4.2:lem}, \ref{al:8.13}, \ref{al:8.12(2)}, \ref{al:8.12(3)}, \ref{al:8.12(4)}, \ref{al:2.8(5)}, \ref{al:5.5(1)}, \ref{al:3.5(1)}, \ref{rem:2.6(2)}, \ref{new:density_tangent}, \ref{al:2.4}, \ref{al:8.9(3)}, \ref{al:8.9(5)}, \ref{new:rellich}, \ref{al:8.9(4)}, \ref{new:ibp}, \ref{new:weyl}, \cite[1.7.6, 2.4.14, 2.10.11, 3.1.6, 3.2.3, 3.2.5, 3.2.13, 3.2.17]{Federer1969} \\
+\ref{al:8.17} & \cite[8.17]{Allard1972}, corrected & \ref{al:8.16(1)}, \ref{al:8.16(6)}, \ref{al:8.16}, \ref{new:grass_compact}, \ref{al:8.12}, \ref{al:8.16(5)}, \ref{al:2.1}, \ref{al:8.6}, \ref{al:8.16(4)}, \ref{al:3.4(1)}, \ref{al:4.12}, \ref{al:6.5}, \ref{al:2.6(2)(a)}, \ref{al:4.6(3)} \\
+\ref{al:8.18} & \cite[8.18]{Allard1972} & --- \\
+\ref{al:8.19} & \cite[8.19]{Allard1972}, corrected & \ref{al:8.17}, \ref{al:8.12}, \ref{al:8.9(3)}, \ref{al:8.18}, \ref{al:8.9(5)}, \ref{al:8.17(3)}, \ref{al:8.17(2)} \\
+\ref{al:8.RT} & \cite[section~8, Regularity Theorem]{Allard1972}, corrected & \ref{al:8.19}, \ref{al:8.8}, \ref{al:3.2(2)}, \ref{al:8.2}, \ref{al:8.6}, \ref{new:cutoff}, \ref{al:8.19(3)}, \ref{al:8.19(2)}, \ref{al:8.19(4)}, \ref{al:8.19(5)} \\
+\ref{al:8.1(1)} & \cite[8.1(1)]{Allard1972} & \ref{al:4.3}, \ref{al:8.RT}, \ref{new:cutoff}, \ref{al:8.6}, \cite[2.2.5, 2.4.7, 2.4.9, 2.4.14]{Federer1969} \\
+\ref{al:8.1(2)} & \cite[8.1(2)]{Allard1972} & \ref{al:8.1(1)}, \ref{al:8.RT}, \ref{al:3.5:lem}, \ref{al:4.2:lem}, \ref{al:2.3(1)}, \ref{new:ibp}, \cite[3.2.3]{Federer1969} \\
+\ref{al:8.1(3)} & \cite[8.1(3)]{Allard1972} & \ref{al:4.1}, \ref{al:3.5:lem}, \ref{al:4.2:lem}, \ref{al:2.8(4)(a)}, \ref{al:8.6}, \ref{al:8.RT} \\
+\ref{al:8.1(4)} & \cite[8.1(4)]{Allard1972} & \ref{al:8.RT} \\
+\ref{al:8.1(5)} & \cite[8.1(5)]{Allard1972}, corrected & \ref{al:8.RT}, \ref{al:5.2(3)}, \ref{rem:2.6(2)}, \ref{al:5.2(2)}, \ref{al:8.6}, \ref{al:4.6(3)}, \cite[3.2.13]{Federer1969} \\
+\end{longtable}
+\end{center}

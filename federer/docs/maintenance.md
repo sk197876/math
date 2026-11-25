@@ -5,7 +5,7 @@
 ## Document structure
 
 Start at [toc.md](toc.md). Keep one guide for each Federer section in
-`chapter1/`, `chapter2/`, or `chapter3/`. Keep these paths stable: the maps,
+`chapter1/`, `chapter2/`, `chapter3/`, or `chapter4/`. Keep these paths stable: the maps,
 source guide, and historical records link to them.
 
 Each section guide has the following structure:
@@ -76,7 +76,7 @@ Federer's corrections, project corrections, and supporting arguments.
 After changing the formalisation, update the item in its section guide.
 Record departures from Federer's text there and in
 [divergences.md](divergences.md). Then run the following commands from the
-repository root:
+`federer/` folder of the repository:
 
 ```sh
 python3 tools/contents.py
@@ -95,7 +95,7 @@ after the summary, so regeneration cannot silently discard them.
 
 Update [index.md](index.md) and [symbols.md](symbols.md) when notions or
 notations change. Check the source guide and error catalogue when a
-correction changes. Review the top-level README and documentation index
+correction changes. Review the README of `federer/` and the documentation index
 for changes in coverage. The generators support this review; they do not
 establish mathematical completeness.
 
@@ -108,7 +108,7 @@ python3 docs/check_docs.py --report /tmp/federer-doc-links.json
 python3 docs/check_docs.py --external --report /tmp/federer-doc-links-external.json
 ```
 
-With no file arguments, the checker reads the top-level README and every
+With no file arguments, the checker reads the README of `federer/` and every
 Markdown file under `docs/`, including historical notes. It checks local
 file targets, Markdown headings, explicit HTML anchors, source-line ranges,
 and code-formatted declaration labels against linked Rocq lines. It rejects duplicate

@@ -1,0 +1,2750 @@
+% Blueprint of Allard, On the first variation of a varifold, sections 2--5.
+% Labels: al:N.M for Allard's item N.M, al:N.M(k) for its part (k); new:... for auxiliary
+% lemmas which are not in Allard's paper.
+
+\section{Preliminaries}
+\label{sec:prelim}
+
+\begin{miniremark}
+    \label{mr:sec2}
+    This section follows~\cite[section~2]{Allard1972}. It records Allard's conventions on
+    Euclidean space, linear algebra, submanifolds, measures, covering and rectifiability, and
+    matches each of them with the corresponding items of Federer's book. Allard identifies
+    a~$\vdim$~dimensional vectorsubspace of~$\R^{\adim}$ with the orthogonal projection onto it;
+    we work with the projections throughout, so that $\pgrass{\adim}{\vdim}$ replaces Allard's
+    $G(\adim,\vdim)$, and Allard's condition $S \subseteq T$ for subspaces reads $\im S \subseteq
+    T$. Entries marked~\MS\ belong to the minimal path towards the Michael--Simon inequality, see
+    \ref{rem:ms_path}. Lemmas titled ``new'' are not stated in~\cite{Allard1972}.
+\end{miniremark}
+
+\subsection{Euclidean space and linear algebra}
+
+\begin{definition}[{\cite[2.1]{Allard1972}}\MS]
+    \label{al:2.1}
+    The integers $\vdim$, $m$, $\adim$ satisfy $0 \le \vdim \le m \le \adim$. The space
+    $\R^{\adim}$ carries the inner product $x \bullet y = \textsum{i=1}{\adim} x_i y_i$ and the
+    norm $|x| = (x \bullet x)^{1/2}$ for $x, y \in \R^{\adim}$. For $a \in \R^{\adim}$ and $0 < r
+    < \infty$ we set
+    \begin{gather*}
+        \cball{a}{r} = \R^{\adim} \cap \{ x : |x-a| \le r \} \,, \qquad
+        \oball{a}{r} = \R^{\adim} \cap \{ x : |x-a| < r \} \,, \\
+        \trans{a}(x) = x + a \,, \qquad \scale{r}(x) = r x \quad \text{for $x \in \R^{\adim}$} \,,
+        \qquad \sphere{\adim-1} = \R^{\adim} \cap \{ x : |x| = 1 \} \,.
+    \end{gather*}
+    For $A \subseteq \R^{\adim}$ and $a \in \Clos{A}$, the cone $\Tan(A,a)$ is the closed set of
+    all $t v$ with $0 \le t < \infty$ and
+    \begin{displaymath}
+        v \in \tbcap \big\{ \Clos{\{ |x-a|^{-1}(x-a) : x \in A \cap \oball{a}{r} \without \{a\}
+        \}} : 0 < r < \infty \big\} \,,
+    \end{displaymath}
+    together with~$0$, and $\Nor(A,a) = \R^{\adim} \cap \{ x : x \bullet y \le 0 \text{ for } y
+    \in \Tan(A,a) \}$. For a set~$X$, the identity map of~$X$ is~$\id{X}$. For a topological
+    space~$X$, a vectorspace~$Y$ and $f : X \to Y$, we set $\spt f = \Clos{(X \cap \{ x : f(x)
+    \ne 0 \})}$.
+\end{definition}
+
+\begin{remark}
+    \label{rem:2.1}
+    The cone $\Tan(A,a)$ coincides with the tangent cone of~\cite[3.1.21]{Federer1969}: both
+    sets contain~$0$, are closed under multiplication by positive numbers, and have the same
+    intersection with~$\sphere{\adim-1}$ by the displayed formula of~\cite[3.1.21]{Federer1969}.
+    The support of a function agrees with~\cite[2.5.13]{Federer1969}.
+\end{remark}
+
+\begin{definition}[{\cite[2.2]{Allard1972}}\MS]
+    \label{al:2.2}
+    Suppose $V$ and $W$ are finite dimensional inner product spaces. The $\vdim$-th exterior
+    power $\extpower{\vdim} V$ carries the inner product of~\cite[1.7.5]{Federer1969}, and
+    $\extpower{\vdim} f \in \Hom(\extpower{\vdim} V, \extpower{\vdim} W)$ is the $\vdim$-th
+    exterior power of $f \in \Hom(V,W)$~\cite[1.3.1]{Federer1969}. The adjoint $\transpose{f}
+    \in \Hom(W,V)$ of $f \in \Hom(V,W)$ is defined by $f(v) \bullet w = v \bullet
+    \transpose{f}(w)$ for $v \in V$ and $w \in W$~\cite[1.7.4]{Federer1969}. The space
+    $\Hom(V,W)$ carries the inner product and the norms
+    \begin{displaymath}
+        f \bullet g = \trace (\transpose{f} \circ g) \,, \qquad |f| = (f \bullet f)^{1/2} \,,
+        \qquad \|f\| = \sup \{ |f(v)| : v \in V, |v| \le 1 \}
+    \end{displaymath}
+    for $f, g \in \Hom(V,W)$, see~\cite[1.7.6, 1.7.9]{Federer1969}; moreover $\|f\| \le |f| \le
+    (\dim V)^{1/2} \|f\|$ by~\cite[1.7.9]{Federer1969}. The same procedure applied to
+    $\extpower{\vdim} V$ and $\extpower{\vdim} W$ defines an inner product on
+    $\Hom(\extpower{\vdim} V, \extpower{\vdim} W)$. For $\omega \in \Hom(V,\R)$ and $b \in W$
+    we write $\omega \cdot b = [ V \ni v \mapsto \omega(v) b ] \in \Hom(V,W)$.
+\end{definition}
+
+\begin{lemma}[{\cite[2.2(1)]{Allard1972}}\MS]
+    \label{al:2.2(1)}
+    Suppose $V$ is a finite dimensional vectorspace, $N = \dim V$, and $f \in \Hom(V,V)$. Then
+    \begin{displaymath}
+        \det (\id{V} + t f) = \textsum{i=0}{N} t^i \trace (\extpower{i} f)
+        \quad \text{for $t \in \R$} \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    Choose a basis $e_1, \ldots, e_N$ of~$V$ with dual basis $\omega_1, \ldots, \omega_N$ of
+    $\Hom(V,\R)$. For $0 \le i \le N$ and $\lambda \in \Lambda(N,i)$ set $e_\lambda =
+    e_{\lambda(1)} \wedge \cdots \wedge e_{\lambda(i)}$ and $\omega_\lambda = \omega_{\lambda(1)}
+    \wedge \cdots \wedge \omega_{\lambda(i)}$; these form dual bases of $\extpower{i} V$ and
+    $\extpower{}^i V$~\cite[1.4.3]{Federer1969}, hence
+    \begin{equation}
+        \label{eq:2.2(1):trace}
+        \trace g = \textsum{\lambda \in \Lambda(N,i)}{} \langle g(e_\lambda), \omega_\lambda
+        \rangle \quad \text{for $g \in \Hom(\extpower{i} V, \extpower{i} V)$} \,.
+    \end{equation}
+    Set $\xi = e_1 \wedge \cdots \wedge e_N$. For $\lambda \in \Lambda(N,i)$ let $\lambda' \in
+    \Lambda(N,N-i)$ satisfy $\im \lambda' = \{1, \ldots, N\} \without \im \lambda$, let
+    $\epsilon_\lambda \in \{-1,1\}$ satisfy $e_\lambda \wedge e_{\lambda'} = \epsilon_\lambda
+    \xi$, and let $u_{\lambda,j} = f(e_j)$ if $j \in \im \lambda$ and $u_{\lambda,j} = e_j$
+    otherwise. Multilinearity of the exterior product gives
+    \begin{displaymath}
+        (\extpower{N} (\id{V} + t f))(\xi) = \textstyle\bigwedge_{j=1}^N (e_j + t f(e_j)) =
+        \textsum{i=0}{N} t^i \textsum{\lambda \in \Lambda(N,i)}{} u_{\lambda,1} \wedge \cdots
+        \wedge u_{\lambda,N} \,.
+    \end{displaymath}
+    By the anticommutative law~\cite[1.3.1]{Federer1969}, the permutation which carries $e_1
+    \wedge \cdots \wedge e_N$ to $\epsilon_\lambda e_\lambda \wedge e_{\lambda'}$ carries
+    $u_{\lambda,1} \wedge \cdots \wedge u_{\lambda,N}$ to $\epsilon_\lambda
+    (\extpower{i} f)(e_\lambda) \wedge e_{\lambda'}$. Expanding $(\extpower{i} f)(e_\lambda) =
+    \textsum{\mu \in \Lambda(N,i)}{} \langle (\extpower{i} f)(e_\lambda), \omega_\mu \rangle
+    e_\mu$~\cite[1.4.3]{Federer1969} and noting $e_\mu \wedge e_{\lambda'} = 0$ for $\mu \ne
+    \lambda$, since then $e_\mu \wedge e_{\lambda'}$ contains a repeated factor, we obtain
+    \begin{displaymath}
+        u_{\lambda,1} \wedge \cdots \wedge u_{\lambda,N} = \epsilon_\lambda \langle
+        (\extpower{i} f)(e_\lambda), \omega_\lambda \rangle \, e_\lambda \wedge e_{\lambda'} =
+        \langle (\extpower{i} f)(e_\lambda), \omega_\lambda \rangle \, \xi \,.
+    \end{displaymath}
+    Summing over~$\lambda$ and using~\eqref{eq:2.2(1):trace} we get $(\extpower{N} (\id{V} + t
+    f))(\xi) = \textsum{i=0}{N} t^i \trace(\extpower{i} f) \, \xi$. The conclusion follows from
+    the definition of the determinant~\cite[1.3.4]{Federer1969}.
+\end{proof}
+
+\begin{lemma}[{\cite[2.2(2)]{Allard1972}}\MS]
+    \label{al:2.2(2)}
+    If $V$, $W$ are finite dimensional inner product spaces and $f \in \Hom(V,W)$, then
+    $\transpose{(\extpower{\vdim} f)} = \extpower{\vdim} (\transpose{f})$.
+\end{lemma}
+
+\begin{proof}
+    This is the first assertion of~\cite[1.7.6]{Federer1969}.
+\end{proof}
+
+\begin{definition}[{\cite[2.3]{Allard1972}}\MS]
+    \label{al:2.3}
+    We set
+    \begin{displaymath}
+        \pgrass{\adim}{\vdim} = \Hom(\R^{\adim},\R^{\adim}) \cap \{ S : S \circ S = S,\
+        \transpose{S} = S,\ \dim \im S = \vdim \} \,,
+    \end{displaymath}
+    and $S^\perp = \id{\R^{\adim}} - S$ for $S \in \pgrass{\adim}{\vdim}$. The map which assigns
+    to a $\vdim$~dimensional vectorsubspace~$T$ of $\R^{\adim}$ the orthogonal projection
+    $\project{T}$ onto~$T$ is a bijection of Allard's $G(\adim,\vdim)$ onto
+    $\pgrass{\adim}{\vdim}$, with inverse $[S \mapsto \im S]$; we use it to transport every
+    statement of~\cite{Allard1972} about $G(\adim,\vdim)$. In particular $S^\perp \in
+    \pgrass{\adim}{\adim-\vdim}$ and $\im S^\perp = \R^{\adim} \cap \{ x : x \bullet y = 0
+    \text{ for } y \in \im S \}$.
+\end{definition}
+
+\begin{lemma}[{\cite[2.3(1)--(5)]{Allard1972}}\MS]
+    \label{al:2.3(1)}
+    If $S \in \pgrass{\adim}{\vdim}$, then
+    \begin{gather}
+        \label{eq:2.3:1}
+        S(x) \bullet S(y) = S(x) \bullet y \quad \text{for $x, y \in \R^{\adim}$} \,, \\
+        \label{eq:2.3:2}
+        |S(x)|^2 = S(x) \bullet x \quad \text{for $x \in \R^{\adim}$} \,, \\
+        \label{eq:2.3:3}
+        \id{\R^{\adim}} \bullet S = \trace S = \vdim = |S|^2 \,, \\
+        \label{eq:2.3:4}
+        (\omega \cdot v) \bullet S = \omega(S(v)) \quad \text{for $\omega \in
+        \Hom(\R^{\adim},\R)$ and $v \in \R^{\adim}$} \,, \\
+        \label{eq:2.3:5}
+        f \bullet S = \transpose{f} \bullet S = \trace(f \circ S) \quad \text{for $f \in
+        \Hom(\R^{\adim},\R^{\adim})$} \,.
+    \end{gather}
+\end{lemma}
+
+\begin{proof}
+    Since $\transpose{S} \circ S = S \circ S = S$, we have $S(x) \bullet S(y) = x \bullet S(y) =
+    S(x) \bullet y$, which is~\eqref{eq:2.3:1}; taking $y = x$ gives~\eqref{eq:2.3:2}. The
+    kernel of~$S$ is orthogonal to $\im S$, because $x \bullet S(y) = S(x) \bullet y = 0$ for $x
+    \in \ker S$. Choose an orthonormal basis $b_1, \ldots, b_{\adim}$ of $\R^{\adim}$ with $b_1,
+    \ldots, b_{\vdim} \in \im S$ and $b_{\vdim+1}, \ldots, b_{\adim} \in \ker S$. Then $S(b_i) =
+    b_i$ for $i \le \vdim$ and $S(b_i) = 0$ for $i > \vdim$, hence $\trace S = \textsum{i=1}{\adim}
+    b_i \bullet S(b_i) = \vdim$. Moreover $\id{\R^{\adim}} \bullet S = \trace S$ and $|S|^2 =
+    \trace(\transpose{S} \circ S) = \trace S$, which is~\eqref{eq:2.3:3}. Recall $\trace
+    (\transpose{g}) = \trace g$ for $g \in \Hom(\R^{\adim},\R^{\adim})$~\cite[1.7.6]{Federer1969}
+    and $\trace(g \circ h) = \trace(h \circ g)$. Since $S \circ (\omega \cdot v) = \omega \cdot
+    S(v)$ and $\trace(\omega \cdot b) = \textsum{i=1}{\adim} \omega(b_i) (b_i \bullet b) =
+    \omega(b)$, we get
+    \begin{displaymath}
+        (\omega \cdot v) \bullet S = \trace \big( \transpose{(\transpose{(\omega \cdot v)} \circ
+        S)} \big) = \trace(S \circ (\omega \cdot v)) = \omega(S(v)) \,,
+    \end{displaymath}
+    which is~\eqref{eq:2.3:4}. Finally $f \bullet S = \trace(\transpose{(\transpose{f} \circ S)})
+    = \trace(S \circ f) = \trace(f \circ S) = \trace(\transpose{(\transpose{f})} \circ S) =
+    \transpose{f} \bullet S$, which is~\eqref{eq:2.3:5}.
+\end{proof}
+
+\begin{lemma}[new\MS]
+    \label{new:grass_compact}
+    The set $\pgrass{\adim}{\vdim}$ equals $\Hom(\R^{\adim},\R^{\adim}) \cap \{ S : S \circ S =
+    S,\ \transpose{S} = S,\ \trace S = \vdim \}$, and it is a compact subset of
+    $\Hom(\R^{\adim},\R^{\adim})$.
+\end{lemma}
+
+\begin{proof}
+    If $S \circ S = S$ and $\transpose{S} = S$, the proof of~\ref{al:2.3(1)} shows $\trace S =
+    \dim \im S$; this gives the equality of the two sets. The maps $[S \mapsto S \circ S - S]$,
+    $[S \mapsto \transpose{S} - S]$ and $\trace$ are continuous, hence $\pgrass{\adim}{\vdim}$ is
+    closed. It is bounded since $|S|^2 = \vdim$ by~\ref{al:2.3(1)}\eqref{eq:2.3:3}. Compactness
+    follows from the Heine--Borel theorem.
+\end{proof}
+
+\begin{lemma}[new\MS]
+    \label{new:projection_formula}
+    Suppose $X$, $Y$ are finite dimensional inner product spaces, $L \in \Hom(X,Y)$, $S \in
+    \Hom(X,X)$ is an orthogonal projection, $L | \im S$ is injective, and
+    \begin{displaymath}
+        A = S \circ \transpose{L} \circ L \circ S + \id{X} - S \,, \qquad P = L \circ S \circ
+        A^{-1} \circ \transpose{L} \,.
+    \end{displaymath}
+    Then $A$ is invertible, $A \circ S = S \circ A$, and $P$ is the orthogonal projection of~$Y$
+    onto $L[\im S]$. Moreover, if $\dim \im S = \vdim$, then $L | \im S$ is injective if and
+    only if $\extpower{\vdim}(L \circ S) \ne 0$, and the map $[(L,S) \mapsto P]$ is continuous on
+    the open subset $\Hom(X,Y) \times \pgrass{X}{\vdim} \cap \{ (L,S) : \extpower{\vdim}(L
+    \circ S) \ne 0 \}$, where $\pgrass{X}{\vdim}$ is the set of orthogonal projections of~$X$
+    of rank~$\vdim$.
+\end{lemma}
+
+\begin{proof}
+    Suppose $A(x) = 0$. Then $0 = S(A(x)) = S(\transpose{L}(L(S(x))))$ and $0 = (\id{X} -
+    S)(A(x)) = x - S(x)$, hence $x = S(x)$ and $0 = x \bullet S(\transpose{L}(L(S(x)))) =
+    |L(x)|^2$; injectivity of $L | \im S$ yields $x = 0$. Thus $A$ is invertible. Both $A
+    \circ S$ and $S \circ A$ equal $S \circ \transpose{L} \circ L \circ S$, hence $A \circ S = S
+    \circ A$ and $A^{-1} \circ S = S \circ A^{-1}$. Consequently $\transpose{P} = L \circ
+    A^{-1} \circ S \circ \transpose{L} = P$, because $A$ is symmetric. Moreover
+    \begin{displaymath}
+        P \circ L \circ S = L \circ S \circ A^{-1} \circ S \circ \transpose{L} \circ L \circ S =
+        L \circ S \circ A^{-1} \circ A \circ S = L \circ S \,,
+    \end{displaymath}
+    so $P$ is the identity on $L[\im S]$; since $\im P \subseteq L[\im S]$, we have $P \circ P
+    = P$ and $\im P = L[\im S]$. A symmetric idempotent map is the orthogonal projection onto
+    its image, as in the proof of~\ref{al:2.3(1)}.
+
+    Suppose $\dim \im S = \vdim$, let $j : \im S \to X$ be the inclusion map, and note $S = j
+    \circ \transpose{j}$. Since $\extpower{\vdim}(\im S)$ is one dimensional and
+    $\extpower{\vdim}(\transpose{j})$ maps onto it, $\extpower{\vdim}(L \circ S) =
+    \extpower{\vdim}(L \circ j) \circ \extpower{\vdim}(\transpose{j})$ vanishes if and only if
+    $\extpower{\vdim}(L \circ j) = 0$, that is, by~\cite[1.7.6]{Federer1969}, if and only if $L
+    \circ j$ is not a monomorphism. The map $[(L,S) \mapsto \extpower{\vdim}(L \circ S)]$ is
+    continuous, hence the set in question is open. On it, $[(L,S) \mapsto A]$ is continuous with
+    invertible values. Inversion is continuous on the invertible endomorphisms of~$X$: if
+    $A_0$ is invertible and $\|A_0^{-1}\| \, \|A - A_0\| < 1$, then $A^{-1} =
+    \textsum{j=0}{\infty} (A_0^{-1} \circ (A_0 - A))^j \circ A_0^{-1}$, whence $\|A^{-1} -
+    A_0^{-1}\| \le \|A_0^{-1}\|^2 \|A - A_0\| (1 - \|A_0^{-1}\| \, \|A - A_0\|)^{-1}$. Hence
+    $[(L,S) \mapsto P]$ is continuous.
+\end{proof}
+
+\begin{lemma}[{\cite[2.4]{Allard1972}}\MS]
+    \label{al:2.4}
+    Suppose $f \in \Hom(\R^{\adim},\R^{\adim'})$, $S \in \pgrass{\adim}{\vdim}$, $e_1, \ldots,
+    e_{\vdim}$ is an orthonormal basis of $\im S$, and $j : \im S \to \R^{\adim}$ is the
+    inclusion map. Then $\extpower{\vdim}(f \circ S)$ has rank at most~$1$, and
+    \begin{displaymath}
+        |\extpower{\vdim}(f \circ S)| = \|\extpower{\vdim}(f \circ S)\| = |f(e_1) \wedge \cdots
+        \wedge f(e_{\vdim})| = \det \big( \transpose{(f \circ j)} \circ f \circ j \big)^{1/2} \,.
+    \end{displaymath}
+    In particular $|\extpower{\vdim}(f \circ S)|$ equals the $\vdim$~dimensional Jacobian
+    $\|\extpower{\vdim} \uD (f|\im S)\|$ of the linear map $f | \im S$, see~\cite[3.2.1]{Federer1969}.
+\end{lemma}
+
+\begin{proof}
+    Extend $e_1, \ldots, e_{\vdim}$ to an orthonormal basis $e_1, \ldots, e_{\adim}$ of
+    $\R^{\adim}$, so that $S(e_i) = 0$ for $i > \vdim$. The $\vdim$-vectors $e_\lambda$
+    corresponding to $\lambda \in \Lambda(\adim,\vdim)$ form an orthonormal basis of
+    $\extpower{\vdim} \R^{\adim}$~\cite[1.7.5]{Federer1969}, and $(\extpower{\vdim}(f \circ
+    S))(e_\lambda) = 0$ unless $\im \lambda = \{1, \ldots, \vdim\}$. Hence $\extpower{\vdim}(f
+    \circ S) = \omega \cdot \eta$, where $\eta = f(e_1) \wedge \cdots \wedge f(e_{\vdim})$ and
+    $\omega \in \Hom(\extpower{\vdim} \R^{\adim}, \R)$ is the member of the dual basis
+    corresponding to $e_1 \wedge \cdots \wedge e_{\vdim}$. For a map $g$ of the form $\omega
+    \cdot \eta$ and an orthonormal basis $u_1, u_2, \ldots$ with $u_2, u_3, \ldots \in \ker
+    \omega$ we have $|g|^2 = \trace(\transpose{g} \circ g) = \textsum{i}{} |g(u_i)|^2 =
+    |g(u_1)|^2$ and $|g(w)| = |(w \bullet u_1) g(u_1)| \le |g(u_1)|$ for $|w| \le 1$; together
+    with $\|g\| \le |g|$ this gives $\|g\| = |g| = |g(u_1)|$. Here $u_1 = e_1 \wedge \cdots
+    \wedge e_{\vdim}$ and $g(u_1) = \eta$. Finally, with $\zeta = e_1 \wedge \cdots \wedge
+    e_{\vdim} \in \extpower{\vdim}(\im S)$, we have $\eta = \extpower{\vdim}(f \circ j)(\zeta)$
+    and, by~\cite[1.7.6, 1.3.4]{Federer1969},
+    \begin{displaymath}
+        |\eta|^2 = \zeta \bullet \extpower{\vdim} \big( \transpose{(f \circ j)} \circ f \circ j
+        \big) (\zeta) = \det \big( \transpose{(f \circ j)} \circ f \circ j \big) \,. \qedhere
+    \end{displaymath}
+\end{proof}
+
+\begin{lemma}[{\cite[2.4(1)]{Allard1972}}\MS]
+    \label{al:2.4(1)}
+    If $f \in \Hom(\R^{\adim},\R^{\adim})$ and $S \in \pgrass{\adim}{\vdim}$, then
+    \begin{displaymath}
+        \frac{\ud}{\ud t} \big| \extpower{\vdim} ((\id{\R^{\adim}} + t f) \circ S) \big|
+        \Big|_{t=0} = f \bullet S \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    Let $j : \im S \to \R^{\adim}$ be the inclusion map and set $h_1 = \transpose{j} \circ f
+    \circ j + \transpose{j} \circ \transpose{f} \circ j$ and $h_2 = \transpose{j} \circ
+    \transpose{f} \circ f \circ j$. Since $\transpose{j} \circ j = \id{\im S}$,
+    \ref{al:2.4} gives
+    \begin{displaymath}
+        \big| \extpower{\vdim}((\id{\R^{\adim}} + t f) \circ S) \big|^2 = \det(\id{\im S} + B(t))
+        \,, \qquad B(t) = t h_1 + t^2 h_2 \,,
+    \end{displaymath}
+    for $t \in \R$. By~\ref{al:2.2(1)} with $t = 1$, $\det(\id{\im S} + B(t)) = 1 + \trace B(t) +
+    \textsum{i=2}{\vdim} \trace(\extpower{i} B(t))$. Since $\extpower{i} B(t) = t^i
+    \extpower{i}(h_1 + t h_2)$, the terms with $i \ge 2$ have derivative~$0$ at $t = 0$, hence
+    the derivative of the square at $t = 0$ equals $\trace h_1 = 2 \trace(\transpose{j} \circ f
+    \circ j)$ by~\cite[1.7.6]{Federer1969}. The square equals~$1$ at $t = 0$, so the derivative
+    of $|\extpower{\vdim}((\id{\R^{\adim}} + t f) \circ S)|$ at $t = 0$ equals $\trace
+    (\transpose{j} \circ f \circ j) = \trace(f \circ j \circ \transpose{j}) = \trace(f \circ S) = f
+    \bullet S$ by~\ref{al:2.3(1)}\eqref{eq:2.3:5}.
+\end{proof}
+
+\begin{remark}
+    \label{rem:2.4}
+    Allard verifies~\ref{al:2.4(1)} ``by using the chain rule, 2.2(2), 2.1(1), and 2.3(5)''; the
+    reference 2.1(1) is a~misprint for~\ref{al:2.2(1)}. The proof above replaces Allard's
+    computation of $\trace \extpower{\vdim}(S \circ \transpose{L} \circ L \circ S)$ by the Gram
+    determinant of~\ref{al:2.4}.
+\end{remark}
+
+\subsection{Submanifolds}
+
+\begin{definition}[{\cite[2.5]{Allard1972}}]
+    \label{al:2.5}
+    A set $M \subseteq \R^{\adim}$ is a \emph{smooth $m$~dimensional submanifold} of
+    $\R^{\adim}$ if and only if to each $a \in M$ there correspond an open neighbourhood~$W$
+    of~$a$ in~$\R^{\adim}$ and maps $\psi : \R^{\adim} \to \R^m$ and $\phi : \R^m \to
+    \R^{\adim}$ of class~$\infty$ such that
+    \begin{displaymath}
+        \psi \circ \phi = \id{\R^m} \,, \qquad W \cap M = W \cap \im \phi \,;
+    \end{displaymath}
+    we call $(W,\psi,\phi)$ a \emph{chart} of~$M$ at~$a$. A map $F$ of~$M$ into $\R^{\adim'}$ is
+    \emph{smooth} if and only if each $a \in M$ has an open neighbourhood $W$ in $\R^{\adim}$
+    with a map $G : W \to \R^{\adim'}$ of class~$\infty$ satisfying $G | W \cap M = F | W \cap
+    M$; then $\uD F(a) = \uD G(a) | \Tan(M,a)$. Suppose $M$ is a smooth $m$~dimensional
+    submanifold of~$\R^{\adim}$, $U$ is an open subset of~$\R^{\adim}$ with $M \subseteq U$,
+    and the inclusion map $i : M \to U$ is proper. Then:
+    \begin{enumerate}
+        \item $\VF(M)$ is the vectorspace of smooth maps $g : M \to \R^{\adim}$ with compact
+            support and $g(x) \in \Tan(M,x)$ for $x \in M$, and $\VF^{\perp}(M)$ is the
+            vectorspace of smooth maps $g : M \to \R^{\adim}$ with compact support and $g(x)
+            \in \Nor(M,x)$ for $x \in M$;
+        \item $\dspace{M}{\R}$ is the vectorspace of smooth real valued functions on~$M$ with
+            compact support, and $\grad f \in \VF(M)$ is defined for $f \in \dspace{M}{\R}$ by
+            $v \bullet \grad f(x) = \uD f(x)(v)$ for $x \in M$ and $v \in \Tan(M,x)$;
+        \item for $g \in \VF(U)$, the maps $\Tan(M,g) \in \VF(M)$ and $\Nor(M,g) \in
+            \VF^\perp(M)$ are given by $\Tan(M,g)(x) = \project{\Tan(M,x)}(g(x))$ and
+            $\Nor(M,g)(x) = g(x) - \Tan(M,g)(x)$ for $x \in M$;
+        \item $\Gk{M} = (M \times \pgrass{\adim}{\vdim}) \cap \{ (x,S) : \im S \subseteq
+            \Tan(M,x) \}$.
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}[new]
+    \label{new:charts}
+    Suppose $(W,\psi,\phi)$ is a chart of a~smooth $m$~dimensional submanifold~$M$
+    of~$\R^{\adim}$ at~$a$. Then $\phi \circ \psi | W \cap M = \id{W \cap M}$, the map $\phi$ is
+    a homeomorphism of~$\R^m$ onto $\im \phi$, $\Tan(M,x) = \im \uD \phi(\psi(x))$ is an
+    $m$~dimensional vectorsubspace of~$\R^{\adim}$ and $\uD \psi(x) | \Tan(M,x)$ is the inverse
+    of $\uD \phi(\psi(x))$ for $x \in W \cap M$, and
+    \begin{displaymath}
+        \project{\Tan(M,x)} = L(x) \circ (\transpose{L(x)} \circ L(x))^{-1} \circ
+        \transpose{L(x)} \,, \qquad L(x) = \uD \phi(\psi(x)) \,,
+        \quad \text{for $x \in W \cap M$} \,.
+    \end{displaymath}
+    In particular, $[M \ni x \mapsto \project{\Tan(M,x)}]$ is smooth, the definition of
+    $\uD F(a)$ in~\ref{al:2.5} does not depend on~$G$, and the maps in~\ref{al:2.5}(c) belong to
+    $\VF(M)$ and $\VF^\perp(M)$. Moreover, a set $M \subseteq \R^{\adim}$ is a smooth
+    $m$~dimensional submanifold of~$\R^{\adim}$ if and only if it is an $m$~dimensional
+    submanifold of class~$\infty$ of~$\R^{\adim}$ in the sense of~\cite[3.1.19]{Federer1969}.
+\end{lemma}
+
+\begin{proof}
+    If $x \in W \cap M$, then $x = \phi(u)$ for some $u \in \R^m$, and $\psi(x) = u$, hence
+    $\phi(\psi(x)) = x$. Thus $\psi | \im \phi$ is a continuous inverse of~$\phi$. Since $\uD
+    \psi(\phi(u)) \circ \uD \phi(u) = \id{\R^m}$, the map $\uD \phi(u)$ is injective. By the
+    second part of~\cite[3.1.21]{Federer1969} applied to~$\phi$ and $\R^m$, we have $\Tan(\im
+    \phi, \phi(u)) = \uD \phi(u)[\R^m]$; since $W$ is open, $\Tan(M,x) = \Tan(W \cap \im \phi, x)
+    = \Tan(\im \phi, x)$ for $x \in W \cap M$. If $v = \uD \phi(\psi(x))(w)$, then $\uD
+    \psi(x)(v) = w$, which shows the inverse relation. The formula for $\project{\Tan(M,x)}$ is
+    the case $S = \id{\R^m}$ of~\ref{new:projection_formula}; its right side is a smooth function
+    of $x \in W$, because inversion of invertible endomorphisms is smooth, which gives
+    smoothness of $[x \mapsto \project{\Tan(M,x)}]$.
+
+    If $G_1$, $G_2$ are as in~\ref{al:2.5} near~$a$, then $(G_1 - G_2) \circ \phi = 0$ near
+    $\psi(a)$, hence $\uD (G_1 - G_2)(a) \circ \uD \phi(\psi(a)) = 0$ and $\uD G_1(a) |
+    \Tan(M,a) = \uD G_2(a) | \Tan(M,a)$.
+
+    Suppose $M$ is a smooth $m$~dimensional submanifold and $a \in M$, with chart
+    $(W,\psi,\phi)$. Choose $0 < r < \infty$ with $\phi[\oball{\psi(a)}{r}] \subseteq W$ and set
+    $V = \oball{\psi(a)}{r}$ and $T = W \cap \psi^{-1}[V]$. Then $\phi[V] \subseteq T$, $M \cap
+    T = \phi[V]$ and $(\psi|T) \circ (\phi | V) = \id{V}$, which is condition~(4)
+    of~\cite[3.1.19]{Federer1969} with $\psi|T$ and $\phi|V$ in place of Federer's $\phi$
+    and~$\psi$. Conversely, suppose $M$ is an $m$~dimensional submanifold of class~$\infty$ and
+    $a \in M$. By~\cite[3.1.19(5)]{Federer1969} there are a neighbourhood~$T$ of~$a$ and $p \in
+    \orthproj{\adim}{m}$ such that $p | (M \cap T)$ is univalent, $p[M \cap T] = p[T]$ is
+    convex, and $g = (p | (M \cap T))^{-1} : p[T] \to \R^{\adim}$ is of class~$\infty$; we may
+    assume $T$ is open. Choose $0 < r < \infty$ with $\oball{p(a)}{2r} \subseteq p[T]$, and
+    $\zeta : \R^m \to \R$ of class~$\infty$ with $\spt \zeta \subseteq \oball{p(a)}{2r}$ and
+    $\zeta(y) = 1$ for $y \in \cball{p(a)}{r}$. Set $\psi = p$, $W = T \cap p^{-1}[\oball{p(a)}{r}]$
+    and
+    \begin{displaymath}
+        \phi(y) = \transpose{p}(y) + \zeta(y) (g(y) - \transpose{p}(y)) \quad \text{for $y \in
+        p[T]$} \,, \qquad \phi(y) = \transpose{p}(y) \quad \text{for $y \in \R^m \without p[T]$}
+        \,.
+    \end{displaymath}
+    The map $\phi$ is of class~$\infty$. Since $p \circ \transpose{p} = \id{\R^m}$ and $p(g(y))
+    = y$, we get $\psi \circ \phi = \id{\R^m}$. If $x \in W \cap M$, then $y = p(x) \in
+    \oball{p(a)}{r}$ and $x = g(y) = \phi(y)$. If $x \in W$ and $x = \phi(y)$, then $y = p(x) \in
+    \oball{p(a)}{r}$, hence $x = g(y) \in M$. Thus $W \cap M = W \cap \im \phi$.
+\end{proof}
+
+\begin{lemma}[{\cite[2.5(1)--(3)]{Allard1972}}]
+    \label{al:2.5(1)}
+    Suppose $M$ is a smooth $m$~dimensional submanifold of~$\R^{\adim}$, $U$ is an open subset
+    of~$\R^{\adim}$, $M \subseteq U$, the inclusion map of~$M$ into~$U$ is proper, and $a \in
+    M$. Then:
+    \begin{enumerate}
+        \item There is a unique symmetric bilinear map $b(M;a) : \Tan(M,a) \times \Tan(M,a) \to
+            \Nor(M,a)$ such that
+            \begin{displaymath}
+                v \bullet \uD g(a)(w) = - b(M;a)(v,w) \bullet g(a) \quad \text{for $g \in
+                \VF^\perp(M)$ and $v, w \in \Tan(M,a)$} \,.
+            \end{displaymath}
+        \item There is a unique $h(M;a) \in \Nor(M,a)$ such that
+            \begin{displaymath}
+                \big( \uD g(a) \circ \project{\Tan(M,a)} \big) \bullet \project{\Tan(M,a)} = -
+                g(a) \bullet h(M;a) \quad \text{for $g \in \VF^\perp(M)$} \,.
+            \end{displaymath}
+        \item For each $(a,S) \in \Gk{M}$ there is a unique $h(M;a,S) \in \Nor(M,a)$ such that
+            \begin{displaymath}
+                \big( \uD g(a) \circ \project{\Tan(M,a)} \big) \bullet S = - g(a) \bullet
+                h(M;a,S) \quad \text{for $g \in \VF^\perp(M)$} \,.
+            \end{displaymath}
+    \end{enumerate}
+    Moreover $h(M;a) = \textsum{i=1}{m} b(M;a)(e_i,e_i)$ and $h(M;a,S) = \textsum{i=1}{\vdim}
+    b(M;a)(e_i,e_i)$, whenever $e_1, \ldots, e_m$ is an orthonormal basis of $\Tan(M,a)$ such
+    that $e_1, \ldots, e_{\vdim}$ is a basis of $\im S$.
+\end{lemma}
+
+\begin{proof}
+    Let $(W,\psi,\phi)$ be a chart of~$M$ at~$a$ and set $T = \project{\Tan(M,a)}$. For $v \in
+    \Tan(M,a)$ define $K_v(x) = \uD \phi(\psi(x))(\uD \psi(a)(v))$ for $x \in W$. By the chain
+    rule,
+    \begin{displaymath}
+        \uD K_v(a)(w) = \uD^2 \phi(\psi(a))(\uD \psi(a)(w), \uD \psi(a)(v)) \quad \text{for $v, w
+        \in \Tan(M,a)$} \,,
+    \end{displaymath}
+    which is symmetric in $v$ and~$w$ by the symmetry of the second differential. Set
+    \begin{displaymath}
+        b(M;a)(v,w) = (\id{\R^{\adim}} - T)(\uD K_v(a)(w)) \quad \text{for $v, w \in \Tan(M,a)$}
+        \,;
+    \end{displaymath}
+    this map is bilinear, symmetric, and takes values in $\Nor(M,a) = \im (\id{\R^{\adim}} -
+    T)$. By~\ref{new:charts}, $K_v(a) = v$ and $K_v(x) \in \Tan(M,\phi(\psi(x))) = \Tan(M,x)$
+    for $x \in W \cap M$. Suppose $g \in \VF^\perp(M)$. Then $K_v(x) \bullet g(x) = 0$ for $x \in
+    W \cap M$. Composing with~$\phi$ and differentiating at $\psi(a)$ in the direction $\uD
+    \psi(a)(w)$, using $\uD \phi(\psi(a))(\uD \psi(a)(w)) = w$, we obtain $\uD K_v(a)(w) \bullet
+    g(a) + v \bullet \uD g(a)(w) = 0$. Since $g(a) \in \Nor(M,a)$, we have $\uD K_v(a)(w) \bullet
+    g(a) = b(M;a)(v,w) \bullet g(a)$, which proves the identity of~(a). Uniqueness in~(a), (b),
+    (c) follows because every $\nu \in \Nor(M,a)$ equals $g(a)$ for some $g \in
+    \VF^\perp(M)$: choose $\zeta \in \dspace{\R^{\adim}}{\R}$ with $\spt \zeta \subseteq W$ and
+    $\zeta(a) = 1$, and set $g(x) = \zeta(x) (\nu - \project{\Tan(M,x)}(\nu))$ for $x \in M$;
+    the map $g$ is smooth by~\ref{new:charts} and $\spt g$ is compact.
+
+    Let $e_1, \ldots, e_m$ be as in the last sentence of the lemma, extend it to an orthonormal
+    basis $e_1, \ldots, e_{\adim}$ of~$\R^{\adim}$, and let $Q \in \{ T, S \}$ and $q = m$ if $Q
+    = T$, $q = \vdim$ if $Q = S$. Since $Q(e_i) = e_i$ for $i \le q$ and $Q(e_i) = 0$ for $i >
+    q$, and $T \circ Q = Q$, we compute
+    \begin{displaymath}
+        (\uD g(a) \circ T) \bullet Q = \trace \big( \transpose{T} \circ \transpose{\uD g(a)} \circ
+        Q \big) = \textsum{i=1}{q} \uD g(a)(e_i) \bullet e_i = - \textsum{i=1}{q} b(M;a)(e_i,e_i)
+        \bullet g(a) \,.
+    \end{displaymath}
+    This proves (b) and~(c) with the stated formulae, and shows that the right sides do not
+    depend on the choice of the basis.
+\end{proof}
+
+\begin{remark}
+    \label{rem:2.5}
+    Allard states~\ref{al:2.5(1)}(c) for $0 < \vdim < m$; the proof above covers $0 \le \vdim
+    \le m$. Allard's formula for $K_v$ reads $\langle \langle v, \uD \psi(a) \rangle, \uD
+    \phi[\psi(x)] \rangle$, which is $\uD \phi(\psi(x))(\uD \psi(a)(v))$ in the present
+    notation.
+\end{remark}
+
+\subsection{Measures}
+
+\begin{definition}[{\cite[2.6(1)]{Allard1972}}\MS]
+    \label{al:2.6(1)}
+    In~\ref{al:2.6(1)}--\ref{new:weak_metric}, $X$ is a locally compact subset of a finite
+    dimensional inner product space; every space to which Allard applies 2.6 is of this kind.
+    A \emph{Borel regular measure} on~$X$ is a function~$\mu$ on the subsets of~$X$ with values
+    in $\{ t : 0 \le t \le \infty \}$ such that $\mu(\varnothing) = 0$,
+    \begin{displaymath}
+        \mu \big( A \cap \tbcup_{i=1}^\infty B_i \big) = \textsum{i=1}{\infty} \mu(A \cap B_i)
+    \end{displaymath}
+    whenever $A \subseteq X$ and $B_1, B_2, \ldots$ is a disjointed sequence of Borel subsets
+    of~$X$, and $\mu(A) = \inf \{ \mu(B) : A \subseteq B,\ B \text{ is a Borel set} \}$ for $A
+    \subseteq X$. For such~$\mu$, the measures $\mu \restrict f$ and $\mu \restrict B$, the image
+    $u_\# \mu$, measurability of sets and functions, and $\spt \mu$ are those of~\cite[2.4.10,
+    2.1.2, 2.3.2, 2.2.1]{Federer1969}.
+\end{definition}
+
+\begin{remark}
+    \label{rem:2.6(1)}
+    The function~$\mu$ is a Borel regular measure in the sense of~\ref{al:2.6(1)} if and only if
+    it is a Borel regular measure over~$X$ in the sense of~\cite[2.1.2, 2.2.3]{Federer1969}.
+    Indeed, suppose $\mu$ is as in~\ref{al:2.6(1)}. Taking $A = B'$, $B_1 = B$ and $B_2 = B'
+    \without B$ shows $\mu(B) \le \mu(B')$ for Borel sets $B \subseteq B'$, hence $\mu$ is
+    monotone. If $A \subseteq \tbcup_{i=1}^\infty A_i$ and $\epsilon > 0$, choose Borel sets $C_i
+    \supseteq A_i$ with $\mu(C_i) \le \mu(A_i) + 2^{-i} \epsilon$; then
+    \begin{displaymath}
+        \mu(A) \le \mu \big( \tbcup_{i=1}^\infty C_i \big) = \textsum{i=1}{\infty} \mu \big( C_i
+        \without \tbcup_{j<i} C_j \big) \le \textsum{i=1}{\infty} \mu(A_i) + \epsilon \,.
+    \end{displaymath}
+    Thus $\mu$ measures~$X$. If $B$ is a Borel set, $A \subseteq X$, and $C \supseteq A$ is
+    a Borel set with $\mu(C) = \mu(A)$, then $\mu(A \cap B) + \mu(A \without B) \le \mu(C \cap
+    B) + \mu(C \without B) = \mu(A)$, hence $B$ is $\mu$~measurable. The converse follows from
+    the additivity of a measure on measurable sets~\cite[2.1.3]{Federer1969}. Without the
+    condition $\mu(\varnothing) = 0$, which Allard omits, the function with constant
+    value~$\infty$ would satisfy Allard's conditions.
+\end{remark}
+
+\begin{definition}[{\cite[2.6(2)]{Allard1972}}\MS]
+    \label{al:2.6(2)}
+    A \emph{Radon measure} on~$X$ is a Borel regular measure~$\mu$ on~$X$ with $\mu(K) <
+    \infty$ for every compact subset~$K$ of~$X$. The space of continuous real valued functions
+    on~$X$ with compact support is $\ccspace{X}$, and $\mu(f) = \textint{}{} f \ud \mu$ for $f \in
+    \ccspace{X}$. The \emph{weak topology} on the set of Radon measures on~$X$ is the topology
+    generated by the sets $\{ \mu : a < \mu(f) < b \}$ corresponding to $a, b \in \R$ and $f \in
+    \ccspace{X}$.
+\end{definition}
+
+\begin{remark}
+    \label{rem:2.6(2)}
+    Since $X$ is locally compact, separable and metrisable, the Radon measures of~\ref{al:2.6(2)}
+    are exactly the Radon measures of~\cite[2.2.5]{Federer1969}. If $\mu$ is Borel regular and
+    finite on compact sets, then $X$ is the union of countably many open sets of finite
+    $\mu$~measure, so~\cite[2.2.2, 2.2.3]{Federer1969} give outer approximation by open sets and
+    inner approximation of $\mu$~measurable sets of finite measure by closed sets, hence by
+    compact sets, using an exhaustion of~$X$ by compact sets. Conversely, a Radon measure in
+    Federer's sense is Borel regular, since every set is contained in a~$G_\delta$ set of equal
+    measure. By~\cite[2.5.13, 2.5.14]{Federer1969} the map $[\mu \mapsto [f \mapsto \mu(f)]]$ is
+    a bijection of the Radon measures on~$X$ onto the linear functionals on $\ccspace{X}$ which
+    are nonnegative on nonnegative functions; injectivity follows from $\mu(V) = \sup \{ \mu(f) :
+    f \in \ccspace{X},\ 0 \le f \le 1,\ \spt f \subseteq V \}$ for open~$V$ and the outer
+    regularity. Under this bijection the weak topology is the topology of~\cite[2.5.19]{Federer1969}.
+\end{remark}
+
+\begin{lemma}[{\cite[2.6(2)(a)--(d)]{Allard1972}}\MS]
+    \label{al:2.6(2)(a)}
+    Suppose $\mathcal{G}$ is a family of open subsets of~$X$ with $\tbcup \mathcal{G} = X$, and
+    $B$ is a nonnegative real valued function on~$\mathcal{G}$. Suppose $\mu, \mu_1, \mu_2,
+    \ldots$ are Radon measures on~$X$. Then:
+    \begin{enumerate}
+        \item the set of Radon measures $\nu$ on~$X$ with $\nu(G) \le B(G)$ for $G \in
+            \mathcal{G}$ is compact with respect to the weak topology;
+        \item $\lim_{i \to \infty} \mu_i = \mu$ if and only if $\lim_{i \to \infty} \mu_i(f) =
+            \mu(f)$ for $f \in \ccspace{X}$;
+        \item $\lim_{i \to \infty} \mu_i = \mu$ if and only if $\liminf_{i \to \infty} \mu_i(G)
+            \ge \mu(G)$ for every open $G \subseteq X$ and $\limsup_{i \to \infty} \mu_i(K) \le
+            \mu(K)$ for every compact $K \subseteq X$;
+        \item if $\lim_{i \to \infty} \mu_i = \mu$, $A \subseteq X$, $\Clos{A}$ is compact and
+            $\mu(\Bdry A) = 0$, then $\lim_{i \to \infty} \mu_i(A) = \mu(A)$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    For $f \in \ccspace{X}$ with $f \ge 0$ choose $G_1, \ldots, G_p \in \mathcal{G}$ covering
+    the compact set $\spt f$ and set $N(f) = \sup \im f \cdot \textsum{j=1}{p} B(G_j)$, using
+    for definiteness the smallest such sum. If $\nu(G) \le B(G)$ for $G \in \mathcal{G}$, then
+    $\nu(f) \le N(f)$. By~\cite[2.5.19]{Federer1969} and~\ref{rem:2.6(2)}, the set of Radon
+    measures~$\nu$ with $\nu(f) \le N(f)$ for $0 \le f \in \ccspace{X}$ is compact. The set in~(a)
+    is a closed subset of it, since by~\ref{rem:2.6(2)}
+    \begin{displaymath}
+        \{ \nu : \nu(G) \le B(G) \} = \tbcap \{ \{ \nu : \nu(f) \le B(G) \} : f \in
+        \ccspace{X},\ 0 \le f \le 1,\ \spt f \subseteq G \} \,.
+    \end{displaymath}
+    This proves~(a). Statement~(b) restates the definition of the weak topology, which is the
+    coarsest topology making $[\nu \mapsto \nu(f)]$ continuous for $f \in \ccspace{X}$.
+
+    Suppose $\lim_{i \to \infty} \mu_i = \mu$. If $G$ is open, $f \in \ccspace{X}$, $0 \le f
+    \le 1$ and $\spt f \subseteq G$, then $\liminf_{i \to \infty} \mu_i(G) \ge \lim_{i \to \infty}
+    \mu_i(f) = \mu(f)$; the supremum over~$f$ is $\mu(G)$ by~\ref{rem:2.6(2)}. If $K$ is compact
+    and $\epsilon > 0$, choose an open $V \supseteq K$ with compact closure and $\mu(V) \le \mu(K)
+    + \epsilon$, and $f \in \ccspace{X}$ with $0 \le f \le 1$, $f(x) = 1$ for $x \in K$ and $\spt f
+    \subseteq V$; then $\limsup_{i \to \infty} \mu_i(K) \le \lim_{i \to \infty} \mu_i(f) =
+    \mu(f) \le \mu(K) + \epsilon$. Conversely, assume the two inequalities of~(c) and let $0 \le f
+    \in \ccspace{X}$, $s = \sup \im f$. By Fubini's theorem~\cite[2.6.2]{Federer1969} applied
+    to $\nu \times \LM^1$ and the set $X \times \R \cap \{ (x,t) : 0 < t < f(x) \}$,
+    \begin{displaymath}
+        \nu(f) = \textint{0}{s} \nu(X \cap \{ x : f(x) > t \}) \ud \LM^1 t = \textint{0}{s} \nu(X
+        \cap \{ x : f(x) \ge t \}) \ud \LM^1 t
+    \end{displaymath}
+    for every Radon measure~$\nu$, the second equality holding because the two integrands
+    differ for at most countably many~$t$. The sets $X \cap \{ x : f(x) > t \}$ are open and the
+    sets $X \cap \{ x : f(x) \ge t \}$ with $t > 0$ are compact. Since $\limsup_{i \to \infty}
+    \mu_i(\spt f) \le \mu(\spt f) < \infty$, the integrands are bounded for large~$i$. Fatou's
+    lemma~\cite[2.4.6]{Federer1969}, applied to the first and to $\mu_i(\spt f)$ minus the second
+    integrand, yields $\liminf_{i \to \infty} \mu_i(f) \ge \mu(f) \ge \limsup_{i \to \infty}
+    \mu_i(f)$. Writing $f = \sup\{f,0\} - \sup\{-f,0\}$ for general $f \in \ccspace{X}$ and
+    using~(b) proves~(c).
+
+    Under the hypotheses of~(d), $\Clos{A} = A \cup \Bdry A$ and the interior of~$A$ differ by
+    a~$\mu$ null set, hence~(c) gives
+    \begin{multline*}
+        \mu(A) \le \mu(\Clos{A}) \le \liminf_{i \to \infty} \mu_i(X \without \Clos{(X \without A)})
+        \\ \le \liminf_{i \to \infty} \mu_i(A) \le \limsup_{i \to \infty} \mu_i(\Clos{A}) \le
+        \mu(\Clos{A}) = \mu(A) \,,
+    \end{multline*}
+    where we used $\mu(X \without \Clos{(X \without A)}) = \mu(\Clos{A})$. \qedhere
+\end{proof}
+
+\begin{lemma}[new]
+    \label{new:countable_dense}
+    There exist $l_1, l_2, \ldots \in \ccspace{X}$ with $0 \le l_j \le 1$ and a countable
+    subset~$D$ of $\ccspace{X}$ with $l_1, l_2, \ldots \in D$ such that, whenever $f \in
+    \ccspace{X}$, there are $j$ and $g_1, g_2, \ldots \in D$ with
+    \begin{displaymath}
+        |f(x) - g_i(x)| \le i^{-1} l_j(x) \quad \text{for $x \in X$ and $i = 1, 2, \ldots$} \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    Choose compact sets $K_1, K_2, \ldots$ with $K_j \subseteq X \cap \Int K_{j+1}$ relative
+    to~$X$ and $X = \tbcup_{j=1}^\infty K_j$, and $l_j \in \ccspace{X}$ with $0 \le l_j \le 1$,
+    $l_j(x) = 1$ for $x \in K_j$. Let $Q$ be a countable dense subset of~$X$. For $c \in Q$ and
+    rational $\delta > 0$ let $\rho_{c,\delta}(x) = \sup \{ \delta - |x - c|, 0 \}$ for $x \in
+    X$. Let $D$ consist of the functions $l_j$ and of all functions
+    \begin{displaymath}
+        \big[ X \ni x \mapsto \textsum{i=1}{p} q_i \rho_{c_i,\delta}(x) \big/ \sup \{
+        \textsum{i=1}{p} \rho_{c_i,\delta}(x), \eta \} \big]
+    \end{displaymath}
+    corresponding to positive integers~$p$, points $c_1, \ldots, c_p \in Q$, and rational numbers
+    $q_1, \ldots, q_p$, $\delta > 0$, $\eta > 0$, for which $X \cap \cball{c_i}{\delta}$ is
+    compact. Suppose $f \in \ccspace{X}$ and $\epsilon > 0$. Choose~$j$ with $\spt f \subseteq
+    K_j$, and a rational $\delta > 0$ with $|f(x) - f(y)| < \epsilon$ for $x, y \in X$ with $|x -
+    y| < 2 \delta$ and $X \cap \cball{x}{2\delta} \subseteq K_{j+1}$ for $x \in K_j$. Choose $c_1,
+    \ldots, c_p \in Q \cap \tbcup \{ \oball{x}{\delta} : x \in K_j \}$ with $K_j \subseteq
+    \tbcup_{i=1}^p \oball{c_i}{\delta}$, rational~$q_i$ with $|q_i - f(c_i)| < \epsilon$, and a
+    rational $\eta > 0$ with $\textsum{i=1}{p} \rho_{c_i,\delta} \ge \eta$ on~$K_j$. For the
+    resulting~$g \in D$ and $x \in X$, every $i$ with $\rho_{c_i,\delta}(x) > 0$ satisfies $|f(x)
+    - q_i| < 2 \epsilon$; if $x \in K_j$, then $g(x)$ is a convex combination of such $q_i$,
+    and if $x \notin K_j$, then $f(x) = 0$ and $|g(x)| < 2 \epsilon$. Hence $|f - g| \le 2
+    \epsilon$, and $\spt g \subseteq K_{j+1}$, where $l_{j+1} = 1$. Taking $\epsilon = (2i)^{-1}$
+    gives $g_i$ with $|f - g_i| \le i^{-1} l_{j+1}$.
+\end{proof}
+
+\begin{lemma}[{\cite[2.6(3)]{Allard1972}}]
+    \label{al:2.6(3)}
+    Suppose that for each $r \in \R$ a Radon measure $\mu_r$ on~$X$ is given such that $\mu_r(A)
+    \le \mu_s(A)$ whenever $A \subseteq X$ and $-\infty < r < s < \infty$. Then for $\LM^1$
+    almost all $r \in \R$ there is a Radon measure $\mu'(r)$ on~$X$ such that
+    \begin{displaymath}
+        \mu'(r)(f) = \lim_{h \to 0} h^{-1} (\mu_{r+h}(f) - \mu_r(f)) \quad \text{for $f \in
+        \ccspace{X}$} \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    Let $D$ and $l_1, l_2, \ldots$ be as in~\ref{new:countable_dense}. For $f \in \ccspace{X}$
+    the function $[r \mapsto \mu_r(f)] = [r \mapsto \mu_r(\sup\{f,0\}) - \mu_r(\sup\{-f,0\})]$
+    is the difference of two nondecreasing functions, hence it has a finite derivative at
+    $\LM^1$ almost all $r \in \R$ by~\cite[2.9.19]{Federer1969}. Let $E$ be the set of $r \in
+    \R$ at which $[s \mapsto \mu_s(g)]$ has a finite derivative for every $g \in D$; then
+    $\LM^1(\R \without E) = 0$, as $D$ is countable. Suppose $r \in E$, $f \in \ccspace{X}$, and
+    $j$, $g_1, g_2, \ldots$ are as in~\ref{new:countable_dense}. Write $\Delta_h(g) = h^{-1}
+    (\mu_{r+h}(g) - \mu_r(g))$ for $0 \ne h \in \R$. The measure $\pm(\mu_{r+h} - \mu_r)$, with
+    the sign of~$h$, is nonnegative on Borel sets, hence
+    \begin{displaymath}
+        |\Delta_h(f) - \Delta_h(g_i)| \le \Delta_h(|f - g_i|) \le i^{-1} \Delta_h(l_j)
+        \quad \text{for $i = 1, 2, \ldots$} \,.
+    \end{displaymath}
+    Since $\Delta_h(g_i)$ and $\Delta_h(l_j)$ converge as $h \to 0$, the upper and lower limits
+    of $\Delta_h(f)$ differ by at most $2 i^{-1} \lim_{h \to 0} \Delta_h(l_j)$ for every~$i$;
+    hence $\mu'(r)(f) = \lim_{h \to 0} \Delta_h(f)$ exists in~$\R$. The function $\mu'(r)$ is
+    linear on $\ccspace{X}$ and nonnegative on nonnegative functions, because $\Delta_h(f) \ge
+    0$ for $f \ge 0$. By~\ref{rem:2.6(2)} it corresponds to a Radon measure.
+\end{proof}
+
+\begin{remark}
+    \label{rem:2.6(3)}
+    Allard's displayed estimate $|\mu_s(f) - \mu_s(g_i)| \le i^{-1} \mu_s(l)$ does not by itself
+    control the difference quotients; the proof above uses the monotonicity of $[r \mapsto
+    \mu_r]$ to estimate the difference quotients directly.
+\end{remark}
+
+\begin{lemma}[new\MS]
+    \label{new:weak_metric}
+    Suppose $D$ is as in~\ref{new:countable_dense} and $D = \{ d_1, d_2, \ldots \}$. If $\mathcal{M}$ is
+    a set as in~\ref{al:2.6(2)(a)}(a), then the weak topology on~$\mathcal{M}$ is induced by the
+    metric
+    \begin{displaymath}
+        \varrho(\mu,\nu) = \textsum{i=1}{\infty} 2^{-i} \inf \{ 1, |\mu(d_i) - \nu(d_i)| \} \quad
+        \text{for $\mu, \nu \in \mathcal{M}$} \,;
+    \end{displaymath}
+    in particular every sequence in~$\mathcal{M}$ has a weakly convergent subsequence.
+\end{lemma}
+
+\begin{proof}
+    The map $[\mu \mapsto (\mu(d_i))_{i=1}^\infty]$ of~$\mathcal{M}$ into the product
+    $\R^{\natp}$ is continuous. It is injective on Radon measures: if $\mu(d) = \nu(d)$ for $d
+    \in D$, then for $f \in \ccspace{X}$ and $j$, $g_i$ as in~\ref{new:countable_dense} we have
+    $|\mu(f) - \nu(f)| \le |\mu(f - g_i)| + |\nu(f - g_i)| \le i^{-1} (\mu(l_j) + \nu(l_j))$,
+    hence $\mu(f) = \nu(f)$, and $\mu = \nu$ by~\ref{rem:2.6(2)}. A continuous injection of the
+    compact space~$\mathcal{M}$, see~\ref{al:2.6(2)(a)}(a), into the metrisable space
+    $\R^{\natp}$ is a homeomorphism onto its image, and $\varrho$ is the pull back of a metric
+    of the product topology. Compact metric spaces are sequentially compact.
+\end{proof}
+
+\subsection{Covering and rectifiability}
+
+\begin{theorem}[{\cite[2.7(1)]{Allard1972}}]
+    \label{al:2.7(1)}
+    There is a positive integer $\besicovitch{\adim}$ with the following property. Whenever $A
+    \subseteq \R^{\adim}$, $\mathcal{C}$ is a family of closed balls in~$\R^{\adim}$, $\sup \{ r :
+    \cball{a}{r} \in \mathcal{C} \} < \infty$, and each point of~$A$ is the centre of a member
+    of~$\mathcal{C}$, there are disjointed subfamilies $\mathcal{C}_1, \ldots,
+    \mathcal{C}_{\besicovitch{\adim}}$ of~$\mathcal{C}$ such that $A \subseteq \tbcup \{
+    \tbcup \mathcal{C}_i : i = 1, \ldots, \besicovitch{\adim} \}$.
+\end{theorem}
+
+\begin{proof}
+    By the first example of~\cite[2.8.9]{Federer1969}, for each $0 < \eta < 1/3$ there is
+    a~positive integer~$\zeta$ such that the Euclidean metric is directionally $(\infty, \eta,
+    \zeta)$ limited at~$\R^{\adim}$. Fix such $\eta$ and~$\zeta$ and set $\besicovitch{\adim} = 2
+    \zeta + 1$. Given $\mathcal{C}$, choose $\rho$ with $\sup \{ r : \cball{a}{r} \in \mathcal{C} \}
+    < \rho < \infty$ and apply~\cite[2.8.14]{Federer1969}.
+\end{proof}
+
+\begin{remark}
+    \label{rem:2.7(1)}
+    Allard's statement omits the bound on the radii, and is false without it: for $A = \R
+    \cap \{ i : i \text{ a positive integer} \}$ and $\mathcal{C} = \{ \cball{i}{i} : i \in A \}$ any
+    two members of~$\mathcal{C}$ meet, so a~cover of~$A$ by $\besicovitch{1}$ disjointed
+    subfamilies would consist of at most $\besicovitch{1}$ balls, which cannot cover~$A$. The
+    application in~\ref{al:2.7(2)} is repaired there.
+    % UNVERIFIED: the admissible range of eta in Federer 2.8.9 (OCR damaged); any admissible eta works.
+\end{remark}
+
+\begin{lemma}[{\cite[2.7(2)]{Allard1972}}]
+    \label{al:2.7(2)}
+    Suppose $U$ is an open subset of $\R^{\adim}$, and $\mu, \mu_1, \mu_2, \ldots, \nu_1, \nu_2,
+    \ldots$ are Radon measures on~$U$ such that $\lim_{i \to \infty} \mu_i = \mu$ and
+    $\liminf_{i \to \infty} \nu_i(U) < \infty$. For positive integers $i$ and~$p$ let
+    \begin{displaymath}
+        A_{i,p} = U \cap \{ x : \nu_i \cball{x}{r} \le p \mu_i \cball{x}{r} \text{ whenever } 0
+        < r < \dist(x, \R^{\adim} \without U) \} \,.
+    \end{displaymath}
+    Then for $\mu$ almost all $x \in U$ there is a positive integer~$p$ such that
+    \begin{displaymath}
+        \liminf_{i \to \infty} \dist(x, \spt(\mu_i \restrict A_{i,p})) = 0 \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    We first show
+    \begin{equation}
+        \label{eq:2.7(2):1}
+        \mu_i(U \without A_{i,p}) \le p^{-1} \besicovitch{\adim} \nu_i(U) \quad \text{for $i, p = 1,
+        2, \ldots$} \,.
+    \end{equation}
+    Let $0 < R < \infty$ and $Z = \cball{0}{R} \cap U \without A_{i,p}$. Each $x \in Z$ is the
+    centre of a ball $\cball{x}{r_x} \subseteq U$ with $\nu_i \cball{x}{r_x} > p \mu_i
+    \cball{x}{r_x}$. If $r_x \ge 2R$ for some $x \in Z$, then $Z \subseteq \cball{x}{r_x}$ and
+    $\mu_i(Z) < p^{-1} \nu_i(U)$. Otherwise~\ref{al:2.7(1)} provides disjointed subfamilies
+    $\mathcal{C}_1, \ldots, \mathcal{C}_{\besicovitch{\adim}}$ of $\{ \cball{x}{r_x} : x \in Z \}$,
+    each countable, covering~$Z$, whence
+    \begin{displaymath}
+        \mu_i(Z) \le \textsum{l=1}{\besicovitch{\adim}} \textsum{C \in \mathcal{C}_l}{} \mu_i(C)
+        \le p^{-1} \textsum{l=1}{\besicovitch{\adim}} \textsum{C \in \mathcal{C}_l}{} \nu_i(C) \le
+        p^{-1} \besicovitch{\adim} \nu_i(U) \,.
+    \end{displaymath}
+    Letting $R \to \infty$ proves~\eqref{eq:2.7(2):1}. For $i, p$ let $B_{i,p}$ be the interior
+    of $\tbcap_{j \ge i} (U \without \spt(\mu_j \restrict A_{j,p}))$. Since $U$ has a countable
+    base, $(\mu_i \restrict A_{i,p})(U \without \spt(\mu_i \restrict A_{i,p})) = 0$, hence
+    $\mu_i(B_{i,p}) \le \mu_i(U \without A_{i,p})$. As $B_{i,p} \subseteq B_{j,p}$ for $j \ge i$,
+    \ref{al:2.6(2)(a)}(c) and~\eqref{eq:2.7(2):1} yield
+    \begin{displaymath}
+        \mu(B_{i,p}) \le \liminf_{j \to \infty} \mu_j(B_{i,p}) \le \liminf_{j \to \infty}
+        \mu_j(B_{j,p}) \le p^{-1} \besicovitch{\adim} \liminf_{j \to \infty} \nu_j(U) \,.
+    \end{displaymath}
+    The sets $B_{i,p}$ increase with~$i$, hence $\mu(\tbcup_{i=1}^\infty B_{i,p}) \le p^{-1}
+    \besicovitch{\adim} \liminf_{j \to \infty} \nu_j(U)$, and $\mu(\tbcap_{p=1}^\infty
+    \tbcup_{i=1}^\infty B_{i,p}) = 0$. If $x \in U$ does not belong to the last set, then there
+    is~$p$ with $x \notin B_{i,p}$ for every~$i$; thus every neighbourhood of~$x$ meets
+    $\spt(\mu_j \restrict A_{j,p})$ for some $j \ge i$, for every~$i$, which is the conclusion.
+\end{proof}
+
+\begin{remark}
+    \label{rem:2.7(2)}
+    The radii $r < \dist(x, \R^{\adim} \without U)$ in~\ref{al:2.7(2)} are unbounded if $U =
+    \R^{\adim}$; the case distinction on $r_x \ge 2R$ in the proof replaces the bound on radii
+    missing in Allard's 2.7(1). The sets $A_{i,p}$ need not be measurable; all estimates above
+    are estimates of outer measures.
+\end{remark}
+
+\begin{definition}[{\cite[2.8(1)--(3)]{Allard1972}}\MS]
+    \label{al:2.8(1)}
+    Let $U$ be an open subset of~$\R^{\adim}$ and $\unitmeasure{\vdim} = \LM^{\vdim}(\R^{\vdim}
+    \cap \{ x : |x| \le 1 \})$, see~\cite[2.7.16(1)]{Federer1969}. The measure $\HM^{\vdim}$ on~$U$
+    is the $\vdim$~dimensional Hausdorff measure of~\cite[2.10.2(1)]{Federer1969}; it is Borel
+    regular~\cite[2.10.2(1)]{Federer1969}, and for subsets of~$U$ it agrees with the Hausdorff
+    measure over~$\R^{\adim}$, because the diameter of a set does not change when it is
+    intersected with~$U$. For a Borel regular measure~$\mu$ on~$U$ and $a \in U$, the densities
+    $\ldensity^{\vdim}(\mu,a)$, $\udensity^{\vdim}(\mu,a)$ and $\density^{\vdim}(\mu,a)$ are those
+    of~\cite[2.10.19]{Federer1969}, and
+    \begin{displaymath}
+        \Tan^{\vdim}(\mu,a) = \tbcap \{ \Tan(S,a) : S \subseteq U,\ \density^{\vdim}(\mu
+        \restrict U \without S, a) = 0 \} \,.
+    \end{displaymath}
+\end{definition}
+
+\begin{remark}
+    \label{rem:2.8(3)}
+    Since $\density^{\vdim}(\nu,a) = 0$ if and only if $\udensity^{\vdim}(\nu,a) = 0$, and $\Tan(S,a)
+    = \Tan(S \cup (\R^{\adim} \without U), a)$ for $a \in U$, the cone $\Tan^{\vdim}(\mu,a)$
+    coincides with Federer's $\Tan^{\vdim}(\mu,a)$ of~\cite[3.2.16]{Federer1969}, where $\mu$ is
+    regarded as a measure over~$\R^{\adim}$ vanishing on $\R^{\adim} \without U$. We use
+    from~\cite[3.2.16]{Federer1969} that $\udensity^{\vdim}(\mu \restrict \{ a + t v : 0 < t <
+    \infty,\ v \in C \}, a) = 0$ whenever $C$ is a compact subset of $\R^{\adim} \without
+    \Tan^{\vdim}(\mu,a)$. When $\Tan^{\vdim}(\mu,a)$ is a $\vdim$~dimensional vectorsubspace, we
+    identify it with its orthogonal projection as in~\ref{al:2.3}. If $\mu \le \nu$, then
+    $\Tan^{\vdim}(\mu,a) \subseteq \Tan^{\vdim}(\nu,a)$, because the family of sets~$S$ in the
+    definition is larger for~$\mu$.
+\end{remark}
+
+\begin{lemma}[{\cite[2.8(2)]{Allard1972}}\MS]
+    \label{al:2.8(2)}
+    Suppose $U$ is an open subset of $\R^{\adim}$, $\mu$ is a Borel regular measure on~$U$, $A
+    \subseteq U$ and $0 < t < \infty$.
+    \begin{enumerate}
+        \item If $\udensity^{\vdim}(\mu,x) < t$ for $x \in A$, then $\mu(A) \le 2^{\vdim} t
+            \HM^{\vdim}(A)$.
+        \item If $\mu(U) < \infty$ and $\udensity^{\vdim}(\mu,x) > t$ for $x \in A$, then
+            $\mu(A) \ge t \HM^{\vdim}(A)$.
+        \item If $\mu(A) < \infty$ and $A$ is $\mu$ measurable, then $\density^{\vdim}(\mu
+            \restrict A, x) = 0$ for $\HM^{\vdim}$ almost all $x \in U \without A$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Statement~(a) is~\cite[2.10.19(1)]{Federer1969}; a Borel regular measure is regular. Under
+    the hypotheses of~(b), let $B \supseteq A$ be a Borel set with $\mu(B) = \mu(A)$, and $\epsilon
+    > 0$. By~\cite[2.2.2(2), 2.2.3]{Federer1969} there is an open set $V$ with $B \subseteq V
+    \subseteq U$ and $\mu(V) \le \mu(B) + \epsilon$. Since closed sets are $\mu$ measurable,
+    \cite[2.10.19(3)]{Federer1969} and $\mathscr{S}^{\vdim} \ge \HM^{\vdim}$~\cite[2.10.6]{Federer1969}
+    yield $\mu(A) + \epsilon \ge \mu(V) \ge t \mathscr{S}^{\vdim}(A) \ge t \HM^{\vdim}(A)$.
+    Statement~(c) is~\cite[2.10.19(4)]{Federer1969}.
+\end{proof}
+
+\begin{definition}[{\cite[2.8(4)]{Allard1972}}\MS]
+    \label{al:2.8(4)}
+    A set $A \subseteq U$ is \emph{$(\HM^{\vdim},\vdim)$ rectifiable} if and only if
+    $\HM^{\vdim}(A) < \infty$ and there are $T_1, T_2, \ldots \in \pgrass{\adim}{\vdim}$ and maps
+    $F_i : \im T_i \to \R^{\adim}$ of class~$1$ with $T_i \circ F_i = \id{\im T_i}$ for each~$i$
+    and $\HM^{\vdim}(A \without \tbcup_{i=1}^\infty \im F_i) = 0$.
+\end{definition}
+
+\begin{lemma}[new\MS]
+    \label{new:rectifiable_equiv}
+    A set $A \subseteq U$ is $(\HM^{\vdim},\vdim)$ rectifiable in the sense of~\ref{al:2.8(4)}
+    if and only if it is $(\HM^{\vdim},\vdim)$ rectifiable in the sense
+    of~\cite[3.2.14]{Federer1969}.
+\end{lemma}
+
+\begin{proof}
+    Suppose $T_i$, $F_i$ are as in~\ref{al:2.8(4)}. Each $F_i$ is Lipschitzian on the bounded
+    sets $\im T_i \cap \cball{0}{j}$, because it is of class~$1$; since $\im T_i$ is isometric
+    to~$\R^{\vdim}$, $\im F_i$ is a countable union of Lipschitzian images of bounded subsets
+    of~$\R^{\vdim}$, and $A$ is countably $(\HM^{\vdim},\vdim)$ rectifiable~\cite[3.2.14]{Federer1969}.
+    Conversely, by~\cite[3.2.29]{Federer1969} $\HM^{\vdim}$ almost all of~$A$ is contained in the
+    union of countably many $\vdim$~dimensional submanifolds~$B$ of class~$1$ of~$\R^{\adim}$.
+    Fix such~$B$ and $b \in B$. By~\cite[3.1.19(5)]{Federer1969} there are an open
+    neighbourhood~$T$ of~$b$ and $p \in \orthproj{\adim}{\vdim}$ such that $p | (B \cap T)$ is
+    univalent, $p[B \cap T] = p[T]$, and $g = (p|(B \cap T))^{-1} : p[T] \to \R^{\adim}$ is of
+    class~$1$. Set $Q = \transpose{p} \circ p \in \pgrass{\adim}{\vdim}$. Cover the open set
+    $p[T]$ by countably many balls $\oball{c_l}{r_l}$ with $\oball{c_l}{2r_l} \subseteq p[T]$,
+    choose $\zeta_l : \R^{\vdim} \to \R$ of class~$\infty$ with $\spt \zeta_l \subseteq
+    \oball{c_l}{2r_l}$ and $\zeta_l(y) = 1$ for $y \in \cball{c_l}{r_l}$, and define $F_l : \im Q
+    \to \R^{\adim}$ by $F_l(z) = z + \zeta_l(p(z)) (g(p(z)) - z)$ if $p(z) \in p[T]$ and $F_l(z) =
+    z$ otherwise. Then $F_l$ is of class~$1$, $Q(g(p(z))) = \transpose{p}(p(z)) = z$ for $z \in
+    \im Q$ with $p(z) \in p[T]$, hence $Q \circ F_l = \id{\im Q}$, and $g[\oball{c_l}{r_l}]
+    \subseteq \im F_l$. Thus $B \cap T \subseteq \tbcup_l \im F_l$. Since $B$ is covered by
+    countably many such~$T$, the sequence of all~$F_l$ so obtained satisfies~\ref{al:2.8(4)}.
+\end{proof}
+
+\begin{lemma}[new\MS]
+    \label{new:simple_to_projection}
+    Let $\Sigma = \extpower{\vdim} \R^{\adim} \cap \{ \xi : \xi \text{ is simple and } |\xi| = 1
+    \}$ and, for $\xi \in \Sigma$, let $\pi(\xi) \in \pgrass{\adim}{\vdim}$ be the orthogonal
+    projection onto the subspace $\R^{\adim} \cap \{ v : \xi \wedge v = 0 \}$ associated
+    with~$\xi$~\cite[1.6.1]{Federer1969}. Then $\pi$ is continuous.
+\end{lemma}
+
+\begin{proof}
+    Suppose $\xi_j \in \Sigma$ and $\xi_j \to \xi \in \Sigma$. By~\ref{new:grass_compact} every
+    subsequence of $\pi(\xi_j)$ has a further subsequence converging to some $P \in
+    \pgrass{\adim}{\vdim}$. Since $\xi_j \wedge \pi(\xi_j)(x) = 0$ for $x \in \R^{\adim}$, we get
+    $\xi \wedge P(x) = 0$, hence $\im P$ is contained in the $\vdim$~dimensional subspace
+    associated with~$\xi$~\cite[1.6.1]{Federer1969}; as $\dim \im P = \vdim$, $P = \pi(\xi)$.
+\end{proof}
+
+\begin{lemma}[{\cite[2.8(4)(a)(b)]{Allard1972}}\MS]
+    \label{al:2.8(4)(a)}
+    Suppose $E \subseteq U$ is $\HM^{\vdim}$ measurable and $(\HM^{\vdim},\vdim)$ rectifiable.
+    Then:
+    \begin{enumerate}
+        \item $\density^{\vdim}(\HM^{\vdim} \restrict E, x) = \CF{E}(x)$ for $\HM^{\vdim}$ almost all
+            $x \in U$;
+        \item $\Tan^{\vdim}(\HM^{\vdim} \restrict E, x) \in \pgrass{\adim}{\vdim}$ for $\HM^{\vdim}$
+            almost all $x \in E$, and $[x \mapsto \Tan^{\vdim}(\HM^{\vdim} \restrict E, x)]$ is
+            an $\HM^{\vdim} \restrict E$ measurable function with values in
+            $\pgrass{\adim}{\vdim}$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    By~\ref{new:rectifiable_equiv}, \cite[3.2.19]{Federer1969} gives $\density^{\vdim}(\HM^{\vdim}
+    \restrict E, x) = 1$ and that $\Tan^{\vdim}(\HM^{\vdim} \restrict E, x)$ is a~$\vdim$~dimensional
+    vectorsubspace for $\HM^{\vdim}$ almost all $x \in E$, and~\ref{al:2.8(2)}(c) gives
+    $\density^{\vdim}(\HM^{\vdim} \restrict E, x) = 0$ for $\HM^{\vdim}$ almost all $x \in U
+    \without E$. By~\cite[3.2.25]{Federer1969} there is an $\HM^{\vdim} \restrict E$ measurable
+    map $\tau$ with values in~$\Sigma$ such that $\Tan^{\vdim}(\HM^{\vdim} \restrict E, x)$ is the
+    subspace associated with $\tau(x)$ for $\HM^{\vdim}$ almost all $x \in E$. Hence
+    $\Tan^{\vdim}(\HM^{\vdim} \restrict E, x) = \pi(\tau(x))$ for such~$x$, with $\pi$ as
+    in~\ref{new:simple_to_projection}, and $\pi \circ \tau$ is $\HM^{\vdim} \restrict E$
+    measurable by~\ref{new:simple_to_projection} and~\cite[2.3.2]{Federer1969}.
+\end{proof}
+
+\begin{theorem}[{\cite[2.8(5)]{Allard1972}}]
+    \label{al:2.8(5)}
+    Suppose $\mu$ is a Radon measure on~$U$ such that, for $\mu$ almost all $x \in U$, $0 <
+    \udensity^{\vdim}(\mu,x) < \infty$ and $\Tan^{\vdim}(\mu,x) \subseteq \im T$ for some $T \in
+    \pgrass{\adim}{\vdim}$. Then every compact subset of $U \cap \{ x : a <
+    \udensity^{\vdim}(\mu,x) < b \}$ is $(\HM^{\vdim},\vdim)$ rectifiable whenever $0 < a < b <
+    \infty$, the set $U \cap \{ x : 0 < \udensity^{\vdim}(\mu,x) < \infty \}$ is countably
+    $(\HM^{\vdim},\vdim)$ rectifiable, and
+    \begin{displaymath}
+        \mu = \HM^{\vdim} \restrict \density^{\vdim}(\mu,\cdot) \,.
+    \end{displaymath}
+\end{theorem}
+
+\begin{proof}
+    The function $\udensity^{\vdim}(\mu,\cdot)$ is a Borel function: $[x \mapsto \mu
+    \cball{x}{r}]$ is upper semicontinuous and $[r \mapsto \mu \cball{x}{r}]$ is continuous from
+    the right, so the upper limit defining $\udensity^{\vdim}(\mu,x)$ may be computed along
+    rational~$r$. Suppose $0 < a < b < \infty$, $K$ is a compact subset of $Z_{a,b} = U \cap \{ x
+    : a < \udensity^{\vdim}(\mu,x) < b \}$, and $V$ is an open set with $K \subseteq V$ and
+    $\Clos{V} \subseteq U$ compact. Applying~\ref{al:2.8(2)}(a)(b) to $\mu \restrict V$, whose
+    densities agree with those of~$\mu$ on~$V$, gives
+    \begin{equation}
+        \label{eq:2.8(5):1}
+        a \HM^{\vdim}(A) \le \mu(A) \le 2^{\vdim} b \HM^{\vdim}(A) \quad \text{for $A \subseteq
+        K$} \,,
+    \end{equation}
+    in particular $\HM^{\vdim}(K) < \infty$. By~\ref{al:2.8(2)}(c) applied to $\mu \restrict V$
+    and $V \without K$, and by~\eqref{eq:2.8(5):1}, for $\mu$ almost all $x \in K$ we have
+    $\udensity^{\vdim}(\mu \restrict K, x) = \udensity^{\vdim}(\mu,x) > a$ and
+    $\Tan^{\vdim}(\mu \restrict K, x) \subseteq \Tan^{\vdim}(\mu,x) \subseteq \im T_x$ for some
+    $T_x \in \pgrass{\adim}{\vdim}$. Fix such~$x$, let $0 < s < 1$ and $C = \sphere{\adim-1} \cap
+    \{ v : \dist(v, \im T_x^\perp) \le s \}$. Every $v \in C$ satisfies $|T_x(v)| \le s < 1 =
+    |v|$, hence $C$ is a compact subset of $\R^{\adim} \without \Tan^{\vdim}(\mu \restrict K, x)$,
+    and by~\ref{rem:2.8(3)} the cone $X(x,\infty,\im T_x^\perp,s) = \R^{\adim} \cap \{ y :
+    s^{-1} \dist(y - x, \im T_x^\perp) < |y - x| \}$ of~\cite[3.3.1]{Federer1969} satisfies
+    \begin{displaymath}
+        \udensity^{\vdim}(\mu \restrict K \cap X(x,\infty,\im T_x^\perp,s), x) = 0 < 2^{-1}
+        (84)^{-\vdim} s^{\vdim} \udensity^{\vdim}(\mu \restrict K, x) \,.
+    \end{displaymath}
+    Thus the hypothesis of~\cite[3.3.17]{Federer1969} holds for $\mu \restrict K$, extended by
+    zero to~$\R^{\adim}$, and $E = K$; hence $K$ is $(\mu,\vdim)$ rectifiable, and
+    by~\eqref{eq:2.8(5):1} and~\cite[3.2.14]{Federer1969} $K$ is $(\HM^{\vdim},\vdim)$
+    rectifiable. The set $U \cap \{ x : 0 < \udensity^{\vdim}(\mu,x) < \infty \}$ is the union of
+    the sets $Z_{1/j,j}$, each of which is, by~\cite[2.2.5]{Federer1969}, the union of countably
+    many compact sets and a~$\mu$ null set; the latter is $\HM^{\vdim}$ null
+    by~\eqref{eq:2.8(5):1} applied on compact pieces. Hence it is countably
+    $(\HM^{\vdim},\vdim)$ rectifiable.
+
+    Let $Z = U \cap \{ x : 0 < \udensity^{\vdim}(\mu,x) < \infty \}$; by hypothesis $\mu(U
+    \without Z) = 0$. If $\udensity^{\vdim}(\mu,x) = 0$, then $\density^{\vdim}(\mu,x) = 0$, and
+    $\HM^{\vdim}(U \cap \{ x : \udensity^{\vdim}(\mu,x) = \infty \}) = 0$ by~\ref{al:2.8(2)}(b)
+    applied to $\mu \restrict V$ for relatively compact open sets~$V$. Choose compact sets $K_1
+    \subseteq K_2 \subseteq \cdots$ with $U = \tbcup_{j=1}^\infty \Int K_j$, and set $Y_j = Z_{1/j,j}
+    \cap K_j$ and $V_j = \Int K_{j+1}$. Each $Y_j$ is a Borel set, $Z = \tbcup_{j=1}^\infty Y_j$,
+    and by~\ref{al:2.8(2)}(a)(b) applied to $\mu \restrict V_j$,
+    \begin{displaymath}
+        j^{-1} \HM^{\vdim} \restrict Y_j \le \mu \restrict Y_j \le 2^{\vdim} j \HM^{\vdim} \restrict
+        Y_j \,.
+    \end{displaymath}
+    By the preceding paragraph $Y_j$ is $(\HM^{\vdim},\vdim)$ rectifiable, so
+    \ref{al:2.8(4)(a)}(a) gives $\HM^{\vdim}(Y_j \cap \cball{x}{r}) / (\unitmeasure{\vdim}
+    r^{\vdim}) \to 1$ as $r \to 0+$ for $\HM^{\vdim}$ almost all $x \in Y_j$. The closed balls
+    form an $\HM^{\vdim} \restrict Y_j$ Vitali relation~\cite[2.8.18]{Federer1969}, and $\mu
+    \restrict Y_j$ is absolutely continuous with respect to $\HM^{\vdim} \restrict Y_j$;
+    by~\cite[2.9.2, 2.9.5, 2.9.7]{Federer1969} the limit
+    \begin{displaymath}
+        f_j(x) = \lim_{r \to 0+} \frac{\mu(Y_j \cap \cball{x}{r})}{\HM^{\vdim}(Y_j \cap
+        \cball{x}{r})}
+    \end{displaymath}
+    exists in~$\R$ for $\HM^{\vdim}$ almost all $x \in Y_j$, and $\mu \restrict Y_j =
+    (\HM^{\vdim} \restrict Y_j) \restrict f_j$. By~\ref{al:2.8(2)}(c) applied to $\mu \restrict
+    V_j$ and $V_j \without Y_j$, $\mu(\cball{x}{r} \without Y_j) / r^{\vdim} \to 0$ as $r \to 0+$
+    for $\HM^{\vdim}$ almost all $x \in Y_j$. Hence $f_j(x) = \density^{\vdim}(\mu,x)$ for
+    $\HM^{\vdim}$ almost all $x \in Y_j$. Since $\mu(U \without Z) = 0$ and $Z$ is the increasing
+    union of the sets~$Y_j$, we conclude $\mu = \HM^{\vdim} \restrict \density^{\vdim}(\mu,\cdot)$,
+    where $\density^{\vdim}(\mu,\cdot)$ is defined and vanishes $\HM^{\vdim}$ almost everywhere on
+    $U \without Z$.
+\end{proof}
+
+\begin{remark}
+    \label{rem:2.8(5)}
+    Allard's first conclusion reads ``every compact subset of $\{ x : 0 < \udensity^{\vdim}(\mu,x)
+    < \infty \}$ is $(\HM^{\vdim},\vdim)$ rectifiable''. This is false, since such a compact set
+    may have infinite $\HM^{\vdim}$ measure. In~$\R^2$ let $L_j = \R^2 \cap \{ (s, 2^{-j}) : 0
+    \le s \le 1 \}$ for positive integers~$j$, $L_\infty = \R^2 \cap \{ (s,0) : 0 \le s \le 1 \}$,
+    $\mu = \HM^1 \restrict L_\infty + \textsum{j=1}{\infty} 2^{-j} \HM^1 \restrict L_j$, and $K =
+    L_\infty \cup \tbcup_{j=1}^\infty L_j$. The set~$K$ is compact and $\HM^1(K) = \infty$. For
+    $x \in L_j$ we have $2^{-j-1} \le \density^1(\mu,x) \le 2^{-j}$; for $x \in L_\infty$ and
+    $0 < r < 1$ every chord $L_j \cap \cball{x}{r}$ has length at most $2r$, whence $2^{-1} \le
+    (2r)^{-1} \mu \cball{x}{r} \le 1 + \textsum{j=1}{\infty} 2^{-j} = 2$. Thus $K \subseteq \{
+    x : 0 < \udensity^1(\mu,x) < \infty \}$, and the tangent condition holds at $\mu$ almost
+    all points. Allard's proof treats the sets $\{ x : a < \udensity^{\vdim}(\mu,x) < b \}$, and
+    only the corrected statement is used later.
+\end{remark}
+
+\begin{lemma}[{\cite[2.8(6)]{Allard1972}}]
+    \label{al:2.8(6)}
+    Suppose $E \subseteq U$ is $\HM^{\vdim}$ measurable and $(\HM^{\vdim},\vdim)$ rectifiable, $V$
+    is an open subset of~$\R^{\adim'}$, and $F : U \to V$ is of class~$\infty$ and proper. For $B
+    \subseteq U$ and $y \in V$ let $N(F|B,y) = \card(B \cap F^{-1}\{y\})$. Then:
+    \begin{enumerate}
+        \item for every Borel subset~$B$ of~$U$,
+            \begin{displaymath}
+                \textint{B \cap E}{} |\extpower{\vdim}(\uD F(x) \circ \Tan^{\vdim}(\HM^{\vdim}
+                \restrict E, x))| \ud \HM^{\vdim} x = \textint{}{} N(F|B \cap E, y) \ud
+                \HM^{\vdim} y \,;
+            \end{displaymath}
+        \item for $\HM^{\vdim}$ almost all $y \in F[E]$, the cone $\Tan^{\vdim}(\HM^{\vdim} \restrict
+            F[E], y)$ equals the subspace $\uD F(x)[\im \Tan^{\vdim}(\HM^{\vdim} \restrict E,
+            x)]$ whenever $x \in E \cap F^{-1}\{y\}$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Let $T(x) = \Tan^{\vdim}(\HM^{\vdim} \restrict E, x)$. For $\HM^{\vdim}$ almost all $x \in E$,
+    $T(x) \in \pgrass{\adim}{\vdim}$, and the map $F | E$, which is Lipschitzian on $E \cap K$ for
+    compact $K \subseteq U$, has the approximate differential $\uD F(x) | \im
+    T(x)$~\cite[3.2.16, 3.2.19]{Federer1969}; by~\ref{al:2.4} its approximate Jacobian is
+    $|\extpower{\vdim}(\uD F(x) \circ T(x))|$. Write $E$ as the union of the sets $E_j = E \cap
+    K_j$ for a compact exhaustion $K_1 \subseteq K_2 \subseteq \cdots$ of~$U$; each~$E_j$ is
+    $\HM^{\vdim}$ measurable and $(\HM^{\vdim},\vdim)$ rectifiable, and $F | K_j$ is Lipschitzian.
+    Applying~\cite[3.2.20]{Federer1969} to $F|E_j$ with $g = \CF{B}$ (extended Lipschitzian to
+    $\R^{\adim}$ by~\cite[2.10.43]{Federer1969}) and letting $j \to \infty$ with Lebesgue's
+    increasing convergence theorem~\cite[2.4.7]{Federer1969} proves~(a).
+
+    For~(b), let $Z_j = F[E_j]$. Since $\HM^{\vdim}$ measurable sets of finite measure differ from
+    a countable union of compact sets by a null set~\cite[2.2.3, 2.2.5]{Federer1969}, and
+    Lipschitzian maps carry null sets to null sets, $Z_j$ is $\HM^{\vdim}$ measurable; it is
+    $(\HM^{\vdim},\vdim)$ rectifiable as a Lipschitzian image of a rectifiable set of finite
+    measure~\cite[3.2.14]{Federer1969}. By~\cite[3.2.22(1)]{Federer1969} applied to $F | E_j$,
+    $W = E_j$ and $Z = Z_j$, there is an $\HM^{\vdim}$ null set $N_j \subseteq E_j$ such that for
+    $x \in E_j \without N_j$ either $|\extpower{\vdim}(\uD F(x) \circ T(x))| = 0$ or $\uD F(x)[\im
+    T(x)] = \Tan^{\vdim}(\HM^{\vdim} \restrict Z_j, F(x))$ is $\vdim$~dimensional. Let $P_j = E_j
+    \cap \{ x : |\extpower{\vdim}(\uD F(x) \circ T(x))| = 0 \}$; by~(a), $\HM^{\vdim}(F[P_j]) = 0$.
+    Moreover $\HM^{\vdim}(F[N_j]) = 0$. Finally, for $y \in V$ and $0 < r < \infty$, the set
+    $F^{-1}[\cball{y}{r}]$ is compact because $F$ is proper, so $F[E] \cap \cball{y}{r} \subseteq
+    Z_j$ for large~$j$; hence $\Tan^{\vdim}(\HM^{\vdim} \restrict F[E], y) = \Tan^{\vdim}(\HM^{\vdim}
+    \restrict Z_j, y)$ for large $j$ by the definition in~\ref{al:2.8(1)}. Since $F^{-1}\{y\}$ is
+    compact, $E \cap F^{-1}\{y\} \subseteq E_j$ for large~$j$. The conclusion~(b) holds for $y
+    \in F[E] \without \tbcup_j F[N_j \cup P_j]$, provided $y$ is not the image of a point of $E
+    \without \tbcup_j E_j$, which is empty.
+\end{proof}
+
+\begin{remark}
+    \label{rem:2.8(6)}
+    Allard states~(a) with $\textint{B}{}$ and $N(F|B,y)$ for an arbitrary Borel set~$B$; the
+    integrand $|\extpower{\vdim}(\uD F(x) \circ \Tan^{\vdim}(\HM^{\vdim} \restrict E, x))|$ is
+    only meaningful $\HM^{\vdim}$ almost everywhere on~$E$, so the integration domain must be
+    $B \cap E$ as above. In~(b), $F[E]$ may have infinite $\HM^{\vdim}$ measure, so
+    \cite[3.2.22]{Federer1969} cannot be applied to $F[E]$ directly; properness of~$F$ is used
+    to localise.
+\end{remark}
+
+\section{Varifolds}
+\label{sec:varifolds}
+
+\begin{miniremark}
+    \label{mr:sec3}
+    This section follows~\cite[section~3]{Allard1972}: varifolds, their weights and images under
+    smooth maps, the decomposition of a varifold into its weight and a family of measures on
+    the Grassmannian, varifold tangents, and rectifiable and integral varifolds. Throughout
+    sections~\ref{sec:varifolds}--\ref{sec:rectifiability}, unless stated otherwise, $M$ is a
+    smooth $m$~dimensional submanifold of~$\R^{\adim}$, $U$ is an open subset of~$\R^{\adim}$,
+    $M \subseteq U$, and the inclusion map $i : M \to U$ is proper; hence $M$ is relatively
+    closed in~$U$. For the Michael--Simon path one takes $M = U = \R^{\adim}$, so that $\Gk{M}
+    = \R^{\adim} \times \pgrass{\adim}{\vdim}$ and $i = \id{\R^{\adim}}$. The image $i_\#
+    \|V\|$ of the weight is a Radon measure on~$U$ by~\cite[2.2.17]{Federer1969}, and we use the
+    same symbol $\|V\|$ for it; densities and approximate tangent cones of $\|V\|$ are those of
+    $i_\# \|V\|$ in~\ref{al:2.8(1)}.
+\end{miniremark}
+
+\begin{definition}[{\cite[3.1]{Allard1972}}\MS]
+    \label{al:3.1}
+    A \emph{$\vdim$~dimensional varifold in~$M$} is a Radon measure on $\Gk{M}$. The space of
+    such varifolds with the weak topology of~\ref{al:2.6(2)} is $\Var{\vdim}(M)$. The
+    \emph{weight} of $V \in \Var{\vdim}(M)$ is
+    \begin{displaymath}
+        \|V\|(A) = V(\Gk{M} \cap \{ (x,S) : x \in A \}) \quad \text{for $A \subseteq M$} \,.
+    \end{displaymath}
+\end{definition}
+
+\begin{lemma}[{\cite[3.1]{Allard1972}}\MS]
+    \label{al:3.1:lem}
+    The set $\Gk{M}$ is a closed subset of $M \times \pgrass{\adim}{\vdim}$ and is locally
+    compact, the projection $\pi : \Gk{M} \to M$ given by $\pi(x,S) = x$ is proper, and $\|V\| =
+    \pi_\# V$ is a Radon measure on~$M$ for $V \in \Var{\vdim}(M)$.
+\end{lemma}
+
+\begin{proof}
+    We have $\Gk{M} = (M \times \pgrass{\adim}{\vdim}) \cap \{ (x,S) : \project{\Tan(M,x)}
+    \circ S = S \}$, which is closed in $M \times \pgrass{\adim}{\vdim}$ since $[x \mapsto
+    \project{\Tan(M,x)}]$ is continuous by~\ref{new:charts}. The set~$M$ is locally
+    compact~\cite[3.1.19]{Federer1969} and $\pgrass{\adim}{\vdim}$ is compact
+    by~\ref{new:grass_compact}; hence $\Gk{M}$ is locally compact, and $\pi^{-1}[K] \subseteq K
+    \times \pgrass{\adim}{\vdim}$ is compact for compact $K \subseteq M$. Since $\Gk{M}$ is
+    a countable union of compact sets, \cite[2.2.17]{Federer1969} and~\ref{rem:2.6(2)} show that
+    $\pi_\# V$ is a Radon measure; it equals $\|V\|$ by definition.
+\end{proof}
+
+\begin{definition}[{\cite[3.2]{Allard1972}}\MS]
+    \label{al:3.2}
+    Suppose $M'$ is a smooth $m'$~dimensional submanifold of~$\R^{\adim'}$, $U'$ is an open
+    subset of~$\R^{\adim'}$ with $M' \subseteq U'$ and proper inclusion, and $F : M \to M'$ is
+    smooth. For $(x,S) \in \Gk{M}$ set
+    \begin{gather*}
+        L_F(x) = \uD F(x) \circ \project{\Tan(M,x)} \in \Hom(\R^{\adim},\R^{\adim'}) \,, \qquad
+        J_F(x,S) = |\extpower{\vdim}(L_F(x) \circ S)| \,, \\
+        \Gamma_F = \Gk{M} \cap \{ (x,S) : J_F(x,S) \ne 0 \} \,, \qquad F_\natural(x,S) = \big(
+        F(x), \eqproject{L_F(x)[\im S]} \big) \quad \text{for $(x,S) \in \Gamma_F$} \,.
+    \end{gather*}
+    For $V \in \Var{\vdim}(M)$, the measure $F_\# V$ on $\Gk{M'}$ is defined by
+    \begin{displaymath}
+        F_\# V(A) = \inf \Big\{ \textint{\Gamma_F \cap F_\natural^{-1}[B]}{} J_F \ud V : A \subseteq
+        B,\ B \text{ is a Borel subset of } \Gk{M'} \Big\} \quad \text{for $A \subseteq \Gk{M'}$}
+        \,.
+    \end{displaymath}
+\end{definition}
+
+\begin{lemma}[{\cite[3.2(1)]{Allard1972}}\MS]
+    \label{al:3.2(1)}
+    Under the hypotheses of~\ref{al:3.2}, the set $\Gamma_F$ is open in $\Gk{M}$, the map
+    $F_\natural : \Gamma_F \to \Gk{M'}$ is continuous, $F_\# V$ is a Borel regular measure on
+    $\Gk{M'}$, and
+    \begin{equation}
+        \label{eq:3.2(1):1}
+        F_\# V(B) = \textint{\Gk{M} \cap \{ (x,S) : (F(x), \uD F(x)[\im S]) \in B \}}{} J_F \ud V
+    \end{equation}
+    for every Borel set $B \subseteq \Gk{M'}$, where the domain of integration is understood
+    as $\Gamma_F \cap F_\natural^{-1}[B]$; equivalently, $\textint{}{} \alpha \ud F_\# V =
+    \textint{\Gamma_F}{} \alpha(F_\natural(x,S)) J_F(x,S) \ud V(x,S)$ for every nonnegative
+    Borel function~$\alpha$ on $\Gk{M'}$. If $F$ is proper, then $F_\# V \in
+    \Var{\vdim}(M')$, and the last formula holds for $\alpha \in \ccspace{\Gk{M'}}$.
+\end{lemma}
+
+\begin{proof}
+    The map $L_F$ is continuous on~$M$: near $a \in M$, $\uD F(x) \circ \project{\Tan(M,x)} =
+    \uD G(x) \circ \project{\Tan(M,x)}$ for a local extension~$G$ of class~$\infty$, and
+    \ref{new:charts} applies. For $(x,S) \in \Gk{M}$ we have $L_F(x) | \im S = \uD F(x) | \im
+    S$. By~\ref{new:projection_formula} applied to $L = L_F(x)$, the set $\Gamma_F$ is open and
+    $[(x,S) \mapsto \eqproject{L_F(x)[\im S]}]$ is continuous on~$\Gamma_F$. The image
+    $L_F(x)[\im S] = \uD F(x)[\im S]$ is contained in $\Tan(M',F(x))$ because $\uD F(x) \in
+    \Hom(\Tan(M,x),\Tan(M',F(x)))$~\cite[3.1.21]{Federer1969}; hence $F_\natural$ maps
+    $\Gamma_F$ into $\Gk{M'}$. The set function $[ B \mapsto \textint{\Gamma_F \cap
+    F_\natural^{-1}[B]}{} J_F \ud V ]$ is countably additive on Borel sets, so the last paragraph
+    of~\cite[2.2.3]{Federer1969}, applied to the measure $(F_\natural)_\# ((V \restrict \Gamma_F)
+    \restrict J_F)$, shows that $F_\# V$ is a Borel regular measure satisfying~\eqref{eq:3.2(1):1}.
+    The integral formula for nonnegative Borel~$\alpha$ follows from~\eqref{eq:3.2(1):1} by
+    approximation with simple functions~\cite[2.3.3, 2.4.7]{Federer1969}. If $F$ is proper and $C
+    \subseteq \Gk{M'}$ is compact, then $\Gamma_F \cap F_\natural^{-1}[C] \subseteq
+    \pi^{-1}[F^{-1}[\pi'[C]]]$, where $\pi'$ is the projection of $\Gk{M'}$ onto~$M'$, is
+    contained in a compact set on which $J_F \le \sup \{ \|L_F(x)\|^{\vdim} : x \in
+    F^{-1}[\pi'[C]] \} < \infty$ by~\ref{al:2.4} and~\cite[1.7.6]{Federer1969}; thus $F_\# V(C) <
+    \infty$.
+\end{proof}
+
+\begin{remark}
+    \label{rem:3.2}
+    Allard writes $\uD F(x)(S)$ for the subspace $\uD F(x)[\im S]$, which has dimension~$\vdim$
+    exactly on~$\Gamma_F$; outside~$\Gamma_F$ the integrand of~\eqref{eq:3.2(1):1} vanishes. The
+    proof uses only that $F$ is of class~$1$; for the Michael--Simon path one needs $F$ a~$C^1$
+    diffeomorphism of~$\R^{\adim}$ onto itself, which is proper. The extension of the integral
+    formula from Borel sets to all subsets of $\Gk{M'}$, as in Allard's text, is replaced by the
+    Borel regular extension above.
+\end{remark}
+
+\begin{lemma}[{\cite[3.2(2)]{Allard1972}}\MS]
+    \label{al:3.2(2)}
+    If $0 < r < \infty$, $a \in \R^{\adim}$ and $V \in \Var{\vdim}(\R^{\adim})$, then
+    $\|\scale{r \#} V\| = r^{\vdim} \scale{r \#} \|V\|$ and $\|\trans{a \#} V\| = \trans{a \#}
+    \|V\|$; moreover $\textint{}{} \alpha \ud \scale{r \#} V = r^{\vdim} \textint{}{} \alpha(r x, S)
+    \ud V(x,S)$ for $\alpha \in \ccspace{\R^{\adim} \times \pgrass{\adim}{\vdim}}$.
+\end{lemma}
+
+\begin{proof}
+    Here $\uD \scale{r}(x) = r \id{\R^{\adim}}$ and $\uD \trans{a}(x) = \id{\R^{\adim}}$. For $S
+    \in \pgrass{\adim}{\vdim}$, \ref{al:2.4} gives $|\extpower{\vdim}(r S)| = r^{\vdim}
+    |\extpower{\vdim} S| = r^{\vdim}$, since $S(e_1) \wedge \cdots \wedge S(e_{\vdim}) = e_1 \wedge
+    \cdots \wedge e_{\vdim}$ for an orthonormal basis $e_1, \ldots, e_{\vdim}$ of $\im S$.
+    Moreover $(\scale{r})_\natural(x,S) = (r x, S)$ and $(\trans{a})_\natural(x,S) = (x + a, S)$.
+    The assertions follow from~\ref{al:3.2(1)}.
+\end{proof}
+
+\begin{theorem}[{\cite[3.3]{Allard1972}}]
+    \label{al:3.3}
+    Suppose $V \in \Var{\vdim}(M)$. For $x \in M$ and $\beta \in \ccspace{\pgrass{\adim}{\vdim}}$
+    let
+    \begin{displaymath}
+        V^{(x)}(\beta) = \lim_{r \to 0+} \frac{\textint{\Gk{M} \cap \{ (y,S) : y \in \cball{x}{r}
+        \}}{} \beta(S) \ud V(y,S)}{\|V\| \cball{x}{r}}
+    \end{displaymath}
+    whenever the limit exists. Then for $\|V\|$ almost all $x \in M$ the limit exists for every
+    $\beta$ and defines a Radon measure $V^{(x)}$ on $\pgrass{\adim}{\vdim}$ such that
+    \begin{displaymath}
+        V^{(x)}(\pgrass{\adim}{\vdim} \without \{ S : \im S \subseteq \Tan(M,x) \}) = 0 \,, \qquad
+        V^{(x)}(\pgrass{\adim}{\vdim}) = 1 \,;
+    \end{displaymath}
+    the function $[x \mapsto V^{(x)}(\beta)]$ is $\|V\|$ measurable for $\beta \in
+    \ccspace{\pgrass{\adim}{\vdim}}$, and
+    \begin{displaymath}
+        \textint{}{} \alpha(x,S) \ud V(x,S) = \textint{}{} V^{(x)}(\alpha_x) \ud \|V\| x \quad
+        \text{for $\alpha \in \ccspace{U \times \pgrass{\adim}{\vdim}}$} \,,
+    \end{displaymath}
+    where $\alpha_x(S) = \alpha(x,S)$ for $(x,S) \in U \times \pgrass{\adim}{\vdim}$.
+\end{theorem}
+
+\begin{proof}
+    For $\beta \in \ccspace{\pgrass{\adim}{\vdim}}$ let $\nu_\beta = \pi_\# (V \restrict
+    \beta^\dagger)$ if $\beta \ge 0$, where $\beta^\dagger(x,S) = \beta(S)$, and $\nu_\beta =
+    \nu_{\sup\{\beta,0\}} - \nu_{\sup\{-\beta,0\}}$ in general. Then $\nu_\beta$ is a difference
+    of two Radon measures on~$U$ which are bounded by $\sup |\beta| \, \|V\|$, and $[ \beta \mapsto
+    \nu_\beta(A) ]$ is linear for bounded Borel sets~$A$. The closed balls form a $\|V\|$ Vitali
+    relation~\cite[2.8.18]{Federer1969}, so~\cite[2.9.2, 2.9.5, 2.9.6, 2.9.7]{Federer1969} yield
+    for $0 \le \beta$ a $\|V\|$ measurable function $D_\beta$ with
+    \begin{displaymath}
+        D_\beta(x) = \lim_{r \to 0+} \nu_\beta \cball{x}{r} \big/ \|V\| \cball{x}{r} \,, \qquad
+        \nu_\beta = \|V\| \restrict D_\beta \,,
+    \end{displaymath}
+    the limit existing for $\|V\|$ almost all~$x$; the same holds for general~$\beta$ by
+    linearity. Let $C$ be a countable subset of $\ccspace{\pgrass{\adim}{\vdim}}$ which contains
+    the constant function~$1$ and is dense with respect to the supremum norm; it exists
+    by~\ref{new:countable_dense} applied with $X = \pgrass{\adim}{\vdim}$. Let $Z$ be the set of
+    $x \in M$ at which $D_\beta(x)$ exists for every $\beta \in C$; then $\|V\|(M \without Z) =
+    0$. For $x \in Z$, $\beta, \gamma \in \ccspace{\pgrass{\adim}{\vdim}}$ and $0 < r < \infty$,
+    \begin{displaymath}
+        |\nu_\beta \cball{x}{r} - \nu_\gamma \cball{x}{r}| \le \sup |\beta - \gamma| \,
+        \|V\| \cball{x}{r} \,;
+    \end{displaymath}
+    hence the quotients defining $V^{(x)}(\beta)$ form a Cauchy family as $r \to 0+$ for every
+    $\beta$, by approximation with members of~$C$, and $V^{(x)}(\beta)$ exists. It is linear and
+    nonnegative in~$\beta$, and $V^{(x)}(1) = 1$; by~\ref{rem:2.6(2)} it is a Radon probability
+    measure on $\pgrass{\adim}{\vdim}$. Measurability of $[x \mapsto V^{(x)}(\beta)]$ follows by
+    uniform approximation from $\beta \in C$.
+
+    Let $x \in Z$ and $\epsilon > 0$, write $T(y) = \project{\Tan(M,y)}$, and choose $\delta >
+    0$ with $|T(y) - T(x)| < \epsilon$ for $y \in M \cap \cball{x}{\delta}$. Let
+    $h(S) = \inf \{ 1, \epsilon^{-1} \sup \{ |S - T(x) \circ S| - \epsilon, 0 \} \}$. If $(y,S)
+    \in \Gk{M}$ and $|y - x| \le \delta$, then $S = T(y) \circ S$ and $|S - T(x) \circ S| = |(T(y)
+    - T(x)) \circ S| \le |T(y) - T(x)| \, \|S\| < \epsilon$, so $h(S) = 0$.
+    Hence $V^{(x)}(h) = 0$ and $V^{(x)}(\pgrass{\adim}{\vdim} \cap \{ S : |S - T(x) \circ S| > 2
+    \epsilon \}) = 0$. Letting $\epsilon \to 0+$ gives the support condition.
+
+    If $\alpha(x,S) = f(x) \beta(S)$ with $f \in \ccspace{U}$, then $\textint{}{} \alpha \ud V =
+    \nu_\beta(f) = \textint{}{} f(x) V^{(x)}(\beta) \ud \|V\| x$. For general $\alpha \in
+    \ccspace{U \times \pgrass{\adim}{\vdim}}$ and $\epsilon > 0$, let $K$ be the projection of
+    $\spt \alpha$ onto~$U$; by uniform continuity of~$\alpha$ there are open sets $W_1, \ldots,
+    W_l$ covering~$K$, points $x_i \in W_i$, and a partition of unity $f_1, \ldots, f_l \in
+    \ccspace{U}$ on~$K$ subordinate to $W_1, \ldots, W_l$ with $\spt f_i$ in a fixed compact
+    neighbourhood~$K'$ of~$K$, such that
+    \begin{displaymath}
+        \big| \alpha(x,S) - \textsum{i=1}{l} f_i(x) \alpha(x_i,S) \big| < \epsilon \quad \text{for
+        $(x,S) \in U \times \pgrass{\adim}{\vdim}$} \,.
+    \end{displaymath}
+    Both sides of the asserted formula change by at most $\epsilon \|V\|(K')$ when $\alpha$ is
+    replaced by $\textsum{i=1}{l} f_i(x) \alpha(x_i,S)$, since $V^{(x)}(\pgrass{\adim}{\vdim}) =
+    1$. Letting $\epsilon \to 0+$ proves the formula.
+\end{proof}
+
+\begin{remark}
+    \label{rem:3.3}
+    Allard writes $V(x)$ for $V^{(x)}$, states the integral formula for $i_\# V$, and uses
+    $\Tan(M,x)$ for its projection; the support statement is not proved in his text. The
+    function $\Phi(x,S) = |S - \project{\Tan(M,x)} \circ S|$ used above vanishes exactly on
+    $\Gk{M}$.
+\end{remark}
+
+\begin{definition}[{\cite[3.4]{Allard1972}}]
+    \label{al:3.4}
+    Suppose $V \in \Var{\vdim}(M)$, $a \in M$ and $j : \Tan(M,a) \to \R^{\adim}$ is the
+    inclusion map. Then $\VarTan(V,a)$ is the set of those $C \in \Var{\vdim}(\Tan(M,a))$ for
+    which there is a sequence of positive numbers $r_1, r_2, \ldots$ with $\lim_{i \to \infty}
+    r_i = \infty$ and
+    \begin{displaymath}
+        (j_\# C)(\alpha) = \lim_{i \to \infty} r_i^{\vdim} \textint{}{} \alpha(r_i(x-a),S) \ud V(x,S)
+        \quad \text{for $\alpha \in \ccspace{\R^{\adim} \times \pgrass{\adim}{\vdim}}$} \,.
+    \end{displaymath}
+    The integrals are defined for $i$ so large that $a + r_i^{-1} \spt \alpha \subseteq U$; for
+    such~$i$ they equal $V_{r_i}(\alpha)$, where $V_r = ((\scale{r} \circ \trans{-a}) | U)_\#
+    (i_\# V)$ by~\ref{al:3.2(2)}.
+\end{definition}
+
+\begin{lemma}[{\cite[3.4(1)--(3)]{Allard1972}}]
+    \label{al:3.4(1)}
+    Suppose $V \in \Var{\vdim}(M)$ and $a \in M$.
+    \begin{enumerate}
+        \item If $\udensity^{\vdim}(\|V\|,a) < \infty$, then $\VarTan(V,a)$ is compact and
+            nonempty.
+        \item If $\density^{\vdim}(\|V\|,a) \in \R$ and $C \in \VarTan(V,a)$, then $\|C\|(\Tan(M,a)
+            \cap \cball{0}{r}) = \density^{\vdim}(\|V\|,a) \unitmeasure{\vdim} r^{\vdim}$ for $0 < r <
+            \infty$.
+        \item If moreover $V^{(a)}$ is a Radon measure on $\pgrass{\adim}{\vdim}$, see~\ref{al:3.3},
+            then
+            \begin{displaymath}
+                \density^{\vdim}(\|V\|,a) \unitmeasure{\vdim} V^{(a)}(\beta) = \textint{\cball{0}{1}
+                \times \pgrass{\adim}{\vdim}}{} \beta(S) \ud (j_\# C)(x,S) \quad \text{for $\beta
+                \in \ccspace{\pgrass{\adim}{\vdim}}$} \,.
+            \end{displaymath}
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Let $d = \dist(a, \R^{\adim} \without U)$ and, for $r > 0$, let $W_r$ be the Radon measure on
+    $\R^{\adim} \times \pgrass{\adim}{\vdim}$ given by $W_r(A) = V_r(A \cap (\oball{0}{rd/2}
+    \times \pgrass{\adim}{\vdim}))$; then $W_r(\alpha) = V_r(\alpha)$ whenever $\spt \alpha
+    \subseteq \oball{0}{rd/2} \times \pgrass{\adim}{\vdim}$, and $\|W_r\|(\oball{0}{R}) \le
+    r^{\vdim} \|V\| \cball{a}{\inf\{R/r, d/2\}}$ by~\ref{al:3.2(2)}. Under the hypothesis of~(a)
+    there are $\delta > 0$ and $c < \infty$ with $\|V\| \cball{a}{s} \le c s^{\vdim}$ for $0 < s <
+    \delta$, hence
+    \begin{displaymath}
+        W_r(\oball{0}{R} \times \pgrass{\adim}{\vdim}) \le \sup \{ c, \delta^{-\vdim} \|V\|
+        \cball{a}{d/2} \} R^{\vdim} \quad \text{for $0 < R < \infty$ and $0 < r < \infty$} \,.
+    \end{displaymath}
+    By~\ref{al:2.6(2)(a)}(a) and~\ref{new:weak_metric}, the measures $W_r$ lie in a compact
+    metrisable set~$\mathcal{M}$, and every sequence $W_{r_i}$ with $r_i \to \infty$ has a
+    convergent subsequence. Suppose $W_{r_i} \to W$. Choose a chart $(W',\psi,\phi)$ of~$M$
+    at~$a$; by Taylor's formula applied to~$\phi$ and~\ref{new:charts} there is $\kappa < \infty$ with $\dist(x - a, \Tan(M,a)) \le
+    \kappa |x - a|^2$ and $\vdim^{1/2} |\project{\Tan(M,x)} - \project{\Tan(M,a)}| \le \kappa |x -
+    a|$ for $x \in M$ near~$a$. If $(y,S) \in \spt W_r$ and $|y| \le R$, then $y = r(x-a)$ with
+    $(x,S) \in \Gk{M}$, hence $\dist(y, \Tan(M,a)) \le \kappa R^2 / r$ and $|S -
+    \project{\Tan(M,a)} \circ S| \le \kappa R / r$ for large~$r$. Thus $W(\alpha) = 0$ whenever
+    $\spt \alpha$ is disjoint from the closed set $\Tan(M,a) \times \pgrass{\adim}{\vdim} \cap
+    \{ (y,S) : \im S \subseteq \Tan(M,a) \}$, which equals $j[\Gk{\Tan(M,a)}]$ up to the
+    identification of~\ref{al:3.2}. Hence $W = j_\# C$ for a unique $C \in
+    \Var{\vdim}(\Tan(M,a))$, and $C \in \VarTan(V,a)$; so $\VarTan(V,a) \ne \varnothing$. The set
+    $\{ j_\# C : C \in \VarTan(V,a) \}$ is the set of limits of sequences $W_{r_i}$ with $r_i \to
+    \infty$ in the compact metric space~$\mathcal{M}$; a diagonal argument shows that it is
+    closed, hence compact, and $j_\#$ is a homeomorphism onto its image. This proves~(a).
+
+    Suppose $\density^{\vdim}(\|V\|,a) = \theta \in \R$, $C \in \VarTan(V,a)$ and $W = j_\# C =
+    \lim_{i \to \infty} W_{r_i}$. Since $\pgrass{\adim}{\vdim}$ is compact, $f \circ \pi \in
+    \ccspace{\R^{\adim} \times \pgrass{\adim}{\vdim}}$ for $f \in \ccspace{\R^{\adim}}$, hence
+    $\|W_{r_i}\| \to \|W\|$. For $0 < s < \infty$ we have $\|W_{r_i}\| \cball{0}{s} = r_i^{\vdim}
+    \|V\| \cball{a}{s/r_i} \to \theta \unitmeasure{\vdim} s^{\vdim}$, and the same holds for
+    $\oball{0}{s}$. By~\ref{al:2.6(2)(a)}(c), for $0 < r < s$,
+    \begin{displaymath}
+        \theta \unitmeasure{\vdim} r^{\vdim} \le \|W\| \cball{0}{r} \le \|W\| \oball{0}{s} \le \theta
+        \unitmeasure{\vdim} s^{\vdim} \,;
+    \end{displaymath}
+    letting $s \to r+$ proves~(b), since $\|C\|(\Tan(M,a) \cap \cball{0}{r}) = \|W\|
+    \cball{0}{r}$.
+
+    Under the hypothesis of~(c), (b) gives $\|W\|(\sphere{\adim-1}) = 0$. Suppose $0 \le \beta
+    \in \ccspace{\pgrass{\adim}{\vdim}}$ and set $\beta^\dagger(y,S) = \beta(S)$. The measures
+    $W_{r_i} \restrict \beta^\dagger$ converge to $W \restrict \beta^\dagger$, because $f
+    \beta^\dagger \in \ccspace{\R^{\adim} \times \pgrass{\adim}{\vdim}}$ for $f \in
+    \ccspace{\R^{\adim} \times \pgrass{\adim}{\vdim}}$. The set $A = \cball{0}{1} \times
+    \pgrass{\adim}{\vdim}$ has compact closure and $(W \restrict \beta^\dagger)(\Bdry A) \le \sup
+    \beta \, \|W\|(\sphere{\adim-1}) = 0$; by~\ref{al:2.6(2)(a)}(d),
+    \begin{displaymath}
+        \textint{A}{} \beta^\dagger \ud W = \lim_{i \to \infty} r_i^{\vdim} \textint{\Gk{M} \cap \{
+        (x,S) : x \in \cball{a}{1/r_i} \}}{} \beta(S) \ud V(x,S) = \theta \unitmeasure{\vdim}
+        V^{(a)}(\beta) \,,
+    \end{displaymath}
+    where the last equality combines $r_i^{\vdim} \|V\| \cball{a}{1/r_i} \to \theta
+    \unitmeasure{\vdim}$ with the definition of $V^{(a)}(\beta)$ in~\ref{al:3.3}. General~$\beta$
+    follow by linearity.
+\end{proof}
+
+\begin{definition}[{\cite[3.5]{Allard1972}}\MS]
+    \label{al:3.5}
+    Suppose $E \subseteq M$ is $\HM^{\vdim}$ measurable and $E \cap K$ is $(\HM^{\vdim},\vdim)$
+    rectifiable for every compact $K \subseteq U$. Let $g_E(x) = (x, \Tan^{\vdim}(\HM^{\vdim}
+    \restrict E, x))$ for those $x \in E$ with $g_E(x) \in \Gk{M}$. Then $\var{}(E)$ is the
+    Borel regular measure on $\Gk{M}$ given by
+    \begin{displaymath}
+        \var{}(E)(A) = \inf \{ \HM^{\vdim}(g_E^{-1}[B]) : A \subseteq B,\ B \text{ is a Borel
+        subset of } \Gk{M} \} \quad \text{for $A \subseteq \Gk{M}$} \,.
+    \end{displaymath}
+    A varifold $V \in \Var{\vdim}(M)$ is \emph{rectifiable} if and only if there are positive
+    numbers $c_1, c_2, \ldots$ and sets $E_1, E_2, \ldots$ as above with $V(A) =
+    \textsum{i=1}{\infty} c_i \var{}(E_i)(A)$ for $A \subseteq \Gk{M}$; if the $c_i$ can be taken
+    to be positive integers, $V$ is \emph{integral}. The spaces of such varifolds are
+    $\RVar{\vdim}(M)$ and $\IVar{\vdim}(M)$.
+\end{definition}
+
+\begin{lemma}[{\cite[3.5]{Allard1972}}\MS]
+    \label{al:3.5:lem}
+    If $E$ is as in~\ref{al:3.5}, then $g_E$ is defined at $\HM^{\vdim}$ almost all points
+    of~$E$ and is $\HM^{\vdim} \restrict E$ measurable, $\var{}(E) \in \Var{\vdim}(M)$, $\|
+    \var{}(E) \| = \HM^{\vdim} \restrict E$, and
+    \begin{displaymath}
+        \var{}(E)(\alpha) = \textint{E}{} \alpha(x, \Tan^{\vdim}(\HM^{\vdim} \restrict E, x)) \ud
+        \HM^{\vdim} x \quad \text{for $\alpha \in \ccspace{\Gk{M}}$} \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    Let $K \subseteq U$ be compact and $x \in E \cap \Int K$. Since $\Tan^{\vdim}$ is local,
+    $\Tan^{\vdim}(\HM^{\vdim} \restrict E, x) = \Tan^{\vdim}(\HM^{\vdim} \restrict (E \cap K), x)$,
+    which belongs to $\pgrass{\adim}{\vdim}$ for $\HM^{\vdim}$ almost all such~$x$ and depends
+    $\HM^{\vdim} \restrict (E \cap K)$ measurably on~$x$, by~\ref{al:2.8(4)(a)}(b). Moreover
+    $\Tan^{\vdim}(\HM^{\vdim} \restrict E, x) \subseteq \Tan(E,x) \subseteq \Tan(M,x)$, taking $S =
+    E$ in~\ref{al:2.8(1)}. Hence $g_E$ is defined $\HM^{\vdim}$ almost everywhere on~$E$ and is
+    $\HM^{\vdim} \restrict E$ measurable~\cite[2.3.2]{Federer1969}, so $g_E^{-1}[B]$ is
+    $\HM^{\vdim}$ measurable for Borel~$B$ and $B \mapsto \HM^{\vdim}(g_E^{-1}[B])$ is countably
+    additive. By~\cite[2.2.3]{Federer1969}, $\var{}(E)$ is a Borel regular measure, and
+    $\var{}(E)(B) = \HM^{\vdim}(g_E^{-1}[B])$ for Borel~$B$, which gives the integral formula. For
+    compact $C \subseteq \Gk{M}$, $\var{}(E)(C) \le \HM^{\vdim}(E \cap \pi[C]) < \infty$, since
+    $E \cap \pi[C]$ is $(\HM^{\vdim},\vdim)$ rectifiable. Finally $\pi \circ g_E = \id{}$ on the
+    domain of~$g_E$ gives $\|\var{}(E)\| = \HM^{\vdim} \restrict E$.
+\end{proof}
+
+\begin{remark}
+    \label{rem:3.5}
+    Allard defines $\var{}(E)(A) = \HM^{\vdim}(\{ x : (x, \Tan^{\vdim}(\HM^{\vdim} \restrict E,x))
+    \in A \})$ for all $A \subseteq \Gk{M}$ and says that $\var{}(E) \in \Var{\vdim}(M)$
+    ``evidently''. Both definitions agree on Borel sets. They agree on all sets as well: by
+    Lusin's theorem $E$ is, up to an $\HM^{\vdim}$ null set, the union of countably many compact
+    sets on which~$g_E$ is continuous, and $g_E$ is injective; so $g_E$ maps each such compact
+    set homeomorphically onto a compact set, and every subset of~$E$ has the same measure as the
+    preimage of a Borel set containing its image. The Borel regular definition above avoids
+    this argument. Points $x \notin E$ do not contribute to Allard's formula up to an
+    $\HM^{\vdim}$ null set, because $\Tan^{\vdim}(\HM^{\vdim} \restrict E, x) \notin
+    \pgrass{\adim}{\vdim}$ whenever $\density^{\vdim}(\HM^{\vdim} \restrict E, x) = 0$.
+\end{remark}
+
+\begin{lemma}[new\MS]
+    \label{new:density_tangent}
+    Suppose $\theta$ is a nonnegative $\HM^{\vdim}$ measurable function on~$U$, $\mu =
+    \HM^{\vdim} \restrict \theta$ is a Radon measure on~$U$, and the set $P = U \cap \{ x :
+    \theta(x) > 0 \}$ is countably $(\HM^{\vdim},\vdim)$ rectifiable. Then:
+    \begin{enumerate}
+        \item $\density^{\vdim}(\mu,x) = \theta(x)$ for $\HM^{\vdim}$ almost all $x \in U$;
+        \item $\Tan^{\vdim}(\mu,x) \in \pgrass{\adim}{\vdim}$ for $\HM^{\vdim}$ almost all $x \in
+            P$, and $[x \mapsto \Tan^{\vdim}(\mu,x)]$ is $\mu$ measurable;
+        \item if $E \subseteq U$ is $\HM^{\vdim}$ measurable and $E \cap K$ is
+            $(\HM^{\vdim},\vdim)$ rectifiable for every compact $K \subseteq U$, then
+            $\Tan^{\vdim}(\HM^{\vdim} \restrict E, x) = \Tan^{\vdim}(\mu,x)$ for $\HM^{\vdim}$
+            almost all $x \in E \cap P$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Choose compact sets $K_1 \subseteq K_2 \subseteq \cdots$ with $U = \tbcup_{j=1}^\infty \Int
+    K_j$ and set $A_j = P \cap K_j \cap \{ x : \theta(x) \ge 1/j \}$ and $V_j = \Int K_{j+1}$.
+    Then $\HM^{\vdim}(A_j) \le j \mu(K_j) < \infty$, so $A_j$ is $\HM^{\vdim}$ measurable and
+    $(\HM^{\vdim},\vdim)$ rectifiable, and $P = \tbcup_{j=1}^\infty A_j$. Since $\mu(U \without P)
+    = 0$, \ref{al:2.8(2)}(c) applied to $\mu \restrict V_j$ and $V_j \cap P$ shows
+    $\density^{\vdim}(\mu,x) = 0$ for $\HM^{\vdim}$ almost all $x \in V_j \without P$, hence for
+    $\HM^{\vdim}$ almost all $x \in U \without P$.
+
+    Fix~$j$. By~\ref{al:2.8(2)}(c) applied to $\mu \restrict V_j$ and $V_j \without A_j$,
+    \begin{equation}
+        \label{eq:dt:1}
+        \density^{\vdim}(\mu \restrict (U \without A_j), x) = 0 \quad \text{for $\HM^{\vdim}$ almost
+        all $x \in A_j$} \,.
+    \end{equation}
+    The function $\theta | A_j$ is $\HM^{\vdim} \restrict A_j$ summable. The closed balls form an
+    $\HM^{\vdim} \restrict A_j$ Vitali relation~\cite[2.8.18]{Federer1969}, so~\cite[2.9.9]{Federer1969}
+    and~\ref{al:2.8(4)(a)}(a) give, for $\HM^{\vdim}$ almost all $x \in A_j$,
+    \begin{equation}
+        \label{eq:dt:2}
+        \lim_{r \to 0+} \frac{\HM^{\vdim}(A_j \cap \cball{x}{r})}{\unitmeasure{\vdim} r^{\vdim}} =
+        1 \,, \qquad \lim_{r \to 0+} r^{-\vdim} \textint{A_j \cap \cball{x}{r}}{} |\theta(y) -
+        \theta(x)| \ud \HM^{\vdim} y = 0 \,.
+    \end{equation}
+    Combining~\eqref{eq:dt:1} and~\eqref{eq:dt:2} gives $\density^{\vdim}(\mu,x) = \theta(x)$ for
+    $\HM^{\vdim}$ almost all $x \in A_j$, which completes the proof of~(a).
+
+    Let $x \in A_j$ satisfy~\eqref{eq:dt:1}, \eqref{eq:dt:2}, and suppose $S \subseteq U$ with
+    $\density^{\vdim}(\HM^{\vdim} \restrict (A_j \without S), x) = 0$. Then
+    \begin{multline*}
+        \mu(\cball{x}{r} \without (S \cap A_j)) \le \mu(\cball{x}{r} \without A_j) \\
+        + \textint{(A_j \without S) \cap \cball{x}{r}}{} |\theta(y) - \theta(x)| \ud \HM^{\vdim} y
+        + \theta(x) \HM^{\vdim}((A_j \without S) \cap \cball{x}{r}) \,,
+    \end{multline*}
+    and all three terms are $o(r^{\vdim})$; hence $\Tan^{\vdim}(\mu,x) \subseteq \Tan(S \cap
+    A_j, x) \subseteq \Tan(S,x)$. Taking the intersection over~$S$ yields
+    \begin{equation}
+        \label{eq:dt:3}
+        \Tan^{\vdim}(\mu,x) \subseteq \Tan^{\vdim}(\HM^{\vdim} \restrict A_j, x) \,.
+    \end{equation}
+    Suppose $E$ is as in~(c). Since $\HM^{\vdim} \restrict (E \cap A_j) \le j \mu$,
+    \ref{rem:2.8(3)} gives $\Tan^{\vdim}(\HM^{\vdim} \restrict (E \cap A_j), x) \subseteq
+    \Tan^{\vdim}(\mu,x)$; moreover $\Tan^{\vdim}(\HM^{\vdim} \restrict (E \cap A_j), x) \subseteq
+    \Tan^{\vdim}(\HM^{\vdim} \restrict E, x)$. By~\ref{al:2.8(4)(a)}(b), applied to $E \cap A_j$,
+    $A_j$ and $E \cap K_{j+1}$, the three cones $\Tan^{\vdim}(\HM^{\vdim} \restrict (E \cap A_j),
+    x)$, $\Tan^{\vdim}(\HM^{\vdim} \restrict A_j, x)$ and $\Tan^{\vdim}(\HM^{\vdim} \restrict E, x)$
+    are $\vdim$~dimensional subspaces for $\HM^{\vdim}$ almost all $x \in E \cap A_j$; then
+    by~\eqref{eq:dt:3} all of them equal $\Tan^{\vdim}(\mu,x)$. This proves~(c). Statement~(b)
+    follows from~(c) with $E = A_j$: $\Tan^{\vdim}(\mu,x) = \Tan^{\vdim}(\HM^{\vdim} \restrict
+    A_j, x)$ for $\HM^{\vdim}$ almost all $x \in A_j$, the right side is $\HM^{\vdim} \restrict
+    A_j$ measurable by~\ref{al:2.8(4)(a)}(b), and $\mu$ is absolutely continuous with respect to
+    $\HM^{\vdim}$.
+\end{proof}
+
+\begin{theorem}[{\cite[3.5(1)]{Allard1972}}]
+    \label{al:3.5(1)}
+    Suppose $V \in \Var{\vdim}(M)$.
+    \begin{enumerate}
+        \item $V \in \RVar{\vdim}(M)$ if and only if, for $\|V\|$ almost all $a \in M$, $0 <
+            \density^{\vdim}(\|V\|,a) < \infty$, $\Tan^{\vdim}(\|V\|,a) \in \pgrass{\adim}{\vdim}$,
+            and $V^{(a)}(\beta) = \beta(\Tan^{\vdim}(\|V\|,a))$ for $\beta \in
+            \ccspace{\pgrass{\adim}{\vdim}}$.
+        \item If $V \in \RVar{\vdim}(M)$, then $\|V\| = \HM^{\vdim} \restrict
+            \density^{\vdim}(\|V\|,\cdot)$ and
+            \begin{displaymath}
+                V(\alpha) = \textint{}{} \alpha(x, \Tan^{\vdim}(\|V\|,x)) \density^{\vdim}(\|V\|,x)
+                \ud \HM^{\vdim} x \quad \text{for $\alpha \in \ccspace{\Gk{M}}$} \,.
+            \end{displaymath}
+        \item $V \in \IVar{\vdim}(M)$ if and only if $V \in \RVar{\vdim}(M)$ and
+            $\density^{\vdim}(\|V\|,a)$ is a nonnegative integer for $\|V\|$ almost all $a \in
+            M$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}[Proof of (b) and of the ``only if'' part of (a) (MS route)]
+    Suppose $V = \textsum{i=1}{\infty} c_i \var{}(E_i)$ as in~\ref{al:3.5}, and set $\theta =
+    \textsum{i=1}{\infty} c_i \CF{E_i}$. By~\ref{al:3.5:lem} and Lebesgue's increasing convergence
+    theorem~\cite[2.4.7]{Federer1969}, $\|V\|(B) = \textint{B}{} \theta \ud \HM^{\vdim}$ for Borel
+    $B \subseteq U$; since both sides are Borel regular in~$B$, $\|V\| = \HM^{\vdim} \restrict
+    \theta$. The set $\{ x : \theta(x) > 0 \} = \tbcup_{i=1}^\infty E_i$ is countably
+    $(\HM^{\vdim},\vdim)$ rectifiable. By~\ref{new:density_tangent}(a),
+    $\density^{\vdim}(\|V\|,\cdot) = \theta$ almost everywhere, hence $\|V\| = \HM^{\vdim} \restrict
+    \density^{\vdim}(\|V\|,\cdot)$ and $0 < \density^{\vdim}(\|V\|,a) < \infty$ for $\|V\|$ almost all
+    $a$. By~\ref{new:density_tangent}(b)(c), $\Tan^{\vdim}(\|V\|,x) \in \pgrass{\adim}{\vdim}$
+    for $\|V\|$ almost all~$x$, the function $T = [x \mapsto \Tan^{\vdim}(\|V\|,x)]$ is $\|V\|$
+    measurable, and $\Tan^{\vdim}(\HM^{\vdim} \restrict E_i, x) = T(x)$ for $\HM^{\vdim}$ almost
+    all $x \in E_i$. For $0 \le \alpha \in \ccspace{\Gk{M}}$, \ref{al:3.5:lem} and~\cite[2.4.7]{Federer1969}
+    give
+    \begin{displaymath}
+        V(\alpha) = \textsum{i=1}{\infty} c_i \textint{E_i}{} \alpha(x, T(x)) \ud \HM^{\vdim} x =
+        \textint{}{} \alpha(x, T(x)) \theta(x) \ud \HM^{\vdim} x \,,
+    \end{displaymath}
+    and the general case follows by linearity. This proves~(b). For $\beta \in
+    \ccspace{\pgrass{\adim}{\vdim}}$ and $a \in M$, (b) gives
+    \begin{displaymath}
+        \textint{\Gk{M} \cap \{ (x,S) : x \in \cball{a}{r} \}}{} \beta(S) \ud V(x,S) =
+        \textint{\cball{a}{r}}{} \beta(T(x)) \ud \|V\| x \,.
+    \end{displaymath}
+    By~\cite[2.8.18, 2.9.9]{Federer1969}, applied to~$\|V\|$ and the bounded $\|V\|$ measurable
+    map~$T$ with values in $\Hom(\R^{\adim},\R^{\adim})$, for $\|V\|$ almost all~$a$ the mean of
+    $|T(x) - T(a)|$ over $\cball{a}{r}$ with respect to $\|V\|$ tends to~$0$ as $r \to 0+$. At
+    such~$a$, uniform continuity of~$\beta$ on the compact set $\pgrass{\adim}{\vdim}$ implies
+    that the mean of $\beta(T(x))$ over $\cball{a}{r}$ tends to $\beta(T(a))$; hence $V^{(a)}$
+    exists in the sense of~\ref{al:3.3} and $V^{(a)}(\beta) = \beta(T(a))$. This proves the ``only
+    if'' part of~(a), without the use of~\ref{al:3.3}.
+\end{proof}
+
+\begin{proof}[Proof of the ``if'' part of (a) and of (c)]
+    Assume the conditions in~(a). By~\ref{al:2.8(5)}, applied to $\|V\|$, $\|V\| = \HM^{\vdim}
+    \restrict \theta$ with $\theta = \density^{\vdim}(\|V\|,\cdot)$, and $P = U \cap \{ x :
+    \theta(x) > 0 \}$ is contained, up to an $\HM^{\vdim}$ null set, in the countably
+    $(\HM^{\vdim},\vdim)$ rectifiable set $U \cap \{ x : 0 < \udensity^{\vdim}(\|V\|,x) < \infty
+    \}$. By~\cite[2.3.3]{Federer1969} there are $\HM^{\vdim}$ measurable sets $E_1, E_2, \ldots
+    \subseteq P$ with $\theta = \textsum{i=1}{\infty} i^{-1} \CF{E_i}$. Each $E_i \cap K$, $K$
+    compact, satisfies $\HM^{\vdim}(E_i \cap K) \le i \|V\|(K) < \infty$ and is therefore
+    $(\HM^{\vdim},\vdim)$ rectifiable. By~\ref{al:3.3} and the hypothesis, $V^{(x)}$ is the Dirac
+    measure at $T(x) = \Tan^{\vdim}(\|V\|,x)$ and $(x, T(x)) \in \Gk{M}$ for $\|V\|$ almost
+    all~$x$, so
+    \begin{displaymath}
+        V(\alpha) = \textint{}{} \alpha(x,T(x)) \theta(x) \ud \HM^{\vdim} x = \textsum{i=1}{\infty}
+        i^{-1} \textint{E_i}{} \alpha(x,T(x)) \ud \HM^{\vdim} x = \textsum{i=1}{\infty} i^{-1}
+        \var{}(E_i)(\alpha)
+    \end{displaymath}
+    for $0 \le \alpha \in \ccspace{\Gk{M}}$, where the last equality uses~\ref{al:3.5:lem}
+    and~\ref{new:density_tangent}(c). By~\ref{rem:2.6(2)}, $V = \textsum{i=1}{\infty} i^{-1}
+    \var{}(E_i)$.
+
+    If $V \in \IVar{\vdim}(M)$, the function~$\theta$ in the proof of~(b) has nonnegative
+    integer values, and $\density^{\vdim}(\|V\|,\cdot) = \theta$ almost everywhere. Conversely, if
+    $V \in \RVar{\vdim}(M)$ and $\theta = \density^{\vdim}(\|V\|,\cdot)$ is integer valued almost
+    everywhere, then $\theta = \textsum{l=1}{\infty} \CF{E_l}$ with $E_l = P \cap \{ x : \theta(x)
+    \ge l \}$, and the computation above with $i^{-1}$ replaced by~$1$ gives $V =
+    \textsum{l=1}{\infty} \var{}(E_l)$.
+\end{proof}
+
+\begin{remark}
+    \label{rem:3.5(1)}
+    Allard calls~\ref{al:3.5(1)} a direct consequence of~\ref{al:3.3} and~2.8. The route of the
+    first proof uses only~\cite[2.8.18, 2.9.9, 2.10.19(4), 3.2.19, 3.2.25]{Federer1969}
+    through~\ref{al:2.8(4)(a)} and~\ref{new:density_tangent}; it does not use~\ref{al:3.3},
+    \ref{al:2.8(5)} or~\cite[3.3.17]{Federer1969}. The ``if'' part needs~\ref{al:2.8(5)}, which
+    rests on~\cite[3.3.17]{Federer1969}, and~\ref{al:3.3}.
+\end{remark}
+
+\begin{remark}
+    \label{rem:3.5(1):vartan}
+    Allard adds that $\VarTan(V,a) = \{ \density^{\vdim}(\|V\|,a) \var{}(\im \Tan^{\vdim}(\|V\|,a))
+    \}$ for $\|V\|$ almost all~$a$ whenever $V \in \RVar{\vdim}(M)$, as a consequence
+    of~\ref{al:3.5(1)} and~\cite[2.8.18, 2.9.13]{Federer1969}. In the notation of the proof
+    of~\ref{new:density_tangent}, this requires, besides approximate continuity of~$\theta$
+    and~$T$ at~$a$~\cite[2.9.13]{Federer1969}, that the measures $r^{\vdim} \scale{r \#} \trans{-a
+    \#} (\HM^{\vdim} \restrict A_j)$ converge to $\HM^{\vdim} \restrict \im T(a)$ as $r \to
+    \infty$ for $\HM^{\vdim}$ almost all $a \in A_j$. The latter follows from the bi-Lipschitz
+    decomposition~\cite[3.2.18]{Federer1969} with constants $\lambda = 1 + 1/l$, $l = 1, 2,
+    \ldots$, the density theorem for $\LM^{\vdim}$~\cite[2.9.11]{Federer1969}, differentiability
+    of the Lipschitzian extensions~\cite[3.1.6]{Federer1969}, and~\eqref{eq:dt:1}. This
+    consequence is not used in the sequel of sections~\ref{sec:prelim}--\ref{sec:rectifiability}.
+\end{remark}
+
+\begin{theorem}[{\cite[3.5(2)]{Allard1972}}]
+    \label{al:3.5(2)}
+    Suppose $c_1, c_2, \ldots$ are positive numbers, $V_1, V_2, \ldots \in \RVar{\vdim}(M)$, and
+    $V = \textsum{l=1}{\infty} c_l V_l \in \Var{\vdim}(M)$. Then $V \in \RVar{\vdim}(M)$; if the
+    $c_l$ are integers and $V_l \in \IVar{\vdim}(M)$ for each~$l$, then $V \in
+    \IVar{\vdim}(M)$. Moreover $\density^{\vdim}(\|V\|,x) = \textsum{l=1}{\infty} c_l
+    \density^{\vdim}(\|V_l\|,x)$ for $\HM^{\vdim}$ almost all $x \in M$, and, for each~$l$,
+    $\Tan^{\vdim}(\|V\|,x) = \Tan^{\vdim}(\|V_l\|,x)$ for $\|V_l\|$ almost all $x \in M$.
+\end{theorem}
+
+\begin{proof}
+    Write $V_l = \textsum{i=1}{\infty} c_{l,i} \var{}(E_{l,i})$. Then $V =
+    \textsum{l=1}{\infty} \textsum{i=1}{\infty} c_l c_{l,i} \var{}(E_{l,i})$, because the
+    summands are nonnegative, so $V \in \RVar{\vdim}(M)$, and $V \in \IVar{\vdim}(M)$ in the
+    integral case. With $\theta_l = \textsum{i=1}{\infty} c_{l,i} \CF{E_{l,i}}$ and $\theta =
+    \textsum{l=1}{\infty} c_l \theta_l$ we have $\|V_l\| = \HM^{\vdim} \restrict \theta_l$ and
+    $\|V\| = \HM^{\vdim} \restrict \theta$, as in the proof of~\ref{al:3.5(1)}, and the density
+    formula follows from~\ref{new:density_tangent}(a) applied to $V$ and to each~$V_l$. For $x
+    \in E_{l,i}$ outside an $\HM^{\vdim}$ null set, \ref{new:density_tangent}(c) applied to~$V$
+    and to~$V_l$ with $E = E_{l,i}$ gives $\Tan^{\vdim}(\|V\|,x) = \Tan^{\vdim}(\HM^{\vdim}
+    \restrict E_{l,i}, x) = \Tan^{\vdim}(\|V_l\|,x)$. Since $\|V_l\|$ is carried by
+    $\tbcup_{i=1}^\infty E_{l,i}$ and is absolutely continuous with respect to~$\HM^{\vdim}$, the
+    tangent formula holds $\|V_l\|$ almost everywhere.
+\end{proof}
+
+\begin{theorem}[{\cite[3.5(3)]{Allard1972}}]
+    \label{al:3.5(3)}
+    Suppose $V \in \RVar{\vdim}(M)$, $M'$ and $U'$ are as in~\ref{al:3.2}, $F : M \to M'$ is
+    smooth and $F_\# V \in \Var{\vdim}(M')$. Then $F_\# V \in \RVar{\vdim}(M')$, and $F_\# V \in
+    \IVar{\vdim}(M')$ if $V \in \IVar{\vdim}(M)$. Moreover
+    \begin{displaymath}
+        \density^{\vdim}(\|F_\# V\|, y) = \textsum{x \in F^{-1}\{y\}}{} \density^{\vdim}(\|V\|,x)
+        \quad \text{for $\HM^{\vdim}$ almost all $y \in M'$} \,,
+    \end{displaymath}
+    and, for $\|F_\# V\|$ almost all $y \in M'$, $\Tan^{\vdim}(\|F_\# V\|,y) = \uD F(x)[\im
+    \Tan^{\vdim}(\|V\|,x)]$ whenever $F(x) = y$ and $\density^{\vdim}(\|V\|,x) > 0$.
+\end{theorem}
+
+\begin{proof}
+    Write $V = \textsum{i=1}{\infty} c_i \var{}(E_i)$, let $K_1 \subseteq K_2 \subseteq \cdots$
+    be compact sets with $U = \tbcup_j \Int K_j$, and set $E_{i,j} = E_i \cap K_j \without
+    K_{j-1}$, $K_0 = \varnothing$. Then $V = \textsum{i,j}{} c_i \var{}(E_{i,j})$, and $F_\#$
+    commutes with such sums by~\ref{al:3.2(1)} and~\cite[2.4.7]{Federer1969}. Each $E_{i,j}$ is
+    $\HM^{\vdim}$ measurable and $(\HM^{\vdim},\vdim)$ rectifiable, and $F | K_j$ is Lipschitzian.
+    Set $T(x) = \Tan^{\vdim}(\|V\|,x)$, which equals $\Tan^{\vdim}(\HM^{\vdim} \restrict E_{i,j},x)$
+    for $\HM^{\vdim}$ almost all $x \in E_{i,j}$ by~\ref{new:density_tangent}(c). By the area
+    formula~\cite[3.2.20]{Federer1969}, with the approximate Jacobian computed as in the proof
+    of~\ref{al:2.8(6)}, and~\ref{al:3.2(1)},
+    \begin{displaymath}
+        F_\# \var{}(E_{i,j})(\alpha) = \textint{E_{i,j}}{} \alpha(F_\natural(x,T(x))) J_F(x,T(x))
+        \ud \HM^{\vdim} x = \textint{}{} \textsum{x \in E_{i,j} \cap F^{-1}\{y\}}{} \alpha(F_\natural(x,
+        T(x))) \ud \HM^{\vdim} y
+    \end{displaymath}
+    for $0 \le \alpha \in \ccspace{\Gk{M'}}$, where points with $J_F(x,T(x)) = 0$ do not
+    contribute, as their image is $\HM^{\vdim}$ null by~\cite[3.2.20]{Federer1969}.
+    By~\cite[3.2.22(1)]{Federer1969}, applied to $F | E_{i,j}$ and $Z_{i,j} = F[E_{i,j}]$, which
+    is $\HM^{\vdim}$ measurable and $(\HM^{\vdim},\vdim)$ rectifiable as in the proof
+    of~\ref{al:2.8(6)}, for $\HM^{\vdim}$ almost all $y \in Z_{i,j}$ and every $x \in E_{i,j}
+    \cap F^{-1}\{y\}$ the second component of $F_\natural(x,T(x))$ is $\Tan^{\vdim}(\HM^{\vdim}
+    \restrict Z_{i,j}, y)$. Hence
+    \begin{displaymath}
+        F_\# \var{}(E_{i,j}) = \textsum{l=1}{\infty} \var{}(Z_{i,j,l}) \,, \qquad Z_{i,j,l} =
+        Z_{i,j} \cap \{ y : N(F | E_{i,j}, y) \ge l \} \,,
+    \end{displaymath}
+    where $\Tan^{\vdim}(\HM^{\vdim} \restrict Z_{i,j,l}, y) = \Tan^{\vdim}(\HM^{\vdim} \restrict
+    Z_{i,j}, y)$ for $\HM^{\vdim}$ almost all $y \in Z_{i,j,l}$ by~\ref{rem:2.8(3)}
+    and~\ref{al:2.8(4)(a)}(b). Thus $F_\# V = \textsum{i,j,l}{} c_i \var{}(Z_{i,j,l})$ belongs to
+    $\RVar{\vdim}(M')$, and to $\IVar{\vdim}(M')$ if all $c_i$ are integers; the sets $Z_{i,j,l}
+    \cap K'$ are rectifiable for compact $K' \subseteq U'$ because $\HM^{\vdim}(Z_{i,j,l} \cap K')
+    \le c_i^{-1} \|F_\# V\|(K') < \infty$. Moreover $\|F_\# V\| = \HM^{\vdim} \restrict \theta'$
+    with $\theta'(y) = \textsum{i}{} c_i \textsum{j}{} N(F | E_{i,j},y) = \textsum{x \in
+    F^{-1}\{y\}}{} \theta(x)$ for $\HM^{\vdim}$ almost all~$y$, where $\theta$ is as in the proof
+    of~\ref{al:3.5(1)}; since $\theta = \density^{\vdim}(\|V\|,\cdot)$ outside an $\HM^{\vdim}$
+    null set whose image under the locally Lipschitzian map~$F$ is $\HM^{\vdim}$ null, the density
+    formula follows from~\ref{new:density_tangent}(a). The tangent formula follows
+    from~\ref{new:density_tangent}(c) applied to $F_\# V$ and the sets $Z_{i,j}$, together with
+    the identification of the second component of $F_\natural$ above; points~$x$ with
+    $\density^{\vdim}(\|V\|,x) > 0$ outside $\tbcup_i E_i$ form an $\HM^{\vdim}$ null set.
+\end{proof}
+
+\begin{remark}[{\cite[3.6]{Allard1972}}]
+    \label{al:3.6}
+    Allard remarks that the theory extends to Radon measures on the space $P_{\vdim}(M)$ of pairs
+    $(x,l)$ with $x \in M$ and $l$ a line through~$0$ in $\im \extpower{\vdim} j_x$, where $j_x :
+    \Tan(M,x) \to \R^{\adim}$ is the inclusion, and that currents of locally finite mass
+    induce such measures. This remark contains no assertion used later and is not formalised.
+\end{remark}
+
+\section{The first variation of a varifold}
+\label{sec:first_variation}
+
+\begin{miniremark}
+    \label{mr:sec4}
+    This section follows~\cite[section~4]{Allard1972}. The first variation $\delta V$ of
+    a~varifold is introduced as the initial rate of change of the weight under deformations,
+    its total variation and the generalised mean curvature vector are defined, varifolds in~$M$
+    are related to varifolds in~$U$, and $m$~dimensional varifolds in~$M$ are related to Radon
+    measures on open subsets of~$\R^m$. The section closes with examples, a~cutting lemma and
+    two semicontinuity remarks. The hypotheses on $M$, $U$, $i$ of~\ref{mr:sec3} remain in
+    force. On the Michael--Simon path only~\ref{al:4.2} with $M = U = \R^{\adim}$ is used,
+    through the integral formula $\delta V(g) = \textint{}{} \uD g(x) \bullet S \ud V(x,S)$.
+\end{miniremark}
+
+\begin{lemma}[{\cite[4.1(1)(2)]{Allard1972}}]
+    \label{al:4.1}
+    Suppose $G$ is an open subset of~$M$, $0 < \epsilon < \infty$, $h : \{ t : -\epsilon < t <
+    \epsilon \} \times M \to M$ is smooth, $h_t(x) = h(t,x)$ for $(t,x)$ in the domain of~$h$,
+    $h_0 = \id{M}$, and the closure~$K$ of $M \cap \{ x : h_t(x) \ne x \text{ for some } t \}$
+    is a compact subset of~$G$. Let $\dot h_t(x) = \lim_{u \to 0} u^{-1}(h_{t+u}(x) - h_t(x))$.
+    Then $\dot h_0 \in \VF(M)$, and for $V \in \Var{\vdim}(M)$ with $\|V\|(G) < \infty$,
+    \begin{equation}
+        \label{eq:4.1:1}
+        \frac{\ud}{\ud t} \|h_{t \#} V\|(G) \Big|_{t=0} = \textint{}{} (\uD \dot h_0(x) \circ S)
+        \bullet S \ud V(x,S) \,.
+    \end{equation}
+    If $E \subseteq M$ is as in~\ref{al:3.5} and $T(x) = \Tan^{\vdim}(\HM^{\vdim} \restrict E,
+    x)$, then
+    \begin{equation}
+        \label{eq:4.1:2}
+        \frac{\ud}{\ud t} \textint{G}{} N(h_t | E, y) \ud \HM^{\vdim} y \Big|_{t=0} = \textint{E}{}
+        (\uD \dot h_0(x) \circ T(x)) \bullet T(x) \ud \HM^{\vdim} x \,,
+    \end{equation}
+    and the left side equals $\frac{\ud}{\ud t} \HM^{\vdim}(h_t[E \cap G]) |_{t=0}$ if $h_t$ is
+    injective for small~$|t|$.
+\end{lemma}
+
+\begin{proof}
+    Since $h_t(x) \in M$ for all~$t$, $\dot h_0(x) \in \Tan(M,x)$~\cite[3.1.21]{Federer1969};
+    $\dot h_0$ is smooth and $\spt \dot h_0 \subseteq K$. By continuity of~$h$ and compactness
+    of~$K$ there is $0 < t_0 \le \epsilon$ with $h_t[K] \subseteq G$ for $|t| < t_0$; then
+    $h_t^{-1}[G] = G$. By~\ref{al:3.2(1)}, for $|t| < t_0$,
+    \begin{displaymath}
+        \|h_{t \#} V\|(G) = \textint{\Gk{M} \cap \{ (x,S) : x \in G \}}{} |\extpower{\vdim}(\uD
+        h_t(x) \circ S)| \ud V(x,S) \,,
+    \end{displaymath}
+    and the integrand equals~$1$ for $x \in G \without K$ by~\ref{al:3.2(2)}. Let $T(x) =
+    \project{\Tan(M,x)}$ and $B_t(x) = \uD h_t(x) \circ T(x)$. Then $\uD h_t(x) \circ S = B_t(x)
+    \circ S$ for $(x,S) \in \Gk{M}$, $B_0(x) = T(x)$, and $\partial_t B_t(x) |_{t=0} = \uD \dot
+    h_0(x) \circ T(x)$, uniformly for $x \in K$ by smoothness of~$h$. The function $[P \mapsto
+    |\extpower{\vdim}(P \circ S)|]$ is smooth near $P = T(x)$, since its square is a polynomial
+    with value~$1$ there; its derivative in the direction~$Q$ at $T(x)$ equals $Q \bullet S$
+    by~\ref{al:2.4(1)}, because $T(x) \circ S = S$. The chain rule and~\ref{al:2.3(1)}\eqref{eq:2.3:5}
+    give $\partial_t |\extpower{\vdim}(\uD h_t(x) \circ S)| |_{t=0} = (\uD \dot h_0(x) \circ T(x))
+    \bullet S = (\uD \dot h_0(x) \circ S) \bullet S$, where $(A \circ S) \bullet S = \trace(S
+    \circ \transpose{A} \circ S) = A \bullet S$ for $A \in \Hom(\R^{\adim},\R^{\adim})$. The
+    difference quotients are bounded uniformly on $\pi^{-1}[K]$, which has finite $V$ measure;
+    Lebesgue's bounded convergence theorem~\cite[2.4.9]{Federer1969} gives~\eqref{eq:4.1:1}.
+
+    For~\eqref{eq:4.1:2}, apply~\eqref{eq:4.1:1} to $V = \var{}(E \cap K')$, where $K'$ is
+    a compact neighbourhood of~$K$ in~$G$ and $G$ is replaced by $\Int K'$; the contribution of
+    $E \cap G \without K'$ is constant in~$t$. By~\ref{al:3.5(3)} and~\ref{al:3.5:lem}, $\|h_{t
+    \#} \var{}(E \cap K')\| = \HM^{\vdim} \restrict N(h_t | E \cap K', \cdot)$, and the right
+    side of~\eqref{eq:4.1:1} equals that of~\eqref{eq:4.1:2} by~\ref{al:3.5:lem}. If $h_t$ is
+    injective, then $N(h_t | E \cap G, \cdot) = \CF{h_t[E \cap G]}$.
+\end{proof}
+
+\begin{definition}[{\cite[4.2]{Allard1972}}\MS]
+    \label{al:4.2}
+    The \emph{first variation} of $V \in \Var{\vdim}(M)$ is the linear function $\delta V :
+    \VF(M) \to \R$ given by
+    \begin{displaymath}
+        \delta V(g) = \textint{}{} (\uD g(x) \circ S) \bullet S \ud V(x,S) \quad \text{for $g \in
+        \VF(M)$} \,.
+    \end{displaymath}
+    The \emph{total variation} $\|\delta V\|$ is the Borel regular measure on~$M$ given by
+    $\|\delta V\|(A) = \inf \{ \|\delta V\|(G) : A \subseteq G,\ G \text{ open} \}$ for $A
+    \subseteq M$, where
+    \begin{displaymath}
+        \|\delta V\|(G) = \sup \{ \delta V(g) : g \in \VF(M),\ \spt g \subseteq G,\ |g| \le 1 \}
+        \quad \text{for open $G \subseteq M$} \,.
+    \end{displaymath}
+    The varifold~$V$ is \emph{stationary} if $\delta V = 0$, and \emph{stationary in}~$G$ if
+    $\|\delta V\|(G) = 0$.
+\end{definition}
+
+\begin{lemma}[{\cite[4.2]{Allard1972}}\MS]
+    \label{al:4.2:lem}
+    The map $[V \mapsto \delta V]$ commutes with nonnegative linear combinations, and $\|\delta
+    V\|$ is a Borel regular measure on~$M$ whose values on open sets are given by the supremum
+    in~\ref{al:4.2}. If $W$ is an open subset of~$\R^{\adim}$, $V \in \Var{\vdim}(W)$ and $g \in
+    \VF(W)$, then $(\uD g(x) \circ S) \bullet S = \uD g(x) \bullet S$ for $(x,S) \in \Gk{W}$, hence
+    \begin{displaymath}
+        \delta V(g) = \textint{}{} \uD g(x) \bullet S \ud V(x,S) \,;
+    \end{displaymath}
+    in this case $\delta V \in \distr{W}{\R^{\adim}}$ and $\|\delta V\|$ is the variation measure
+    of~\cite[4.1.5]{Federer1969}.
+\end{lemma}
+
+\begin{proof}
+    Linearity in~$V$ is immediate from the definition. For $A \in \Hom(\R^{\adim},\R^{\adim})$
+    and $S \in \pgrass{\adim}{\vdim}$, $(A \circ S) \bullet S = \trace(S \circ \transpose{A}
+    \circ S) = \trace(\transpose{A} \circ S) = A \bullet S$. The function $\gamma(G) = \|\delta
+    V\|(G)$ on open sets is monotone, countably subadditive by a partition of unity
+    subordinate to a countable open cover, and additive on pairs of open sets with positive
+    distance; hence the measure it generates is a metric outer measure and Borel sets are
+    measurable~\cite[2.3.2(9)]{Federer1969}, it is Borel regular because every set is contained in
+    a $G_\delta$ set of the same measure, and it agrees with~$\gamma$ on open sets by
+    monotonicity. When $M = W$ is open, this is the construction of~\cite[4.1.5]{Federer1969}.
+\end{proof}
+
+\begin{theorem}[{\cite[4.3(1)--(5)]{Allard1972}}]
+    \label{al:4.3}
+    Suppose $V \in \Var{\vdim}(M)$ and $\|\delta V\|$ is a Radon measure on~$M$. Then there is
+    a $\|\delta V\|$ measurable function $\eta(V;\cdot)$ with values in $\sphere{\adim-1}$,
+    unique up to $\|\delta V\|$ null sets, with
+    \begin{gather}
+        \label{eq:4.3:1}
+        \eta(V;x) \in \Tan(M,x) \quad \text{for $\|\delta V\|$ almost all $x \in M$} \,, \\
+        \label{eq:4.3:2}
+        \delta V(g) = \textint{}{} g(x) \bullet \eta(V;x) \ud \|\delta V\| x \quad \text{for $g
+        \in \VF(M)$} \,.
+    \end{gather}
+    The formula $\|\delta V\| / \|V\|(x) = \lim_{r \to 0+} \|\delta V\| \cball{x}{r} / \|V\|
+    \cball{x}{r}$ defines, for $\|V\|$ almost all~$x$, a $\|V\|$ measurable function with values
+    in $\{ t : 0 \le t \le \infty \}$ such that, with $\|\delta V\|_{\mathrm{sing}} = \|\delta V\|
+    \restrict \{ x : \|\delta V\| / \|V\|(x) = \infty \}$,
+    \begin{equation}
+        \label{eq:4.3:3}
+        \|\delta V\|(B) = \textint{B}{} \|\delta V\| / \|V\| \ud \|V\| + \|\delta
+        V\|_{\mathrm{sing}}(B) \quad \text{for Borel sets $B \subseteq M$} \,.
+    \end{equation}
+    The function $h(V;x) = - (\|\delta V\| / \|V\|(x)) \, \eta(V;x)$ is $\|V\|$ measurable,
+    \begin{equation}
+        \label{eq:4.3:4}
+        h(V;x) \in \Tan(M,x) \quad \text{for $\|V\|$ almost all $x \in M$} \,,
+    \end{equation}
+    and, whenever $g$ is a Borel function with values in~$\R^{\adim}$, $g(x) \in \Tan(M,x)$ for
+    $x \in M$, and $\textint{}{} |g| \ud \|\delta V\| < \infty$,
+    \begin{equation}
+        \label{eq:4.3:5}
+        \delta V(g) = - \textint{}{} g(x) \bullet h(V;x) \ud \|V\| x + \textint{}{} g(x) \bullet
+        \eta(V;x) \ud \|\delta V\|_{\mathrm{sing}} x \,,
+    \end{equation}
+    where $\delta V(g)$ is defined for such~$g$ by the right side of~\eqref{eq:4.3:2}.
+\end{theorem}
+
+\begin{proof}
+    Consider the distribution $\Delta \in \distr{U}{\R^{\adim}}$ given by $\Delta(g) = \delta V(\Tan(M,g)|M)$, where $g|M$ has compact support because $i$ is proper. Since $|\Tan(M,g)(x)| \le |g(x)|$, and every $g \in \VF(M)$ with $|g| \le 1$ is the restriction of fields $\tilde g \in \VF(U)$ with $\Tan(M,\tilde g)|M = g$ and $\sup|\tilde g| \le 1 + \epsilon$ (extend~$g$ by a chart-wise smooth extension, compose with a smooth retraction onto $\cball{0}{1+\epsilon}$, and multiply by a cut-off), the variation measures satisfy $\|\Delta\| = i_\# \|\delta V\|$. By~\cite[4.1.5]{Federer1969} there is a $\|\delta V\|$ measurable $\eta$ with $|\eta| = 1$ almost everywhere and $\Delta(g) = \textint{}{} g \bullet \eta \ud \|\delta V\|$. Then $\Delta(g) = \textint{}{} g \bullet \Tan(M,\eta) \ud \|\delta V\|$, and comparing the suprema defining $\|\Delta\|(G)$ for open~$G$ gives $\|\delta V\|(G) \le \textint{G}{} |\Tan(M,\eta)| \ud \|\delta V\| \le \|\delta V\|(G)$; hence $|\Tan(M,\eta)| = 1 = |\eta|$ almost everywhere, which is~\eqref{eq:4.3:1}, and~\eqref{eq:4.3:2} follows. Uniqueness follows from~\cite[2.5.12]{Federer1969} or by testing~\eqref{eq:4.3:2} with a dense countable set of fields.
+
+    The closed balls form a $\|V\|$ Vitali relation~\cite[2.8.18]{Federer1969}, and
+    \cite[2.9.2, 2.9.5, 2.9.7, 2.9.10]{Federer1969} yield the existence and measurability of $\|\delta V\| / \|V\|$, finite $\|V\|$ almost everywhere, and the decomposition~\eqref{eq:4.3:3}, in which the first summand is the part of $\|\delta V\|$ absolutely continuous with respect to~$\|V\|$ and $\|V\|(\{ x : \|\delta V\| / \|V\|(x) = \infty \}) = 0$. Statement~\eqref{eq:4.3:4} follows from~\eqref{eq:4.3:1}, and~\eqref{eq:4.3:5} from~\eqref{eq:4.3:2} and~\eqref{eq:4.3:3}.
+\end{proof}
+
+\begin{remark}
+    \label{rem:4.3}
+    Allard cites~\cite[2.5.12]{Federer1969} for~\eqref{eq:4.3:2}; the case $M = U$ is
+    \cite[4.1.5]{Federer1969}, to which the general case is reduced above. The extension of
+    $\delta V$ to Borel fields in~\eqref{eq:4.3:5} is implicit in Allard's text.
+\end{remark}
+
+\begin{lemma}[{\cite[4.4(1)]{Allard1972}}]
+    \label{al:4.4}
+    Suppose $0 < \vdim \le m$ and $V \in \Var{\vdim}(M)$. Then
+    \begin{displaymath}
+        \delta(i_\# V)(g) = \delta V(\Tan(M,g)) - \textint{}{} \Nor(M,g)(x) \bullet h(M;x,S) \ud
+        V(x,S) \quad \text{for $g \in \VF(U)$} \,.
+    \end{displaymath}
+\end{lemma}
+
+\begin{proof}
+    Here $i_\# V$ is $V$ regarded as a measure on $\Gk{U} \supseteq \Gk{M}$, by~\ref{al:3.2(1)}
+    with $J_i = 1$. Let $(x,S) \in \Gk{M}$, $T = \project{\Tan(M,x)}$, $g_\top = \Tan(M,g)$ and
+    $g_\perp = \Nor(M,g)$. Since $S = T \circ S$, $\uD g(x) \circ S = \uD (g|M)(x) \circ S = \uD
+    g_\top(x) \circ S + \uD g_\perp(x) \circ T \circ S$. By~\ref{al:4.2:lem}, $\uD g(x) \bullet S
+    = (\uD g_\top(x) \circ S) \bullet S + (\uD g_\perp(x) \circ T) \bullet S$, and the last term
+    equals $- g_\perp(x) \bullet h(M;x,S)$ by~\ref{al:2.5(1)}(c). Integration with respect to~$V$
+    gives the formula.
+\end{proof}
+
+\begin{remark}
+    \label{rem:4.4}
+    Since $|h(M;x,S)|$ is bounded on compact subsets of~$\Gk{M}$, \ref{al:4.4} shows that
+    $\|\delta(i_\# V)\|$ is a Radon measure on~$U$ if and only if $\|\delta V\|$ is a Radon measure
+    on~$M$. Allard uses this to transfer the results stated for varifolds in open subsets of
+    $\R^{\adim}$ to varifolds in~$M$.
+\end{remark}
+
+\begin{lemma}[new]
+    \label{new:divergence}
+    Suppose $W$, $Y$, $\psi$, $\phi$ are as in~\ref{al:4.5}, $J(y) = |\extpower{m} \uD \phi(y)|$
+    for $y \in Y$, $g : W \cap M \to \R^{\adim}$ is smooth with $g(x) \in \Tan(M,x)$ for $x \in W
+    \cap M$, and $G(y) = \uD \psi(\phi(y))(g(\phi(y)))$ for $y \in Y$. Then
+    \begin{displaymath}
+        J(y) \, (\uD g(\phi(y)) \circ \project{\Tan(M,\phi(y))}) \bullet \project{\Tan(M,\phi(y))} =
+        \uD (J G)(y) \bullet \id{\R^m} \quad \text{for $y \in Y$} \,.
+    \end{displaymath}
+    Consequently $\textint{W \cap M}{} (\uD g(x) \circ \project{\Tan(M,x)}) \bullet
+    \project{\Tan(M,x)} \ud \HM^m x = 0$ if $\spt g$ is compact.
+\end{lemma}
+
+\begin{proof}
+    Fix $y$, let $x = \phi(y)$, $L = \uD \phi(y)$, $A = \transpose{L} \circ L$, and $T =
+    \project{\Tan(M,x)}$. By~\ref{new:charts}, $T = L \circ A^{-1} \circ \transpose{L}$ and
+    $A^{-1} \circ \transpose{L} \circ L = \id{\R^m}$. Since $g(\phi(z)) = \uD \phi(z)(G(z))$ for $z \in Y$, by~\ref{new:charts},
+    differentiation gives $\uD g(x) \circ L =
+    \uD^2\phi(y)(G(y),\cdot) + L \circ \uD G(y)$. Using $\trace(T \circ \uD g(x) \circ T) =
+    \trace(A^{-1} \circ \transpose{L} \circ \uD g(x) \circ L)$ we get
+    \begin{displaymath}
+        (\uD g(x) \circ T) \bullet T = \trace \big( A^{-1} \circ \transpose{L} \circ
+        \uD^2\phi(y)(G(y),\cdot) \big) + \trace \uD G(y) \,.
+    \end{displaymath}
+    By~\ref{al:2.4}, $J^2 = \det A$; by~\ref{al:2.2(1)} the derivative of $\det$ at~$A$ in the
+    direction~$B$ is $\det(A) \trace(A^{-1} \circ B)$. With $B = \uD A(y)(G(y)) =
+    \transpose{(\uD^2 \phi(y)(G(y),\cdot))} \circ L + \transpose{L} \circ \uD^2\phi(y)(G(y),\cdot)$
+    this gives $\uD J(y)(G(y)) = J(y) \trace(A^{-1} \circ \transpose{L} \circ
+    \uD^2\phi(y)(G(y),\cdot))$. Multiplying the previous display by $J(y)$ yields $J(y) \trace
+    \uD G(y) + \uD J(y)(G(y)) = \trace \uD (J G)(y)$, which is the asserted identity. For the
+    consequence, $\phi | Y$ is injective with $\HM^m$ Jacobian~$J$, so the area
+    formula~\cite[3.2.3, 3.2.5]{Federer1969} turns the integral into $\textint{Y}{} \trace \uD
+    (JG) \ud \LM^m$, which vanishes for the compactly supported field $JG$ by Fubini's
+    theorem~\cite[2.6.2]{Federer1969} and the fundamental theorem of calculus.
+\end{proof}
+
+\begin{lemma}[{\cite[4.5]{Allard1972}}]
+    \label{al:4.5}
+    Suppose $W$ is an open subset of~$U$, $Y$ is an open subset of~$\R^m$, $\psi : W \to Y$ and
+    $\phi : Y \to W$ are smooth, $\psi \circ \phi = \id{Y}$ and $W \cap \im \phi = W \cap M$.
+    Suppose $V \in \Var{m}(W \cap M)$. Then
+    \begin{gather*}
+        \delta V(g) = \delta(\psi_\# V) \big( \big[ y \mapsto |\extpower{m} \uD \phi(y)| \, \uD
+        \psi(\phi(y))(g(\phi(y))) \big] \big) \quad \text{for $g \in \VF(W \cap M)$} \,, \\
+        \textint{}{} \uD f(y)(v) \ud \|\psi_\# V\| y = \delta V \big( \big[ x \mapsto f(\psi(x)) \,
+        |\extpower{m} \uD \phi(\psi(x))|^{-1} \, \uD \phi(\psi(x))(v) \big] \big) \,,
+    \end{gather*}
+    the latter for $v \in \R^m$ and $f \in \dspace{Y}{\R}$.
+\end{lemma}
+
+\begin{proof}
+    Let $J = |\extpower{m} \uD \phi|$ and $T(x) = \project{\Tan(M,x)}$. Since $\dim M = m$, the
+    only $S$ with $(x,S) \in \Gk{W \cap M}$ is $T(x)$. By~\ref{new:charts}, $\uD \psi(x) |
+    \Tan(M,x)$ is the inverse of $\uD \phi(\psi(x))$, so $J_\psi(x,T(x)) = J(\psi(x))^{-1}$
+    by~\ref{al:2.4}, and $\psi_\natural(x,T(x)) = (\psi(x), \id{\R^m})$; since $\psi | W \cap M$
+    is injective, \ref{al:3.2(1)} gives
+    \begin{gather*}
+        \textint{}{} F \ud \|\psi_\# V\| = \textint{}{} F(\psi(x)) \, J(\psi(x))^{-1} \ud \|V\| x
+        \quad \text{for every Borel function $F \ge 0$} \,, \\
+        \delta(\psi_\# V)(H) = \textint{}{} \trace \uD H \ud \|\psi_\# V\| \quad \text{for $H \in
+        \VF(Y)$} \,.
+    \end{gather*} Let $g \in \VF(W \cap M)$ and $H(y) = J(y) \uD \psi(\phi(y))(g(\phi(y)))$.
+    By~\ref{new:divergence} with $G = J^{-1} H$, $\trace \uD H(\psi(x)) = J(\psi(x)) (\uD g(x)
+    \circ T(x)) \bullet T(x)$ for $x \in W \cap M$, and the first formula follows from the two
+    displayed identities. The second formula is the first applied to $g(x) = f(\psi(x))
+    J(\psi(x))^{-1} \uD \phi(\psi(x))(v)$, for which $H(y) = f(y) v$ and $\trace \uD H(y) = \uD
+    f(y)(v)$.
+\end{proof}
+
+\begin{remark}
+    \label{rem:4.5}
+    Allard proves the identity $(\uD \xi_i(x) \circ T(x)) \bullet T(x) = 0$ for $\xi_i(x) =
+    J(\psi(x))^{-1} \uD \phi(\psi(x))(u_i)$ from the integral identity $\textint{W \cap M}{} (\uD
+    g(x) \circ T(x)) \bullet T(x) \ud \HM^m x = 0$, which he deduces from~\ref{al:4.1}\eqref{eq:4.1:2}
+    with a flow preserving $W \cap M$. Lemma~\ref{new:divergence} gives the pointwise identity
+    directly. Consequently $\|\delta V\|$ is a Radon measure on $W \cap M$ if and only if the
+    distributional derivatives of $\|\psi_\# V\|$ are Radon measures on~$Y$; functions of bounded
+    variation are treated in~\cite[4.5]{Federer1969}.
+\end{remark}
+
+\begin{lemma}[{\cite[4.6(1)]{Allard1972}}]
+    \label{al:4.6(1)}
+    Suppose $f \in \dspace{U}{\R}$, $V \in \Var{\vdim}(U)$, $\spt \|V\| \subseteq \{ x : f(x) = 0
+    \}$, and $\|\delta V\|$ is a Radon measure on~$U$. Then $\im S \subseteq \ker \uD f(x)$ for
+    $V$ almost all $(x,S) \in \Gk{U}$.
+\end{lemma}
+
+\begin{proof}
+    Let $g = f \grad f \in \VF(U)$. For $x \in \spt \|V\|$, $f(x) = 0$, hence $\uD g(x) = \uD f(x)
+    \cdot \grad f(x)$, and by~\ref{al:2.3(1)}\eqref{eq:2.3:4}, \eqref{eq:2.3:2},
+    \begin{displaymath}
+        \uD g(x) \bullet S = \uD f(x)(S(\grad f(x))) = S(\grad f(x)) \bullet \grad f(x) = |S(\grad
+        f(x))|^2 \,.
+    \end{displaymath}
+    By~\ref{al:4.2:lem}, $\delta V(g) = \textint{}{} |S(\grad f(x))|^2 \ud V(x,S)$. On the other
+    hand $\spt \|\delta V\| \subseteq \spt \|V\|$, since $\delta V(g') = 0$ whenever $\spt g' \cap
+    \spt \|V\| = \varnothing$, and $g = 0$ on $\spt \|V\|$; hence $\delta V(g) = \textint{}{} g
+    \bullet \eta(V;\cdot) \ud \|\delta V\| = 0$ by~\ref{al:4.3}\eqref{eq:4.3:2}. Thus $S(\grad
+    f(x)) = 0$, that is $\uD f(x) \circ S = 0$, for $V$ almost all $(x,S)$.
+\end{proof}
+
+\begin{corollary}[{\cite[4.6(2)]{Allard1972}}]
+    \label{al:4.6(2)}
+    $\Var{\vdim}(U) \cap \{ V : \spt \|V\| \subseteq M \text{ and } \|\delta V\| \text{ is a Radon
+    measure on } U \} \subseteq i_\# [\Var{\vdim}(M)]$.
+\end{corollary}
+
+\begin{proof}
+    For $a \in M$, \cite[3.1.19(2)]{Federer1969} and a cut-off give a neighbourhood~$W$ of~$a$
+    and $f_1, \ldots, f_{\adim-m} \in \dspace{U}{\R}$ with $W \cap M = W \cap \tbcap_{j=1}^{\adim-m}
+    \{ x : f_j(x) = 0 \}$ and $\Tan(M,x) = \tbcap_{j=1}^{\adim-m} \ker \uD f_j(x)$ for $x \in W
+    \cap M$. By~\ref{al:4.6(1)}, applied to $V \restrict \pi^{-1}[W']$ for open $W'$ with $\Clos
+    W' \subseteq W$ and to suitable~$f_j$ vanishing on $\spt \|V\| \cap W'$, and since $W'$ can
+    be chosen so that $f_j$ vanishes on $\spt \|V\| \cap \Clos W'$, $\im S \subseteq \Tan(M,x)$
+    for $V$ almost all $(x,S)$ with $x \in W'$. Countably many such~$W'$ cover~$M$. Hence $V$ is
+    carried by the closed set $\Gk{M} \subseteq \Gk{U}$, and $V = i_\#(V | \Gk{M})$.
+\end{proof}
+
+\begin{remark}
+    \label{rem:4.6(2)}
+    The application of~\ref{al:4.6(1)} to $V$ itself requires $\spt \|V\| \subseteq \{ f_j = 0
+    \}$ globally; since $f_j$ vanishes on $M$ only near~$a$, one multiplies $f_j$ by a cut-off
+    $\zeta$ with $\spt \zeta \subseteq W$ and uses that $\zeta f_j = 0$ on $M \supseteq \spt
+    \|V\|$, while $\uD(\zeta f_j)(x) = \zeta(x) \uD f_j(x)$ for $x \in M$. This is the cut-off
+    mentioned in the proof.
+\end{remark}
+
+\begin{theorem}[{\cite[4.6(3)]{Allard1972}}]
+    \label{al:4.6(3)}
+    Suppose $M$ is connected, $V \in \Var{m}(U)$, $\spt \|V\| \subseteq M$, $\|\delta V\|$ is
+    a Radon measure on~$U$, and $\delta V(g) = 0$ whenever $g \in \VF(U)$ and $\Nor(M,g) = 0$. Then
+    there is $0 \le c < \infty$ with $V = c \, \var{}(M)$; in fact $c = \|V\|(A) / \HM^m(A)$
+    whenever $A \subseteq M$ and $0 < \HM^m(A) < \infty$.
+\end{theorem}
+
+\begin{proof}
+    By~\ref{al:4.6(2)}, $V = i_\# V'$ for some $V' \in \Var{m}(M)$, and $V'$ is carried by $\{
+    (x, \project{\Tan(M,x)}) : x \in M \}$. By~\ref{al:4.4}, $\delta V'(g) = \delta V(\tilde g)$
+    for $g \in \VF(M)$, where $\tilde g \in \VF(U)$ extends~$g$ with $\Nor(M,\tilde g) = 0$;
+    hence $\delta V' = 0$. Let $W$, $Y$, $\psi$, $\phi$ be as in~\ref{al:4.5} with $Y$ connected.
+    By~\ref{al:4.5}, $\textint{}{} \uD f(y)(v) \ud \|\psi_\# V'\| y = 0$ for $f \in
+    \dspace{Y}{\R}$ and $v \in \R^m$, so all distributional partial derivatives of the Radon
+    measure $\|\psi_\# V'\|$ vanish. By the constancy theorem for
+    distributions~\cite[4.1.4]{Federer1969} there is $0 \le c_W < \infty$ with $\|\psi_\# V'\| =
+    c_W \LM^m \restrict Y$. Inverting the formula for $\|\psi_\# V'\|$ in the proof
+    of~\ref{al:4.5} and using the area formula~\cite[3.2.3, 3.2.5]{Federer1969} for~$\phi$, we
+    get $\|V'\| \restrict (W \cap M) = c_W \HM^m \restrict (W \cap M)$. Hence the function on~$M$ whose value at each
+    $x \in W \cap M$ is~$c_W$ is well defined and locally constant; since $M$ is connected,
+    it is constant, equal to~$c$. Thus $\|V'\| = c \HM^m \restrict M$ and $V = c \, \var{}(M)$,
+    because $\Tan^m(\HM^m \restrict M, x) = \Tan(M,x)$ for $x \in M$.
+\end{proof}
+
+\begin{remark}
+    \label{rem:4.6(3)}
+    Allard's hypothesis reads ``$\delta V(g) = 0$ whenever $g \in \VF(U)$ and $\Tan(M,g) = 0$''.
+    This is a misprint for $\Nor(M,g) = 0$: if $M = \R^m \times \{0\} \subseteq \R^{\adim}$ and $f$
+    is a nonconstant positive smooth function on~$M$, then $V = \var{}(M) \restrict (f \circ
+    \pi)$ satisfies $\delta V(g) = \textint{M}{} f(x) \textsum{i=1}{m} \partial_i g_i(x) \ud \HM^m
+    x = 0$ for all~$g$ with $\Tan(M,g) = 0$, but $V$ is not a constant multiple of $\var{}(M)$.
+    Moreover Allard cites~\cite[4.1.7]{Federer1969} for the constancy theorem for distributions;
+    that is~\cite[4.1.4]{Federer1969}, while~\cite[4.1.7]{Federer1969} contains the constancy theorem
+    for currents.
+\end{remark}
+
+\begin{theorem}[{\cite[4.7]{Allard1972}}]
+    \label{al:4.7}
+    Suppose $E \subseteq M$. For $b \in M$ let $N(M;E,b)$ be the set of $u \in \sphere{\adim-1}
+    \cap \Tan(M,b)$ with
+    \begin{displaymath}
+        \density^m(\HM^m \restrict M \cap \{ x : (x-b) \bullet u > 0 \} \cap E, b) = 0 \,, \qquad
+        \density^m(\HM^m \restrict M \cap \{ x : (x-b) \bullet u < 0 \} \without E, b) = 0 \,,
+    \end{displaymath}
+    let $n(M;E,b)$ be the unique member of $N(M;E,b)$ if this set is nonempty and $0$ otherwise,
+    and let $Q = M \cap \{ x : \density^m(\HM^m \restrict (M \without E), x) = 0 \}$ and $R = M
+    \cap \{ x : \density^m(\HM^m \restrict (M \cap E), x) = 0 \}$. If $\HM^{m-1}(K \without (Q
+    \cup R)) < \infty$ for every compact $K \subseteq M$, then $\var{}(E) \in \Var{m}(M)$, the set
+    $\{ b : n(M;E,b) \ne 0 \}$ is $\HM^{m-1}$ measurable and meets every compact subset of~$M$ in
+    an $(\HM^{m-1},m-1)$ rectifiable set, and
+    \begin{displaymath}
+        \delta \var{}(E)(g) = \textint{}{} g(b) \bullet n(M;E,b) \ud \HM^{m-1} b \quad \text{for $g
+        \in \VF(M)$} \,;
+    \end{displaymath}
+    in particular $\|\delta \var{}(E)\| = \|\delta \var{}(E)\|_{\mathrm{sing}} = \HM^{m-1} \restrict
+    \{ b : n(M;E,b) \ne 0 \}$.
+\end{theorem}
+
+\begin{proof}[Outline]
+    That $N(M;E,b)$ has at most one element follows from the two density conditions: if $u \ne
+    u'$ both belong to it, the half spaces determined by $u$ and~$u'$ overlap in a cone of
+    positive $\HM^m \restrict M$ density at~$b$ in which both $E$ and $M \without E$ have density
+    zero. In a chart $(W,\psi,\phi)$ the hypothesis says that $\psi[E \cap W]$ has measure
+    theoretic boundary of locally finite $\HM^{m-1}$ measure, hence locally finite
+    perimeter~\cite[4.5.11]{Federer1969}, and the Gauss--Green theorem~\cite[4.5.6]{Federer1969}
+    with the exterior normal of~\cite[4.5.5]{Federer1969} and~\cite[4.5.12]{Federer1969}, transported
+    by~\ref{al:4.5}, yields the formula. These items of~\cite[4.5]{Federer1969} lie beyond the
+    formalised part of Federer's book.
+    % UNVERIFIED: the precise contents of Federer 4.5.5, 4.5.11, 4.5.12 (beyond the extracted range).
+\end{proof}
+
+\begin{example}[{\cite[4.8(1)--(4)]{Allard1972}}]
+    \label{al:4.8}
+    \begin{enumerate}
+        \item If $E$ is an $m$~dimensional simplicial complex in $\R^{\adim}$ with $m$~dimensional
+            faces $E_1, \ldots, E_l$ lying in planes $\im T_1, \ldots, \im T_l$, then by~\ref{al:4.4}
+            and~\ref{al:4.7}, $\delta \var{}(E)(g) = \textint{}{} g(b) \bullet \textsum{j=1}{l}
+            n(\im T_j; E_j, b) \ud \HM^{m-1} b$ for $g \in \VF(\R^{\adim})$.
+        \item If $T \in \pgrass{\adim}{\vdim}$, $\vdim < \adim$, and $V(A) = \LM^{\adim}(\{ x : (x,T)
+            \in A \})$ for $A \subseteq \Gk{\R^{\adim}}$, then $V \in \Var{\vdim}(\R^{\adim})$, $\delta
+            V(g) = (\textint{}{} \uD g \ud \LM^{\adim}) \bullet T = 0$ for $g \in \VF(\R^{\adim})$, and
+            $\|V\| = \LM^{\adim}$, so $\density^{\vdim}(\|V\|,a) = 0$ for $a \in \R^{\adim}$.
+        \item If $\vdim \ge 1$, $(a,T) \in \Gk{\R^{\adim}}$ and $V$ is the Dirac measure at
+            $(a,T)$, then $\delta V(g) = \uD g(a) \bullet T$, and $\|\delta V\|(B) = \infty$ whenever
+            $a \in B$; thus $\|\delta V\|$ is not a Radon measure.
+        \item If $T$ is a $\vdim$~dimensional integral current of least mass with boundary~$B$
+            and $V(A) = \|T\|(\{ x : (x, \project{\{ v : v \wedge \vec T(x) = 0 \}}) \in A \})$, then
+            $V \in \IVar{\vdim}(\R^{\adim})$, $\|V\| = \|T\|$, and $\delta V(g) \le \textint{}{} |g(x)
+            \wedge \vec B(x)| \ud \|B\| x$ for $g \in \VF(\R^{\adim})$.
+    \end{enumerate}
+\end{example}
+
+\begin{proof}[Verification of (b) and (c)]
+    In~(b), $\textint{}{} \uD g \ud \LM^{\adim} = 0$ by Fubini's theorem~\cite[2.6.2]{Federer1969}
+    and the fundamental theorem of calculus, and $\HM^{\adim} = \LM^{\adim}$ on~$\R^{\adim}$;
+    $\density^{\vdim}(\LM^{\adim},a) = \lim_{r \to 0+} \unitmeasure{\adim} r^{\adim} /
+    (\unitmeasure{\vdim} r^{\vdim}) = 0$ for $\vdim < \adim$. In~(c), $\delta V(g) = \uD g(a)
+    \bullet T$ by~\ref{al:4.2:lem}. Choose a unit vector $e \in \im T$, $\zeta \in
+    \dspace{\R^{\adim}}{\R}$ with $|\zeta| \le 1$ and $\uD \zeta(0)(e) = 1$, and set $g_\lambda(x)
+    = \zeta(\lambda(x-a)) e$. Then $|g_\lambda| \le 1$, $\spt g_\lambda \to \{a\}$, and $\delta
+    V(g_\lambda) = \lambda \uD \zeta(0)(T(e)) = \lambda \to \infty$ by~\ref{al:2.3(1)}\eqref{eq:2.3:4}.
+\end{proof}
+
+\begin{remark}
+    \label{rem:4.8}
+    Example~(b) shows that the density hypothesis in the rectifiability theorem~\ref{al:5.5(1)}
+    cannot be dropped. Example~(d) uses integral currents~\cite[4.2]{Federer1969}, which lie beyond the
+    formalised range, and the homotopy formula~\cite[4.1.9]{Federer1969}, which lies within it.
+    The example is not needed in sections~\ref{sec:prelim}--\ref{sec:rectifiability}.
+\end{remark}
+
+\begin{definition}[{\cite[4.9]{Allard1972}}]
+    \label{al:4.9}
+    Suppose $\Phi$ is a smooth positive function on~$M$ and $V \in \Var{\vdim}(M)$. The first
+    variation of~$V$ with respect to~$\Phi$ is
+    \begin{displaymath}
+        \delta(V,\Phi)(g) = \textint{}{} (\uD g(x) \circ S) \bullet S \, \Phi(x) \ud V(x,S) +
+        \textint{}{} g(x) \bullet \grad \Phi(x) \ud \|V\| x \quad \text{for $g \in \VF(M)$} \,,
+    \end{displaymath}
+    and $V_\Phi = V \restrict (\Phi \circ \pi) \in \Var{\vdim}(M)$.
+\end{definition}
+
+\begin{lemma}[{\cite[4.9(1)(2)]{Allard1972}}]
+    \label{al:4.9(1)}
+    Under the hypotheses of~\ref{al:4.1} and~\ref{al:4.9}, with $\|V\|(G) < \infty$,
+    \begin{gather*}
+        \frac{\ud}{\ud t} \textint{\Gk{M} \cap \{ (x,S) : x \in G \}}{} \Phi(x) \ud (h_{t \#}
+        V)(x,S) \Big|_{t=0} = \delta(V,\Phi)(\dot h_0) \,, \\
+        \delta V_\Phi(g) = \delta(V,\Phi)(g) - \textint{}{} g(x) \bullet \grad \Phi(x) \ud \|V\| x
+        \quad \text{for $g \in \VF(M)$} \,.
+    \end{gather*}
+\end{lemma}
+
+\begin{proof}
+    The second formula is the definition of~$\delta(V,\Phi)$. For the first, \ref{al:3.2(1)} gives
+    the integral $\textint{\pi^{-1}[G]}{} \Phi(h_t(x)) |\extpower{\vdim}(\uD h_t(x) \circ S)| \ud
+    V(x,S)$ for small~$|t|$, and $\partial_t \Phi(h_t(x)) |_{t=0} = \dot h_0(x) \bullet \grad
+    \Phi(x)$; the proof of~\ref{al:4.1} applies with the product rule.
+\end{proof}
+
+\begin{lemma}[{\cite[4.10(1)]{Allard1972}}]
+    \label{al:4.10(1)}
+    Suppose $W$ is an open subset of~$\R^{\adim}$, $V \in \Var{\vdim}(W)$, $\|\delta V\|$ is a
+    Radon measure on~$W$, $r \in \R$, $f : W \to \R$ is continuous, $g \in \VF(W)$, and $f$ is
+    smooth on a neighbourhood of $\spt \|V\| \cap \{ x : f(x) = r \} \cap \spt g$. Let $\chi$ be
+    the characteristic function of $\{ x : r < f(x) \}$. Then the limit below exists and
+    \begin{displaymath}
+        \delta V(\chi g) = \delta(V \restrict \{ (x,S) : r < f(x) \})(g) + \lim_{h \to 0+} h^{-1}
+        \textint{\{ (x,S) : r < f(x) < r+h \}}{} S(g(x)) \bullet \grad f(x) \ud V(x,S) \,,
+    \end{displaymath}
+    where $\delta V(\chi g)$ is defined by~\ref{al:4.3}\eqref{eq:4.3:2}.
+\end{lemma}
+
+\begin{proof}
+    Since $\spt g$ is compact, there are $\delta > 0$ and an open set~$O$ on which $f$ is smooth
+    with $\spt \|V\| \cap \spt g \cap \{ x : |f(x) - r| \le \delta \} \subseteq O$. Suppose
+    $\varphi : \R \to \R$ is smooth, $\varphi(s) = 0$ for $s \le r - \delta/2$ and $\varphi(s) =
+    1$ for $s \ge r + \delta/2$. The field $(\varphi \circ f) g$ is of class~$\infty$ on a
+    neighbourhood of $\spt \|V\| \cap \spt g$; modifying it away from $\spt \|V\|$ by a cut-off,
+    which does not change $\delta V$ because $\spt \|\delta V\| \subseteq \spt \|V\|$
+    by the proof of~\ref{al:4.6(1)}, and using~\ref{al:2.3(1)}\eqref{eq:2.3:4}, we obtain
+    \begin{displaymath}
+        \delta V((\varphi \circ f) g) = \textint{}{} \varphi(f(x)) \uD g(x) \bullet S \ud V(x,S) +
+        \textint{}{} \varphi'(f(x)) \, S(g(x)) \bullet \grad f(x) \ud V(x,S) \,.
+    \end{displaymath}
+    For $0 < h < \delta/2$ let $\gamma_h(s) = 0$ for $s \le r$, $\gamma_h(s) = (s-r)/h$ for $r <
+    s < r + h$, and $\gamma_h(s) = 1$ for $s \ge r + h$. Approximating $\gamma_h$ by such
+    $\varphi$ with $\varphi \to \gamma_h$ uniformly and $\varphi' \to \gamma_h'$ boundedly off $\{
+    r, r+h \}$, and using~\eqref{eq:4.3:2} on the left, we get the same identity with $\varphi =
+    \gamma_h$, where the last integral is $h^{-1} \textint{\{ r < f < r+h \}}{} S(g(x)) \bullet
+    \grad f(x) \ud V(x,S)$; the sets $\{ f = r \}$ and $\{ f = r + h \}$ are handled by the
+    choice of approximations from the appropriate side. As $h \to 0+$, $\gamma_h \circ f \to
+    \chi$ pointwise and boundedly, so the left side tends to $\delta V(\chi g)$ and the first
+    integral tends to $\delta(V \restrict \{ (x,S) : r < f(x) \})(g)$ by Lebesgue's bounded
+    convergence theorem~\cite[2.4.9]{Federer1969}. Hence the last term converges, and the
+    identity holds.
+\end{proof}
+
+\begin{theorem}[{\cite[4.10(2)]{Allard1972}}]
+    \label{al:4.10(2)}
+    Suppose $W$ is an open subset of~$\R^{\adim}$, $V \in \Var{\vdim}(W)$, $\|\delta V\|$ is a
+    Radon measure on~$W$, $-\infty < a < b < \infty$, $f : W \to \R$ is continuous, and $f$ is
+    smooth on a neighbourhood of $\spt \|V\| \cap \{ x : a \le f(x) \le b \}$. Then for $\LM^1$
+    almost all $r$ with $a < r < b$, $\|\delta(V \restrict \{ (x,S) : r < f(x) \})\|$ is a Radon
+    measure on~$W$, and
+    \begin{multline*}
+        \textint{a}{b} \|\delta(V \restrict \{ (x,S) : r < f(x) \})\|(B) \ud \LM^1 r \le
+        \textint{(B \cap \{ x : a < f(x) < b \}) \times \pgrass{\adim}{\vdim}}{} |S(\grad f(x))| \ud
+        V(x,S) \\ + \textint{a}{b} \|\delta V\|(B \cap \{ x : r < f(x) \}) \ud \LM^1 r
+    \end{multline*}
+    whenever $B$ is a Borel subset of~$W$, the first integral being an upper integral.
+\end{theorem}
+
+\begin{proof}
+    For $a < r < b$ let $\mu_r$ be the Radon measure on~$W$ such that
+    \begin{displaymath}
+        \mu_r(A) = \textint{\pi^{-1}[A] \cap \{ (x,S) : a < f(x) \le r \}}{} |S(\grad f(x))| \ud
+        V(x,S) \quad \text{for $A \subseteq W$} \,,
+    \end{displaymath}
+    and $\mu_r = \mu_a = 0$ for $r \le a$, $\mu_r = \mu_{b'}$ for $r \ge b'$ with fixed $b' < b$. The
+    family is nondecreasing, so by~\ref{al:2.6(3)} the derivative $\mu'(r)$ exists for $\LM^1$
+    almost all~$r$. At such $r \in (a,b')$, for $g \in \VF(W)$ we have $|S(g(x)) \bullet \grad
+    f(x)| \le |g(x)| \, |S(\grad f(x))|$, hence the limit in~\ref{al:4.10(1)} is bounded by
+    $\mu'(r)(|g|)$, and
+    \begin{displaymath}
+        |\delta(V \restrict \{ (x,S) : r < f(x) \})(g)| \le \textint{\{ x : r < f(x) \}}{} |g| \ud
+        \|\delta V\| + \mu'(r)(|g|) \,.
+    \end{displaymath}
+    Thus $\|\delta(V \restrict \{ (x,S) : r < f(x) \})\| \le \|\delta V\| \restrict \{ x : r <
+    f(x) \} + \mu'(r)$ on open sets, hence on all sets, and it is a Radon measure. For $0 \le
+    \varphi \in \ccspace{W}$, $\textint{a}{b'} \mu'(r)(\varphi) \ud \LM^1 r \le \mu_{b'}(\varphi) -
+    \mu_a(\varphi)$ by~\cite[2.9.19, 2.9.20]{Federer1969}; monotone approximation of
+    characteristic functions of open sets and outer regularity extend this to Borel sets~$B$.
+    Letting $b' \to b-$ proves the inequality.
+\end{proof}
+
+\begin{remark}
+    \label{rem:4.10}
+    Allard concludes that $\|\delta(V \restrict \{ (x,S) : r < f(x) \})\|$ is a Radon measure on
+    ``$U$''; the correct space is~$W$. The hypothesis on~$f$ is stated by Allard for $\{ x : a <
+    f(x) < b \}$; the argument uses smoothness near the level sets $\{ f = r \}$ for $a < r < b$
+    only, so either reading suffices for almost all $r \in (a,b)$.
+\end{remark}
+
+\begin{remark}[{\cite[4.11]{Allard1972}}]
+    \label{al:4.11}
+    If $W$ is an open subset of~$\R^{\adim}$ and $\lim_{i \to \infty} V_i = V$ in $\Var{\vdim}(W)$,
+    then $\|\delta V\|(G) \le \liminf_{i \to \infty} \|\delta V_i\|(G)$ for open $G \subseteq W$.
+    Indeed, $[(x,S) \mapsto \uD g(x) \bullet S] \in \ccspace{\Gk{W}}$ for $g \in \VF(W)$, so
+    $\delta V(g) = \lim_{i \to \infty} \delta V_i(g) \le \liminf_{i \to \infty} \|\delta V_i\|(G)$
+    whenever $\spt g \subseteq G$ and $|g| \le 1$.
+\end{remark}
+
+\begin{lemma}[{\cite[4.12(1)(2)]{Allard1972}}]
+    \label{al:4.12}
+    Suppose $\vdim \ge 1$ and $V \in \Var{\vdim}(\R^{\adim})$. Then $\|\delta(\scale{r \#} V)\| =
+    r^{\vdim-1} \scale{r \#} \|\delta V\|$ and $\|\delta(\trans{a \#} V)\| = \trans{a \#} \|\delta
+    V\|$ for $0 < r < \infty$ and $a \in \R^{\adim}$. If $\density^{\vdim-1}(\|\delta V\|,a) = 0$,
+    then every member of $\VarTan(V,a)$ is stationary.
+\end{lemma}
+
+\begin{proof}
+    By~\ref{al:3.2(2)} and~\ref{al:4.2:lem}, $\delta(\scale{r \#} V)(g) = r^{\vdim} \textint{}{} \uD
+    g(r x) \bullet S \ud V(x,S) = r^{\vdim-1} \delta V(g \circ \scale{r})$ for $g \in
+    \VF(\R^{\adim})$; taking suprema over $g$ with $|g| \le 1$ and $\spt g \subseteq G$ gives
+    $\|\delta(\scale{r \#} V)\|(G) = r^{\vdim-1} \|\delta V\|(\scale{r}^{-1}[G])$ for open~$G$.
+    Translations are treated in the same way. Suppose $\density^{\vdim-1}(\|\delta V\|,a) = 0$,
+    $C \in \VarTan(V,a)$ and $W_{r_i} \to C$ as in the proof of~\ref{al:3.4(1)}, here with $M =
+    \R^{\adim}$ and $W_r = (\scale{r} \circ \trans{-a})_\# V$. For $0 < R < \infty$,
+    \begin{displaymath}
+        \|\delta W_{r_i}\|(\oball{0}{R}) = r_i^{\vdim-1} \|\delta V\|(\oball{a}{R/r_i}) \to 0
+        \quad \text{as $i \to \infty$} \,,
+    \end{displaymath}
+    and~\ref{al:4.11} gives $\|\delta C\|(\oball{0}{R}) = 0$.
+\end{proof}
+
+\section{Radial deformations and the rectifiability theorem}
+\label{sec:rectifiability}
+
+\begin{miniremark}
+    \label{mr:sec5}
+    This section follows~\cite[section~5]{Allard1972}. The monotonicity identity~\ref{al:5.1(1)}
+    is obtained by testing the first variation with radial vector fields. It yields upper
+    semicontinuity and existence of the density, the structure of stationary cones
+    (\ref{al:5.2(2)}, \ref{al:5.3}), lower semicontinuity of densities under weak convergence
+    (\ref{al:5.4}), the rectifiability theorem~\ref{al:5.5(1)} and the compactness theorem for
+    rectifiable varifolds~\ref{al:5.6}. Throughout this section $U$ is an open subset
+    of~$\R^{\adim}$, $M = U$, and $\vdim \ge 1$. Allard motivates~\ref{al:5.1(1)}
+    by~\cite[5.4.3]{Federer1969}, which lies beyond the formalised range and is not used. None of
+    the entries of this section is on the Michael--Simon path.
+\end{miniremark}
+
+\begin{definition}[{\cite[5.1]{Allard1972}}]
+    \label{al:5.1}
+    Suppose $V \in \Var{\vdim}(U)$, $\|\delta V\|$ is a Radon measure on~$U$, $a \in U$ and
+    $\dist(a, \spt \|V\|) < t < \dist(a, \R^{\adim} \without U)$. Let $\kappa(V,a,t)(x) = (t
+    \|V\| \cball{a}{t})^{-1} (x - a)$ for $x \in \cball{a}{t}$ and $\kappa(V,a,t)(x) = 0$ for $x \in
+    U \without \cball{a}{t}$; $\delta V(\kappa(V,a,t))$ is defined by~\ref{al:4.3}\eqref{eq:4.3:2}.
+\end{definition}
+
+\begin{theorem}[{\cite[5.1(1)]{Allard1972}}]
+    \label{al:5.1(1)}
+    Suppose $V \in \Var{\vdim}(U)$, $\|\delta V\|$ is a Radon measure on~$U$, $a \in U$, and
+    $\dist(a, \spt \|V\|) < r < s < \dist(a, \R^{\adim} \without U)$. Then, with $E(\rho) =
+    \exp \textint{r}{\rho} \delta V(\kappa(V,a,t)) \ud \LM^1 t$ for $r \le \rho \le s$,
+    \begin{displaymath}
+        s^{-\vdim} \|V\| \cball{a}{s} \, E(s) - r^{-\vdim} \|V\| \cball{a}{r} =
+        \textint{\{ (x,S) : r < |x-a| \le s \}}{} |x-a|^{-\vdim-2} |S^\perp(x-a)|^2 E(|x-a|) \ud
+        V(x,S) \,.
+    \end{displaymath}
+\end{theorem}
+
+\begin{proof}
+    Assume $a = 0$ and let $I = \R \cap \{ t : t < \dist(0, \R^{\adim} \without U) \}$. For
+    $(x,S) \in \Gk{U}$ let $A(x,S) = |x|^{-1} |S(x)|^2$ and $B(x,S) = |x|^{-1} |S^\perp(x)|^2$ if
+    $x \ne 0$, and $A(x,S) = B(x,S) = 0$ if $x = 0$; then $A(x,S) + B(x,S) = |x|$
+    by~\ref{al:2.3(1)}\eqref{eq:2.3:2}. For $t \in I$ with $t > 0$ let
+    \begin{displaymath}
+        \mu(t) = \|V\| \cball{0}{t} \,, \qquad \nu(t) = \textint{\cball{0}{t}}{} x \bullet \eta(V;x)
+        \ud \|\delta V\| x \,, \qquad \xi(t) = \textint{\cball{0}{t} \times \pgrass{\adim}{\vdim}}{}
+        B \ud V \,,
+    \end{displaymath}
+    and $\mu(t) = \nu(t) = \xi(t) = 0$ for $t \le 0$. These functions are continuous from the
+    right and of bounded variation on compact subintervals of~$I$; $\nu(t) = t \|V\|
+    \cball{0}{t} \, \delta V(\kappa(V,0,t))$ whenever $\kappa(V,0,t)$ is defined. For $\theta \in
+    \dspace{I}{\R}$ let $g_\theta(x) = \theta(|x|) x$ and
+    \begin{displaymath}
+        \Psi(\theta) = \textint{}{} \theta(t) (\nu(t) - \vdim \mu(t)) \ud \LM^1 t + \textint{}{}
+        \theta(t) t \ud \mu(t) - \textint{}{} \theta(t) \ud \xi(t) \,,
+    \end{displaymath}
+    with Riemann--Stieltjes integrals as in~\cite[2.5.17]{Federer1969}. If $0 \notin \spt
+    \theta'$, then $g_\theta \in \VF(U)$, $\uD g_\theta(x) = \theta(|x|) \id{\R^{\adim}} +
+    \theta'(|x|) \, \uD|\cdot|(x) \cdot x$ for $x \ne 0$, and
+    \ref{al:2.3(1)}\eqref{eq:2.3:3}\eqref{eq:2.3:4}\eqref{eq:2.3:2} give $\uD g_\theta(x) \bullet
+    S = \theta'(|x|) A(x,S) + \vdim \theta(|x|)$; hence, by~\ref{al:4.2:lem}
+    and~\ref{al:4.3}\eqref{eq:4.3:2},
+    \begin{equation}
+        \label{eq:5.1:a}
+        \textint{}{} \big( \theta'(|x|) A(x,S) + \vdim \theta(|x|) \big) \ud V(x,S) = \delta
+        V(g_\theta) = \textint{}{} \theta(|x|) \, x \bullet \eta(V;x) \ud \|\delta V\| x \,.
+    \end{equation}
+    For general $\theta \in \dspace{I}{\R}$ and $\epsilon > 0$ there are $\theta_\epsilon \in
+    \dspace{I}{\R}$ with $\spt \theta_\epsilon \subseteq \spt \theta$, $0 \notin \spt
+    \theta_\epsilon'$, $|\theta_\epsilon - \theta| \le \epsilon$ and $|\theta_\epsilon'(t) -
+    \theta'(t)| \, |t| \le \epsilon$ on~$I$; since $A(x,S) \le |x|$, \eqref{eq:5.1:a} follows for
+    all~$\theta$ by passing to the limit. Using $A = |x| - B$, \eqref{eq:5.1:a} reads
+    \begin{displaymath}
+        \textint{}{} (\theta'(t) t + \vdim \theta(t)) \ud \mu(t) - \textint{}{} \theta'(t) \ud
+        \xi(t) = \textint{}{} \theta(t) \ud \nu(t) \,,
+    \end{displaymath}
+    and integration by parts~\cite[2.5.17]{Federer1969} turns it into $\Psi(\theta') = 0$. By the
+    constancy theorem for distributions~\cite[4.1.4]{Federer1969} on the interval~$I$, there is
+    $c \in \R$ with $\Psi(\theta) = c \textint{}{} \theta \ud \LM^1$; since $\Psi(\theta) = 0$
+    whenever $\spt \theta \subseteq \{ t : t < 0 \}$, $c = 0$.
+
+    Since $\mu$, $\nu$, $\xi$ are continuous from the right, approximation of $\CF{(r,s]} f$ by
+    members of $\dspace{I}{\R}$ yields
+    \begin{displaymath}
+        0 = \textint{r}{s} f (\nu - \vdim \mu) \ud \LM^1 + f(s) s \mu(s) - f(r) r \mu(r) -
+        \textint{r}{s} (f(t) t)' \mu(t) \ud \LM^1 t - \textint{(r,s]}{} f \ud \xi
+    \end{displaymath}
+    for every absolutely continuous $f : \{ t : r \le t \le s \} \to \R$. Now $\mu(t) \ge \mu(r) >
+    0$ for $r \le t \le s$, because $r > \dist(0,\spt \|V\|)$, and $|\nu(t)| \le t \|\delta
+    V\| \cball{0}{s}$; so $f(t) = t^{-\vdim-1} E(t)$, where $E(t) = \exp \textint{r}{t} \nu(z)
+    (z \mu(z))^{-1} \ud \LM^1 z$ agrees with the function in the statement, is absolutely
+    continuous, and $(f(t) t)' \mu(t) = f(t) (\nu(t) - \vdim \mu(t))$ for $\LM^1$ almost all~$t$.
+    Hence $f(s) s \mu(s) - f(r) r \mu(r) = \textint{(r,s]}{} f \ud \xi$, which is the assertion,
+    since $\textint{(r,s]}{} f \ud \xi = \textint{\{ (x,S) : r < |x| \le s \}}{} f(|x|) B(x,S) \ud
+    V(x,S)$.
+\end{proof}
+
+\begin{corollary}[{\cite[5.1(2)]{Allard1972}}]
+    \label{al:5.1(2)}
+    Suppose $V \in \Var{\vdim}(U)$ is stationary, $a \in U$ and $0 < r < \dist(a, \R^{\adim}
+    \without U)$. Then $\density^{\vdim}(\|V\|,a)$ exists, $[t \mapsto t^{-\vdim} \|V\|
+    \cball{a}{t}]$ is nondecreasing on $\{ t : 0 < t < \dist(a, \R^{\adim} \without U) \}$, and
+    \begin{displaymath}
+        r^{-\vdim} \|V\| \cball{a}{r} - \density^{\vdim}(\|V\|,a) \unitmeasure{\vdim} =
+        \textint{\cball{a}{r} \times \pgrass{\adim}{\vdim}}{} |x-a|^{-\vdim-2} |S^\perp(x-a)|^2 \ud
+        V(x,S) \,,
+    \end{displaymath}
+    where the integrand is~$0$ for $x = a$. In particular $\density^{\vdim}(\|V\|,\cdot)$ is upper
+    semicontinuous on~$U$.
+\end{corollary}
+
+\begin{proof}
+    Since $\delta V = 0$, $\nu = 0$ in the proof of~\ref{al:5.1(1)}, and the choice $f(t) =
+    t^{-\vdim-1}$ is admissible for all $0 < r < s < \dist(a, \R^{\adim} \without U)$, also when
+    $\mu(r) = 0$. Hence $s^{-\vdim} \mu(s) - r^{-\vdim} \mu(r)$ equals the integral over $\{ r <
+    |x-a| \le s \}$, which is nonnegative. Letting $r \to 0+$ and using Lebesgue's increasing
+    convergence theorem~\cite[2.4.7]{Federer1969} gives existence of the limit and the formula.
+    Finally $\density^{\vdim}(\|V\|,x) = \inf \{ \unitmeasure{\vdim}^{-1} t^{-\vdim} \|V\|
+    \cball{x}{t} : 0 < t < \dist(x, \R^{\adim} \without U) \}$ is an infimum of upper
+    semicontinuous functions of~$x$, locally.
+\end{proof}
+
+\begin{corollary}[{\cite[5.1(3)]{Allard1972}}]
+    \label{al:5.1(3)}
+    Suppose $V \in \Var{\vdim}(U)$, $\|\delta V\|$ is a Radon measure on~$U$, $0 \le \Lambda <
+    \infty$, $a \in \spt \|V\|$, $0 < R < \dist(a, \R^{\adim} \without U)$, and $\|\delta V\|
+    \cball{a}{r} \le \Lambda \|V\| \cball{a}{r}$ for $0 < r < R$. Then $[r \mapsto r^{-\vdim}
+    \|V\| \cball{a}{r} \exp(\Lambda r)]$ is nondecreasing on $\{ r : 0 < r < R \}$, and
+    $\density^{\vdim}(\|V\|,a) \in \R$.
+\end{corollary}
+
+\begin{proof}
+    Since $|x - a| \le t$ on $\cball{a}{t}$, \ref{al:4.3}\eqref{eq:4.3:2} gives $|\delta
+    V(\kappa(V,a,t))| \le \|\delta V\| \cball{a}{t} / \|V\| \cball{a}{t} \le \Lambda$, hence
+    $\textint{r}{s} \delta V(\kappa(V,a,t)) \ud \LM^1 t \le \Lambda (s - r)$ for $0 < r < s < R$;
+    here $\dist(a, \spt \|V\|) = 0$. The right side of~\ref{al:5.1(1)} is nonnegative, so
+    $s^{-\vdim} \|V\| \cball{a}{s} \exp(\Lambda(s-r)) \ge r^{-\vdim} \|V\| \cball{a}{r}$.
+    Multiplying by $\exp(\Lambda r)$ gives the monotonicity; a nondecreasing nonnegative function
+    has a finite limit at $0+$, and $\exp(\Lambda r) \to 1$.
+\end{proof}
+
+\begin{corollary}[{\cite[5.1(4)]{Allard1972}}]
+    \label{al:5.1(4)}
+    If $V \in \Var{\vdim}(U)$ and $\|\delta V\|$ is a Radon measure on~$U$, then
+    $\density^{\vdim}(\|V\|,x)$ exists in~$\R$ for $\|V\|$ almost all $x \in U$, and
+    $\density^{\vdim}(\|V\|,\cdot)$ is $\|V\|$ measurable.
+\end{corollary}
+
+\begin{proof}
+    By~\ref{al:4.3}, $\|\delta V\| / \|V\|(x) < \infty$ for $\|V\|$ almost all~$x$; at such $x
+    \in \spt \|V\|$ the hypothesis of~\ref{al:5.1(3)} holds with $\Lambda = \|\delta V\| /
+    \|V\|(x) + 1$ and small~$R$, and $\|V\|(U \without \spt \|V\|) = 0$. The functions $[x \mapsto
+    t^{-\vdim} \|V\| \cball{x}{t}]$ are upper semicontinuous, and the density is their limit along
+    rational $t \to 0+$, since $[t \mapsto \|V\| \cball{x}{t}]$ is continuous from the right.
+\end{proof}
+
+\begin{lemma}[{\cite[5.2(1)]{Allard1972}}]
+    \label{al:5.2(1)}
+    Suppose $\vdim \ge 2$, $i : \sphere{\adim-1} \to \R^{\adim}$ is the inclusion map, $B \in
+    \Var{\vdim-1}(\sphere{\adim-1})$, and $B$ is stationary. Then $\textint{}{} x \ud \|i_\# B\| x
+    = 0$.
+\end{lemma}
+
+\begin{proof}
+    For $x \in \sphere{\adim-1}$, $\Tan(\sphere{\adim-1},x) = \R^{\adim} \cap \{ v : v \bullet x =
+    0 \}$, and $g_0 = [x \mapsto x]$ restricted to $\sphere{\adim-1}$ is a normal field with $\uD
+    g_0(x) = \id{}|\Tan(\sphere{\adim-1},x)$; \ref{al:2.5(1)}(c) gives $h(\sphere{\adim-1};x,T) = -
+    (\vdim-1) x$ for $(x,T) \in \Gk[\vdim-1]{\sphere{\adim-1}}$, as $- x \bullet h = \trace T =
+    \vdim - 1$ and $h$ is normal. For $u \in \R^{\adim}$ choose $g \in \VF(\R^{\adim})$ with $g(x) = u$
+    near $\sphere{\adim-1}$. Then $\delta(i_\# B)(g) = 0$ because $\uD g$ vanishes near
+    $\sphere{\adim-1}$, $\delta B = 0$, and~\ref{al:4.4} yields $0 = (\vdim - 1) \textint{}{} u
+    \bullet x \ud \|i_\# B\| x$.
+\end{proof}
+
+\begin{theorem}[{\cite[5.2(2)]{Allard1972}}]
+    \label{al:5.2(2)}
+    Suppose $0 < R < \infty$, $C \in \Var{\vdim}(\oball{0}{R})$ is stationary, $0 \in \spt
+    \|C\|$, and $\|C\| \oball{0}{R} \le \density^{\vdim}(\|C\|,0) \unitmeasure{\vdim} R^{\vdim}$.
+    Then:
+    \begin{enumerate}
+        \item $x \in \im S$ for $C$ almost all $(x,S) \in \Gk{\oball{0}{R}}$;
+        \item $\|C\|(A) = \lambda^{-\vdim} \|C\|(\{ \lambda x : x \in A \})$ whenever $0 < \lambda <
+            1$ and $A \subseteq \oball{0}{R}$;
+        \item with $C'(r) = \lim_{h \to 0+} h^{-1} (C \restrict \{ (x,S) : r < |x| \le r + h
+            \})$, which exists for $\LM^1$ almost all $0 < r < R$ by~\ref{al:2.6(3)}, $C =
+            \textint{0}{R} C'(r) \ud \LM^1 r$;
+        \item if $C'(r) \in \Var{\vdim}(\oball{0}{R})$ and $B(r) \in
+            \Var{\vdim-1}(\sphere{\adim-1})$ is given by $B(r)(\beta) = r^{1-\vdim} \textint{}{}
+            \beta(r^{-1} x, S \cap \Tan(\sphere{\adim-1}, r^{-1} x)) \ud C'(r)(x,S)$, where $S \cap
+            \Tan(\sphere{\adim-1},r^{-1}x)$ denotes the projection onto $\im S \cap
+            \Tan(\sphere{\adim-1}, r^{-1} x)$, then $B(r)$ is stationary;
+        \item $\textint{}{} x \ud \|C\| x = 0$;
+        \item if $C'(r) \in \Var{\vdim}(\oball{0}{R})$, then $\density^{\vdim-1}(\|i_\#
+            B(r)\|,x) = \density^{\vdim}(\|C\|, r x)$ for $x \in \sphere{\adim-1}$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}[Proof of (a) and (b)]
+    By~\ref{al:5.1(2)}, $t^{-\vdim} \|C\| \cball{0}{t}$ is nondecreasing with limit
+    $\density^{\vdim}(\|C\|,0) \unitmeasure{\vdim}$ as $t \to 0+$ and with $\lim_{t \to R-}
+    t^{-\vdim} \|C\| \cball{0}{t} \le R^{-\vdim} \|C\| \oball{0}{R} \le
+    \density^{\vdim}(\|C\|,0) \unitmeasure{\vdim}$; hence it is constant, and the formula
+    of~\ref{al:5.1(2)} gives $S^\perp(x) = 0$, that is $x \in \im S$, for $C$ almost all $(x,S)$.
+
+    Suppose $f$ is a smooth nonnegative function on $\oball{0}{R} \without \{0\}$ with $f(\lambda
+    x) = f(x)$ for $0 < |x| < R$ and $0 < \lambda < 1$, $\theta \in \dspace{\{ r : 0 < r < R
+    \}}{\R}$, and $g(x) = \theta(|x|) x$. Then $\uD f(x)(x) = 0$, so $S(g(x)) \bullet \grad f(x) =
+    \theta(|x|) \uD f(x)(x) = 0$ for $C$ almost all $(x,S)$ by~(a), and~\ref{al:4.10(1)} applied in
+    $\oball{0}{R} \without \{0\}$ with level $r = 0$ gives $\delta(C \restrict \{ (x,S) : 0 < f(x)
+    \})(g) = \delta C(\chi g) = 0$. Let $\mu(t) = \|C \restrict \{ (x,S) : 0 < f(x) \}\|
+    \cball{0}{t}$. As in the proof of~\ref{al:5.1(1)}, with $\nu = 0$ and, by~(a), $\xi = 0$, the
+    distribution $\Psi(\theta) = \textint{}{} \theta(t) t \ud \mu(t) - \vdim \textint{}{}
+    \theta(t) \mu(t) \ud \LM^1 t$ on $\{ t : 0 < t < R \}$ has zero derivative; so there is $c$
+    with $t \ud \mu(t) - \vdim \mu(t) \ud t = c \ud t$, that is, $t^{-\vdim} \mu(t) = c_0 - c
+    \vdim^{-1} t^{-\vdim}$ for $0 < t < R$. Since $0 \le t^{-\vdim} \mu(t) \le t^{-\vdim} \|C\|
+    \cball{0}{t} \le R^{-\vdim} \|C\| \oball{0}{R}$, we get $c = 0$, hence $\mu(t) = c_f
+    t^{\vdim}$. Every open cone $\{ x : x \ne 0,\ x / |x| \in O \}$, $O$ open in
+    $\sphere{\adim-1}$, has the form $\{ x : f(x) > 0 \}$ for such~$f$, as every closed subset of
+    $\sphere{\adim-1}$ is the zero set of a smooth nonnegative function. The sets $\{ x : f(x) >
+    0,\ s < |x| \le t \}$ form a class closed under finite intersections which generates the Borel
+    subsets of $\oball{0}{R} \without \{0\}$, and on them both sides of~(b) agree; moreover
+    $\|C\|\{0\} \le \lim_{t \to 0+} \|C\| \cball{0}{t} = 0$. Two finite Borel measures which agree
+    on such a class agree on all Borel sets, and~(b) follows by Borel regularity.
+\end{proof}
+
+\begin{proof}[Outline of (c)--(f)]
+    By~(b), $C(A \cap \{ (x,S) : |x| < s \})$ is a Lipschitzian function of~$s$ for $A \subseteq
+    \oball{0}{R} \times \pgrass{\adim}{\vdim}$, and~(c) follows from~\ref{al:2.6(3)}. For~(d), if
+    $g \bullet x = 0$ on $\oball{0}{R}$, then~(a) and~\ref{al:4.10(1)} give $\delta(C \restrict \{
+    (x,S) : r < |x| \le r + h \})(g) = 0$, hence $\delta C'(r)(g) = 0$; since $\uD g(x)(x) \bullet
+    x = 0$, \ref{al:4.4} yields $\delta B(r) = 0$. Statement~(e) for $\vdim \ge 2$ follows from
+    $\|C'(r)\| = r^{\vdim-1} (\scale{r} \circ i)_\# \|B(r)\|$, (c) and~\ref{al:5.2(1)}; for $\vdim =
+    1$ one tests $\delta C$ with $g(x) = \theta(|x|) u$ and lets $\theta$ approximate $[r \mapsto
+    \log(r/R)]$. Statement~(f) follows from~(b), (c), (d) and~\ref{al:5.1(3)} by comparing
+    $\|C\| \cball{rx}{s}$ with integrals over spherical caps. These statements are not used in
+    the rest of sections~\ref{sec:prelim}--\ref{sec:rectifiability}.
+\end{proof}
+
+\begin{theorem}[{\cite[5.2(3)]{Allard1972}}]
+    \label{al:5.2(3)}
+    Suppose $\vdim \ge 1$ and $B$ is a measurable function on $\{ r : 0 < r < R \}$ with values in
+    $\Var{\vdim-1}(\sphere{\adim-1})$ such that $\|B(r)\|$ is almost constant, $B(r)$ is
+    stationary for almost all~$r$ if $\vdim \ge 2$, and $\textint{}{} x \ud \|i_\# B(r)\| x = 0$
+    for almost all~$r$ if $\vdim = 1$. Let
+    \begin{displaymath}
+        C(\alpha) = \textint{0}{R} r^{\vdim-1} \textint{}{} \alpha(r x, T \oplus \R x) \ud
+        (i_\# B(r))(x,T) \ud \LM^1 r \quad \text{for $\alpha \in \ccspace{\Gk{\oball{0}{R}}}$}
+        \,,
+    \end{displaymath}
+    where $T \oplus \R x$ denotes the projection onto $\im T + \R x$. Then $C \in
+    \Var{\vdim}(\oball{0}{R})$ and $C$ is stationary.
+\end{theorem}
+
+\begin{proof}[Outline]
+    Allard tests $\delta C$ first with fields $g$ satisfying $g(x) \bullet x = 0$, for which
+    $\uD g(x)(x) \bullet x = 0$ and stationarity of $B(r)$ applies, then with $g(x) = \theta(|x|)
+    f(x) x$ for homogeneous~$f$, for which the integral of $r^{\vdim-1} (\vdim \theta(r) + r
+    \theta'(r))$ vanishes, concludes $\|\delta C\|(\oball{0}{R} \without \{0\}) = 0$ by
+    approximation, and treats the origin with~\ref{al:4.10(1)}. The result is not used in the rest
+    of sections~\ref{sec:prelim}--\ref{sec:rectifiability}.
+\end{proof}
+
+\begin{theorem}[{\cite[5.3]{Allard1972}}]
+    \label{al:5.3}
+    Suppose $0 < R < \infty$, $C \in \Var{\vdim}(\oball{0}{R})$ is stationary, $0 \in \spt
+    \|C\|$, and
+    \begin{displaymath}
+        R^{-\vdim} \|C\| \oball{0}{R} \le \density^{\vdim}(\|C\|,x) \unitmeasure{\vdim} \quad
+        \text{for $\|C\|$ almost all $x \in \oball{0}{R}$} \,.
+    \end{displaymath}
+    Then there is $T \in \pgrass{\adim}{\vdim}$ with $C = \density^{\vdim}(\|C\|,0) \var{}(\im T
+    \cap \oball{0}{R})$.
+\end{theorem}
+
+\begin{proof}
+    Points at which the hypothesis holds are dense in $\spt \|C\|$, and $\density^{\vdim}(\|C\|,
+    \cdot)$ is upper semicontinuous by~\ref{al:5.1(2)}; hence $R^{-\vdim} \|C\| \oball{0}{R} \le
+    \density^{\vdim}(\|C\|,0) \unitmeasure{\vdim}$, and~\ref{al:5.2(2)} applies. Suppose $a \in
+    \oball{0}{R}$, $0 < r < R - |a|$ and $0 < \lambda < 1$. By~\ref{al:5.1(2)} at~$a$,
+    \ref{al:5.2(2)}(b), and~\ref{al:5.1(2)} at $\lambda a$,
+    \begin{displaymath}
+        \density^{\vdim}(\|C\|,a) \unitmeasure{\vdim} \le r^{-\vdim} \|C\| \cball{a}{r} = (\lambda
+        r)^{-\vdim} \|C\| \cball{\lambda a}{\lambda r} \le (R - \lambda|a|)^{-\vdim} \|C\|
+        \oball{0}{R} \,.
+    \end{displaymath}
+    Letting $\lambda \to 0+$ and using the hypothesis, for $\|C\|$ almost all~$a$ we get
+    $r^{-\vdim} \|C\| \cball{a}{r} = \density^{\vdim}(\|C\|,a) \unitmeasure{\vdim}$ for $0 < r <
+    R - |a|$, and then~\ref{al:5.1(2)} gives $x - a \in \im S$ for $C$ almost all $(x,S)$ with
+    $|x - a| < R - |a|$. The set of $((x,S),a)$ with $|x - a| < R - |a|$ and $x - a \notin \im S$
+    is a Borel set; by Fubini's theorem~\cite[2.6.2]{Federer1969}, for $C$ almost all $(x,S)$ we
+    have $x - a \in \im S$ for $\|C\|$ almost all $a \in U_x = \R^{\adim} \cap \{ a : |x - a| + |a|
+    < R \}$. Fix such $(x,S)$. The set $U_x$ is open, convex and contains~$0$; the restriction of
+    $C$ to $\Gk{U_x}$ is stationary and $\spt \|C\| \cap U_x \subseteq x + \im S$. By~\ref{al:4.6(3)}
+    with $M = (x + \im S) \cap U_x$, which is connected, $C$ restricted to $\Gk{U_x}$ equals $c
+    \var{}(M)$; since $0 \in \spt \|C\| \cap U_x$, $0 \in M$, so $x + \im S = \im S$ and $c =
+    \density^{\vdim}(\|C\|,0)$.
+
+    Fix one such $(x_0,T)$. For any other such $(x,S)$, the two descriptions agree on the
+    neighbourhood $U_x \cap U_{x_0}$ of~$0$, so $\im S = \im T$. The set of $y \in \im T \cap
+    \oball{0}{R}$ belonging to $\spt \|C\|$ is nonempty, closed, and open in $\im T \cap
+    \oball{0}{R}$, because for $y \in \spt \|C\|$ there are good points~$x$ with $|x - y| < R -
+    |y|$, whence $y \in U_x$; thus it is all of $\im T \cap \oball{0}{R}$, and the sets $U_x$
+    corresponding to good~$x$ cover $\im T \cap \oball{0}{R}$ as well as $\|C\|$ almost all of
+    $\oball{0}{R}$. Two Radon measures which agree on each member of a family of open sets agree on
+    its union; hence $C = \density^{\vdim}(\|C\|,0) \var{}(\im T \cap \oball{0}{R})$.
+\end{proof}
+
+\begin{lemma}[{\cite[5.4]{Allard1972}}]
+    \label{al:5.4}
+    Suppose $0 < d < \infty$, $V, V_1, V_2, \ldots \in \Var{\vdim}(U)$, $\lim_{i \to \infty} V_i
+    = V$, $\|\delta V_i\|$ is a Radon measure on~$U$ for each~$i$, $W$ is an open subset of~$U$,
+    $\liminf_{i \to \infty} \|\delta V_i\|(W) < \infty$, and
+    \begin{displaymath}
+        \liminf_{i \to \infty} \|V_i\|(W \cap \{ x : \density^{\vdim}(\|V_i\|,x) < d \}) = 0 \,.
+    \end{displaymath}
+    Then $\ldensity^{\vdim}(\|V\|,x) \ge d$ for $\|V\|$ almost all $x \in W$.
+\end{lemma}
+
+\begin{proof}
+    Passing to a subsequence we may assume $\|\delta V_i\|(W) \le \Lambda < \infty$ and $\|V_i\|(W
+    \without D_i) \to 0$, where $D_i = W \cap \{ x : \density^{\vdim}(\|V_i\|,x) \ge d \}$, the
+    density being defined $\|V_i\|$ almost everywhere by~\ref{al:5.1(4)}. Since $\|V_i\| \to
+    \|V\|$ (as in the proof of~\ref{al:3.4(1)}), the Radon measures $\mu_i = \|V_i\| \restrict
+    D_i$ on~$W$ converge to $\|V\| \restrict W$. Apply~\ref{al:2.7(2)} in~$W$ with these $\mu_i$
+    and $\nu_i = \|\delta V_i\| \restrict W$. For $\|V\|$ almost all $a \in W$ there is~$p$ such
+    that for every $0 < r < \dist(a, \R^{\adim} \without W)$ there are arbitrarily large~$i$ and
+    points $a_i \in D_i \cap A_{i,p}$ with $|a - a_i| < r$ and $|a - a_i| \to 0$ along these~$i$;
+    here $\|\delta V_i\| \cball{a_i}{t} \le p \|V_i\| \cball{a_i}{t}$ for $0 < t <
+    \dist(a_i, \R^{\adim} \without W)$, and $a_i \in \spt \|V_i\|$ because
+    $\density^{\vdim}(\|V_i\|,a_i) \ge d > 0$. By~\ref{al:5.1(3)} with $\Lambda = p$,
+    \begin{displaymath}
+        r^{-\vdim} \|V_i\| \cball{a}{r} \ge r^{-\vdim} \|V_i\| \cball{a_i}{r - |a - a_i|} \ge (1 - |a
+        - a_i|/r)^{\vdim} d \, \unitmeasure{\vdim} \exp(-p r) \,.
+    \end{displaymath}
+    By~\ref{al:2.6(2)(a)}(c), $\|V\| \cball{a}{r} \ge \limsup_{i \to \infty} \|V_i\| \cball{a}{r}
+    \ge r^{\vdim} d \, \unitmeasure{\vdim} \exp(-pr)$, and $\ldensity^{\vdim}(\|V\|,a) \ge d$.
+\end{proof}
+
+\begin{remark}
+    \label{rem:5.4}
+    Allard states the conclusion with $\density^{\vdim}$; the proof gives the lower density, and
+    the density exists $\|V\|$ almost everywhere whenever $\|\delta V\|$ is a Radon measure,
+    by~\ref{al:5.1(4)}.
+\end{remark}
+
+\begin{theorem}[{\cite[5.5(1)]{Allard1972}}]
+    \label{al:5.5(1)}
+    Suppose $V \in \Var{\vdim}(U)$ and $\|\delta V\|$ is a Radon measure on~$U$. Then for $\|V\|$
+    almost all $a \in P = U \cap \{ x : \udensity^{\vdim}(\|V\|,x) > 0 \}$,
+    \begin{displaymath}
+        0 < \density^{\vdim}(\|V\|,a) < \infty \,, \qquad \Tan^{\vdim}(\|V\|,a) \in
+        \pgrass{\adim}{\vdim} \,,
+    \end{displaymath}
+    and $V^{(a)}(\beta) = \beta(\Tan^{\vdim}(\|V\|,a))$ for $\beta \in
+    \ccspace{\pgrass{\adim}{\vdim}}$.
+    In particular $V \restrict (P \times \pgrass{\adim}{\vdim}) \in \RVar{\vdim}(U)$.
+\end{theorem}
+
+\begin{proof}
+    By~\ref{al:5.1(4)}, \ref{al:4.3} and~\ref{al:3.3}, for $\|V\|$ almost all $a \in P$ we have $0
+    < \theta_a = \density^{\vdim}(\|V\|,a) < \infty$, $\|\delta V\| / \|V\|(a) < \infty$, and
+    $V^{(a)}$ is a Radon measure. By~\cite[2.8.18, 2.9.13]{Federer1969}, applied to the $\|V\|$
+    measurable function $\density^{\vdim}(\|V\|,\cdot)$, for $\|V\|$ almost all~$a$,
+    \begin{equation}
+        \label{eq:5.5:1}
+        \lim_{r \to 0+} \|V\|(\cball{a}{r} \cap \{ x : |\density^{\vdim}(\|V\|,x) - \theta_a| >
+        \epsilon \}) / \|V\| \cball{a}{r} = 0 \quad \text{for $\epsilon > 0$} \,.
+    \end{equation}
+    Fix $a \in P$ with these properties, let $W_r = (\scale{r} \circ \trans{-a})_\# V$, restricted
+    as in the proof of~\ref{al:3.4(1)}, and suppose $C \in \VarTan(V,a)$ with $W_{r_i} \to C$.
+    Since $\|\delta V\| \cball{a}{\rho} \le (\|\delta V\|/\|V\|(a) + 1) \|V\| \cball{a}{\rho}$ for
+    small~$\rho$ and $\theta_a < \infty$, $\density^{\vdim-1}(\|\delta V\|,a) = 0$, and $C$ is
+    stationary by~\ref{al:4.12}; moreover $\|\delta W_{r_i}\|(\oball{0}{R}) \to 0$ for $0 < R <
+    \infty$. By~\ref{al:3.4(1)}(b), $\|C\| \cball{0}{r} = \theta_a \unitmeasure{\vdim} r^{\vdim}$
+    for $0 < r < \infty$; in particular $0 \in \spt \|C\|$. Since $\density^{\vdim}(\|W_r\|,y) =
+    \density^{\vdim}(\|V\|, a + y/r)$ and $r^{\vdim} \|V\| \cball{a}{R/r}$ stays bounded, \eqref{eq:5.5:1}
+    gives $\|W_{r_i}\|(\oball{0}{R} \cap \{ y : \density^{\vdim}(\|W_{r_i}\|,y) < \theta_a - \epsilon
+    \}) \to 0$; by~\ref{al:5.4} with $d = \theta_a - \epsilon$ and $W = \oball{0}{R}$, and since
+    $\density^{\vdim}(\|C\|,\cdot)$ exists everywhere by~\ref{al:5.1(2)}, $\density^{\vdim}(\|C\|,y)
+    \ge \theta_a = R^{-\vdim} \|C\| \oball{0}{R} / \unitmeasure{\vdim}$ for $\|C\|$ almost all~$y$.
+    By~\ref{al:5.3}, applied for each $R$, $C = \theta_a \var{}(\im T)$ for some $T \in
+    \pgrass{\adim}{\vdim}$. By~\ref{al:3.4(1)}(c), $\theta_a \unitmeasure{\vdim} V^{(a)}(\beta) =
+    \theta_a \unitmeasure{\vdim} \beta(T)$ for $\beta \in \ccspace{\pgrass{\adim}{\vdim}}$; hence
+    $V^{(a)}$ is the Dirac measure at~$T$, $T$ does not depend on~$C$, and
+    $\VarTan(V,a) = \{ \theta_a \var{}(\im T) \}$. By~\ref{al:3.4(1)}(a) and~\ref{new:weak_metric},
+    $W_r \to \theta_a \var{}(\im T)$ as $r \to \infty$, hence $\|W_r\| \to \theta_a \HM^{\vdim}
+    \restrict \im T$.
+
+    We show $\Tan^{\vdim}(\|V\|,a) = \im T$ using the characterisation
+    of~\cite[3.2.16]{Federer1969}: $v \in \Tan^{\vdim}(\|V\|,a)$ if and only if
+    $\udensity^{\vdim}(\|V\| \restrict E(a,v,\epsilon), a) > 0$ for every $\epsilon > 0$, where
+    $E(a,v,\epsilon) = \R^{\adim} \cap \{ x : |r(x-a) - v| < \epsilon \text{ for some } r > 0 \}$. If $v \in \sphere{\adim-1} \without \im T$, choose $\epsilon > 0$
+    such that the closed cone $K = \{ t w : t \ge 0,\ |w - v| \le 2\epsilon,\ |w| = 1 \}$ meets $\im
+    T$ only in~$0$; then by~\ref{al:2.6(2)(a)}(c) $\limsup_{r \to \infty} \|W_r\|(K \cap
+    \cball{0}{1}) \le \theta_a \HM^{\vdim}(\im T \cap K \cap \cball{0}{1}) = 0$, so
+    $\udensity^{\vdim}(\|V\| \restrict E(a,v,\epsilon), a) = 0$ and $v \notin \Tan^{\vdim}(\|V\|,a)$. If $v
+    \in \im T$ and $|v| = 1$, the open cone $E(0,v,\epsilon)$ satisfies $\liminf_{r \to \infty}
+    \|W_r\|(E(0,v,\epsilon) \cap \oball{0}{1}) \ge \theta_a \HM^{\vdim}(\im T \cap E(0,v,\epsilon)
+    \cap \oball{0}{1}) > 0$, so $v \in \Tan^{\vdim}(\|V\|,a)$. Hence $\Tan^{\vdim}(\|V\|,a) = \im T$.
+
+    Finally let $V' = V \restrict (P \times \pgrass{\adim}{\vdim})$. By~\ref{al:2.8(2)}, on each
+    set $P \cap \{ x : j^{-1} \le \udensity^{\vdim}(\|V\|,x) \le j \} \cap K$, $K$ compact, the
+    measures $\|V\|$ and $\HM^{\vdim}$ are mutually absolutely continuous, and
+    by~\ref{al:2.8(2)}(c) the measure $\|V\| \restrict (U \without P)$ has density~$0$ at
+    $\HM^{\vdim}$, hence $\|V\|$, almost all points of~$P$. Therefore densities, approximate tangent
+    cones and the measures $V^{(a)}$ of $V'$ and~$V$ agree at $\|V'\|$ almost all points, and
+    $V' \in \RVar{\vdim}(U)$ by the ``if'' part of~\ref{al:3.5(1)}(a).
+\end{proof}
+
+\begin{corollary}[{\cite[5.5(2)]{Allard1972}}]
+    \label{al:5.5(2)}
+    Suppose $V \in \Var{\vdim}(U)$ and $\|\delta V\|$ is a Radon measure on~$U$. Then $V \in
+    \RVar{\vdim}(U)$ if and only if there are sets $A_1, A_2, \ldots \subseteq U$ with
+    $\HM^{\vdim}(A_i) < \infty$ and $\|V\|(U \without \tbcup_{i=1}^\infty A_i) = 0$.
+\end{corollary}
+
+\begin{proof}
+    If $V \in \RVar{\vdim}(U)$, then $\|V\| = \HM^{\vdim} \restrict \density^{\vdim}(\|V\|,\cdot)$
+    by~\ref{al:3.5(1)}(b), and the sets $A_i = K_i \cap \{ x : \density^{\vdim}(\|V\|,x) \ge 1/i
+    \}$, $K_i$ compact exhausting~$U$, satisfy $\HM^{\vdim}(A_i) \le i \|V\|(K_i)$. Conversely,
+    \ref{al:2.8(2)}(a) gives $\|V\|(A_i \cap \{ x : \udensity^{\vdim}(\|V\|,x) < t \}) \le
+    2^{\vdim} t \HM^{\vdim}(A_i)$ for every $t > 0$, so $\|V\|(A_i \cap \{ x :
+    \udensity^{\vdim}(\|V\|,x) = 0 \}) = 0$, hence $V = V \restrict (P \times
+    \pgrass{\adim}{\vdim}) \in \RVar{\vdim}(U)$ by~\ref{al:5.5(1)}.
+\end{proof}
+
+\begin{remark}[{\cite[5.5(3)]{Allard1972}}]
+    \label{al:5.5(3)}
+    Allard sketches a solution of the problem of Plateau: limits of mass minimising sequences of
+    integral currents with fixed boundary~$B$ yield $V \in \Var{\vdim}(\R^{\adim})$ with $\delta
+    V(g) \le \textint{}{} |g(x) \wedge \vec B(x)| \ud \|B\| x$; the isoperimetric inequality for
+    integral currents~\cite[4.2.10]{Federer1969} and the argument of~\cite[4.1.25]{Federer1969}
+    give a positive lower bound on $\density^{\vdim}(\|V\|,\cdot)$, and~\ref{al:5.5(1)} gives $V \in
+    \RVar{\vdim}(\R^{\adim})$. This uses integral currents~\cite[4.2]{Federer1969}, which lie beyond
+    the formalised range, and is not formalised.
+    % UNVERIFIED: the locator 4.2.10 for the isoperimetric inequality (Allard cites no item).
+\end{remark}
+
+\begin{theorem}[{\cite[5.6]{Allard1972}}]
+    \label{al:5.6}
+    Suppose $G_1, G_2, \ldots$ are open subsets of~$U$ with $U = \tbcup_{i=1}^\infty G_i$, $M_1,
+    M_2, \ldots$ are nonnegative numbers, and $\vartheta$ is a positive continuous function
+    on~$U$. Then the set $\mathcal{R}$ of those $V \in \RVar{\vdim}(U)$ for which
+    \begin{displaymath}
+        (\|V\| + \|\delta V\|)(G_i) \le M_i \quad \text{for $i = 1, 2, \ldots$} \,, \qquad
+        \density^{\vdim}(\|V\|,x) \ge \vartheta(x) \quad \text{for $\|V\|$ almost all $x \in U$} \,,
+    \end{displaymath}
+    is compact.
+\end{theorem}
+
+\begin{proof}
+    By~\ref{al:2.6(2)(a)}(a), applied with the open sets $\pi^{-1}[G_i]$, $\mathcal{R}$ lies in
+    a compact set on which the weak topology is metrisable~\ref{new:weak_metric}; it suffices to
+    show that $V \in \mathcal{R}$ whenever $V_j \in \mathcal{R}$ and $V_j \to V$. By~\ref{al:2.6(2)(a)}(c)
+    and~\ref{al:4.11}, $\|V\|(G_i) + \|\delta V\|(G_i) \le \liminf_{j \to \infty} \|V_j\|(G_i) +
+    \liminf_{j \to \infty} \|\delta V_j\|(G_i) \le M_i$; hence $\|\delta V\|$ is a Radon measure.
+    For $x_0 \in U$ and $\epsilon > 0$ choose an open $W \ni x_0$ with compact closure in some
+    finite union of the $G_i$ and $\vartheta \ge \vartheta(x_0) - \epsilon = d > 0$ on~$W$, if
+    $\epsilon < \vartheta(x_0)$. Then $\|V_j\|(W \cap \{ x : \density^{\vdim}(\|V_j\|,x) < d \}) = 0$
+    and $\|\delta V_j\|(W)$ is bounded, so~\ref{al:5.4} gives $\ldensity^{\vdim}(\|V\|,x) \ge
+    \vartheta(x) - 2 \epsilon$ for $\|V\|$ almost all $x \in W$. Countably many such~$W$
+    cover~$U$; letting $\epsilon \to 0+$, $\ldensity^{\vdim}(\|V\|,x) \ge \vartheta(x) > 0$ for
+    $\|V\|$ almost all~$x$. By~\ref{al:5.5(1)}, $V \in \RVar{\vdim}(U)$ and
+    $\density^{\vdim}(\|V\|,x) \ge \vartheta(x)$ for $\|V\|$ almost all~$x$.
+\end{proof}
+
+\begin{remark}
+    \label{rem:5.6}
+    Allard's proof reads ``Combine 2.6(2)(a), 4.11, 5.4, and 5.6''; the last reference is
+    a~misprint for~\ref{al:5.5(1)}. In~\ref{al:5.3} Allard writes $\spt \|V\|$ for $\spt \|C\|$,
+    and in~\ref{al:5.2(1)} ``$V$ is stationary'' for ``$B$ is stationary''.
+\end{remark}

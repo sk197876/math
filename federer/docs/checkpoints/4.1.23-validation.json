@@ -1,0 +1,1064 @@
+{
+  "item": "4.1.23",
+  "status": "passed",
+  "date": "2026-11-22",
+  "base_revision": "9fb6b5fc11f75341ffe8fb75165e87f9cd5edff2",
+  "scope": "The original polyhedral approximation theorem 4.1.23 on printed pp. 379\u2013380: arbitrary compact K,C in the original open U with K contained in Int C and an actual flat current supported in K admit P in the original polyhedral class for C, with F_C(T-P)<=epsilon and M(P)<=M(T)+epsilon. Every natural degree and infinite input mass are retained; no normality or convexity premise is added.",
+  "switch": "RP.2026.02.0~9.1~2026.01",
+  "nice": 10,
+  "umask": "0002",
+  "group": "llm",
+  "stages": {
+    "build": {
+      "stage": "build",
+      "status": "passed",
+      "started": "2026-11-22T13:23:55.625217+01:00",
+      "finished": "2026-11-22T13:40:25.473748+01:00",
+      "seconds": 989.5,
+      "guard_wall_seconds": 989.835,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-132354-build/focused-registered-build.py",
+        "--record-directory",
+        "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-132354-build",
+        "--workers",
+        "3"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 4894.473,
+      "peak_scope_memory_mib": 6950.23,
+      "estimated_whole_process_tree_memory_mib": 9216,
+      "compiler_worker_ceiling": 3,
+      "OCAMLRUNPARAM": "o=20,O=40,s=128k",
+      "resource_guard_sha256": "aeb9cad511f662307deedda2ab515c5f52abcc8c0ddbab93dad28c0c07d5f604",
+      "resource_policy_sha256": "bca6285978adc3c82fa1e638aaeb1e541a9c33a36f73e1e077fe6cb3dda523da",
+      "resource_policy": "Automatic Europe/Warsaw weekday/night/weekend policy, including live transitions",
+      "private_compiler_lock": "Exclusive shared POSIX lock held through registered stage",
+      "resource_report": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-132354-build/resources.json",
+      "raw_log": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-132354-build/raw.log",
+      "complete_input_record": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-132354-build/status.json"
+    },
+    "kernel": {
+      "stage": "kernel",
+      "status": "passed",
+      "started": "2026-11-22T13:40:26.770220+01:00",
+      "finished": "2026-11-22T14:00:30.726961+01:00",
+      "seconds": 1203.591,
+      "guard_wall_seconds": 1203.941,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "rocqchk",
+        "-silent",
+        "-Q",
+        "theories",
+        "Federer",
+        "-Q",
+        "tests",
+        "FedererTests",
+        "Federer.PolyhedralApproximation",
+        "FedererTests.PolyhedralApproximationEndpointExamples"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 8642.887,
+      "peak_scope_memory_mib": 3081.184,
+      "estimated_whole_process_tree_memory_mib": 3328,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=40,s=128k",
+      "resource_guard_sha256": "aeb9cad511f662307deedda2ab515c5f52abcc8c0ddbab93dad28c0c07d5f604",
+      "resource_policy_sha256": "bca6285978adc3c82fa1e638aaeb1e541a9c33a36f73e1e077fe6cb3dda523da",
+      "resource_policy": "Automatic Europe/Warsaw weekday/night/weekend policy, including live transitions",
+      "private_compiler_lock": "Exclusive shared POSIX lock held through registered stage",
+      "resource_report": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-134025-kernel/resources.json",
+      "raw_log": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-134025-kernel/raw.log",
+      "complete_input_record": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-134025-kernel/status.json"
+    },
+    "audit-plan": {
+      "stage": "audit-plan",
+      "status": "passed",
+      "started": "2026-11-22T14:00:58.879353+01:00",
+      "finished": "2026-11-22T14:01:01.890145+01:00",
+      "seconds": 2.798,
+      "guard_wall_seconds": 3.003,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "-B",
+        "tools/dependency_audit.py",
+        "9fb6b5fc11f75341ffe8fb75165e87f9cd5edff2",
+        "--dry-run"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 11496.559,
+      "peak_scope_memory_mib": 299.375,
+      "estimated_whole_process_tree_memory_mib": 512,
+      "compiler_worker_ceiling": 1,
+      "OCAMLRUNPARAM": "o=20,O=40,s=128k",
+      "resource_guard_sha256": "aeb9cad511f662307deedda2ab515c5f52abcc8c0ddbab93dad28c0c07d5f604",
+      "resource_policy_sha256": "bca6285978adc3c82fa1e638aaeb1e541a9c33a36f73e1e077fe6cb3dda523da",
+      "resource_policy": "Automatic Europe/Warsaw weekday/night/weekend policy, including live transitions",
+      "private_compiler_lock": "Exclusive shared POSIX lock held through registered stage",
+      "resource_report": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-140058-audit-plan/resources.json",
+      "raw_log": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-140058-audit-plan/raw.log",
+      "complete_input_record": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-140058-audit-plan/status.json"
+    },
+    "audit": {
+      "stage": "audit-targeted",
+      "status": "passed",
+      "started": "2026-11-22T14:01:03.015116+01:00",
+      "finished": "2026-11-22T14:07:53.669418+01:00",
+      "seconds": 410.392,
+      "guard_wall_seconds": 410.646,
+      "command": [
+        "opam",
+        "exec",
+        "--switch=RP.2026.02.0~9.1~2026.01",
+        "--",
+        "python3",
+        "-B",
+        "tools/dependency_audit.py",
+        "9fb6b5fc11f75341ffe8fb75165e87f9cd5edff2",
+        "--targeted-imports",
+        "--workers",
+        "3"
+      ],
+      "inputs_unchanged": true,
+      "revision_unchanged": true,
+      "warnings": [],
+      "minimum_available_mib": 2184.109,
+      "peak_scope_memory_mib": 10028.406,
+      "estimated_whole_process_tree_memory_mib": 11520,
+      "compiler_worker_ceiling": 3,
+      "OCAMLRUNPARAM": "o=20,O=40,s=128k",
+      "resource_guard_sha256": "aeb9cad511f662307deedda2ab515c5f52abcc8c0ddbab93dad28c0c07d5f604",
+      "resource_policy_sha256": "bca6285978adc3c82fa1e638aaeb1e541a9c33a36f73e1e077fe6cb3dda523da",
+      "resource_policy": "Automatic Europe/Warsaw weekday/night/weekend policy, including live transitions",
+      "private_compiler_lock": "Exclusive startup check; released during the audit so isolated night-time private checks may proceed. Registered build and kernel stages remain excluded.",
+      "resource_report": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-140102-audit-targeted/resources.json",
+      "raw_log": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-140102-audit-targeted/raw.log",
+      "complete_input_record": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-140102-audit-targeted/status.json"
+    }
+  },
+  "audit": {
+    "base": "9fb6b5fc11f75341ffe8fb75165e87f9cd5edff2",
+    "changed_modules": 77,
+    "affected_modules": 77,
+    "entries": 34052,
+    "old_entries": 33918,
+    "audited": 134,
+    "audited_old": 0,
+    "audited_new": 134,
+    "unresolved_names": 0,
+    "closed": 0,
+    "assumptions": [
+      "boolp.constructive_indefinite_description",
+      "boolp.functional_extensionality_dep",
+      "boolp.propositional_extensionality"
+    ],
+    "errors": [],
+    "targeted_imports": true,
+    "imported_query_modules": 76,
+    "requested_workers": 3,
+    "workers": 3,
+    "parallel_run_directory": "/opt/rocq/federer-build/dependency-audit-parallel-pdrzs9ji",
+    "parallel_merged_log": "/opt/rocq/federer-build/dependency-audit-parallel-pdrzs9ji/merged.log"
+  },
+  "earlier_assumption_sets_preserved": true,
+  "earlier_assumption_results_compared": 33918,
+  "new_theories": 76,
+  "new_example_sources": 1,
+  "new_public_queries": 134,
+  "registered_source_count": 14261,
+  "source_sha256": {
+    "theories/AffineConvexHullImage.v": "b4cde6ad238d586977e146dcdd9298a7a174599186fb1f9961445ed936040a3a",
+    "theories/CharacteristicCurrentAlgebra.v": "0c260b96f676895a1eaca4ef63a6b95533a63f29de6517aaae0b399f083bbd08",
+    "theories/CharacteristicCurrentFiniteUnion.v": "66ffb8d20cfe0fb7041d67823dc68f54ec14169f53c04752a633d559fe0f4403",
+    "theories/ClosedCoordinateBoxConvex.v": "647aa5c0feb2ec3e26385d4334deb63a551155b65402be2edaa55ce154bb0b42",
+    "theories/CompactCharacteristicSetDifference.v": "37633e3c93d6b2403fb773384fd6a80cd8304e694163969292ba768db7ee5e74",
+    "theories/CompactCharacteristicSummableField.v": "115f8e56f05ece2b6faa5975560efcbbf210b461dc332e88913d1ad1fbf6a020",
+    "theories/CompactSummableAmbientFieldLift.v": "15975c0016296aa41baea7d91237baaedd5f50c85b2505b2d7d9f7197fb7164c",
+    "theories/CompactSummableAmbientFieldRepresentative.v": "c3db86ee5b13859eefc683c24c9a0201d474749bf61f5f0b8abcf81348c76cc6",
+    "theories/CompactSummableExactFiniteCost.v": "da7fe8bd9bf05714faff6790c9f52aec4d0e9e2622fdc6727dcc978ff2c99065",
+    "theories/CurrentCartesianPrefixVector.v": "83d5edeb618ef6b794cc40b519e4b0145a5e9586400b219e48e8c4a7a2721663",
+    "theories/CurrentCartesianZeroFactorMass.v": "380c153455fa7ded6dd067e16d2fde159439931cc5b458bdcd419676e75ae1b3",
+    "theories/CurrentCharacteristicDegreeTransport.v": "58b998b9d0eab55cef1410f15732ce982918330892be0ee312cef6c66d1620f3",
+    "theories/CurrentDensityAlmostAgreement.v": "418ed93c696a936cc0dd432c4f5a031ee0dbe1da7e4773f4f5c4c7bfd1caec53",
+    "theories/CurrentEqualDomainFlat.v": "9306d3321e61c534cb8f86e8d20555dd8184cd8f454c03bd0370272118dfd5ea",
+    "theories/CurrentFlatFiniteSumBound.v": "9f5a87d0618b6132c52656a92a2bf84a15aada01a1d285659b79457f200d86b9",
+    "theories/CurrentMassFiniteSumBound.v": "ab7168caf3bec23c97c6ffbe88c01c8b5d0521d8be97246f04371dad55c3e6ea",
+    "theories/CurrentOpenRestrictionIdentity.v": "16224edf482988a54d8aeff7f6c2ed5b9f77e09547b3c9a5aa483f59540fa521",
+    "theories/CurrentPrefixVectorMass.v": "a611fea2b77f8d13752688734e208d1165dc43315415394a7c8d3239025f1e03",
+    "theories/CurrentVectorOptimalSimpleDecomposition.v": "4d04beeb79d57af3f02a8157fe10074b48b12ccfddb25a99105a850df88ed3f7",
+    "theories/CurrentVectorSimpleUnitReduction.v": "b07d94f0c2a601e2fda21bc05cf9516b0d453e420c89b36eafb1252da6ff8098",
+    "theories/FiniteImageMeasurableCells.v": "57011b9be854fa68439cebcbe737f3cc10d0132710a3d33b4165da650aefea01",
+    "theories/FiniteTaggedPartitionCharacteristic.v": "0535cc035a7ea4f56480736e5717e4597d1b924f67f3046478f5a4fe87a41283",
+    "theories/FiniteTaggedPartitionDiameter.v": "78cccf0179f7919516228c61af4032e189a91bd5916937b2981ca890b3f132e7",
+    "theories/FiniteTaggedPartitionNonempty.v": "f126d51d6aee842688bd510b659b1e06f1d269a10a0f94bec0c86a09bd61dac2",
+    "theories/FlatCurrentNormalMassApproximation.v": "a0b97f941b1da4662db836f0fee3466006e15b9e1e6212dd718c11b67f95d8c9",
+    "theories/MeasurableLoneNormComparison.v": "4f1d5b5d879e376367bd8d0082993be79a05a0ccd399fd82c4cf86a4b995f8c3",
+    "theories/MeasureCompactCoreSetError.v": "8a61ab83da03f614d77faa2f880d6ae6a7b477f882758d0a11b190816d166f09",
+    "theories/NormalCurrentAmbientInclusion.v": "e7d6818b72d75d897e715dde5cc870b8c7b111c307a68778be212611a7185cd3",
+    "theories/NormalFullSmoothCoefficientApproximation.v": "d572efd0cbea08e14676c3e9d803f2da52547bc1363c68cf7f585ffe8a1c3f53",
+    "theories/NormalZeroCurrentAtomicFlatBound.v": "4d1f8c79fe00300f7778e7e439c17312094a27992619bb71cee3f27dacf85745",
+    "theories/NormalZeroCurrentPointCone.v": "eff317bf4e4b0ce2f36705465e1b052e5adb6b1bd1ac269a5227cdad09ef1cb4",
+    "theories/OrthogonalSmoothCurrentBounds.v": "b333537673b8aabbe245a74f1fce002141eda5bcd56cd0f47b18595749742d22",
+    "theories/PolyhedralApproximationUP.v": "86299f3d2a11f6180836531878508d0414dab8e73d78acd7b0bdfb15ec0c576c",
+    "theories/PositiveAtomicZeroCurrentMass.v": "b7ed870c9a87f4f1f45c9b25b9181d696d7813b7458465ad9821503721b0fdd9",
+    "theories/ScalarRectangleEndpointSequence.v": "f3e53e66ec953f21c9c32eefd0088eb95cf0953968f1833a21c542b80162cf3c",
+    "theories/CharacteristicCartesianCurrent.v": "df32b1985dd9dafc4b373fc05aa62e099832150f272f6504b4506176133f7f67",
+    "theories/CharacteristicCurrentDifferenceMass.v": "1c27d413f170cdf4bcd92bcfc1a4d14509d660f25c8e7ea1c1b67155325519d2",
+    "theories/ClosedCoordinateBoxGeometry.v": "969d7ab5eba8e5af4c82460ec37414a62c7d4407ef855fa5e49b837739602bb9",
+    "theories/CompactCharacteristicCurrent.v": "f14b12d4483f05eae7bcee99766d01cd82165a637d09966a2b1c9c349d326370",
+    "theories/CompactSummableFiniteCells.v": "ba2548e6c68887dd185615d56c23e6478eff004c9889e148865934bb60fa79db",
+    "theories/CompactSummableFiniteImageApproximation.v": "4d0fa6c716cf52fba21d497257998fd58c50a4ce0ebf7b056b49bb061941d573",
+    "theories/CoordinateBoxCartesianFactors.v": "ba81987cd66f8e700c2f8d10f9058759539cf37e8c9dc87f6d2bf3374b2d6295",
+    "theories/CurrentCartesianAtomicReplacement.v": "518bed70aeb7fdcf3ef1a048fdff7d9dd42cd2d275ac54f26aa64b43443d7a99",
+    "theories/MeasurableCellBoxApproximation.v": "9aa5dd0d70e84b4210b265207618ec8e1687d3dee58d82de044555983203bd16",
+    "theories/NormalSmoothCoefficientApproximation.v": "1e50dfb8b6ca6317dab8f2df6cd8b843a286958de8fc20be198ca3fcea8ae43b",
+    "theories/PolyhedralAffinePushforward.v": "b66d7ab82d0d340fbcb8235416e736e023d55ee8d8b119321ed0f468e14d004b",
+    "theories/PolyhedralApproximationEndpoints.v": "6da541d2466d91b7cb19aa4176381e1f40b74acfbfa9774ef2cbcb9701f92316",
+    "theories/PolyhedralFiniteApproximationBudget.v": "d85f4607ef0cfe68364ac9936c07d00fd71d474b80d0188a246d23bb18020ea3",
+    "theories/PolyhedralNormalReduction.v": "20ca2a867804d7ccc4d6244b0ca50eb654bc9dd48d1be5f36f9623ef82217d9a",
+    "theories/ScalarRectangleAtomicPolyhedral.v": "638c11b4e43cb4108592c3bba560b27457bc1ace334657c33ad7804e8a040ab7",
+    "theories/ScalarRectangleIntegralPolyhedral.v": "f87778a9eacbcab39d6f819373673d1dfb2d769f3bb51ab2013f36c95e15d0ef",
+    "theories/CharacteristicCurrentNullBoundary.v": "e6047004322315796ce3926d9145f97ac33ee945735589859bf03e3928cdac0a",
+    "theories/CharacteristicScaledApproximation.v": "0f75ddbe0b9a20ff06cc1ac06300c9622035612917552f15f41e1f70b4eb910b",
+    "theories/CompactCharacteristicFieldDecomposition.v": "beeb7447a1a9e8aabe3c2521b69bfe516c802960c132faa408f0418b72415cb3",
+    "theories/CurrentFiniteImageDensityApproximation.v": "c0b08821d3ca8a9ba67e196068d129aa4d4f04a908051654b9918025c3e4c730",
+    "theories/EuclideanCellBoxApproximation.v": "50911e5bdfcd17c7d796f2f559a8145aa5fb41e0d1208964464217896400be18",
+    "theories/OrthogonalApproximationTransport.v": "23909e3ddbc4ee8f1b52a89ea3236c2785518d547ecd7d5d678f0b30d482a916",
+    "theories/OrthogonalCharacteristicCurrent.v": "958b47d9804edfb84b4b73a7404ccf914c6489d0a8d6db6909d003e7d4a6f2a1",
+    "theories/TransverseAtomicPartition.v": "781549b00b48cee26de531011b2b4676b2a3b08d7a3f9be2dffbab40d62f0031",
+    "theories/ScalarRectangleBoxDensity.v": "e9864f423aaf18486c9e632bf40130c71f2c6514862956702a9dfc08b0d4d704",
+    "theories/TransverseAtomicApproximation.v": "1b50940b37c634962a00393ee6fea2cfbf96e8c6d9af972d3436ade362ee9ae1",
+    "theories/ScalarRectangleProductApproximation.v": "915d9fadc05dfeb51eec46a763601ff2bb2b23ded464528e4c013786c0108fce",
+    "theories/ScalarRectangleProductDensity.v": "1a6dd9bff98aabe8bcd7d4e64d8aaf32ca47587fb2084f38093d1192927756fc",
+    "theories/ScalarRectangleCoordinateApproximation.v": "9dc5f2a13488b9656bb408f263b5827db60a350d18b5045825dfb30f48cf2b60",
+    "theories/CoordinateBoxStandardApproximation.v": "61bed1658c62f947042528fd573a570d6cb4ebd9316cc3932ed7fca0f45b3989",
+    "theories/CoordinateBoxFamilyApproximation.v": "cee129100d49f62753cfaf0a3922d1de9d4bbd88f47a069c056cf56882916e5e",
+    "theories/MeasurableStandardCellApproximation.v": "0a663f101dcbf3dfcc351646d46e8090ec2f3713c050fac2e3d0551d6d6aff4f",
+    "theories/OrthogonalCellApproximation.v": "a67916f9308149883d5372b99827c36358222f07c9613c8ab4a368b933fcff94",
+    "theories/MeasurableCellPolyhedralApproximation.v": "27c7521f969860238dc99bccf21663780e05ae03a869151b89634e1baa391fbb",
+    "theories/FiniteImageCurrentPolyhedralApproximation.v": "e5649f548102a046579548247f001a82e0ac0106d5e1d97c886dd4526e08b41d",
+    "theories/FullSummableFieldPolyhedralApproximation.v": "a4777bacc4afcee18fc33a48e7f53a6180f2561d4137db14eadac4642949c0e3",
+    "theories/NormalFullPolyhedralApproximation.v": "d4dd4027dbe2f50d04c2ba87e02ca28914714260e747da2b92629140db9293c4",
+    "theories/NormalPolyhedralApproximation.v": "4a39618410f33a35441f2a254278deb1c198199611bf174db17e419f0f28757c",
+    "theories/PolyhedralApproximationExistence.v": "3dbd2a61d36bb073ada14104356712733986e7d3bb5d9a1f89ffe5fbe63a4d21",
+    "theories/PolyhedralApproximationSealed.v": "949526ca7fbe0ea30ea1972d4e0e0e87f416fb7bea15a80c9f9aae1112736c45",
+    "theories/PolyhedralApproximation.v": "0d022a44b7b40a1bf71a9e7352871694aed0f865a3aa7055c996a1d8482a870d",
+    "tests/PolyhedralApproximationEndpointExamples.v": "de08bc633058c2b7a026938a7ac77061df687c73fd62c535d253f5df1420626d"
+  },
+  "all_proof_inputs_sha256": "51a36bb5ca95a14ca84a6193543e9f7ea7d30340fc9f9079288ef8a993f6faff",
+  "complete_input_record": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-140102-audit-targeted/status.json",
+  "earlier_mathematical_proof_sources_changed": false,
+  "clean": false,
+  "adopt": false,
+  "copied_private_proof_objects": false,
+  "kernel_consumers": [
+    "Federer.PolyhedralApproximation",
+    "FedererTests.PolyhedralApproximationEndpointExamples"
+  ],
+  "artifact_permissions": {
+    "new_sources": 77,
+    "artifacts_checked": 385,
+    "required_group": "llm",
+    "numeric_group_id": 1003,
+    "required_group_read_write": true,
+    "errors": [],
+    "complete_host_visible_report": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/support/artifact-permissions.json"
+  },
+  "private_attempts": {
+    "path": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23",
+    "failed_attempts_excluded": true,
+    "final_registered_compilation_covers_every_final_source_byte": true,
+    "source_only_registration": true,
+    "private_workspace_archived_before_registration": true,
+    "exact_private_full_source_checks": 77,
+    "private_archive": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/private-workspace-20261122-132335",
+    "final_selected_source_diagnostic_gate": {
+      "status": "passed",
+      "sources": {
+        "AffineConvexHullImage.v": {
+          "source_sha256": "b4cde6ad238d586977e146dcdd9298a7a174599186fb1f9961445ed936040a3a",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/AffineConvexHullImage/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/AffineConvexHullImage/status.json"
+        },
+        "CharacteristicCurrentAlgebra.v": {
+          "source_sha256": "0c260b96f676895a1eaca4ef63a6b95533a63f29de6517aaae0b399f083bbd08",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CharacteristicCurrentAlgebra/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CharacteristicCurrentAlgebra/status.json"
+        },
+        "CharacteristicCurrentFiniteUnion.v": {
+          "source_sha256": "66ffb8d20cfe0fb7041d67823dc68f54ec14169f53c04752a633d559fe0f4403",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CharacteristicCurrentFiniteUnion/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CharacteristicCurrentFiniteUnion/status.json"
+        },
+        "ClosedCoordinateBoxConvex.v": {
+          "source_sha256": "647aa5c0feb2ec3e26385d4334deb63a551155b65402be2edaa55ce154bb0b42",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/ClosedCoordinateBoxConvex/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/ClosedCoordinateBoxConvex/status.json"
+        },
+        "CompactCharacteristicSetDifference.v": {
+          "source_sha256": "37633e3c93d6b2403fb773384fd6a80cd8304e694163969292ba768db7ee5e74",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CompactCharacteristicSetDifference/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CompactCharacteristicSetDifference/status.json"
+        },
+        "CompactCharacteristicSummableField.v": {
+          "source_sha256": "115f8e56f05ece2b6faa5975560efcbbf210b461dc332e88913d1ad1fbf6a020",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CompactCharacteristicSummableField/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CompactCharacteristicSummableField/status.json"
+        },
+        "CompactSummableAmbientFieldLift.v": {
+          "source_sha256": "15975c0016296aa41baea7d91237baaedd5f50c85b2505b2d7d9f7197fb7164c",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CompactSummableAmbientFieldLift/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CompactSummableAmbientFieldLift/status.json"
+        },
+        "CompactSummableAmbientFieldRepresentative.v": {
+          "source_sha256": "c3db86ee5b13859eefc683c24c9a0201d474749bf61f5f0b8abcf81348c76cc6",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CompactSummableAmbientFieldRepresentative/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CompactSummableAmbientFieldRepresentative/status.json"
+        },
+        "CompactSummableExactFiniteCost.v": {
+          "source_sha256": "da7fe8bd9bf05714faff6790c9f52aec4d0e9e2622fdc6727dcc978ff2c99065",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CompactSummableExactFiniteCost/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CompactSummableExactFiniteCost/status.json"
+        },
+        "CurrentCartesianPrefixVector.v": {
+          "source_sha256": "83d5edeb618ef6b794cc40b519e4b0145a5e9586400b219e48e8c4a7a2721663",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentCartesianPrefixVector/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentCartesianPrefixVector/status.json"
+        },
+        "CurrentCartesianZeroFactorMass.v": {
+          "source_sha256": "380c153455fa7ded6dd067e16d2fde159439931cc5b458bdcd419676e75ae1b3",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-103309-151183/results/CurrentCartesianZeroFactorMass/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-103309-151183/results/CurrentCartesianZeroFactorMass/status.json"
+        },
+        "CurrentCharacteristicDegreeTransport.v": {
+          "source_sha256": "58b998b9d0eab55cef1410f15732ce982918330892be0ee312cef6c66d1620f3",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentCharacteristicDegreeTransport/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentCharacteristicDegreeTransport/status.json"
+        },
+        "CurrentDensityAlmostAgreement.v": {
+          "source_sha256": "418ed93c696a936cc0dd432c4f5a031ee0dbe1da7e4773f4f5c4c7bfd1caec53",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentDensityAlmostAgreement/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentDensityAlmostAgreement/status.json"
+        },
+        "CurrentEqualDomainFlat.v": {
+          "source_sha256": "9306d3321e61c534cb8f86e8d20555dd8184cd8f454c03bd0370272118dfd5ea",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentEqualDomainFlat/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentEqualDomainFlat/status.json"
+        },
+        "CurrentFlatFiniteSumBound.v": {
+          "source_sha256": "9f5a87d0618b6132c52656a92a2bf84a15aada01a1d285659b79457f200d86b9",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentFlatFiniteSumBound/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentFlatFiniteSumBound/status.json"
+        },
+        "CurrentMassFiniteSumBound.v": {
+          "source_sha256": "ab7168caf3bec23c97c6ffbe88c01c8b5d0521d8be97246f04371dad55c3e6ea",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentMassFiniteSumBound/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentMassFiniteSumBound/status.json"
+        },
+        "CurrentOpenRestrictionIdentity.v": {
+          "source_sha256": "16224edf482988a54d8aeff7f6c2ed5b9f77e09547b3c9a5aa483f59540fa521",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentOpenRestrictionIdentity/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentOpenRestrictionIdentity/status.json"
+        },
+        "CurrentPrefixVectorMass.v": {
+          "source_sha256": "a611fea2b77f8d13752688734e208d1165dc43315415394a7c8d3239025f1e03",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentPrefixVectorMass/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentPrefixVectorMass/status.json"
+        },
+        "CurrentVectorOptimalSimpleDecomposition.v": {
+          "source_sha256": "4d04beeb79d57af3f02a8157fe10074b48b12ccfddb25a99105a850df88ed3f7",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentVectorOptimalSimpleDecomposition/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentVectorOptimalSimpleDecomposition/status.json"
+        },
+        "CurrentVectorSimpleUnitReduction.v": {
+          "source_sha256": "b07d94f0c2a601e2fda21bc05cf9516b0d453e420c89b36eafb1252da6ff8098",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentVectorSimpleUnitReduction/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentVectorSimpleUnitReduction/status.json"
+        },
+        "FiniteImageMeasurableCells.v": {
+          "source_sha256": "57011b9be854fa68439cebcbe737f3cc10d0132710a3d33b4165da650aefea01",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-101838-791800/results/FiniteImageMeasurableCells/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-101838-791800/results/FiniteImageMeasurableCells/status.json"
+        },
+        "FiniteTaggedPartitionCharacteristic.v": {
+          "source_sha256": "0535cc035a7ea4f56480736e5717e4597d1b924f67f3046478f5a4fe87a41283",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-101838-791800/results/FiniteTaggedPartitionCharacteristic/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-101838-791800/results/FiniteTaggedPartitionCharacteristic/status.json"
+        },
+        "FiniteTaggedPartitionDiameter.v": {
+          "source_sha256": "78cccf0179f7919516228c61af4032e189a91bd5916937b2981ca890b3f132e7",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/FiniteTaggedPartitionDiameter/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/FiniteTaggedPartitionDiameter/status.json"
+        },
+        "FiniteTaggedPartitionNonempty.v": {
+          "source_sha256": "f126d51d6aee842688bd510b659b1e06f1d269a10a0f94bec0c86a09bd61dac2",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/FiniteTaggedPartitionNonempty/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/FiniteTaggedPartitionNonempty/status.json"
+        },
+        "FlatCurrentNormalMassApproximation.v": {
+          "source_sha256": "a0b97f941b1da4662db836f0fee3466006e15b9e1e6212dd718c11b67f95d8c9",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/FlatCurrentNormalMassApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/FlatCurrentNormalMassApproximation/status.json"
+        },
+        "MeasurableLoneNormComparison.v": {
+          "source_sha256": "4f1d5b5d879e376367bd8d0082993be79a05a0ccd399fd82c4cf86a4b995f8c3",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/MeasurableLoneNormComparison/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/MeasurableLoneNormComparison/status.json"
+        },
+        "MeasureCompactCoreSetError.v": {
+          "source_sha256": "8a61ab83da03f614d77faa2f880d6ae6a7b477f882758d0a11b190816d166f09",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/MeasureCompactCoreSetError/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/MeasureCompactCoreSetError/status.json"
+        },
+        "NormalCurrentAmbientInclusion.v": {
+          "source_sha256": "e7d6818b72d75d897e715dde5cc870b8c7b111c307a68778be212611a7185cd3",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/NormalCurrentAmbientInclusion/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/NormalCurrentAmbientInclusion/status.json"
+        },
+        "NormalFullSmoothCoefficientApproximation.v": {
+          "source_sha256": "d572efd0cbea08e14676c3e9d803f2da52547bc1363c68cf7f585ffe8a1c3f53",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/NormalFullSmoothCoefficientApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/NormalFullSmoothCoefficientApproximation/status.json"
+        },
+        "NormalZeroCurrentAtomicFlatBound.v": {
+          "source_sha256": "4d1f8c79fe00300f7778e7e439c17312094a27992619bb71cee3f27dacf85745",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/NormalZeroCurrentAtomicFlatBound/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/NormalZeroCurrentAtomicFlatBound/status.json"
+        },
+        "NormalZeroCurrentPointCone.v": {
+          "source_sha256": "eff317bf4e4b0ce2f36705465e1b052e5adb6b1bd1ac269a5227cdad09ef1cb4",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/NormalZeroCurrentPointCone/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/NormalZeroCurrentPointCone/status.json"
+        },
+        "OrthogonalSmoothCurrentBounds.v": {
+          "source_sha256": "b333537673b8aabbe245a74f1fce002141eda5bcd56cd0f47b18595749742d22",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/OrthogonalSmoothCurrentBounds/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/OrthogonalSmoothCurrentBounds/status.json"
+        },
+        "PolyhedralApproximationUP.v": {
+          "source_sha256": "86299f3d2a11f6180836531878508d0414dab8e73d78acd7b0bdfb15ec0c576c",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/PolyhedralApproximationUP/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/PolyhedralApproximationUP/status.json"
+        },
+        "PositiveAtomicZeroCurrentMass.v": {
+          "source_sha256": "b7ed870c9a87f4f1f45c9b25b9181d696d7813b7458465ad9821503721b0fdd9",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/PositiveAtomicZeroCurrentMass/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/PositiveAtomicZeroCurrentMass/status.json"
+        },
+        "ScalarRectangleEndpointSequence.v": {
+          "source_sha256": "f3e53e66ec953f21c9c32eefd0088eb95cf0953968f1833a21c542b80162cf3c",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/ScalarRectangleEndpointSequence/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/ScalarRectangleEndpointSequence/status.json"
+        },
+        "CharacteristicCartesianCurrent.v": {
+          "source_sha256": "df32b1985dd9dafc4b373fc05aa62e099832150f272f6504b4506176133f7f67",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CharacteristicCartesianCurrent/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CharacteristicCartesianCurrent/status.json"
+        },
+        "CharacteristicCurrentDifferenceMass.v": {
+          "source_sha256": "1c27d413f170cdf4bcd92bcfc1a4d14509d660f25c8e7ea1c1b67155325519d2",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CharacteristicCurrentDifferenceMass/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CharacteristicCurrentDifferenceMass/status.json"
+        },
+        "ClosedCoordinateBoxGeometry.v": {
+          "source_sha256": "969d7ab5eba8e5af4c82460ec37414a62c7d4407ef855fa5e49b837739602bb9",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-103309-151183/results/ClosedCoordinateBoxGeometry/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-103309-151183/results/ClosedCoordinateBoxGeometry/status.json"
+        },
+        "CompactCharacteristicCurrent.v": {
+          "source_sha256": "f14b12d4483f05eae7bcee99766d01cd82165a637d09966a2b1c9c349d326370",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CompactCharacteristicCurrent/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CompactCharacteristicCurrent/status.json"
+        },
+        "CompactSummableFiniteCells.v": {
+          "source_sha256": "ba2548e6c68887dd185615d56c23e6478eff004c9889e148865934bb60fa79db",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-105126-025745/results/CompactSummableFiniteCells/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-105126-025745/results/CompactSummableFiniteCells/status.json"
+        },
+        "CompactSummableFiniteImageApproximation.v": {
+          "source_sha256": "4d0fa6c716cf52fba21d497257998fd58c50a4ce0ebf7b056b49bb061941d573",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CompactSummableFiniteImageApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CompactSummableFiniteImageApproximation/status.json"
+        },
+        "CoordinateBoxCartesianFactors.v": {
+          "source_sha256": "ba81987cd66f8e700c2f8d10f9058759539cf37e8c9dc87f6d2bf3374b2d6295",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CoordinateBoxCartesianFactors/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CoordinateBoxCartesianFactors/status.json"
+        },
+        "CurrentCartesianAtomicReplacement.v": {
+          "source_sha256": "518bed70aeb7fdcf3ef1a048fdff7d9dd42cd2d275ac54f26aa64b43443d7a99",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-105126-025745/results/CurrentCartesianAtomicReplacement/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-105126-025745/results/CurrentCartesianAtomicReplacement/status.json"
+        },
+        "MeasurableCellBoxApproximation.v": {
+          "source_sha256": "9aa5dd0d70e84b4210b265207618ec8e1687d3dee58d82de044555983203bd16",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-105126-025745/results/MeasurableCellBoxApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-105126-025745/results/MeasurableCellBoxApproximation/status.json"
+        },
+        "NormalSmoothCoefficientApproximation.v": {
+          "source_sha256": "1e50dfb8b6ca6317dab8f2df6cd8b843a286958de8fc20be198ca3fcea8ae43b",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/NormalSmoothCoefficientApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/NormalSmoothCoefficientApproximation/status.json"
+        },
+        "PolyhedralAffinePushforward.v": {
+          "source_sha256": "b66d7ab82d0d340fbcb8235416e736e023d55ee8d8b119321ed0f468e14d004b",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-103309-151183/results/PolyhedralAffinePushforward/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-103309-151183/results/PolyhedralAffinePushforward/status.json"
+        },
+        "PolyhedralApproximationEndpoints.v": {
+          "source_sha256": "6da541d2466d91b7cb19aa4176381e1f40b74acfbfa9774ef2cbcb9701f92316",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/PolyhedralApproximationEndpoints/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/PolyhedralApproximationEndpoints/status.json"
+        },
+        "PolyhedralFiniteApproximationBudget.v": {
+          "source_sha256": "d85f4607ef0cfe68364ac9936c07d00fd71d474b80d0188a246d23bb18020ea3",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-110235-402600/results/PolyhedralFiniteApproximationBudget/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-110235-402600/results/PolyhedralFiniteApproximationBudget/status.json"
+        },
+        "PolyhedralNormalReduction.v": {
+          "source_sha256": "20ca2a867804d7ccc4d6244b0ca50eb654bc9dd48d1be5f36f9623ef82217d9a",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-103309-151183/results/PolyhedralNormalReduction/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-103309-151183/results/PolyhedralNormalReduction/status.json"
+        },
+        "ScalarRectangleAtomicPolyhedral.v": {
+          "source_sha256": "638c11b4e43cb4108592c3bba560b27457bc1ace334657c33ad7804e8a040ab7",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-103309-151183/results/ScalarRectangleAtomicPolyhedral/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-103309-151183/results/ScalarRectangleAtomicPolyhedral/status.json"
+        },
+        "ScalarRectangleIntegralPolyhedral.v": {
+          "source_sha256": "f87778a9eacbcab39d6f819373673d1dfb2d769f3bb51ab2013f36c95e15d0ef",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-101838-791800/results/ScalarRectangleIntegralPolyhedral/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-101838-791800/results/ScalarRectangleIntegralPolyhedral/status.json"
+        },
+        "CharacteristicCurrentNullBoundary.v": {
+          "source_sha256": "e6047004322315796ce3926d9145f97ac33ee945735589859bf03e3928cdac0a",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-105126-025745/results/CharacteristicCurrentNullBoundary/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-105126-025745/results/CharacteristicCurrentNullBoundary/status.json"
+        },
+        "CharacteristicScaledApproximation.v": {
+          "source_sha256": "0f75ddbe0b9a20ff06cc1ac06300c9622035612917552f15f41e1f70b4eb910b",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-103309-151183/results/CharacteristicScaledApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-103309-151183/results/CharacteristicScaledApproximation/status.json"
+        },
+        "CompactCharacteristicFieldDecomposition.v": {
+          "source_sha256": "beeb7447a1a9e8aabe3c2521b69bfe516c802960c132faa408f0418b72415cb3",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-111438-586561/results/CompactCharacteristicFieldDecomposition/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-111438-586561/results/CompactCharacteristicFieldDecomposition/status.json"
+        },
+        "CurrentFiniteImageDensityApproximation.v": {
+          "source_sha256": "c0b08821d3ca8a9ba67e196068d129aa4d4f04a908051654b9918025c3e4c730",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentFiniteImageDensityApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-100008-545618/results/CurrentFiniteImageDensityApproximation/status.json"
+        },
+        "EuclideanCellBoxApproximation.v": {
+          "source_sha256": "50911e5bdfcd17c7d796f2f559a8145aa5fb41e0d1208964464217896400be18",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-110235-402600/results/EuclideanCellBoxApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-110235-402600/results/EuclideanCellBoxApproximation/status.json"
+        },
+        "OrthogonalApproximationTransport.v": {
+          "source_sha256": "23909e3ddbc4ee8f1b52a89ea3236c2785518d547ecd7d5d678f0b30d482a916",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-110235-402600/results/OrthogonalApproximationTransport/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-110235-402600/results/OrthogonalApproximationTransport/status.json"
+        },
+        "OrthogonalCharacteristicCurrent.v": {
+          "source_sha256": "958b47d9804edfb84b4b73a7404ccf914c6489d0a8d6db6909d003e7d4a6f2a1",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-105126-025745/results/OrthogonalCharacteristicCurrent/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-105126-025745/results/OrthogonalCharacteristicCurrent/status.json"
+        },
+        "TransverseAtomicPartition.v": {
+          "source_sha256": "781549b00b48cee26de531011b2b4676b2a3b08d7a3f9be2dffbab40d62f0031",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-112934-568024/results/TransverseAtomicPartition/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-112934-568024/results/TransverseAtomicPartition/status.json"
+        },
+        "ScalarRectangleBoxDensity.v": {
+          "source_sha256": "e9864f423aaf18486c9e632bf40130c71f2c6514862956702a9dfc08b0d4d704",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-111438-586561/results/ScalarRectangleBoxDensity/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-111438-586561/results/ScalarRectangleBoxDensity/status.json"
+        },
+        "TransverseAtomicApproximation.v": {
+          "source_sha256": "1b50940b37c634962a00393ee6fea2cfbf96e8c6d9af972d3436ade362ee9ae1",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-114302-241441/results/TransverseAtomicApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-114302-241441/results/TransverseAtomicApproximation/status.json"
+        },
+        "ScalarRectangleProductApproximation.v": {
+          "source_sha256": "915d9fadc05dfeb51eec46a763601ff2bb2b23ded464528e4c013786c0108fce",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-120006-119168/results/ScalarRectangleProductApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-120006-119168/results/ScalarRectangleProductApproximation/status.json"
+        },
+        "ScalarRectangleProductDensity.v": {
+          "source_sha256": "1a6dd9bff98aabe8bcd7d4e64d8aaf32ca47587fb2084f38093d1192927756fc",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-111438-586561/results/ScalarRectangleProductDensity/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-111438-586561/results/ScalarRectangleProductDensity/status.json"
+        },
+        "ScalarRectangleCoordinateApproximation.v": {
+          "source_sha256": "9dc5f2a13488b9656bb408f263b5827db60a350d18b5045825dfb30f48cf2b60",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-120634-583294/results/ScalarRectangleCoordinateApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-120634-583294/results/ScalarRectangleCoordinateApproximation/status.json"
+        },
+        "CoordinateBoxStandardApproximation.v": {
+          "source_sha256": "61bed1658c62f947042528fd573a570d6cb4ebd9316cc3932ed7fca0f45b3989",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-122516-225384/results/CoordinateBoxStandardApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-122516-225384/results/CoordinateBoxStandardApproximation/status.json"
+        },
+        "CoordinateBoxFamilyApproximation.v": {
+          "source_sha256": "cee129100d49f62753cfaf0a3922d1de9d4bbd88f47a069c056cf56882916e5e",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-123627-600306/results/CoordinateBoxFamilyApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-123627-600306/results/CoordinateBoxFamilyApproximation/status.json"
+        },
+        "MeasurableStandardCellApproximation.v": {
+          "source_sha256": "0a663f101dcbf3dfcc351646d46e8090ec2f3713c050fac2e3d0551d6d6aff4f",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-125217-684185/results/MeasurableStandardCellApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-125217-684185/results/MeasurableStandardCellApproximation/status.json"
+        },
+        "OrthogonalCellApproximation.v": {
+          "source_sha256": "a67916f9308149883d5372b99827c36358222f07c9613c8ab4a368b933fcff94",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-125217-684185/results/OrthogonalCellApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-125217-684185/results/OrthogonalCellApproximation/status.json"
+        },
+        "MeasurableCellPolyhedralApproximation.v": {
+          "source_sha256": "27c7521f969860238dc99bccf21663780e05ae03a869151b89634e1baa391fbb",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-125625-152559/results/MeasurableCellPolyhedralApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-125625-152559/results/MeasurableCellPolyhedralApproximation/status.json"
+        },
+        "FiniteImageCurrentPolyhedralApproximation.v": {
+          "source_sha256": "e5649f548102a046579548247f001a82e0ac0106d5e1d97c886dd4526e08b41d",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-125916-993681/results/FiniteImageCurrentPolyhedralApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-125916-993681/results/FiniteImageCurrentPolyhedralApproximation/status.json"
+        },
+        "FullSummableFieldPolyhedralApproximation.v": {
+          "source_sha256": "a4777bacc4afcee18fc33a48e7f53a6180f2561d4137db14eadac4642949c0e3",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-130909-006770/results/FullSummableFieldPolyhedralApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-130909-006770/results/FullSummableFieldPolyhedralApproximation/status.json"
+        },
+        "NormalFullPolyhedralApproximation.v": {
+          "source_sha256": "d4dd4027dbe2f50d04c2ba87e02ca28914714260e747da2b92629140db9293c4",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-130909-006770/results/NormalFullPolyhedralApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-130909-006770/results/NormalFullPolyhedralApproximation/status.json"
+        },
+        "NormalPolyhedralApproximation.v": {
+          "source_sha256": "4a39618410f33a35441f2a254278deb1c198199611bf174db17e419f0f28757c",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-131344-537295/results/NormalPolyhedralApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-131344-537295/results/NormalPolyhedralApproximation/status.json"
+        },
+        "PolyhedralApproximationExistence.v": {
+          "source_sha256": "3dbd2a61d36bb073ada14104356712733986e7d3bb5d9a1f89ffe5fbe63a4d21",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-131344-537295/results/PolyhedralApproximationExistence/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-131344-537295/results/PolyhedralApproximationExistence/status.json"
+        },
+        "PolyhedralApproximationSealed.v": {
+          "source_sha256": "949526ca7fbe0ea30ea1972d4e0e0e87f416fb7bea15a80c9f9aae1112736c45",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-131344-537295/results/PolyhedralApproximationSealed/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-131344-537295/results/PolyhedralApproximationSealed/status.json"
+        },
+        "PolyhedralApproximation.v": {
+          "source_sha256": "0d022a44b7b40a1bf71a9e7352871694aed0f865a3aa7055c996a1d8482a870d",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-131344-537295/results/PolyhedralApproximation/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-131344-537295/results/PolyhedralApproximation/status.json"
+        },
+        "PolyhedralApproximationEndpointExamples.v": {
+          "source_sha256": "de08bc633058c2b7a026938a7ac77061df687c73fd62c535d253f5df1420626d",
+          "raw_log": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-131344-537295/results/PolyhedralApproximationEndpointExamples/raw.log",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "warnings": [],
+          "ordinary_pass": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/checks/parallel-20261122-131344-537295/results/PolyhedralApproximationEndpointExamples/status.json"
+        }
+      },
+      "warnings": [],
+      "ordinary_compilation_pass_status_preserved": true,
+      "warnings_filtered_or_suppressed": false
+    }
+  },
+  "query_name_preflight": {
+    "queries": 134,
+    "status": "passed",
+    "seconds": 26.664,
+    "complete_record": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-140031-query-name-preflight/status.json",
+    "raw_log": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-140031-query-name-preflight/raw.log"
+  },
+  "ordinary_registered_focused_build": {
+    "complete_record": "/opt/rocq/federer-build/verification/chapter4-section41/4.1.23/20261122-132354-build/focused-build.json",
+    "new_sources": 77,
+    "ordinary_rocq_generated_makefile": true,
+    "canonical_make_all_confirmation": true,
+    "private_objects_copied": false
+  },
+  "independent_statement_review": {
+    "principal_statements": 37,
+    "original_principal_mathematical_scopes_preserved": 37,
+    "literal_original_principal_headers": 36,
+    "reviewed_typed_principal_headers": 1,
+    "typed_header_annotation_evidence": {
+      "original_principal_mathematical_scopes_preserved": 37,
+      "literal_original_principal_headers": 36,
+      "reviewed_typed_principal_headers": 1,
+      "all_source_header_count": 136,
+      "literal_original_source_headers": 133,
+      "reviewed_typed_all_source_headers": 3,
+      "reviewed_typed_auxiliary_headers": 2,
+      "exact_approved_headers": [
+        {
+          "declaration": "TransverseAtomicApproximation.v::transverse_atomic_flat_mass_approximation_exists",
+          "before_header_sha256": "2205c9aacccacc0109704cf1403e0931fa08b8c943a8c917f17c2469375d3ad6",
+          "after_header_sha256": "613b4213a5dc77afe09a0b3c721d61394ccca2b5c5f07699c542b85fdf45b0be",
+          "actual_final_header_matches_approved_annotation": true
+        },
+        {
+          "declaration": "CoordinateBoxStandardApproximation.v::coordinate_box_standard_polyhedral_approximation",
+          "before_header_sha256": "f4e129f2e087f4b9adafc0d6e28cff8136455f58a0b4f43202638873101f48e9",
+          "after_header_sha256": "5854c3ad09e93f18f3aa79c57c0d52f93bb793fae1e1bd981a4423cc7bf86100",
+          "actual_final_header_matches_approved_annotation": true
+        },
+        {
+          "declaration": "ScalarRectangleCoordinateApproximation.v::scalar_rectangle_coordinate_polyhedral_approximation",
+          "before_header_sha256": "e94641af71330e396b5020d0ff5293d72d27b68ae61d57756da73ffd9f65b99d",
+          "after_header_sha256": "f4f5914a5370b78704a5a8736504a3963291b1a9d35b2b9d26a3f6b45f521b7d",
+          "actual_final_header_matches_approved_annotation": true
+        }
+      ],
+      "independent_annotation_reviews": [
+        {
+          "path": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/support/root-final-delta-review-v7/review.json",
+          "sha256": "9f29a86958534e06082b41cf8361cc8f0f2aa568f2b362f81d1624d4b49f29d5"
+        },
+        {
+          "path": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/support/root-final-delta-review-v11/review.json",
+          "sha256": "9c3e0a28a95ea9a37d025162011b5c73cd29d476b17f930e86f3147e6041aba0"
+        }
+      ],
+      "all_actual_final_headers_match_approved_annotations": true
+    },
+    "principal_scope_groups": 17,
+    "source_count": 77,
+    "complete_record": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/support/statement-review-source-sha256.json",
+    "source_pages_read_visually": [
+      379,
+      380
+    ],
+    "original_scope_groups_reviewed": 17,
+    "source_review_sha256": "e0aa66b9af69377275f251951715ef3432b570a5d0ceab9e8584d2a8907eaf66",
+    "raw_header_comparison": {
+      "all_source_header_count": 136,
+      "literal_original_source_headers": 133,
+      "principal_header_count": 37,
+      "literal_original_principal_headers": 36,
+      "explicit_intended_type_annotation_count": 3,
+      "principal_intended_type_annotation_count": 1,
+      "auxiliary_intended_type_annotation_count": 2,
+      "explicit_intended_type_annotation": [
+        {
+          "source": "TransverseAtomicApproximation.v",
+          "declaration": "TransverseAtomicApproximation.v::transverse_atomic_flat_mass_approximation_exists",
+          "before_sha256": "cd60ea14912ca85e5cc307d0b708cf21a14609355d59d91f600d515c1fd4db63",
+          "after_sha256": "f4ed12fd298713ae48a93eb74b90eb110780d87acb391c68ae5d52e0e7e60d46",
+          "before_header": "Theorem transverse_atomic_flat_mass_approximation_exists (R : realType)\n    (h2 : (1+1:R)!=0) n\n    (B : smooth_compact_set (inner_norm_real_norm (@euclidean_inner_productP R n))\n      (fun _ : R_n R n => True))\n    (hConvex : is_inner_convex (smooth_compact_carrier B)) (d : R) (hD : 0<d) :\n  let X := R_n R n in\n  let NX := inner_norm (@euclidean_inner_productP R n) in\n  let hFull := fun (x : X) (_ : True) => norm_full_domain_interior NX x in\n  let Leb := @euclidean_lebesgue_measure R n in\n  let hLeb := euclidean_lebesgue_is_measure R n in\n  let hB := @euclidean_distribution_measure_borel R n (smooth_compact_carrier B)\n    (closed_borel_set (compact_closed (@metric_hausdorff R\n      (real_norm_metric_space (inner_norm_real_norm (@euclidean_inner_productP R n))))\n      (smooth_compact_is_compact B))) in\n  let S := @current_characteristic_density R h2 n 0%N Leb hLeb\n    (@euclidean_distribution_measure_borel R n)\n    (@euclidean_distribution_measure_compact_finite R n) (smooth_compact_carrier B) hB\n    (@current_scalar_multivector_unit R n) in\n  exists (I : finType) (A : I -> set X) (tag : I -> X),\n    is_finite_tagged_borel_partition (smooth_compact_carrier B) (d/2) A tag /\\\n    (forall i, A i (tag i)) /\\\n    (forall i, (extended_metric_diameter (A i)<=d%:E)%E) /\\\n    let Q := @positive_atomic_zero_current R h2 n I tag (fun i => fine (Leb (A i))) in\n    @CurrentMass.value R h2 n 0%N (fun _ => True) hFull Q=\n      @CurrentMass.value R h2 n 0%N (fun _ => True) hFull S /\\\n    (@current_flat_norm R h2 n 0%N (fun _ => True) hFull B (S-Q)<=\n      (d*fine (Leb (smooth_compact_carrier B)))%:E)%E.",
+          "after_header": "Theorem transverse_atomic_flat_mass_approximation_exists (R : realType)\n    (h2 : (1+1:R)!=0) n\n    (B : smooth_compact_set (inner_norm_real_norm (@euclidean_inner_productP R n))\n      (fun _ : R_n R n => True))\n    (hConvex : is_inner_convex (smooth_compact_carrier B)) (d : R) (hD : 0<d) :\n  let X := R_n R n in\n  let NX := inner_norm (@euclidean_inner_productP R n) in\n  let hFull := fun (x : X) (_ : True) => norm_full_domain_interior NX x in\n  let Leb := @euclidean_lebesgue_measure R n in\n  let hLeb := euclidean_lebesgue_is_measure R n in\n  let hB := @euclidean_distribution_measure_borel R n (smooth_compact_carrier B)\n    (closed_borel_set (compact_closed (@metric_hausdorff R\n      (real_norm_metric_space (inner_norm_real_norm (@euclidean_inner_productP R n))))\n      (smooth_compact_is_compact B))) in\n  let S := @current_characteristic_density R h2 n 0%N Leb hLeb\n    (@euclidean_distribution_measure_borel R n)\n    (@euclidean_distribution_measure_compact_finite R n) (smooth_compact_carrier B) hB\n    (@current_scalar_multivector_unit R n) in\n  exists (I : finType) (A : I -> set X) (tag : I -> X),\n    @is_finite_tagged_borel_partition R (real_norm_metric_space (inner_norm_real_norm (@euclidean_inner_productP R n)))\n      (smooth_compact_carrier B) (d/2) I A tag /\\\n    (forall i, A i (tag i)) /\\\n    (forall i, (@extended_metric_diameter R (real_norm_metric_space (inner_norm_real_norm (@euclidean_inner_productP R n))) (A i)<=d%:E)%E) /\\\n    let Q := @positive_atomic_zero_current R h2 n I tag (fun i => fine (Leb (A i))) in\n    @CurrentMass.value R h2 n 0%N (fun _ => True) hFull Q=\n      @CurrentMass.value R h2 n 0%N (fun _ => True) hFull S /\\\n    (@current_flat_norm R h2 n 0%N (fun _ => True) hFull B (S-Q)<=\n      (d*fine (Leb (smooth_compact_carrier B)))%:E)%E.",
+          "qualification": "Supply the intended existing R^n norm-metric space to the original finite tagged partition and metric diameter. The original header failed to infer that packed type, so no prior elaborated definitional identity is claimed. Its geometric carrier, tags, diameters, hypotheses and inequalities are retained; the complete proof is literal.",
+          "diff": "--- \n+++ \n@@ -48,9 +48,10 @@\n     (@euclidean_distribution_measure_compact_finite R n) (smooth_compact_carrier B) hB\n     (@current_scalar_multivector_unit R n) in\n   exists (I : finType) (A : I -> set X) (tag : I -> X),\n-    is_finite_tagged_borel_partition (smooth_compact_carrier B) (d/2) A tag /\\\n+    @is_finite_tagged_borel_partition R (real_norm_metric_space (inner_norm_real_norm (@euclidean_inner_productP R n)))\n+      (smooth_compact_carrier B) (d/2) I A tag /\\\n     (forall i, A i (tag i)) /\\\n-    (forall i, (extended_metric_diameter (A i)<=d%:E)%E) /\\\n+    (forall i, (@extended_metric_diameter R (real_norm_metric_space (inner_norm_real_norm (@euclidean_inner_productP R n))) (A i)<=d%:E)%E) /\\\n     let Q := @positive_atomic_zero_current R h2 n I tag (fun i => fine (Leb (A i))) in\n     @CurrentMass.value R h2 n 0%N (fun _ => True) hFull Q=\n       @CurrentMass.value R h2 n 0%N (fun _ => True) hFull S /\\\n"
+        },
+        {
+          "source": "CoordinateBoxStandardApproximation.v",
+          "declaration": "CoordinateBoxStandardApproximation.v::coordinate_box_standard_polyhedral_approximation",
+          "before_sha256": "33e9cc549b782cca2b0eb2d7e11d0fee418231a3368db5552ce106317b5fe5ca",
+          "after_sha256": "11a86a35569f37f97e13f05f22c70a0e97466b0afd5d5bfac1d85662d45ad128",
+          "before_header": "Theorem coordinate_box_standard_polyhedral_approximation (R : realType)\n    (h2 : (1+1:R)!=0) m n (a b : R_n R (m+n))\n    (hStrict : forall i, a i<b i)\n    (hAM : measure_measurable (@euclidean_lebesgue_measure R (m+n))\n      (@closed_coordinate_box R (m+n) a b))\n    (epsilon : R) (hEpsilon : 0<epsilon) :\n  let Full := fun _ : R_n R (m+n) => True in\n  let hFull := fun (x : R_n R (m+n)) (_ : True) => norm_full_domain_interior\n    (inner_norm (@euclidean_inner_productP R (m+n))) x in\n  let A := @closed_coordinate_box R (m+n) a b in\n  let K := @closed_coordinate_box_index R (m+n) a b in\n  let xi := e_lambda (fun i : 'I_m => @coordinate_basis R (m+n)\n    (widen_ord (leq_addr n m) i)) (ord_tuple m) in\n  let T := @current_characteristic_density R h2 (m+n) m\n    (@euclidean_lebesgue_measure R (m+n)) (euclidean_lebesgue_is_measure R (m+n))\n    (@euclidean_distribution_measure_borel R (m+n))\n    (@euclidean_distribution_measure_compact_finite R (m+n)) A hAM xi in\n  exists P : @current_space R h2 (m+n) Full hFull m,\n    @polyhedral_current_subspace R h2 (m+n) m Full hFull K P /\\\n    (@current_flat_norm R h2 (m+n) m Full hFull K (T-P)<=epsilon%:E)%E /\\\n    @CurrentMass.value R h2 (m+n) m Full hFull P=\n      @CurrentMass.value R h2 (m+n) m Full hFull T.",
+          "after_header": "Theorem coordinate_box_standard_polyhedral_approximation (R : realType)\n    (h2 : (1+1:R)!=0) m n (a b : R_n R (m+n))\n    (hStrict : forall i, a i<b i)\n    (hAM : measure_measurable (@euclidean_lebesgue_measure R (m+n))\n      (@closed_coordinate_box R (m+n) a b))\n    (epsilon : R) (hEpsilon : 0<epsilon) :\n  let Full := fun _ : R_n R (m+n) => True in\n  let hFull := fun (x : R_n R (m+n)) (_ : True) => norm_full_domain_interior\n    (inner_norm (@euclidean_inner_productP R (m+n))) x in\n  let A := @closed_coordinate_box R (m+n) a b in\n  let K := @closed_coordinate_box_index R (m+n) a b in\n  let xi := e_lambda (fun i : 'I_m => @coordinate_basis R (m+n)\n    (widen_ord (leq_addr n m) i)) (ord_tuple m) in\n  let T := @current_characteristic_density R h2 (m+n) m\n    (@euclidean_lebesgue_measure R (m+n)) (euclidean_lebesgue_is_measure R (m+n))\n    (@euclidean_distribution_measure_borel R (m+n))\n    (@euclidean_distribution_measure_compact_finite R (m+n)) A hAM xi in\n  exists P : @current_space R h2 (m+n) Full hFull m,\n    @polyhedral_current_subspace R h2 (m+n) m Full hFull K P /\\\n    (@current_flat_norm R h2 (m+n)%N m Full hFull K (T-P)<=epsilon%:E)%E /\\\n    @CurrentMass.value R h2 (m+n) m Full hFull P=\n      @CurrentMass.value R h2 (m+n) m Full hFull T.",
+          "qualification": "Under the existing outer extended-real scope, explicitly scope the original ambient-dimension addition as nat. The old header did not elaborate; no prior elaborated definitional identity is claimed. Natural dimensions, scalar epsilon, carriers, bounds and all mathematical hypotheses are preserved. This auxiliary name is not among the 37 selected principal declarations.",
+          "diff": "--- \n+++ \n@@ -51,7 +51,7 @@\n     (@euclidean_distribution_measure_compact_finite R (m+n)) A hAM xi in\n   exists P : @current_space R h2 (m+n) Full hFull m,\n     @polyhedral_current_subspace R h2 (m+n) m Full hFull K P /\\\n-    (@current_flat_norm R h2 (m+n) m Full hFull K (T-P)<=epsilon%:E)%E /\\\n+    (@current_flat_norm R h2 (m+n)%N m Full hFull K (T-P)<=epsilon%:E)%E /\\\n     @CurrentMass.value R h2 (m+n) m Full hFull P=\n       @CurrentMass.value R h2 (m+n) m Full hFull T.\n Proof.\n@@ -106,7 +106,7 @@\n   epsilon hEpsilon.\n change (exists P : @current_space R h2 (d+n) Full hFull d,\n   @polyhedral_current_subspace R h2 (d+n) d Full hFull K0 P /\\\n-  (@current_flat_norm R h2 (d+n) d Full hFull K0 (T0-P)<=epsilon%:E)%E /\\\n+  (@current_flat_norm R h2 (d+n)%N d Full hFull K0 (T0-P)<=epsilon%:E)%E /\\\n   @CurrentMass.value R h2 (d+n) d Full hFull P=\n     @CurrentMass.value R h2 (d+n) d Full hFull T0) in hApprox.\n by rewrite hIndex hCurrent in hApprox.\n"
+        },
+        {
+          "source": "ScalarRectangleCoordinateApproximation.v",
+          "declaration": "ScalarRectangleCoordinateApproximation.v::scalar_rectangle_coordinate_polyhedral_approximation",
+          "before_sha256": "a79bf8885acc7972a473e4a5353e020fce01110e09b50fb5ed8178e75f48e2f0",
+          "after_sha256": "9dc5f2a13488b9656bb408f263b5827db60a350d18b5045825dfb30f48cf2b60",
+          "before_header": "Theorem scalar_rectangle_coordinate_polyhedral_approximation epsilon (hEpsilon : 0<epsilon) :\n  exists P : Current,\n    @polyhedral_current_subspace R h2 (m+n) m (Full (m+n)) (hFull (m+n)) K P /\\\n    (@current_flat_norm R h2 (m+n) m (Full (m+n)) (hFull (m+n)) K (T-P)<=epsilon%:E)%E /\\\n    M P=M T.",
+          "after_header": "Theorem scalar_rectangle_coordinate_polyhedral_approximation epsilon (hEpsilon : 0<epsilon) :\n  exists P : Current,\n    @polyhedral_current_subspace R h2 (m+n) m (Full (m+n)) (hFull (m+n)) K P /\\\n    (@current_flat_norm R h2 (m+n)%N m (Full (m+n)%N) (hFull (m+n)%N) K (T-P)<=epsilon%:E)%E /\\\n    M P=M T.",
+          "qualification": "Under the existing outer extended-real scope, explicitly scope the original ambient-dimension addition as nat. The old header did not elaborate; no prior elaborated definitional identity is claimed. Natural dimensions, scalar epsilon, carriers, bounds and all mathematical hypotheses are preserved. This auxiliary name is not among the 37 selected principal declarations.",
+          "diff": "--- \n+++ \n@@ -68,7 +68,7 @@\n Theorem scalar_rectangle_coordinate_polyhedral_approximation epsilon (hEpsilon : 0<epsilon) :\n   exists P : Current,\n     @polyhedral_current_subspace R h2 (m+n) m (Full (m+n)) (hFull (m+n)) K P /\\\n-    (@current_flat_norm R h2 (m+n) m (Full (m+n)) (hFull (m+n)) K (T-P)<=epsilon%:E)%E /\\\n+    (@current_flat_norm R h2 (m+n)%N m (Full (m+n)%N) (hFull (m+n)%N) K (T-P)<=epsilon%:E)%E /\\\n     M P=M T.\n Proof.\n have h := @scalar_rectangle_product_polyhedral_approximation R h2 f hOrdered\n"
+        }
+      ],
+      "all_final_headers_checked_against_original_or_exact_reviewed_annotations": true,
+      "all_original_Section_variables_and_hypotheses_preserved": true,
+      "original_Section_variable_and_hypothesis_entries_checked": 321,
+      "all_original_mathematical_scopes_preserved": true
+    },
+    "new_source_error_found": false,
+    "reader_source_corrections": []
+  },
+  "audit_tools_unchanged_from_audited_base": {
+    "tools/dependency_audit.py": "88a4828dd4c3c6e2f6de714cf833b1c523599701f9fc60b897e45fb7bfd80945",
+    "tools/parallel_dependency_audit.py": "0ed9815413a4a39cc95e5ff00aa8ac442cea24ba81c7a41d0d03df5be4d93066",
+    "tools/resource_guard.py": "aeb9cad511f662307deedda2ab515c5f52abcc8c0ddbab93dad28c0c07d5f604",
+    "tools/resource-policy.json": "bca6285978adc3c82fa1e638aaeb1e541a9c33a36f73e1e077fe6cb3dda523da"
+  },
+  "fresh_query_log": "/opt/rocq/federer-build/dependency-audit-parallel-pdrzs9ji/merged.log",
+  "prior_registered_attempts": [],
+  "reader_source_corrections": [],
+  "new_source_error_found": false,
+  "raw_header_comparison": {
+    "all_source_header_count": 136,
+    "literal_original_source_headers": 133,
+    "principal_header_count": 37,
+    "literal_original_principal_headers": 36,
+    "explicit_intended_type_annotation_count": 3,
+    "principal_intended_type_annotation_count": 1,
+    "auxiliary_intended_type_annotation_count": 2,
+    "explicit_intended_type_annotation": [
+      {
+        "source": "TransverseAtomicApproximation.v",
+        "declaration": "TransverseAtomicApproximation.v::transverse_atomic_flat_mass_approximation_exists",
+        "before_sha256": "cd60ea14912ca85e5cc307d0b708cf21a14609355d59d91f600d515c1fd4db63",
+        "after_sha256": "f4ed12fd298713ae48a93eb74b90eb110780d87acb391c68ae5d52e0e7e60d46",
+        "before_header": "Theorem transverse_atomic_flat_mass_approximation_exists (R : realType)\n    (h2 : (1+1:R)!=0) n\n    (B : smooth_compact_set (inner_norm_real_norm (@euclidean_inner_productP R n))\n      (fun _ : R_n R n => True))\n    (hConvex : is_inner_convex (smooth_compact_carrier B)) (d : R) (hD : 0<d) :\n  let X := R_n R n in\n  let NX := inner_norm (@euclidean_inner_productP R n) in\n  let hFull := fun (x : X) (_ : True) => norm_full_domain_interior NX x in\n  let Leb := @euclidean_lebesgue_measure R n in\n  let hLeb := euclidean_lebesgue_is_measure R n in\n  let hB := @euclidean_distribution_measure_borel R n (smooth_compact_carrier B)\n    (closed_borel_set (compact_closed (@metric_hausdorff R\n      (real_norm_metric_space (inner_norm_real_norm (@euclidean_inner_productP R n))))\n      (smooth_compact_is_compact B))) in\n  let S := @current_characteristic_density R h2 n 0%N Leb hLeb\n    (@euclidean_distribution_measure_borel R n)\n    (@euclidean_distribution_measure_compact_finite R n) (smooth_compact_carrier B) hB\n    (@current_scalar_multivector_unit R n) in\n  exists (I : finType) (A : I -> set X) (tag : I -> X),\n    is_finite_tagged_borel_partition (smooth_compact_carrier B) (d/2) A tag /\\\n    (forall i, A i (tag i)) /\\\n    (forall i, (extended_metric_diameter (A i)<=d%:E)%E) /\\\n    let Q := @positive_atomic_zero_current R h2 n I tag (fun i => fine (Leb (A i))) in\n    @CurrentMass.value R h2 n 0%N (fun _ => True) hFull Q=\n      @CurrentMass.value R h2 n 0%N (fun _ => True) hFull S /\\\n    (@current_flat_norm R h2 n 0%N (fun _ => True) hFull B (S-Q)<=\n      (d*fine (Leb (smooth_compact_carrier B)))%:E)%E.",
+        "after_header": "Theorem transverse_atomic_flat_mass_approximation_exists (R : realType)\n    (h2 : (1+1:R)!=0) n\n    (B : smooth_compact_set (inner_norm_real_norm (@euclidean_inner_productP R n))\n      (fun _ : R_n R n => True))\n    (hConvex : is_inner_convex (smooth_compact_carrier B)) (d : R) (hD : 0<d) :\n  let X := R_n R n in\n  let NX := inner_norm (@euclidean_inner_productP R n) in\n  let hFull := fun (x : X) (_ : True) => norm_full_domain_interior NX x in\n  let Leb := @euclidean_lebesgue_measure R n in\n  let hLeb := euclidean_lebesgue_is_measure R n in\n  let hB := @euclidean_distribution_measure_borel R n (smooth_compact_carrier B)\n    (closed_borel_set (compact_closed (@metric_hausdorff R\n      (real_norm_metric_space (inner_norm_real_norm (@euclidean_inner_productP R n))))\n      (smooth_compact_is_compact B))) in\n  let S := @current_characteristic_density R h2 n 0%N Leb hLeb\n    (@euclidean_distribution_measure_borel R n)\n    (@euclidean_distribution_measure_compact_finite R n) (smooth_compact_carrier B) hB\n    (@current_scalar_multivector_unit R n) in\n  exists (I : finType) (A : I -> set X) (tag : I -> X),\n    @is_finite_tagged_borel_partition R (real_norm_metric_space (inner_norm_real_norm (@euclidean_inner_productP R n)))\n      (smooth_compact_carrier B) (d/2) I A tag /\\\n    (forall i, A i (tag i)) /\\\n    (forall i, (@extended_metric_diameter R (real_norm_metric_space (inner_norm_real_norm (@euclidean_inner_productP R n))) (A i)<=d%:E)%E) /\\\n    let Q := @positive_atomic_zero_current R h2 n I tag (fun i => fine (Leb (A i))) in\n    @CurrentMass.value R h2 n 0%N (fun _ => True) hFull Q=\n      @CurrentMass.value R h2 n 0%N (fun _ => True) hFull S /\\\n    (@current_flat_norm R h2 n 0%N (fun _ => True) hFull B (S-Q)<=\n      (d*fine (Leb (smooth_compact_carrier B)))%:E)%E.",
+        "qualification": "Supply the intended existing R^n norm-metric space to the original finite tagged partition and metric diameter. The original header failed to infer that packed type, so no prior elaborated definitional identity is claimed. Its geometric carrier, tags, diameters, hypotheses and inequalities are retained; the complete proof is literal.",
+        "diff": "--- \n+++ \n@@ -48,9 +48,10 @@\n     (@euclidean_distribution_measure_compact_finite R n) (smooth_compact_carrier B) hB\n     (@current_scalar_multivector_unit R n) in\n   exists (I : finType) (A : I -> set X) (tag : I -> X),\n-    is_finite_tagged_borel_partition (smooth_compact_carrier B) (d/2) A tag /\\\n+    @is_finite_tagged_borel_partition R (real_norm_metric_space (inner_norm_real_norm (@euclidean_inner_productP R n)))\n+      (smooth_compact_carrier B) (d/2) I A tag /\\\n     (forall i, A i (tag i)) /\\\n-    (forall i, (extended_metric_diameter (A i)<=d%:E)%E) /\\\n+    (forall i, (@extended_metric_diameter R (real_norm_metric_space (inner_norm_real_norm (@euclidean_inner_productP R n))) (A i)<=d%:E)%E) /\\\n     let Q := @positive_atomic_zero_current R h2 n I tag (fun i => fine (Leb (A i))) in\n     @CurrentMass.value R h2 n 0%N (fun _ => True) hFull Q=\n       @CurrentMass.value R h2 n 0%N (fun _ => True) hFull S /\\\n"
+      },
+      {
+        "source": "CoordinateBoxStandardApproximation.v",
+        "declaration": "CoordinateBoxStandardApproximation.v::coordinate_box_standard_polyhedral_approximation",
+        "before_sha256": "33e9cc549b782cca2b0eb2d7e11d0fee418231a3368db5552ce106317b5fe5ca",
+        "after_sha256": "11a86a35569f37f97e13f05f22c70a0e97466b0afd5d5bfac1d85662d45ad128",
+        "before_header": "Theorem coordinate_box_standard_polyhedral_approximation (R : realType)\n    (h2 : (1+1:R)!=0) m n (a b : R_n R (m+n))\n    (hStrict : forall i, a i<b i)\n    (hAM : measure_measurable (@euclidean_lebesgue_measure R (m+n))\n      (@closed_coordinate_box R (m+n) a b))\n    (epsilon : R) (hEpsilon : 0<epsilon) :\n  let Full := fun _ : R_n R (m+n) => True in\n  let hFull := fun (x : R_n R (m+n)) (_ : True) => norm_full_domain_interior\n    (inner_norm (@euclidean_inner_productP R (m+n))) x in\n  let A := @closed_coordinate_box R (m+n) a b in\n  let K := @closed_coordinate_box_index R (m+n) a b in\n  let xi := e_lambda (fun i : 'I_m => @coordinate_basis R (m+n)\n    (widen_ord (leq_addr n m) i)) (ord_tuple m) in\n  let T := @current_characteristic_density R h2 (m+n) m\n    (@euclidean_lebesgue_measure R (m+n)) (euclidean_lebesgue_is_measure R (m+n))\n    (@euclidean_distribution_measure_borel R (m+n))\n    (@euclidean_distribution_measure_compact_finite R (m+n)) A hAM xi in\n  exists P : @current_space R h2 (m+n) Full hFull m,\n    @polyhedral_current_subspace R h2 (m+n) m Full hFull K P /\\\n    (@current_flat_norm R h2 (m+n) m Full hFull K (T-P)<=epsilon%:E)%E /\\\n    @CurrentMass.value R h2 (m+n) m Full hFull P=\n      @CurrentMass.value R h2 (m+n) m Full hFull T.",
+        "after_header": "Theorem coordinate_box_standard_polyhedral_approximation (R : realType)\n    (h2 : (1+1:R)!=0) m n (a b : R_n R (m+n))\n    (hStrict : forall i, a i<b i)\n    (hAM : measure_measurable (@euclidean_lebesgue_measure R (m+n))\n      (@closed_coordinate_box R (m+n) a b))\n    (epsilon : R) (hEpsilon : 0<epsilon) :\n  let Full := fun _ : R_n R (m+n) => True in\n  let hFull := fun (x : R_n R (m+n)) (_ : True) => norm_full_domain_interior\n    (inner_norm (@euclidean_inner_productP R (m+n))) x in\n  let A := @closed_coordinate_box R (m+n) a b in\n  let K := @closed_coordinate_box_index R (m+n) a b in\n  let xi := e_lambda (fun i : 'I_m => @coordinate_basis R (m+n)\n    (widen_ord (leq_addr n m) i)) (ord_tuple m) in\n  let T := @current_characteristic_density R h2 (m+n) m\n    (@euclidean_lebesgue_measure R (m+n)) (euclidean_lebesgue_is_measure R (m+n))\n    (@euclidean_distribution_measure_borel R (m+n))\n    (@euclidean_distribution_measure_compact_finite R (m+n)) A hAM xi in\n  exists P : @current_space R h2 (m+n) Full hFull m,\n    @polyhedral_current_subspace R h2 (m+n) m Full hFull K P /\\\n    (@current_flat_norm R h2 (m+n)%N m Full hFull K (T-P)<=epsilon%:E)%E /\\\n    @CurrentMass.value R h2 (m+n) m Full hFull P=\n      @CurrentMass.value R h2 (m+n) m Full hFull T.",
+        "qualification": "Under the existing outer extended-real scope, explicitly scope the original ambient-dimension addition as nat. The old header did not elaborate; no prior elaborated definitional identity is claimed. Natural dimensions, scalar epsilon, carriers, bounds and all mathematical hypotheses are preserved. This auxiliary name is not among the 37 selected principal declarations.",
+        "diff": "--- \n+++ \n@@ -51,7 +51,7 @@\n     (@euclidean_distribution_measure_compact_finite R (m+n)) A hAM xi in\n   exists P : @current_space R h2 (m+n) Full hFull m,\n     @polyhedral_current_subspace R h2 (m+n) m Full hFull K P /\\\n-    (@current_flat_norm R h2 (m+n) m Full hFull K (T-P)<=epsilon%:E)%E /\\\n+    (@current_flat_norm R h2 (m+n)%N m Full hFull K (T-P)<=epsilon%:E)%E /\\\n     @CurrentMass.value R h2 (m+n) m Full hFull P=\n       @CurrentMass.value R h2 (m+n) m Full hFull T.\n Proof.\n@@ -106,7 +106,7 @@\n   epsilon hEpsilon.\n change (exists P : @current_space R h2 (d+n) Full hFull d,\n   @polyhedral_current_subspace R h2 (d+n) d Full hFull K0 P /\\\n-  (@current_flat_norm R h2 (d+n) d Full hFull K0 (T0-P)<=epsilon%:E)%E /\\\n+  (@current_flat_norm R h2 (d+n)%N d Full hFull K0 (T0-P)<=epsilon%:E)%E /\\\n   @CurrentMass.value R h2 (d+n) d Full hFull P=\n     @CurrentMass.value R h2 (d+n) d Full hFull T0) in hApprox.\n by rewrite hIndex hCurrent in hApprox.\n"
+      },
+      {
+        "source": "ScalarRectangleCoordinateApproximation.v",
+        "declaration": "ScalarRectangleCoordinateApproximation.v::scalar_rectangle_coordinate_polyhedral_approximation",
+        "before_sha256": "a79bf8885acc7972a473e4a5353e020fce01110e09b50fb5ed8178e75f48e2f0",
+        "after_sha256": "9dc5f2a13488b9656bb408f263b5827db60a350d18b5045825dfb30f48cf2b60",
+        "before_header": "Theorem scalar_rectangle_coordinate_polyhedral_approximation epsilon (hEpsilon : 0<epsilon) :\n  exists P : Current,\n    @polyhedral_current_subspace R h2 (m+n) m (Full (m+n)) (hFull (m+n)) K P /\\\n    (@current_flat_norm R h2 (m+n) m (Full (m+n)) (hFull (m+n)) K (T-P)<=epsilon%:E)%E /\\\n    M P=M T.",
+        "after_header": "Theorem scalar_rectangle_coordinate_polyhedral_approximation epsilon (hEpsilon : 0<epsilon) :\n  exists P : Current,\n    @polyhedral_current_subspace R h2 (m+n) m (Full (m+n)) (hFull (m+n)) K P /\\\n    (@current_flat_norm R h2 (m+n)%N m (Full (m+n)%N) (hFull (m+n)%N) K (T-P)<=epsilon%:E)%E /\\\n    M P=M T.",
+        "qualification": "Under the existing outer extended-real scope, explicitly scope the original ambient-dimension addition as nat. The old header did not elaborate; no prior elaborated definitional identity is claimed. Natural dimensions, scalar epsilon, carriers, bounds and all mathematical hypotheses are preserved. This auxiliary name is not among the 37 selected principal declarations.",
+        "diff": "--- \n+++ \n@@ -68,7 +68,7 @@\n Theorem scalar_rectangle_coordinate_polyhedral_approximation epsilon (hEpsilon : 0<epsilon) :\n   exists P : Current,\n     @polyhedral_current_subspace R h2 (m+n) m (Full (m+n)) (hFull (m+n)) K P /\\\n-    (@current_flat_norm R h2 (m+n) m (Full (m+n)) (hFull (m+n)) K (T-P)<=epsilon%:E)%E /\\\n+    (@current_flat_norm R h2 (m+n)%N m (Full (m+n)%N) (hFull (m+n)%N) K (T-P)<=epsilon%:E)%E /\\\n     M P=M T.\n Proof.\n have h := @scalar_rectangle_product_polyhedral_approximation R h2 f hOrdered\n"
+      }
+    ],
+    "all_final_headers_checked_against_original_or_exact_reviewed_annotations": true,
+    "all_original_Section_variables_and_hypotheses_preserved": true,
+    "original_Section_variable_and_hypothesis_entries_checked": 321,
+    "all_original_mathematical_scopes_preserved": true
+  },
+  "original_principal_mathematical_scopes_preserved": 37,
+  "typed_header_annotation_evidence": {
+    "original_principal_mathematical_scopes_preserved": 37,
+    "literal_original_principal_headers": 36,
+    "reviewed_typed_principal_headers": 1,
+    "all_source_header_count": 136,
+    "literal_original_source_headers": 133,
+    "reviewed_typed_all_source_headers": 3,
+    "reviewed_typed_auxiliary_headers": 2,
+    "exact_approved_headers": [
+      {
+        "declaration": "TransverseAtomicApproximation.v::transverse_atomic_flat_mass_approximation_exists",
+        "before_header_sha256": "2205c9aacccacc0109704cf1403e0931fa08b8c943a8c917f17c2469375d3ad6",
+        "after_header_sha256": "613b4213a5dc77afe09a0b3c721d61394ccca2b5c5f07699c542b85fdf45b0be",
+        "actual_final_header_matches_approved_annotation": true
+      },
+      {
+        "declaration": "CoordinateBoxStandardApproximation.v::coordinate_box_standard_polyhedral_approximation",
+        "before_header_sha256": "f4e129f2e087f4b9adafc0d6e28cff8136455f58a0b4f43202638873101f48e9",
+        "after_header_sha256": "5854c3ad09e93f18f3aa79c57c0d52f93bb793fae1e1bd981a4423cc7bf86100",
+        "actual_final_header_matches_approved_annotation": true
+      },
+      {
+        "declaration": "ScalarRectangleCoordinateApproximation.v::scalar_rectangle_coordinate_polyhedral_approximation",
+        "before_header_sha256": "e94641af71330e396b5020d0ff5293d72d27b68ae61d57756da73ffd9f65b99d",
+        "after_header_sha256": "f4f5914a5370b78704a5a8736504a3963291b1a9d35b2b9d26a3f6b45f521b7d",
+        "actual_final_header_matches_approved_annotation": true
+      }
+    ],
+    "independent_annotation_reviews": [
+      {
+        "path": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/support/root-final-delta-review-v7/review.json",
+        "sha256": "9f29a86958534e06082b41cf8361cc8f0f2aa568f2b362f81d1624d4b49f29d5"
+      },
+      {
+        "path": "/opt/rocq/federer-build/drafts/chapter4-section41/4.1.23/support/root-final-delta-review-v11/review.json",
+        "sha256": "9c3e0a28a95ea9a37d025162011b5c73cd29d476b17f930e86f3147e6041aba0"
+      }
+    ],
+    "all_actual_final_headers_match_approved_annotations": true
+  },
+  "coverage_qualification": [
+    "The original compact K and C lie in arbitrary open U, with K contained in Int C. The sets K, C and U may be nonconvex.",
+    "The independently specified opaque approximant belongs to the literal polyhedral class indexed by C. Its two bounds are F_C(T-P)<=epsilon and M(P)<=M(T)+epsilon.",
+    "Finite mass is not assumed. The proof uses normal approximation for the finite-mass step and the original flat closure for arbitrary input mass.",
+    "Actual compact L1 densities are approximated by finite measurable cells with their exact integrated vector costs. Simple-vector decomposition, scalar signs and orthogonal rotation retain the sharp mass accounting.",
+    "Convex coordinate cells and complete simplex hulls are local supporting geometry only. Actual transverse tags, diameters and the original cone estimate control the flat error.",
+    "The complete proof includes degree-zero scalar rectangles, arbitrary higher-degree rotations and reassembly, original-open transport, and the actual nonzero R^0 opaque approximant, empty-open and above-dimensional endpoint assertions.",
+    "The independent base review binds 77 complete source bodies and 128 closed proof blocks, 37 principal headers and 17 scope groups. Its 76 independent sources are supplemented by a separate independent four-proof review of the self-authored orthogonal characteristic-current helper. Every final source delta is reviewed and bound in the immutable final contract.",
+    "The 37 original principal mathematical scopes are preserved: 36 principal headers are literal and one explicitly supplies the intended existing norm metric. Of 136 all-source headers and definitions, 133 are literal, one supplies the intended norm metric, and two scope the existing dimension additions as natural numbers. The exact before/after headers and their independent reviews are bound, and all three final registered headers match the approved annotations. The 131 author manifest records are a source/kind/name inventory, separate from header text. Public assumptions names are derived separately from final ordinary compiler globs and checked by actual name and signature preflight.",
+    "No new mathematical source error is claimed. Every final selected ordinary raw log is warning-free; all failed attempts remain retained. All 33,918 earlier ordered assumption results and every earlier mathematical proof source are preserved. Exactly 76 theories and one endpoint source are registered from plaintext; no private proof object is adopted. Items 4.1.24\u20134.1.34 remain required."
+  ]
+}

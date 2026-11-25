@@ -1,0 +1,78 @@
+(** Federer (1969), 4.1.2, pp. 346-348: public regularisation
+    interface. Every in-book assertion is supplied by the proved
+    abstract kernel, actual convolution, original topology limits and
+    distribution smoothing laws. Implementations remain behind opaque
+    seals; the literal final test topology is retained. *)
+From mathcomp Require Import all_boot all_order all_algebra reals.
+From Federer Require Import GrassmannAbbreviations.
+From Federer Require Export
+  ArbitraryOpenSmoothing
+  CompactConvolutionSupport CompactKernelFieldOscillation CompactKernelSourceBall CompactKernelTestSumSupport
+  CompactScalarKernelBound CompactScalarKernelDirectional CompactScalarTaggedQuadrature CompactSmoothConvolutionContinuity
+  CompactSmoothConvolutionDirectional CompactSmoothConvolutionExistence CompactSmoothConvolutionSmoothness CompactSmoothingSupport
+  CompactTestDistributionExtension ContinuousCompactConvolution ContinuousCompactFieldIntegral ContinuousDualFieldLocalIntegrability
+  ContinuousFieldLocalIntegrability ConvolutionIteratedKernel ConvolutionMultiPartialKernel CoordinateClassSuccessor
+  DistributionSmoothingTestLimit DistributionSmoothingWeakLimit DistributionSupportedBound DistributionTensorDualBound
+  EuclideanDilationPushforward EuclideanDirectionalNullSlices EuclideanLineProductBorel EuclideanLocalDistanceMeans
+  EuclideanLocalLipschitzRepresentative EuclideanNormClosedBalls EuclideanReflectionTranslation FiniteKernelPartialQuadrature
+  FiniteKernelTestSumDerivative FiniteKernelTestSumJetApproximation FiniteKernelTestSumSeminormApproximation FiniteTaggedBorelPartitionExistence
+  FiniteTaggedBorelPartitionUP FiniteTaggedVectorIntegral HigherDifferentialFinitePartialBound InvariantRealIntegral
+  InvariantVectorIntegral LebesguePointBallMeans LebesguePointExtension LocalVectorDistanceIntegral
+  LocalizedSmoothingTestLimit LocalizedSmoothingWeakLimit LocallyBoundedMeasurableFieldIntegrability LocallyIntegrablePartialExtension
+  LocallyIntegrablePartialFieldUP LocallyIntegrableVectorFieldUP MeasurableScalarVectorProduct MetricLocalLipschitzContinuity
+  MultiPartialOrderedIdentification NormClassZeroTotalMeasurable NormCompactLipschitzDirectionalBound NormDirectionalBoundedRepresentative
+  NormDirectionalClassLoss NormDirectionalMeasurableRepresentative NormDirectionalQuotientContinuity NormDualWeakContinuity
+  NormFirstDirectionalGraph NormLocalLipschitzCompact PartialConvolutionExtension PartialSmoothConvolutionExistence
+  PartialSmoothingConvolutionUP PartialSmoothingLebesguePoint PuncturedNormCauchy PuncturedNormLimitLocusBorel
+  PuncturedNormReciprocalSequence ReflexiveInputSmoothing ReflexiveLipschitzDirectionalAE ReflexiveLocalDirectionalField
+  ReflexiveLocalLipschitzDirectionalAE ScalarVectorIntegralIdentification ScalarVectorSmoothDerivativeBound ScalarVectorSmoothDerivativeValue
+  ScaledArgumentUniformNorm SmoothCompactInteriorThickening SmoothCompactThickening SmoothDirectionalOrdinary
+  SmoothRawDirectionalDerivative SmoothScalarKernelTranslation SmoothScalarVectorSeminormBound SmoothSmoothingConvergence
+  SmoothSmoothingDerivativeUniform SmoothSmoothingFamilyExistence SmoothSmoothingFamilySealed SmoothSmoothingFamilyUP
+  SmoothSmoothingPartials SmoothSmoothingSupport SmoothSupportedPositiveLimit SmoothTranslatedOrdinary
+  SmoothTranslationSeminormContinuity SmoothedDistributionDensityCharacterization SmoothedDistributionDensityContinuity SmoothedDistributionDensityDirectional
+  SmoothedDistributionDensityExistence SmoothedDistributionDensitySmoothness SmoothedDistributionDensityUP SmoothedDistributionExistence
+  SmoothedDistributionFamilyExistence SmoothedDistributionFamilySealed SmoothedDistributionFamilyUP SmoothedDistributionUP
+  SmoothingConvolutionExistence SmoothingConvolutionSealed SmoothingConvolutionSubstitution SmoothingConvolutionUP
+  SmoothingDilationDerivatives SmoothingDilationExactBounds SmoothingDilationExistence SmoothingDilationIntegral
+  SmoothingDilationNonzeroRadius SmoothingDilationSealed SmoothingDilationSmooth SmoothingDilationSupport
+  SmoothingDilationUP SmoothingDistributionIntegralAction SmoothingDistributionInterchange SmoothingInputAEDirectional
+  SmoothingInputDirectional SmoothingInputHigherDifferential SmoothingInputIteration SmoothingInputMultiPartial
+  SmoothingInputMultiPartialExistence SmoothingInputQuotientIntegral SmoothingKernelDerivativeBounds SmoothingKernelExistence
+  SmoothingKernelScalarBound SmoothingKernelSealed SmoothingKernelUP SmoothingLebesgueErrorBound
+  SmoothingLebesguePoint SmoothingLocalLipschitzInput SmoothingLocallyUniform TestCutoffExhaustionExistence
+  TestCutoffExhaustionUP TestCutoffExtensionFamily TestSmoothingConvergence TestSmoothingFamilyExistence
+  TestSmoothingFamilySealed TestSmoothingFamilyUP TotalNormedLone TotalVectorDominatedLimit
+  TotalVectorIntegralArithmetic TotalVectorIntegralDomination TotalVectorIntegralEstimate TotalVectorIntegralFiniteSum
+  TotalVectorIntegralLinearImage TotalVectorNormIntegrability TranslatedKernelTestCommonSupport TranslatedKernelTestDerivativeValue
+  TranslatedKernelTestExistence TranslatedKernelTestSealed TranslatedKernelTestSeminormBound TranslatedKernelTestUP
+  UniformFunctionNormSurjective UnitKernelVectorDifference UnitKernelVectorError WeakDirectedPositiveParameterLimit
+  WeakPositiveParameterLimit WeightedConstantVectorIntegral WeightedVectorIntegralError WeightedVectorTaylorBound.
+Set Implicit Arguments.
+Unset Strict Implicit.
+Unset Printing Implicit Defensive.
+
+(** Source for [regularising_kernel]: a proved opaque witness of the
+    original smooth nonnegative unit-mass kernel, Federer 4.1.2,
+    p. 346. Its laws were specified independently before existence. *)
+Definition regularising_kernel (R:realType) n:R_n R n->R:=
+  @SmoothingKernel.value R n.
+
+(** Source for [regularising_kernel_laws]: the original smoothness,
+    nonnegativity, compact support strictly inside the unit ball and
+    actual Lebesgue integral one, Federer 4.1.2, p. 346. *)
+Theorem regularising_kernel_laws (R:realType) n:
+  @is_smoothing_kernel R n (@regularising_kernel R n).
+Proof. exact:SmoothingKernel.laws. Qed.
+
+(** Source for [regularising_kernel_family]: the original opaque
+    epsilon dilation family, Federer 4.1.2, p. 346. *)
+Definition regularising_kernel_family (R:realType) n:R->R_n R n->R:=
+  @SmoothingDilation.value R n (@regularising_kernel R n).
+
+(** Source for [regularising_kernel_family_laws]: the exact
+    positive-epsilon rescaling formula, Federer 4.1.2, p. 346.
+    Nonpositive parameters remain outside the printed definition. *)
+Theorem regularising_kernel_family_laws (R:realType) n:
+  @is_smoothing_dilation R n (@regularising_kernel R n) (@regularising_kernel_family R n).
+Proof. exact:SmoothingDilation.laws. Qed.

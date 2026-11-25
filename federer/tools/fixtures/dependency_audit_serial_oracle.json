@@ -1,0 +1,7 @@
+{
+  "source": "tools/dependency_audit.py",
+  "fixture": "dependency_audit_serial_oracle.py",
+  "sha256": "e087d3a921d4862cba43284cbe32794fc6da84304767076709bb237f85e1cf14",
+  "purpose": "Exact immutable serial oracle for optional parallel audit tests",
+  "regeneration": "Do not regenerate from the candidate; preserve these original bytes."
+}

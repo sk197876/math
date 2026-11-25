@@ -17,7 +17,7 @@ DECL = re.compile(
     r'(?:Local\s+|Global\s+|#\[[^\]]*\]\s*)?'
     r'(Definition|Fixpoint|Lemma|Theorem|Corollary|Proposition|Record|Inductive|'
     r'Example|Parameter|Fact|Remark|Let)\s+([A-Za-z0-9_\']+)', re.S)
-ITEM = re.compile(r'(?<![\d.])([123])\.(\d{1,2})\.(\d{1,2})(?!\d)')
+ITEM = re.compile(r'(?<![\d.])([1234])\.(\d{1,2})\.(\d{1,2})(?!\d)')
 RANK = {'Theorem': 0, 'Corollary': 0, 'Proposition': 0, 'Definition': 1, 'Record': 1,
         'Inductive': 1, 'Fixpoint': 1, 'Parameter': 2, 'Lemma': 3, 'Fact': 3,
         'Remark': 3, 'Example': 4, 'Let': 5}
@@ -36,6 +36,7 @@ SECTIONS = {
     '3.2': 'Area and coarea of Lipschitzian maps',
     '3.3': 'Structure theory',
     '3.4': 'Some properties of highly differentiable functions',
+    '4.1': 'Differential forms and currents',
 }
 SOURCE_ACCOUNTS = {
     '2.10.27': 'All three original inequalities are proved. The Ward construction cited on p. 190 for the nonreplacement assertion is intentionally omitted at the user’s request; its unfinished drafts are outside the registered library.',
@@ -50,8 +51,8 @@ def key(item):
 
 def titles():
     result = {}
-    section_files = list((ROOT / 'docs').glob('chapter[123]/*.md'))
-    section_files += list((ROOT / 'docs').glob('[123].*.md'))
+    section_files = list((ROOT / 'docs').glob('chapter[1234]/*.md'))
+    section_files += list((ROOT / 'docs').glob('[1234].*.md'))
     for p in sorted(section_files):
         for line in p.read_text().splitlines():
             m = re.match(r'^#{2,3} (\d+\.\d+\.\d+) — (.*)$', line)
@@ -101,7 +102,8 @@ def main():
            '## Contents', '',
            '- [Chapter 1](#chapter-1)',
            '- [Chapter 2](#chapter-2)',
-           '- [Chapter 3](#chapter-3)', '']
+           '- [Chapter 3](#chapter-3)',
+           '- [Chapter 4](#chapter-4)', '']
     chapter = section = None
     for it in sorted(items, key=key):
         c, s_, _ = it.split('.')
